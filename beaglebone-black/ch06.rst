@@ -1440,7 +1440,7 @@ for example. Listed below is what ports can be accessed on each PRU.
    :header-rows: 1
    :class: longtable
    :align: center
-   :widths: 5 5 15 25 25 25
+   :widths: 5 8 15 24 24 24
 
    * - PIN 
      - PROC 
@@ -1556,7 +1556,7 @@ for example. Listed below is what ports can be accessed on each PRU.
    :header-rows: 1
    :class: longtable
    :align: center
-   :widths: 5 5 15 25 25 25
+   :widths: 5 8 15 24 24 24
 
    * - PIN 
      - PROC 

@@ -56,6 +56,13 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 
 *NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.*
 
+.. raw:: latex
+
+  \begin{landscape}
+  \begin{table}
+  \tiny
+  \centering
+
 .. list-table:: Expansion Header P8 Pinout
    :header-rows: 1
    :class: longtable
@@ -568,6 +575,12 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
      - pr1_pru1_pru_r31_1
      - gpio2[7]
 
+.. raw:: latex
+
+  \end{table}
+  \end{landscape}
+
+
 Connector P9
 ******************
 
@@ -604,6 +617,12 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
  
 * Both of these signals connect to pin 42 of P11. Resistors are installed that allow for the GPIO3_18 connection to be removed by removing R202. The intent is to allow the SW to use either of these signals, on pin 42. SW should set the unused pin in input mode when using the other pin. This allowed us to get an extra signal out to the expansion header.
 
+.. raw:: latex
+
+  \begin{landscape}
+  \begin{table}
+  \tiny
+  \centering
 
 .. list-table:: Expansion Header P9 Pinout
    :header-rows: 1
@@ -1072,7 +1091,12 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
      -
      - 
      -
-    
+
+.. raw:: latex
+
+  \end{table}
+  \end{landscape}
+
 Power Jack
 --------------
 
