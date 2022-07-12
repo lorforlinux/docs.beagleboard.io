@@ -59,14 +59,10 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 .. raw:: latex
 
   \begin{landscape}
-  \begin{table}
   \tiny
-  \centering
 
 .. list-table:: Expansion Header P8 Pinout
    :header-rows: 1
-   :class: longtable
-   :align: center
 
    * - PIN 
      - PROC  
@@ -577,7 +573,6 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 
 .. raw:: latex
 
-  \end{table}
   \end{landscape}
 
 
@@ -620,14 +615,10 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 .. raw:: latex
 
   \begin{landscape}
-  \begin{table}
   \tiny
-  \centering
 
 .. list-table:: Expansion Header P9 Pinout
    :header-rows: 1
-   :class: longtable
-   :align: center
 
    * - PIN
      - PROC
@@ -1094,7 +1085,6 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 
 .. raw:: latex
 
-  \end{table}
   \end{landscape}
 
 Power Jack
