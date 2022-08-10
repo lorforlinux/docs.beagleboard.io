@@ -34,7 +34,11 @@ Sections
    :caption: Projects
 
    simppru/index.rst
+.. toctree::
+   :maxdepth: 1
+   :caption: Capes
 
+   cape/overlays/index.rst
 .. toctree::
    :maxdepth: 1
    :caption: Books
