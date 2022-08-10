@@ -36,9 +36,8 @@ by adding the following to the U-Boot options
 
 .. code-block::
 
-    uboot_overlay_addr0=/boot/dtbs/X.XX.XXX-ti-rXX/overlays/BBORG_RELAY-00A2.dtbo
+    uboot_overlay_addr0=BBORG_RELAY-00A2.dtbo
 
-Enter the kernel version specified by uname in the `X.XX.XXX-ti-rXX` part.
 
 Usage
 ******
