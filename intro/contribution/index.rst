@@ -10,3 +10,4 @@ Contribution
 
    /intro/contribution/git-usage
    /intro/contribution/style
+   /intro/contribution/upstream-guidelines
