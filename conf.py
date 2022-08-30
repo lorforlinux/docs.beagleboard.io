@@ -98,12 +98,7 @@ html_context = {
     "show_license": True,
     "docs_title": docs_title,
     "is_release": is_release,
-    "current_version": version,
-    "versions": (
-        ("latest", "/"),
-        ("0.0.7", "/0.0.7/"),
-        ("0.1.0", "/0.1.0/"),
-    )
+    "current_version": version
 }
 
 # -- Options for LaTeX output ---------------------------------------------
