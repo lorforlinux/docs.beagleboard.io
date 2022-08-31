@@ -8,15 +8,13 @@
     <div class="rst-other-versions">
       <dl>
         <dt>{{ _('Document Release Versions') }}</dt>
-          {% for slug, url in versions %}
-          <dd><a class="reference internal" href="{{ url }}">{{ slug }}</a></dd>
-          {% endfor %}
+          <dd><a class="reference internal" href="">latest</a></dd>
+          <dd><a class="reference internal" href="0.0.7">0.0.7</a></dd>
+          <dd><a class="reference internal" href="0.1.0">0.1.0</a></dd>
       </dl>
       <dl>
         <dt>{{ _('Downloads') }}</dt>
-        {% set prefix = current_version if is_release else "latest" %}
-        <dd><a class="reference internal" href="/beagleboard-docs.pdf">PDF</a></dd>
-        <dd><a class="reference internal" href="/">base</a></dd>
+        <dd><a class="reference internal" href="beagleboard-docs.pdf">PDF</a></dd>
       </dl>
       <dl>
         <dt>{{ _('BeagleBoard.org Links') }}</dt>
