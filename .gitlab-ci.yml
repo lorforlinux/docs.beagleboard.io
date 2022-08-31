@@ -2,11 +2,11 @@ image: beagle/sphinx-build-env:latest
 
 on_latest:
   script:
-  - sphinx-build -b html . public/latest/
-  - sphinx-build -M latexpdf . public/latest/
-  - mv public/latest/latex/beagleboard-docs.pdf public/latest/
-  - echo "/ /latest/ 302" > public/_redirects
-  - rm -rf public/latest/latex
+  - rm -rf public
+  - sphinx-build -b html . public
+  - sphinx-build -M latexpdf . public
+  - mv public/latex/beagleboard-docs.pdf public
+  - rm -rf public/latex
   artifacts:
     name: "latest"
     paths:
