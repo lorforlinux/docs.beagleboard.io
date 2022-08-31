@@ -54,7 +54,7 @@ html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
 html_split_index = True
 html_show_sourcelink = False
-html_baseurl = 'docs.beagleboard.io'
+html_baseurl = "docs.beagleboard.io"
 
 # parse version from 'VERSION' file
 with open(BBDOCS_BASE  / "VERSION") as f:
