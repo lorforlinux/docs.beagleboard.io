@@ -98,3 +98,73 @@ Here, you have to write the email address of the list you want to send out the p
 ``git send-email`` also has command line options like ``--to`` and ``--cc`` that you can also use
 to add more email addresses of whoever you want to keep in CC. Generally it is a good idea to keep yourself
 in CC.
+
+C-Programming
+-------------
+
+It is highly recommended that you have proficiency in C-Programming, because well the kernel is mostly
+written in C! For starters, you can go through Dennis Ritchie's C Programming book to understand
+the language and also solve the excercises given there for getting hands on.
+
+Cross-arch Development
+----------------------
+
+While working with the kernel, you'll most likely not be compiling it on the machine
+that you intend to actually boot it on.
+For example if you are compiling the Kernel for BeageBone Black it's probably not ideal
+for you to actually clone the entire kernel on BBB and then compile it there.
+What you'd do instead is pick a much powerful machine like a Desktop PC or laptop and
+then use cross arch compilers like the arm-gcc for instance to compile the kernel for your
+target device.
+
+Embedded buses
+--------------
+
+In the world of embedded, you often need to communicate with peripherals over very low level protocols.
+To name a few, I2C, UART, SPI, etc. are all serial protocols used to communicate with a variety of devices and
+peripherals.
+
+It's recommended to understand atleast the basics of each of the protocol so you know what's actually going
+on when you write for instance an I2C or SPI driver to communicate with let's say a sensor.
+
+Device Drivers
+-------
+
+I used the term "Drivers" in the above section, but what does it really mean?
+
+**Why "device" drivers?**
+
+TODO
+
+**Why do we need drivers?**
+
+TODO
+
+**What do drivers look like?**
+
+TODO
+
+Device Trees
+------------
+
+We just learned about drivers, and it's time that once you have written a driver in the kernel,
+you obviously want it to work! So how do we really tell the kernel which drivers to load?
+How do we, at boot time, instruct which devices are present on the board you are booting on?
+
+The kernel does not contain the description of the hardware,
+it is located in a separate binary: the device tree blob.
+
+**What is a Device Tree?**
+
+A device tree is used to describe system hardware. A boot program loads a device tree into a
+client program’s memory and passes a pointer to the device tree to the client.
+
+A device tree is a tree data structure with nodes that describe
+the physical devices in a system.
+
+Additional Resources
+--------------------
+
+1. `Device Trees for Dummies PDF <https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf>`_
+2. `What are Device Drivers <https://tldp.org/LDP/tlk/dd/drivers.html>`_
+3. `Submitting your patches upstream <https://www.kernel.org/doc/html/v4.17/process/submitting-patches.html>`_
