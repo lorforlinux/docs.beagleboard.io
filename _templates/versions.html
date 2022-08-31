@@ -11,6 +11,10 @@
           {% for slug, url in versions %}
           <dd><a href="{{ pathto(root_doc)[:-1] }}{{ url }}">{{ slug }}</a></dd>
           {% endfor %}
+
+          <dd><a href="{{ pathto(root_doc)[:-1] }}/">latest</a></dd>
+          <dd><a href="{{ pathto(root_doc)[:-1] }}/0.0.7">0.0.7</a></dd>
+          <dd><a href="{{ pathto(root_doc)[:-1] }}/0.1.0">0.1.0</a></dd>
       </dl>
       <dl>
         <dt>{{ _('Downloads') }}</dt>
