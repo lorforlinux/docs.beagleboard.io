@@ -8,7 +8,6 @@ on_latest:
   - mv public/latex/beagleboard-docs.pdf public
   - rm -rf public/latex
   artifacts:
-    name: "latest"
     paths:
     - public
   rules:
