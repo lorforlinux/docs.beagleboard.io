@@ -76,6 +76,7 @@ with open(BBDOCS_BASE  / "VERSION") as f:
     else:
         major, minor, patch, extra = m.groups(1)
         version = ".".join((major, minor, patch))
+        release_version = ".".join((major, minor))
         if extra:
             version += "-" + extra
 

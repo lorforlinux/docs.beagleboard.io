@@ -14,19 +14,21 @@
   {% endif %}
   {{ super() }}
 {% endblock %}
-{% block menu %}
-  {% include "bversions.html" %}
-  {{ super() }}
-  {% if reference_links %}
-  <div class="toctree-wrapper compound">
-    <p class="caption"><span class="caption-text">Reference</span></p>
-    <ul>
-      {% for title, url in reference_links.items() %}
-      <li class="toctree-l1">
-        <a class="reference internal" href="{{ url }}">{{ title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
+{% block rootrellink %}
+  {% block menu %}
+    {% include "bversions.html" %}
+    {{ super() }}
+    {% if reference_links %}
+    <div class="toctree-wrapper compound">
+      <p class="caption"><span class="caption-text">Reference</span></p>
+      <ul>
+        {% for title, url in reference_links.items() %}
+        <li class="toctree-l1">
+          <a class="reference internal" href="{{ url }}">{{ title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  {% endblock %}
 {% endblock %}
