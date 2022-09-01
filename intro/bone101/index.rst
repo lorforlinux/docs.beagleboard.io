@@ -1,24 +1,22 @@
 .. _intro_bone101:
 
-bone101
+Bone101
 #######
 
 .. note::
    This page is under construction. Most of the information here is drastically out of date.
 
-I don't want to completely lose the useful documentation we had at:
-
-* https://beagleboard.github.io/bone101/Support/bone101/
-
-Most of the useful information has moved to :ref:`bone-cook-book-home` , but this has been
-the place I've most brainstormed free-form to make articles introducing people to BeagleBone.
-For now, it can serve as a place to put some introductory information that is meant to be
-from a bit of a different approach.
+Most of the useful information has moved to :ref:`bone-cook-book-home` , but this can be
+to be a place for nice introductory articles on using Bealges and Linux from a different
+approach.
 
 Articles under construction:
 
 * :ref:`qwiic_stemma_grove_addons`
 
+Also, I don't want to completely lose the useful documentation we had at:
+
+* https://beagleboard.github.io/bone101/Support/bone101/
 
 .. toctree::
    :maxdepth: 1
