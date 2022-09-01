@@ -2,6 +2,11 @@
 
 env
 
+cat << EOF > PAGES
+PAGES_URL =  $CI_PAGES_URL
+PAGES_SLUG = $CI_COMMIT_BRANCH
+EOF
+
 if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 
 rm -rf public
