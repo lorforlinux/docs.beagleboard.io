@@ -13,10 +13,10 @@ cat <<HERE > public/index.html
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="7; url='https://www.w3docs.com'" />
+    <meta http-equiv="refresh" content="0; url='latest/'" />
   </head>
   <body>
-    <p>Please follow <a href="https://www.w3docs.com">this link</a>.</p>
+    <p>Please follow <a href="latest/">this link</a>.</p>
   </body>
 </html>
 HERE
