@@ -7,9 +7,6 @@ pages:
   stage: deploy
   script:
   - ./gitlab-build.sh
-  - export
   artifacts:
     paths:
     - public
-  variables:
-    CI_DEBUG_TRACE: "true"
