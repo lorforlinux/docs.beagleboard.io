@@ -6,7 +6,7 @@ stages:
 pages:
   stage: deploy
   script:
-  - ./gitlab_build.sh
+  - ./gitlab-build.sh
   artifacts:
     paths:
     - public
