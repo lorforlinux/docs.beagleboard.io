@@ -1,6 +1,5 @@
 .. _qwiic_stemma_grove_addons:
 
-
 QWIIC, STEMMA and Grove Add-ons in Linux
 ########################################
 
@@ -82,13 +81,15 @@ Loading the Linux driver
 
 The generic steps are fairly simple:
 
-1. Identify the name and address used to load the appropriate driver for your add-on
-2. Ensure the driver is included in your kernel build
-3. Identify the location of the I2C signals on the board and the controller link in Linux
-4. Ensure the board pinmux is set properly to expose the I2C peripheral
-5. Ensure the board to add-on connection is good
-6. Issue the Linux command to load the driver
-7. Identify and utilize the interface provided by the driver
+1. :ref:`Identify the name and address used to load the appropriate driver for your add-on <bone101_i2c_driver_name>`
+2. :ref:`Ensure the driver is included in your kernel build <bone101_i2c_kernel_cfg>`
+3. :ref:`Identify the location of the I2C signals on the board and the controller link in Linux <bone101_i2c_dev>`
+4. :ref:`Ensure the board pinmux is set properly to expose the I2C peripheral <bone101_i2c_pinmux>`
+5. :ref:`Ensure the board to add-on connection is good <bone101_i2c_wiring>`
+6. :ref:`Issue the Linux command to load the driver <bone101_i2c_command>`
+7. :ref:`Identify and utilize the interface provided by the driver <bone101_i2c_iio>`
+
+.. _bone101_i2c_driver_name:
 
 Driver name
 -----------
@@ -123,14 +124,44 @@ Searching through the kernel sources, we can find the driver code at
 
 .. important::
 
-  Don't miss that the driver is a superset (tsl253) 
+  Don't miss that the driver, `tsl2561` , is actually part of a a superset driver, `tsl2563` . This can make things a bit trickier to find, so you have to look
+  within the text of the driver source, not just the filenames.
 
+
+.. _bone101_i2c_kernel_cfg:
 
 Kernel configuration
 --------------------
 
-Devices
-=======
+.. _bone101_i2c_dev:
+
+I2C signals and controller
+--------------------------
+
+.. _bone101_i2c_pinmux:
+
+Pinmuxing
+---------
+
+.. _bone101_i2c_wiring:
+
+Wiring
+------
+
+.. _bone101_i2c_command:
+
+Load driver
+-----------
+
+.. _bone101_i2c_iio:
+
+Interface
+---------
+
+.. _bone101_i2c_addons:
+
+Add-on modules
+==============
 
 .. note::
 
@@ -140,6 +171,7 @@ Devices
   * `Sparkfun list of QWIIC devices <https://www.sparkfun.com/qwiic>`__
   * `Adafruit STEMMA QT introduction <https://learn.adafruit.com/introducing-adafruit-stemma-qt/sparkfun-qwiic>`__
 
+.. _bone101_i2c_pitfalls:
 
 Pitfalls
 ========
