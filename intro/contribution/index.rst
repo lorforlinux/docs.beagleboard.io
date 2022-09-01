@@ -52,17 +52,16 @@ Suggesting enhancements
 Submitting pull requests
 ========================
 
-Style guides
-************
+Style and usage guidelines
+**************************
 
+* :ref:`beagleboard-git-usage`
 * Git commit messages
-* `RST style guide </intro/contribution/style.html>`__
-
-Additional notes
-****************
+* :ref:`beagleboard-doc-style`
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    /intro/contribution/git-usage
    /intro/contribution/style
