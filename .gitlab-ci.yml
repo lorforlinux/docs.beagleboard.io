@@ -9,7 +9,6 @@ cache:
     - public/0.0.7
 
 pages:
-  stage: deploy
   script:
   - sphinx-build -b html . public
   - sphinx-build -M latexpdf . public
