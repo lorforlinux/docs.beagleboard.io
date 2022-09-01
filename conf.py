@@ -139,10 +139,6 @@ latex_documents = [
     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
 ]
 
-vcs_link_version = f"v{version}" if is_release else "main"
-vcs_link_base_url = f"https://git.beagleboard.org/docs/docs.beagleboard.io/blob/{vcs_link_version}"
-
-
 def setup(app):
     # theme customizations
     app.add_css_file("css/custom.css")
