@@ -6,45 +6,7 @@ stages:
 pages:
   stage: deploy
   script:
-  - rm -rf public
-  - sphinx-build -b html . public/latest/
-  - sphinx-build -M latexpdf . public/latest/
-  - mv public/latest/latex/beagleboard-docs.pdf public/latest/
-  - rm -rf public/latest/latex
-  - echo "/ /latest/ 302" > public/_redirects
+  - ./gitlab_build.sh
   artifacts:
-    name: "latest"
     paths:
     - public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
-#pages:
-#  stage: deploy
-#  script:
-#  - sphinx-build -b html . public/$CI_COMMIT_BRANCH/
-#  - sphinx-build -M latexpdf . public/$CI_COMMIT_BRANCH/
-#  - mv public/$CI_COMMIT_BRANCH/latex/beagleboard-docs.pdf public/$CI_COMMIT_BRANCH/
-#  - rm -rf public/$CI_COMMIT_BRANCH/latex
-#  artifacts:
-#    name: "$CI_COMMIT_BRANCH"
-#    paths:
-#    - public
-#  rules:
-#    - if: ($CI_COMMIT_BRANCH && ($CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH))
-#
-#pages:
-#  stage: deploy
-#  script:
-#  - export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
-#  - sphinx-build -b html . public/$GIT_BRANCH/
-#  - sphinx-build -M latexpdf . public/$GIT_BRANCH/
-#  - mv public/$GIT_BRANCH/latex/beagleboard-docs.pdf public/$GIT_BRANCH/beagleboard-docs-$CI_COMMIT_TAG.pdf
-#  - ln -s public/$GIT_BRANCH/latex/beagleboard-docs-$CI_COMMIT_TAG.pdf public/$GIT_BRANCH/beagleboard-docs.pdf
-#  - rm -rf public/$GIT_BRANCH/latex
-#  artifacts:
-#    name: "$GIT_BRANCH"
-#    paths:
-#    - public
-#  rules:
-#    - if: $CI_COMMIT_TAG

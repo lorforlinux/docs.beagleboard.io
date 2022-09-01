@@ -126,6 +126,9 @@ latex_documents = [
 vcs_link_version = f"v{version}" if is_release else "main"
 vcs_link_base_url = f"https://git.beagleboard.org/docs/docs.beagleboard.io/blob/{vcs_link_version}"
 
+#language = 'en'
+#locales_dir = ['locale/']
+#gettext_compact = True
 
 def setup(app):
     # theme customizations
