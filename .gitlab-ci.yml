@@ -6,11 +6,10 @@ stages:
 pages:
   stage: deploy
   script:
-  - sphinx-build -b html . public
-  - sphinx-build -M latexpdf . public
-  - mv public/latex/beagleboard-docs.pdf public/
+  - ./gitlab-build.sh
+  - export
   artifacts:
     paths:
     - public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  variables:
+    CI_DEBUG_TRACE: "true"
