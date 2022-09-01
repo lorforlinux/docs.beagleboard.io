@@ -1,8 +1,5 @@
 image: beagle/sphinx-build-env:latest
 
-stages:
-  - deploy
-
 cache:
   paths:
     - public
