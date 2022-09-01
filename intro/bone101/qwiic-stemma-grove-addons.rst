@@ -16,8 +16,10 @@ For simplicity sake, I'll use these definitions
 * **board**: the Linux single board computer with the embedded interface controller you are using
 * **module**: a kernel module that might contain the driver
 
-I2C
-***
+.. _bone101_i2c:
+
+Using I2C with Linux drivers
+****************************
 
 Linux has a ton of drivers for I2C devices. We just need a few parameters to load them.
 
@@ -76,9 +78,6 @@ for this type of device, a light sensor. The
 
 Read further to discover how to find these bits of magic text used above.
 
-Loading the Linux driver
-========================
-
 The generic steps are fairly simple:
 
 1. :ref:`Identify the name and address used to load the appropriate driver for your add-on <bone101_i2c_driver_name>`
@@ -92,7 +91,7 @@ The generic steps are fairly simple:
 .. _bone101_i2c_driver_name:
 
 Driver name
------------
+===========
 
 One resource that is very helpful is the list that Vaishnav put together for supporting
 Mikroelektronika Click add-ons. His `list of Click add-ons with driver information <https://git.beagleboard.org/jkridner/manifesto/-/blob/main/click_info.csv>`__ can help a lot with matching
@@ -131,37 +130,37 @@ Searching through the kernel sources, we can find the driver code at
 .. _bone101_i2c_kernel_cfg:
 
 Kernel configuration
---------------------
+====================
 
 .. _bone101_i2c_dev:
 
 I2C signals and controller
---------------------------
+==========================
 
 .. _bone101_i2c_pinmux:
 
 Pinmuxing
----------
+=========
 
 .. _bone101_i2c_wiring:
 
 Wiring
-------
+======
 
 .. _bone101_i2c_command:
 
 Load driver
------------
+===========
 
 .. _bone101_i2c_iio:
 
 Interface
----------
+=========
 
 .. _bone101_i2c_addons:
 
-Add-on modules
-==============
+Finding I2C add-on modules
+==========================
 
 .. note::
 
