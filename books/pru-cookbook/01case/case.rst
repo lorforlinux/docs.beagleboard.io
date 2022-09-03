@@ -103,7 +103,7 @@ via the PRU that can be used out of the box.
    The I/O pins on the Beagles have a mutliplexer that lets you select what I/O 
    appears on a given pin.  The Blue has the mux already configured to to run these
    examples.  Follow the instructions in 
-   :ref:`../03details/details.html#details_configure_servos, Configuring Pins for Controlling Servos` 
+   :ref:`details_configure_servos` 
    to configure the pins for the Black and the Pocket.
 
 
@@ -215,7 +215,7 @@ Solution
 ---------
 
 This is a more advanced problem and required reprograming the PRUs.  See 
-:ref:`../05blocks/blocks.html#blocks_pwm, PWM Generator` for an example.
+:ref:`blocks_pwm` for an example.
 
 Reading Hardware Encoders
 ==========================
@@ -272,7 +272,7 @@ eQEP to pin mapping
    The I/O pins on the Beagles have a mutliplexer that lets you select what I/O 
    appears on a given pin.  The Blue has the mux already configured to to run these
    examples.  Follow the instructions in 
-   :ref:`../03details/details.html#details_configure_encoders, Configuring Pins for Controlling Encoders` 
+   :ref:`details_configure_encoders` 
    to configure the pins for the Black and the Pocket.
 
 

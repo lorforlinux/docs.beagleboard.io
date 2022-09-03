@@ -270,9 +270,7 @@ Here's the shared memory.
 You can also use ``prudebug`` to set breakpoints and single step, 
 but I haven't used that feature much.
 
-:ref:`../05blocks/blocks.html#_memory_allocation, Memory Allocation` gives examples 
-of how you can control where your vaiables are stored in memory.
-
+:ref:`memory_allocation` gives examples of how you can control where your vaiables are stored in memory.
 
 UART
 ******
@@ -381,8 +379,9 @@ config-pin
 
 .. note::
 
-  See :ref:`../08ai/ai.html#ai_device_tree, Configuring pins on the AI via device trees` for configuring 
-  pins on the AI. Make sure your `rx` pins are configured as input pins in the device tree.
+  See :ref:`ai_device_tree` for configuring 
+  pins on the AI. Make sure your `rx` pins are 
+  configured as input pins in the device tree.
 
 For example 
 

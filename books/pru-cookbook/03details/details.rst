@@ -42,6 +42,7 @@ It's all on a GitHub repository.
    code to be identical for specific version. The version needs to be noted in the
    documentation.
 
+.. _compiling_with_clpru_and_lnkpru:
 
 Compiling with clpru and lnkpru
 ********************************

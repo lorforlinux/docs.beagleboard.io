@@ -339,7 +339,7 @@ to run it right now do the following.
 .. tip::
 
     If the following doesn't work see 
-    `Compiling with clpru and lnkpru <../03details/details.html#_compiling_with_clpru_and_lnkpru>`_
+    :ref:`compiling_with_clpru_and_lnkpru`
     for instillation instructions.
 
 .. _start_running_code:

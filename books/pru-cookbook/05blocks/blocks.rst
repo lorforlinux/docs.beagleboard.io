@@ -16,6 +16,8 @@ Resources
 * `Exploring BeagleBone by Derek Molloy <http://exploringbeaglebone.com/>`_
 * `WS2812 Data Sheet <https://cdn-shop.adafruit.com/datasheets/WS2812.pdf>`_
 
+.. _memory_allocation:
+
 Memory Allocation
 ******************
 
