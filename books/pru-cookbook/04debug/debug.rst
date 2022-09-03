@@ -291,12 +291,12 @@ use the UART (serial port) to output debug information.  The PRU has it's
 own UART that can send characters to a serial port.
 
 You'll need a 3.3V FTDI cable to go between your Beagle and the USB port 
-on your host computer as shown in :ref:`debug_ftdi`. [#debug1]_ 
+on your host computer as shown in :ref:`ftdi_cable`. [#debug1]_ 
 you can get such a cable from places such as 
 `Sparkfun <https://www.sparkfun.com/products/9717>`_ or 
 `Adafruit <https://www.adafruit.com/product/70>`_.  
 
-.. _debug_ftdi:
+.. _ftdi_cable:
 
 .. figure:: figures/FTDIcable.jpg
   :align: center
@@ -323,7 +323,7 @@ is a wiring diagram for the BeagleBone Black.
 
 .. _debug_FTDI:
 
-.. table:: Wriing for FTDI cable to Beagle
+.. table:: Wring for FTDI cable to Beagle
 
   +--------+------+---------+-------------+--------+------+---------+
   |FTDI pin|Color |Black pin|AI 1 pin     |AI 2 pin|Pocket|Function |

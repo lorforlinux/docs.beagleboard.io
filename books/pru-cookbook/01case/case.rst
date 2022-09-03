@@ -65,7 +65,7 @@ to turn, or how to balance in response to an IMU input).  The
 `robot <https://www.hackster.io/edumip/edumip-13a29c>`_ 
 demonstrates that by using the PRU, the Blue can handle both the high 
 and low -level tasks without an additional microcontroller. The EduMIP is shown 
-in :ref:`<case_blue>`.
+in :ref:`case_blue`.
 
 .. _case_blue:
 
@@ -84,7 +84,7 @@ addition real-time encoder input.
 The following examples show how easy it is to use the PRU for robotics.
 
 Controlling Eight Servos
-=========================
+*************************
 
 Problem
 --------
@@ -186,7 +186,7 @@ servos.  All you have to do is run the command.
 .. [/opt/source/Robotics_Cape_Installer/pru_firmware/src/pru1-servo.asm]
 
 Controlling Individual Servos
-===============================
+*******************************
 
 Problem
 --------
@@ -204,7 +204,7 @@ Just past line 250 you'll find a ``while`` loop that has calls to ``rc_servo_sen
 sets the width to an absolute time.  Use whichever works for you.
 
 Controlling More Than Eight Channels
-=====================================
+*************************************
 
 Problem
 --------
@@ -218,7 +218,7 @@ This is a more advanced problem and required reprograming the PRUs.  See
 :ref:`blocks_pwm` for an example.
 
 Reading Hardware Encoders
-==========================
+**************************
 
 Problem
 --------
@@ -345,10 +345,8 @@ If you want to be running a newer image, there are instructions on the site for 
 
 .. _case_installing_beaglelogic:
 
-Installing BeagleLogic
-=======================
-
 .. code-block:: bash
+   :caption: Installing BeagleLogic
       
    bone$ *git clone https://github.com/abhishek-kakkar/BeagleLogic*
    bone$ *cd BeagleLogic/kernel*
@@ -366,12 +364,11 @@ Then click *Begin Capture* to capture your data, at up to 100 MHz!
 
 .. _case_beaglelogic_capture:
 
-BeagleLogic Data Capture
-==========================
-
 .. figure:: figures/beaglelogic_capture.png
    :align: center
    :alt: BeagleLogic Data Capture
+
+   BeagleLogic Data Capture
 
 
 Discussion
@@ -452,7 +449,7 @@ Solution
 ---------
 
 If you are driving just one string you can write your own code 
-(See :ref:`../05blocks/blocks.adoc#blocks_ws2812, WS2812 Driver`)
+(See :ref:`blocks_ws2812`)
 If you plan to drive multiple strings, then consider
 Falcon Christmas (`FPP <https://falconchristmas.com/>`_). 
 FPP can be used to drive both LEDs with an integrated
@@ -581,9 +578,9 @@ Finally go to the Status Page as shown in :ref:`case_status`.
    Watching the status
 
 Now run a program on another computer that generated E1.31 packets.
-:ref:`case_1.31_example` is an example python program.
+:ref:`case_e1.31_example` is an example python program.
 
-.. _cse_e1.31_example:
+.. _case_e1.31_example:
 
 .. literalinclude:: code/e1.31-test.py
    :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
@@ -608,12 +605,11 @@ shown in :ref:`case_adfruit_matrix`.
 
 .. _case_adfruit_matrix:
 
-Adafruit LED Matrix
-=====================
-
 .. figure:: figures/ledmatrix.jpg
    :align: center
    :alt: Adafruit LED Matrix
+
+   Adafruit LED Matrix
 
 Solution
 ---------
@@ -675,12 +671,11 @@ on your host computer browse to http://192.168.7.2/ and you will see
 
 .. _case_fpp_program_control:
 
-Falcon Play Program Control
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. figure:: figures/fpp_program_control.png
    :align: center
    :alt: Falcon Play Program Control
+
+   Falcon Play Program Control
 
 You can test the display by first setting up the Channel Outputs and then 
 going to *Display Testing*.  :ref:`case_channel_outputs_menu` shows where to 
