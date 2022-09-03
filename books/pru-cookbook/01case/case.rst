@@ -39,7 +39,7 @@ Here we present:
 * `BeagleLogic <https://github.com/abhishek-kakkar/BeagleLogic/wiki>`_
 * `NeoPixels -- 5050 RGB LEDs with Integrated Drivers (Falcon Christmas) <http://falconchristmas.com>`_
 * `RGB LED Matrix (Falcon Christmas) <http://falconchristmas.com>`_
-* `simpPRU -- A python-like language for programming the PRUs`_ <https://github.com/VedantParanjape/simpPRU>
+* `simpPRU -- A python-like language for programming the PRUs <https://github.com/VedantParanjape/simpPRU>`_ 
 * `MachineKit <http://www.machinekit.io/>`_
 * `BeaglePilot <http://ardupilot.org/dev/docs/beaglepilot.html>`_
 * `BeagleScope <https://github.com/ZeekHuge/BeagleScope>`_
@@ -48,10 +48,10 @@ The following are resources used in this chapter.
 
 .. admonition:: Resources
 
-   * `Pocket Beagle System Reference Manual https://github.com/beagleboard/pocketbeagle/wiki/System-Reference-Manual#673_PRUICSS_Pin_Access`_
-   * `BeagleBone Black P8 Header Table https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP8HeaderTable.pdf`_
-   * `BeagleBone Black P9 Header Table https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP9HeaderTable.pdf`_
-   * `BeagleBone AI System Reference Manual https://github.com/beagleboard/beaglebone-ai/wiki/System-Reference-Manual`_
+   * `Pocket Beagle System Reference Manual <https://docs.beagleboard.io/latest/boards/pocketbeagle/original/index.html>`_
+   * `BeagleBone Black P8 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id2>`_
+   * `BeagleBone Black P9 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id3>`_
+   * `BeagleBone AI System Reference Manual <https://docs.beagleboard.io/latest/boards/beaglebone/ai/index.html>`_
 
 
 Robotics Control Library
@@ -69,12 +69,11 @@ in :ref:`<case_blue>`.
 
 .. _case_blue:
 
-Blue balancing
-===============
-
 .. figure:: figures/blue.png
    :align: center
    :alt: Blue balancing
+
+   Blue balancing
 
 The `Robotics Control Library <http://strawsondesign.com/docs/roboticscape/>`_ is a 
 package that is already installed on the Beagle 
