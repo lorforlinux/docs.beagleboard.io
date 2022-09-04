@@ -50,7 +50,9 @@ The following are resources used in this chapter.
 
    * `Pocket Beagle System Reference Manual <https://docs.beagleboard.io/latest/boards/pocketbeagle/original/index.html>`_
    * `BeagleBone Black P8 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id2>`_
+      * `P8 Header Table from exploringBB <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP8HeaderTable.pdf>`_
    * `BeagleBone Black P9 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id3>`_
+      * `P9 Header Table from exploringBB <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP9HeaderTable.pdf>`_
    * `BeagleBone AI System Reference Manual <https://docs.beagleboard.io/latest/boards/beaglebone/ai/index.html>`_
 
 
@@ -171,13 +173,9 @@ PRU register to pin table
 
 
 You can find these details in the 
-`P8 Header Table <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP8HeaderTable.pdf>`_, 
-`P9 Header Table <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP9HeaderTable.pdf>`_, 
-`Pocket Beagle System Reference Manual <https://github.com/beagleboard/pocketbeagle/wiki/System-Reference-Manual#673_PRUICSS_Pin_Access>`_ 
-(Here is a more usable version of the `table <https://docs.google.com/spreadsheets/d/1FRGvYOyW1RiNSEVprvstfJAVeapnASgDXHtxeDOjgqw/edit?usp=sharing>`_.)
-and
-`BeagleBone AI System Reference Manual <https://github.com/beagleboard/beaglebone-ai/wiki/System-Reference-Manual>`_.
-(Here is a more usable version of the `table <https://docs.google.com/spreadsheets/d/1dFSBVem86vAUD7MLXvqdS-N0Efi8_g_O1iTqzql8DAo/edit#gid=0>`_.)
+
+* `Pocket Beagle pinout <https://docs.google.com/spreadsheets/d/1FRGvYOyW1RiNSEVprvstfJAVeapnASgDXHtxeDOjgqw/edit?usp=sharing>`_
+* `BeagleBone AI PRU pins <https://docs.google.com/spreadsheets/d/1dFSBVem86vAUD7MLXvqdS-N0Efi8_g_O1iTqzql8DAo/edit#gid=0>`_
 
 
 Be default the PRUs are already loaded with the code needed to run the
@@ -320,7 +318,7 @@ I need a 100Msps, 14-channel logic analyzer
 Solution
 ---------
 
-`BeagleLogic <https://beaglelogic.readthedocs.io/en/latest/>`_ is a 100Msps, 
+`BeagleLogic documentation <https://beaglelogic.readthedocs.io/en/latest/>`_ is a 100Msps, 
 14-channel logic analyzer that runs on the Beagle. 
 
 .. admonition:: information
@@ -381,7 +379,7 @@ logic analyzer on the Bone with no additional hardware needed.
 .. tip::
 
    If you need buffered inputs, consider
-   http://standalone.beaglelogic.net/en/latest/[BeagleLogic Standalone],
+   `BeagleLogic Standalone <http://standalone.beaglelogic.net/en/latest/>`_,
    a turnkey Logic Analyzer built on top of BeagleLogic.
 
 

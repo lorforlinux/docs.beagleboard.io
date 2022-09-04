@@ -458,21 +458,21 @@ Here's what's in ``resource_table_empty.h``
   +-----+-----------------------------------------------------------------------------------------------------------------+
   |Line | Explanation                                                                                                     |
   +=====+=================================================================================================================+
-  |6-7  | `pass:[__]R30` and `pass:[__]R31` are two variables that refer to the                                           |
-  |     | PRU output (`pass:[__]R30`) and input (`pass:[__]R31`) registers.                                               |
-  |     | When you write something to `pass:[__]R30` it will show up on the                                               |
-  |     | corresponding output pins. When you read from `pass:[__]R31`                                                    |
+  |6-7  | ``__R30`` and ``__R31`` are two variables that refer to the                                                     |
+  |     | PRU output (``__R30``) and input (``__R31``) registers.                                                         |
+  |     | When you write something to ``__R30`` it will show up on the                                                    |
+  |     | corresponding output pins. When you read from ``__R31``                                                         |
   |     | you read the data on the input pins.                                                                            |
   |     | NOTE: Both names begin with two underscore's. Section 5.7.2 of the                                              |
-  |     | http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf[PRU Optimizing C/C++ Compiler, v2.2, User's Guide]               |
+  |     | `PRU Optimizing C/C++ Compiler, v2.2, User's Guide <http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf>`_           |
   |     | gives more details.                                                                                             |
   +-----+-----------------------------------------------------------------------------------------------------------------+
-  |11   | This line selects which GPIO pin to toggle.  The table below shows which bits in `pass:[__]R30`                 |
+  |11   | This line selects which GPIO pin to toggle.  The table below shows which bits in ``__R30``                      |
   |     | map to which pins                                                                                               |
   +-----+-----------------------------------------------------------------------------------------------------------------+
   |14   | `CT_CFG.SYSCFG_bit.STANDBY_INIT` is set to `0` to enable the OCP master port. More details on this              |
   |     | and thousands of other regesters see the                                                                        |
-  |     | https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf[AM335x Technical Reference Manual]. Section 4 is on the PRU     |
+  |     | `TI AM335x TRM <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_. Section 4 is on the PRU                     |
   |     | and section 4.5 gives details for all the registers.                                                            |
   +-----+-----------------------------------------------------------------------------------------------------------------+
 
@@ -558,20 +558,20 @@ that is bit 0, we'll be toggling ``P9_31``.
   +-----+-----------------------------------------------------------------------+
   |Line | Explanation                                                           |
   +=====+=======================================================================+
-  |17   | Here is where the action is.  This line reads ``pass:[__]R30`` and    |
+  |17   | Here is where the action is.  This line reads ``__R30`` and           |
   |     | then ORs it with ``gpio``, setting the bits where there is            |
   |     | a 1 in ``gpio`` and leaving the bits where there is a 0.              |
   |     | Thus we are setting the bit we selected. Finally the new              |
-  |     | value is written back to ``pass:[__]R30``.                            |
+  |     | value is written back to ``__R30``.                                   |
   +-----+-----------------------------------------------------------------------+
-  |18   | ``pass:[__]delay_cycles`` is an ((instrinsic function)) that delays   |
+  |18   | ``__delay_cycles`` is an ((instrinsic function)) that delays          |
   |     | with number of cycles passed to it. Each cycle is 5ns,                |
   |     | and we are delaying 100,000,000 cycles which is                       |
   |     | 500,000,000ns, or 0.5 seconds.                                        |
   +-----+-----------------------------------------------------------------------+
   |19   | This is like line 17, but ``~gpio`` inverts all the bits in ``gpio``  |
   |     | so that where we had a 1, there is now a 0.  This 0                   |
-  |     | is then ANDed with ``pass:[__]R30`` setting the corresponding         |
+  |     | is then ANDed with ``__R30`` setting the corresponding                |
   |     | bit to 0.  Thus we are clearing the bit we selected.                  |
   +-----+-----------------------------------------------------------------------+
 
@@ -596,7 +596,7 @@ The off time is 498ms, which is only 2ms off from our prediction.
 The standard deviation is 0, or only 380as, which is 380 * 10^-18^!.
 
 You can see how fast the PRU can run by setting both of the 
-``pass:[__]delay_cycles`` to 0. This results in the next figure.
+``__delay_cycles`` to 0. This results in the next figure.
 
 .. figure:: figures/pwm2.png
   :align: center
@@ -606,8 +606,8 @@ You can see how fast the PRU can run by setting both of the
 
 Notice the period is 15ns which gives us a frequency of about 67MHz. At this high 
 frequency the breadboard that I'm using distorts the waveform so it's no longer a squarewave. 
-The **on** time is 5.3ns and the **off** time is 9.8ns.  That means **pass:[__]R30 |= gpio** 
-took only one 5ns cycle and ``pass:[__]R30 &= ~gpio`` also only took one cycle, but there 
+The **on** time is 5.3ns and the **off** time is 9.8ns.  That means **__R30 |= gpio** 
+took only one 5ns cycle and ``__R30 &= ~gpio`` also only took one cycle, but there 
 is also an extra cycle needed for the loop.  This means the compiler was able to implement 
 the ``while`` loop in just three 5ns instructions!  Not bad.
 
@@ -629,7 +629,7 @@ The output now looks like:
 
   Output of pwm2.pru0.c corrected delay
 
-It's not hard to adjust the two ``pass:[__]delay_cycles`` 
+It's not hard to adjust the two ``__delay_cycles`` 
 to get the desired frequency and duty cycle.
 
 Controlling the PWM Frequency
@@ -653,8 +653,7 @@ The DRAM 0 address is 0x0000 for PRU 0.  The same DRAM appears at address
 
 .. tip::
 
-  See page
-  184 of the https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf[AM335x Technical Reference Manual].  
+  See page 184 of the `AM335x TRM (184) <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_. 
 
 We take the previous PRU code and add the lines
  
@@ -804,7 +803,7 @@ in each channel starts about 15ns later than the channel above it.
 
   pwm5.pru0 Zoomed In 
 
-The solution is to declare ``Rtmp`` (line 35) which holds the value for ``pass:[__]R30``.
+The solution is to declare ``Rtmp`` (line 35) which holds the value for ``__R30``.
 
 .. literalinclude:: code/pwm6.pru0.c
    :caption: pwm6.pru0.c Sync'ed Version of pwm5.pru0.c 
@@ -813,7 +812,7 @@ The solution is to declare ``Rtmp`` (line 35) which holds the value for ``pass:[
 :download:`pwm6.pru0.c Sync'ed Version of pwm5.pru0.c <code/pwm6.pru0.c>`
 
 Each channel writes it's value to ``Rtmp`` (lines 17 and 20) and then after
-each channel has updated, ``Rtmp`` is copied to ``pass:[__]R30`` (line 54).
+each channel has updated, ``Rtmp`` is copied to ``__R30`` (line 54).
 
 Discussion
 -----------
@@ -956,7 +955,7 @@ Solution
 -----------
 
 Use the Interrupt Controller (INTC).  It allows one PRU to signal the other.
-Page 225 of the `AM335x Technical Reference Manual <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_
+Page 225 of the `AM335x TRM 225 <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_
 has details of how it works.  Here's the code for PRU 0, which at the end of the
 ``while`` loop signals PRU 1 to start(``pwm8.pru0.c``).
 
@@ -1001,12 +1000,12 @@ This isn't much different from the previous examples.
   +=====+=======+=======================================================================================+
   |0    |37-45  |For PRU 0 these define ``configInitc()`` which initializes the interupts.              |
   |     |       |See page 226 of the                                                                    |
-  |     |       |`AM335x Technical Reference Manual <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_ |
+  |     |       |`AM335x TRM <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_                        |
   |     |       |for a diagram explaining events, channels, hosts, etc.                                 |
   +-----+-------+---------------------------------------------------------------------------------------+
   |0    |55-56  |Set a configuration register and call `configInitc`.                                   |
   +-----+-------+---------------------------------------------------------------------------------------+
-  |1    |59-61  |PRU 1 then waits for PRU 0 to signal it.  Bit 31 of ``pass:[__]R31`` corresponds       |
+  |1    |59-61  |PRU 1 then waits for PRU 0 to signal it.  Bit 31 of ``__R31`` corresponds              |
   |     |       |to the Host-1 channel which ``configInitc()`` set up. We also clear event 16 so        |
   |     |       |PRU 0 can set it again.                                                                |
   +-----+-------+---------------------------------------------------------------------------------------+
@@ -1028,8 +1027,7 @@ You have an input pin that needs to be read at regular intervals.
 Solution
 -----------
 
-You can use the ``pass:[__]R31`` register to read an input pin. Let's use the following
-pins.
+You can use the ``__R31`` register to read an input pin. Let's use the following pins.
 
 .. _blocks_io_pins:
 
@@ -1064,7 +1062,7 @@ The following code reads the input pin and writes its value to the output pin.
 Discussion
 -----------
 
-Just remember that ``pass:[__]R30`` is for outputs and ``pass:[__]R31`` is for inputs.
+Just remember that ``__R30`` is for outputs and ``__R31`` is for inputs.
 
 Analog Wave Generator
 **********************

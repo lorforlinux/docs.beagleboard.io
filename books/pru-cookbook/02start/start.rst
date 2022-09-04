@@ -87,7 +87,7 @@ But it also has:
 * User interface: 11 user programmable LEDs, 2 user programmable buttons
 
 In addition you can mount the Blue on the 
-https://www.renaissancerobotics.com/eduMIP.html[EduMIP kit] as shown in
+`EduMIP kit <https://www.renaissancerobotics.com/eduMIP.html>`_ as shown in
 :ref:`start_edumip` to get a balancing robot.
 
 .. _start_edumip:

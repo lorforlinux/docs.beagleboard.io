@@ -140,8 +140,8 @@ the code line-by-line to see what's happening.
     +-------+-----------------------------------------------------------------------------------------------------------------------------------------------+
     |5      |   The AM335x has four 32-bit GPIO ports.  Lines 55-58 of `prugpio.h` define the addresses                                                     |
     |       |   for each of the ports.  You can find these in Table 2-2 page 180 of the                                                                     |
-    |       |   https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf[AM335x Technical Reference Manual].                                                         |
-    |       |   Look up `P9_11` in the https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP9HeaderTable.pdf[P9 Header Table]. |
+    |       |   `AM335x TRM 180 <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_.                                                                        |
+    |       |   Look up `P9_11` in the `P9 header <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP9HeaderTable.pdf>`_.   |
     |       |   Under the _Mode7_ column you see `gpio0[30]`.  This means `P9_11` is bit 30                                                                 |
     |       |   on GPIO port 0.  Therefore we will use `GPIO0` in this code. You can also run ``gpioinfo`` and look for P9_11.                              |
     +-------+-----------------------------------------------------------------------------------------------------------------------------------------------+
