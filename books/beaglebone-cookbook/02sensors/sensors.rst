@@ -1076,8 +1076,8 @@ BeagleBone doesn't have audio built in, but you want to play and record files.
 Solution
 --------
 
-One approach is to buy an audio cape (:ref:`app_capes`), but another, possibly cheaper approach is to buy a USB audio adapter, 
-such as the one shown in :ref:`usb_audio_dongle`. Some adapters that I've tested are provided in :ref:`app_misc`.
+One approach is to buy an audio cape, but another, possibly cheaper approach is to buy a USB audio adapter, 
+such as the one shown in :ref:`usb_audio_dongle`.
 
 .. _usb_audio_dongle:
 

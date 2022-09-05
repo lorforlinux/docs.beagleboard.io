@@ -390,7 +390,7 @@ Try it and see if it works. If not, you need a level translator.
 
 What you will need for this recipe:
 
-* A PCA9306 level translator (see :ref:`app_ic`)
+* A PCA9306 level translator
 * A 5 V power supply (if the Bone's 5 V power supply isn't enough)
 
 The PCA9306  translates signals at 3.3 V to 5 V in both directions. It's meant to work with 
