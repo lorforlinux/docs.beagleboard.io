@@ -148,6 +148,10 @@ latex_documents = [
     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
 ]
 
+#language = 'en'
+#locales_dir = ['locale/']
+#gettext_compact = True
+
 def setup(app):
     # theme customizations
     app.add_css_file("css/custom.css")

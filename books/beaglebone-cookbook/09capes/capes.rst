@@ -3,9 +3,6 @@
 Capes
 #####
 
-Introduction
-**************
-
 Previous chapters of this book show a variety of ways to interface BeagleBone Black 
 to the physical world by using a breadboard and wiring to the +P8+ and +P9+ headers. 
 This is a great approach because it's easy to modify your circuit to debug it or try 
