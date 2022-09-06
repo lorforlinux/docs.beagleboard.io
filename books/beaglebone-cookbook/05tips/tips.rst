@@ -3,9 +3,6 @@
 Beyond the Basics
 ##################
 
-Introduction
-*************
-
 In :ref:`beaglebone-cookbook-basics`, you learned how to set up BeagleBone Black, and 
 :ref:`beaglebone-cookbook-sensors`, :ref:`beaglebone-cookbook-displays`, 
 and :ref:`beaglebone-cookbook-motors` showed how to 

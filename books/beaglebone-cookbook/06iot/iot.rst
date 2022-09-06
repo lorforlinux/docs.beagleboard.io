@@ -3,9 +3,6 @@
 Internet of Things
 ####################
 
-Introduction
-*************
-
 You can easily connect BeagleBone Black to the Internet via a wire (:ref:`networking_wired`), wirelessly 
 (:ref:`networking_wireless`), or through the USB to a host and then to the Internet (:ref:`networking_usb`). 
 Either way, it opens up a world of possibilities for the "Internet of Things" (IoT). 

@@ -3,9 +3,6 @@
 Sensors
 ########
 
-Introduction
-*************
-
 In this chapter, you will learn how to sense the physical world with BeagleBone Black. 
 Various types of electronic sensors, such as cameras and microphones, can be connected 
 to the Bone using one or more interfaces provided by the standard USB 2.0 host port, 

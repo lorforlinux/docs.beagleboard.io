@@ -3,9 +3,6 @@
 Basics
 #######
 
-Introduction
-*************
-
 When you buy BeagleBone Black, pretty much everything you need to get going comes with it. 
 You can just plug it into the USB of a host computer, and it works. The goal of this 
 chapter is to show what you can do with your Bone, right out of the box. It has enough 

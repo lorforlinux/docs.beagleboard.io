@@ -3,9 +3,6 @@
 Motors
 ########
 
-Introduction
-**************
-
 One of the many fun things about embedded computers is that you can move physical things with motors.
 But there are so many different kinds of motors (``servo``, ``stepper``, ``DC``), so how do you select the right one?
 
