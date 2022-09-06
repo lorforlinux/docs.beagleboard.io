@@ -1,3 +1,5 @@
+.. _beaglebone-blue-home::
+
 BeagleBone (all)
 ###################
 
