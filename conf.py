@@ -71,7 +71,7 @@ with open(BBDOCS_BASE  / "VERSION") as f:
     )
 
     if not m:
-        sys.stderr.write("Warning: Could not extract kernel version\n")
+        sys.stderr.write("Warning: Could not extract docs version\n")
         version = "Unknown"
     else:
         major, minor, patch, extra = m.groups(1)
@@ -81,11 +81,29 @@ with open(BBDOCS_BASE  / "VERSION") as f:
 
 release = version
 
-is_release = tags.has("release")  # pylint: disable=undefined-variable
-reference_prefix = ""
-if tags.has("publish"):  # pylint: disable=undefined-variable
-    reference_prefix = f"/{version}" if is_release else "/latest"
-docs_title = "Docs / {}".format(version if is_release else "Latest")
+pages_url = ""
+pages_slug = ""
+docs_url = ""
+
+# parse pages details from 'PAGES' file
+with open(BBDOCS_BASE  / "PAGES") as f:
+    m = re.match(
+        (
+            r"^PAGES_URL\s*=\s*(\S+)$\n"
+            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write("Warning: Could not extract pages information\n")
+    else:
+        url, slug = m.groups(1)
+        slug = "latest" if slug == "main" else slug
+        pages_url = url
+        pages_slug = slug
+        docs_url = "/".join((url, slug))
 
 html_context = {
     "display_gitlab": True,
@@ -95,9 +113,16 @@ html_context = {
     "gitlab_version": "main",
     "conf_py_path": "/",
     "show_license": True,
-    "docs_title": docs_title,
-    "is_release": is_release,
-    "current_version": version
+    "pages_url": pages_url,
+    "pages_slug": pages_slug,
+    "docs_url": docs_url,
+    "current_version": version,
+    "versions": ("latest", "0.0", "0.1"),
+    "reference_links": {
+        "About": "https://beagleboard.org/about",
+        "Donate": "https://beagleboard.org/donate/",
+        "FAQ": "https://beagleboard.org/Support/FAQ"
+    }
 }
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -122,9 +147,6 @@ latex_logo = str(BBDOCS_BASE / "_static" / "images" / "logo-latex.pdf")
 latex_documents = [
     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
 ]
-
-vcs_link_version = f"v{version}" if is_release else "main"
-vcs_link_base_url = f"https://git.beagleboard.org/docs/docs.beagleboard.io/blob/{vcs_link_version}"
 
 #language = 'en'
 #locales_dir = ['locale/']

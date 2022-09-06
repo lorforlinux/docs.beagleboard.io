@@ -3,10 +3,15 @@ image: beagle/sphinx-build-env:latest
 stages:
   - deploy
 
+cache:
+  key: bbdocs
+  paths:
+    - public
+
 pages:
   stage: deploy
   script:
-  - ./gitlab-build.sh
+    - ./gitlab-build.sh
   artifacts:
     paths:
-    - public
+      - public
