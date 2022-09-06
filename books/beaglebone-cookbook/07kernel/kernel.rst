@@ -3,9 +3,6 @@
 The Kernel
 ###########
 
-Introduction
-*************
-
 The kernel is the heart of the Linux operating system. It's the software that takes the 
 low-level requests, such as reading or writing files, or reading and writing general-purpose 
 input/output (GPIO) pins, and maps them to the hardware. When you install a new version of the 

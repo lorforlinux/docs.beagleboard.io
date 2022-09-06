@@ -3,9 +3,6 @@
 Real-Time I/O
 ###############
 
-Introduction
-*************
-
 Sometimes, when BeagleBone Black interacts with the physical world, it needs to respond in a timely manner. 
 For example, your robot has just detected that one of the driving motors needs to turn a bit faster. 
 Systems that can respond quickly to a real event are known as ``real-time`` systems. There are two broad 

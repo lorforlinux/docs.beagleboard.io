@@ -3,9 +3,6 @@
 Displays and Other Outputs
 ###########################
 
-Introduction
-*************
-
 In this chapter, you will learn how to control physical hardware via 
 BeagleBone Black's general-purpose input/output (GPIO) pins. The Bone has 
 65 GPIO pins that are brought out on two 46-pin headers, called 
