@@ -1,4 +1,4 @@
-.. _beagleboard-contributoin:
+.. _contribution:
 
 Contribution 
 ###############

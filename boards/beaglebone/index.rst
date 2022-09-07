@@ -1,4 +1,4 @@
-.. _beaglebone-blue-home::
+.. _beaglebone-all-home:
 
 BeagleBone (all)
 ###################
