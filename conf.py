@@ -120,8 +120,8 @@ html_context = {
     "versions": ("latest", "0.0", "0.1"),
     "reference_links": {
         "About": "https://beagleboard.org/about",
-        "Donate": "https://beagleboard.org/donate/",
-        "FAQ": "https://beagleboard.org/Support/FAQ"
+        "Donate": "https://beagleboard.org/donate",
+        "FAQ": "forum.beagleboard.org/c/faq"
     }
 }
 
