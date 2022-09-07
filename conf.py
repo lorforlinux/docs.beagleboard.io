@@ -121,7 +121,7 @@ html_context = {
     "reference_links": {
         "About": "https://beagleboard.org/about",
         "Donate": "https://beagleboard.org/donate",
-        "FAQ": "forum.beagleboard.org/c/faq"
+        "FAQ": "https://forum.beagleboard.org/c/faq"
     }
 }
 
