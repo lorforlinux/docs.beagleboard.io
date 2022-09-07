@@ -126,7 +126,7 @@ Long-range, low-power wireless
 
 BeagleConnect™ Freedom wireless hardware is built around a 
 `TI CC1352 <http://www.ti.com/product/CC1352P7>`_ multiprotocol and multi-band 
-Sub-1 GHz and 2.4-GHz wireless microcontroller (MCU). CC1352R includes a 48-MHz
+Sub-1 GHz and 2.4-GHz wireless microcontroller (MCU). CC1352P7 includes a 48-MHz
 Arm® Cortex®-M4F processor, 704KB Flash, 256KB ROM, 8KB Cache SRAM, 144KB of 
 ultra-low leakage SRAM, and `Over-the-Air <https://en.wikipedia.org/wiki/Over-the-air_programming>`_ 
 upgrades (OTA).
