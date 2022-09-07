@@ -1,3 +1,6 @@
+.. role:: strike
+   :class: strike
+
 .. _beagleconnect-overview:
 
 BeagleConnect Technology

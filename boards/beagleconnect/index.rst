@@ -38,6 +38,12 @@ BeagleConnect™ technology solves:
 * The need to produce high-volume custom hardware cost-optimized for your 
   requirements.
 
+.. toctree::
+   :maxdepth: 2
+
+   /boards/beagleconnect/technology/index.rst
+   /boards/beagleconnect/technology/story.rst
+
 BeagleConnect Experience
 *************************
 
@@ -86,18 +92,6 @@ For home automaters, integration into WebThings…
    :align: center
    :height: 400
    :alt: BeagleConnect
-
-
-BeagleConnect Technology
-************************
-
-Learn about the technology behind BeagleConnect.
-
-.. toctree::
-   :maxdepth: 2
-
-   /boards/beagleconnect/technology/index.rst
-   /boards/beagleconnect/technology/story.rst
 
 
 BeagleConnect Boards
