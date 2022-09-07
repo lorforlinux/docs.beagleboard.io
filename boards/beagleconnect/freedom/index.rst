@@ -160,12 +160,12 @@ Each BeagleBoard.org BeagleConnect™ solution will be:
 Getting Started
 ***************
 
-* `Typical usage with a Linux host </boards/beagleconnect/freedom/usage.html>`__
-* `Programming with Zephyr </boards/beagleconnect/freedom/zephyr.html>`__
+* :ref:`Typical BeagleConnect Freedom usage with a Linux host <beagleconnect-usage>`
+* :ref:`Programming BeagleConnect Freedom with Zephyr <beagleconnect-zephyr>`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   usage.rst
-   zephyr.rst
+   /boards/beagleconnect/freedom/usage.rst
+   /boards/beagleconnect/freedom/zephyr.rst
