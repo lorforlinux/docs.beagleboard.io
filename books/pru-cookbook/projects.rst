@@ -7,9 +7,6 @@ Users of TI processors with PRU-ICSS have created application for many different
 A list of a few are shared below. For additional support resources, software and 
 documentation visit the PRU-ICSS wiki.
 
-PRU projects
-~~~~~~~~~~~~~~
-
 .. dropdown:: **LEDscape** 
     :open:
 
