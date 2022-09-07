@@ -308,8 +308,8 @@ Capes
 Projects
 ********
 
-A number of software projects, like `SimpPRU </projects/simppru/index>`__ exist to help Beagle
-developers. Some developers choose to host documentation for their projects `here </projects/index>`__.
+A number of software projects, like :ref:`simppru_home` exist to help Beagle
+developers. Some developers choose to host documentation for their :ref:`projects-home` .
 
 .. toctree::
    :maxdepth: 1
@@ -317,7 +317,7 @@ developers. Some developers choose to host documentation for their projects `her
    :caption: Projects
 
    /projects/simppru/index
-   /boards/beagleconnect/technology/index
+   /boards/beagleconnect/index
 
 Books
 *****

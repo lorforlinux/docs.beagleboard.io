@@ -1,3 +1,5 @@
+.. _projects-home:
+
 Projects
 ********
 
@@ -7,4 +9,4 @@ This is a collection of reasonably well-supported projects useful to Beagle deve
    :maxdepth: 1
 
    /projects/simppru/index.rst
-   /boards/beagleconnect/technology/index.rst
+   /boards/beagleconnect/index.rst
