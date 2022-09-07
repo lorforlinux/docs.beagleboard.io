@@ -155,7 +155,7 @@ documentation visit the PRU-ICSS wiki.
     **Type:** Code Library Reference
     
     **References:**
-        * http://processors.wiki.ti.com/index.php/Soft-UART_Implementation_on_AM335X_PRU_-_Software_Users_Guide
+        * https://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/PRU-ICSS/Linux_Drivers/pru-sw-uart.html
 
 .. dropdown:: **Deviant LCD**
     :open:
