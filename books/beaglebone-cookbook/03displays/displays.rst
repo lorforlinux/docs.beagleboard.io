@@ -315,7 +315,7 @@ The LED matrix is a 5 V device, but you can drive it from 3.3 V. Wire, as shown 
 
 :ref:`sensors_i2c_temp` shows how to use *i2cdetect* to discover the address of an |I2C| device.
 
-.. |I2C| replace:: I\ :sub:`2`\ C
+.. |I2C| replace:: I\ :sup:`2`\ C
 
 Run the *i2cdetect -y -r 2* command to discover the address of the display on |I2C| bus 2, as shown in :ref:`displays_i2cdetect`.
 
