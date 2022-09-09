@@ -10,7 +10,7 @@ Getting started
 
 The starting experience for all Beagles has been made to be as
 consistent as is possible. For any of the Beagle Linux-based open
-hardware computers, visit our `getting started guide <getting-started>`__.
+hardware computers, visit :ref:`beagleboard-getting-started`.
 
 .. toctree::
    :maxdepth: 2
@@ -109,7 +109,7 @@ Understanding Your Beagle
 Working with Cape Add-on Boards
 *******************************
 
-- `Cape Documentation </boards/capes/>`__
-- `BeagleBone Cape Interface Specification </boards/capes/cape-interface-spec.html>`__
+- :ref:`capes`
+- :ref:`beaglebone-cape-interface-spec`
 
 
