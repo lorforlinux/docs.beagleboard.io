@@ -35,7 +35,7 @@ contact one of our administrators or moderators on https://forum.beagleboard.org
 Frequently Asked Questions
 **************************
 
-* `Frequently asked questions contribution category on the BeagleBoard.org Forum <https://forum.beagleboard.org/c/faq/19>`__
+* `Frequently asked questions contribution category on the BeagleBoard.org Forum <https://forum.beagleboard.org/c/faq>`__
 
 What should I know before I get started?
 ****************************************
