@@ -8,7 +8,7 @@ Capes
 
 Capes are add-on boards for BeagleBone or PocketBeagle families of boards.
 
-* Learn about our compatibility layer on: `BeagleBone Cape Interface Specification </boards/capes/cape-interface-spec.html>`__
+* Learn about our compatibility layer on: :ref:`beaglebone-cape-interface-spec`
 
 
 .. toctree::
