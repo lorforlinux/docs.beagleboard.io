@@ -53,9 +53,6 @@ Diagnostic tools
 Best to be prepared with good diagnostic information to aide with
 support.
 
-.. todo::
-   Need a reference to how to run `beagle-version`.
-
 .. note::
    #TODO#: Need a reference to how to run `beagle-version`.
 
