@@ -1,7 +1,7 @@
 .. _bone-cape-relay:
 
 BeagleBoard.org BeagleBone Relay Cape
-#########
+#####################################
 
 Relay Cape, as the name suggests, is a simple Cape with a relay on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
@@ -16,7 +16,7 @@ How to Use
 ---------------
 
 Installation
-******
+************
 
 No special configuration is required. When you plug Cape into your BeagleBoard, 
 it is automatically recognized by the Cape Universal function.
