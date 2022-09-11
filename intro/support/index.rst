@@ -17,6 +17,7 @@ hardware computers, visit :ref:`beagleboard-getting-started`.
 
    /intro/support/getting-started
 
+.. _intro-getting-support:
 
 Getting support
 ***************
@@ -36,16 +37,16 @@ there.
 Be sure to ask `smart questions <http://www.catb.org/~esr/faqs/smart-questions.html>`__
 that provide the following:
 
-*  What am I trying to accomplish?
-*  What did find when researching how to accomplish it?
-*  What are the detailed results of what I tried?
-*  How did these results differ from what I expected?
-*  What would I consider to be a success?
+*  What are you trying to accomplish?
+*  What did you find when researching how to accomplish it?
+*  What are the detailed results of what you tried?
+*  How did these results differ from what you expected?
+*  What would you consider to be a success?
 
-.. note::
+.. important::
    Remember that community developers are volunteering their expertise. If you
-   want paid support, there are options for that. Respect developers time and
-   expertise and they might be happy to share with you.
+   want paid support, there are :ref:`consulting-resources` options for that. Respect
+   developers time and expertise and they might be happy to share with you.
 
 Diagnostic tools
 ================
@@ -71,6 +72,8 @@ of the entire community.
 -  `Frequently Asked Questions <https://forum.beagleboard.org/c/faq>`__
 -  `Mailing List <https://forum.beagleboard.org>`__
 -  `Live Chat <https://beagleboard.org/chat>`__
+
+.. _consulting-resources:
 
 Consulting and other resources
 ==============================
