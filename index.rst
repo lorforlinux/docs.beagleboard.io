@@ -183,6 +183,8 @@ Capes
       movement, sensing, power management and communication
 
    .. grid-item-card::
+      :link: bone-cape-relay
+      :link-type: ref
 
       **BeagleBone® Relay Cape**
       ^^^
