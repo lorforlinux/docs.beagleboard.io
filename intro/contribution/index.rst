@@ -9,6 +9,9 @@ Contribution
 .. important::
    First off, thanks for taking the time to think about contributing!
 
+.. note::
+   For donations, see `BeagleBoard.org - Donate <https://beagleboard.org/donate>`__.
+
 The BeagleBoard.org Foundation maintains source for many open source projects.
 
 Example projects suitable for first contributions:
