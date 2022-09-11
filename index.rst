@@ -300,7 +300,6 @@ Capes
    /boards/beaglebone/blue/index
    /boards/beaglebone/index
    /boards/capes/index
-   /boards/capes/overlays/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index

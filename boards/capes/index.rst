@@ -26,6 +26,7 @@ The user of the Cape add-on boards are essentially able to use it
 across the corresponding Boards without changing any code at all.
 
 Find the instructions below on using each cape:
+
 * :ref:`bone-cape-relay`
 
 .. toctree::
