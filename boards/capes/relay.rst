@@ -3,11 +3,11 @@
 BeagleBoard.org BeagleBone Relay Cape
 #####################################
 
-.. image:: images/BeagleBoneRelayCapeA2-400x274.png
-   :align: center
-
 Relay Cape, as the name suggests, is a simple Cape with a relay on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
+
+.. image:: images/BeagleBoneRelayCapeA2-400x274.png
+   :align: center
 
 * `Order page <https://beagleboard.org/capes#relay>`_
 * `Schematic <https://git.beagleboard.org/beagleboard/capes/-/tree/master/beaglebone/Relay>`_
