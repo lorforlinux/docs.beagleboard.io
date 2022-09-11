@@ -6,14 +6,11 @@ BeagleBoard.org BeagleBone Relay Cape
 Relay Cape, as the name suggests, is a simple Cape with a relay on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
 
-`Schematic <https://github.com/beagleboard/capes/tree/master/beaglebone/Relay>`_
+`Schematic <https://git.beagleboard.org/beagleboard/capes/-/tree/master/beaglebone/Relay>`_
 
 .. note:: 
     The following describes how to use the device tree overlay under development.
     The description may not be suitable for those using older firmware.
-
-How to Use
----------------
 
 Installation
 ************
