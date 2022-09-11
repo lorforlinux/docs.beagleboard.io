@@ -68,4 +68,4 @@ Style and usage guidelines
 
    /intro/contribution/git-usage
    /intro/contribution/style
-   /intro/contribution/upstream-guidelines
+   /intro/contribution/linux-upstream

@@ -1,7 +1,7 @@
-.. _beagleboard-contribute:
+.. _beagleboard-linux-upstream:
 
 Upstream Kernel Contributions
-#########
+#############################
 
 .. note::
     For detailed information on Kernel Developmement checkout the official
@@ -16,26 +16,30 @@ of your change being accepted.
 .. note:: This version is an unofficial draft and is subject to change.
 
 Pre-requisites
----------------
+***************
 
 The following are the skills that are needed before you actually start to contribute to the linux kernel:
-    - git
-    - C-Programming
-    - Cross-arch Development
-    - Basics of embedded buses (I2C, UART, SPI, etc.)
-    - Device Trees
-    - Drivers in Embedded Systems
+
+    - :ref:`linux-upstream-more-git`
+    - :ref:`linux-upstream-c-programming`
+    - :ref:`linux-upstream-cross-arch`
+    - :ref:`linux-upstream-embedded-busses`
+    - :ref:`linux-upstream-drivers`
+    - :ref:`linux-upstream-device-trees`
+
+For more guidance, check out the :ref:`linux-upstream-additional-resources`.
+
+.. _linux-upstream-more-git:
 
 More Git!
----------
+*********
 
-It is highly recommended that you go through
-`Git Usage <https://docs.beagleboard.io/contribution/git-usage.html>`_ before starting
+It is highly recommended that you go through :ref:`beagleboard-git-usage` before starting
 to read and follow these guidelines. You will need to have a proper git setup on your
 computer inorder to effectively follow these steps.
 
 Creating your first patch
-*************************
+=========================
 
 When you first enter the world of Linux Kernel development from a background in
 contributing over gitlab or github, the terminologies slightly change.
@@ -89,6 +93,7 @@ For configuring your email ID for sending patches refer to this excellent stacko
 Finally, after you have configured you email properly, you can send out a patch using:
 
 .. code-block::
+
     git send-email 0001-contribute.rst-Add-git-section.patch
 
 replacing ofcourse the above patchfile name with whatever was your own patch.
@@ -99,15 +104,19 @@ Here, you have to write the email address of the list you want to send out the p
 to add more email addresses of whoever you want to keep in CC. Generally it is a good idea to keep yourself
 in CC.
 
+.. _linux-upstream-c-programming:
+
 C-Programming
--------------
+*************
 
 It is highly recommended that you have proficiency in C-Programming, because well the kernel is mostly
 written in C! For starters, you can go through Dennis Ritchie's C Programming book to understand
 the language and also solve the excercises given there for getting hands on.
 
+.. _linux-upstream-cross-arch:
+
 Cross-arch Development
-----------------------
+**********************
 
 While working with the kernel, you'll most likely not be compiling it on the machine
 that you intend to actually boot it on.
@@ -117,8 +126,10 @@ What you'd do instead is pick a much powerful machine like a Desktop PC or lapto
 then use cross arch compilers like the arm-gcc for instance to compile the kernel for your
 target device.
 
-Embedded buses
---------------
+.. _linux-upstream-embedded-busses:
+
+Basics of embedded busses (I2C, UART, SPI, etc.)
+************************************************
 
 In the world of embedded, you often need to communicate with peripherals over very low level protocols.
 To name a few, I2C, UART, SPI, etc. are all serial protocols used to communicate with a variety of devices and
@@ -127,8 +138,10 @@ peripherals.
 It's recommended to understand atleast the basics of each of the protocol so you know what's actually going
 on when you write for instance an I2C or SPI driver to communicate with let's say a sensor.
 
-Device Drivers
--------
+.. _linux-upstream-drivers:
+
+Device Drivers in Embedded Systems
+**********************************
 
 I used the term "Drivers" in the above section, but what does it really mean?
 
@@ -144,8 +157,10 @@ TODO
 
 TODO
 
+.. _linux-upstream-device-trees:
+
 Device Trees
-------------
+************
 
 We just learned about drivers, and it's time that once you have written a driver in the kernel,
 you obviously want it to work! So how do we really tell the kernel which drivers to load?
@@ -162,8 +177,10 @@ client program’s memory and passes a pointer to the device tree to the client.
 A device tree is a tree data structure with nodes that describe
 the physical devices in a system.
 
+.. _linux-upstream-additional-resources:
+
 Additional Resources
---------------------
+********************
 
 1. `Device Trees for Dummies PDF <https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf>`_
 2. `What are Device Drivers <https://tldp.org/LDP/tlk/dd/drivers.html>`_
