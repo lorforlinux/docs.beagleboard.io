@@ -292,7 +292,7 @@ In most cases, the same pin should never be used on two different capes, though 
 - I2C2_SCL and I2C2_SDA
     - |I2C| is a shared bus, and the *I2C2_SCL* and *I2C2_SDA* pins default to having this bus enabled for use by cape expansion ID EEPROMs.
 
-.. |I2C| replace:: I\ :sub:`2`\ C
+.. |I2C| replace:: I\ :sup:`2`\ C
 
 .. _capes_soldering:
 
@@ -667,7 +667,7 @@ Outline SVG for BeagleBone cape (beaglebone_cape_boardoutline.svg)
 .. </dl>
 .. ++++
 
-The measurements are taken from the `BeagleBone Black System Reference Manual <http://bit.ly/1C5rSa8>`_, as shown in :ref:`capes_dimensions_fig`.
+The measurements are taken from the :ref:`beagleboneblack-mechanical` section of the :ref:`BeagleBone Black System Reference Manual <beagleboneblack-home>`, as shown in :ref:`capes_dimensions_fig`.
 
 .. _capes_dimensions_fig:
 
@@ -1227,15 +1227,10 @@ There's no real substitute for getting to know your contract manufacturer, its c
 communication style, strengths, and weaknesses. Look around your town to see if anyone is 
 doing this type of work and see if they'll give you a tour.
 
-.. note:: ?
+.. note::
 
-.. To DO
-    fix this
-
-Don't confuse CircuitHub and CircuitCo. CircuitCo is the official contract manufacturer of 
-BeagleBoard.org and not the same company as CircuitHub, the online contract manufacturing 
-service. CircuitCo would be an excellent choice for you to consider to perform your contract 
-manufacturing, but it doesn't offer an online quote service at this point, so it isn't as easy 
-to include details on how to engage with it in this book.
-
-
+   Don't confuse CircuitHub and CircuitCo. CircuitCo is the official contract manufacturer of 
+   BeagleBoard.org and not the same company as CircuitHub, the online contract manufacturing 
+   service. CircuitCo would be an excellent choice for you to consider to perform your contract 
+   manufacturing, but it doesn't offer an online quote service at this point, so it isn't as easy 
+   to include details on how to engage with it in this book.
