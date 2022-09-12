@@ -31,6 +31,8 @@ You want to display the Bone's desktop on a portable LCD.
 Solution
 --------
 
+.. note:: #TODO# The 4D Systems LCD capes would make a better example. CircuitCo is out of business.
+
 A number of `LCD capes <http://bit.ly/1AjlXJ9>`_ are built for the Bone, ranging in size from three 
 to seven inches. This recipe attaches a seven-inch `BeagleBone LCD7 <http://bit.ly/1NK8Hra>`_ 
 from `CircuitCo <http://circuitco.com/>`_ (shown in :ref:`capes_7inLCD_fig`) to the Bone.
@@ -257,12 +259,16 @@ LCD Backside
     Back side of LCD7 cape, :ref:`capes_lcd_backside` was originally posted by CircuitCo at http://elinux.org/File:BeagleBone-LCD-Backside.jpg under 
     a `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>`_.
 
+.. note:: #TODO# One of the 4D Systems LCD capes would make a better example for an LCD cape. The CircuitCo cape is no longer available.
+
 .. figure:: figures/LCD7back.png
     :align: center
     :alt: 
 
 Next, take a note of each pin utilized by each cape. The `BeagleBone Capes catalog <http://beaglebonecapes.com>`_ 
 provides a graphical representation for the pin usage of most capes, as shown in :ref:`Audio_cape_pins_fig` for the Circuitco Audio Cape.
+
+.. note:: #TODO# Bela would make a better example for an audio cape. The CircuitCo cape is no longer available.
 
 .. _Audio_cape_pins_fig:
 
@@ -1229,8 +1235,4 @@ doing this type of work and see if they'll give you a tour.
 
 .. note::
 
-   Don't confuse CircuitHub and CircuitCo. CircuitCo is the official contract manufacturer of 
-   BeagleBoard.org and not the same company as CircuitHub, the online contract manufacturing 
-   service. CircuitCo would be an excellent choice for you to consider to perform your contract 
-   manufacturing, but it doesn't offer an online quote service at this point, so it isn't as easy 
-   to include details on how to engage with it in this book.
+   Don't confuse CircuitHub and CircuitCo. CircuitCo is closed.
