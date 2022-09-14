@@ -648,7 +648,7 @@ Solution
 The TMP101 sensor is a common digital temperature 
 sensor that uses a standard |I2C|-based serial protocol.
 
-.. |I2C| replace:: I\ :sub:`2`\ C
+.. |I2C| replace:: I\ :sup:`2`\ C
 
 To make this recipe, you will need:
 
