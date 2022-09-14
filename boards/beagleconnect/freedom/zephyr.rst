@@ -1,4 +1,4 @@
-.. _beagleconnect-connectivity:
+.. _beagleconnect-zephyr:
 
 BeagleConnect Freedom & Zephyr
 ###############################

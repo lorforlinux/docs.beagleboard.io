@@ -17,10 +17,10 @@ Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/d
 Introduction
 ************
 
-Get started by `engaging the BealgeBoard.org developer community </intro/>`__.
+Get started engaging the BeagleBoard.org developer community by reading our :ref:`introduction` page.
 
-* Read about how to: `get started and get help </intro/support>`__
-* Learn how to: `contribute to the project </intro/contribution>`__
+* Read about how to get started and get help on our :ref:`support` page.
+* Learn how to contribute to the project on our :ref:`contribution` page.
 
 .. toctree::
    :maxdepth: 2
@@ -42,9 +42,9 @@ design, including the
 `materials <https://git.beagleboard.org/explore/projects/topics/boards>`__ to modify the designs
 from source using appropriate design tools.
 
-* Check out our most popular board at: `BeagleBone Black </boards/beaglebone/black>`__
-* Check out our latest board at: `BeagleBone AI-64 </boards/beaglebone/ai-64>`__
-* Find all of our on: `our boards page </boards/index>`__
+* Check out our most popular board at: :ref:`beagleboneblack-home`
+* Check out our latest board at: :ref:`bbai64-home`
+* Find all of our on: :ref:`boards`
 
 .. grid:: 1 1 1 2
    :margin: 4 4 0 0
@@ -183,6 +183,8 @@ Capes
       movement, sensing, power management and communication
 
    .. grid-item-card::
+      :link: bone-cape-relay
+      :link-type: ref
 
       **BeagleBone® Relay Cape**
       ^^^
@@ -308,8 +310,8 @@ Capes
 Projects
 ********
 
-A number of software projects, like `SimpPRU </projects/simppru/index>`__ exist to help Beagle
-developers. Some developers choose to host documentation for their projects `here </projects/index>`__.
+A number of software projects, like :ref:`simppru_home` exist to help Beagle
+developers. Some developers choose to host documentation for their :ref:`projects-home` .
 
 .. toctree::
    :maxdepth: 1
@@ -317,16 +319,15 @@ developers. Some developers choose to host documentation for their projects `her
    :caption: Projects
 
    /projects/simppru/index
-   /boards/beagleconnect/technology/index
+   /boards/beagleconnect/index
 
 Books
 *****
 
-This project hosts a
-`collection of open-source books written to help Beagle developers </books/index>`__.
+This project hosts a collection of open-source :ref:`books-home` books written to help Beagle developers.
 
-* Find a great introduction to BeagleBone at: `BeagleBone Cookbook </books/beaglebone-cookbook>`__
-* Learn one of the most amazing Beagle features at: `PRU Cookbook </books/pru-cookbook>`__
+* Find a great introduction to BeagleBone at: :ref:`bone-cook-book-home`
+* Learn one of the most amazing Beagle features at: :ref:`pru-cookbook-home`
 
 .. toctree::
    :maxdepth: 1

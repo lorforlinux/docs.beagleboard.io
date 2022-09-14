@@ -1,4 +1,4 @@
-.. _beaglebone-blue-home::
+.. _beaglebone-all-home:
 
 BeagleBone (all)
 ###################
@@ -22,8 +22,8 @@ included both here and in the downloadable beagleboard-docs.pdf linked on the bo
 of your screen.
 
 * `BeagleBone (original) <https://git.beagleboard.org/beagleboard/beaglebone/-/blob/master/BeagleBone_SRM_A6_0_1.pdf>`__
-* `BeagleBone Black </boards/beaglebone/black/index.html>`__
-* `BeagleBone Blue </boards/beaglebone/blue/index.html>`__
-* `BeagleBone AI-64 </boards/beaglebone/ai-64/index.html>`__
-* `BeagleBone AI </boards/beaglebone/ai/index.html>`__
+* :ref:`beagleboneblack-home`
+* :ref:`beaglebone-blue-home`
+* :ref:`bbai64-home`
+* :ref:`beaglebone-ai-home`
 

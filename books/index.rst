@@ -1,3 +1,5 @@
+.. _books-home:
+
 Books
 *****
 
