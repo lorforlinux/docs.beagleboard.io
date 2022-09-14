@@ -46,7 +46,7 @@ from source using appropriate design tools.
 * Check out our latest board at: :ref:`bbai64-home`
 * Find all of our on: :ref:`boards`
 
-.. grid:: 1 1 1 2
+.. grid:: 1 1 2 3
    :margin: 4 4 0 0
    :gutter: 4
 
@@ -143,7 +143,7 @@ from source using appropriate design tools.
 Capes
 ******
 
-.. grid:: 1 1 1 2
+.. grid:: 1 1 2 3
    :margin: 4 4 0 0
    :gutter: 4
 
