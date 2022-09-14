@@ -23,7 +23,10 @@ author = 'BeagleBoard.org Foundation'
 
 # -- General configuration ---------------------------------------------------
 
+sys.path.append(os.path.abspath("./_ext"))
+
 extensions = [
+    "callouts",
     "sphinxcontrib.rsvgconverter",
     "sphinx_design"
 ]
