@@ -73,6 +73,57 @@ BeagleBone® Green Gateway host.
 
 #TODO: describe how to know it is working
 
+Other systems
+-------------
+
+.. important::
+
+    If you are using the image above, none of the instructions in this section are required.
+
+#. Update the system.
+    .. code-block:: bash
+        
+        sudo apt update
+
+#. Install all BeagleConnect™ management software.
+    .. code-block:: bash
+
+        sudo apt install -y \
+        beagleconnect beagleconnect-msp430 \
+        git vim \
+        build-essential \
+        cmake ninja-build gperf \
+        ccache dfu-util device-tree-compiler \
+        make gcc libsdl2-dev \
+        libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev \
+        gcc-arm-none-eabi libnewlib-arm-none-eabi \
+        libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
+        python3-dev python3-pip python3-setuptools python3-tk python3-wheel
+
+    .. code-block:: bash
+
+        echo "export PATH=$PATH:$HOME/.local/bin" >> $HOME/.bashrc
+
+    .. code-block:: bash
+
+        source $HOME/.bashrc
+
+#. Reboot
+    .. code-block:: bash
+
+        sudo reboot
+
+#. Install BeagleConnect™ flashing software
+    .. code-block:: bash
+
+        pip3 install -U west
+
+#. Reboot
+    .. code-block:: bash
+
+        sudo reboot
+
+
 Log into BeagleBone Green Gateway
 =================================
 
@@ -136,49 +187,6 @@ computer can be used to connect to your BeagleBone Green Gateway.
 Install Zephyr development tools on BeagleBone Green Gateway
 ============================================================
 
-#. Update the system.
-    .. code-block:: bash
-        
-        sudo apt update
-
-#. Install all BeagleConnect™ management software.
-    .. code-block:: bash
-
-        sudo apt install -y \
-        beagleconnect beagleconnect-msp430 \
-        git vim \
-        build-essential \
-        cmake ninja-build gperf \
-        ccache dfu-util device-tree-compiler \
-        make gcc libsdl2-dev \
-        libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev \
-        gcc-arm-none-eabi libnewlib-arm-none-eabi \
-        libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
-        python3-dev python3-pip python3-setuptools python3-tk python3-wheel
-
-    .. code-block:: bash
-
-        echo "export PATH=$PATH:$HOME/.local/bin" >> $HOME/.bashrc
-
-    .. code-block:: bash
-
-        source $HOME/.bashrc
-
-#. Reboot
-    .. code-block:: bash
-
-        sudo reboot
-
-#. Install BeagleConnect™ flashing software
-    .. code-block:: bash
-
-        pip3 install -U west
-
-#. Reboot
-    .. code-block:: bash
-
-        sudo reboot
-
 #. Download and setup Zephyr for BeagleConnect™
     .. code-block:: bash
         
@@ -200,31 +208,37 @@ Build applications for BeagleConnect Freedom on BeagleBone Green Gateway
 Now you can build various Zephyr applications
 
 #. Change directory to BeagleConnect Freedom zephyr repository.
+
     .. code-block:: bash
 
         cd $HOME/bcf-zephyr
         
 #. Build blinky example
+
     .. code-block:: bash
 
         west build -d build/blinky zephyr/samples/basic/blinky
 
 #. TODO
+
     .. code-block:: bash
 
         west build -d build/sensortest zephyr/samples/boards/beagle_bcf/sensortest -- -DOVERLAY_CONFIG=overlay-subghz.conf
 
 #. TODO
+
     .. code-block:: bash
 
         west build -d build/wpanusb modules/lib/wpanusb_bc -- -DOVERLAY_CONFIG=overlay-subghz.conf
 
 #. TODO
+
     .. code-block:: bash
 
         west build -d build/bcfserial modules/lib/wpanusb_bc -- -DOVERLAY_CONFIG=overlay-bcfserial.conf -DDTC_OVERLAY_FILE=bcfserial.overlay
 
 #. TODO
+
     .. code-block:: bash
 
         west build -d build/greybus modules/lib/greybus/samples/subsys/greybus/net -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
