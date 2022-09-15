@@ -91,7 +91,7 @@ More details can be found in :ref:`bone-methodology`.
 	| GND           | 45  | 46   | GND              |     | D E L P1   | 45  | 46   | D E L P1   |
 	+---------------+-----+------+------------------+-----+------------+-----+------+------------+
 
-.. note:
+.. note::
 
     Legend
 
