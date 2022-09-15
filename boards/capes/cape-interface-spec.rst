@@ -315,6 +315,8 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 	+------------------+--------------+--------+-------+------------+-----------------+--------+-----------+
 
 
+.. _bone-spi:
+
 SPI
 ***
 
@@ -331,6 +333,9 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	| /dev/bone/spi/1.x  | bone_spi_1 | SPI1   | SPI3  | MAIN_SPI7  | P9.30  | P9.29  | P9.31  | - P9.28 (CS0)                         | - BONE-SPI1_0 |
 	|                    |            |        |       |            |        |        |        | - P9.42 (CS1)                         | - BONE-SPI1_1 |
 	+--------------------+------------+--------+-------+------------+--------+--------+--------+---------------------------------------+---------------+
+
+
+.. _bone-uart:
 
 UART
 *****
@@ -356,12 +361,16 @@ UART bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	+-------------------+--------------+--------+--------+-----------------------+--------+--------+---------------------------------------------+---------------------------------------------+------------+
 	| /dev/bone/uart/6  | bone_uart_6  | *n/a*  | *n/a*  | MAIN_UART8            | P8.29  | P8.28  | *n/a*                                       | *n/a*                                       | BONE-UART6 |
 	+-------------------+--------------+--------+--------+-----------------------+--------+--------+---------------------------------------------+---------------------------------------------+------------+
+	| /dev/bone/uart/7  | bone_uart_7  | *n/a*  | *n/a*  | MAIN_UART2            | P8.34  | P8.22  | *n/a*                                       | *n/a*                                       | BONE-UART7 |
+	+-------------------+--------------+--------+--------+-----------------------+--------+--------+---------------------------------------------+---------------------------------------------+------------+
 
+
+.. _bone-can:
 
 CAN
------
+*****
 
-CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64. For the definitions, you can see `bbai-bone-buses.dtsi#L440 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbai-bone-buses.dtsi#L440>`_ & `bbb-bone-buses.dtsi#L457 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbb-bone-buses.dtsi#L457>`_.
+CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 
 .. table:: Bone bus CAN
 
