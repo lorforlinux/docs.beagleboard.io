@@ -176,7 +176,7 @@ reads GPIO port *P9_42*, which is attached to the pushbutton.
 
 .. _js_pushbutton_code:
 
-.. literalinclude:: code/pushbutton.js
+.. literalinclude:: ../code/02sensors/pushbutton.js
    :caption: Monitoring a pushbutton (pushbutton.js)
    :linenos:
 
@@ -294,7 +294,7 @@ Add the code to a file called _analogIn.js_ and run it; then change the resistor
 
 .. _py_analogIn_code:
 
-.. literalinclude:: code/analogIn.py
+.. literalinclude:: ../code/02sensors/analogIn.py
    :caption: Reading an analog voltage (analogIn.py)
    :linenos:
 
