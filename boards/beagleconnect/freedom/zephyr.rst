@@ -86,7 +86,6 @@ computer can be used to connect to your BeagleBone Green Gateway.
     * To connect you can simply type :code:`$ ssh debian@192.168.7.2` and when 
       asked for password just type :code:`temppwd`
     * Congratulations, You are now connected to the device!
-
 #. Connect to the `WiFi <https://forum.beagleboard.org/t/debian-11-x-bullseye-monthly-snapshots/31280>`_
     * Execute :code:`sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf` 
       and provide the password :code:`temppwd` to edit the configuration file 
@@ -94,7 +93,8 @@ computer can be used to connect to your BeagleBone Green Gateway.
     * Now edit the file (shown below) under the :code:`network={...}`
       section you can set you :code:`ssid` (WiFi name) and :code:`psk` (Wifi 
       Password).
-    .. code-block::
+
+      .. code-block::
 
         ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
         update_config=1
@@ -103,10 +103,12 @@ computer can be used to connect to your BeagleBone Green Gateway.
                 ssid="WiFi Name"
                 psk="WiFi Password"
         }
+
     * Now save the file with :code:`CTRL+O` and exit with :code:`CTRL+X`.
     * Check if the connection is established by executing :code:`$ ping 8.8.8.8`
       you should see something like shown below.
-    .. code-block:: bash
+
+      .. code-block:: bash
 
         debian@BeagleBone:~$ ping 8.8.8.8
         PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
@@ -115,16 +117,21 @@ computer can be used to connect to your BeagleBone Green Gateway.
         64 bytes from 8.8.8.8: icmp_seq=3 ttl=118 time=6.13 ms
         64 bytes from 8.8.8.8: icmp_seq=4 ttl=118 time=6.11 ms
         ...
+
     * If everything goes well, you are ready to update your system and install 
       new applications for beagleconnect.
 
-Note: If you are facing some issue during boot then you can try debugging the 
-boot session with a USB to serial interface cable such as those made by FTDI 
-plugged into J10 with the black wire of the FTDI cable toward the Ethernet 
-connector. Application like tio/minicom/putty can be used to make the connection 
-establishment procedure easy. 
+.. note:
 
-TODO: Simplify and elaborate on this section, add boot session debugging walkthrough
+    If you are facing some issue during boot then you can try debugging the 
+    boot session with a USB to serial interface cable such as those made by FTDI 
+    plugged into J10 with the black wire of the FTDI cable toward the Ethernet 
+    connector. Application like tio/minicom/putty can be used to make the connection 
+    establishment procedure easy. 
+
+.. note:
+
+   #TODO#: Simplify and elaborate on this section, add boot session debugging walkthrough
 
 Install Zephyr development tools on BeagleBone Green Gateway
 ============================================================
@@ -199,9 +206,8 @@ Now you can build various Zephyr applications
         
 #. Build blinky example
     .. code-block:: bash
+
         west build -d build/blinky zephyr/samples/basic/blinky
-
-
 
 #. TODO
     .. code-block:: bash
