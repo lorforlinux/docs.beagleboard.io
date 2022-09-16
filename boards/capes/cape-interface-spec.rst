@@ -50,7 +50,7 @@ More details can be found in :ref:`bone-methodology`.
 	+---------------+-----+------+------------------+-----+------------+-----+------+------------+
 	| 5V IN         | 5   | 6    | 5V IN            |     | D M C4t    | 5   | 6    | D M C4r    |
 	+---------------+-----+------+------------------+-----+------------+-----+------+------------+
-	| 5V OUT        | 7   | 8    | 5V OUT           |     | C2r D      | 7   | 8    | C2t D      |
+	| 5V OUT        | 7   | 8    | 5V OUT           |     | D C2r      | 7   | 8    | D C2t      |
 	+---------------+-----+------+------------------+-----+------------+-----+------+------------+
 	| PWR BUT       | 9   | 10   | RESET            |     | D C3r      | 9   | 10   | D C3t      |
 	+---------------+-----+------+------------------+-----+------------+-----+------+------------+
@@ -315,6 +315,32 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 	+------------------+--------------+--------+-------+------------+-----------------+--------+-----------+
 
 
+.. important::
+
+   In the case the same controller is used for 2 different bone bus nodes, usage of those nodes is mutually-exclusive.
+
+.. code-block:: c
+   :linenos:
+   :caption: Example device tree overlay to enable I2C driver
+   :name: bone_cape_spec_i2c_example
+
+   /dts-v1/;
+   /plugin/;
+
+   &bone_i2c_1 {
+       status = "okay";
+       accel@1c {
+           compatible = "fsl,mma8453";
+           reg = <0x1c>;
+       };
+   }
+
+In :ref:`bone_cape_spec_i2c_example`, you can specify what driver you want to load and provide any properties it might need.
+
+* https://www.kernel.org/doc/html/v5.10/i2c/summary.html
+* https://www.kernel.org/doc/html/v5.10/i2c/instantiating-devices.html#method-1-declare-the-i2c-devices-statically
+* https://www.kernel.org/doc/Documentation/devicetree/bindings/i2c/
+
 .. _bone-spi:
 
 SPI
@@ -334,6 +360,28 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	|                    |            |        |       |            |        |        |        | - P9.42 (CS1)                         | - BONE-SPI1_1 |
 	+--------------------+------------+--------+-------+------------+--------+--------+--------+---------------------------------------+---------------+
 
+
+.. code-block:: c
+   :linenos:
+   :caption: Example device tree overlay to enable SPI driver
+   :name: bone_cape_spec_spi_example
+
+   /dts-v1/;
+   /plugin/;
+
+   &bone_spi_0 {
+       status = "okay";
+        pressure@0 {
+            compatible = "bosch,bmp280";
+            reg = <0>;      /* CS0 */
+            spi-max-frequency = <5000000>;
+        };
+   }
+
+In :ref:`bone_cape_spec_spi_example`, you can specify what driver you want to load and provide any properties it might need.
+
+* https://www.kernel.org/doc/html/v5.10/spi/spi-summary.html
+* https://www.kernel.org/doc/Documentation/devicetree/bindings/spi/
 
 .. _bone-uart:
 
@@ -374,25 +422,25 @@ CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 
 .. table:: Bone bus CAN
 
-	+------------------+--------+--------------------------+------------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| Bone bus         | Black  | AI                       | AI-64      | TX     | RX     | Overlays                                                                                               |
-	+==================+========+==========================+============+========+========+========================================================================================================+
-	| /dev/bone/can/0  | CAN0   | -                        | MAIN_MCAN0 | P9.20  | P9.19  | `BONE-CAN0.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_can/src/arm/BONE-CAN0.dts>`_  |
-	+------------------+--------+--------------------------+------------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| /dev/bone/can/1  | CAN1   | CAN2                     | MAIN_MCAN4 | P9.26  | P9.24  | `BONE-CAN1.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_can/src/arm/BONE-CAN1.dts>`_  |
-	+------------------+--------+--------------------------+------------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| /dev/bone/can/2  | -      | CAN1 (rev A2 and later)  | MAIN_MCAN5 | P8.08  | P8.07  |                                                                                                        |
-	+------------------+--------+--------------------------+------------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| /dev/bone/can/3  | -      | -                        | MAIN_MCAN6 | P8.10  | P8.09  |                                                                                                        |
-	+------------------+--------+--------------------------+------------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| /dev/bone/can/4  | -      | -                        | MAIN_MCAN7 | P8.05  | P8.06  |                                                                                                        |
-	+------------------+--------+--------------------------+------------+--------+--------+--------------------------------------------------------------------------------------------------------+
+	+------------------+--------+--------------------------+------------+--------+--------+-----------+
+	| Bone bus         | Black  | AI                       | AI-64      | TX     | RX     | Overlays  |
+	+==================+========+==========================+============+========+========+===========+
+	| /dev/bone/can/0  | CAN0   | -                        | MAIN_MCAN0 | P9.20  | P9.19  | BONE-CAN0 |
+	+------------------+--------+--------------------------+------------+--------+--------+-----------+
+	| /dev/bone/can/1  | CAN1   | CAN2                     | MAIN_MCAN4 | P9.26  | P9.24  | BONE-CAN1 |
+	+------------------+--------+--------------------------+------------+--------+--------+-----------+
+	| /dev/bone/can/2  | -      | CAN1 (rev A2 and later)  | MAIN_MCAN5 | P8.08  | P8.07  | BONE-CAN2 |
+	+------------------+--------+--------------------------+------------+--------+--------+-----------+
+	| /dev/bone/can/3  | -      | -                        | MAIN_MCAN6 | P8.10  | P8.09  | BONE-CAN3 |
+	+------------------+--------+--------------------------+------------+--------+--------+-----------+
+	| /dev/bone/can/4  | -      | -                        | MAIN_MCAN7 | P8.05  | P8.06  | BONE-CAN4 |
+	+------------------+--------+--------------------------+------------+--------+--------+-----------+
 
 
 .. _bone-analog:
 
 ADC
--------
+*******
 
 * TODO: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
 * TODO: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
