@@ -84,9 +84,14 @@ with open(BBDOCS_BASE  / "VERSION") as f:
 
 release = version
 
-pages_url = ""
-pages_slug = ""
-docs_url = ""
+# Variables here holds default settings
+pages_url = "http://docs.beagleboard.io"
+pages_slug = "latest"
+gitlab_user = "docs"
+gitlab_version = "main"
+gitlab_host = "git.beagleboard.org"
+gitlab_repo = "docs.beagleboard.io"
+docs_url = "https://docs.beagleboard.io/latest/"
 
 # parse pages details from 'PAGES' file
 with open(BBDOCS_BASE  / "PAGES") as f:
@@ -94,6 +99,10 @@ with open(BBDOCS_BASE  / "PAGES") as f:
         (
             r"^PAGES_URL\s*=\s*(\S+)$\n"
             + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
+            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
+            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
+            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
+            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
         ),
         f.read(),
         re.MULTILINE,
@@ -102,18 +111,22 @@ with open(BBDOCS_BASE  / "PAGES") as f:
     if not m:
         sys.stderr.write("Warning: Could not extract pages information\n")
     else:
-        url, slug = m.groups(1)
+        url, slug, user, branch, host, repo = m.groups(1)
         slug = "latest" if slug == "main" else slug
         pages_url = url
         pages_slug = slug
+        gitlab_user = user
+        gitlab_version = branch
+        gitlab_host = host
+        gitlab_repo = repo
         docs_url = "/".join((url, slug))
 
 html_context = {
     "display_gitlab": True,
-    "gitlab_host": "git.beagleboard.org",
-    "gitlab_user": "docs",
-    "gitlab_repo": "docs.beagleboard.io",
-    "gitlab_version": "main",
+    "gitlab_host": gitlab_host,
+    "gitlab_user": gitlab_user,
+    "gitlab_repo": gitlab_repo,
+    "gitlab_version": gitlab_version,
     "conf_py_path": "/",
     "show_license": True,
     "pages_url": pages_url,
