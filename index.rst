@@ -50,7 +50,23 @@ from source using appropriate design tools.
    :margin: 4 4 0 0
    :gutter: 4
 
-   .. grid-item-card:: 
+   .. grid-item-card::
+      :link: beagleboneblack-home
+      :link-type: ref
+
+      **BeagleBone® AI-64**
+      ^^^
+
+      .. image:: boards/images/beaglebone-ai-64-400x.webp
+         :align: center
+      +++
+
+      A complete 64-bit AI and Machine Learning System with the convenience
+      and expandability of the BeagleBone® platform with the peripherals on
+      board to get started right away learning and building applications.
+
+
+   .. grid-item-card::
       :link: beagleboneblack-home
       :link-type: ref
 
