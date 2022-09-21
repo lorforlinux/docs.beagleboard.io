@@ -392,23 +392,29 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 
 .. table:: I2C port mapping
 
-	+------------------+--------------+--------+-------+------------+-------+--------+-----------+
-	| SYSFS            | DT symbol    | Black  | AI    | AI-64      | SCL   | SDA    | Overlay   |
-	+==================+==============+========+=======+============+=======+========+===========+
-	| /dev/bone/i2c/0  | bone_i2c_0   | I2C0   | I2C1  | TBD        | On-board                   |
-	+------------------+--------------+--------+-------+------------+-------+--------+-----------+
-	| /dev/bone/i2c/1  | bone_i2c_1   | I2C1   | I2C5  | MAIN_I2C6  | P9.17 | P9.18  | BONE-I2C1 |
-	+------------------+--------------+--------+-------+------------+-------+--------+-----------+
-	| /dev/bone/i2c/2  | bone_i2c_2   | I2C2   | I2C4  | MAIN_I2C3  | P9.19 | P9.20  | BONE-I2C2 |
-	+------------------+--------------+--------+-------+------------+-------+--------+-----------+
-	| /dev/bone/i2c/3  | bone_i2c_3   | I2C1   | I2C3  | MAIN_I2C4  | P9.24 | P9.26  | BONE-I2C3 |
-	+------------------+--------------+--------+-------+------------+-------+--------+-----------+
-	| /dev/bone/i2c/4  | bone_i2c_4   | I2C2   | *n/a* | MAIN_I2C3  | P9.21 | P9.22  | BONE-I2C4 |
-	+------------------+--------------+--------+-------+------------+-------+--------+-----------+
+	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
+	| SYSFS           | DT symbol    | Black | AI    | AI-64     | SCL   | SDA    | Overlay   |
+	+=================+==============+=======+=======+===========+=======+========+===========+
+	| /dev/bone/i2c/0 | bone_i2c_0   | I2C0  | I2C1  | TBD       | On-board                   |
+	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
+	| /dev/bone/i2c/1 | bone_i2c_1   | I2C1  | I2C5  | MAIN_I2C6 | P9.17 | P9.18  | BONE-I2C1 |
+	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
+	| /dev/bone/i2c/2 | bone_i2c_2   | I2C2  | I2C4  | MAIN_I2C3 | P9.19 | P9.20  | BONE-I2C2 |
+	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
+	| /dev/bone/i2c/3 | bone_i2c_3   | I2C1  | I2C3  | MAIN_I2C4 | P9.24 | P9.26  | BONE-I2C3 |
+	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
+	| /dev/bone/i2c/4 | bone_i2c_4   | I2C2  | *n/a* | MAIN_I2C3 | P9.21 | P9.22  | BONE-I2C4 |
+	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
 
 .. important::
 
    In the case the same controller is used for 2 different bone bus nodes, usage of those nodes is mutually-exclusive.
+
+.. note::
+
+   The provided pre-compiled overlays enable the |I2C| bus driver only, not a specific device driver.  Either a custom
+   overlay is required to load the device driver or usermode device driver loading can be performed, depending on
+   the driver. See :ref:`bone101_i2c` for information on loading |I2C| drivers from userspace.
 
 .. code-block:: c
    :linenos:
@@ -490,6 +496,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 .. [2] Only available on AI and AI-64
 
 .. note::
+
    The provided pre-compiled overlays enable the "spidev" driver using the "rohm,dh2228fv" compatible string.
    See https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree for
    more background. A custom overlay is required to overload the compatible string to load a non-spidev driver.
@@ -532,9 +539,9 @@ UART bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	+===================+=====+======+==================+=====+============+=====+======+============+
 	|   Functions       | odd | even |    Functions     |     | Functions  | odd | even | Functions  |
 	+-------------------+-----+------+------------------+-----+------------+-----+------+------------+
-	| 4 RX              | 11  | 12   |                  |     |            | 11  | 12   |            |
+	| 4 RX [6]_         | 11  | 12   |                  |     |            | 11  | 12   |            |
 	+-------------------+-----+------+------------------+-----+------------+-----+------+------------+
-	| 4 TX              | 13  | 14   |                  |     |            | 13  | 14   |            |
+	| 4 TX [6]_         | 13  | 14   |                  |     |            | 13  | 14   |            |
 	+-------------------+-----+------+------------------+-----+------------+-----+------+------------+
 	|                   | 15  | 16   |                  |     |            | 15  | 16   |            |
 	+-------------------+-----+------+------------------+-----+------------+-----+------+------------+
@@ -566,30 +573,37 @@ UART bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	+-------------------+-----+------+------------------+-----+------------+-----+------+------------+
 
 .. important::
+
    RTSn and CTSn mappings are not compatible across boards in the family and are therefore not part of the
    cape specification.
 
 .. table:: UART port mapping
 
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| Bone bus          | DT symbol    | Black  | AI     | AI-64                 | TX     | RX     | Overlay    |
-	+===================+==============+========+========+=======================+========+========+============+
-	| /dev/bone/uart/0  | bone_uart_0  | UART0  | UART1  | MAIN_UART0            | Console debug header pins    |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/1  | bone_uart_1  | UART1  | UART10 | MAIN_UART2            | P9.24  | P9.26  | BONE-UART1 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/2  | bone_uart_2  | UART2  | UART3  | *n/a*                 | P9.21  | P9.22  | BONE-UART2 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/3  | bone_uart_3  | UART3  | *n/a*  | *n/a*                 | P9.42  | *n/a*  | BONE-UART3 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/4  | bone_uart_4  | UART4  | UART5  | MAIN_UART0 (console)  | P9.13  | P9.11  | BONE-UART4 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/5  | bone_uart_5  | UART5  | UART8  | MAIN_UART5            | P8.37  | P8.38  | BONE-UART5 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/6  | bone_uart_6  | *n/a*  | *n/a*  | MAIN_UART8            | P8.29  | P8.28  | BONE-UART6 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
-	| /dev/bone/uart/7  | bone_uart_7  | *n/a*  | *n/a*  | MAIN_UART2            | P8.34  | P8.22  | BONE-UART7 |
-	+-------------------+--------------+--------+--------+-----------------------+--------+--------+------------+
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| Bone bus          | DT symbol    | Black  | AI     | AI-64           | TX     | RX     | Overlay    |
+	+===================+==============+========+========+=================+========+========+============+
+	| /dev/bone/uart/0  | bone_uart_0  | UART0  | UART1  | MAIN_UART0      | Console debug header pins    |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/1  | bone_uart_1  | UART1  | UART10 | MAIN_UART2      | P9.24  | P9.26  | BONE-UART1 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/2  | bone_uart_2  | UART2  | UART3  | *n/a*           | P9.21  | P9.22  | BONE-UART2 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/3  | bone_uart_3  | UART3  | *n/a*  | *n/a*           | P9.42  | *n/a*  | BONE-UART3 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/4  | bone_uart_4  | UART4  | UART5  | MAIN_UART0 [6]_ | P9.13  | P9.11  | BONE-UART4 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/5  | bone_uart_5  | UART5  | UART8  | MAIN_UART5      | P8.37  | P8.38  | BONE-UART5 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/6  | bone_uart_6  | *n/a*  | *n/a*  | MAIN_UART8      | P8.29  | P8.28  | BONE-UART6 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+	| /dev/bone/uart/7  | bone_uart_7  | *n/a*  | *n/a*  | MAIN_UART2      | P8.34  | P8.22  | BONE-UART7 |
+	+-------------------+--------------+--------+--------+-----------------+--------+--------+------------+
+
+.. [6] This port is shared with the console UART on AI-64
+
+.. important::
+
+   In the case the same controller is used for 2 different bone bus nodes, usage of those nodes is mutually-exclusive.
 
 .. _bone-can:
 
