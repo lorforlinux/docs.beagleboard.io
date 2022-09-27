@@ -65,9 +65,9 @@ cat <<HERE > public/index.html
     <p>Please follow <a href="latest/">this link</a>.</p>
   </body>
 </html>
-fi
-cp public/index.html /var/www/docs
 HERE
+cp public/index.html /var/www/docs
+fi
 sphinx-build -b html . public/$GIT_BRANCH/
 sphinx-build -M latexpdf . public/$GIT_BRANCH/
 cp public/$GIT_BRANCH/latex/beagleboard-docs.pdf public/$GIT_BRANCH/beagleboard-docs-$CI_COMMIT_TAG.pdf
