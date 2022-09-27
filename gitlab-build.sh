@@ -29,9 +29,6 @@ cat <<HERE > public/index.html
   </body>
 </html>
 HERE
-# This is just a temporary to test
-rsync -a --delete public/latest/. /var/www/docs/latest
-cp public/index.html /var/www/docs
 
 elif [ "$CI_COMMIT_BRANCH" != "" ]; then
 
