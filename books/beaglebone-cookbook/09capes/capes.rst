@@ -557,11 +557,11 @@ Testing the quickBot motors interface (quickBot_motor_test.js)
 
     <2> Make other simple parameters variables. Again, this makes it easy to update them. When creating this test, I found that the PWM frequency to drive the motors needed to be relatively low to get over the kickback shown in :ref:`quickBot_motor_kickback`. I also found that I needed to get up to about 70 percent duty cycle for my circuit to reliably start the motors turning.
 
-    <3> Use a simple variable such as `state` to keep track of the test phase. This is used in a `switch` statement to jump to the code to configure for that test phase and updated after configuring for the current phase in order to select the next phase. Note that the next phase isn&#8217;t entered until after a two-second delay, as specified in the call to `setTimeout()`.
+    <3> Use a simple variable such as `state` to keep track of the test phase. This is used in a `switch` statement to jump to the code to configure for that test phase and updated after configuring for the current phase in order to select the next phase. Note that the next phase isn't entered until after a two-second delay, as specified in the call to `setTimeout()`.
 
     <4> Perform the initial setup of all the pins.
 
-    <5> The first time a PWM pin is used, it is configured with the update frequency. It is important to set this just once to the right frequency, because other PWM channels might use the same PWM controller, and attempts to reset the PWM frequency might fail. The <code>pinMode()</code> function doesn&#8217;t have an argument for providing the update frequency, so use the <code>analogWrite()</code> function, instead. You can review using the PWM in :ref:`motors_servo`.
+    <5> The first time a PWM pin is used, it is configured with the update frequency. It is important to set this just once to the right frequency, because other PWM channels might use the same PWM controller, and attempts to reset the PWM frequency might fail. The <code>pinMode()</code> function doesn't have an argument for providing the update frequency, so use the <code>analogWrite()</code> function, instead. You can review using the PWM in :ref:`motors_servo`.
 
     <6> `updateMotors()` is the test function for the motors and is defined after all the setup and initialization code. The code calls this function every two seconds using the `setTimeout()` JavaScript function. The first call is used to prime the loop.
 

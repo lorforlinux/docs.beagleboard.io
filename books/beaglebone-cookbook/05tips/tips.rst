@@ -528,8 +528,8 @@ Just enter the following command:
 
 You are now in nano (:ref:`tips_nano_fig`). You can't move around the screen 
 using the mouse, so use the arrow keys. The bottom two lines of the screen 
-list some useful commands. Pressing &#708;G (Ctrl-G) will display more useful 
-commands. &#708;X (Ctrl-X) exits nano and gives you the option of saving the file.
+list some useful commands. Pressing ^G (Ctrl-G) will display more useful 
+commands. ^X (Ctrl-X) exits nano and gives you the option of saving the file.
 
 .. _tips_nano_fig:
 
