@@ -3,6 +3,10 @@
 BeagleConnect Freedom
 ######################
 
+.. important::
+
+   Currently under development
+
 .. image:: media/image1.jpg
    :width: 600
    :align: center

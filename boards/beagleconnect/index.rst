@@ -3,6 +3,10 @@
 BeagleConnect
 ###############
 
+.. important::
+
+   Currently under development
+
 BeagleConnect™ is a revolutionary technology virtually eliminating low-level 
 software development for `IoT <https://en.wikipedia.org/wiki/Internet_of_things>`_ 
 and `IIoT <https://en.wikipedia.org/wiki/Industrial_internet_of_things>`_ 
