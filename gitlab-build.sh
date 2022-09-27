@@ -30,6 +30,12 @@ cat <<HERE > public/index.html
 </html>
 HERE
 
+# Brought back for more testing...
+cp public/index.html /var/www/docs
+sudo apk add rsync
+rsync -a --delete public/latest/. /var/www/docs/latest
+# End testing.
+
 elif [ "$CI_COMMIT_BRANCH" != "" ]; then
 
 sphinx-build -b html . public/$CI_COMMIT_BRANCH/
@@ -70,6 +76,7 @@ sphinx-build -M latexpdf . public/$GIT_BRANCH/
 cp public/$GIT_BRANCH/latex/beagleboard-docs.pdf public/$GIT_BRANCH/beagleboard-docs-$CI_COMMIT_TAG.pdf
 cp public/$GIT_BRANCH/latex/beagleboard-docs.pdf public/$GIT_BRANCH/beagleboard-docs.pdf
 rm -rf public/$GIT_BRANCH/latex
+sudo apk add rsync
 rsync -a --delete public/$GIT_BRANCH/. /var/www/docs/$GIT_BRANCH
 
 fi
