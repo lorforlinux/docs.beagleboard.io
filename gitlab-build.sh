@@ -32,7 +32,7 @@ HERE
 
 # Brought back for more testing...
 cp public/index.html /var/www/docs
-sudo apk add rsync
+apk add rsync
 rsync -a --delete public/latest/. /var/www/docs/latest
 # End testing.
 
