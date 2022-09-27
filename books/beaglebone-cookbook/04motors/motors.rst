@@ -3,6 +3,10 @@
 Motors
 ########
 
+.. |kohm| replace:: kΩ
+
+.. |ohm| replace:: Ω
+
 One of the many fun things about embedded computers is that you can move physical things with motors.
 But there are so many different kinds of motors (``servo``, ``stepper``, ``DC``), so how do you select the right one?
 
@@ -52,10 +56,10 @@ To make the recipe, you will need:
 
 * Servo motor.
 * Breadboard and jumper wires.
-* 1 k&#8486; resistor (optional)
+* 1 |kohm| resistor (optional)
 * 5 V power supply (optional)
 
-The 1 k&#8486; resistor isn't required, but it provides some protection to the general-purpose 
+The 1 |kohm| resistor isn't required, but it provides some protection to the general-purpose 
 input/output (GPIO) pin in case the servo fails and draws a large current. 
 
 Wire up your servo, as shown in :ref:`motors_servoMotor`.  
@@ -158,7 +162,7 @@ Here's what you will need:
 
 * 3 V to 5 V DC motor
 * Breadboard and jumper wires.
-* 1 k&#8486; resistor.
+* 1 |kohm| resistor.
 * Transistor 2N3904.
 * Diode 1N4001.
 * Power supply for the motor (optional)
