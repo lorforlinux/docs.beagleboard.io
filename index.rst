@@ -8,6 +8,9 @@ BeagleBoard Documentation
 
 Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`__.
 
+Official documentation releases are provided at https://docs.beagle.cc (cached with local proxies) and
+https://docs.beagleboard.org (non-cached, without proxies).
+
 .. note:: 
    The BeagleBoard.org Foundation is a US-based 501(c)3 non-profit organization providing open hardware
    computing solutions for a community of makers, educators and professionals that enable
