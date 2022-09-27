@@ -147,7 +147,6 @@ latex_elements = {
     "papersize": "a4paper",
     "maketitle": open(BBDOCS_BASE / "_static" / "latex" / "title.tex").read(),
     "preamble": open(BBDOCS_BASE / "_static" / "latex" / "preamble.tex").read(),
-    "fontpkg": r"\usepackage{charter}",
     "sphinxsetup": ",".join(
         (
             "verbatimwithframe=false",
@@ -159,6 +158,7 @@ latex_elements = {
         )
     ),
 }
+latex_engine = "xelatex"
 latex_logo = str(BBDOCS_BASE / "_static" / "images" / "logo-latex.pdf")
 latex_documents = [
     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
