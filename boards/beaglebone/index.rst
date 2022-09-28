@@ -28,13 +28,3 @@ of your screen.
 * :ref:`beaglebone-ai-home`
 * :ref:`bbai64-home`
 
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   /boards/beaglebone/black/index
-   /boards/beaglebone/blue/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/ai-64/index
-
