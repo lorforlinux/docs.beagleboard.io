@@ -8,6 +8,9 @@ BeagleBoard Documentation
 
 Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`__.
 
+Official documentation releases are provided at https://docs.beagle.cc (cached with local proxies) and
+https://docs.beagleboard.org (non-cached, without proxies).
+
 .. note:: 
    The BeagleBoard.org Foundation is a US-based 501(c)3 non-profit organization providing open hardware
    computing solutions for a community of makers, educators and professionals that enable
@@ -50,7 +53,23 @@ from source using appropriate design tools.
    :margin: 4 4 0 0
    :gutter: 4
 
-   .. grid-item-card:: 
+   .. grid-item-card::
+      :link: beagleboneblack-home
+      :link-type: ref
+
+      **BeagleBone® AI-64**
+      ^^^
+
+      .. image:: boards/images/beaglebone-ai-64-400x.webp
+         :align: center
+      +++
+
+      A complete 64-bit AI and Machine Learning System with the convenience
+      and expandability of the BeagleBone® platform with the peripherals on
+      board to get started right away learning and building applications.
+
+
+   .. grid-item-card::
       :link: beagleboneblack-home
       :link-type: ref
 

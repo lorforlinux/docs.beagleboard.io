@@ -22,8 +22,13 @@ started.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    /boards/beaglebone/index
+   /boards/beaglebone/black/index
+   /boards/beaglebone/blue/index
+   /boards/beaglebone/ai/index
+   /boards/beaglebone/ai-64/index
    /boards/pocketbeagle/original/index
    /boards/capes/index
    /boards/beagleconnect/index

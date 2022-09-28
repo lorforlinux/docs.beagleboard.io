@@ -44,9 +44,9 @@ that provide the following:
 *  What would you consider to be a success?
 
 .. important::
-   Remember that community developers are volunteering their expertise. If you
-   want paid support, there are :ref:`consulting-resources` options for that. Respect
-   developers time and expertise and they might be happy to share with you.
+   Remember that community developers are volunteering their expertise. Respect
+   developers time and expertise and they might be happy to share with you. If you
+   want paid support, there are :ref:`consulting-resources` options for that. 
 
 Diagnostic tools
 ================

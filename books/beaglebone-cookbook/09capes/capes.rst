@@ -125,7 +125,7 @@ The `manufacturer's website <http://bit.ly/1xd0r8p>`_ suggests enabling SPI0 by 
 .. code-block:: shell-session
 
     bone$ export SLOTS=/sys/devices/bone_capemgr.*/slots
-    bone$ echo BB-SPIDEV0 &gt; $SLOTS
+    bone$ echo BB-SPIDEV0 > $SLOTS
 
 
 Hmmm, something isn't working here. Here's how to see what happened:
@@ -153,7 +153,7 @@ Hmmm, something isn't working here. Here's how to see what happened:
 
     .. annotations::
 
-        <1> Shows there is a conflict for pin <code>P9_21</code>: it's already configured for pulse width modulation (PWM).
+        <1> Shows there is a conflict for pin `P9_21`: it's already configured for pulse width modulation (PWM).
 
 
 Here's how to see what's already configured:
@@ -177,13 +177,13 @@ Here's how to see what's already configured:
 
     .. annotations::
 
-        <1> You can see the eMMC, HDMI, and three PWMs are already using some of the pins. Slot 10 shows <code>P9_21</code> is in use by a PWM.
+        <1> You can see the eMMC, HDMI, and three PWMs are already using some of the pins. Slot 10 shows `P9_21` is in use by a PWM.
 
 You can unconfigure it by using the following commands:
 
 .. code-block:: bash
 
-    bone$ echo -10 &gt; $SLOTS
+    bone$ echo -10 > $SLOTS
     bone$ cat $SLOTS
     0: 54:PF--- 
     1: 55:PF--- 
@@ -206,7 +206,7 @@ Now, configure it for the MiniDisplay and run a test:
 
 .. code-block:: bash
 
-    bone$ echo BB-SPIDEV0 &gt; $SLOTS
+    bone$ echo BB-SPIDEV0 > $SLOTS
     bone$ ./minidisplay-test
 
 
@@ -527,51 +527,53 @@ Testing the quickBot motors interface (quickBot_motor_test.js)
             }
         }
 
-        function M1_set(speed) { <img src="callouts/8.png" alt="8"/>
-            speed = (speed &gt; 1) ? 1 : speed; // <9>
-            speed = (speed &lt; -1) ? -1 : speed;
+        function M1_set(speed) { // <8>
+            speed = (speed > 1) ? 1 : speed; // <9>
+            speed = (speed < -1) ? -1 : speed;
             b.digitalWrite(M1_FORWARD, b.LOW);
             b.digitalWrite(M1_BACKWARD, b.LOW);
-            if(speed &gt; 0) {
+            if(speed > 0) {
                 b.digitalWrite(M1_FORWARD, b.HIGH);
-            } else if(speed &lt; 0) {
+            } else if(speed < 0) {
                 b.digitalWrite(M1_BACKWARD, b.HIGH);
             }
             b.analogWrite(M1_SPEED, Math.abs(speed), freq); // <10>
         }
 
         function M2_set(speed) {
-            speed = (speed &gt; 1) ? 1 : speed;
-            speed = (speed &lt; -1) ? -1 : speed;
+            speed = (speed > 1) ? 1 : speed;
+            speed = (speed < -1) ? -1 : speed;
             b.digitalWrite(M2_FORWARD, b.LOW);
             b.digitalWrite(M2_BACKWARD, b.LOW);
-            if(speed &gt; 0) {
+            if(speed > 0) {
                 b.digitalWrite(M2_FORWARD, b.HIGH);
-            } else if(speed &lt; 0) {
+            } else if(speed < 0) {
                 b.digitalWrite(M2_BACKWARD, b.HIGH);
             }
             b.analogWrite(M2_SPEED, Math.abs(speed), freq);
 
 
-    <1> Define each pin as a variable. This makes it easy to change to another pin if you decide that is necessary.
+   .. annotations::
 
-    <2> Make other simple parameters variables. Again, this makes it easy to update them. When creating this test, I found that the PWM frequency to drive the motors needed to be relatively low to get over the kickback shown in :ref:`quickBot_motor_kickback`. I also found that I needed to get up to about 70 percent duty cycle for my circuit to reliably start the motors turning.
+      <1> Define each pin as a variable. This makes it easy to change to another pin if you decide that is necessary.
 
-    <3> Use a simple variable such as `state` to keep track of the test phase. This is used in a `switch` statement to jump to the code to configure for that test phase and updated after configuring for the current phase in order to select the next phase. Note that the next phase isn&#8217;t entered until after a two-second delay, as specified in the call to `setTimeout()`.
+      <2> Make other simple parameters variables. Again, this makes it easy to update them. When creating this test, I found that the PWM frequency to drive the motors needed to be relatively low to get over the kickback shown in :ref:`quickBot_motor_kickback`. I also found that I needed to get up to about 70 percent duty cycle for my circuit to reliably start the motors turning.
 
-    <4> Perform the initial setup of all the pins.
+      <3> Use a simple variable such as `state` to keep track of the test phase. This is used in a `switch` statement to jump to the code to configure for that test phase and updated after configuring for the current phase in order to select the next phase. Note that the next phase isn't entered until after a two-second delay, as specified in the call to `setTimeout()`.
 
-    <5> The first time a PWM pin is used, it is configured with the update frequency. It is important to set this just once to the right frequency, because other PWM channels might use the same PWM controller, and attempts to reset the PWM frequency might fail. The <code>pinMode()</code> function doesn&#8217;t have an argument for providing the update frequency, so use the <code>analogWrite()</code> function, instead. You can review using the PWM in :ref:`motors_servo`.
+      <4> Perform the initial setup of all the pins.
 
-    <6> `updateMotors()` is the test function for the motors and is defined after all the setup and initialization code. The code calls this function every two seconds using the `setTimeout()` JavaScript function. The first call is used to prime the loop.
+      <5> The first time a PWM pin is used, it is configured with the update frequency. It is important to set this just once to the right frequency, because other PWM channels might use the same PWM controller, and attempts to reset the PWM frequency might fail. The `pinMode()` function doesn't have an argument for providing the update frequency, so use the `analogWrite()` function, instead. You can review using the PWM in :ref:`motors_servo`.
 
-    <7> The call to `console.log()` was initially here to observe the state transitions in the debug console, but it was replaced with the `updateLEDs()` call. Using the `USER` LEDs makes it possible to note the state transitions without having visibility of the debug console. `updateLEDs()` is defined later.
+      <6> `updateMotors()` is the test function for the motors and is defined after all the setup and initialization code. The code calls this function every two seconds using the `setTimeout()` JavaScript function. The first call is used to prime the loop.
 
-    <8> The `M1_set()` and `M2_set()` functions are defined near the bottom and do the work of configuring the motor drivers into a particular state. They take a single argument of `speed`, as defined between `-1` (maximum reverse), `0` (stop), and `1` (maximum forward).
+      <7> The call to `console.log()` was initially here to observe the state transitions in the debug console, but it was replaced with the `updateLEDs()` call. Using the `USER` LEDs makes it possible to note the state transitions without having visibility of the debug console. `updateLEDs()` is defined later.
 
-    <9> Perform simple bounds checking to ensure that speed values are between `-1` and `1`.
+      <8> The `M1_set()` and `M2_set()` functions are defined near the bottom and do the work of configuring the motor drivers into a particular state. They take a single argument of `speed`, as defined between `-1` (maximum reverse), `0` (stop), and `1` (maximum forward).
 
-    <10> The `analogWrite()` call uses the absolute value of `speed`, making any negative numbers a positive magnitude.
+      <9> Perform simple bounds checking to ensure that speed values are between `-1` and `1`.
+
+      <10> The `analogWrite()` call uses the absolute value of `speed`, making any negative numbers a positive magnitude.
 
 .. _quickBot_motor_kickback:
 
@@ -649,29 +651,31 @@ The `Fritzing custom PCB outline page <http://bit.ly/1xd1aGV>`_ describes how to
 board outline. Although it is possible to use a drawing tool like `Inkscape <https://inkscape.org/en/>`_, 
 I chose to use `the SVG path command <http://bit.ly/1b2aZmn>`_ directly to create :ref:`capes_boardoutline_code`.
 
-.. _capes_boardoutline_code:
+.. callout::
 
-Outline SVG for BeagleBone cape (beaglebone_cape_boardoutline.svg)
-===================================================================
+    .. code-block:: xml
+       :caption: Outline SVG for BeagleBone cape (beaglebone_cape_boardoutline.svg)
+       :name: capes_boardoutline_code
+       :linenos:
+    
+       <?xml version='1.0' encoding='UTF-8' standalone='no'?>
+       <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+        width="306"  height="193.5"> <!-- <1> -->
+        <g id="board"> <!-- <2> -->
+         <path fill="#338040" id="boardoutline" d="M 22.5,0 l 0,56 L 72,56
+          q 5,0 5,5 l 0,53.5 q 0,5 -5,5 L 0,119.5 L 0,171 Q 0,193.5 22.5,193.5 
+          l 238.5,0 c 24.85281,0 45,-20.14719 45,-45 L 306,45 
+          C 306,20.14719 285.85281,0 261,0 z"/> <!-- <3> -->
+        </g>
+       </svg>
 
-.. &lt;?xml version='1.0' encoding='UTF-8' standalone='no'?&gt;
-.. &lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-..     width="306"  height="193.5"&gt;&lt;!--<a class="co" id="co_capes_bo_1_co" href="#callout_capes_bo_1_co"><img src="callouts/1.png" alt="1"/></a>--&gt;
-..  &lt;g id="board"&gt;&lt;!--<a class="co" id="co_capes_bo_2_co" href="#callout_capes_bo_2_co"><img src="callouts/2.png" alt="2"/></a>--&gt;
-..   &lt;path fill="#338040" id="boardoutline" d="M 22.5,0 l 0,56 L 72,56
-..       q 5,0 5,5 l 0,53.5 q 0,5 -5,5 L 0,119.5 L 0,171 Q 0,193.5 22.5,193.5 
-..       l 238.5,0 c 24.85281,0 45,-20.14719 45,-45 L 306,45 
-..       C 306,20.14719 285.85281,0 261,0 z"/&gt;&lt;!--<a class="co" id="co_capes_bo_3_co" href="#callout_capes_bo_3_co"><img src="callouts/3.png" alt="3"/></a>--&gt;
-..  &lt;/g&gt;
-.. &lt;/svg&gt;
+    .. annotations::
 
-.. ++++
-.. <dl class="calloutlist">
-.. <dt><a class="co" id="callout_capes_bo_1_co" href="#co_capes_bo_1_co"><img src="callouts/1.png" alt="1"/></a></dt><dd><p>This is a standard SVG header. The width and height are set based on the BeagleBone outline provided in the Adafruit library.</p></dd>
-.. <dt><a class="co" id="callout_capes_bo_2_co" href="#co_capes_bo_2_co"><img src="callouts/2.png" alt="2"/></a></dt><dd><p>Fritzing requires the element to be within a layer called <code>board</code>.</p></dd>
-.. <dt><a class="co" id="callout_capes_bo_3_co" href="#co_capes_bo_3_co"><img src="callouts/3.png" alt="3"/></a></dt><dd><p>Fritzing requires the color to be <code>#338040</code> and the layer to be called <code>boardoutline</code>. The units end up being 1/90 of an inch. That is, take the numbers in the SVG code and divide by 90 to get the numbers from the System Reference Manual.</p></dd>
-.. </dl>
-.. ++++
+       <1> This is a standard SVG header. The width and height are set based on the BeagleBone outline provided in the Adafruit library.
+
+       <2> Fritzing requires the element to be within a layer called `board`
+
+       <3> Fritzing requires the color to be `#338040` and the layer to be called `boardoutline`. The units end up being 1/90 of an inch. That is, take the numbers in the SVG code and divide by 90 to get the numbers from the System Reference Manual.
 
 The measurements are taken from the :ref:`beagleboneblack-mechanical` section of the :ref:`BeagleBone Black System Reference Manual <beagleboneblack-home>`, as shown in :ref:`capes_dimensions_fig`.
 
