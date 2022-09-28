@@ -29,14 +29,15 @@ more) the lenth of the heading text, for example:
     .. code-block:: ReStructuredText
 
         incorrect H1
-        ##### # <1>
+        ##### <1>
 
         correct H1
-        ############ # <2>
+        ############ <2>
     
     .. annotations::
 
-        * <1> length of heading sybol ``#`` is smaller than the content above.
-        * <2> Shows the correct way of setting the document title (H1) with ``#``.
+        <1> Length of heading sybol ``#`` is smaller than the content above.
+
+        <2> Shows the correct way of setting the document title (H1) with ``#``.
 
     

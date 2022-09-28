@@ -47,7 +47,7 @@ class LiteralIncludeVisitor(nodes.NodeVisitor):
             source = str(node.rawsource)
             for i in range(1, 20):
                 source = source.replace(
-                    f"<{i}>", chr(int(f"0x{BASE_NUM + i}", base=16))
+                    f"<{i}>", "``" + chr(int(f"0x{BASE_NUM + i}", base=16)) + "``"
                 )
             node.rawsource = source
             node[:] = [nodes.Text(source)]
