@@ -28,16 +28,18 @@ monitoring a digital light sensor.
 
 .. code-block:: bash
 
-  cd /sys/bus/i2c/devices/i2c-1
+  cd /dev/bone/i2c/2
   echo tsl2561 0x29 > new_device
-  watch -n0 cat "1-0029/iio:device0/in_illuminance0_input"
+  watch -n0 cat "2-0029/iio:device0/in_illuminance0_input"
 
 Once you issue this, your screen continuously refresh with luminance values from the
 add-on sensor.
 
-In the above example, `/sys/bus/i2c/devices/i2c-1` comes from which I2C controller
+In the above example, `/dev/bone/i2c/2` comes from which I2C controller
 we are using on the board and there are specific pins on the board where you can
-access it.
+access it. On BeagleBone boards, there is often a symbolic link to the controller
+based upon the cape expansion header pins being used. See :ref:`bone-i2c` for the
+cape expansion header pin assignments.
 
 `tsl2561` is the name of the driver we want to load and `0x29` is the address of the
 device on the I2C bus. If you want to know about I2C device addresses, the
@@ -48,10 +50,10 @@ place to start. The `new_device` virtual file is documented in the
 On the last line, `watch <https://manpages.debian.org/bullseye/procps/watch.1.en.html>`__
 is a program that will repeatedly run the command that follows. The `-n0` sets the refresh 
 rate. The program `cat <https://manpages.debian.org/bullseye/coreutils/cat.1.en.html>`__
-will share the contents of the file `1-0029/iio\:device0/in_illuminance0_input`.
+will share the contents of the file `2-0029/iio\:device0/in_illuminance0_input`.
 
-`1-0029/iio:device0/in_illuminance0_input` is not a file on a disk, but output directly
-from the driver. The 1 in `1-0029` represents the I2C controller index. The `0029`
+`2-0029/iio:device0/in_illuminance0_input` is not a file on a disk, but output directly
+from the driver. The leading 2 in `2-0029` represents the I2C controller index. The `0029`
 represents the device I2C address. Most small sensor and actuator drivers will show up as
 `Industrial I/O (IIO) devices <https://www.kernel.org/doc/html/v5.19/driver-api/iio/index.html>`__.
 New IIO devices get incrementing indexes. In this case, `iio:device0` is the first IIO device

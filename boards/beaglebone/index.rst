@@ -10,7 +10,8 @@ The most popular design is :ref:`beagleboneblack-home`, a staple reference for a
 embedded Linux single board computer.
 
 :ref:`bbai64-home` is our most powerful design with tremendous machine learning inference
-performance and 
+performance, 64-bit processing and a mixture of microcontrollers for various types of
+highly-reliable and low-latency control.
 
 For simplicity of developing small, mobile robotics, check out :ref:`beaglebone-blue-home`, a highly
 integrated board with motor drivers, battery support, altimeter, gyroscope, accelerometer,
@@ -24,6 +25,6 @@ of your screen.
 * `BeagleBone (original) <https://git.beagleboard.org/beagleboard/beaglebone/-/blob/master/BeagleBone_SRM_A6_0_1.pdf>`__
 * :ref:`beagleboneblack-home`
 * :ref:`beaglebone-blue-home`
-* :ref:`bbai64-home`
 * :ref:`beaglebone-ai-home`
+* :ref:`bbai64-home`
 
