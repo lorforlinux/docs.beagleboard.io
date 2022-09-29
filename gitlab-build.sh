@@ -9,7 +9,6 @@ export VER_LATEST_MINOR=1
 export VER_LATEST_EXTRA=rc
 export PATCHLEVEL=$(date +%Y%m%d)
 export VERSION_TWEAK=$(( $(date "+10#%H * 60 + 10#%M") ))
-export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
 
 if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 	export VER_DIR=latest
@@ -30,8 +29,12 @@ elif [ "$CI_COMMIT_BRANCH" != "" ]; then
 	export GITLAB_HOST=$CI_SERVER_HOST
 	export PROJECT_BRANCH=$CI_COMMIT_BRANCH
 	export PROJECT_REPO=$CI_PROJECT_NAME
-	# TODO Figure out which MAJOR/MINOR/EXTRA we are on
+	export BRANCH_VER=($(echo $CI_COMMIT_BRANCH | tr "." "\n"))
+	export VERSION_MAJOR=${BRANCH_VER[0]}
+	export VERSION_MINOR=${BRANCH_VER[1]}
+	export EXTRAVERSION=
 elif [ "$CI_COMMIT_TAG" != "" ]; then
+	export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
 	if [ "$GIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 		export VER_DIR=latest
 		export PAGES_URL=https://docs.beagleboard.org
@@ -42,6 +45,7 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 		export PROJECT_REPO=docs.beagleboard.io
 		export VERSION_MAJOR=$VER_LATEST_MAJOR
 		export VERSION_MINOR=$VER_LATEST_MINOR
+		export EXTRAVERSION=$VER_LATEST_EXTRA
 	else
 		export VER_DIR=$GIT_BRANCH
 		export PAGES_URL=https://docs.beagleboard.org
@@ -50,7 +54,10 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 		export GITLAB_HOST=$CI_SERVER_HOST
 		export PROJECT_BRANCH=$GIT_BRANCH
 		export PROJECT_REPO=docs.beagleboard.io
-		# TODO Figure out which MAJOR/MINOR we are on
+		export BRANCH_VER=($(echo $GIT_BRANCH | tr "." "\n"))
+		export VERSION_MAJOR=${BRANCH_VER[0]}
+		export VERSION_MINOR=${BRANCH_VER[1]}
+		export EXTRAVERSION=
 	fi
 else
 	echo "***** Not on a branch or tag *****"
