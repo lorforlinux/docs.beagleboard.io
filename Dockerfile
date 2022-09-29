@@ -9,3 +9,4 @@ RUN pip install sphinx_rtd_theme
 RUN apk add texlive-full
 RUN apk add make
 RUN apk add rsync
+RUN apk add git

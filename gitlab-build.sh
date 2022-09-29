@@ -41,6 +41,7 @@ rm -rf public/$CI_COMMIT_BRANCH/latex
 
 elif [ "$CI_COMMIT_TAG" != "" ]; then
 
+sudo apk add git
 # Find which branch has the tag commit
 export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
 echo "**** Releasing $GIT_BRANCH version $CI_COMMIT_TAG on docs.beagleboard.org (source from $CI_PROJECT_NAMESPACE) ****"
