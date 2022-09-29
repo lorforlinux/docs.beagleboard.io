@@ -39,7 +39,7 @@ sphinx-build -M latexpdf . public/$CI_COMMIT_BRANCH/
 mv public/$CI_COMMIT_BRANCH/latex/beagleboard-docs.pdf public/$CI_COMMIT_BRANCH/
 rm -rf public/$CI_COMMIT_BRANCH/latex
 
-elif [ "$CI_COMMIT_TAG" != "" && "$CI_PROJECT_NAMESPACE" = "docs" ]; then
+elif [ "$CI_COMMIT_TAG" != "" ]; then
 
 # Find which branch has the tag commit
 export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
