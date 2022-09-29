@@ -338,6 +338,7 @@ developers. Some developers choose to host documentation for their :ref:`project
    :caption: Projects
 
    /projects/simppru/index
+   /projects/bb-config/index
    /boards/beagleconnect/index
 
 Books
