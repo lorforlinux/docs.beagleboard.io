@@ -13,6 +13,7 @@ EOF
 
 if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 
+echo "**** Updating latest on docs.beagleboard.io ($CI_PROJECT_NAMESPACE) ****"
 rm -rf public
 sphinx-build -b html . public/latest/
 sphinx-build -M latexpdf . public/latest/
@@ -32,6 +33,7 @@ HERE
 
 elif [ "$CI_COMMIT_BRANCH" != "" ]; then
 
+echo "**** Updating $CI_COMMIT_BRANCH on docs.beagleboard.io ($CI_PROJECT_NAMESPACE) ****"
 sphinx-build -b html . public/$CI_COMMIT_BRANCH/
 sphinx-build -M latexpdf . public/$CI_COMMIT_BRANCH/
 mv public/$CI_COMMIT_BRANCH/latex/beagleboard-docs.pdf public/$CI_COMMIT_BRANCH/
@@ -41,6 +43,7 @@ elif [ "$CI_COMMIT_TAG" != "" && "$CI_PROJECT_NAMESPACE" = "docs" ]; then
 
 # Find which branch has the tag commit
 export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
+echo "**** Releasing $GIT_BRANCH version $CI_COMMIT_TAG on docs.beagleboard.org (source from $CI_PROJECT_NAMESPACE) ****"
 cat << EOF > PAGES
 PAGES_URL =  $CI_PAGES_URL
 PAGES_SLUG = $GIT_BRANCH
@@ -71,6 +74,6 @@ cp public/$GIT_BRANCH/latex/beagleboard-docs.pdf public/$GIT_BRANCH/beagleboard-
 cp public/$GIT_BRANCH/latex/beagleboard-docs.pdf public/$GIT_BRANCH/beagleboard-docs.pdf
 rm -rf public/$GIT_BRANCH/latex
 sudo apk add rsync
-rsync -a --delete public/$GIT_BRANCH/. /var/www/docs/$GIT_BRANCH
+rsync -v -a --delete public/$GIT_BRANCH/. /var/www/docs/$GIT_BRANCH
 
 fi
