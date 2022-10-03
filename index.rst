@@ -54,7 +54,7 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
-      :link: beagleboneblack-home
+      :link: bbai64-home
       :link-type: ref
 
       **BeagleBone® AI-64**
