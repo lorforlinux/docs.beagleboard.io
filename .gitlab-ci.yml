@@ -1,18 +1,16 @@
 image: beagle/sphinx-build-env:latest
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 cache:
+  key: bbdocs
   paths:
-    - public
-    - public/0.0.7
+  - public
 
 pages:
   script:
-  - sphinx-build -b html . public
-  - sphinx-build -M latexpdf . public
-  - mv public/latex/beagleboard-docs.pdf public/
+  - "./gitlab-build.sh"
   artifacts:
     paths:
     - public
-  only:
-    - main
-    - 0.0.7
