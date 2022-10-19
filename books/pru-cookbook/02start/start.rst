@@ -163,7 +163,7 @@ Installing the Latest OS on Your Bone
 Problem
 ---------
 
-You want to find the lastest version of Debian that is available for your Bone.
+You want to find the latest version of Debian that is available for your Bone.
 
 Solution
 ---------
@@ -199,7 +199,7 @@ I've downloaded the image and need to flash my micro SD card.
 Solution
 ---------
 
-Get a micro SD card that has at least 4GB and preferibly 8GB.  
+Get a micro SD card that has at least 4GB and preferably 8GB.  
 
 There are many ways to flash the card, but the best seems to be Etcher by
 https://www.balena.io/.  Go to https://www.balena.io/etcher/ and download the version for your host 
@@ -229,7 +229,7 @@ Solution
 ------------
 
 The image you downloaded includes `Cloud9 <https://aws.amazon.com/cloud9/>`_,
-a web-based intergrated development environment (IDE) as shown in 
+a web-based integrated development environment (IDE) as shown in 
 :ref:`start_c9`.
 
 .. _start_c9:
@@ -240,7 +240,7 @@ a web-based intergrated development environment (IDE) as shown in
 
     Cloud9 IDE
 
-Just point the browswer on your host computer to http://192.168.7.2 
+Just point the browser on your host computer to http://192.168.7.2 
 and start exploring.  If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
 as shown in :ref:`start_c9_show_home`.

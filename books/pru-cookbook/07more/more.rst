@@ -4,7 +4,7 @@ More Performance
 ##################
 
 So far in all our examples we've been able to meet our timing goals by writing
-our code in the C programming language. The C compiler does a suprisingly
+our code in the C programming language. The C compiler does a surprisingly
 good job at generating code, most the time.  However there are times
 when very precise timing is needed and the compiler isn't doing it.
 
@@ -147,7 +147,7 @@ There is much to explain here.  Let's start with :ref:`more_delay`.
 With 5ns/cycle this gives 7 cycles on and 6 off. These times make sense 
 because each instruction takes a cycle and you have, set ``R30``, jump to
 ``my_delay_cycles``, ``sub``, ``qbne``, ``jmp``. Plus the instruction (not seen) that
-initilizes `r14` to the passed value.  That's a total of six instructions.
+initializes `r14` to the passed value.  That's a total of six instructions.
 The extra instruction is the branch at the bottom of the ``while`` loop.
 
 
@@ -234,7 +234,7 @@ we can read using prudebug. :ref:`more_cycle_lines` is the Line-by-line.
   |21     | Enables `CYCLE`.                                                                      |
   +-------+---------------------------------------------------------------------------------------+
   |26     | Reset `CYCLE`. It ignores the value assigned to it and always sets it                 |
-  |       | to 0.  `cycle` is on the right hand side to make the compiler give it it's own        |
+  |       | to 0.  `cycle` is on the right hand side to make the compiler give it its own         |
   |       | register.                                                                             |
   +-------+---------------------------------------------------------------------------------------+
   |28, 29 | Reads the `CYCLE` and `STALL` values into registers.                                  |
@@ -303,7 +303,7 @@ So ``cycle`` is 3 and ``stall`` is 5. It must be one cycle to clear the GPIO and
 If you switch the order of lines 30 and 31 you'll see ``cycle`` is 7 and ``stall`` is 2. ``cycle`` now includes the 
 time needed to read ``stall`` and ``stall`` no longer includes the time to read ``cycle``.
 
-Xout and Xin - Transfering Between PRUs
+Xout and Xin - Transferring Between PRUs
 *****************************************
 
 Problem
@@ -325,8 +325,8 @@ The ``pass:[__]xout()`` and ``pass:[__]xin()`` intrinsics are able to transfer u
 
 :download:`xout.pru0.c <code/xout.pru0.c>`
 
-PRU 1 waits at line 41 until PRU 0 signals it.  :ref:`more_xin` sends sends an
-interupt to PRU 0 and waits for it to send the data.
+PRU 1 waits at line 41 until PRU 0 signals it.  :ref:`more_xin` sends an
+interrupt to PRU 0 and waits for it to send the data.
 
 .. _more_xin:
 
@@ -336,7 +336,7 @@ interupt to PRU 0 and waits for it to send the data.
 
 :download:`xin.pru1.c <code/xin.pru1.c>`
 
-Use ``prudebug`` to see registers R5-R10 are transfered from PRU 0 to PRU 1.
+Use ``prudebug`` to see registers R5-R10 are transferred from PRU 0 to PRU 1.
 
 .. code-block:: bash
 
@@ -394,10 +394,10 @@ Discussion
   +=======+=========================================================================================================+
   |4      | A different resource so PRU 0 can receive a signal from PRU 1.                                          |
   +-------+---------------------------------------------------------------------------------------------------------+
-  |9-16   | ``dmemBuf`` holds the data to be sent to PRU 1.  Each will be transfered                                |
+  |9-16   | ``dmemBuf`` holds the data to be sent to PRU 1.  Each will be transferred                               |
   |       | to its corresponding register by ``xout()``.                                                            |
   +-------+---------------------------------------------------------------------------------------------------------+
-  |21-22  | Define the interupts we're using.                                                                       |
+  |21-22  | Define the interrupts we're using.                                                                      |
   +-------+---------------------------------------------------------------------------------------------------------+
   |27-28  | Clear the interrupts.                                                                                   |
   +-------+---------------------------------------------------------------------------------------------------------+
@@ -408,13 +408,13 @@ Discussion
   |45     | ``pass:[__]xout()`` does a direct transfer to PRU 1. Page 92 of                                         |
   |       | `PRU Optimizing C/C++ Compiler, v2.2, User's Guide <http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf>`_   | 
   |       | shows how to use `xout()`. The first argument, 14, says to do a direct transfer to PRU 1.  If the       |
-  |       | first argument is 10, 11 or 12, the data is transfered to one of three scratchpad memories that         |
+  |       | first argument is 10, 11 or 12, the data is transferred to one of three scratchpad memories that        |
   |       | PRU 1 can access later. The second argument, 5, says to start transfering with register ``r5``          |
-  |       | and use as many regsiters as needed to transfer all of ``dmemBuf``. The third argument, 0,              |
+  |       | and use as many registers as needed to transfer all of ``dmemBuf``. The third argument, 0,              |
   |       | says to not use remapping. (See the User's Guide for details.)                                          |
-  |       | The final argument is the data to be transfered.                                                        |
+  |       | The final argument is the data to be transferred.                                                       |
   +-------+---------------------------------------------------------------------------------------------------------+
-  |48     | Clear the interupt so it can go again.                                                                  |
+  |48     | Clear the interrupt so it can go again.                                                                 |
   +-------+---------------------------------------------------------------------------------------------------------+
 
 :ref:`more_xin_lines` shows the line-by-line for ``xin.pru1.c``.

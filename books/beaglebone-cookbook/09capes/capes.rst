@@ -18,119 +18,123 @@ Bone. Capes can range in size from Bone-sized (:ref:`capes_miniDisplay`) to much
 This chapter shows how to attach a couple of capes, move your design to a protoboard, then to a PCB, 
 and finally on to mass production.
 
-.. _capes_7inLCD:
+..
+  #TODO# LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
+  .. _capes_7inLCD:
 
-Using a Seven-Inch LCD Cape
-============================
+  Using a Seven-Inch LCD Cape
+  ============================
 
-Problem
---------
+  Problem
+  --------
 
-You want to display the Bone's desktop on a portable LCD.
+  You want to display the Bone's desktop on a portable LCD.
 
-Solution
---------
+  Solution
+  --------
 
-.. note:: #TODO# The 4D Systems LCD capes would make a better example. CircuitCo is out of business.
+  .. note:: #TODO# The 4D Systems LCD capes would make a better example. CircuitCo is out of business.
 
-A number of `LCD capes <http://bit.ly/1AjlXJ9>`_ are built for the Bone, ranging in size from three 
-to seven inches. This recipe attaches a seven-inch `BeagleBone LCD7 <http://bit.ly/1NK8Hra>`_ 
-from `CircuitCo <http://circuitco.com/>`_ (shown in :ref:`capes_7inLCD_fig`) to the Bone.
+  A number of `LCD capes <http://bit.ly/1AjlXJ9>`_ are built for the Bone, ranging in size from three 
+  to seven inches. This recipe attaches a seven-inch `BeagleBone LCD7 <http://bit.ly/1NK8Hra>`_ 
+  from `CircuitCo <http://circuitco.com/>`_ (shown in :ref:`capes_7inLCD_fig`) to the Bone.
 
-.. _capes_7inLCD_fig:
+  .. _capes_7inLCD_fig:
 
-7" LCD
-========
+  7" LCD
+  ========
 
-.. note:: 
-    Seven-inch LCD from CircuitCo, :ref:`capes_7inLCD_fig` was originally posted by CircuitCo 
-    at http://elinux.org/File:BeagleBone-LCD7-Front.jpg under a 
-    `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>`_.
+  .. note:: 
+      Seven-inch LCD from CircuitCo, :ref:`capes_7inLCD_fig` was originally posted by CircuitCo 
+      at http://elinux.org/File:BeagleBone-LCD7-Front.jpg under a 
+      `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>`_.
 
-.. figure:: figures/LCD.png
-    :align: center
-    :alt: 7 inch LCD
+  .. figure:: figures/LCD.png
+      :align: center
+      :alt: 7 inch LCD
 
-To make this recipe, you will need:
+  To make this recipe, you will need:
 
-* Seven-inch LCD cape
-* A 5 V power supply
+  * Seven-inch LCD cape
+  * A 5 V power supply
 
-Just attach the Bone to the back of the LCD, making sure pin 1 of *P9* lines up with 
-pin 1 of +P9+ on the LCD. Apply a 5 V power supply, and the desktop will appear on 
-your LCD, as shown in :ref:`capes_LCD7Desktop`. 
+  Just attach the Bone to the back of the LCD, making sure pin 1 of *P9* lines up with 
+  pin 1 of +P9+ on the LCD. Apply a 5 V power supply, and the desktop will appear on 
+  your LCD, as shown in :ref:`capes_LCD7Desktop`. 
 
-.. _capes_LCD7Desktop:
+  .. _capes_LCD7Desktop:
 
-.. figure:: figures/LCD7Desktop.png
-    :align: center
-    :alt: 7 inch LCD desktop
+  .. figure:: figures/LCD7Desktop.png
+      :align: center
+      :alt: 7 inch LCD desktop
 
-    Seven-inch LCD desktop
+      Seven-inch LCD desktop
 
-Attach a USB keyboard and mouse, and you have a portable Bone. 
-`Wireless keyboard and mouse combinations <https://www.adafruit.com/products/922>`_ 
-make a nice solution to avoid the need to add a USB hub.
+  Attach a USB keyboard and mouse, and you have a portable Bone. 
+  `Wireless keyboard and mouse combinations <https://www.adafruit.com/products/922>`_ 
+  make a nice solution to avoid the need to add a USB hub.
 
-.. _capes_miniDisplay:
+  #TODO# miniDisplay Cape is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
 
-Using a 128 x 128-Pixel LCD Cape
-=================================
+  .. _capes_miniDisplay:
 
-Problem
---------
+  Using a 128 x 128-Pixel LCD Cape
+  =================================
 
-You want to use a small LCD to display things other than the desktop.
+  Problem
+  --------
 
-Solution
----------
+  You want to use a small LCD to display things other than the desktop.
 
-The `MiniDisplay <http://bit.ly/1xd0r8p>`_ is a 128 x 128 full-color LCD cape that just fits on the 
-Bone, as shown in :ref:`capes_miniDisplay_fig`. 
+  Solution
+  ---------
 
-.. _capes_miniDisplay_fig:
+  The `MiniDisplay <http://bit.ly/1xd0r8p>`_ is a 128 x 128 full-color LCD cape that just fits on the 
+  Bone, as shown in :ref:`capes_miniDisplay_fig`. 
 
-.. figure:: figures/MiniDisplay-A1.jpg
-    :align: center
-    :alt: miniDisplay LCD
+  .. _capes_miniDisplay_fig:
 
-    MiniDisplay 128 x 128-pixel LCD from CircuitCo
+  .. figure:: figures/MiniDisplay-A1.jpg
+      :align: center
+      :alt: miniDisplay LCD
 
-To make this recipe, you will need:
+      MiniDisplay 128 x 128-pixel LCD from CircuitCo
 
-* MiniDisplay LCD cape
+  To make this recipe, you will need:
 
-Attach to the Bone and apply power. Then run the following commands:
+  * MiniDisplay LCD cape
 
-.. code-block:: bash
+  Attach to the Bone and apply power. Then run the following commands:
 
-    # From http://elinux.org/CircuitCo:MiniDisplay_Cape
-    # Datasheet:
-    # https://www.crystalfontz.com/products/document/3277/ST7735_V2.1_20100505.pdf
-    bone$ wget http://elinux.org/images/e/e4/Minidisplay-example.tar.gz
-    bone$ tar zmxvf Minidisplay-example.tar.gz
-    bone$ cd minidisplay-example
-    bone$ make
-    bone$ ./minidisplay-test
-    Unable to initialize SPI: No such file or directory
-    Aborted
+  .. code-block:: bash
 
-
-.. warning:: 
-    You might get a compiler warning, but the code should run fine.
-
-The MiniDisplay uses the Serial Peripheral Interface (SPI) interface, and it's not initialized. 
-The `manufacturer's website <http://bit.ly/1xd0r8p>`_ suggests enabling SPI0 by using the following commands:
-
-.. code-block:: shell-session
-
-    bone$ export SLOTS=/sys/devices/bone_capemgr.*/slots
-    bone$ echo BB-SPIDEV0 > $SLOTS
+      # From http://elinux.org/CircuitCo:MiniDisplay_Cape
+      # Datasheet:
+      # https://www.crystalfontz.com/products/document/3277/ST7735_V2.1_20100505.pdf
+      bone$ wget http://elinux.org/images/e/e4/Minidisplay-example.tar.gz
+      bone$ tar zmxvf Minidisplay-example.tar.gz
+      bone$ cd minidisplay-example
+      bone$ make
+      bone$ ./minidisplay-test
+      Unable to initialize SPI: No such file or directory
+      Aborted
 
 
-Hmmm, something isn't working here. Here's how to see what happened:
+  .. warning:: 
+      You might get a compiler warning, but the code should run fine.
 
-.. callout::
+  The MiniDisplay uses the Serial Peripheral Interface (SPI) interface, and it's not initialized. 
+  The `manufacturer's website <http://bit.ly/1xd0r8p>`_ suggests enabling SPI0 by using the following commands:
+
+  .. code-block:: shell-session
+
+      bone$ export SLOTS=/sys/devices/bone_capemgr.*/slots
+      bone$ echo BB-SPIDEV0 > $SLOTS
+
+
+  Hmmm, something isn't working here. Here's how to see what happened:
+
+  .. callout::
 
     .. code-block:: shell-session
     
@@ -156,10 +160,10 @@ Hmmm, something isn't working here. Here's how to see what happened:
         <1> Shows there is a conflict for pin `P9_21`: it's already configured for pulse width modulation (PWM).
 
 
-Here's how to see what's already configured:
+  Here's how to see what's already configured:
 
 
-.. callout::
+  .. callout::
 
     .. code-block:: shell-session
 
@@ -179,51 +183,51 @@ Here's how to see what's already configured:
 
         <1> You can see the eMMC, HDMI, and three PWMs are already using some of the pins. Slot 10 shows `P9_21` is in use by a PWM.
 
-You can unconfigure it by using the following commands:
+  You can unconfigure it by using the following commands:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-    bone$ echo -10 > $SLOTS
-    bone$ cat $SLOTS
-    0: 54:PF--- 
-    1: 55:PF--- 
-    2: 56:PF--- 
-    3: 57:PF--- 
-    4: ff:P-O-L Bone-LT-eMMC-2G,00A0,Texas Instrument,BB-BONE-EMMC-2G
-    5: ff:P-O-L Bone-Black-HDMI,00A0,Texas Instrument,BB-BONELT-HDMI
-    7: ff:P-O-L Override Board Name,00A0,Override Manuf,bspm_P9_42_27
-    8: ff:P-O-L Override Board Name,00A0,Override Manuf,bspm_P9_41_27
-    9: ff:P-O-L Override Board Name,00A0,Override Manuf,am33xx_pwm
+      bone$ echo -10 > $SLOTS
+      bone$ cat $SLOTS
+      0: 54:PF--- 
+      1: 55:PF--- 
+      2: 56:PF--- 
+      3: 57:PF--- 
+      4: ff:P-O-L Bone-LT-eMMC-2G,00A0,Texas Instrument,BB-BONE-EMMC-2G
+      5: ff:P-O-L Bone-Black-HDMI,00A0,Texas Instrument,BB-BONELT-HDMI
+      7: ff:P-O-L Override Board Name,00A0,Override Manuf,bspm_P9_42_27
+      8: ff:P-O-L Override Board Name,00A0,Override Manuf,bspm_P9_41_27
+      9: ff:P-O-L Override Board Name,00A0,Override Manuf,am33xx_pwm
 
-Now *P9_21* is free for the MiniDisplay to use.
+  Now *P9_21* is free for the MiniDisplay to use.
 
-.. note:: 
-    In future Bone images, all of the pins will already be allocated as part of the main device 
-    tree using runtime pinmux helpers and configured at runtime using the `config-pin utility <http://bit.ly/1EXLeP2>`_. 
-    This would eliminate the need for device tree overlays in most cases.
+  .. note:: 
+      In future Bone images, all of the pins will already be allocated as part of the main device 
+      tree using runtime pinmux helpers and configured at runtime using the `config-pin utility <http://bit.ly/1EXLeP2>`_. 
+      This would eliminate the need for device tree overlays in most cases.
 
-Now, configure it for the MiniDisplay and run a test:
+  Now, configure it for the MiniDisplay and run a test:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-    bone$ echo BB-SPIDEV0 > $SLOTS
-    bone$ ./minidisplay-test
+      bone$ echo BB-SPIDEV0 > $SLOTS
+      bone$ ./minidisplay-test
 
 
-You then see Boris, as shown in :ref:`capes_miniDisplayBoris`.
+  You then see Boris, as shown in :ref:`capes_miniDisplayBoris`.
 
-.. _capes_miniDisplayBoris:
+  .. _capes_miniDisplayBoris:
 
-Mini display Boris
-==================
+  Mini display Boris
+  ==================
 
-.. note:: 
-    MiniDisplay showing Boris, :ref:`capes_miniDisplayBoris` was originally posted by David Anders at http://elinux.org/File:Minidisplay-boris.jpg 
-    under a `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>`_.
+  .. note:: 
+      MiniDisplay showing Boris, :ref:`capes_miniDisplayBoris` was originally posted by David Anders at http://elinux.org/File:Minidisplay-boris.jpg 
+      under a `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>`_.
 
-.. figure:: figures/miniDisplay_Boris.png
-    :align: center
-    :alt: miniDisplay LCD showing Boris
+  .. figure:: figures/miniDisplay_Boris.png
+      :align: center
+      :alt: miniDisplay LCD showing Boris
 
 Connecting Multiple Capes
 ==========================
@@ -323,13 +327,13 @@ To make this recipe, you will need:
 * Your other components
 
 Many places make premade circuit boards that are laid out like the breadboard we have been using. 
-:ref:`capes_beaglebread_fig` shows the `BeagleBone Breadboard <http://bit.ly/1HCwtB4>`_, 
-which is just one protoboard option.
+The `Adafruit Proto Cape Kit <https://www.adafruit.com/product/572>`_
+is one protoboard option.
 
 .. _capes_beaglebread_fig:
 
-Beaglebread
-============
+BeagleBone Breadboard
+~~~~~~~~~~~~~~~~~~~~~
 
 .. note:: 
     This was originally posted by William 
@@ -647,9 +651,9 @@ One challenge that slipped my first pass review was the board outline. The part 
 :ref:`tips_fritzing` is meant to represent BeagleBone Black, not a cape, so the outline doesn't have 
 the notch cut out of it for the Ethernet connector. 
 
-The `Fritzing custom PCB outline page <http://bit.ly/1xd1aGV>`_ describes how to create and use a custom 
+The `Fritzing custom PCB outline page <https://fritzing.org/pcb-custom-shape/>`_ describes how to create and use a custom 
 board outline. Although it is possible to use a drawing tool like `Inkscape <https://inkscape.org/en/>`_, 
-I chose to use `the SVG path command <http://bit.ly/1b2aZmn>`_ directly to create :ref:`capes_boardoutline_code`.
+I chose to use `the SVG path command <https://www.w3schools.com/graphics/svg_path.asp>`_ directly to create :ref:`capes_boardoutline_code`.
 
 .. callout::
 
@@ -770,9 +774,9 @@ or is there a way to create another heading level?
 
 *EAGLE*
 
-`Eagle PCB <http://www.cadsoftusa.com/>`_ and `DesignSpark PCB <http://bit.ly/19cbwS0>`_ are two popular 
+`Eagle PCB <https://en.wikipedia.org/wiki/EAGLE_(program)>`_ and `DesignSpark PCB <https://en.wikipedia.org/wiki/DesignSpark_PCB>`_ are two popular 
 design programs. Many capes (and other PCBs) are designed with Eagle PCB, and the files are available. 
-For example, the MiniDisplay cape (:ref:`capes_miniDisplay`) has the schematic shown in :ref:`capes_miniDisplay_schem` 
+For example, the MiniDisplay cape has the schematic shown in :ref:`capes_miniDisplay_schem` 
 and PCB shown in :ref:`capes_miniDisplay_pcb`.
 
 .. _capes_miniDisplay_schem:
@@ -791,11 +795,14 @@ and PCB shown in :ref:`capes_miniDisplay_pcb`.
 
     PCB for MiniDisplay cape
 
+.. note::
+   #TODO#: The MiniDisplay cape is not currently available, so this example should be udpated.
+
 A good starting point is to take the PCB layout for the MiniDisplay and edit it for your project. 
 The connectors for +P8+ and +P9+ are already in place and ready to go.
 
 Eagle PCB is a powerful system with many good tutorials online. The free version runs on 
-Windows, Mac, and Linux, but it has three `limitations <http://bit.ly/1E5Kh3l>`_:
+Windows, Mac, and Linux, but it has three `limitations <https://en.wikipedia.org/wiki/EAGLE_(program)#License_model>`_:
 
 * The usable board area is limited to 100 x 80 mm (4 x 3.2 inches).
 * You can use only two signal layers (Top and Bottom).
@@ -912,7 +919,7 @@ How can you move the schematic to another tool?
 Solution
 ---------
 
-Use the `Upverter schematic-file-converter <http://bit.ly/1wXUkdM>`_ Python script. For example, suppose that you want 
+Use the `Upverter schematic-file-converter <https://github.com/ljmljz/schematic-file-converter>`_ Python script. For example, suppose that you want 
 to convert the Fritzing file for the diagram shown in :ref:`capes_quickRobo_fig`. First, install Upverter.
 
 I found it necessary to install +libfreetype6+ and +freetype-py+ onto my system, but you might not need this first step:
@@ -987,7 +994,7 @@ Now, install the ``schematic-file-converter`` tool:
     -v, --version         print version information and quit
     --formats             print supported formats and quit
 
-At the time of this writing, Upverter suppports the following file types:
+At the time of this writing, Upverter supports the following file types:
 
 .. table::
 
@@ -1095,12 +1102,12 @@ The `WikiHow article on creating Zip files <http://bit.ly/1B4GqRU>`_ might be he
     Choosing "Extended Gerber" in Fritzing
 
 Things on the `OSH Park website <http://oshpark.com>`_ are reasonably self-explanatory. You'll need to create an account and 
-upload the Zip file containing the `Gerber files <http://bit.ly/1B4GzEZ>`_ you created. If you are a cautious person, 
-you might choose to examine the Gerber files with a Gerber file viewer first. The `Fritzing fabrication FAQ <http://bit.ly/18bUgeA>`_ 
+upload the Zip file containing the `Gerber files <https://en.wikipedia.org/wiki/Gerber_format>`_ you created. If you are a cautious person, 
+you might choose to examine the Gerber files with a Gerber file viewer first. The `Fritzing fabrication FAQ <https://aisler.net/partners/fritzing>`_ 
 offers several suggestions, including `gerbv <http://gerbv.sourceforge.net/>`_ for Windows and Linux users.
 
 When your upload is complete, you'll be given a quote, shown images for review, and presented with options for accepting 
-and ordering. After you have accepted the design, your `list of accepted designs <https://oshpark.com/users/current>`_ 
+and ordering. After you have accepted the design, your `list of accepted designs <https://oshpark.com/project_history>`_ 
 will also include the option of enabling sharing of your designs so that others can order a PCB, as well. If you are 
 looking to make some money on your design, you'll want to go another route, like the one described in :ref:`capes_production`. 
 :ref:`capes_quickbot_pcb` shows the resulting PCB that arrives in the mail.
@@ -1165,7 +1172,7 @@ Solution
 ---------
 
 `CircuitHub <https://circuithub.com/>`_ offers a great tool to get a quick quote on assembled PCBs. 
-To make things simple, I downloaded the `CircuitCo MiniDisplay Cape Eagle design materials <http://bit.ly/1C5uvJc>`_
+To make things simple, I downloaded the `CircuitCo MiniDisplay Cape Eagle design materials <https://elinux.org/Special:Badtitle/NS500:MiniDisplay_Cape>`_
 and uploaded them to CircuitHub.
 
 After the design is uploaded, you'll need to review the parts to verify that CircuitHub has or 
@@ -1228,7 +1235,7 @@ you can find the prices for the LCDs as well, as shown in :ref:`capes_lcd_pricin
     +-----------+---------+--------+----------+------------+-------------+
 
 To enable more cape developers to launch their designs to the market, CircuitHub has 
-launched a http://campaign.circuithub.com[group buy campaign site]. You, as a cape developer, 
+launched a `group buy campaign site <https://hackaday.com/2014/11/13/circuithub-launches-group-buy-crowdsourcing-campaigns/>`_. You, as a cape developer, 
 can choose how much markup you need to be paid for your work and launch the campaign to the public. 
 Money is only collected if and when the desired target quantity is reached, so there's no risk that 
 the boards will cost too much to be affordable. This is a great way to cost-effectively launch your boards to market!

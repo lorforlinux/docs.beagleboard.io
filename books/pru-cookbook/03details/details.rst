@@ -5,13 +5,13 @@ Running a Program; Configuring Pins
 
 There are a lot of details in compiling and running PRU code.
 Fortunately those details are captured in a common `Makefile` that is
-used througout this book. This chapter shows how to use the `Makefile` to 
+used throughout this book. This chapter shows how to use the `Makefile` to 
 compile code and also start and stop the PRUs.
 
 .. note::
    The following are resources used in this chapter:
 
-   * `PRU Code Generation Tools - Compiler <http://software-dl.ti.com/codegen/esd/cgt_ai_64_lic_sw/PRU/2.1.5/ti_cgt_pru_2.1.5_armlinuxa8hf_busybox_installer.sh>`_
+   * `PRU Code Generation Tools - Compiler <https://www.ti.com/tool/PRU-CGT>`_
    * `PRU Software Support Package <http://git.ti.com/pru-software-support-package>`_
    * `PRU Optimizing C/C++ Compiler <http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf>`_
    * `PRU Assembly Language Tools <http://www.ti.com/lit/ug/spruhv6b/spruhv6b.pdf>`_
@@ -212,7 +212,7 @@ You can also specify them when running ``make``.
     bone$ make TARGET=gpio.pru1
 
 The setup file also contains instructions to figure out which Beagle you are running
-and then configure the pins acordingly.
+and then configure the pins accordingly.
 
 
 .. literalinclude:: code/gpio_setup.sh
@@ -454,7 +454,7 @@ Configuring Pins for Controlling Servos
 Problem
 ---------
 
-You want to **configure** the pins so the PRU outputs are accessable.
+You want to **configure** the pins so the PRU outputs are accessible.
 
 Solution
 ---------
@@ -485,7 +485,7 @@ Configuring Pins for Controlling Encoders
 Problem
 ---------
 
-You want to **configure** the pins so the PRU inputs are accessable.
+You want to **configure** the pins so the PRU inputs are accessible.
 
 Solution
 ---------
