@@ -10,6 +10,8 @@ BeagleBoard Docs
 
 
 .. toctree::
+
+   /boards/terms-and-conditions.rst
    intro/index.rst
    boards/index.rst
    projects/index.rst

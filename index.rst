@@ -314,7 +314,8 @@ Capes
    :maxdepth: 1
    :hidden:
    :caption: Boards
-
+   
+   /boards/terms-and-conditions.rst
    /boards/beaglebone/ai-64/index
    /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
