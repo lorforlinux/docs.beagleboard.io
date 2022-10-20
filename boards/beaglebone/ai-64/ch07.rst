@@ -32,7 +32,35 @@ required to implement a total interface.
 The column heading is the pin number on the expansion header.
 
 The **GPIO** row is the expected gpio identifier number in the Linux
-kernel.
+kernel. 
+
+Each row includes the gpiochipX and pinY in the format of 
+`X Y`. You can use these values to direcly control the GPIO pins with the 
+commands shown below.
+
+.. code::
+
+    # to set the GPIO pin state to HIGH
+    debian@BeagleBone:~$ gpioset X Y=1
+
+    # to set the GPIO pin state to LOW
+    debian@BeagleBone:~$ gpioset X Y=0
+
+    For Example:
+
+    +---------+----------+
+    | Pin     | P8.03    |
+    +=========+==========+
+    | GPIO    | 1 20     |
+    +---------+----------+
+
+    Use the commands below for controlling this pin (P8.03) where X = 1 and Y = 20
+
+    # to set the GPIO pin state to HIGH
+    debian@BeagleBone:~$ gpioset 1 20=1
+
+    # to set the GPIO pin state to LOW
+    debian@BeagleBone:~$ gpioset 1 20=0
 
 The **BALL** row is the pin number on the processor.
 
@@ -41,6 +69,8 @@ pin.
 
 The **MODE #** rows are the mode setting for each pin. Setting each mode
 to align with the mode column will give that function on that pin.
+
+
 
 **NOTES**:
 
@@ -740,6 +770,34 @@ The column heading is the pin number on the expansion header.
 
 The **GPIO** row is the expected gpio identifier number in the Linux
 kernel.
+
+Each row includes the gpiochipX and pinY in the format of 
+`X Y`. You can use these values to direcly control the GPIO pins with the 
+commands shown below.
+
+.. code::
+
+    # to set the GPIO pin state to HIGH
+    debian@BeagleBone:~$ gpioset X Y=1
+
+    # to set the GPIO pin state to LOW
+    debian@BeagleBone:~$ gpioset X Y=0
+
+    For Example:
+
+    +---------+----------+
+    | Pin     | P9.11    |
+    +=========+==========+
+    | GPIO    | 1 1      |
+    +---------+----------+
+
+    Use the commands below for controlling this pin (P9.11) where X = 1 and Y = 1
+
+    # to set the GPIO pin state to HIGH
+    debian@BeagleBone:~$ gpioset 1 20=1
+
+    # to set the GPIO pin state to LOW
+    debian@BeagleBone:~$ gpioset 1 20=0
 
 The **BALL** row is the pin number on the processor.
 
