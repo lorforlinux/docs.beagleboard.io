@@ -126,7 +126,7 @@ through `Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/w
 machine such as `VirtualBox <https://www.virtualbox.org/>`_, or in the cloud (`Microsoft Azure <https://portal.azure.com/>`_ 
 or `Amazon Elastic Compute Cloud <http://aws.amazon.com/ec2/>`_, EC2, for example).
 
-Recently I've been prefering `Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/>`_.
+Recently I've been preferring `Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/>`_.
 
 .. _tips_shell:
 
@@ -363,7 +363,7 @@ Run the installed Virtual Network Computing (VNC) server:
 
    New 'X' desktop is beaglebone:1
 
-   reating default startup script /home/debian/.vnc/xstartup
+   Creating default startup script /home/debian/.vnc/xstartup
    Starting applications specified in /home/debian/.vnc/xstartup
    Log file is /home/debian/.vnc/beagleboard:1.log
 
@@ -653,7 +653,7 @@ I'm running Debian 11.x (Bullseye), the middle one.
    :align: center
    :alt: Latest Image Page
 
-   Latested Beagle Images
+   Latest Beagle Images
 
 Scroll to the top of the page and you'll see instructions on setting up Wifi. The instructions here are based on using +networkctl+
 
@@ -764,7 +764,7 @@ In the file you'll see:
    }
 
 
-Change the *ssid* and *psk* enteries for your network. Save your file, then run:
+Change the *ssid* and *psk* entries for your network. Save your file, then run:
 
 .. code-block:: bash
 
@@ -970,7 +970,7 @@ Just to be sure, you can install *nmap* on your host computer to see what ports 
 
 Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 
-Currently there are three ports visible:  22, 80 and 3000 (visual studio code) Now turn on the firewal and see what happends.
+Currently there are three ports visible:  22, 80 and 3000 (visual studio code) Now turn on the firewall and see what happens.
 
 .. code-block:: bash
 
@@ -990,7 +990,7 @@ Currently there are three ports visible:  22, 80 and 3000 (visual studio code) N
 Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 
 
-Only port 22 (ssh) is accessable now.  
+Only port 22 (ssh) is accessible now.  
 
 The firewall will remain on, even after a reboot. Disable it now if you don't want it on.
 
@@ -1164,7 +1164,7 @@ Problem
 
 You are starting to run out of room on your microSD card (or onboard flash) and 
 have removed several packages you had previously installed (:ref:`tips_apt_remove`), 
-ut you still need to free up more space.
+but you still need to free up more space.
 
 Solution 
 --------
@@ -1326,7 +1326,7 @@ and is much faster.  The approach is the same, write to the */sys/class/gpio* fi
 
 :download:`blinkLED.c <../code/05tips/blinkLED.c>`
 
-Here, as with JavaScript and Python, the gpio pins are refered to by the Linux gpio number. 
+Here, as with JavaScript and Python, the gpio pins are referred to by the Linux gpio number. 
 :ref:`tips_cape_headers_digital` shows how the P8 and P9 Headers numbers map to the gpio number. 
 For this example P9_14 is used, which the table shows in gpio 50.
 

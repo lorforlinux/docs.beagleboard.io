@@ -599,7 +599,7 @@ Solution
 ---------
 
 This example came from https://realpython.com/python-send-email/.
-First, you need to `set up a Gmail account <https://mail.google.co>`_, if you don't already have one. 
+First, you need to `set up a Gmail account <https://mail.google.com>`_, if you don't already have one. 
 Then add the code in :ref:`networking_nodemailer_code` to a file named ``emailTest.py``. Substitute your own Gmail username.  For the password:
 
 * Go to: https://myaccount.google.com/security
@@ -696,7 +696,7 @@ Because your Bone is on the network, it's not hard to access the current weather
   bash$ export APPID="Your key"
 
 * Then add the code in :ref:`networking_weather_code` to a file named ``weather.js``.
-* Run the pyhon script.
+* Run the python script.
 
 
 .. _networking_weather_code:
@@ -743,8 +743,8 @@ of sample code for interacting with Twitter.  Here I'll show how to create a twe
 Creating a Project and App
 ===========================
 
-* Follow the `directions here <https://developer.twitter.com/en/docs/apps/overview>`_ to create a project and and app. 
-* Be sure to giv eyour app Read and Write permission.
+* Follow the `directions here <https://developer.twitter.com/en/docs/apps/overview>`_ to create a project and app. 
+* Be sure to give your app Read and Write permission.
 * Then go to the `developer portal <https://developer.twitter.com/en/portal/projects-and-apps>`_ and select you app by clicking on the gear icon to the right of the app name.  
 * Click on the *Keys and tokens* tab. Here you can get to all your keys and tokens.  
 
@@ -828,7 +828,7 @@ The code in :ref:`networking_pushbutton_code` snds a tweet whenever a button is 
 
 :download:`twitterPushbutton.js <../code/06iot/twitterPushbutton.js>`
 
-To see many other examples, go to `iStrategyLabs node-twitter GitHub page <http://bit.ly/18AvST>`_.
+To see many other examples, go to `Twitter for Node.js on NPMJS.com <https://www.npmjs.com/package/twitter>`_.
 
 This opens up many new possibilities. You can read a temperature sensor and tweet its 
 value whenever it changes, or you can turn on an LED whenever a certain hashtag 
@@ -1019,7 +1019,7 @@ You would like your Bone to talk to an Arduino or LaunchPad.
 Solution
 ---------
 
-The common serial port (also know as a UART) is the simplest way to 
+The common serial port (also known as a UART) is the simplest way to 
 talk between the two.  Wire it up as shown in :ref:`networking_launchPad_fig`.
 
 .. warning::
