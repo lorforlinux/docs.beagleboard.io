@@ -28,7 +28,7 @@ You will need to purchase:
 -  MicroSD Card (optional)
 -  `Serial cable <https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#serial-cable>`_ (optional)
 
-More information or to purchase a replacement heat sink or antenna, please go to these web sites:
+More information or to purchase a replacement heat sink or antenna, please go to these websites:
 
 -  `Antenna <https://bit.ly/2kmXAzF>`_
 -  `Heat Sink <https://bit.ly/2klxxJa>`_

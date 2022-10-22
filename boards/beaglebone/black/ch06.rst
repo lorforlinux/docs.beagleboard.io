@@ -365,7 +365,7 @@ devices can support this voltage setting of 1.35V.
 
 The power up process is consists of several stages and events. *figure-26*
 describes the events that make up the power up process for the
-processer from the PMIC. This diagram is used elsewhere to convey
+processor from the PMIC. This diagram is used elsewhere to convey
 additional information. I saw no need to bust it up into smaller
 diagrams. It is from the processor datasheet supplied by Texas
 Instruments.
@@ -1429,7 +1429,7 @@ PRU-ICSS Pin Access
 **************************
 
 Both PRU 0 and PRU1 are accessible from the expansion headers. Some may
-not be useable without first disabling functions on the board like LCD
+not be usable without first disabling functions on the board like LCD
 for example. Listed below is what ports can be accessed on each PRU.
 
 * 8 outputs or 9 inputs

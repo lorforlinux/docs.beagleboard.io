@@ -160,12 +160,12 @@ connect by using the following command to log in as user *debian*, (note the *$*
 
 .. code-block:: bash
 
-   bone$ passwd
+   bone$ password
    Changing password for debian.
    (current) UNIX password: 
    Enter new UNIX password: 
    Retype new UNIX password: 
-   passwd: password updated successfully
+   password: password updated successfully
 
 
 .. _tips_serial:
@@ -606,9 +606,9 @@ To find the IP address, open a terminal window and run the *ip* command:
          valid_lft forever preferred_lft forever
       inet6 fe80::747e:49ff:fe46:1b78/64 scope link 
          valid_lft forever preferred_lft forever
-   5: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN group default qlen 10
+   5: can0: <NOARP,ECHO> mtu 16 qdisc no-op state DOWN group default qlen 10
       link/can 
-   6: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN group default qlen 10
+   6: can1: <NOARP,ECHO> mtu 16 qdisc no-op state DOWN group default qlen 10
       link/can
 
 

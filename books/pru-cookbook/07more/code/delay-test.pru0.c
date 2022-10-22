@@ -5,8 +5,8 @@
 #include "prugpio.h"
 
 // The function is defined in delay.asm in same dir
-// We just need to add a declaration here, the defination can be
-// seperately linked
+// We just need to add a declaration here, the definition can be
+// separately linked
 extern void my_delay_cycles(uint32_t);
 
 volatile register uint32_t __R30;

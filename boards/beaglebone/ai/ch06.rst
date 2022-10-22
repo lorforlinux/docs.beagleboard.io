@@ -69,7 +69,7 @@ analog-to-digital converter (GPADC) with three external input channels.
 **Figure 23** below shows how the USB-C power input is connected to the
 **TPS6590379**.
 
-TODO: (Schematic screenshoot)
+TODO: (Schematic screenshot)
 
 Power Button
 ==============
@@ -224,7 +224,7 @@ CPU’s:
 -  PRU-ICSS2 PRU1
 
 The programmable nature of the PRUs, along with their access to pins,
-events and all SoC resources, provides flexibility in implmenting fast
+events and all SoC resources, provides flexibility in implementing fast
 real-time responses, specialized data handling operations, peripheral
 interfaces and in off-loading tasks from the other processor cores of
 the SoC.
@@ -262,7 +262,7 @@ Resources
 
 -  Great resources for PRU and BeagleBone® has been compiled here https://beagleboard.org/pru
 -  The PRU Cookbook provides examples and getting started information https://github.com/MarkAYoder/PRUCookbook
--  Detailed specification is availble at http://processors.wiki.ti.com/index.php/PRU-ICSS
+-  Detailed specification is available at http://processors.wiki.ti.com/index.php/PRU-ICSS
 
 FAQ
 

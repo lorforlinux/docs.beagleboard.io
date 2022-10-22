@@ -22,7 +22,7 @@ Code
 -  Following code works on PocketBeagle, to use on other boards, please
    change the pins accordingly.
 
-Explaination
+Explanation
 ------------
 
 This code snippet writes HIGH to header pin P1_31, then waits for 2000ms

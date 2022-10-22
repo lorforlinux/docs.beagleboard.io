@@ -15,7 +15,7 @@ void main(void) {
 	CT_CFG.SYSCFG_bit.STANDBY_INIT = 0;
 
 	for(i=0; i<10; i++) {
-		gpio1[GPIO_SETDATAOUT]   = USR1;			// The the USR3 LED on
+		gpio1[GPIO_SETDATAOUT]   = USR1;			// the USR3 LED on
 		gpio1[GPIO_CLEARDATAOUT] = USR2;
 		
 		// __R30 |= gpio;		// Set the GPIO pin to 1

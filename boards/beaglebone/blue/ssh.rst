@@ -7,7 +7,7 @@ If you don’t have ssh installed, install it. (google is your friend)
 Then `ssh debian@192.168.7.2` The board will tell you what the password
 is, on my it was `temppwd`.
 
-To change your password use the command passwd it will ask you what your
+To change your password use the command password it will ask you what your
 current password is, then ask for the replacement. Then it will say it
 was too simple and you have to do it again. Normal stuff.
 
@@ -18,10 +18,10 @@ If you want to insist on using your simple password, try this.
    sudo -s
    (become superuser/root)
    enter your password
-   passwd debian
+   password debian
     (put your simple password in)
    exit
    (exit from superuser/root) 
 
-When you are running as root, passwd is more compliant and will accept
+When you are running as root, password is more compliant and will accept
 simple password

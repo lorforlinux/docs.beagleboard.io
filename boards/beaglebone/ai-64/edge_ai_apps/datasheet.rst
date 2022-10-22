@@ -13,7 +13,7 @@ command on target:
 
     debian@beaglebone:/opt/edge_ai_apps/tests# ./gen_data_sheet.sh
 
-The performence measurements includes the following
+The performance measurements includes the following
 
 #. **FPS** : Effective framerate at which the application runs
 #. **Total time** : Average time taken to process each frame, which includes

@@ -23,7 +23,7 @@ The following are the skills that are needed before you actually start to contri
     - :ref:`linux-upstream-more-git`
     - :ref:`linux-upstream-c-programming`
     - :ref:`linux-upstream-cross-arch`
-    - :ref:`linux-upstream-embedded-busses`
+    - :ref:`linux-upstream-embedded-buses`
     - :ref:`linux-upstream-drivers`
     - :ref:`linux-upstream-device-trees`
 
@@ -126,9 +126,9 @@ What you'd do instead is pick a much powerful machine like a Desktop PC or lapto
 then use cross arch compilers like the arm-gcc for instance to compile the kernel for your
 target device.
 
-.. _linux-upstream-embedded-busses:
+.. _linux-upstream-embedded-buses:
 
-Basics of embedded busses (I2C, UART, SPI, etc.)
+Basics of embedded buses (I2C, UART, SPI, etc.)
 ************************************************
 
 In the world of embedded, you often need to communicate with peripherals over very low level protocols.

@@ -79,7 +79,7 @@ Each DNN must have the following 3 components:
 Param file format
 -----------------
 
-Each DNN has it’s own pre-process, inference and post-process
+Each DNN has its own pre-process, inference and post-process
 parameters to get the correct output. This information is typically available in
 the training software that was used to train the model. In order to convey this
 information to the SDK in a standardized fashion, we have defined a set of

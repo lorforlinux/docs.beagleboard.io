@@ -105,7 +105,7 @@ Connect the Cable to the Board
 
    Fig: USB Connection to the Board
 
-2.  Connect the USB-A end of thecable tp your PC or laptop USB port as shown in the :ref:`usb-a-connect-figure` below.
+2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the :ref:`usb-a-connect-figure` below.
 
 .. _usb-a-connect-figure,USB Connection to the PC/Laptop figure:
 

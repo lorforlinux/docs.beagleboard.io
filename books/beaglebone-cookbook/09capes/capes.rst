@@ -1036,9 +1036,9 @@ After Upverter is installed, run the file (``quickBot.fzz``) that generated :ref
     DEBUG:main:parsing quickBot.fzz in format fritzing
     host$ ls -l
     total 188
-    -rw-rw-r-- 1 ubuntu ubuntu  63914 Nov 25 19:47 quickBot-eaglexml.sch
-    -rw-r--r-- 1 ubuntu ubuntu 122193 Nov 25 19:43 quickBot.fzz
-    drwxrwxr-x 9 ubuntu ubuntu   4096 Nov 25 19:42 schematic-file-converter
+    -rw-rw-r-- 1 ubuntu  63914 Nov 25 19:47 quickBot-eaglexml.sch
+    -rw-r--r-- 1 ubuntu 122193 Nov 25 19:43 quickBot.fzz
+    drwxrwxr-x 9 ubuntu   4096 Nov 25 19:42 schematic-file-converter
 
 
 :ref:`caps_eagle` shows the output of the conversion.

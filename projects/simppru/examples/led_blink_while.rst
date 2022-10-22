@@ -22,7 +22,7 @@ Code
 -  Following code works on PocketBeagle, to use on other boards, please
    change the pins accordingly.
 
-Explaination
+Explanation
 ------------
 
 This code runs a never ending while loop, since it is ``while : true``.

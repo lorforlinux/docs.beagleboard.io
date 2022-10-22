@@ -268,7 +268,7 @@ eQEP to pin mapping
 .. note::
 
    The I/O pins on the Beagles have a mutliplexer that lets you select what I/O 
-   appears on a given pin.  The Blue has the mux already configured to to run these
+   appears on a given pin.  The Blue has the mux already configured to run these
    examples.  Follow the instructions in 
    :ref:`details_configure_encoders` 
    to configure the pins for the Black and the Pocket.

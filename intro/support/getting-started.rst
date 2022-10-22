@@ -15,13 +15,13 @@ but executing this step, the longest step, will ensure the rest will go as smoot
 Download the latest software image
 ============================================
 
-Download the lastest Debian image from `beagleboard.org/latest-images <https://beagleboard.org/latest-images>`_.
+Download the latest Debian image from `beagleboard.org/latest-images <https://beagleboard.org/latest-images>`_.
 The "IoT" images provide more free disk space if you don't need to use a graphical user interface (GUI).
 
 .. NOTE::
 	Due to sizing necessities, this download may take 30 minutes or more.
 
-The Debian distribution is provied for the boards. The file you download will have an .img.xz extension.
+The Debian distribution is provided for the boards. The file you download will have an .img.xz extension.
 This is a compressed sector-by-sector image of the SD card.
 
 |image0|
@@ -190,7 +190,7 @@ an older operating system or need additional drivers for serial access to older 
 	For Windows (64-bit):
 
 	1. Windows Driver Certification warning may pop up two or three times. Click "Ignore", "Install" or "Run".
-	2. To check if you're running 32 or 64-bit Windows see this:  `support.microsoft.com/kb/827218 <https://support.microsoft.com/kb/827218>`_.
+	2. To check if you're running 32 or 64-bit Windows see `this <https://support.microsoft.com/en-us/topic/determine-whether-your-computer-is-running-a-32-bit-version-or-64-bit-version-of-the-windows-operating-system-1b03ca69-ac5e-4b04-827b-c0c47145944b>`_.
 	3. On systems without the latest service release, you may get an error (0xc000007b). In that case, please install the following and retry: https://www.microsoft.com/en-us/download/confirmation.aspx?id=13523
 	4. You may need to reboot Windows.
 	5. These drivers have been tested to work up to Windows 10
@@ -198,7 +198,7 @@ an older operating system or need additional drivers for serial access to older 
 
 	Additional FTDI USB to serial/JTAG information and drivers are available from https://www.ftdichip.com/Drivers/VCP.htm
 
-	Additional USB to virtual Ethernet information and drivers are available from https://www.linux-usb.org/gadget/ and https://joshuawise.com/horndis
+	Additional USB to virtual Ethernet information and drivers are available from http://www.linux-usb.org/gadget/ and https://joshuawise.com/horndis
 
 	Visit https://beagleboard.org/support for additional debugging tips.
 
