@@ -7,8 +7,8 @@
 #define	TEST	100
 
 // The function is defined in delay.asm in same dir
-// We just need to add a declaration here, the defination can be
-// seperately linked
+// We just need to add a declaration here, the definition can be
+// separately linked
 extern uint32_t my_delay_cycles(uint32_t);
 
 uint32_t ret;

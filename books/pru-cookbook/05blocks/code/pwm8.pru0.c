@@ -31,7 +31,7 @@ volatile unsigned int *pru0_dram = (unsigned int *) (PRU0_DRAM + 0x200);
 volatile register uint32_t __R30;
 volatile register uint32_t __R31;
 
-// Initialize interupts so the PRUs can be syncronized.
+// Initialize interrupts so the PRUs can be synchronized.
 // PRU1 is started first and then waits for PRU0
 // PRU0 is then started and tells PRU1 when to start going
 void configIntc(void) {	

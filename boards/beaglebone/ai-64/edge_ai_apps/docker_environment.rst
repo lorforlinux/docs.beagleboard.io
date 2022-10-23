@@ -186,7 +186,7 @@ The following steps outline the process for Docker root directory relocation
 assuming that the current Docker root is not at the desired location. If the
 current location is the desired location then exit this procedure.
 
-1. Run 'Docker info' command and inspect the output. Locate the line with
+1. Run 'Docker info' command inspect the output. Locate the line with
    content **Docker Root Dir**. It will list the current location.
 
 2. To preserve any existing images, export them to .tar files for importing

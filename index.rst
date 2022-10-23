@@ -38,7 +38,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
 Boards
 ******
 
-This is is where you will find the System Reference Manuals (SRMs) for all of the boards.
+This is where you will find the System Reference Manuals (SRMs) for all of the boards.
 
 All Beagles are `open-hardware <https://www.oshwa.org/definition/>`__ with documentation on the
 design, including the

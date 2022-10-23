@@ -29,7 +29,7 @@ Their properties like shown below.
     inputs:
         input0:                                         #Camera Input
             source: /dev/video2                         #Device file entry of the camera
-            format: jpeg                                #Input data format suported by camera
+            format: jpeg                                #Input data format supported by camera
             width: 1280                                 #Width and Height of the input
             height: 720
             framerate: 30                               #Framerate of the source
@@ -110,7 +110,7 @@ input section of config file.
         framerate: 30
 
     input2:
-        source: /dev/video2  #IMX219 raw sensor that nees ISP
+        source: /dev/video2  #IMX219 raw sensor that needs ISP
         format: rggb         #ISP will be added in the pipeline
         width: 1920
         height: 1080
@@ -118,7 +118,7 @@ input section of config file.
         subdev-id: 2         #needed by ISP to control sensor params via ioctls
 
     input3:
-        source: /dev/video2  #IMX390 raw sensor that nees ISP
+        source: /dev/video2  #IMX390 raw sensor that needs ISP
         width: 1936
         height: 1100
         format: rggb12       #ISP will be added in the pipeline
@@ -194,7 +194,7 @@ via RTSP server running on a remote PC can be provided as inputs to the demo.
 
    Usually video streams from any IP camera will be encrypted and cannot be
    played back directly without a decryption key. We tested RTSP source by
-   setting up an RTSP server on a Ubuntu 18.04 PC by refering to this writeup,
+   setting up an RTSP server on a Ubuntu 18.04 PC by referring to this writeup,
    `Setting up RTSP server on PC
    <https://gist.github.com/Santiago-vdk/80c378a315722a1b813ae5da1661f890>`_
 

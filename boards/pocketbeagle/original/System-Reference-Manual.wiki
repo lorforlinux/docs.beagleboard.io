@@ -347,9 +347,9 @@ This section covers the specifications and features of the board in a chart and 
 |-
 | UART||3 UARTs accessible with 2 enabled by default
 |-
-| I2C||2 I2C busses enabled by default
+| I2C||2 I2C buses enabled by default
 |-
-| SPI||2 SPI busses with single chip selects enabled by default
+| SPI||2 SPI buses with single chip selects enabled by default
 |-
 | PWM||4 Pulse Width Modulation outputs accessible with 2 enabled by default
 |-
@@ -586,7 +586,7 @@ The tables below show the power related pins available on PocketBeagle's Expansi
 | GND
 |}
 
-'''Note''':  A comprehensive tutorial for Power Inputs and Outputs for the OSD335x System in Package is available in the [https://octavosystems.com/app_notes/osd335x-design-tutorial/bare-minimum-boot/power-input-ouput/ 'Tutorial Series'] on the Octavo Systems website.
+'''Note''':  A comprehensive tutorial for Power Inputs and Outputs for the OSD335x System in Package is available in the [https://octavosystems.com/app_notes/osd335x-design-tutorial/bare-minimum-boot/power-input-output/ 'Tutorial Series'] on the Octavo Systems website.
 
 === 5.5 JTAG Pads  ===
 

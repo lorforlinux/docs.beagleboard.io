@@ -585,6 +585,6 @@ There are a lot of different nice guides to using Git on the web:
 -   https://docs.scipy.org/doc/numpy-1.15.1/dev/gitwash/development_workflow.html Numpy is also
     evaluating git
 -   https://github.github.com/training-kit/downloads/github-git-cheat-sheet
--   https://lab.github.com/courses
+-   https://skills.github.com/
 -   `Pro Git <https://git-scm.com/book/en/v2>`_
 

@@ -33,7 +33,7 @@ on the board.
 *****************
 
 A single 256Mb x16 DDR3L 4Gb (512MB) memory device is used. The memory
-used is is one of two devices:
+used is one of two devices:
 
 * MT41K256M16HA-125 from Micron
 * D2516EC4BXGGB from Kingston

@@ -55,7 +55,7 @@ Proposed changes.
 -  `Move microSD card cage closer to microHDMI to fit cases
    better <https://github.com/beagleboard/beaglebone-ai/issues/25>`__.
 
--  `Connect AM5729 ball AB10 to to P9.13 to provide a
+-  `Connect AM5729 ball AB10 to P9.13 to provide a
    GPIO <https://github.com/beagleboard/beaglebone-ai/issues/22>`__.
 
 -  `HDMI hot-plug detection

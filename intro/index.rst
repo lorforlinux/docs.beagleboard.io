@@ -16,7 +16,7 @@ and engage the developer community.
 
 Don't forget that this is an open-source project! Your contributions are welcome. Learn about how
 to contribute to the BeagleBoard documentation project and any of the many open-source Beagle
-projects on-going on our :ref:`contribution` page.
+projects ongoing on our :ref:`contribution` page.
 
 .. toctree::
    :maxdepth: 2

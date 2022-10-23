@@ -20,7 +20,7 @@ Enable a Linux host with BeagleConnect
 
 Log into a host system running Linux that is BeagleConnect™ enabled. Enable a
 Linux host with BeagleConnect™ by plugging a **BeagleConnect™ gateway device**
-into it’s USB port. You’ll also want to have a **BeagleConnect™ node device**
+into its USB port. You’ll also want to have a **BeagleConnect™ node device**
 with a sensor, actuator or indicator device connected.
 
 .. note::

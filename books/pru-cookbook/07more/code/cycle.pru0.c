@@ -12,7 +12,7 @@ void main(void)
 {
 	uint32_t gpio = P9_31;	// Select which pin to toggle.;
 
-	// These will be kept in registers and never witten to DRAM
+	// These will be kept in registers and never written to DRAM
 	uint32_t cycle, stall;
 
 	// Clear SYSCFG[STANDBY_INIT] to enable OCP master port

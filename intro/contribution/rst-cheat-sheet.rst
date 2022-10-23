@@ -3,7 +3,7 @@
 ReStructuredText Cheat Sheet
 ############################
 
-BeagleBoard docs is mostly writted with ReStructuredText (r)
+BeagleBoard docs is mostly written with ReStructuredText (r)
 
 Headings
 *********
@@ -20,8 +20,8 @@ matching overline and underline to indicate a heading.
 .. note::
     You can include only one (H1) ``#`` in a single documentation page.
 
-Make sure the length of your heading symbol is atleast (or 
-more) the lenth of the heading text, for example:
+Make sure the length of your heading symbol is at least (or 
+more) the at least of the heading text, for example:
 
 
 .. callout::

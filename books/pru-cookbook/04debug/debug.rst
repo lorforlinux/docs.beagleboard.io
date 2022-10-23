@@ -61,7 +61,7 @@ Solution
 ---------
 
 The command ``dmesg`` outputs useful information when dealing with the kernel.
-Simplying running ``dmesg -Hw`` can tell you a lot.  The ``-H`` flag puts the
+Simply running ``dmesg -Hw`` can tell you a lot.  The ``-H`` flag puts the
 dates in the human readable form, the ``-w`` tells it to wait for more information.
 Often I'll have a window open running ``dmesg -Hw``.
 
@@ -253,7 +253,7 @@ Here we see some values on the heap.
   [0x0220] 0x0a4fe833 0xb222ebda 0xe5575236 0xc50cbefd 
   [0x0230] 0xb037c0d7 0xf48bbe23 0x88c460f0 0x011550d4
 
-Data written explicity to ``0x0200`` of the DRAM.
+Data written explicitly to ``0x0200`` of the DRAM.
 
 .. code-block:: bash
 
@@ -270,7 +270,7 @@ Here's the shared memory.
 You can also use ``prudebug`` to set breakpoints and single step, 
 but I haven't used that feature much.
 
-:ref:`memory_allocation` gives examples of how you can control where your vaiables are stored in memory.
+:ref:`memory_allocation` gives examples of how you can control where your variables are stored in memory.
 
 UART
 ******

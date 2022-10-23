@@ -58,7 +58,7 @@ Each of these configurations is discussed in general terms in the
 following sections.
 
 For an up-to-date list of confirmed working accessories please go to
-`BeagleBone_Black_Accessories <http://elinux.org/BeagleBone_Black_Accessories_>`_
+`BeagleBone_Black_Accessories <https://elinux.org/Beagleboard:BeagleBone_Black_Accessories>`_
  
 
 
@@ -166,7 +166,7 @@ following accessories:
 * 1 x USB wireless keyboard and mouse combo.
 * 1 x USB HUB (OPTIONAL). The board has only one USB host port, so you may need to use a USB Hub if your keyboard and mouse requires two ports.
 
-For an up-to-date list of confirmed working accessories please go to `BeagleBone_Black_Accessories <http://elinux.org/BeagleBone_Black_Accessories_>`_
+For an up-to-date list of confirmed working accessories please go to `BeagleBone_Black_Accessories <https://elinux.org/Beagleboard:BeagleBone_Black_Accessories>`_
 
 Connecting Up the Board
 *****************************
