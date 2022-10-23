@@ -40,7 +40,7 @@ WARRANTY AND DISCLAIMERS
 
 The design materials referred to in this document are *\*NOT
 SUPPORTED\** and **DO NOT** constitute a reference design. Support of
-the open source developer community is provided through the the
+the open source developer community is provided through the
 resources defined at https://beagleboard.org/support.
 
 THERE IS NO WARRANTY FOR THE DESIGN MATERIALS, TO THE EXTENT PERMITTED

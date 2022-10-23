@@ -157,7 +157,7 @@ Hardware Display
    :alt: pinmux hardware
 
 
-Pin Table Refernce
+Pin Table References
 --------------------
 .. image:: images/pinmux2.png
    :align: center

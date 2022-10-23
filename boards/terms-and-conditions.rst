@@ -7,7 +7,7 @@ DESIGN
 *******
 
 These design materials referred to in this document are NOT SUPPORTED and DO NOT constitute a reference design.
-Only “community” support is allowed via resources at BeagleBoard.org forum.
+Only “community” support is allowed via resources at forum.beagleboard.org.
 
 
 THERE IS NO WARRANTY FOR THE DESIGN MATERIALS, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE 
@@ -23,9 +23,12 @@ mind. As such, the design materials that are provided which include schematic, B
 be suitable for any other purposes. If used, the design material becomes your responsibility as to whether or not 
 it meets your specific needs or your specific applications and may require changes to meet your requirements.
 
+See the LICENSE file regarding the copyright of these materials.
 
-See the LICENSE file regarding the copyright of these materials. 
-This LICENSE does not apply to BeagleBoard.org Foundation trademarks.
+This LICENSE does not apply to BeagleBoard.org Foundation trademarks. Express written permission is required
+for use of BeagleBoard.org Foundation trademarks, including, but not limited to BeagleBoard.org, BeagleBone,
+BeagleBoard, PocketBeagle, BeagleBoard Compatible, BeagleBoard Embedded, and BeagleBoard Approved. Please visit
+https://www.beagleboard.org/brand-use and https://www.beagleboard.org/partner-programs for additional details.
 
 
 ADDITIONAL TERMS

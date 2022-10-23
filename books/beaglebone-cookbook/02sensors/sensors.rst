@@ -725,7 +725,7 @@ Assuming the TMP101 is on bus 2 (the last digit is the bus number)
 
   bone$ cd /sys/class/i2c-adapter/
   bone$ ls
-  i2c-0  i2c-1  i2c-2			# Three i2c busses (bus 0 is internal)
+  i2c-0  i2c-1  i2c-2			# Three i2c buses (bus 0 is internal)
   bone$ cd i2c-2	# Pick bus 2
   bone$ ls -ls
   0 --w--w---- 1 root gpio 4096 Jul  1 09:24 delete_device

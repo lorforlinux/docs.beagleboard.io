@@ -44,7 +44,7 @@ shared memory (Shared RAM) as shown in :ref:`blocks_PRU_block_diagram`.
 
   PRU Block Diagram
 
-Each PRU accesses it's own DRAM starting at location 0x0000_0000. Each PRU
+Each PRU accesses its own DRAM starting at location 0x0000_0000. Each PRU
 can also access the other PRU's DRAM starting at 0x0000_2000. Both PRUs 
 access the shared RAM at 0x0001_0000. The compiler can control where each 
 of these memories variables are stored.
@@ -565,7 +565,7 @@ that is bit 0, we'll be toggling ``P9_31``.
   |     | Thus we are setting the bit we selected. Finally the new              |
   |     | value is written back to ``__R30``.                                   |
   +-----+-----------------------------------------------------------------------+
-  |18   | ``__delay_cycles`` is an ((instrinsic function)) that delays          |
+  |18   | ``__delay_cycles`` is an ((intrinsic function)) that delays           |
   |     | with number of cycles passed to it. Each cycle is 5ns,                |
   |     | and we are delaying 100,000,000 cycles which is                       |
   |     | 500,000,000ns, or 0.5 seconds.                                        |
@@ -579,7 +579,7 @@ that is bit 0, we'll be toggling ``P9_31``.
 
 .. tip::
 
-  You can read more about instrinsics in section 5.11 of the 
+  You can read more about intrinsics in section 5.11 of the 
   (`PRU Optimizing C/C++ Compiler, v2.2, User's Guide <http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf>`_.)
 
 
@@ -685,7 +685,7 @@ to write the `on` and `off` times to the DRAM.  Then inside the `while` loop we 
 	onCount[ch] = pru0_dram[2*ch];		// Read from DRAM0
 	offCount[ch]= pru0_dram[2*ch+1];
 
-to read from the DRAM when reseting the counters.  Now, while the PRU is running, 
+to read from the DRAM when resetting the counters.  Now, while the PRU is running, 
 the ARM can write values into the DRAM and change the PWM on and off times. 
 :ref:`blocks_pwm4` is the whole code.
 
@@ -774,7 +774,7 @@ the speedup compared to the ``pwm4.pru0.c`` case to drop from 6x to only 1.7x.
 We also have our ``for`` loop inside the ``while`` loop that can be unrolled.
 Unfortunately ``UNROLL()`` doesn't work on it, therefore we have to do it by
 hand. We could take the loop and just copy it three times, but that would
-make it harder to maintain the code.  Instead I convered the loop into a 
+make it harder to maintain the code.  Instead I converted the loop into a 
 ``#define`` (lines 14-24) and invoked ``update()`` as needed (lines 48-51).
 This is not a function call. Whenever the preprocessor sees the ``update()`` 
 it copies the code an then it's compiled.
@@ -941,7 +941,7 @@ are blurred.  To see what's happening, let's stop the oscilloscope.
 
 The stopped display shows that the four channels are doing what we wanted, except 
 The PRU 0 channels have a period of 370ns while the PRU 1 channels at 330ns.
-It appears the compiler has optimied the two PRUs slightly differenty.
+It appears the compiler has optimied the two PRUs slightly differently.
 
 
 Synchronizing Two PRUs
@@ -986,11 +986,11 @@ Discussion
 The figure below shows the two PRUs are synchronized, though there is some extra
 overhead in the process so the period is longer.
 
-.. figure:: figures/pwm8_prus_sycned.png
+.. figure:: figures/pwm8_prus_synced.png
   :align: center
-  :alt: pwm8.pru0 PRUs sycned
+  :alt: pwm8.pru0 PRUs synced
 
-  pwm8.pru0 PRUs sycned
+  pwm8.pru0 PRUs synced
 
 This isn't much different from the previous examples.
 
@@ -999,7 +999,7 @@ This isn't much different from the previous examples.
   +-----+-------+---------------------------------------------------------------------------------------+
   |PRU  |Line   |Change                                                                                 |
   +=====+=======+=======================================================================================+
-  |0    |37-45  |For PRU 0 these define ``configInitc()`` which initializes the interupts.              |
+  |0    |37-45  |For PRU 0 these define ``configInitc()`` which initializes the interrupts.             |
   |     |       |See page 226 of the                                                                    |
   |     |       |`AM335x TRM <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf>`_                        |
   |     |       |for a diagram explaining events, channels, hosts, etc.                                 |
@@ -1010,8 +1010,8 @@ This isn't much different from the previous examples.
   |     |       |to the Host-1 channel which ``configInitc()`` set up. We also clear event 16 so        |
   |     |       |PRU 0 can set it again.                                                                |
   +-----+-------+---------------------------------------------------------------------------------------+
-  |0    |74-75  |On PRU 0 this generates the interupt to send to PRU 1.  I found PRU 1 was              |
-  |     |       |slow to respond to the interupt, so I put this code at the end of the loop to          |
+  |0    |74-75  |On PRU 0 this generates the interrupt to send to PRU 1.  I found PRU 1 was             |
+  |     |       |slow to respond to the interrupt, so I put this code at the end of the loop to         |
   |     |       |give time for the signal to get to PRU 1.                                              |
   +-----+-------+---------------------------------------------------------------------------------------+
 
@@ -1155,7 +1155,7 @@ There's a lot going on here; let's take it line by line.
   |15-16  | ``onCount`` counts how many cycles the PWM should be 1 and ``offCount`` counts  |
   |       | how many it should be off.                                                      |
   +-------+---------------------------------------------------------------------------------+
-  |18     | ``waveform[]`` stores the analog waveform being ouput.                          |
+  |18     | ``waveform[]`` stores the analog waveform being output.                         |
   +-------+---------------------------------------------------------------------------------+
   |21-24  | ``SAWTOOTH`` is the simplest of the waveforms. Each sample is the duty cycle    |
   |       | at that time and must therefore be between 0 and 100.                           |
@@ -1244,7 +1244,7 @@ resistor.  You'll see something like :ref:`blocks_lowercutoff`.
 
   Reconstructed Sawtooth Waveform with Lower Cutoff Frequency
 
-The high freqencies have been reduced, but the corner of the waveform has 
+The high frequencies have been reduced, but the corner of the waveform has 
 been rounded.  You can also adjust the cutoff to a higher frequency and you'll 
 get a sharper corner, but you'll also get more high frequencies. See 
 :ref:`blocks_highercutoff`
@@ -1681,7 +1681,7 @@ adjustments for the 64x32 matrix we are using.
 
 .. admonition:: information
 
-  There's zero documention out there on how these matrices work, and no public 
+  There's zero documentation out there on how these matrices work, and no public 
   datasheets or spec sheets so we are going to try to document how they work.
 
   First thing to notice is that there are 2048 RGB LEDs in a 64x32 matrix. 
@@ -1864,7 +1864,7 @@ The sequence is:
 
 * Put data on the R1, G1, B1, R2, G2 and B2 lines
 * Toggle the clock.
-* Repeat the first two steps as one row of data is transfered.  There are 384 LEDs (2 rows of 32 RGB LEDs times 3 LED per RGB), but we are clocking in six bits (R1, G1, etc.) at a time, so 384/6=64 values need to be clocked in.
+* Repeat the first two steps as one row of data is transferred.  There are 384 LEDs (2 rows of 32 RGB LEDs times 3 LED per RGB), but we are clocking in six bits (R1, G1, etc.) at a time, so 384/6=64 values need to be clocked in.
 * Once all the values are in, disable the display (OE goes high)
 * Then toggle the latch (LAT) to latch the new data.
 * Turn the display back on.
@@ -1876,7 +1876,7 @@ Using the PRU we are able to run the clock a about 2.9 MKHz.
 at some 6.3 MHz.  So the compiler is doing a pretty good job, but you can run 
 some two times faster if you want to use assembly code.  In fairness to FPP, 
 it's having to pull it's data out of RAM to display it, so isn't not a good 
-comparision.
+comparison.
 
 .. _blocks_rgb_fpp:
 

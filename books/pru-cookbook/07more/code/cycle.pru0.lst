@@ -79,7 +79,7 @@ Tools Copyright (c) 2012-2017 Texas Instruments Incorporated
       69;----------------------------------------------------------------------
       70;  13 | void main(void)                                                        
       71;  15 | uint32_t gpio = P9_31;  // Select which pin to toggle.;                
-      72;  17 | // These will be kept in registers and never witten to DRAM            
+      72;  17 | // These will be kept in registers and never written to DRAM            
       73;  18 | uint32_t cycle, stall;                                                 
       74;  20 | // Clear SYSCFG[STANDBY_INIT] to enable OCP master port                
       75;----------------------------------------------------------------------

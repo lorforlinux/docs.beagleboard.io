@@ -466,7 +466,7 @@ Congratulations you are running the RT kernel.
     If the Beagle appears to be running (the LEDs are flashing) but you are having trouble connecting 
     via *ssh 192.168.7.2*, you can try connecting using the approach shown in :ref:`tips_FTDI`.
 
-Now run the scipt again (note it's being saved in *rt.hist* this time.)
+Now run the script again (note it's being saved in *rt.hist* this time.)
 
 .. code-block:: bash
 
@@ -493,7 +493,7 @@ This will generate the file *cyclictest.png* which contains your plot.  It shoul
     Histogram of Non-RT and RT kernels running cyclictest
 
 Notice the NON-RT data have much longer latenices. They may not happen often (fewer than 10 times in each bin), 
-but they are occuring and may be enough to miss a real-time deadline.
+but they are occurring and may be enough to miss a real-time deadline.
 
 The PREEMPT-RT times are all under a 150s. 
 

@@ -1,4 +1,4 @@
-; This is an example of how to call an assembly routine from C with a retun value.
+; This is an example of how to call an assembly routine from C with a return value.
 ;	Mark A. Yoder, 9-July-2018
 
 	.cdecls "delay-test2.pru0.c"

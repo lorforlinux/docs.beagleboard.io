@@ -99,7 +99,7 @@ they want. Maintenance of the code is centralized in a small reusable set of
 microcontroller firmware and the Linux kernel, which is highly peer reviewed 
 under a `highly-regarded governance model <https://wiki.p2pfoundation.net/Linux_-_Governance>`_. 
 
-On-going maintenance
+ongoing maintenance
 ====================
 
 Because there isn't code specific to any given network-of-devices configuration

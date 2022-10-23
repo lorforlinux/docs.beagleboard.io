@@ -367,7 +367,7 @@ LED matrix display (matrixLEDi2c.py)
 
 5. Now, we are ready to display the various patterns. After each pattern is displayed, we sleep a certain amount of time so that the pattern can be seen.
 
-6. Finally, send commands to the LED matrix to set the brightness. This makes the disply fade out and back in again.
+6. Finally, send commands to the LED matrix to set the brightness. This makes the display fade out and back in again.
 
 .. _displays_drive5V:
 

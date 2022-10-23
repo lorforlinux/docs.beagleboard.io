@@ -26,7 +26,7 @@ Updating the Kernel
 Problem
 --------
 
-You have an out-of-date kernel and want to want to make it current.
+You have an out-of-date kernel and want to make it current.
 
 Solution
 ---------
@@ -363,7 +363,7 @@ This is easier than it sounds, thanks to some very powerful scripts.
 
 .. warning:: 
     Be sure to run this recipe on your host computer. The Bone has enough computational 
-    power to compile a module or two, but compiling the entire kernel takes lots of time and resourses.
+    power to compile a module or two, but compiling the entire kernel takes lots of time and resources.
 
 
 Downloading and Compiling the Kernel
@@ -380,7 +380,7 @@ To download and compile the kernel, follow these steps:
     host$ ./build_kernel.sh # <4>
 
 1. The first command clones a repository with the tools to build the kernel for the Bone.
-2. This command lists all the different versions of the kernel that you can build. You'll need to pick one of these. How do you know which one to pick? A good first step is to choose the one you are currently running.  *uname -a* will reveal which one that is. When you are able to reproduce the current kernel, go to `Linux Kernel Newbies <http://kernelnewbies.org/>`_ to see what features are available in other kernels. `LinuxChanges <http://bit.ly/1AjiL00>`_ shows the features in the newest kernel and `LinuxVersions <http://bit.ly/1MrIHx3>`_ links to features of pervious kernels.
+2. This command lists all the different versions of the kernel that you can build. You'll need to pick one of these. How do you know which one to pick? A good first step is to choose the one you are currently running.  *uname -a* will reveal which one that is. When you are able to reproduce the current kernel, go to `Linux Kernel Newbies <http://kernelnewbies.org/>`_ to see what features are available in other kernels. `LinuxChanges <http://bit.ly/1AjiL00>`_ shows the features in the newest kernel and `LinuxVersions <http://bit.ly/1MrIHx3>`_ links to features of previous kernels.
 3. When you know which kernel to try, use *git checkout* to check it out. This command checks out at tag *3.8.13-bone60* and creates a new branch, *v3.8.13-bone60*.
 4. *build_kernel* is the master builder. If needed, it will download the cross compilers needed to compile the kernel (`linaro <http://www.linaro.org/>`_ is the current cross compiler). If there is a kernel at ``~/linux-dev``, it will use it; otherwise, it will download a copy to ``bb-kernel/ignore/linux-src``. It will then patch the kernel so that it will run on the Bone. 
 
