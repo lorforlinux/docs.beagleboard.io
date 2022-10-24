@@ -159,7 +159,7 @@ for the display to catch up and show the image.
 AUDIO
 ************
 
-Audio will only work on TV resolutions. This is due to the the way the
+Audio will only work on TV resolutions. This is due to the way the
 specification was written. Some displays have built in speakers and
 others require external. Make sure you have a TV resolution and speakers
 are connected if they are not built in. The SW should default to a TV

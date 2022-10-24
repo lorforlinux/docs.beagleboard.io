@@ -10,7 +10,7 @@ Hardware setup
 
 BeagleBone® AI-64 has TI's TDA4VM SoC which houses dual core A72, high performance vision
 accelerators, video codec accelerators, latest C71x and C66x DSP, high bandwidth
-realtime IPs for capture and display, GPU, dedicated safety island and security
+realtime IPs for capture and display, GPU, dedicated safety island security
 accelerators. The SoC is power optimized to provide best in class performance
 for perception, sensor fusion, localization and path planning tasks in robotics,
 industrial and automotive applications.
@@ -92,7 +92,7 @@ Note that the headers have to be lifted up to connect the cameras
 
     Reboot the board after editing and saving the file.
 
-Two RPi cameras can be connected to 2 headers for multi camera usecases
+Two RPi cameras can be connected to 2 headers for multi camera use-cases
 
 Please refer :ref:`pub_edgeai_camera_sources` to know how to list all the cameras
 connected and select which one to use for the demo.

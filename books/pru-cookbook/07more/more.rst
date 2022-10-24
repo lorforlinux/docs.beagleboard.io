@@ -70,7 +70,7 @@ and :ref:`more_delay`. If you look in the local ``Makefile`` you'll see:
 
 :download:`Makefile <../code/07more/Makefile>`
 
-This Makefle includes a common Makfile at  ``/var/lib/cloud9/common/Makefile``, this the Makefile 
+This Makefle includes a common Makefile at  ``/var/lib/cloud9/common/Makefile``, this the Makefile 
 you need to edit. Edit ``/var/lib/cloud9/common/Makefile`` and go to line 195.
 
 .. code-block:: shell-session
@@ -409,7 +409,7 @@ Discussion
   |       | `PRU Optimizing C/C++ Compiler, v2.2, User's Guide <http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf>`_   | 
   |       | shows how to use `xout()`. The first argument, 14, says to do a direct transfer to PRU 1.  If the       |
   |       | first argument is 10, 11 or 12, the data is transferred to one of three scratchpad memories that        |
-  |       | PRU 1 can access later. The second argument, 5, says to start transfering with register ``r5``          |
+  |       | PRU 1 can access later. The second argument, 5, says to start transferring with register ``r5``          |
   |       | and use as many registers as needed to transfer all of ``dmemBuf``. The third argument, 0,              |
   |       | says to not use remapping. (See the User's Guide for details.)                                          |
   |       | The final argument is the data to be transferred.                                                       |

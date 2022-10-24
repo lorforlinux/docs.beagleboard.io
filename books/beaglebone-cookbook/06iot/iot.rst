@@ -1101,4 +1101,4 @@ Discussion
 
 When you run the script in :ref:`js_launchPadBeagle_code`, the Bone opens up the 
 serial port and every second sends a new command, either *r* or *g*. 
-The LaunchPad waits for the command and, when it arrives, responds by toggling the corresponding LED.
+The LaunchPad waits for the command, when it arrives, responds by toggling the corresponding LED.

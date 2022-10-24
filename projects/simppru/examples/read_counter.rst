@@ -15,7 +15,7 @@ Code
 -  Following code works on PocketBeagle, to use on other boards, please
    change the pins accordingly.
 
-Explaination
+Explanation
 ------------
 
 Since, PRU's hardware counter works at 200 MHz, it counts upto 2 x 108

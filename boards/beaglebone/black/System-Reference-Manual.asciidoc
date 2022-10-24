@@ -940,7 +940,7 @@ on the board.
 ==== 5.3.1 512MB DDR3L
 
 A single 256Mb x16 DDR3L 4Gb (512MB) memory device is used. The memory
-used is is one of two devices:
+used is one of two devices:
 
 * MT41K256M16HA-125 from Micron
 * D2516EC4BXGGB from Kingston
@@ -1537,7 +1537,7 @@ devices can support this voltage setting of 1.35V.
 
 The power up process is consists of several stages and events. <<figure-26>>
 describes the events that make up the power up process for the
-processer from the PMIC. This diagram is used elsewhere to convey
+processor from the PMIC. This diagram is used elsewhere to convey
 additional information. I saw no need to bust it up into smaller
 diagrams. It is from the processor datasheet supplied by Texas
 Instruments.
@@ -2464,7 +2464,7 @@ image:media/image67.png[media/image67.png,title="media/image67.png",width=427,he
 ==== 6.12.3 PRU-ICSS Pin Access
 
 Both PRU 0 and PRU1 are accessible from the expansion headers. Some may
-not be useable without first disabling functions on the board like LCD
+not be usable without first disabling functions on the board like LCD
 for example. Listed below is what ports can be accessed on each PRU.
 
 PRU0
@@ -5816,7 +5816,7 @@ for the display to catch up and show the image.
 [[audio]]
 ==== 11.4.6 AUDIO
 
-Audio will only work on TV resolutions. This is due to the the way the
+Audio will only work on TV resolutions. This is due to the way the
 specification was written. Some displays have built in speakers and
 others require external. Make sure you have a TV resolution and speakers
 are connected if they are not built in. The SW should default to a TV

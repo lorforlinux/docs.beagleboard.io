@@ -27,7 +27,7 @@ Code
 -  Following code works on PocketBeagle, to use on other boards, please
    change the pins accordingly.
 
-Explaination
+Explanation
 ------------
 
 ``init_message_channel`` is needed to setup communication channel

@@ -100,7 +100,7 @@ Proposed changes.
 
 * https://github.com/beagleboard/beaglebone-ai/issues/24[Add footprint for pull-down resistor on serial debug header RX line].
 * https://github.com/beagleboard/beaglebone-ai/issues/25[Move microSD card cage closer to microHDMI to fit cases better].
-* https://github.com/beagleboard/beaglebone-ai/issues/22[Connect AM5729 ball AB10 to to P9.13 to provide a GPIO].
+* https://github.com/beagleboard/beaglebone-ai/issues/22[Connect AM5729 ball AB10 to P9.13 to provide a GPIO].
 * https://github.com/beagleboard/beaglebone-ai/issues/19[HDMI hot-plug detection fixes].
 * https://github.com/beagleboard/beaglebone-ai/issues/20[Add additional CAN port to the expansion headers].
 * https://github.com/beagleboard/beaglebone-ai/issues/21[Fix JTAG connector to not require wire mods].
@@ -134,7 +134,7 @@ You will need to purchase:
 * Serial cable[https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#serial-cable] (optional)
 
 More information or to purchase a replacement heat sink or antenna,
-please go to these web sites: 
+please go to these websites: 
 
 * https://bit.ly/2kmXAzF[Antenna]
 * https://bit.ly/2klxxJa[Heat Sink]
@@ -533,7 +533,7 @@ TODO: This text needs to go somewhere.
 |0x47    |U13        |HD3SS3220 USB Type-C DRP port controller
 |0x50    |U9         |24LC32 board ID EEPROM
 |0x58    |U3         |TPS6590379 PMIC power registers
-|0x5a    |U3         |TPS6590379 PMIC interfaces and auxilaries
+|0x5a    |U3         |TPS6590379 PMIC interfaces and auxiliaries
 |0x5c    |U3         |TPS6590379 PMIC trimming and test
 |0x5e    |U3         |TPS6590379 PMIC OTP
 |===
@@ -607,7 +607,7 @@ interface placement]
 *Figure 23* below shows how the USB-C power input is connected to the
 *TPS6590379*.
 
-TODO: (Schematic screenshoot)
+TODO: (Schematic screenshot)
 
 [[power-button]]
 ==== 6.1.3 Power Button
@@ -736,7 +736,7 @@ CPU's:
 * PRU-ICSS2 PRU1
 
 The programmable nature of the PRUs, along with their access to pins,
-events and all SoC resources, provides flexibility in implmenting fast
+events and all SoC resources, provides flexibility in implementing fast
 real-time responses, specialized data handling operations, peripheral
 interfaces and in off-loading tasks from the other processor cores of
 the SoC.
@@ -788,7 +788,7 @@ Resources
 https://beagleboard.org/pru
 * The PRU Cookbook provides examples and getting started information
 https://github.com/MarkAYoder/PRUCookbook
-* Detailed specification is availble at
+* Detailed specification is available at
 http://processors.wiki.ti.com/index.php/PRU-ICSS
 
 [[faq]]
@@ -2631,7 +2631,7 @@ l’autorité de l'utilisateur pour actionner l'équipement.
 
 The design materials referred to in this document are _*NOT SUPPORTED*_
 and *DO NOT* constitute a reference design. Support of the open source
-developer community is provided through the the resources defined at
+developer community is provided through the resources defined at
 https://beagleboard.org/support.
 
 THERE IS NO WARRANTY FOR THE DESIGN MATERIALS, TO THE EXTENT PERMITTED

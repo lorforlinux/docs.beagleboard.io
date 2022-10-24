@@ -64,7 +64,7 @@ Code
 -  Following code works on PocketBeagle, to use on other boards, please
    change the pins accordingly.
 
-Explaination
+Explanation
 ------------
 
 .. |image0| image:: images/hcsr04_pocket_beagle.png

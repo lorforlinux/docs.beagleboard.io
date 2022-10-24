@@ -4,7 +4,7 @@ Language Syntax
 -  simpPRU is a procedural programming language.
 -  It is a statically typed language. Variables and functions must be
    assigned data types during compilation.
--  It is typesafe, and data types of variables are decided during
+-  It is type-safe, and data types of variables are decided during
    compilation.
 -  simPRU codes have a ``.sim`` extension.
 
@@ -551,7 +551,7 @@ statements.
    }     
    }
 
-- **Correct** :  ``return`` is not inside compound statments, It should be placed only at the end of function definition 
+- **Correct** :  ``return`` is not inside compound statements, It should be placed only at the end of function definition 
 
 .. code:: python
 

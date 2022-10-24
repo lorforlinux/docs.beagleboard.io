@@ -35,7 +35,7 @@ What is simpPRU
 -  simpPRU is a procedural programming language.
 -  It is a statically typed language. Variables and functions must be
    assigned data types during compilation.
--  It is typesafe, and data types of variables are decided during
+-  It is type-safe, and data types of variables are decided during
    compilation.
 -  simpPRU codes have a ``.sim`` extension.
 -  simpPRU provides a console app to use Remoteproc functionality.
