@@ -278,29 +278,29 @@ You are ready to start playing with the examples and need to find the code.
 Solution
 ---------
 
-You can find the code (and the whole book) on the PRU Cookbook github site: 
-<https://github.com/MarkAYoder/PRUCookbook/tree/master/docs>. Just clone 
-it on your Beagle and then look in the *docs* directory.  
+You can find the code on the PRU Cookbook Code project on git.beagleboard.org: 
+https://git.beagleboard.org/beagleboard/pru-cookbook-code. Just clone 
+it on your Beagle.  
 
-.. code-block::bash
+.. code-block:: shell-session
 
-    bone$ *git clone https://github.com/MarkAYoder/PRUCookbook.git*
-    bone$ *cd PRUCookbook/docs/*
-    bone$ *ls -F*
-    01case/     05blocks/  book.adoc  copyright.adoc  index.html  projects.adoc
-    02start/    06io/      book.html  hack.sh*        Makefile    projects.html
-    03details/  07more/    book.pdf   header.adoc     notes.adoc  style.adoc
-    04debug/    08ai/      common/    index.adoc      notes.html  style.html
-
+    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
+    bone$ cd pru-cookbook-code
+    bone$ ls -F
+    01case/   03details/  05blocks/  07more/  README.md
+    02start/  04details/  06io/      08ai/
 
 Each chapter has its own directory and within that directory 
 is a **code** directory that has all of the code.
 
-.. code-block::bash
+.. code-block:: shell-session
 
-    bone$ *cd 02start/code/*
-    bone$ *ls*
+    bone$ cd 02start/
+    bone$ ls
     hello.pru0.c  hello.pru1_1.c  Makefile  setup.sh
+    ai.notes         hello2.pru1_1.c  hello2.pru2_1.c  Makefile
+    hello2.pru0.c    hello2.pru1.c    hello.pru0.c     setup2.sh*
+    hello2.pru1_0.c  hello2.pru2_0.c  hello.pru1_1.c   setup.sh*
 
 Go and explore.
 
@@ -331,10 +331,10 @@ is some code that blinks the ``USR3`` LED ten times using the PRU.
 Later chapters will go into details of how this code works, but if you want 
 to run it right now do the following.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *git clone https://github.com/MarkAYoder/PRUCookbook.git*
-    bone$ *cd PRUCookbook/docs/02start/code*
+    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
+    bone$ cd pru-cookbook-code/02start
 
 .. tip::
 
@@ -347,9 +347,9 @@ to run it right now do the following.
 Running Code on the Black or Pocket
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *make TARGET=hello.pru0*
+    bone$ make TARGET=hello.pru0
     /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=hello.pru0,COMMON=/var/lib/cloud9/common
     /var/lib/cloud9/common/Makefile:147: GEN_DIR=/tmp/cloud9-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
     -    Stopping PRU 0
@@ -366,9 +366,9 @@ Running Code on the Black or Pocket
 Running Code on the AI
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *make TARGET=hello.pru1_1*
+    bone$ make TARGET=hello.pru1_1
     /var/lib/cloud9/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
     CC	hello.pru1_1.c
