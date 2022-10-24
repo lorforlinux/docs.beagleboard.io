@@ -9,8 +9,9 @@ latest software image on your beagle, how to run the Cloud9 IDE and how to
 blink an LED.
 
 If you already have your Beagle and know your way around it, you can find the
-code (and the whole book) on the PRU Cookbook github site: 
-https://github.com/MarkAYoder/PRUCookbook. 
+code at https://git.beagleboard.org/beagleboard/pru-cookbook-code and book
+contents at https://git.beagleboard.org/docs/docs.beagleboard.io under the
+books/pru-cookbook directory.
 
 Selecting a Beagle
 ********************
@@ -256,12 +257,12 @@ as shown in :ref:`start_c9_show_home`.
 
 If you want to edit files beyond your home directory you can link to the root file system by:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *cd*
-    bone$ *ln -s / root*
-    bone$ *cd root*
-    bone$ *ls*
+    bone$ cd
+    bone$ ln -s / root
+    bone$ cd root
+    bone$ ls
     bbb-uEnv.txt  boot  etc   ID.txt  lost+found  mnt           opt   root  sbin  sys  usr
     bin           dev   home  lib     media       nfs-uEnv.txt  proc  run   srv   tmp  var
 
@@ -322,11 +323,11 @@ is some code that blinks the ``USR3`` LED ten times using the PRU.
 
 .. _start_hello:
 
-.. literalinclude:: code/hello.pru0.c
+.. literalinclude:: ../code/02start/hello.pru0.c
     :caption: hello.pru0.c
     :linenos:
 
-:download:`hello.pru0.c <code/hello.pru0.c>`
+:download:`hello.pru0.c <../code/02start/hello.pru0.c>`
 
 Later chapters will go into details of how this code works, but if you want 
 to run it right now do the following.

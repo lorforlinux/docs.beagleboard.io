@@ -113,14 +113,14 @@ via the PRU that can be used out of the box.
 
 Just run:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo rc_test_servos -f 10 -p 1.5
 
 The ``-f 10`` says to use a frequency of 10 Hz and the ``-p 1.5`` says to set the position to ``1.5``.  The range of positions is
 ``-1.5`` to ``1.5``.   Run ``rc_test_servos -h`` to see all the options.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ rc_test_servos -h
 
@@ -229,9 +229,9 @@ Solution
 The forth encoder can be implemented on the PRU. If you run ``rc_test_encoders_eqep`` 
 on the Blue, you will see the output of encoders E1-E3 which are connected to the eEQP hardware.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *rc_test_encoders_eqep* 
+   bone$ rc_test_encoders_eqep
 
    Raw encoder positions
          E1   |      E2   |      E3   | 
@@ -288,13 +288,13 @@ Solution
 The forth encoder is implemented on the PRU and accessed with `sudo rc_test_encoders_pru`  
 
 .. note::
-   This command needs root permission, so the `sudo` is needed.  
+   This command needs root permission, so the `sudo` is needed.  The default password is `temppwd`.
 
 Here's what you will see
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *sudo rc_test_encoders_pru*
+   bone$ sudo rc_test_encoders_pru
    [sudo] password for debian: 
 
    Raw encoder position
@@ -343,17 +343,17 @@ If you want to be running a newer image, there are instructions on the site for 
 
 .. _case_installing_beaglelogic:
 
-.. code-block:: bash
+.. code-block:: shell-session
    :caption: Installing BeagleLogic
       
-   bone$ *git clone https://github.com/abhishek-kakkar/BeagleLogic*
-   bone$ *cd BeagleLogic/kernel*
-   bone$ *mv beaglelogic-00A0.dts beaglelogic-00A0.dts.orig*
-   bone$ *wget https://gist.githubusercontent.com/abhishek-kakkar/0761ef7b10822cff4b3efd194837f49c/raw/eb2cf6cfb59ff5ccb1710dcd7d4a40cc01cfc050/beaglelogic-00A0.dts*
-   bone$ *make overlay*
-   bone$ *sudo cp beaglelogic-00A0.dtbo /lib/firmware/*
-   bone$ *sudo update-initramfs -u -k \`uname -r`*
-   bone$ *sudo reboot*
+   bone$ git clone https://github.com/abhishek-kakkar/BeagleLogic
+   bone$ cd BeagleLogic/kernel
+   bone$ mv beaglelogic-00A0.dts beaglelogic-00A0.dts.orig
+   bone$ wget https://gist.githubusercontent.com/abhishek-kakkar/0761ef7b10822cff4b3efd194837f49c/raw/eb2cf6cfb59ff5ccb1710dcd7d4a40cc01cfc050/beaglelogic-00A0.dts
+   bone$ make overlay
+   bone$ sudo cp beaglelogic-00A0.dtbo /lib/firmware/
+   bone$ sudo update-initramfs -u -k \`uname -r`
+   bone$ sudo reboot
 
 Once the Bone has rebooted, browse to 192.168.7.2:4000 where you'll see
 :ref:`case_beaglelogic_capture`.  Here you can easily select the sample
@@ -386,17 +386,17 @@ logic analyzer on the Bone with no additional hardware needed.
 The kernel interface makes it easy to control the PRUs through the
 command line.  For example
 
-.. code-block:: bash
+.. code-block:: shell-session
       
-   bone$ *dd if=/dev/beaglelogic of=mydump bs=1M count=1*
+   bone$ dd if=/dev/beaglelogic of=mydump bs=1M count=1
 
 will capture a binary dump from the PRUs. The sample rate and number of 
 bits per sample can be controlled through ``/sys/``.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *cd /sys/devices/virtual/misc/beaglelogic*
-   bone$ *ls*
+   bone$ cd /sys/devices/virtual/misc/beaglelogic
+   bone$ ls
    buffers      filltestpattern  power       state         uevent
    bufunitsize  lasterror        samplerate  subsystem
    dev          memalloc         sampleunit  triggerflags
@@ -407,9 +407,9 @@ bits per sample can be controlled through ``/sys/``.
 
 You can set the sample rate by simply writing to ``samplerate``.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *echo 100000000 > samplerate*
+   bone$ echo 100000000 > samplerate
 
 `sysfs attributes Reference <https://beaglelogic.readthedocs.io/en/latest/sysfs_attributes.html>`_
 has more details on configuring via sysfs.
@@ -417,9 +417,9 @@ has more details on configuring via sysfs.
 If you run ``dmesg -Hw`` in another window you can see when a capture 
 is started and stopped.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *dmesg -Hw*
+   bone$ dmesg -Hw
    [Jul25 08:46] misc beaglelogic: capture started with sample rate=100000000 Hz, sampleunit=1, triggerflags=0
    [  +0.086261] misc beaglelogic: capture session ended
 
@@ -583,11 +583,11 @@ explaining how the PRUs get this type of performance.
 
   .. _case_e1.31_example:
 
-  .. literalinclude:: code/e1.31-test.py
+  .. literalinclude:: ../code/01start/e1.31-test.py
      :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
      :linenos:
 
-  :download:`e1.31-test.py <code/e1.31-test.py>` 
+  :download:`e1.31-test.py <../code/01start/e1.31-test.py>` 
 
   .. TODO document the code
 
@@ -748,10 +748,10 @@ following instructions at https://xlights.org/releases/.
 
 Run xLights and you'll see :ref:`case_xlights_setup`.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   host$ *chmod +x xLights-2021.18-x86_64.AppImage*
-   host$ *./xLights-2021.18-x86_64.AppImage*
+   host$ chmod +x xLights-2021.18-x86_64.AppImage
+   host$ ./xLights-2021.18-x86_64.AppImage
 
 .. TODO update the figures.
 
@@ -985,7 +985,7 @@ You can `build simpPRU <https://simppru.readthedocs.io/en/latest/install/build/>
 source, more easily just `install it <https://simppru.readthedocs.io/en/latest/install/install/>`_. 
 On the Beagle run:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ wget https://github.com/VedantParanjape/simpPRU/releases/download/1.4/simppru-1.4-armhf.deb
    bone$ sudo dpkg -i simppru-1.4-armhf.deb
@@ -996,15 +996,15 @@ Now, suppose you wanted to run the
 `LED blink <https://simppru.readthedocs.io/en/latest/examples/led_blink/>`_
 example which is reproduced here.
 
-.. literalinclude:: code/blink.sim
+.. literalinclude:: ../code/01start/blink.sim
    :caption: LED Blink (blink.sim)
    :linenos:
 
-:download:`blink.sim <code/blink.sim>`
+:download:`blink.sim <../code/01start/blink.sim>`
 
 Just run simppru
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ simppru blink.sim --load 
    Detected TI AM335x PocketBeagle
@@ -1019,7 +1019,7 @@ Detected TI AM335x PocketBeagle
 The +--load+ flag caused the compiled code to be copied to +/lib/firmware+.
 To start just do:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ cd /dev/remoteproc/pruss-core0/
    bone$ ls

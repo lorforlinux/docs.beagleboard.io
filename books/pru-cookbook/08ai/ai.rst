@@ -155,7 +155,7 @@ Solution
 
 The ``show-pins.pl`` command does what you want, but you have to set it up first.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ cd ~/bin
 	bone$ ln -s /opt/scripts/device/bone/show-pins.pl .
@@ -164,7 +164,7 @@ This creates a symbolic link to the ``show-pins.pl`` command that is rather hidd
 away.  The link is put in the ``bin`` directory which is in the default command
 ``$PATH``.  Now you can run ``show-pins.pl`` from anywhere.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ *show-pins.pl*
 	P9.19a                    16   R6 7 fast rx  up  i2c4_scl
@@ -180,7 +180,7 @@ which direction they are set by using ``gpioinfo`` and the chip number.
 Unfortunately you subtract one from the port number to get the chip number.
 So ``P8.35b`` is on chip number 2.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ *gpioinfo 2*
 		line   0:      unnamed       unused   *input*  active-high 
@@ -194,7 +194,7 @@ Here we see both (lines 0 and 1) are set to input.
 
 Adding ``-v`` gives more details.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ *show-pins.pl -v*
 	...
@@ -210,7 +210,7 @@ Adding ``-v`` gives more details.
 
 The best way to use ``show-pins.pl`` is with ``grep``.  To see all the pru pins try:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ *show-pins.pl  | grep -i pru | sort*
 	P8.13                    100   D3 c fast rx      pr1_pru1_gpi7
@@ -236,7 +236,7 @@ Problem
 
 I want to configure another pin for the PRU, but I get an error.
 
-.. code-block:: bash
+.. code-block:: shell-session
 		
 	bone$ *config-pin P9_31 pruout*
 	ERROR: open() for /sys/devices/platform/ocp/ocp:P9_31_pinmux/state failed, No such file or directory
@@ -271,14 +271,14 @@ We see that when ``P9_31a`` is set to ``MODE13`` it will be a PRU **out** pin.
 
 Next, find which kernel you are running.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ uname -a
 	Linux ai 4.14.108-ti-r131 #1buster SMP PREEMPT Tue Mar 24 19:18:36 UTC 2020 armv7l GNU/Linux
 
 I'm running the 4.14 version. Now look in ``/opt/source`` for your kernel.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
 	bone$ cd /opt/source/
 	bone$ ls
@@ -290,7 +290,7 @@ I'm running the 4.14 version. Now look in ``/opt/source`` for your kernel.
 
 ``am5729-beagleboneai.dts`` is the file we need to edit.  Search for ``P9_31``. You'l see:
 
-.. code-block:: bash
+.. code-block:: shell-session
 	:linenos:
 
 	DRA7XX_CORE_IOPAD(0x36DC, MUX_MODE14) // B13: P9.30: mcasp1_axr10.off //
@@ -301,7 +301,7 @@ Change the ``MUX_MODE14`` to ``MUX_MODE13`` for output, or ``MUX_MODE12`` for in
 
 Compile and install.  The first time will take a while since it recompiles all the dts files.
 
-.. code-block:: bash
+.. code-block:: shell-session
 	:linenos:
 
 	bone$ make
@@ -358,11 +358,11 @@ the adapted code.
 
 .. _ai_pwm1:
 
-.. literalinclude:: code/pwm1.pru2_1.c
+.. literalinclude:: ../code/08ai/pwm1.pru2_1.c
    :caption: pwm1.pru2_1.c
    :linenos:
 
-:download:`pwm1.pru2_1.c <code/pwm1.pru2_1.c>`
+:download:`pwm1.pru2_1.c <../code/08ai/pwm1.pru2_1.c>`
 
 
 One line 6 ``P9_31`` is defined as ``(0x1:ref:`10)``, which means shift ``1`` over by 10 bits.
