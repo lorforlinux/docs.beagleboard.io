@@ -189,7 +189,7 @@ If you are using an oscilloscope, look closely and you'll see the following.
 
     PWM with jitter
 
-The PRU is still as solid as before in it's timing, but now it's going through
+The PRU is still as solid as before in its timing, but now it's going through
 the OCP interface.  This interface is shared with other parts of the system,
 therefore the sometimes the PRU must wait for the other parts to finish.  
 When this happens the pulse width is a bit longer than usual thus adding

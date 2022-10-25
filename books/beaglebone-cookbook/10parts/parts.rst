@@ -52,8 +52,6 @@ with jumper wires, and <<parts_breadboard>> shows where you can get breadboards.
     +-------------+--------------------------------------------------------------------------------------------+
     | Digikey     | http://www.digikey.com/product-detail/en/TW-E012-000/438-1049-ND/643115                    |
     +-------------+--------------------------------------------------------------------------------------------+
-    | RadioShack  | http://www.radioshack.com/solderless-breadboard-jumper-wire-kit/2760173.html#.VG5i1PnF8fA  |
-    +-------------+--------------------------------------------------------------------------------------------+
     | SparkFun    | https://www.sparkfun.com/products/124                                                      |
     +-------------+--------------------------------------------------------------------------------------------+
 
@@ -73,7 +71,7 @@ with jumper wires, and <<parts_breadboard>> shows where you can get breadboards.
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
     | SparkFun    | https://www.sparkfun.com/search/results?term=breadboard                                                                                     |
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-    | CircuitCo   | http://elinux.org/CircuitCo:BeagleBone_Breadboard                                                                                           |
+    | CircuitCo   | https://elinux.org/BeagleBoneBreadboard (no longer manufactured, but design available)                                                      |
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 If you want something more permanent, try `Adafruit's Perma-Proto Breadboard <https://www.adafruit.com/product/1609>`_, laid out like a breadboard.

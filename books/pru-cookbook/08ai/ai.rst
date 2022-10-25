@@ -288,7 +288,7 @@ I'm running the 4.14 version. Now look in ``/opt/source`` for your kernel.
 	*dtb-4.14-ti*                    pyctrl
 	dtb-4.19-ti                    py-uio
 
-``am5729-beagleboneai.dts`` is the file we need to edit.  Search for ``P9_31``. You'l see:
+``am5729-beagleboneai.dts`` is the file we need to edit.  Search for ``P9_31``. You'll see:
 
 .. code-block:: shell-session
 	:linenos:
