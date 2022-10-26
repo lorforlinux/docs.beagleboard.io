@@ -127,7 +127,7 @@ Other systems
 Log into BeagleBone Green Gateway
 =================================
 
-These instructions assume an x86_64 computer runing Ubuntu 20.04.3 LTS, but any
+These instructions assume an x86_64 computer running Ubuntu 20.04.3 LTS, but any
 computer can be used to connect to your BeagleBone Green Gateway.
 
 #. Log onto the Seeed BeagleBone® Green Gateway using :code:`ssh`.

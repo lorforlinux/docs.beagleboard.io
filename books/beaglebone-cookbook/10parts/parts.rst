@@ -232,7 +232,3 @@ Here are some things that don't fit in the other categories.
     | Nokia 5110 LCD                                      | `Adafruit 5110 LCD <http://bit.ly/1Ag6LgG>`_,                                         |
     |                                                     | `SparkFun 5110 LCD <http://bit.ly/19cizdu>`_                                          |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
-    | BeagleBone LCD7                                     | `eLinux LCD7 <http://elinux.org/CircuitCo:BeagleBone_LCD7#Distributors>`_             |
-    +-----------------------------------------------------+---------------------------------------------------------------------------------------+
-    | MiniDisplay Cape                                    | `eLinux minidisplay <http://elinux.org/CircuitCo:MiniDisplay_Cape>`_                  |
-    +-----------------------------------------------------+---------------------------------------------------------------------------------------+
