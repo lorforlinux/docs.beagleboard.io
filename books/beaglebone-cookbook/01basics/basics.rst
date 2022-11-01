@@ -313,7 +313,7 @@ This shows you a list of dates of the most recent Debian images (:ref:`basics_de
    Latest Debian images
 
 At the time of writing, we are using the *Bullseye* image.  
-Click on it's link. Scrolling up you'll find :ref:`basics_deb2`. 
+Click on its link. Scrolling up you'll find :ref:`basics_deb2`. 
 There are three types of snapshots, Minimal, IoT and Xfce Desktop. 
 IoT is the one we are running.
 

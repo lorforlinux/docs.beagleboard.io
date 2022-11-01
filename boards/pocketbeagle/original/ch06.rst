@@ -195,8 +195,7 @@ Additional documentation is located on the Texas Instruments website at
 and also located at
 `http://github.com/beagleboard/am335x_pru_package. <http://github.com/beagleboard/am335x_pru_package>`__
 
-Example projects using the PRU-ICSS can be found at
-`processors.wiki.ti.com/index.php/PRU_Projects <http://processors.wiki.ti.com/index.php/PRU_Projects>`__.
+Example projects using the PRU-ICSS can be found in :ref:`pru-cookbook-home`.
 
 .. _pru_icss_features:
 

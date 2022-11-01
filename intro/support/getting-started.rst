@@ -191,7 +191,7 @@ an older operating system or need additional drivers for serial access to older 
 
 	1. Windows Driver Certification warning may pop up two or three times. Click "Ignore", "Install" or "Run".
 	2. To check if you're running 32 or 64-bit Windows see `this <https://support.microsoft.com/en-us/topic/determine-whether-your-computer-is-running-a-32-bit-version-or-64-bit-version-of-the-windows-operating-system-1b03ca69-ac5e-4b04-827b-c0c47145944b>`_.
-	3. On systems without the latest service release, you may get an error (0xc000007b). In that case, please install the following and retry: https://www.microsoft.com/en-us/download/confirmation.aspx?id=13523
+	3. On systems without the latest service release, you may get an error (0xc000007b). In that case, please perform the following and retry: https://answers.microsoft.com/en-us/windows/forum/all/windows-10-error-code-0xc000007b/02b74e7d-ce19-4ba4-90f0-e16e8d911866
 	4. You may need to reboot Windows.
 	5. These drivers have been tested to work up to Windows 10
 
