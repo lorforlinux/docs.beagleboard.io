@@ -796,7 +796,7 @@ and PCB shown in :ref:`capes_miniDisplay_pcb`.
     PCB for MiniDisplay cape
 
 .. note::
-   #TODO#: The MiniDisplay cape is not currently available, so this example should be udpated.
+   #TODO#: The MiniDisplay cape is not currently available, so this example should be updated.
 
 A good starting point is to take the PCB layout for the MiniDisplay and edit it for your project. 
 The connectors for +P8+ and +P9+ are already in place and ready to go.
@@ -1153,9 +1153,13 @@ Solution
 ---------
 
 Complete capes have an |I2C| EEPROM on board that contains configuration information that is read at boot time. 
-`Adventures in BeagleBone Cape EEPROMs <http://bit.ly/1Fb64uF>`_ gives a helpful description of two methods for 
-programming the EEPROM.  `How to Roll your own BeagleBone Capes <http://bit.ly/1E5M7RJ>`_ is a good four-part 
+`Adventures in BeagleBone Cape EEPROMs <https://web.archive.org/web/20190108195421/http://azkeller.com:80/blog/?p=62>`_ gives a helpful description of two methods for 
+programming the EEPROM.  `How to Roll your own BeagleBone Capes <https://web.archive.org/web/20200222204651/http://papermint-designs.com/community/taxonomy/term/68>`_ is a good four-part 
 series on creating a cape, including how to wire and program the EEPROM.
+
+.. note::
+
+   The current effort to document how to enable software for a cape is ongoing at https://docs.beagleboard.org/latest/boards/capes.
 
 .. _capes_production:
 
@@ -1172,7 +1176,7 @@ Solution
 ---------
 
 `CircuitHub <https://circuithub.com/>`_ offers a great tool to get a quick quote on assembled PCBs. 
-To make things simple, I downloaded the `CircuitCo MiniDisplay Cape Eagle design materials <https://elinux.org/Special:Badtitle/NS500:MiniDisplay_Cape>`_
+To make things simple, I downloaded the `CircuitCo MiniDisplay Cape Eagle design materials <https://elinux.org/MiniDisplay_Cape>`_
 and uploaded them to CircuitHub.
 
 After the design is uploaded, you'll need to review the parts to verify that CircuitHub has or 

@@ -30,6 +30,7 @@ the equipment.
 This Class A or B digital apparatus complies with Canadian ICES-003.
 Changes or modifications not expressly approved by the party responsible
 for compliance could void the user’s authority to operate the equipment.
+
 Cet appareil numérique de la classe A ou B est conforme à la norme
 NMB-003 du Canada. Les changements ou les modifications pas expressément
 approuvés par la partie responsible de la conformité ont pu vider

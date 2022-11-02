@@ -32,15 +32,15 @@ Solution
 
 It's all on a GitHub repository.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ git clone https://github.com/MarkAYoder/PRUCookbook.git
-
+    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
 
 .. note::
-   #TODO#: There needs to be a code-only repo that is validated against the documentation
-   code to be identical for specific version. The version needs to be noted in the
-   documentation.
+   #TODO#: The version of code used needs to be noted in the documentation.
+
+.. note::
+   #TODO#: Why is this documented in multiple places?
 
 .. _compiling_with_clpru_and_lnkpru:
 
@@ -58,7 +58,7 @@ Solution
 The PRU compiler and linker are already installed on many images.
 They are called ``clpru`` and ``lnkpru``.  Do the following to see if ``clpru`` is installed.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ which clpru
     /usr/bin/clpru
@@ -69,7 +69,7 @@ They are called ``clpru`` and ``lnkpru``.  Do the following to see if ``clpru`` 
     https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#TI_PRU_Code_Generation_Tools
     to install it.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ sudo apt update
     bone$ sudo apt install ti-pru-cgt-installer
@@ -85,7 +85,7 @@ In fact there are PRU versions of many of the standard code generation tools.
 code tools
 ~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ ls /usr/bin/*pru
     /usr/bin/abspru    /usr/bin/clistpru  /usr/bin/hexpru      /usr/bin/ofdpru
@@ -109,13 +109,13 @@ Solution
 
 Edit ``/boot/uEnv.txt`` and enble pru_rproc by doing the following.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *sudo vi /boot/uEnv.txt*
+    bone$ sudo vi /boot/uEnv.txt
 
 Around line 40 you will see:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     ###pru_rproc (4.19.x-ti kernel)
     uboot_overlay_pru=AM335X-PRU-RPROC-4-19-TI-00A0.dtbo
@@ -123,7 +123,7 @@ Around line 40 you will see:
 Uncomment the ``uboot_overlay`` line as shown and then reboot.
 ``/dev/remoteproc`` should now be there.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ sudo reboot
     bone$ ls -ls /dev/remoteproc/
@@ -144,15 +144,15 @@ Solution
 
 Change to the directory of the code you want to run.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ cd PRUCookbook/docs/06io/code
+    bone$ cd pru-cookbook-code/06io
     bone$ ls
     gpio.pru0.c  Makefile  setup.sh
 
 Source the setup file.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ source setup.sh
     TARGET=gpio.pru0
@@ -163,7 +163,7 @@ Source the setup file.
 
 Now you are ready to compile and run.  This is automated for you in the Makefile
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ make
     /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=gpio.pru0,COMMON=/var/lib/cloud9/common
@@ -197,7 +197,7 @@ The file extension ``.pru0`` specifies the number of the PRU you are using
 
 You can override the ``TARGET`` on the command line.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cp gpio.pru0.c gpio.pru1.c
     bone$ export TARGET=gpio.pru1
@@ -206,7 +206,7 @@ Notice the ``TARGET`` doesn't have the ``.c`` on the end.
 
 You can also specify them when running ``make``.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cp gpio.pru0.c gpio.pru1.c
     bone$ make TARGET=gpio.pru1
@@ -215,11 +215,11 @@ The setup file also contains instructions to figure out which Beagle you are run
 and then configure the pins accordingly.
 
 
-.. literalinclude:: code/gpio_setup.sh
+.. literalinclude:: ../code/06io/gpio_setup.sh
    :caption: gpio_setup.sh
    :linenos:
 
-:download:`gpio_setup.sh <code/gpio_setup.sh>`
+:download:`gpio_setup.sh <../code/06io/gpio_setup.sh>`
 
 .. table::
 
@@ -257,7 +257,7 @@ Solution
 
 It's easy, if you already have ``TARGET`` set up:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ make stop
     -    Stopping PRU 0
@@ -272,7 +272,7 @@ is stopped.
 This assumes ``TARGET`` is set to the PRU you are using.
 If you want to control the other PRU use:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cp gpio.pru0.c gpio.pru1.c
     bone$ make TARGET=gpio.pru1
@@ -304,11 +304,11 @@ It's assumed you already know how Makefiles work.  If not, there are
 many resources online that can bring you up to speed.
 Here is the local ``Makefile`` used throughout this book.
 
-.. literalinclude:: code/Makefile
+.. literalinclude:: ../code/06io/Makefile
    :caption: Local Makefile
    :linenos:
 
-:download:`Makefile <code/Makefile>`
+:download:`Makefile <../code/06io/Makefile>`
 
 Each of the local Makefiles refer to the same standard Makefile. The details
 of how the Makefile works is beyond the scope of this cookbook.
@@ -335,11 +335,11 @@ The ``am57xx_pru.cmd`` does the same for the AI.
 Both files can be found in ``/var/lib/cloud9/common``.
 
 
-.. literalinclude:: code/am335x_pru.cmd
+.. literalinclude:: ../code/06io/am335x_pru.cmd
    :caption: am335x_pru.cmd
    :linenos:
 
-:download:`am335x_pru.cmd <code/am335x_pru.cmd>`
+:download:`am335x_pru.cmd <../code/06io/am335x_pru.cmd>`
 
 .. TODO does  this need updating?
 
@@ -412,7 +412,7 @@ The PRUs appear in the Linux file space at ``/dev/remoteproc/``.
 Finding the PRUs
 ~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cd /dev/remoteproc/
     bone$ ls
@@ -420,7 +420,7 @@ Finding the PRUs
 
 Or if you are on the AI:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cd /dev/remoteproc/
     bone$ ls
@@ -430,7 +430,7 @@ You see there that the AI has two pairs of PRUs, plus a couple of DSPs and other
 
 Here we see PRU 0 and PRU 1 in the path.  Let's follow PRU 0.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cd pruss-core0
     bone$ ls
@@ -439,7 +439,7 @@ Here we see PRU 0 and PRU 1 in the path.  Let's follow PRU 0.
 Here we see the files that control PRU 0.  ``firmware`` tells where in ``/lib/firmware``
 to look for the code to run on the PRU.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cat firmware
     am335x-pru0-fw
@@ -464,11 +464,11 @@ everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
 
-.. literalinclude:: code/servos_setup.sh
+.. literalinclude:: ../code/06io/servos_setup.sh
    :caption: servos_setup.sh
    :linenos:
 
-:download:`servos_setup.sh <code/servos_setup.sh>`
+:download:`servos_setup.sh <../code/06io/servos_setup.sh>`
 
 Discussion
 -----------
@@ -494,11 +494,11 @@ It depends on which Beagle you are running on.  If you are on the AI or Blue,
 everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
-.. literalinclude:: code/encoder_setup.sh
+.. literalinclude:: ../code/06io/encoder_setup.sh
    :caption: encoder_setup.sh
    :linenos:
 
-:download:`encoder_setup.sh <code/encoder_setup.sh>`
+:download:`encoder_setup.sh <../code/06io/encoder_setup.sh>`
 
 Discussion
 -----------
