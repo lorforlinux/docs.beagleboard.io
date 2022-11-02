@@ -684,7 +684,7 @@ tools to test the device. Because these are Linux command-line tools,
 you have to use *2* as the bus number. *i2cdetect*, shown in :ref:`js_i2cTools`, 
 shows which |I2C|  devices are on the bus. The *-r* flag indicates which bus to use. 
 Our TMP101 is appearing at address *0x498*. You can use the *i2cget* command to read 
-the value. It returns the temperature in hexidecimal and degrees C. 
+the value. It returns the temperature in hexadecimal and degrees C. 
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
 Try warming up the TMP101 with your finger and running *i2cget* again.
 

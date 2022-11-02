@@ -3,6 +3,10 @@
 Accessories 
 ###############
 
+.. note::
+
+   #TODO#: We are going to work on a unified accessories page for all the boards and it should replace this.
+
 .. _chassis_and_kits:
 
 Chassis and kits
@@ -251,7 +255,8 @@ I2C devices
 ==============
 
 -  See
-   `One-Liner-Module-Tests#Grove_I2C_modules <One-Liner-Module-Tests#Grove_I2C_modules>`__
+   :ref:`One-Liner-Module-Tests#i2c <beaglebone-blue-one-liner-tests>`__
+-  See :ref:`bone101_i2c`.
 
 .. _uart_devices:
 

@@ -45,8 +45,8 @@ documentation visit the PRU-ICSS wiki.
     **Type:** Project Tutorial Code Library
     
     **References:**
-        * http://beagleboard.org/CapeContest/entries/BeagleBone+DMX+Cape/
-        * http://blog.boxysean.com/2012/08/12/first-steps-with-the-beaglebone-pru/
+        * https://beagleboard.org/CapeContest/entries/BeagleBone+DMX+Cape/
+        * https://web.archive.org/web/20130921033304/blog.boxysean.com/2012/08/12/first-steps-with-the-beaglebone-pru/
         * https://github.com/boxysean/beaglebone-DMX
 
 .. dropdown:: **Interacto**
@@ -60,8 +60,8 @@ documentation visit the PRU-ICSS wiki.
     **Type:** Project 1 Project 2 Code Library
     
     **References:**
-        * http://beagleboard.org/CapeContest/entries/Interacto/
-        * http://www.hitchhikeree.org/beaglebone_capes/interacto/
+        * https://beagleboard.org/CapeContest/entries/Interacto/
+        * https://web.archive.org/web/20130507141634/http://www.hitchhikeree.org:80/beaglebone_capes/interacto/
         * https://github.com/cclark2/interacto_bbone_cape
 
 .. dropdown:: **Replicape: 3D Printer**
@@ -100,7 +100,10 @@ documentation visit the PRU-ICSS wiki.
     **References:**
         * http://beagleboard.org/CapeContest/entries/Geiger+Cape/
         * http://elinux.org/BeagleBone/GeigerCapePrototype
-        * https://github.com/mranostay/beaglebone-telemetry-presentation
+
+.. note::
+
+   #TODO#: the git repo was taken down
 
 .. dropdown:: **Servo Controller Foosball Table**
     :open:
@@ -143,9 +146,12 @@ documentation visit the PRU-ICSS wiki.
 
     **References:**
         * http://www.youtube.com/watch?v=dEes9k7-DYY
-        * https://github.com/cagdasc/Chubby1_v1
         * http://www.youtube.com/watch?v=JXyewd98e9Q
         * http://www.ti.com/lit/wp/spry235/spry235.pdf
+
+.. note::
+
+    #TODO#: The Chubby1_v1 repo on github.com for user cagdasc was taken down.
 
 .. dropdown:: **Software UART**
     :open:

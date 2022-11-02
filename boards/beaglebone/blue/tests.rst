@@ -9,7 +9,7 @@ ADC
 -  `Grove Rotary Angle
    Sensor <http://wiki.seeed.cc/Grove-Rotary_Angle_Sensor/>`__
    See output on adc_1
-   `source <https://github.com/StrawsonDesign/Robotics_Cape_Installer/blob/master/examples/rc_test_adc/rc_test_adc.c>`__
+   `source <https://git.beagleboard.org/beagleboard/librobotcontrol/-/blob/v1.1/examples/src/rc_test_adc.c>`__
 
 .. code:: bash
 
