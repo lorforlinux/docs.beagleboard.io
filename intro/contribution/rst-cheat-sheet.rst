@@ -19,12 +19,12 @@ Text formatting
 
 With asterisk you can fomat the text as italic & bold,
 
-1. Sinlge asterisk (``*``) like ``*emphasis*`` gives you *italic text*
-2. Double asterisk (``**``) like ``**strong emphasis**`` gives you **blod text**
+1. Single asterisk (``*``) like ``*emphasis*`` gives you *italic text*
+2. Double asterisk (``**``) like ``**strong emphasis**`` gives you **bold text**
 
 With backquote character (`) you can format the text as link & inline literal.
 
-1. See `Links`_ section on how single backquote can be used to create a link linke `this <www.beagleboard.org>`_.
+1. See `Links`_ section on how single backquote can be used to create a link like `this <www.beagleboard.org>`_.
 2. With double back quotes before and after text you can easily create ``inline lierals``.
 
 .. note::
@@ -62,7 +62,7 @@ more) the at least of the heading text, for example:
     
     .. annotations::
 
-        <1> Length of heading sybol ``#`` is smaller than the content above.
+        <1> Length of heading symbol ``#`` is smaller than the content above.
 
         <2> Shows the correct way of setting the document title (H1) with ``#``.
 
@@ -206,7 +206,7 @@ You can also include a label to the link as shown below.
 this will be rendered as `BeagleBoard.org <www.beagleboard.org>`_. 
 
 Implicit Links
-***************
+==============
 
 These are basically the headings inside the rst page which can 
 be used as a link to that section within document. 
@@ -218,7 +218,7 @@ be used as a link to that section within document.
 when rendered it becomes `Links`_
 
 Explicit link
-*************
+==============
 
 These are special links you can assign to a specific part of the document and reference anywhere 
 in the project unlike implicit links which can be used only within the document they are defined. 

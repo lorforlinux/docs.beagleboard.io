@@ -89,6 +89,7 @@ Internet Sharing and Client Config
 - Note: You'll have to configure your host Following is an example script:
 
 .. code:: bash
+   
     echo 1 > /proc/sys/net/ipv4/ip_forward
     iptables --table nat --append POSTROUTING --out-interface wlp4s0 -j MASQUERADE
     iptables --append FORWARD --in-interface wlp4s0 -j ACCEPT

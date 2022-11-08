@@ -160,7 +160,7 @@ Syntax
 ``start_counter()``
 
 Parameters
-^^^^^^^^^
+^^^^^^^^^^
 
 -  n/a
 
