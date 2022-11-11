@@ -37,23 +37,63 @@ Log into BeaglePlay
 Please either plug in a keyboard, monitor and mouse or :code:`ssh` into the board. We can point
 somewhere else for instructions on this.
 
-Install Zephyr development tools on BeaglePlay
-************************************************************
+Setup Zephyr development on BeaglePlay
+*********************************************
 
-#. Download and setup Zephyr for BeagleConnect™
+#. Download and setup Zephyr for BeaglePlay
+
     .. code-block:: bash
         
         cd
+        sudo apt update
+        sudo apt install --no-install-recommends -y \
+          beagleconnect beagleconnect-msp430 \
+          git vim \
+          xz-utils file wget \
+          build-essential \
+          cmake ninja-build gperf \
+          ccache dfu-util device-tree-compiler \
+          make libsdl2-dev \
+          libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
+          libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
+          python3-dev python3-pip python3-setuptools python3-tk python3-wheel
+        wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.1/zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
+        tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
+        ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
         west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
         cd $HOME/zephyr-beagle-cc1352-sdk
         west update
         west zephyr-export
         pip3 install -r zephyr/scripts/requirements-base.txt
-        echo "export CROSS_COMPILE=/usr/bin/arm-none-eabi-" >> $HOME/.bashrc
+        echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/.bashrc
+        echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/.bashrc
         echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/.bashrc
         echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/.bashrc
         echo "export BOARD=beagleplay_cc1352" >> $HOME/.bashrc
         source $HOME/.bashrc
+
+#. Verify Zephyr setup for BeaglePlay
+
+   .. code-block:: shell-session
+
+      debian@BeaglePlay:~$ cmake --version
+      cmake version 3.22.1
+
+      CMake suite maintained and supported by Kitware (kitware.com/cmake).
+      debian@BeaglePlay:~$ python3 --version
+      Python 3.9.2
+      debian@BeaglePlay:~$ dtc --version
+      Version: DTC 1.6.0
+      debian@BeaglePlay:~$ west --version
+      West version: v0.14.0
+      debian@BeaglePlay:~$ ./zephyr-sdk-0.15.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc --version
+      arm-zephyr-eabi-gcc (Zephyr SDK 0.15.1) 12.1.0
+      Copyright (C) 2022 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+
     
 Build applications for BeaglePlay CC1352
 *********************************************
