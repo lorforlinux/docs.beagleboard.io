@@ -17,7 +17,7 @@ you should keep in mind while working with rst,
 Text formatting
 ****************
 
-With asterisk you can fomat the text as italic & bold,
+With asterisk you can format the text as italic & bold,
 
 1. Single asterisk (``*``) like ``*emphasis*`` gives you *italic text*
 2. Double asterisk (``**``) like ``**strong emphasis**`` gives you **bold text**

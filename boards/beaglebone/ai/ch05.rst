@@ -6,16 +6,17 @@ BeagleBone AI High Level Specification
 This section provides the high level specification of BeagleBone® AI
 
 Block Diagram
-******************
+**************
 
 The figure below is the high level block diagram of BeagleBone® AI. For
 detailed layout information please check the schematics.
 
 .. image:: images/BB_AI_Blockdiagram_1000px.jpg
+   :align: center
    :alt: beaglebone ai component placement
 
 AM572x Sitara™ Processor
-**************************
+*************************
 
 The Texas Instruments AM572x Sitara™ processor family of SOC devices
 brings high processing performance through the maximum flexibility of a
@@ -33,6 +34,7 @@ and coprocessors, thus reducing the complexity of the system software.
 Texas Instruments AM572x Sitara™ Processor Family Block Diagram\*
 
 .. image:: images/BB_AI_AM5729_blockdiagram.jpg
+   :align: center
    :alt: beaglebone ai component placement
 
 **MPU Subsystem** The Dual Cortex-A15 MPU subsystem integrates the
@@ -98,6 +100,7 @@ subsystem contains the following submodules:
    library
 
 .. image:: images/BB_AI_EVEmodule.jpg
+   :align: center
    :alt: BeagleBone AI component placement
 
 The Embedded Vision Engine (EVE) module is a programmable imaging and
@@ -224,12 +227,12 @@ following features:
    memory architecture (MMU)
 
 Memory
-************
+********
 
 .. __5_3_1_1gb_ddr3l:
 
 1GB DDR3L
-============
+==========
 
 Dual 256M x 16 DDR3L memory devices are used, one on each side of the
 board, for a total of 1 GB. They will each operate at a clock frequency
@@ -259,19 +262,16 @@ Power Management
 Connectivity
 ******************
 
-TODO: Add WiFi/Bluetooth/Ethernet
+.. TODO: Add WiFi/Bluetooth/Ethernet
 
 BeagleBone® AI supports the majority of the functions of the AM5729 SOC
 through connectors or expansion header pin accessibility. See section 7
 for more information on expansion header pinouts. There are a few
 functions that are not accessible which are: (TBD)
 
-TODO: This text needs to go somewhere.
+.. TODO: This text needs to go somewhere.
 
-On-board I2C Devices
-**********************
-
-.. table:: 
+.. table:: On-board I2C Devices
 
    +---------+--------------+-----------------+
    | Address | Identifier   | Description     |

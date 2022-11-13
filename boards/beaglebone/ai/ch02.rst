@@ -10,13 +10,13 @@ Change History
 .. ****************************
 
 Rev A0
-==============
+*******
 
 Initial prototype revision. Not taken to production.
 eMMC flash image provided by Embest.
 
 Rev A1
-==============
+*******
 
 Second round prototype.
 
@@ -31,7 +31,7 @@ Second round prototype.
 eMMC flash image provided by Embest.
 
 Rev A1a
-============
+********
 
 Alpha pilot-run units and initial production.
 
@@ -45,7 +45,7 @@ Production eMMC flash image:
 http://debian.beagleboard.org/images/am57xx-eMMC-flasher-debian-9.9-lxqt-armhf-2019-08-03-4gb.img.xz
 
 Rev A2
-==========
+*******
 
 Proposed changes.
 
