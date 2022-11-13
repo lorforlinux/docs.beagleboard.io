@@ -10,6 +10,7 @@ cache:
 
 pages:
   script:
+  - apk add fonts-dejavu
   - "./gitlab-build.sh"
   artifacts:
     paths:
