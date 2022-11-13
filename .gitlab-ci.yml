@@ -10,7 +10,7 @@ cache:
 
 pages:
   script:
-  - apk add ttf-dejavu
+  - apk add ttf-dejavu ttf-freefont
   - "./gitlab-build.sh"
   artifacts:
     paths:
