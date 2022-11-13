@@ -43,37 +43,37 @@ constant.  Our new ``delay_cycles`` can take a runtime delay value.
 
 .. _more_delay-test:
 
-.. literalinclude:: code/delay-test.pru0.c
+.. literalinclude:: ../code/07more/delay-test.pru0.c
    :caption: delay-test.pru0.c
    :linenos:
 
-:download:`delay-test.pru0.c <code/delay-test.pru0.c>`
+:download:`delay-test.pru0.c <../code/07more/delay-test.pru0.c>`
 
 :ref:`more_delay` is the assembly code.
 
 .. _more_delay:
 
-.. literalinclude:: code/delay.pru0.asm
+.. literalinclude:: ../code/07more/delay.pru0.asm
    :caption: delay.pru0.asm
    :linenos:
 
-:download:`delay.pru0.asm <code/delay.pru0.asm>`
+:download:`delay.pru0.asm <../code/07more/delay.pru0.asm>`
 
 The ``Makefile`` has one addition that needs to be made to compile both :ref:`more_delay-test`
 and :ref:`more_delay`. If you look in the local ``Makefile`` you'll see:
 
 .. _more_makefile:
 
-.. literalinclude:: code/Makefile
+.. literalinclude:: ../code/07more/Makefile
    :caption: Makefile
    :linenos:
 
-:download:`Makefile <code/Makefile>`
+:download:`Makefile <../code/07more/Makefile>`
 
 This Makefle includes a common Makefile at  ``/var/lib/cloud9/common/Makefile``, this the Makefile 
 you need to edit. Edit ``/var/lib/cloud9/common/Makefile`` and go to line 195.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
   $(GEN_DIR)/%.out: $(GEN_DIR)/%.o *$(GEN_DIR)/$(TARGETasm).o*
     @mkdir -p $(GEN_DIR)
@@ -87,10 +87,10 @@ this addition once you are done with this example since it will break the other 
 
 The following will compile and run everything.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-  bone$ *config-pin P9_31 pruout*
-  bone$ *make TARGET=delay-test.pru0 TARGETasm=delay.pru0*
+  bone$ config-pin P9_31 pruout
+  bone$ make TARGET=delay-test.pru0 TARGETasm=delay.pru0
   /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=delay-test.pru0
   -    Stopping PRU 0
   -	copying firmware file /tmp/cloud9-examples/delay-test.pru0.out to /lib/firmware/am335x-pru0-fw
@@ -166,21 +166,21 @@ Solution
 
 .. _more_test2:
 
-.. literalinclude:: code/delay-test2.pru0.c
+.. literalinclude:: ../code/07more/delay-test2.pru0.c
    :caption: delay-test2.pru0.c
    :linenos:
 
-:download:`delay-test2.pru0.c <code/delay-test2.pru0.c>`
+:download:`delay-test2.pru0.c <../code/07more/delay-test2.pru0.c>`
 
 :ref:`more_delay2` is the assembly code.
 
 .. _more_delay2:
 
-.. literalinclude:: code/delay2.pru0.asm
+.. literalinclude:: ../code/07more/delay2.pru0.asm
    :caption: delay2.pru0.asm
    :linenos:
 
-:download:`delay2.pru0.asm <code/delay2.pru0.asm>`
+:download:`delay2.pru0.asm <../code/07more/delay2.pru0.asm>`
 
 An additional feature is shown in line 4 of :ref:`more_delay2`.  The
 ``.cdecls "delay-test2.pru0.c"`` says to include any defines from ``delay-test2.pru0.c``
@@ -206,11 +206,11 @@ many times the PRU stalled fetching an instruction.
 
 .. _more_cycle:
 
-.. literalinclude:: code/cycle.pru0.c
+.. literalinclude:: ../code/07more/cycle.pru0.c
    :caption: cycle.pru0.c - Code to count cycles.
    :linenos:
 
-:download:`cycle.pru0.c <code/cycle.pru0.c>`
+:download:`cycle.pru0.c <../code/07more/cycle.pru0.c>`
 
 Discission
 ------------
@@ -244,26 +244,26 @@ You can see where ``cycle`` and ``stall`` are stored by looking into :ref:`more_
 
 .. _more_cycle_list0:
 
-.. literalinclude:: code/cycle.pru0.lst
+.. literalinclude:: ../code/07more/cycle.pru0.lst
    :caption: /tmp/cloud9-examples/cycle.pru0.lst Lines 113..119
    :lines: 113-119
    :lineno-start: 113
    :linenos:
 
-:download:`cycle.pru0.lst <code/cycle.pru0.lst>`
+:download:`cycle.pru0.lst <../code/07more/cycle.pru0.lst>`
 
 Here the ``LDI32`` instruction loads the address ``0x22000`` into ``r0``. This is the offset to 
 the ``CTRL`` registers. Later in the file we see :ref:`more_cycle_list1`.
  
 .. _more_cycle_list1:
 
-.. literalinclude:: code/cycle.pru0.lst
+.. literalinclude:: ../code/07more/cycle.pru0.lst
    :caption: /tmp/cloud9-examples/cycle.pru0.lst Lines 146..152
    :lines: 146-152
    :lineno-start: 146
    :linenos:
 
-:download:`cycle.pru0.lst <code/cycle.pru0.lst>`
+:download:`cycle.pru0.lst <../code/07more/cycle.pru0.lst>`
 
 
 The first ``LBBO`` takes the contents of ``r0`` and adds the offset 12 to it and copies 4 bytes 
@@ -274,10 +274,10 @@ thus ``STALL`` is now  in ``r0``.
 
 Now fire up **prudebug** and look at those registers. 
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-  bone$ *sudo prudebug*
-  PRU0> *r*
+  bone$ sudo prudebug
+  PRU0> r
   r
   r
   Register info for PRU0
@@ -319,28 +319,28 @@ The ``pass:[__]xout()`` and ``pass:[__]xin()`` intrinsics are able to transfer u
 
 .. _more_xout:
 
-.. literalinclude:: code/xout.pru0.c
+.. literalinclude:: ../code/07more/xout.pru0.c
    :caption: xout.pru0.c
    :linenos:
 
-:download:`xout.pru0.c <code/xout.pru0.c>`
+:download:`xout.pru0.c <../code/07more/xout.pru0.c>`
 
 PRU 1 waits at line 41 until PRU 0 signals it.  :ref:`more_xin` sends an
 interrupt to PRU 0 and waits for it to send the data.
 
 .. _more_xin:
 
-.. literalinclude:: code/xin.pru1.c
+.. literalinclude:: ../code/07more/xin.pru1.c
    :caption: xin.pru1.c
    :linenos:
 
-:download:`xin.pru1.c <code/xin.pru1.c>`
+:download:`xin.pru1.c <../code/07more/xin.pru1.c>`
 
 Use ``prudebug`` to see registers R5-R10 are transferred from PRU 0 to PRU 1.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-  PRU0> *r*
+  PRU0> r
   Register info for PRU0
       Control register: 0x00000001
         Reset PC:0x0000  STOPPED, FREE_RUN, COUNTER_DISABLED, NOT_SLEEPING, PROC_DISABLED
@@ -409,7 +409,7 @@ Discussion
   |       | `PRU Optimizing C/C++ Compiler, v2.2, User's Guide <http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf>`_   | 
   |       | shows how to use `xout()`. The first argument, 14, says to do a direct transfer to PRU 1.  If the       |
   |       | first argument is 10, 11 or 12, the data is transferred to one of three scratchpad memories that        |
-  |       | PRU 1 can access later. The second argument, 5, says to start transferring with register ``r5``          |
+  |       | PRU 1 can access later. The second argument, 5, says to start transferring with register ``r5``         |
   |       | and use as many registers as needed to transfer all of ``dmemBuf``. The third argument, 0,              |
   |       | says to not use remapping. (See the User's Guide for details.)                                          |
   |       | The final argument is the data to be transferred.                                                       |
@@ -441,8 +441,8 @@ If you really need speed, considering using ``pass:[__]xout()`` and ``pass:[__]x
 Copyright
 ==========
 
-.. literalinclude:: code/copyright.c
+.. literalinclude:: ../code/07more/copyright.c
    :caption: copyright.c
    :linenos:
 
-:download:`copyright.c <code/copyright.c>`
+:download:`copyright.c <../code/07more/copyright.c>`

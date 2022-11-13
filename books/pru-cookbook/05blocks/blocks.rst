@@ -986,7 +986,7 @@ Discussion
 The figure below shows the two PRUs are synchronized, though there is some extra
 overhead in the process so the period is longer.
 
-.. figure:: figures/pwm8_prus_synced.png
+.. figure:: figures/pwm8_prus_sycned.png
   :align: center
   :alt: pwm8.pru0 PRUs synced
 

@@ -58,6 +58,11 @@ Use scroll bar at bottom of chart to see additional features in columns
 to the right. When printing this document you will need to print this
 chart separately.
 
+.. raw:: latex
+
+  \begin{landscape}
+  \scriptsize
+
 .. table:: P1 Header Pinout
                          
     +-------------+-------------+----------------------+------------+--------------------+-------------------+---------------+---------------+-------------------------+-------------------------+---------------------+---------------------+-----------+
@@ -138,6 +143,9 @@ chart separately.
     | P1.36       | PWM0A       | P1.36 (PWM0A)        | A13        | A1                 | mcasp0_aclkx      | ehrpwm0A      | -             | spi1_sclk               | mmc0_sdcd               | pr1_pru0_pru_r30_0  | pr1_pru0_pru_r31_0  | gpio3_14  |
     +-------------+-------------+----------------------+------------+--------------------+-------------------+---------------+---------------+-------------------------+-------------------------+---------------------+---------------------+-----------+
 
+.. raw:: latex
+
+  \end{landscape}
 
 .. _p2_header:
 
@@ -155,6 +163,11 @@ Figure 44 shows the schematic diagram for the P2 Header.
 Use scroll bar at bottom of chart to see additional features in columns
 to the right. When printing this document you will need to print this
 chart separately.
+
+.. raw:: latex
+
+  \begin{landscape}
+  \scriptsize
 
 .. table:: P2 Header Pinout
 
@@ -235,6 +248,10 @@ chart separately.
     +-------------+-------------+----------------------+------------+--------------------+--------------------+-------------------------+---------------+------------------------------+--------------------+------------------------------+----------------------+-----------+
     | P2.36       | A7(1.8)     | P2.36 (AIN7)         |            | N13                | ain7               |                         |               |                              |                    |                              |                      |           |
     +-------------+-------------+----------------------+------------+--------------------+--------------------+-------------------------+---------------+------------------------------+--------------------+------------------------------+----------------------+-----------+
+
+.. raw:: latex
+
+  \end{landscape}
 
 .. _mikrobus_socket_connections:
 

@@ -195,8 +195,7 @@ Additional documentation is located on the Texas Instruments website at
 and also located at
 `http://github.com/beagleboard/am335x_pru_package. <http://github.com/beagleboard/am335x_pru_package>`__
 
-Example projects using the PRU-ICSS can be found at
-`processors.wiki.ti.com/index.php/PRU_Projects <http://processors.wiki.ti.com/index.php/PRU_Projects>`__.
+Example projects using the PRU-ICSS can be found in :ref:`pru-cookbook-home`.
 
 .. _pru_icss_features:
 
@@ -246,6 +245,11 @@ accessible. Some signals are accessible on the same pins.
 Use scroll bar at bottom of chart to see additional features in columns
 to the right. When printing this document, you will need to print this
 chart separately.
+
+.. raw:: latex
+
+  \begin{landscape}
+  \scriptsize
 
 .. table:: PRU0 and PRU1 Access
 
@@ -314,3 +318,7 @@ chart separately.
     +-------------+-------------+-----------------+-----------+------------------------------+---------------------------+------------------------------+-------------------------------+----------------------------------------------+
     | P2.35       | A5/86       | U5              | F3        |                              |                           | pr1_pru1_pru_r30_8 (Output)  | pr1_pru1_pru_r31_8 (Input)    |                                              |
     +-------------+-------------+-----------------+-----------+------------------------------+---------------------------+------------------------------+-------------------------------+----------------------------------------------+
+
+.. raw:: latex
+
+  \end{landscape}
