@@ -5,10 +5,10 @@ Books
 
 This is a collection of open-source books written to help Beagle developers.
 
-:ref:`BeagleBone Cookbook <beaglebone-cookbook>`__ is a great introduction to programming
+:ref:`BeagleBone Cookbook <bone-cook-book-home>`__ is a great introduction to programming
 a BeagleBone using Linux from userspace, mostly using Python or JavaScript.
 
-:ref:`PRU Cookbook <pru-cookbook>`__ provides numerous examples on using the incredible
+:ref:`PRU Cookbook <pru-cookbook-home>`__ provides numerous examples on using the incredible
 ultra-low-latency microcontrollers inside the processors used on BeagleBone boards
 that are a big part of what has made BeagleBone such a popular platform.
 
