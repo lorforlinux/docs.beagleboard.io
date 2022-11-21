@@ -63,8 +63,9 @@ by changing the number after "relay".
 Currently, using sysfs in .c files, libgpiod/gpiod in .c files, and 
 python3 files with the RelayCape work well!
 
-For intance, my current kernel: 5.10.100-ti-r37
-Another idea, my current image: BeagleBoard.org Debian Bullseye Minimal Image 2022-03-02
+* For instance, my current kernel: 5.10.100-ti-r37
+
+* Another idea, my current image: BeagleBoard.org Debian Bullseye Minimal Image 2022-03-02
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the RelayCape.
