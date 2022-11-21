@@ -56,7 +56,7 @@ Setup Zephyr development on BeaglePlay
           make libsdl2-dev \
           libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
           libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
-          python3-dev python3-pip python3-setuptools python3-tk python3-wheel
+          python3-dev python3-pip python3-setuptools python3-tk python3-wheel python3-serial
         wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.1/zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
@@ -69,7 +69,7 @@ Setup Zephyr development on BeaglePlay
         echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/.bashrc
         echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/.bashrc
         echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/.bashrc
-        echo "export BOARD=beagleplay_cc1352" >> $HOME/.bashrc
+        echo "export BOARD=beagleplay" >> $HOME/.bashrc
         source $HOME/.bashrc
 
 #. Verify Zephyr setup for BeaglePlay
@@ -100,17 +100,13 @@ Build applications for BeaglePlay CC1352
 
 Now you can build various Zephyr applications
 
-#. Change directory to BeagleConnect Freedom zephyr repository.
+#. Build and flash Blinky example
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
-        cd $HOME/bcf-zephyr
-        
-#. Build blinky example
-
-    .. code-block:: bash
-
-        west build -d build/blinky zephyr/samples/basic/blinky
+        cd HOME/zephyr-beagle-cc1352-sdk/zephyr
+        west build -d build/bp_blinky samples/basic/blinky
+        west flash -d build/bp_blinky     
 
 #. TODO
 
