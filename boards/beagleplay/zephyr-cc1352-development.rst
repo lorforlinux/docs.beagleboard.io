@@ -102,11 +102,22 @@ Now you can build various Zephyr applications
 
 #. Build and flash Blinky example
 
-    .. code-block:: shell-session
+    .. code-block:: bash
 
         cd HOME/zephyr-beagle-cc1352-sdk/zephyr
         west build -d build/bp_blinky samples/basic/blinky
-        west flash -d build/bp_blinky     
+        west flash -d build/bp_blinky
+
+#. Try out Micropython
+
+    .. code-block:: bash
+
+        cd
+        git clone https://github.com/micropython/micropython
+        cd micropython
+        git checkout v1.19.1
+        west build ~/micropython/ports/zephyr
+        west flash
 
 #. TODO
 
