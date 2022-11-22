@@ -113,11 +113,11 @@ Now you can build various Zephyr applications
     .. code-block:: bash
 
         cd
-        git clone https://github.com/micropython/micropython
+        git clone -b beagleplay-cc1352 https://git.beagleboard.org/beagleplay/micropython
         cd micropython
-        git checkout v1.19.1
         west build ~/micropython/ports/zephyr
         west flash
+        tio /dev/ttyS4
 
 #. TODO
 
