@@ -41,7 +41,7 @@ by adding the following to the U-Boot options
 
 
 Usage
-******
+*****
 
 .. code-block::
 
@@ -60,12 +60,15 @@ entering 1 for brightness turns it ON, and entering 0 for OFF.
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
 
+Code to Get Started
+*******************
+
 Currently, using sysfs in .c files, libgpiod/gpiod in .c files, and 
 python3 files with the RelayCape work well!
 
-* For instance, a kernel that works for me is kernel: `5.10.140-ti-r52`
+* For instance, a kernel that works is kernel: `5.10.140-ti-r52`
 
-* Another idea, my current image is `BeagleBoard.org Debian Bullseye Minimal Image 2022-11-01`
+* Another idea, an image that works is `BeagleBoard.org Debian Bullseye Minimal Image 2022-11-01`
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the RelayCape.
@@ -134,7 +137,7 @@ would like to go back in time to use older kernels and images for the RelayCape.
         return 0;
     }
 
-Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod, here is another form of
+Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
 source that can toggle the same GPIO listed from the file descriptor.
 
 .. code-block::
