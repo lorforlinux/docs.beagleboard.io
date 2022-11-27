@@ -73,6 +73,9 @@ python3 files with the RelayCape work well!
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the RelayCape.
 
+C Source with File Descriptors
+******************************
+
 .. code-block::
 
     /*
@@ -136,6 +139,9 @@ would like to go back in time to use older kernels and images for the RelayCape.
         // And exit
         return 0;
     }
+
+C Source with LibGPIOd and File Descriptors
+*******************************************
 
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
 source that can toggle the same GPIO listed from the file descriptor.
