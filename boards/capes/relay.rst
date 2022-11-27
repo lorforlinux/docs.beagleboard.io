@@ -146,6 +146,9 @@ C Source with LibGPIOd and File Descriptors
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
 source that can toggle the same GPIO listed from the file descriptor.
 
+One issue I have found to be true and which needs work is:
+1. LibGPIOd on the am335x, in this case the BBB, leaves the pin unavailable after the file closes.
+
 .. code-block::
 
     /*
