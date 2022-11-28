@@ -147,7 +147,12 @@ Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, 
 source that can toggle the same GPIO listed from the file descriptor.
 
 One issue I have found to be true and which needs work is:
-1. LibGPIOd on the am335x, in this case the BBB, leaves the pin unavailable after the file closes.
+
+1. LibGPIOd on the am335x, in this case the BBB, leaves the pin unavailable after the file closes due to floating.
+
+This is the case in some images and not the case in other images. 
+
+The current IoT image seems to work with LibGPIOd-dev without floating the pin found at /sys/class/leds/relay*.
 
 .. code-block::
 
