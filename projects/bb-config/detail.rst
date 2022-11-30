@@ -13,14 +13,13 @@ Configure your beagle devices easily.
 What is BB-Config
 ******************
 
-BB-Config is a software that makes the most common low-level 
-configuration changes in beagle devices easily and provides a 
+BB-Config is software that makes the most common low-level 
+configuration changes of beagle devices easily and provides a 
 terminal UI.
 
 BB-Config is using `FTXUI <https://github.com/ArthurSonzogni/FTXUI>`_ (C++ Functional Terminal User Interface)
-which have simple and elegant UI looking.
+which provides a simple and elegant looking UI.
 
-Look Like
 ==========
 
 .. image:: images/about.png
