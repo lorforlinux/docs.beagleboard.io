@@ -1,4 +1,4 @@
-.. accessories-power-supplies::
+.. _accessories-power-supplies:
 
 Power supplies
 ###############

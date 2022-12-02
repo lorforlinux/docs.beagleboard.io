@@ -1,4 +1,4 @@
-.. accessories-adaptors::
+.. _accessories-adaptors:
 
 Adaptors 
 #########

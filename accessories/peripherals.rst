@@ -1,4 +1,4 @@
-.. accessories-peripherals::
+.. _accessories-peripherals:
 
 Peripherals
 ############

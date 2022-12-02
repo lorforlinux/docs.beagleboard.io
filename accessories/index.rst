@@ -1,4 +1,7 @@
-.. accessories-home::
+.. _accessories-home:
+
+BeagleBone Accessories
+#######################
 
 This section will include all the tested accessories for BeagleBoard.org hardware and kits.
 

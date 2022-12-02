@@ -362,8 +362,8 @@ Accessories
 ************
 
 This is a list of curated hardware accessories tested thouroghly with BeagleBone hardware. 
-The list is growing with support of volunteers like you.
-
+The list is growing with support of volunteers like you. Checkout :ref:`accessories-home` 
+page for more information.
 
 .. toctree::
    :maxdepth: 1

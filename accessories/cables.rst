@@ -1,4 +1,4 @@
-.. accessories-cables::
+.. _accessories-cables:
 
 Cables
 #######

@@ -1,4 +1,4 @@
-.. accessories-cameras::
+.. _accessories-cameras:
 
 Cameras
 #######

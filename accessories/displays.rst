@@ -1,4 +1,4 @@
-.. accessories-displays::
+.. _accessories-displays:
 
 Displays
 #########
