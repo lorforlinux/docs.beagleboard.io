@@ -22,7 +22,7 @@ Installation
 No special configuration is required. When you plug Cape into your BeagleBoard, 
 it is automatically recognized by the Cape Universal function.
 
-You can check to see if Relay Cape is recognized with the following command.
+You can check to see if the Relay Cape is recognized with the following command.
 
 .. code-block::
 
@@ -47,8 +47,8 @@ Usage
 
     ls /sys/class/leds
 
-The directory "relay*" exists in the following directory.
-The LEDs can be controlled by modifying the files in this directory.
+The directory "relay1", for instance, exists in the following directory.
+The LEDs can be controlled by modifying the files in its directory.
 
 .. code-block::
 
@@ -63,15 +63,16 @@ by changing the number after "relay" in /sys/class/leds/relay.
 Code to Get Started
 *******************
 
-Currently, using sysfs in .c files, libgpiod/gpiod in .c files, and 
-python3 files with the RelayCape work well!
+Currently, using sysfs in .c files, libgpiod-dev/gpiod in .c files, and 
+python3 files with the Relay Cape work well!
 
-* For instance, a kernel that works is kernel: `5.10.140-ti-r52`
+* For instance, a kernel that I found to work is kernel: `5.10.140-ti-r52`
 
-* Another idea, an image that works is `BeagleBoard.org Debian Bullseye Minimal Image 2022-11-01`
+* Another idea, an image I found that works is `BeagleBoard.org Debian Bullseye Minimal Image 2022-11-01`
 
 There are newer images and kernels if you want to update and there are older ones in case you
-would like to go back in time to use older kernels and images for the RelayCape.
+would like to go back in time to use older kernels and images for the Relay Cape. Please remember
+that older firmware will work differently on the BBB or other related am335x SBC.
 
 C Source with File Descriptors
 ******************************
@@ -81,15 +82,15 @@ C Source with File Descriptors
     /*
 
     This is an example of programming GPIO from C using the sysfs interface on
-    a BeagleBone Black/BeagleBone Black Wireless or other am335x board with the RelayCape.
+    a BeagleBone Black/BeagleBone Black Wireless or other am335x board with the Relay Cape.
 
-    Use the RelayCape attached to the BBBW for a change in seconds and then exit with CTRL-C.
+    Use the Relay Cape attached to the BBB for a change in seconds and then exit with CTRL-C.
 
     The original source can be found here by Mr. Tranter: https://github.com/tranter/blogs/blob/master/gpio/part5/demo1.c
 
     Jeff Tranter <jtranter@ics.com>
 
-    and...Seth. I changed the source a bit to fit the BBBW and RelayCape while using sysfs.
+    and...Seth. I changed the source a bit to fit the BBB and Relay Cape while using sysfs.
 
     */
 
@@ -140,17 +141,11 @@ C Source with File Descriptors
         return 0;
     }
 
-C Source with LibGPIOd and File Descriptors
-*******************************************
+C Source with LibGPIOd-dev and File Descriptors
+***********************************************
 
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
-source that can toggle the same GPIO listed from the file descriptor.
-
-One issue I have found to be true and which needs work is:
-
-1. LibGPIOd on the am335x, in this case the BBB, leaves the pin unavailable after the file closes due to floating.
-
-This is the case in some images and not the case in other images. 
+source that can toggle the same GPIO listed from the file descriptor. 
 
 The current IoT image seems to work with LibGPIOd-dev without floating the pin found at /sys/class/leds/relay*.
 
@@ -158,7 +153,7 @@ The current IoT image seems to work with LibGPIOd-dev without floating the pin f
 
     /*
     Simple gpiod example of toggling a LED connected to a gpio line from
-    the BeagleBone Black Wireless and RelayCape.
+    the BeagleBone Black Wireless and Relay Cape.
     Exits with or without CTRL-C.
     */
 
