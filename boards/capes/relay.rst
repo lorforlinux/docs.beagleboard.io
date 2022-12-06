@@ -77,6 +77,10 @@ that older firmware will work differently on the BBB or other related am335x SBC
 C Source with File Descriptors
 ******************************
 
+You can name this file GPIO.c and use gcc to handle compiling the source into a binary like so:
+
+`gcc GPIO.c -o GPIO`
+
 .. code-block::
 
     /*
@@ -147,7 +151,13 @@ C Source with LibGPIOd-dev and File Descriptors
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
 source that can toggle the same GPIO listed from the file descriptor. 
 
-The current IoT image seems to work with LibGPIOd-dev without floating the pin found at /sys/class/leds/relay*.
+One thing to note: `sudo apt install cmake`
+
+1. mkdir GPIOd && cd GPIOd
+
+2. nano LibGPIO.c
+
+3. add the below source into the file LibGPIO.c
 
 .. code-block::
 
@@ -219,4 +229,24 @@ The current IoT image seems to work with LibGPIOd-dev without floating the pin f
     return 0;
     }
 
-These are a few examples on how to use the RelayCape and am335x supported BBBW/BBB SBC.
+4. mkdir build && touch CMakeLists.txt
+
+5. In CMakeLists.txt, add these values and text
+
+.. code-block::
+
+    cmake_minimum_required(VERSION 3.22)
+
+    project(gpiod LANGUAGES C)
+
+    add_executable(LibGPIO LibGPIO.c)
+    
+    target_link_libraries(LibGPIO gpiod)
+
+6. cmake ..
+
+7. make 
+
+8. ./LibGPIO
+
+These are a few examples on how to use the RelayCape and am335x supported BBBW/BBB SBCs.
