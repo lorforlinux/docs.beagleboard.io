@@ -243,7 +243,7 @@ One thing to note: `sudo apt install cmake`
     
     target_link_libraries(LibGPIO gpiod)
 
-6. cmake ..
+6. cd build && cmake ..
 
 7. make 
 
