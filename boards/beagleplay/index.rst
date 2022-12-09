@@ -20,7 +20,10 @@ sensor, actuator, indicator and connectivity plug-in add-on boards.
 .. toctree::
    :maxdepth: 1
 
+   /boards/beagleplay/using-serial-console.rst
    /boards/beagleplay/using-mikrobus.rst
    /boards/beagleplay/using-qwiic.rst
    /boards/beagleplay/using-grove.rst
+   /boards/beagleplay/using-csi.rst
+   /boards/beagleplay/using-oldi.rst
    /boards/beagleplay/zephyr-cc1352-development.rst
