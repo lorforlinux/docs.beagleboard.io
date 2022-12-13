@@ -359,9 +359,9 @@ VDD_3V3B
    Expansion Board EEPROM Write Protect
 
 EEPROM Data Format
-************************
+*********************
 
-*Table 17* shows the format of the contents of the expansion board
+Table below shows the format of the contents of the expansion board
 EEPROM. Data is stored in Big Endian with the least significant value on
 the right. All addresses read as a single byte data from the EEPROM, but
 two byte addressing is used. ASCII values are intended to be easily read
@@ -465,6 +465,11 @@ signal selection to be used.
 The *AIN0-6* pins do not have a pin mux setting, but they need to be set
 to indicate if each of the pins is used on the cape. Only bit 15 is used
 for the AIN signals.
+
+.. raw:: latex
+
+  \begin{landscape}
+  \scriptsize
 
 .. list-table:: EEPROM Pin Usage
    :header-rows: 1
@@ -963,6 +968,15 @@ for the AIN signals.
      - `+` 
      - `+`
 
+.. raw:: latex
+
+  \end{landscape}
+
+
+.. raw:: latex
+
+  \begin{landscape}
+  \scriptsize
 
 .. list-table::
    :header-rows: 1
@@ -1612,6 +1626,9 @@ for the AIN signals.
      - `+` 
      - `+`
 
+.. raw:: latex
+
+  \end{landscape}
 
 Pin Usage Consideration
 ---------------------------

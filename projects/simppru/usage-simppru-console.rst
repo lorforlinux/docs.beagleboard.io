@@ -1,5 +1,5 @@
 Usage(simppru-console)
-=====
+=======================
 
 simppru-console is a console app, it can be used to send/receive message
 to the PRU using RPMSG, and also start/stop the PRU. It is built to

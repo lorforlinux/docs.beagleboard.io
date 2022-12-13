@@ -45,6 +45,11 @@ Here the tables are combined into one to make it easier to see what goes where.
 
 .. _aimapping_bits:
 
+.. raw:: latex
+
+  \begin{landscape}
+  \small
+
 .. table:: Mapping bit positions to pin names
 
 	+---+---+---------+-----------+-----------+-------------+
@@ -135,6 +140,10 @@ Here the tables are combined into one to make it easier to see what goes where.
 	+---+---+---------+-----------+-----------+-------------+
 	|1  |19 |         |           |P8_43      |             |
 	+---+---+---------+-----------+-----------+-------------+
+
+.. raw:: latex
+
+  \end{landscape}
 
 The pins in *bold* are already configured as pru pins.  See :ref:`ai_config` to
 see what's currently configured as what.  See :ref:`ai_device_tree` to 

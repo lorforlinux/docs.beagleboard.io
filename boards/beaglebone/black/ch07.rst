@@ -59,7 +59,7 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 .. raw:: latex
 
   \begin{landscape}
-  \tiny
+  \scriptsize
 
 .. list-table:: Expansion Header P8 Pinout
    :header-rows: 1
@@ -615,7 +615,7 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 .. raw:: latex
 
   \begin{landscape}
-  \tiny
+  \scriptsize
 
 .. list-table:: Expansion Header P9 Pinout
    :header-rows: 1

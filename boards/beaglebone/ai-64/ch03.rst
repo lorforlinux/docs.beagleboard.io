@@ -7,8 +7,8 @@ This section provides instructions on how to hook up your board. This beagle req
 
 Recommended adapters:
 
-* 5V @ 3A `USB C power supply <https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-power-supply-White-US/10258760>`_ adaptor for SBCs.
-* 5V > 3A laptop/mobile adaptor with USB-C cable.
+* 5V @ 3A `USB C power supply <https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-power-supply-White-US/10258760>`_ adapter for SBCs.
+* 5V > 3A laptop/mobile adapter with USB-C cable.
 
 All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter are shown in the figure below.
 
@@ -24,8 +24,8 @@ All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter ar
 Methods of operation
 --------------------------
 
-1.  Tethered to a PC, or
-2.  As a standalone development platform in a desktop PC configuration with a Display Port Monitor, power supply, keyboard, and mouse 
+1.  Tethered to a PC
+2.  Standalone development platform in a PC configurtion using external peripherals
 
 .. _whats-in-the-box:
 
@@ -37,7 +37,7 @@ In the box you will find three main items as shown in :ref:`bbai-64-pacakage`.
 * BeagleBone AI-64.
 * Instruction card.
 
-Get yourself a USB-A to USB-C and you have a setup for the tethered scenario and creates an out of box experience where the board can be used immediately with no other equipment needed.
+A USB-C to USB-C cable is not included bot recommended for the tethered scenario and creates an out of box experience where the board can be used immediately with no other equipment needed.
 
 .. _bbai-64-pacakage:
 
@@ -54,19 +54,18 @@ Get yourself a USB-A to USB-C and you have a setup for the tethered scenario and
 Main Connection Scenarios
 -------------------------------
 
-This section will describe how to connect the board for use. This section is basically a slightly more detailed description of the Quick Start Guide that came in the box. There is also a Quick Start Guide document on the board that should also be referred to. The intent here is that someone looking to purchase the board will be able to read this section and get a good idea as to what the initial set up will be like.
+This section describes how to connect and power the board and serves as a slightly more detailed description of the Quick Start Guide included in the box. 
 
-The board can be configured in several different ways, but we will discuss the two most common scenarios as described in the Quick Start Guide card that comes in the box.
+The board can be configured in several different ways, but we will discuss the two most common scenarios.
 
 * Tethered to a PC via the USB cable 
   
-  * ``Board is accessed as a storage drive and``
-  * ``a virtual Ethernet connection.``
+  * ``Board is accessed as a storage drive and virtual Ethernet connection.``
   
-* Standalone desktop 
+* Standalone Desktop 
   
   * ``Display``
-  * ``Keyboard and mouse``
+  * ``Keyboard and Mouse``
   * ``External 5V > 3A power supply``
 
 Each of these configurations is discussed in general terms in the following sections.
@@ -76,7 +75,7 @@ Each of these configurations is discussed in general terms in the following sect
 Tethered To A PC
 -------------------------
 
-In this configuration, the board is powered by the PC via the provided USB cable --no other cables are required. The board is accessed either as a USB storage drive or via the browser on the PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. :ref:`tethered-figure` shows this configuration.
+In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the conected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. 
 
 .. _tethered-figure:
 
@@ -87,7 +86,7 @@ In this configuration, the board is powered by the PC via the provided USB cable
 
    Fig: Tethered Configuration
 
-At least 5V @ 3A is required to power the board, In most cases the PC may not be able to supply sufficient power for the board. You should always use an external 5V > 3A DC power supply connected to the barrel jack.
+At least 5V @ 3A is required to power the board, In most cases the PC may not be able to supply sufficient power for the board unless the connection is made over a Type-C to Type-C cable. You should always use an external 5V > 3A DC power supply connected to the barrel jack if you are unsure that the system can provide the required power or are otherwise using a USB-A to Type-C cable which will always require power from the DC barrel jack.
 
 .. _connect-the-cable-to-the-board:
 
@@ -200,16 +199,16 @@ Connecting Up the Board
 
    Fig: Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
 
-2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in. :ref:`display-adaptors-figure`.
+2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in. :ref:`display-adapters-figure`.
 
-.. _display-adaptors-figure:
+.. _display-adapters-figure:
 
-.. figure:: images/ch03/display-adaptors.jpg
+.. figure:: images/ch03/display-adapters.jpg
    :width: 400px
    :align: center 
-   :alt: Display adaptors
+   :alt: Display adapters
 
-   Fig: Display adaptors
+   Fig: Display adapters
 
 3. If you have wired/wireless USB keyboard and mouse such as 
    
