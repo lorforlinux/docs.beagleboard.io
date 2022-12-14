@@ -72,31 +72,32 @@ Setup Zephyr development on BeaglePlay
         ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
         west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
         cd $HOME/zephyr-beagle-cc1352-sdk
+        python3 -m virtualenv zephyr-beagle-cc1352-env
+        echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+        echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+        echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+        echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+        echo "export BOARD=beagleplay" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+        source $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         west update
         west zephyr-export
         pip3 install -r zephyr/scripts/requirements-base.txt
-        echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/.bashrc
-        echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/.bashrc
-        echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/.bashrc
-        echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/.bashrc
-        echo "export BOARD=beagleplay" >> $HOME/.bashrc
-        source $HOME/.bashrc
 
 #. Verify Zephyr setup for BeaglePlay
 
 .. code-block:: shell-session
 
-    debian@BeaglePlay:~$ cmake --version
+    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ cmake --version
     cmake version 3.22.1
 
     CMake suite maintained and supported by Kitware (kitware.com/cmake).
-    debian@BeaglePlay:~$ python3 --version
+    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ python3 --version
     Python 3.9.2
-    debian@BeaglePlay:~$ dtc --version
+    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ dtc --version
     Version: DTC 1.6.0
-    debian@BeaglePlay:~$ west --version
+    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ west --version
     West version: v0.14.0
-    debian@BeaglePlay:~$ ./zephyr-sdk-0.15.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc --version
+    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ ./zephyr-sdk-0.15.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc --version
     arm-zephyr-eabi-gcc (Zephyr SDK 0.15.1) 12.1.0
     Copyright (C) 2022 Free Software Foundation, Inc.
     This is free software; see the source for copying conditions.  There is NO
