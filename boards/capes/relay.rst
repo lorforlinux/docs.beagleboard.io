@@ -19,7 +19,7 @@ It contains four relays, each of which can be operated independently from the Be
 Installation
 ************
 
-No special configuration is required. When you plug Cape into your BeagleBoard, 
+No special configuration is required. When you plug the Relay Cape into your BeagleBoard, 
 it is automatically recognized by the Cape Universal function.
 
 You can check to see if the Relay Cape is recognized with the following command.
@@ -55,10 +55,13 @@ The LEDs can be controlled by modifying the files in its directory.
     echo 1 > relay1/brightness
 
 This allows you to adjust the brightness; 
-entering 1 for brightness turns it ON, and entering 0 for OFF.
+entering 1 for brightness turns it ON, and entering 0 turns it OFF.
 
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
+
+# Side Note: 
+Please make sure you attach something to your Relay when running your source...
 
 Code to Get Started
 *******************
