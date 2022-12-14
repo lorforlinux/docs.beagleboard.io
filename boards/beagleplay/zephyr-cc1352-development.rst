@@ -42,45 +42,45 @@ Setup Zephyr development on BeaglePlay
 
 #. Download and setup Zephyr for BeaglePlay
 
-.. note::
+    .. note::
 
-    Currently, https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 isn't public, so you'll need
-    to replace that with git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352
+        Currently, https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 isn't public, so you'll need
+        to replace that with git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352
 
-.. note::
+    .. note::
 
-    Currently, the active branch is `patches-for-cc1352p7`, not `sdk`. I plan to make `sdk` a slightly
-    cleaner version.
+        Currently, the active branch is `patches-for-cc1352p7`, not `sdk`. I plan to make `sdk` a slightly
+        cleaner version.
 
-.. code-block:: bash
-    
-    cd
-    sudo apt update
-    sudo apt install --no-install-recommends -y \
-        beagleconnect beagleconnect-msp430 \
-        git vim \
-        xz-utils file wget \
-        build-essential \
-        cmake ninja-build gperf \
-        ccache dfu-util device-tree-compiler \
-        make libsdl2-dev \
-        libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
-        libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
-        python3-dev python3-pip python3-setuptools python3-tk python3-wheel python3-serial
-    wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.1/zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
-    tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
-    ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
-    west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
-    cd $HOME/zephyr-beagle-cc1352-sdk
-    west update
-    west zephyr-export
-    pip3 install -r zephyr/scripts/requirements-base.txt
-    echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/.bashrc
-    echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/.bashrc
-    echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/.bashrc
-    echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/.bashrc
-    echo "export BOARD=beagleplay" >> $HOME/.bashrc
-    source $HOME/.bashrc
+    .. code-block:: bash
+        
+        cd
+        sudo apt update
+        sudo apt install --no-install-recommends -y \
+            beagleconnect beagleconnect-msp430 \
+            git vim \
+            xz-utils file wget \
+            build-essential \
+            cmake ninja-build gperf \
+            ccache dfu-util device-tree-compiler \
+            make libsdl2-dev \
+            libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
+            libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
+            python3-dev python3-pip python3-setuptools python3-tk python3-wheel python3-serial
+        wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.1/zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
+        tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
+        ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
+        west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
+        cd $HOME/zephyr-beagle-cc1352-sdk
+        west update
+        west zephyr-export
+        pip3 install -r zephyr/scripts/requirements-base.txt
+        echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/.bashrc
+        echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/.bashrc
+        echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/.bashrc
+        echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/.bashrc
+        echo "export BOARD=beagleplay" >> $HOME/.bashrc
+        source $HOME/.bashrc
 
 #. Verify Zephyr setup for BeaglePlay
 
