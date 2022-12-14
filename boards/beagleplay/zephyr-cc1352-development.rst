@@ -42,6 +42,16 @@ Setup Zephyr development on BeaglePlay
 
 #. Download and setup Zephyr for BeaglePlay
 
+    .. note::
+
+        Currently, https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 isn't public, so you'll need
+        to replace that with git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352
+
+    .. note::
+
+        Currently, the active branch is `patches-for-cc1352p7`, not `sdk`. I plan to make `sdk` a slightly
+        cleaner version.
+
     .. code-block:: bash
         
         cd
@@ -92,8 +102,6 @@ Setup Zephyr development on BeaglePlay
       This is free software; see the source for copying conditions.  There is NO
       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-
-
     
 Build applications for BeaglePlay CC1352
 *********************************************
@@ -104,9 +112,9 @@ Now you can build various Zephyr applications
 
     .. code-block:: bash
 
-        cd HOME/zephyr-beagle-cc1352-sdk/zephyr
-        west build -d build/bp_blinky samples/basic/blinky
-        west flash -d build/bp_blinky
+        cd $HOME/zephyr-beagle-cc1352-sdk/zephyr
+        west build -d build/play_blinky samples/basic/blinky
+        west flash -d build/play_blinky
 
 #. Try out Micropython
 
@@ -115,9 +123,36 @@ Now you can build various Zephyr applications
         cd
         git clone -b beagleplay-cc1352 https://git.beagleboard.org/beagleplay/micropython
         cd micropython
-        west build ~/micropython/ports/zephyr
-        west flash
+        west build -d play ports/zephyr
+        west flash -d play
         tio /dev/ttyS4
+
+Build applications for BeagleConnect Freedom
+*********************************************
+
+#. Build and flash Blinky example
+
+    .. code-block:: bash
+
+        cd $HOME/zephyr-beagle-cc1352-sdk/zephyr
+        west build -d build/freedom_blinky -b beagleconnect_freedom samples/basic/blinky
+        west flash -d build/freedom_blinky
+
+#. Try out Micropython
+
+    .. code-block:: bash
+
+        cd
+        git clone -b beagleplay-cc1352 https://git.beagleboard.org/beagleplay/micropython
+        cd micropython
+        west build -d freedom -b beagleconnect_freedom ports/zephyr
+        west flash -d freedom
+        tio /dev/ttyACM0
+
+
+.. important::
+
+    Nothing below here is tested
 
 #. TODO
 
