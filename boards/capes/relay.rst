@@ -6,8 +6,7 @@ BeagleBoard.org BeagleBone Relay Cape
 Relay Cape, as the name suggests, is a simple Cape with relays on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
 
-.. image:: images/BeagleBoneRelayCapeA2-400x274.png
-    
+.. image:: images/BeagleBoneRelayCapeA2-400x274.png 
    :align: center
 
 * `Order page <https://beagleboard.org/capes#relay>`_
@@ -68,8 +67,7 @@ Please make sure you attach something to your Relay when running your source...
 
 For instance, use COM and NC for an LED or pump. See the below photo for wiring your LED.
 
-.. image:: images/RelayOne.gif
-
+.. image:: images/RelayOne.png
    :align: center
 
 Code to Get Started
