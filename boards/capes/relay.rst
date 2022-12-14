@@ -60,8 +60,12 @@ entering 1 for brightness turns it ON, and entering 0 turns it OFF.
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
 
-# Side Note: 
+Side Note: 
+**********
+
 Please make sure you attach something to your Relay when running your source...
+
+For instance, use COM and NC.
 
 Code to Get Started
 *******************
