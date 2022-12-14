@@ -41,6 +41,7 @@ started.
    /boards/beaglebone/ai/index
    /boards/beaglebone/ai-64/index
    /boards/pocketbeagle/original/index
+   /boards/beaglev/ahead/index
    /boards/capes/index
    /boards/beagleconnect/index
    /boards/beagleboard/index
