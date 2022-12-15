@@ -4,19 +4,27 @@ Pictures
 #############
 
 
-.. figure:: media/image91.jpg
-   :width: 476px
-   :height: 768px
+.. figure:: images/DSC00481.png
+   :width: 768px
+   :height: 476px
    :align: center
    :alt: Top Side
 
    Top Side
 
-.. figure:: media/image92.jpg
-   :width: 486px
-   :height: 764px
+.. figure:: images/DSC00484.png
+   :width: 768px
+   :height: 476px
    :align: center
    :alt: Bottom Side
 
    Bottom Side
+
+.. figure:: images/DSC00505.png
+   :width: 768px
+   :height: 768px
+   :align: center
+   :alt: 45 Degree Top
+
+   45 Degree Top
 
