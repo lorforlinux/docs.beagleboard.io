@@ -1,7 +1,7 @@
 .. _boards-terms-and-conditions:
 
-BeagleBoard.org general Terms & Conditions
-###########################################
+Terms & Conditions
+##################
 
 DESIGN
 *******
@@ -196,21 +196,19 @@ needed, the customer will pay all shipping costs.
 
 
 Before returning the board, please visit
-
-
-BeagleBoard.org/support
+https://docs.beagleboard.org/latest/intro/support
 
 
 For up to date SW images and technical information refer to
-https://beagleboard.org/latest-images
+https://www.beagleboard.org/distros
 
 
-All support for this board is provided via community support at
-BeagleBoard.org forum
+All support for is provided via community support at
+https://forum.beagleboard.org
 
 
-To return a defective board for repair, please request an RMA at
-beagleboard.org/support/rma
+To return a defective board for repair, please request a return materials authorization (RMA) at
+https://www.beagleboard.org/rma
 
 
 Please DO NOT return the board without approval from the RMA team
