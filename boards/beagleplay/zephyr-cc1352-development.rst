@@ -13,13 +13,23 @@ adopters as well as people looking to extend the functionality of the open
 source design. If you are one of those people, this is a good place to get 
 started.
 
+Further, BeaglePlay is a reasonable development platform for creating Zephyr-based
+applications for :ref:`beagleconnect_freedom_home`. The same Zephyr development
+environment setup here is also described for targeting applications on that board.
+
 Install the latest software image for BeaglePlay
 *************************************************
+
+.. note::
+
+    These instructions should be generic for BeaglePlay and other boards and only the
+    specifics of which image was used to test these instructions need be included
+    here moving forward and the detailed instructions can be referenced elsewhere.
 
 Download and install the Debian Linux operating system image for BeaglePlay.
 
 #. Download the BeagleBoard.org Debian image from 
-   `here <https://`_. These instructions were validated with **TBD.img.xz**.
+   `here <https://rcn-ee.net/rootfs/debian-arm64-xfce/2022-12-14/am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz`_. These instructions were validated with **am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz**.
 
 #. Load this image to a microSD card using a tool like Etcher.
 
@@ -35,7 +45,50 @@ Log into BeaglePlay
 *********************************
 
 Please either plug in a keyboard, monitor and mouse or :code:`ssh` into the board. We can point
-somewhere else for instructions on this.
+somewhere else for instructions on this. You can also point your web browser to the board to log
+into the Visual Studio Code IDE environment.
+
+.. note::
+
+    *TODO* A big part of what is missing here is to put your BeaglePlay on the Internet such
+    that we can download things in later steps. That has been initially brushed over.
+
+Flash existing IEEE 802.15.4 radio bridge (WPANUSB) firmware
+************************************************************
+
+If you've recieved a board fresh from the factory, this is already done and not necessary, unless
+you want to restore the contents back to the factory condition.
+
+Background
+==========
+
+This `WPANUSB` application was originally developed for radio devices with a USB interface. The CC1352P7
+does not have a USB device, so the application was modified to communicate over a UART serial interface.
+
+For the :ref:`beagleconnect_freedom_home`, a USB-to-UART bridge device was used and the USB endpoints
+were made compatible with the `WPANUSB linux driver <https://github.com/finikorg/wpanusb>`_ which we
+`augmented <https://git.beagleboard.org/beagleconnect/linux/wpanusb/>`_ to support this board. To utilize
+the existing `WPANUSB` Zephyr application and this Linxu driver, we chose to encode our UART traffic with
+`HDLC <https://en.wikipedia.org/wiki/High-Level_Data_Link_Control>`_. This has the advantage of enabing a
+serial console interface to the Zephyr shell while WPANUSB-specific traffic is directed to other
+`USB endpoints <https://simple.wikipedia.org/wiki/USB#How_USB_works>`_.
+
+For BeaglePlay, the USB-to-UART bridge is not used, but we largely kept the same `WPANUSB` application,
+including the HDLC encoding.
+
+.. note::
+    Now you know why this WPAN bridge application is called `WPANUSB`, even though USB isn't used!
+
+Steps
+=====
+
+#. Ensure the `bcfserial` driver isn't blocking the serial port.
+
+#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from
+the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleplay/cc1352/wpanusb/-/releases>`_.
+
+.. code-block: shell-session
+    debian@BeaglePlay:~$
 
 Setup Zephyr development on BeaglePlay
 *********************************************
