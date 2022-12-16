@@ -70,6 +70,10 @@ For instance, use COM and NC for an LED or pump. See the below photo for wiring 
 .. image:: images/RelayOne.png
    :align: center
 
+This photo, along with others, can be found here: 
+
+* `ncd.io <https://ncd.io/relay-logic/>`_   
+
 Code to Get Started
 *******************
 
