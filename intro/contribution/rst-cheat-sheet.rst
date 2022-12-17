@@ -19,7 +19,7 @@ Text formatting
 
 With asterisk you can fomat the text as italic & bold,
 
-1. Sinlge asterisk (``*``) like ``*emphasis*`` gives you *italic text*
+1. Single asterisk (``*``) like ``*emphasis*`` gives you *italic text*
 2. Double asterisk (``**``) like ``**strong emphasis**`` gives you **blod text**
 
 With backquote character (`) you can format the text as link & inline literal.
@@ -39,9 +39,9 @@ matching overline and underline to indicate a heading.
 
 1. Document heading (H1) use ``#``.
 2. First heading (H2) use ``*``.
-3. First heading (H2) use ``=``.
-4. First heading (H2) use ``-``.
-5. First heading (H2) use ``~``.
+3. Second heading (H3) use ``=``.
+4. Third heading (H4) use ``-``.
+5. Fourth heading (H5) use ``~``.
 
 .. note::
     You can include only one (H1) ``#`` in a single documentation page.
@@ -187,7 +187,7 @@ We have three types of links to use in sphinx,
 3. Explicit links (labels that can be used anywhere in the project).
 
 External links
-***************
+==============
 
 For a simple link to a site the format is
 
@@ -206,7 +206,7 @@ You can also include a label to the link as shown below.
 this will be rendered as `BeagleBoard.org <www.beagleboard.org>`_. 
 
 Implicit Links
-***************
+==============
 
 These are basically the headings inside the rst page which can 
 be used as a link to that section within document. 
@@ -218,7 +218,7 @@ be used as a link to that section within document.
 when rendered it becomes `Links`_
 
 Explicit link
-*************
+=============
 
 These are special links you can assign to a specific part of the document and reference anywhere 
 in the project unlike implicit links which can be used only within the document they are defined. 
@@ -238,6 +238,42 @@ label for this chapter. These are called the explicit links amd you can referenc
 
 Both can be used inside/outside of the document and the rendered link will take you directly to that specific segment.
 
+Annotations
+===========
+
+.. code-block:: ReStructuredText
+
+    .. callout:: <1>
+
+        .. code-block:: python <2>
+
+            import numpy as np # &lt;1&gt; <3>
+            import math # &lt;&gt;
+
+        .. annotations:: <4>
+
+            &lt;1&gt; Comment #1 <5>
+
+            &lt;2&gt; Comment #2
+
+    .. annotations::
+
+        <1> Indent everything under a `callout`
+
+        <2> Create a normal block for what you want to annotate
+
+        <3> Add &lt;number&gt; everywhere you want to annotate. Put it under a comment block if you want the code to run when copied directly.
+
+        <4> Create an `annotations` block to hold your callout comments
+
+        <5> Create an entry, separating each with a blank line and prefixing them with &lt;number&gt;
+
+Output
+------
+
+More
+====
+
 .. rubric:: footnotes
 
 .. [#] `reStructuredText wiki page <https://en.wikipedia.org/wiki/ReStructuredText>`_
@@ -247,3 +283,4 @@ Both can be used inside/outside of the document and the rendered link will take 
 .. [#] `Quick reStructuredText (sourceforge) <https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets>`_
 
 .. [#] `A two-page cheatsheet for restructured text <https://github.com/ralsina/rst-cheatsheet>`_
+

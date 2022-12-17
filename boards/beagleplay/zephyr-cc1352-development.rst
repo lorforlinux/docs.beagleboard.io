@@ -28,7 +28,7 @@ Install the latest software image for BeaglePlay
 
 Download and install the Debian Linux operating system image for BeaglePlay.
 
-#. These instructions were validated with the BeagleBoard.org Debian image `am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz** <https://rcn-ee.net/rootfs/debian-arm64-xfce/2022-12-14/am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz>`_.
+#. These instructions were validated with the BeagleBoard.org Debian image `am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz<https://rcn-ee.net/rootfs/debian-arm64-xfce/2022-12-14/am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz>`_.
 
 #. Load this image to a microSD card using a tool like Etcher.
 
