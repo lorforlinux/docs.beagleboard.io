@@ -271,6 +271,25 @@ Annotations
 Output
 ------
 
+.. callout::
+
+    .. code-block:: python
+
+        import numpy as np # <1>
+        import math # <2>
+
+    .. annotations::
+
+        <1> Comment #1
+
+        <2> Comment #2
+
+.. important::
+
+    In the example, I inserted the invisible UTF character U+FEFF after the opening ``<`` to avoid it being
+    interpreted as a callout symbol. Be sure to remove that character if you attempt to copy-and-paste the
+    example.
+
 More
 ====
 
