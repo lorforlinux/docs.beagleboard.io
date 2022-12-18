@@ -239,7 +239,7 @@ label for this chapter. These are called the explicit links amd you can referenc
 Both can be used inside/outside of the document and the rendered link will take you directly to that specific segment.
 
 Annotations
-===========
+***********
 
 .. code-block:: ReStructuredText
 
@@ -247,14 +247,14 @@ Annotations
 
         .. code-block:: python <2>
 
-            import numpy as np # ``<1>`` <3>
-            import math # ``<2>``
+            import numpy as np # <﻿1> <3>
+            import math # <﻿2>
 
         .. annotations:: <4>
 
-            ``<1>`` Comment #1 <5>
+            <﻿1> Comment #1 <5>
 
-            ``<2>`` Comment #2
+            <﻿2> Comment #2
 
     .. annotations::
 
