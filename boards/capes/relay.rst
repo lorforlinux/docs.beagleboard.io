@@ -245,7 +245,7 @@ One thing to note: `sudo apt install cmake`
 
 4. mkdir build && touch CMakeLists.txt
 
-5. In CMakeLists.txt, add these values and text
+5. In CMakeLists.txt, add these values and text via nano CMakeLists.txt
 
 .. code-block::
 
