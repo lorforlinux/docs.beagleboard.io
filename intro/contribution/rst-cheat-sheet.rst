@@ -247,14 +247,14 @@ Annotations
 
         .. code-block:: python <2>
 
-            import numpy as np # &lt;1&gt; <3>
-            import math # &lt;&gt;
+            import numpy as np # ``<1>`` <3>
+            import math # ``<2>``
 
         .. annotations:: <4>
 
-            &lt;1&gt; Comment #1 <5>
+            ``<1>`` Comment #1 <5>
 
-            &lt;2&gt; Comment #2
+            ``<2>`` Comment #2
 
     .. annotations::
 
@@ -262,11 +262,11 @@ Annotations
 
         <2> Create a normal block for what you want to annotate
 
-        <3> Add &lt;number&gt; everywhere you want to annotate. Put it under a comment block if you want the code to run when copied directly.
+        <3> Add ``<number>`` everywhere you want to annotate. Put it under a comment block if you want the code to run when copied directly.
 
         <4> Create an `annotations` block to hold your callout comments
 
-        <5> Create an entry, separating each with a blank line and prefixing them with &lt;number&gt;
+        <5> Create an entry, separating each with a blank line and prefixing them with ``<number>``
 
 Output
 ------
