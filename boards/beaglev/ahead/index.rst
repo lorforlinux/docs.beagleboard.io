@@ -20,4 +20,5 @@ BeagleV-Ahead is awesome!
    :maxdepth: 1
 
    /boards/beaglev/ahead/getting-started.rst
+   /boards/beaglev/ahead/connectros.rst
 
