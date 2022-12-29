@@ -5,7 +5,7 @@ Getting Started
 
 We assume you have some experience with the Beagle and are here to learn about 
 the PRU.  This chapter discusses what Beagles are out there, how to load the 
-latest software image on your beagle, how to run the Cloud9 IDE and how to 
+latest software image on your beagle, how to run the Visual Studio Code IDE and how to 
 blink an LED.
 
 If you already have your Beagle and know your way around it, you can find the
@@ -218,8 +218,8 @@ button and wait for it to finish.
 
 Once the SD is flashed, insert it in the Beagle and power it up.
 
-Cloud9 IDE
-***********
+Visual Studio Code IDE
+**********************
 
 Problem
 ------------
@@ -229,7 +229,7 @@ How do I manage and edit my files?
 Solution
 ------------
 
-The image you downloaded includes `Cloud9 <https://aws.amazon.com/cloud9/>`_,
+The image you downloaded includes `Visual Studio Code <https://aws.amazon.com/cloud9/>`_,
 a web-based integrated development environment (IDE) as shown in 
 :ref:`start_c9`.
 
@@ -237,9 +237,9 @@ a web-based integrated development environment (IDE) as shown in
 
 .. figure:: figures/c9.png
     :align: center
-    :alt: The Cloud9 IDE
+    :alt: The Visual Studio Code IDE
 
-    Cloud9 IDE
+    Visual Studio Code IDE
 
 Just point the browser on your host computer to http://192.168.7.2 
 and start exploring.  If you want the files in your home directory to appear
@@ -250,9 +250,9 @@ as shown in :ref:`start_c9_show_home`.
 
 .. figure:: figures/c9ShowHome.png
     :align: center
-    :alt: Cloud9 showing home files
+    :alt: Vidual Studio Code showing home files
 
-    Cloud9 Showing Home files
+    Visual Studio Code Showing Home files
 
 
 If you want to edit files beyond your home directory you can link to the root file system by:
@@ -341,7 +341,7 @@ to run it right now do the following.
 
     If the following doesn't work see 
     :ref:`compiling_with_clpru_and_lnkpru`
-    for instillation instructions.
+    for installation instructions.
 
 .. _start_running_code:
 
@@ -351,10 +351,10 @@ Running Code on the Black or Pocket
 .. code-block:: shell-session
 
     bone$ make TARGET=hello.pru0
-    /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=hello.pru0,COMMON=/var/lib/cloud9/common
-    /var/lib/cloud9/common/Makefile:147: GEN_DIR=/tmp/cloud9-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
+    /var/lib/code-server/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=hello.pru0,COMMON=/var/lib/cloud9/common
+    /var/lib/code-server/common/Makefile:147: GEN_DIR=/tmp/code-server-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
     -    Stopping PRU 0
-    -	copying firmware file /tmp/cloud9-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw
+    -	copying firmware file /tmp/code-server-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
     -    Starting PRU 0
@@ -370,12 +370,12 @@ Running Code on the AI
 .. code-block:: shell-session
 
     bone$ make TARGET=hello.pru1_1
-    /var/lib/cloud9/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
+    /var/lib/code-server/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
     CC	hello.pru1_1.c
-    "/var/lib/cloud9/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
-    LD	/tmp/cloud9-examples/hello.pru1_1.o
-    -	copying firmware file /tmp/cloud9-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
+    "/var/lib/code-server/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
+    LD	/tmp/code-server-examples/hello.pru1_1.o
+    -	copying firmware file /tmp/code-server-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
     -    Starting PRU 1_1
@@ -383,7 +383,7 @@ Running Code on the AI
     PROC    = pru
     PRUN    = 1_1
     PRU_DIR = /dev/remoteproc/pruss1-core1
-    rm /tmp/cloud9-examples/hello.pru1_1.o
+    rm /tmp/code-server-examples/hello.pru1_1.o
 
 Look quickly and you will see the ``USR3`` LED blinking.  
 

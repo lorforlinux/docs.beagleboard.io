@@ -166,15 +166,15 @@ Now you are ready to compile and run.  This is automated for you in the Makefile
 .. code-block:: shell-session
 
     bone$ make
-    /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=gpio.pru0,COMMON=/var/lib/cloud9/common
-    /var/lib/cloud9/common/Makefile:147: GEN_DIR=/tmp/cloud9-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
+    /var/lib/code-server/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=gpio.pru0,COMMON=/var/lib/code-server/common
+    /var/lib/code-server/common/Makefile:147: GEN_DIR=/tmp/code-server-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
     -    Stopping PRU 0
     /bin/sh: 1: echo: echo: I/O error
     Cannot stop 0
     CC	gpio.pru0.c
-    "/var/lib/cloud9/common/prugpio.h", line 53: warning #1181-D: #warning directive: "Found am335x"
-    LD	/tmp/cloud9-examples/gpio.pru0.o
-    -	copying firmware file /tmp/cloud9-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw
+    "/var/lib/code-server/common/prugpio.h", line 53: warning #1181-D: #warning directive: "Found am335x"
+    LD	/tmp/code-server-examples/gpio.pru0.o
+    -	copying firmware file /tmp/code-server-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw
     write_init_pins.sh
     writing "out" to "/sys/class/gpio/gpio30/direction"
     -    Starting PRU 0
@@ -182,7 +182,7 @@ Now you are ready to compile and run.  This is automated for you in the Makefile
     PROC    = pru
     PRUN    = 0
     PRU_DIR = /sys/class/remoteproc/remoteproc1
-    rm /tmp/cloud9-examples/gpio.pru0.o
+    rm /tmp/code-server-examples/gpio.pru0.o
 
 Congratulations, your are now running a PRU.  If you have an LED attached to
 ``P9_11`` on the Black, or ``P2_05`` on the Pocket, it should be blinking.
@@ -332,7 +332,7 @@ Solution
 ``am335x_pru.cmd`` is the standard linker command file that tells the linker
 where to put what for the BeagleBone Black and Blue, and the Pocket. 
 The ``am57xx_pru.cmd`` does the same for the AI.
-Both files can be found in ``/var/lib/cloud9/common``.
+Both files can be found in ``/var/lib/code-server/common``.
 
 
 .. literalinclude:: ../code/06io/am335x_pru.cmd
