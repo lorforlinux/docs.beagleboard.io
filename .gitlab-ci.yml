@@ -10,7 +10,7 @@ cache:
 
 pages:
   tags:
-  - docker-aarch64
+  - docker-arm64
   script:
   - apk add ttf-dejavu ttf-freefont
   - "./gitlab-build.sh"
