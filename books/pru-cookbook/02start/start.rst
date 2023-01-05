@@ -77,13 +77,13 @@ The `Blue <http://beagleboard.org/blue>`_ is a good choice if you are doing robo
 
     BeagleBone Blue
 
-The Blue has everything the Black has except it has no Ethernet or HDMI.  
+The Blue has everything the Black has except it has no Ethernet and no HDMI.  
 But it also has:
 
 * Wireless: 802.11bgn, Bluetooth 4.1 and BLE
 * Battery support: 2-cell LiPo with balancing, LED state-of-charge monitor
 * Charger input: 9-18V
-* Motor control: 8 6V servo out, 4 bidirectional DC motor out, 4 quadrature encoder in
+* Motor control: 8 6V @ 4A servo out, 4 bidirectional DC motor out, 4 quadrature encoder in
 * Sensors: 9 axis IMU (accels, gyros, magnetometer), barometer, thermometer
 * User interface: 11 user programmable LEDs, 2 user programmable buttons
 
