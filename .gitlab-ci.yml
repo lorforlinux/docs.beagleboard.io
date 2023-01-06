@@ -14,3 +14,18 @@ pages:
   artifacts:
     paths:
     - public
+  except:
+    - tags
+
+docs:
+  tags:
+  - docs
+  script:
+  - "./gitlab-build.sh"
+  artifacts:
+    paths:
+    - public
+  only:
+    - tags
+  except:
+    - branches
