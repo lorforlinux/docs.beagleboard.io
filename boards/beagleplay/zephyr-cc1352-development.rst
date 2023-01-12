@@ -38,7 +38,7 @@ Download and install the Debian Linux operating system image for BeaglePlay.
 
 .. note::
 
-   #TODO: describe how to know it is working
+   *TODO* describe how to know it is working
 
 Log into BeaglePlay
 *********************************
@@ -86,23 +86,24 @@ Steps
 #. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from
 the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleplay/cc1352/wpanusb/-/releases>`_.
 
-.. code-block: shell-session
-    debian@BeaglePlay:~$
+    .. code-block: shell-session
+
+        debian@BeaglePlay:~$
 
 Setup Zephyr development on BeaglePlay
 *********************************************
 
+.. note::
+
+    Currently, https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 isn't public, so you'll need
+    to replace that with git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352
+
+.. note::
+
+    Currently, the active branch is `patches-for-cc1352p7`, not `sdk`. I plan to make `sdk` a slightly
+    cleaner version.
+
 #. Download and setup Zephyr for BeaglePlay
-
-    .. note::
-
-        Currently, https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 isn't public, so you'll need
-        to replace that with git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352
-
-    .. note::
-
-        Currently, the active branch is `patches-for-cc1352p7`, not `sdk`. I plan to make `sdk` a slightly
-        cleaner version.
 
     .. code-block:: bash
         
@@ -114,7 +115,7 @@ Setup Zephyr development on BeaglePlay
             libsdl2-dev \
             libxml2-dev libxslt1-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
             libtool-bin autoconf automake libusb-1.0-0-dev \
-            python3-tk
+            python3-tk python3-virtualenv
         wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.1/zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         rm zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
@@ -144,23 +145,23 @@ Setup Zephyr development on BeaglePlay
 
 #. Verify Zephyr setup for BeaglePlay
 
-.. code-block:: shell-session
+    .. code-block:: shell-session
 
-    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ cmake --version
-    cmake version 3.22.1
+        (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ cmake --version
+        cmake version 3.22.1
 
-    CMake suite maintained and supported by Kitware (kitware.com/cmake).
-    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ python3 --version
-    Python 3.9.2
-    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ dtc --version
-    Version: DTC 1.6.0
-    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ west --version
-    West version: v0.14.0
-    (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ ./zephyr-sdk-0.15.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc --version
-    arm-zephyr-eabi-gcc (Zephyr SDK 0.15.1) 12.1.0
-    Copyright (C) 2022 Free Software Foundation, Inc.
-    This is free software; see the source for copying conditions.  There is NO
-    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+        CMake suite maintained and supported by Kitware (kitware.com/cmake).
+        (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ python3 --version
+        Python 3.9.2
+        (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ dtc --version
+        Version: DTC 1.6.0
+        (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ west --version
+        West version: v0.14.0
+        (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ ./zephyr-sdk-0.15.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc --version
+        arm-zephyr-eabi-gcc (Zephyr SDK 0.15.1) 12.1.0
+        Copyright (C) 2022 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
     
 Build applications for BeaglePlay CC1352
@@ -172,7 +173,6 @@ Now you can build various Zephyr applications
 
     Currently, https://git.beagleboard.org/beagleplay/micropython isn't public, so you'll need
     to replace that with git@git.beagleboard.org:beagleplay/micropython
-
 
 
 #. Build and flash Blinky example
