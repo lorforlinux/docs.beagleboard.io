@@ -83,14 +83,14 @@ Steps
 
 #. Ensure the `bcfserial` driver isn't blocking the serial port.
 
-    .. code-block: bash
+    .. code-block:: bash
 
         echo "    fdtoverlays /overlays/k3-am625-beagleplay-bcfserial-no-firmware.dtbo" | sudo tee -a /boot/firmware/extlinux/extlinux.conf
         sudo shutdown -r now
 
 #. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleplay/cc1352/wpanusb/-/releases>`_.
 
-    .. code-block: bash
+    .. code-block:: bash
 
         cd
         wget https://debian.beagle.cc/images/cc1352-wpanusb-0.0.2.zip
@@ -99,7 +99,7 @@ Steps
 
 #. Ensure the `bcfserial` driver is set to load.
 
-    .. code-block: bash
+    .. code-block:: bash
 
         sudo sed -e '/bcfserial-no-firmware/ s/^#*/#/' -i /boot/firmware/extlinux/extlinux.conf
         sudo shutdown -r now
