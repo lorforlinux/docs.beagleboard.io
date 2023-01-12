@@ -28,7 +28,7 @@ Install the latest software image for BeaglePlay
 
 Download and install the Debian Linux operating system image for BeaglePlay.
 
-#. These instructions were validated with the BeagleBoard.org Debian image `am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz<https://rcn-ee.net/rootfs/debian-arm64-xfce/2022-12-14/am625x-emmc-flasher-debian-11.5-xfce-arm64-2022-12-14-10gb.img.xz>`_.
+#. These instructions were validated with the BeagleBoard.org Debian image `am625x-emmc-flasher-debian-11.5-xfce-arm64-2023-01-04-10gb.img.xz <https://rcn-ee.net/rootfs/debian-arm64-xfce/2023-01-04/am625x-debian-11.6-xfce-arm64-2023-01-04-10gb.img.xz>`_.
 
 #. Load this image to a microSD card using a tool like Etcher.
 
@@ -109,20 +109,18 @@ Setup Zephyr development on BeaglePlay
         cd
         sudo apt update
         sudo apt install --no-install-recommends -y \
-            beagleconnect beagleconnect-msp430 \
-            git vim \
-            xz-utils file wget \
-            build-essential \
-            cmake ninja-build gperf \
-            ccache dfu-util device-tree-compiler \
-            make libsdl2-dev \
-            libxml2-dev libxslt-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
-            libtool-bin pkg-config autoconf automake libusb-1.0-0-dev \
-            python3-dev python3-pip python3-setuptools python3-tk python3-wheel python3-serial
+            gperf \
+            ccache dfu-util \
+            libsdl2-dev \
+            libxml2-dev libxslt1-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
+            libtool-bin autoconf automake libusb-1.0-0-dev \
+            python3-tk
         wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.1/zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
+        rm zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
-        west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
+        #west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
+        west init -m git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352 --mr patches-for-cc1352p7 zephyr-beagle-cc1352-sdk
         cd $HOME/zephyr-beagle-cc1352-sdk
         python3 -m virtualenv zephyr-beagle-cc1352-env
         echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
@@ -134,6 +132,15 @@ Setup Zephyr development on BeaglePlay
         west update
         west zephyr-export
         pip3 install -r zephyr/scripts/requirements-base.txt
+
+#. Activate the Zephyr build environment
+
+    If you exit and come back, you'll need to reactivate your Zephyr build environment.
+
+
+    .. code-block:: bash
+        
+        source $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
 
 #. Verify Zephyr setup for BeaglePlay
 
