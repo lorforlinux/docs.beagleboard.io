@@ -1,6 +1,6 @@
-.. _accessories-adaptors:
+.. _accessories-adapters:
 
-Adaptors 
+Adapters 
 #########
 
 HDMI Adapters

@@ -43,7 +43,7 @@ Troubleshooting video output issues
 
 .. warning:: 
 
-   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. See :ref:`display-adaptors-figure`.
+   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. See :ref:`display-adapters-figure`.
 
 
 .. _getting-help:
