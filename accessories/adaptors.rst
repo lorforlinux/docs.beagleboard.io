@@ -6,7 +6,7 @@ Adapters
 HDMI Adapters
 ==============
 
-The following adapters were tested and have been verified to work with the Beagle Bone Black.
+The following adapters were tested and have been verified to work with the BeagleBone Black.
 HDMI Type A to VGA M/F with 3.5mm Stereo Adapter
 
 .. image:: images/Capture.png
