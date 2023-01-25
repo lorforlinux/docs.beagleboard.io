@@ -20,5 +20,10 @@ Sources for supplies that work include:
 - `Sparkfun <https://www.sparkfun.com/products/8269?>`_
 - `Logic Supply <http://www.logicsupply.com/pw-5v2a/>`_
 
+.. tip::
+    Most mobile phone chargers are capable of delivering enough 
+    current to power any Beaglebone. You may try using that before buying
+    any standalone power srource for your board.
+
 If you plan to use capes or add your own circuitry, higher amperage may be required.
 Make sure that you have a grounded connection. This can be the USB cable or the HDMI cable.

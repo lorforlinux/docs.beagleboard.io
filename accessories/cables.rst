@@ -131,8 +131,28 @@ Bad HDMI Cables
 
 `High Speed HDMI Cable with Ethernet ,Type D Micro M/M Cable <http://www.newegg.com/Product/Product.aspx?Item=N82E16882241049>`_: Didn't work, not grounded. 
 
+Working MiniDP to HDMI
+-----------------------
+
+.. note::
+    BeagleBone-AI64 requires **ACTIVE** miniDP to HDMI cable or adaptor to work, 
+    your passive miniDP to HDMI setup will not work at all.
+
+- `IVANKY 4K Active Mini DisplayPort to HDMI Adapter <https://www.amazon.com/dp/B089GF8M87/>`_
+- `CableCreation Mini DP (Thunderbolt 2 Compatible) to HDMI <https://www.amazon.in/CD0257-Mini-DP-to-HDMI/dp/B01FM51O0W/>`_
+
+Bad MiniDP to HDMI
+-------------------
+
+- `UGREEN Mini DP Male to HDMI <https://www.amazon.in/Mini-Male-Female-Converter-Cable/dp/B01CL1P6TA/>`_
+- `AGARO Mini Displayport (Mini Dp) To Hdmi <https://www.amazon.in/AGARO-Meters-Laptop-Computers-Mobile/dp/B09GW1NMNZ/>`_
+- `AmazonBasics Mini Display Port to HDMI <https://www.amazon.in/AmazonBasics-Mini-DisplayPort-HDMI-Adapter/dp/B0134V3KIA/>`_
+
 USB Cables
 -----------
 
-TBD
+According the board you have, you can choose any cable to handle the current required like,
+
+- MicroUSB to TypeA (3Amp)
+- Type-C to Type-A (5Amp)
 

@@ -15,6 +15,10 @@ Check here often as we will update the list as we confirm the operation. Let
 model and resolution at which it works and we will add it to the list. Only the highest 
 resolution is listed below.
 
+.. note::
+    All the monitors most likely will work with AI-64 also but, make sure that 
+    you are using active miniDP to HDMI converter becuase passive convertor will not work.
+
 Links are not provided as they change frequently. So, search on the model number to find a source for these.
 
 - Sony Model LMD-2450W 1280 x 1024 @60Hz
@@ -49,3 +53,8 @@ Panasonic TX-L19X10BW 1280x720 @60Hz.
 
 Unsupported Televisions
 ------------------------
+
+.. tip::
+    If you don't have a monitor/TV you can use a Video Captiure Card like 
+    `this from PiBox <https://www.amazon.com/Capture-India-Aluminium-Streaming-Teaching/dp/B0973PR9HH/>`_ 
+    with `OBS <https://obsproject.com/>`_ or any camera application to see the video coming through.

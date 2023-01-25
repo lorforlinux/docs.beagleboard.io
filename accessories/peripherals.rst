@@ -3,6 +3,11 @@
 Peripherals
 ############
 
+.. note::
+    Most Keyboards, Mouse, and USB Hubs are plug-n-play devices and they are 
+    supported out of the box in linux. List below only shows what has been tested. 
+    You may have something different and it will work without any additional software requirement.
+
 Keyboards
 ==========
 
@@ -23,10 +28,10 @@ Mice
 
 **Make sure that you plug the mice into the USB Host connector before powering on the board.**
 
-- `Microsoft Wireless 1000 <http://www.amazon.com/Microsoft-Wireless-Mobile-Mouse-1000/dp/B003STDQQU/ref=sr_1_1?s=electronics&ie=UTF8&qid=1371841170&sr=1-1&keywords=microsoft+wireless+1000>`
-- `Logitech M705 <http://www.amazon.com/Logitech-Wireless-Marathon-Battery-910-001935/dp/B003TG75EG/>`
-- `Logitech M600 <http://www.amazon.com/Logitech-Touch-Mouse-M600-910-002666/dp/B006MBP7T0/>`
-- `Logitech M310 <http://www.logitech.com/en-us/product/wireless-mouse-m310>`
+- `Microsoft Wireless 1000 <http://www.amazon.com/Microsoft-Wireless-Mobile-Mouse-1000/dp/B003STDQQU/ref=sr_1_1?s=electronics&ie=UTF8&qid=1371841170&sr=1-1&keywords=microsoft+wireless+1000>`_
+- `Logitech M705 <http://www.amazon.com/Logitech-Wireless-Marathon-Battery-910-001935/dp/B003TG75EG/>`_
+- `Logitech M600 <http://www.amazon.com/Logitech-Touch-Mouse-M600-910-002666/dp/B006MBP7T0/>`_
+- `Logitech M310 <http://www.logitech.com/en-us/product/wireless-mouse-m310>`_
 
 USB HUBS
 =========
@@ -39,4 +44,6 @@ USB HUBS
 - `D-LINK DUB-H7 <http://www.dlink.com/us/en/home-solutions/connect/usb/dub-h7-7-port-usb-2-0-hub>`_
 - `Trust HU-5770 7-Port Powered Hub <http://www.amazon.co.uk/TRUST-UK-HU-5770-PORT-POWERED/dp/B000HG5Q42>`_
 
-
+.. tip::
+    Make sure you are powering BeagleBone with decent power supply with 
+    enough current before attaching any additional Peripherals.
