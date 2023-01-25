@@ -315,7 +315,6 @@ Capes
    :hidden:
    :caption: Boards
    
-   /boards/terms-and-conditions.rst
    /boards/beaglebone/ai-64/index
    /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
@@ -325,6 +324,7 @@ Capes
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
+   /boards/terms-and-conditions.rst
 
 
 Projects

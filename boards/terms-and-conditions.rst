@@ -1,7 +1,7 @@
 .. _boards-terms-and-conditions:
 
-BeagleBoard.org general Terms & Conditions
-###########################################
+Terms & Conditions
+##################
 
 DESIGN
 *******
@@ -212,14 +212,14 @@ back to a distributor without contacting rma/support.
 
 
 For up to date SW images and technical information refer to
-https://beagleboard.org/latest-images
+https://www.beagleboard.org/distros
 
 
-All support for this board is provided via community support at
-`BeagleBoard.org forum <https://forum.beagleboard.org/>`_
+All support for is provided via community support at
+`https://forum.beagleboard.org <https://forum.beagleboard.org/>`_
 
 
-To return a defective board for repair, please request an RMA at
+To return a defective board for repair, please request a return materials authorization (RMA) at
 https://www.beagleboard.org/rma
 
 
