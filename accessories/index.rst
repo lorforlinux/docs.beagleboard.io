@@ -7,7 +7,7 @@ This section will include all the tested accessories for BeagleBoard.org hardwar
 
 .. note::
     This documentation is not complete and we are actively looking for volunteers to test 
-    and add new hardware accessories that they have already with them. Genral feedback and contribution 
+    and add new hardware accessories that they have already with them. General feedback and contribution 
     is also appreciated. You can checkout these pages to contribuite to BeagleBoard.org docs project,\
     
     1. `Docs contribution guide <https://docs.beagleboard.io/latest/intro/contribution/index.html>`_
