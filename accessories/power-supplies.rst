@@ -3,8 +3,8 @@
 Power supplies
 ###############
 
-All Beaglebone boards require different power supplies like Beaglebone Balack and other AM335X 
-based boards will be fine with a 5VDC @ 1A  but, Beaglebone AI-64 requires aleast 5VDC @ 3A. You 
+All BeagleBone boards require different power supplies like BeagleBone Balack and other AM335X 
+based boards will be fine with a 5VDC @ 1A  but, BeagleBone AI-64 requires aleast 5VDC @ 3A. You 
 have to either supply the power via usb jack or a 2.1mm, center positive barrel jack. 
 
 .. note::
@@ -22,7 +22,7 @@ Sources for supplies that work include:
 
 .. tip::
     Most mobile phone chargers are capable of delivering enough 
-    current to power any Beaglebone. You may try using that before buying
+    current to power any BeagleBone. You may try using that before buying
     any standalone power srource for your board.
 
 If you plan to use capes or add your own circuitry, higher amperage may be required.
