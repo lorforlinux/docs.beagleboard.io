@@ -17,6 +17,13 @@ sensor, actuator, indicator and connectivity plug-in add-on boards.
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
+.. image:: images/45font.png
+   :width: 598
+   :align: center
+   :alt: BeaglePlay
+
+.. toctree::
+
 .. toctree::
    :maxdepth: 1
 
