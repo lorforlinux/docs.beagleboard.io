@@ -7,7 +7,7 @@ BeagleBone AI-64 High Level Specification
 
 .. _BeagleBone_AI-64-block-diagram:
 
-.. figure:: images/ch05/board-block-diagram.svg
+.. figure:: images/ch05/board-block-diagram.png
    :width: 400px
    :align: center 
    :alt: Fig: BeagleBone AI-64 Key Components
@@ -154,7 +154,7 @@ The device is partitioned into three functional domains as shown in :ref:`soc-bl
 
 .. _soc-block-diagram:
 
-.. figure:: images/ch05/soc-block-diagram.svg
+.. figure:: images/ch05/soc-block-diagram.png
    :width: 400px
    :align: center 
    :alt: Fig: Device Top-level Block Diagram
