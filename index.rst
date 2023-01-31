@@ -61,7 +61,7 @@ from source using appropriate design tools.
       **BeaglePlay®**
       ^^^
 
-      .. image:: boards/images/beaglebone-ai-64-400x.webp
+      .. image:: boards/beagleplay/images/45font.png
          :align: center
       +++
 
