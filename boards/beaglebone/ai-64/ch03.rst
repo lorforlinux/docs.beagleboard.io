@@ -22,7 +22,7 @@ All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter ar
    Fig 3.1 BeagleBone AI-64 connections ports
 
 Methods of operation
---------------------------
+----------------------
 
 1.  Tethered to a PC
 2.  Standalone development platform in a PC configurtion using external peripherals
