@@ -92,7 +92,7 @@ board will have their flash reset to factory contents. For repairs and
 replacements, please contact ‘support’ at BeagleBoard.org using the RMA
 form:
 
--  `RMA request <https://beagleboard.org/support/rma>`__
+-  `RMA request <https://www.beagleboard.org/rma>`__
 
 Understanding Your Beagle
 *************************

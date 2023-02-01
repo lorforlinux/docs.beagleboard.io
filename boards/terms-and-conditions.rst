@@ -202,11 +202,11 @@ back to a distributor without contacting rma/support.
     `RMA request <https://www.beagleboard.org/rma>`_
 
     Before making any attempt to return your defective board to a distributor 
-    you should visit `support page <https://BeagleBoard.org/support>`_ and reach 
-    out to `Jason <https://beagleboard.org/about/jkridner>`_ for possible solutions.
+    you should visit `support page <https://docs.beagleboard.org/latest/intro/support/index.html>`_ 
+    and reach out to `Jason <https://beagleboard.org/about/jkridner>`_ for possible solutions.
     
     Additional terms:
-    - Your Repaired/Replacement boards will not be sent by priority shipment, please be patient. 
+    - Your repaired/replacement boards will not be sent by priority shipment, please be patient. 
     - You are responsible for all the expenses if there isn't really an issue with the board.
     - If no issue is found or express return is needed, the customer will pay all shipping costs.
 
@@ -223,5 +223,5 @@ To return a defective board for repair, please request a return materials author
 https://www.beagleboard.org/rma
 
 
-**Please DO NOT return the board without approval from the RMA team
-first.**
+.. important::
+    Please **DO NOT** return the board without approval from the RMA team first.
