@@ -15,7 +15,7 @@ BeagleBone AI-64 you'll have to procure your own USB cable.
     +===================+==============+
     | BeagleBone Black  | miniUSB      |
     +-------------------+--------------+
-    | Pocket Beagle     | microUSB     |
+    | PocketBeagle      | microUSB     |
     +-------------------+--------------+
     | BeagleBone AI     | USB-C        |
     +-------------------+--------------+
