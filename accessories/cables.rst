@@ -97,8 +97,8 @@ You will also find an extra RED wire on this cable. Just leave it unconnected.
 FTDI 3 Pin Cable
 -----------------
 
-You can purchase the another version direct from *FTDI
-This cable only has three wires for connection. You can find the datasheet and a picture at *Cable
+You can purchase the another version direct from **FTDI This cable only has three wires for connection. 
+You can find the datasheet and a picture at** Cable
 
 .. table:: 3 pin FTDI cable connection to BeagleBone Black
 
