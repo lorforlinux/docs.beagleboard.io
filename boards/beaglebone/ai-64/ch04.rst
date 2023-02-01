@@ -170,8 +170,7 @@ This section describes the key components on the board. It provides information 
 .. _board-components:
 
 Board components
---------------------------------
-
+---------------------
 
 :ref:`board-components-figure` below shows the locations of the connectors, LEDs, and switches on the PCB layout of the board.
 

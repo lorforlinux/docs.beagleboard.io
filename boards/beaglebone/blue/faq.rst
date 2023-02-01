@@ -87,7 +87,7 @@ https://www.mathworks.com/hardware-support/beaglebone-blue.html
 
 .. _my_beaglebone_blue_fails_to_run_successful_tests:
 
-My Beaglebone Blue fails to run successful tests
+My BeagleBone Blue fails to run successful tests
 ======================================================
 
 You've tried to run rc_test_drivers to ensure your board is working for
