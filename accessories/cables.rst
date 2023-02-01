@@ -26,6 +26,10 @@ BeagleBone AI-64 you'll have to procure your own USB cable.
     +----------------------------+--------------+
     | BeagleBone Black Wireless  | microUSB     |
     +----------------------------+--------------+
+    | BeagleBone xM              | miniUSB      |
+    +----------------------------+--------------+
+    | BeagleBone X15             | microUSB     |
+    +----------------------------+--------------+
 
 Serial Debug Cables
 ====================
