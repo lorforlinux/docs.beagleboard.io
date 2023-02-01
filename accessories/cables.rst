@@ -5,26 +5,52 @@ Cables
 
 USB Cables
 ***********
+A USB cable will normally be supplied with the BeagleBone Black. For other beaglebone boards like PocketBeagle, BeagleBone AI, 
+BeagleBone AI-64 you'll have to procure your own USB cable.
 
-This will normally be supplied with the BeagleBone Black, but in the case of the BBB RevA4, it was not. 
-For other beaglebone boards like Pocket Beagle, BeagleBone AI, BeagleBone Ai-64 you'll have . The connector on the board is a miniUSB type B female connector and requires a miniUSB type B male mating connector.
-The original BeagleBone uses a miniUSB type AB connector.
+.. table:: USB ports on BeagleBone hardware
+
+    +-------------------+--------------+
+    | Board             | USB type     |
+    +===================+==============+
+    | BeagleBone Black  | miniUSB      |
+    +-------------------+--------------+
+    | Pocket Beagle     | microUSB     |
+    +-------------------+--------------+
+    | BeagleBone AI     | USB-C        |
+    +-------------------+--------------+
+    | BeagleBone AI-64  | USB-C        |
+    +-------------------+--------------+
+
+
+
 
 Serial Debug Cables
 ====================
 
 The default serial port settings for the board are:
 
-Baud 115,200
-Bits 8
-Parity N
-Stop Bits 1
-Handshake None
+.. table:: UART settings
+
+    +--------------+--------------+
+    | Setting      | Value        |
+    +==============+==============+
+    | Baud         | 115,200      |
+    +--------------+--------------+
+    | Bits         | 8            |
+    +--------------+--------------+
+    | Parity       | N            |
+    +--------------+--------------+
+    | Stop Bits    | 1            |
+    +--------------+--------------+
+    | Handshake    | None         |
+    +--------------+--------------+
 
 Standard FTDI Cable
 --------------------
 
-The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. You can purchase this from several different sources including but not limited to:
+The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. 
+You can purchase this from several different sources including but not limited to:
 
 - `DigiKey <http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393>`_
 - `Newark <http://www.newark.com/jsp/search/productdetail.jsp?SKU=34M8872&CMP=KNC-GPLA&mckv=%7Cpcrid%7C19038771501%7Cplid%7C>`_

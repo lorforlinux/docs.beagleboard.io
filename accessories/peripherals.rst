@@ -8,8 +8,17 @@ Peripherals
     supported out of the box in linux. List below only shows what has been tested. 
     You may have something different and it will work without any additional software requirement.
 
+Keyboard & Mouse Combo
+***********************
+
+With limited ports availability on BeagleBones it is recommended to use wireless 
+Keyboard & Mouse combos.
+
+- `Adafruit keyboard & Mouse w/batteries <https://www.mouser.in/ProductDetail/Adafruit/1738?qs=GURawfaeGuBoaqdx8E%2Fl7w%3D%3D>`_
+- `Portronics Key2-A Combo of Multimedia Wireless Keyboard & Mouse <https://www.amazon.in/Portronics-Combo-Multimedia-Wireless-Light-Weight/dp/B07X1KRPDZ/>`_
+
 Keyboards
-==========
+************
 
 **Make sure that you plug the keyboard into the USB Host connector before powering on the board.**
 
@@ -24,7 +33,7 @@ Keyboards
 - `Solidtek KB-5010BU Keyboard+Roller Ball <http://www.logicsupply.com/products/kb_5010bu>`_
 
 Mice
-=====
+******
 
 **Make sure that you plug the mice into the USB Host connector before powering on the board.**
 
@@ -34,7 +43,7 @@ Mice
 - `Logitech M310 <http://www.logitech.com/en-us/product/wireless-mouse-m310>`_
 
 USB HUBS
-=========
+**********
 
 **Make sure that you plug the HUB into the USB Host connector before powering on the board.**
 
@@ -46,4 +55,5 @@ USB HUBS
 
 .. tip::
     Make sure you are powering BeagleBone with decent power supply with 
-    enough current before attaching any additional Peripherals.
+    enough current before attaching any additional Peripherals. 
+    See :ref:`accessories-power-supplies` for more information on power requirements.
