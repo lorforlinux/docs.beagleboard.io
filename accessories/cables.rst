@@ -5,25 +5,27 @@ Cables
 
 USB Cables
 ***********
-A USB cable will normally be supplied with the BeagleBone Black. For other beaglebone boards like PocketBeagle, BeagleBone AI, 
+
+A microUSB cable will normally be supplied with the BeagleBone Black. For other beaglebone boards like PocketBeagle, BeagleBone AI, 
 BeagleBone AI-64 you'll have to procure your own USB cable.
 
 .. table:: USB ports on BeagleBone hardware
 
-    +-------------------+--------------+
-    | Board             | USB type     |
-    +===================+==============+
-    | BeagleBone Black  | miniUSB      |
-    +-------------------+--------------+
-    | PocketBeagle      | microUSB     |
-    +-------------------+--------------+
-    | BeagleBone AI     | USB-C        |
-    +-------------------+--------------+
-    | BeagleBone AI-64  | USB-C        |
-    +-------------------+--------------+
-
-
-
+    +----------------------------+--------------+
+    | Board                      | USB type     |
+    +============================+==============+
+    | BeagleBone Black           | miniUSB      |
+    +----------------------------+--------------+
+    | PocketBeagle               | microUSB     |
+    +----------------------------+--------------+
+    | BeagleBone AI              | USB-C        |
+    +----------------------------+--------------+
+    | BeagleBone AI-64           | USB-C        |
+    +----------------------------+--------------+
+    | BeagleBone Blue            | microUSB     |
+    +----------------------------+--------------+
+    | BeagleBone Black Wireless  | microUSB     |
+    +----------------------------+--------------+
 
 Serial Debug Cables
 ====================
