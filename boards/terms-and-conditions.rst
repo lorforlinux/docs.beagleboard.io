@@ -186,17 +186,29 @@ BeagleBoard.org Foundation
 Oakland Twp, MI 48306 U.S.A.
 
 
-**WARRANTY:** The board assembly as purchased is warranted
-against defects in materials and workmanship for a period of 90 days
-from purchase. This warranty does not cover any problems occurring as a
-result of improper use, modifications, exposure to water, excessive
-voltages, abuse, or accidents. All boards will be returned via standard
-mail if an issue is found. If no issue is found or express return is
-needed, the customer will pay all shipping costs.
+**WARRANTY:** If purchased from an authorized distributor, as listed on the board page 
+at https://www.beagleboard.org/boards, then the board assembly as purchased is warranted 
+against defects in materials and workmanship for a period of 90 days from purchase. This 
+warranty does not cover any problems occurring as a result of improper use, modifications, 
+exposure to water, excessive voltages, abuse, or accidents. No boards should be sent to 
+back to a distributor without contacting rma/support.
 
 
-Before returning the board, please visit
-https://docs.beagleboard.org/latest/intro/support
+.. note::
+    Repairs and replacements only provided on unmodified boards purchased via an authorized distributor 
+    **within the first 90 days**. All repaired board will have their flash reset to factory contents. For 
+    repairs and replacements, please contact 'support' at BeagleBoard.org using the RMA form:
+
+    `RMA request <https://www.beagleboard.org/rma>`_
+
+    Before making any attempt to return your defective board to a distributor 
+    you should visit `support page <https://BeagleBoard.org/support>`_ and reach 
+    out to `Jason <https://beagleboard.org/about/jkridner>`_ for possible solutions.
+    
+    Additional terms:
+    - Your Repaired/Replacement boards will not be sent by priority shipment, please be patient. 
+    - You are responsible for all the expenses if there isn't really an issue with the board.
+    - If no issue is found or express return is needed, the customer will pay all shipping costs.
 
 
 For up to date SW images and technical information refer to
@@ -204,12 +216,12 @@ https://www.beagleboard.org/distros
 
 
 All support for is provided via community support at
-https://forum.beagleboard.org
+`https://forum.beagleboard.org <https://forum.beagleboard.org/>`_
 
 
 To return a defective board for repair, please request a return materials authorization (RMA) at
 https://www.beagleboard.org/rma
 
 
-Please DO NOT return the board without approval from the RMA team
-first.
+**Please DO NOT return the board without approval from the RMA team
+first.**

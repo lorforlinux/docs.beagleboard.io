@@ -358,6 +358,19 @@ This project hosts a collection of open-source :ref:`books-home` books written t
    /books/beaglebone-cookbook/index
    /books/pru-cookbook/index
 
+Accessories
+************
+
+This is a list of curated hardware accessories tested thouroghly with BeagleBone hardware. 
+The list is growing with support of volunteers like you. Checkout :ref:`accessories-home` 
+page for more information.
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Accessories
+
+   /accessories/index
 
 Indices and tables
 ********************

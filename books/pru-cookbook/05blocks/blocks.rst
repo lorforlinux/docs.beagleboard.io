@@ -1804,7 +1804,7 @@ First, the connector looks like :ref:`blocks_matrix_j1`.
 
 Notice the labels on the connect match the labels in the code.
 :ref:`blocks_pocket_scroller_pins` shows how the pins on the display are 
-mapped to the pins on the Pocket Beagle.
+mapped to the pins on the PocketBeagle.
 
 .. ToDo  Make a mapping table for the Black
 .. https://github.com/FalconChristmas/fpp/blob/master/src/pru/OctoscrollerV2.hp

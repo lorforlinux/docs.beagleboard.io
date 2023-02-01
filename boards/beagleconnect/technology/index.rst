@@ -55,7 +55,7 @@ High-level
 Software architecture
 ---------------------
 
-.. image:: media/bcf_block_diagram.svg
+.. image:: media/bcf_block_diagram.png
    :width: 600
    :align: center
    :height: 400
