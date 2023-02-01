@@ -1,9 +1,9 @@
 .. _beagleplay-zephyr-development:
 
-BeaglePlay & Zephyr Development
+Wireless MCU Zephyr Development
 ###############################
 
-BeaglePlay includes a `Texas Instruments CC1352P7 wireless microcontroller <https://www.ti.com/product/CC1352P7>`_
+BeaglePlay includes a `Texas Instruments CC1352P7 wireless microcontroller (MCU) <https://www.ti.com/product/CC1352P7>`_
 that can be programmed using the `Linux Foundation Zephyr RTOS <https://www.zephyrproject.org/>`_.
 
 Developing directly in Zephyr will not be ultimately required for end-users 
@@ -104,6 +104,113 @@ Steps
         sudo sed -e '/bcfserial-no-firmware/ s/^#*/#/' -i /boot/firmware/extlinux/extlinux.conf
         sudo shutdown -r now
 
+#. Verify the the 6LoWPAN network is up.
+
+    .. callout::
+
+        .. code-block:: shell-session
+
+            debian@BeaglePlay:~$ lsmod | grep bcfserial
+            bcfserial              24576  0 <1>
+            mac802154              77824  2 wpanusb,bcfserial
+            debian@BeaglePlay:~$ ifconfig
+            SoftAp0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    inet 192.168.8.1  netmask 255.255.255.0  broadcast 192.168.8.255
+                    inet6 fe80::3ee4:b0ff:fe7e:b5f7  prefixlen 64  scopeid 0x20<link>
+                    ether 3c:e4:b0:7e:b5:f7  txqueuelen 1000  (Ethernet)
+                    RX packets 4046  bytes 576780 (563.2 KiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 4953  bytes 5116336 (4.8 MiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+                    inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+                    ether 02:42:f8:29:41:69  txqueuelen 0  (Ethernet)
+                    RX packets 0  bytes 0 (0.0 B)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 0  bytes 0 (0.0 B)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+                    ether f4:84:4c:fc:5d:13  txqueuelen 1000  (Ethernet)
+                    RX packets 0  bytes 0 (0.0 B)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 0  bytes 0 (0.0 B)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                    inet 127.0.0.1  netmask 255.0.0.0
+                    inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                    loop  txqueuelen 1000  (Local Loopback)
+                    RX packets 246239  bytes 19948296 (19.0 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 246239  bytes 19948296 (19.0 MiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            lowpan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1280 <2>
+                    inet6 fe80::200:0:0:0  prefixlen 64  scopeid 0x20<link> <3>
+                    inet6 2001:db8::2  prefixlen 64  scopeid 0x0<global> <4>
+                    unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+                    RX packets 107947  bytes 6629290 (6.3 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 2882  bytes 179511 (175.3 KiB) <5>
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            usb0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    inet 192.168.7.2  netmask 255.255.255.0  broadcast 192.168.7.255
+                    inet6 fe80::1eba:8cff:fea2:ed6b  prefixlen 64  scopeid 0x20<link>
+                    ether 1c:ba:8c:a2:ed:6b  txqueuelen 1000  (Ethernet)
+                    RX packets 9858  bytes 2638440 (2.5 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 4155  bytes 1454082 (1.3 MiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            usb1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    inet 192.168.6.2  netmask 255.255.255.0  broadcast 192.168.6.255
+                    inet6 fe80::1eba:8cff:fea2:ed6d  prefixlen 64  scopeid 0x20<link>
+                    ether 1c:ba:8c:a2:ed:6d  txqueuelen 1000  (Ethernet)
+                    RX packets 469614  bytes 35385636 (33.7 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 365548  bytes 66523708 (63.4 MiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    inet 192.168.0.161  netmask 255.255.255.0  broadcast 192.168.0.255
+                    inet6 fe80::3ee4:b0ff:fe7e:b5f6  prefixlen 64  scopeid 0x20<link>
+                    inet6 2601:408:c083:b6c0::d00d  prefixlen 128  scopeid 0x0<global>
+                    ether 3c:e4:b0:7e:b5:f6  txqueuelen 1000  (Ethernet)
+                    RX packets 3188898  bytes 678154090 (646.7 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 1162074  bytes 293237366 (279.6 MiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            wpan0: flags=195<UP,BROADCAST,RUNNING,NOARP>  mtu 123 <6>
+                    unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 300  (UNSPEC)
+                    RX packets 108495  bytes 2539160 (2.4 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 2888  bytes 140523 (137.2 KiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+        .. annotations::
+
+            <1> You'll want to see that the `bcfserial` driver has been loaded.
+
+            <2> There should be a `lowpan0` interface.
+
+            <3> There should be a link-local address for `lowpan0`.
+
+            <4> There should be a global address for `lowpan0`.
+
+            <5> Seeing some packets have been transmitted can give you some confidence.
+
+            <6> The `wpan0` interface should be there, but we have a 6LoWPAN adapter on top of it.
+
+
+.. note::
+
+   You may find `Linux-WPAN.org <https://linux-wpan.org/documentation.html>`_ useful.
+
+
 Setup Zephyr development on BeaglePlay
 *********************************************
 
@@ -141,7 +248,7 @@ Setup Zephyr development on BeaglePlay
         echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.15.1" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
-        echo "export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+        echo 'export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH' >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo "export BOARD=beagleplay" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         source $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         west update
