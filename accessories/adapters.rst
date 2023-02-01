@@ -7,7 +7,7 @@ HDMI Adapters
 ==============
 
 The following adapters were tested and have been verified to work with the BeagleBone Black.
-HDMI Type A to VGA M/F with 3.5mm Stereo Adapter
+HDMI Type A to VGA Male/Female with 3.5mm Stereo Adapter
 
 .. image:: images/Capture.png
     :align: center
@@ -61,7 +61,6 @@ Mini HDMI to Composite/CVBS/RCA AV Video Converter
     :align: center
     :alt: ViewHD
 
-    
 `ViewHD link <http://u9ltd.myshopify.com/products/vhd-mh2a>`_
 
 Additional Parts Required: (Click on the links to view the parts)
