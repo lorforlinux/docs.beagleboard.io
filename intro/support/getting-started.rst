@@ -200,7 +200,7 @@ an older operating system or need additional drivers for serial access to older 
 
 	Additional USB to virtual Ethernet information and drivers are available from http://www.linux-usb.org/gadget/ and https://joshuawise.com/horndis
 
-	Visit https://beagleboard.org/support for additional debugging tips.
+	Visit https://docs.beagleboard.org/latest/intro/support/index.html for additional debugging tips.
 
 Hardware documentation
 **********************
