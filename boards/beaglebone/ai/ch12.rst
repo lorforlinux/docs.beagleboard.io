@@ -15,7 +15,7 @@ REGULATORY, COMPLIANCE, AND EXPORT INFORMATION
 -  TARIC: 8473302000
 -  ECCN: 5A992.C
 -  CCATS:
-   `Z1613110/G180570 <https://github.com/beagleboard/beaglebone-ai/blob/master/regulatory/Validation_Z1613110.pdf>`__
+   `Z1613110/G180570 <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/tree/master/regulatory/Validation_Z1613110.pdf>`__
 -  RoHS/REACH: TBD
 -  Volatility: TBD
 

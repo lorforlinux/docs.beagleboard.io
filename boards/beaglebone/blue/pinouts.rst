@@ -11,10 +11,10 @@ BeagleBone Blue Pinouts
    :align: center
 
 -  Connector pinout
-   `details <https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_sch.pdf>`__
+   `details <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/blob/master/BeagleBone_Blue_sch.pdf>`__
    from schematic(s)
 -  `Pin
-   Table <https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_Pin_Table.csv>`__
+   Table <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/blob/master/BeagleBone_Blue_Pin_Table.csv>`__
    with some Blue : Black corelation.
 
 UT1

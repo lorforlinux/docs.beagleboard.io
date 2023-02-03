@@ -31,6 +31,8 @@ BeagleBone AI-64 you'll have to procure your own USB cable.
     | BeagleBone X15             | microUSB     |
     +----------------------------+--------------+
 
+.. _serial-debug-cables:
+
 Serial Debug Cables
 ********************
 
