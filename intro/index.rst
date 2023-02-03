@@ -16,12 +16,18 @@ open-hardware development platform, you've found the right place!
 
    For bleeding edge (development-stage) documentation:
 
-   * https://docs.beagleboard.io (Straight from `docs repo <https://git.beagleboard.org/docs/docs.beagleboard.io>`_)
+   * https://docs.beagleboard.io (straight from `docs repo <https://git.beagleboard.org/docs/docs.beagleboard.io>`_)
 
 Please check out our :ref:`support` page to find out how to get started, resolve issues,
 and engage with the developer community. Don't forget that this is an open-source project! Your contributions are welcome. 
 Learn about how to contribute to the BeagleBoard documentation project and any of the many open-source Beagle
 projects ongoing on our :ref:`contribution` page.
+
+.. warning::
+   Make sure you thoroughly read and agree with our :ref:`boards-terms-and-conditions` which covers 
+   warnings, restrictions, disclaimers, and warranty for all of our boards. Use of either the boards or 
+   the design materials constitutes agreement to the T&C including any modifications done to 
+   the hardware or software solutions provided by beagleboard.org foundation.
 
 .. toctree::
    :maxdepth: 2

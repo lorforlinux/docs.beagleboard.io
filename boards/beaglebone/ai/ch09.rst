@@ -12,4 +12,4 @@ Mechanical Information
 -  Gross Weight (including packaging): 110g
 
 -  3D STEP model:
-   https://github.com/beagleboard/beaglebone-ai/tree/master/Mechanical
+   https://git.beagleboard.org/beagleboard/beaglebone-ai/-/tree/master/Mechanical

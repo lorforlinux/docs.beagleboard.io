@@ -81,17 +81,17 @@ Power and boot
 Most Beagles can be powered via a USB cable, providing a convenient way to provide both power to your
 Beagle and connectivity to your computer. Be sure the cable is of good quality and your source can provide enough power.
 
-Alternatively, your Beagle may have a barrel jack.
+Alternatively, your Beagle may have a barrel jack which can take power from a wall adapter. 
+Checkout :ref:`accessories-power-supplies` to get the correct adapter for your Beagle.
 
-.. Note::
-	Use only a 5V center positive adapter for all Beagles except BeagleBone Blue and BeagleBoard-X15 (12V).
+.. Danger::
+	Make sure to use only a 5V center positive adapter for all Beagles except BeagleBone Blue and BeagleBoard-X15 (12V).
 
 If you are using your Beagle with an `SD (microSD) card <https://en.wikipedia.org/wiki/Secure_Digital>`_, make sure it is inserted ahead of providing power.
 Most Beagles include programmed on-board flash and therefore do not require an SD card to be inserted.
 
 You'll see the power (PWR or ON) LED lit steadily. Within a minute or so, you should see the other LEDs
-blinking in their default configurations. Consult the Quick Start Guide (QSG) or System Reference
-Manual (SRM) for your board to locate these LEDs.
+blinking in their default configurations. Consult your :ref:`boards` documentation to locate these LEDs.
 
 - USR0 is typically configured at boot to blink in a heartbeat pattern.
 - USR1 is typically configured at boot to light during SD (microSD) card accesses.
@@ -122,7 +122,12 @@ network will add a suffix such as beaglebone-2.local.
 Browse to your Beagle
 ============================
 
-A web server with an IDE should be running on your Beagle. Point your browser to it to begin development.
+A web server with an Visual Studio Code (IDE) should be running on your Beagle. 
+Point your browser to **http://192.168.7.2:3000** to begin development.
+
+.. image:: images/vscode.png
+   :align: center
+   :alt: Visual Studio Code
 
 .. NOTE::
     Use either `Firefox <https://www.mozilla.org/firefox>`_ or `Chrome <https://www.google.com/chrome>`_
@@ -205,8 +210,7 @@ an older operating system or need additional drivers for serial access to older 
 Hardware documentation
 **********************
 
-Be sure to check check the latest hardware documentation for your board at https://docs.beagleboard.org.
-
+Be sure to check check the latest hardware documentation for your board at https://docs.beagleboard.org. 
 Detailed design materials for various boards can be found at https://git.beagleboard.org/explore/projects/topics/boards.
 
 Books

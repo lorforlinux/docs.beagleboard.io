@@ -195,7 +195,7 @@ Solution
 ---------
 
 You can modify ``rc_test_servos.c``.  You'll find it on the bone online at
-https://github.com/beagleboard/librobotcontrol/blob/master/examples/src/rc_test_servos.c.
+https://git.beagleboard.org/beagleboard/librobotcontrol/-/blob/master/examples/src/rc_test_servos.c
 
 Just past line 250 you'll find a ``while`` loop that has calls to ``rc_servo_send_pulse_normalized(ch,servo_pos)`` and
 ``rc_servo_send_pulse_us(ch, width_us)``.  The first call sets the pulse width relative to the pulse period; the other

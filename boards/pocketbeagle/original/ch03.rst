@@ -338,5 +338,5 @@ The board can be configured in several different ways. Future revisions
 of this document may include additional configurations.
 
 As other examples become documented, we'll update them on the Wiki for
-PocketBeagle `github.com/beagleboard/pocketbeagle/wiki <https://github.com/beagleboard/pocketbeagle/wiki>`__
+PocketBeagle `PocketBeagle WiKi <https://git.beagleboard.org/beagleboard/pocketbeagle/-/wikis/home>`__
 See also the `on-line discussion. <https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!msg/beagleboard/JtOGZb-FH2A/9GVu7I6kAQAJ>`__

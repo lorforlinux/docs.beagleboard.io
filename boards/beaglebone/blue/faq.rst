@@ -101,7 +101,7 @@ I'm running an image off of a microSD card. How do I write it to the on-board eM
 ==========================================================================================
 
 Refer to the "Flashing Firmware" page:
-https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware
+https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/Flashing-firmware
 
 Meanwhile, as root, run the
 /opt/scripts/tools/eMMC/bbb-eMMC-flasher-eewiki-ext4.sh script which
@@ -136,7 +136,7 @@ One you’ve booted the latest image, you can update the bootloader on the
 eMMC using
 `/opt/scripts/tools/developers/update_bootloader.sh <https://github.com/RobertCNelson/boot-scripts/blob/master/tools/developers/update_bootloader.sh>`__.
 Better yet, read the `above
-FAQ <https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-%28FAQ%29#Im_running_an_image_off_of_a_microSD_card_How_do_I_write_it_to_the_onboard_eMMC_flash>`__
+FAQ <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/Frequently-Asked-Questions-(FAQ)#Im_running_an_image_off_of_a_microSD_card_How_do_I_write_it_to_the_onboard_eMMC_flash>`__
 on flashing firmware.
 
 .. _ive_got_my_on_board_emmc_flash_configured_in_a_nice_way._how_do_i_copy_that_to_other_beaglebone_blue_boards:
