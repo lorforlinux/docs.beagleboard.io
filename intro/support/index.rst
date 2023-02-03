@@ -3,9 +3,6 @@
 Support
 #########
 
-.. note:: #TODO# all the links need updating and content moved into 
-   `this repo <https://git.beagleboard.org/docs/docs.beagleboard.io>`_, especially :ref:`intro_bone101`.
-
 Getting started
 ***************
 
@@ -66,8 +63,9 @@ Best to be prepared with good diagnostic information to aide with support.
    :alt: Download beagle-version output
 
 .. tip::
-   You can send the beagle-version.txt you just downloaded or you can use paste output 
-   from terminal to https://pastebin.com/ and send us the link of your beagle-version output.
+   For debugging purposes you can either share the ``beagle-version.txt`` file you just downloaded 
+   using the steps shown in pictures above Or you can just paste the terminal output of ``sudo beagle-version`` 
+   to https://pastebin.com/ and send us the link.
 
 Community resources
 ===================
