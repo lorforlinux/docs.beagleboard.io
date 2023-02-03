@@ -35,7 +35,7 @@ It is a good idea to always use the latest software. Instructions for
 how to update your software to the latest version can be found at:
 
 Download the latest software files from
-`beagleboard.org/latest-images <https://beagleboard.org/latest-images>`__
+`www.beagleboard.org/distros <https://www.beagleboard.org/distros>`__
 
 .. _export_information:
 

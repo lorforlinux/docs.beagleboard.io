@@ -88,7 +88,7 @@ software image onto your microSD card and get started writing code.
 `beagleboard.org/getting-started <https://beagleboard.org/getting-started>`__
 Follow along with the instructions and click on the link noted in Figure
 5 below
-`beagleboard.org/latest-images <https://beagleboard.org/latest-images>`__.
+`www.beagleboard.org/distros <https://www.beagleboard.org/distros>`__.
 You can also get to this page directly by going to
 `bbb.io/latest <https://bbb.io/latest>`__
 

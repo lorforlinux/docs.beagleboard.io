@@ -3,7 +3,8 @@
 Support
 #########
 
-.. note:: #TODO# all the links need updating and content moved into this repo, especially bone101.
+.. note:: #TODO# all the links need updating and content moved into 
+   `this repo <https://git.beagleboard.org/docs/docs.beagleboard.io>`_, especially bone101.
 
 Getting started
 ***************
