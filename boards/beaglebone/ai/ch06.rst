@@ -263,7 +263,7 @@ PRU-ICSS Resources and FAQ’s
 Resources
 
 -  Great resources for PRU and BeagleBone® has been compiled here https://beagleboard.org/pru
--  The PRU Cookbook provides examples and getting started information https://github.com/MarkAYoder/PRUCookbook
+-  The PRU Cookbook provides examples and getting started information :ref:`pru-cookbook-home`
 -  Detailed specification is available at http://processors.wiki.ti.com/index.php/PRU-ICSS
 
 FAQ

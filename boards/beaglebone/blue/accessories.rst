@@ -279,4 +279,4 @@ Bluetooth devices
 =====================
 
 -  `WowWee Groove Cube
-   Speaker <https://github.com/beagleboard/beaglebone-blue/wiki/One-Liner-Module-Tests#Grove_I2C_modules>`__
+   Speaker <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/One-Liner-Module-Tests#grove-i2c-modules>`__
