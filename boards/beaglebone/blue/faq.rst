@@ -22,7 +22,7 @@ What system firmware should I use for starting to explore my BeagleBone Blue?
 ===================================================================================
 
 Download the latest 'IoT' image from
-https://beagleboard.org/latest-images. As of this writing, that image is
+https://www.beagleboard.org/distros. As of this writing, that image is
 https://debian.beagleboard.org/images/bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz.
 
 Use http://etcher.io for writing that image to a 4GB or larger microSD

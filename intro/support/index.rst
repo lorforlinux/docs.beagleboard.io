@@ -3,7 +3,8 @@
 Support
 #########
 
-.. note:: #TODO# all the links need updating and content moved into this repo, especially bone101.
+.. note:: #TODO# all the links need updating and content moved into 
+   `this repo <https://git.beagleboard.org/docs/docs.beagleboard.io>`_, especially bone101.
 
 Getting started
 ***************
@@ -92,7 +93,7 @@ board will have their flash reset to factory contents. For repairs and
 replacements, please contact ‘support’ at BeagleBoard.org using the RMA
 form:
 
--  `RMA request <https://beagleboard.org/support/rma>`__
+-  `RMA request <https://www.beagleboard.org/rma>`__
 
 Understanding Your Beagle
 *************************

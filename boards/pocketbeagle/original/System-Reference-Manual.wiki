@@ -164,7 +164,7 @@ In some instances, such as when additional add-on boards, or PocketCapes are con
 The following steps will guide you to quickly download a PocketBeagle software image onto your microSD card and get started writing code.  
 
 1.  Navigate to the Getting Started Page  [https://beagleboard.org/getting-started ''beagleboard.org/getting-started''] 
-Follow along with the instructions and click on the link noted in Figure 5 below [https://beagleboard.org/latest-images ''beagleboard.org/latest-images'']. You can also get to this page directly by going to [https://bbb.io/latest ''bbb.io/latest'']
+Follow along with the instructions and click on the link noted in Figure 5 below [https://www.beagleboard.org/distros ''beagleboard.org/latest-images'']. You can also get to this page directly by going to [https://bbb.io/latest ''bbb.io/latest'']
 ======  Figure 5. Getting Started Page  ======
 [[images/5fig-PB-GetStarted.png]]
 
@@ -2269,7 +2269,7 @@ Including:
 
 It is a good idea to always use the latest software. Instructions for how to update your software to the latest version can be found at:
 
-Download the latest software files from [https://beagleboard.org/latest-images ''beagleboard.org/latest-images'']
+Download the latest software files from [https://www.beagleboard.org/distros ''beagleboard.org/latest-images'']
 
 === 11.5 Export Information ===
 

@@ -15,7 +15,7 @@ but executing this step, the longest step, will ensure the rest will go as smoot
 Download the latest software image
 ============================================
 
-Download the latest Debian image from `beagleboard.org/latest-images <https://beagleboard.org/latest-images>`_.
+Download the latest Debian image from `www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_.
 The "IoT" images provide more free disk space if you don't need to use a graphical user interface (GUI).
 
 .. NOTE::
@@ -72,7 +72,7 @@ Start your Beagle
 *****************
 
 If any step fails, it is recommended to update to the
-`latest software image <https://beagleboard.org/latest-images>`_
+`latest software image <https://www.beagleboard.org/distros>`_
 using the instructions above.
 
 Power and boot
@@ -200,7 +200,7 @@ an older operating system or need additional drivers for serial access to older 
 
 	Additional USB to virtual Ethernet information and drivers are available from http://www.linux-usb.org/gadget/ and https://joshuawise.com/horndis
 
-	Visit https://beagleboard.org/support for additional debugging tips.
+	Visit https://docs.beagleboard.org/latest/intro/support/index.html for additional debugging tips.
 
 Hardware documentation
 **********************
@@ -229,7 +229,7 @@ To take things to the next level of detail, consider "Exploring BeagleBone" whic
 the missing software manual and utilize "Embedded Linux Primer" as a companion textbook to provide
 a strong base on embedded Linux suitable for working with any hardware that will run Linux.
 
-.. |image0| image:: images/download-latestimage.png
+.. |image0| image:: images/download-latestimage-www.png
    :width: 75.0%
 .. |image1| image:: images/download-etcher.png
    :width: 75.0%
