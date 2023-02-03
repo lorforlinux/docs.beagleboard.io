@@ -5,28 +5,34 @@ Cables
 
 USB Cables
 ***********
-A USB cable will normally be supplied with the BeagleBone Black. For other beaglebone boards like PocketBeagle, BeagleBone AI, 
+
+A microUSB cable will normally be supplied with the BeagleBone Black. For other beaglebone boards like PocketBeagle, BeagleBone AI, 
 BeagleBone AI-64 you'll have to procure your own USB cable.
 
 .. table:: USB ports on BeagleBone hardware
 
-    +-------------------+--------------+
-    | Board             | USB type     |
-    +===================+==============+
-    | BeagleBone Black  | miniUSB      |
-    +-------------------+--------------+
-    | Pocket Beagle     | microUSB     |
-    +-------------------+--------------+
-    | BeagleBone AI     | USB-C        |
-    +-------------------+--------------+
-    | BeagleBone AI-64  | USB-C        |
-    +-------------------+--------------+
-
-
-
+    +----------------------------+--------------+
+    | Board                      | USB type     |
+    +============================+==============+
+    | BeagleBone Black           | miniUSB      |
+    +----------------------------+--------------+
+    | PocketBeagle               | microUSB     |
+    +----------------------------+--------------+
+    | BeagleBone AI              | USB-C        |
+    +----------------------------+--------------+
+    | BeagleBone AI-64           | USB-C        |
+    +----------------------------+--------------+
+    | BeagleBone Blue            | microUSB     |
+    +----------------------------+--------------+
+    | BeagleBone Black Wireless  | microUSB     |
+    +----------------------------+--------------+
+    | BeagleBone xM              | miniUSB      |
+    +----------------------------+--------------+
+    | BeagleBone X15             | microUSB     |
+    +----------------------------+--------------+
 
 Serial Debug Cables
-====================
+********************
 
 The default serial port settings for the board are:
 
@@ -47,7 +53,7 @@ The default serial port settings for the board are:
     +--------------+--------------+
 
 Standard FTDI Cable
---------------------
+====================
 
 The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. 
 You can purchase this from several different sources including but not limited to:
@@ -65,7 +71,7 @@ You can purchase this from several different sources including but not limited t
 Pin 1 on the cable is the black wire and connects to pin 1 on the board, the pin with the white dot next to it. 
 
 Adafruit 4 Pin Cable (PL2303)
-------------------------------
+==============================
 
 One is from `Adafruit <http://www.adafruit.com/products/954>`_. This is a Prolific chipset based cable. 
 Some people have reported issues with the cable causing some issues with data corruption. You experience 
@@ -95,7 +101,7 @@ may vary. You will need to install the Prolific drivers. Those can be downloaded
 You will also find an extra RED wire on this cable. Just leave it unconnected.
 
 FTDI 3 Pin Cable
------------------
+=================
 
 You can purchase the another version direct from **FTDI This cable only has three wires for connection. 
 You can find the datasheet and a picture at** Cable
@@ -117,7 +123,7 @@ You can find the datasheet and a picture at** Cable
     The swapping of TX and RX takes place on the board. 
 
 Olimex 3 Pin Cable (PL2303)
-----------------------------
+============================
 
 A third version is sold by `Olimex <https://www.olimex.com/Products/Components/Cables/USB-Serial-Cable/USB-Serial-Cable-F/>`_
 
@@ -136,29 +142,32 @@ A third version is sold by `Olimex <https://www.olimex.com/Products/Components/C
 
 
 HDMI Cables
-============
+************
 
 Working HDMI Cables
---------------------
+====================
 
 The board uses a microHDMI cable. Sources include but are not limited to:
 
 - `Amazon <http://www.amazon.com/Amzer-Micro-HDMI-Speed-Cable/dp/B003OBZSHC>`_
 - `Staples <http://www.staples.com/Staples-HDMI-To-Micro-D-HDMI-Cable/product_926993>`_
 - `Mediabridge <http://www.mediabridgeproducts.com/store/pc/6FT-FLEX-Series-High-Speed-Micro-HDMI-to-HDMI-Cable-with-Ethernet-p246.htm>`_
-- `Monoprice <http://www.monoprice.com/products/product.asp?c_id=102&cp_id=10253&cs_id=1025301&p_id=7557&seq=1&format=2>`_ NOTE: Reports are that this cable does not work with the `Adafruit Clear Top Case <http://www.adafruit.com/products/1555>`_.
+- `Monoprice <http://www.monoprice.com/products/product.asp?c_id=102&cp_id=10253&cs_id=1025301&p_id=7557&seq=1&format=2>`_ [#]_
 
 .. image:: images/MicroHDMI.jpg
     :align: center
     :alt: MicroHDMI to HDMI cable
 
 Bad HDMI Cables
-----------------
+================
 
 `High Speed HDMI Cable with Ethernet ,Type D Micro M/M Cable <http://www.newegg.com/Product/Product.aspx?Item=N82E16882241049>`_: Didn't work, not grounded. 
 
-Working MiniDP to HDMI
------------------------
+miniDP to HDMI 
+****************
+
+Working miniDP to HDMI
+=======================
 
 .. note::
     BeagleBone-AI64 requires **ACTIVE** miniDP to HDMI cable or adaptor to work, 
@@ -168,17 +177,12 @@ Working MiniDP to HDMI
 - `CableCreation Mini DP (Thunderbolt 2 Compatible) to HDMI <https://www.amazon.in/CD0257-Mini-DP-to-HDMI/dp/B01FM51O0W/>`_
 
 Bad MiniDP to HDMI
--------------------
+===================
 
 - `UGREEN Mini DP Male to HDMI <https://www.amazon.in/Mini-Male-Female-Converter-Cable/dp/B01CL1P6TA/>`_
 - `AGARO Mini Displayport (Mini Dp) To Hdmi <https://www.amazon.in/AGARO-Meters-Laptop-Computers-Mobile/dp/B09GW1NMNZ/>`_
 - `AmazonBasics Mini Display Port to HDMI <https://www.amazon.in/AmazonBasics-Mini-DisplayPort-HDMI-Adapter/dp/B0134V3KIA/>`_
 
-USB Cables
------------
 
-According the board you have, you can choose any cable to handle the current required like,
-
-- MicroUSB to TypeA (3Amp)
-- Type-C to Type-A (5Amp)
+.. [#] Reports are that this cable does not work with the `Adafruit Clear Top Case <http://www.adafruit.com/products/1555>`_
 
