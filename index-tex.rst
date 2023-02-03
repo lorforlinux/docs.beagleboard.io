@@ -8,12 +8,11 @@
 BeagleBoard Docs
 ############################
 
-
 .. toctree::
 
-   /boards/terms-and-conditions.rst
    intro/index.rst
    boards/index.rst
    projects/index.rst
    books/index.rst
    accessories/index.rst
+   /boards/terms-and-conditions.rst
