@@ -3,6 +3,10 @@
 BeaglePlay
 ##########
 
+.. important::
+    This is a work in progress, for latest documentation please 
+    visit https://docs.beagleboard.org/latest/
+
 BeaglePlay is an open-source single board computer designed to simplify the process of adding
 sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system.
 It features a powerful 64-bit, quad-core processor and innovative connectivity options, including
@@ -34,6 +38,7 @@ provides a positive development experience for users.
 .. toctree::
    :maxdepth: 1
 
+   /boards/beagleplay/connect-wifi.rst
    /boards/beagleplay/using-serial-console.rst
    /boards/beagleplay/using-mikrobus.rst
    /boards/beagleplay/using-qwiic.rst
