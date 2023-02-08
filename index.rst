@@ -54,6 +54,17 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
+      :link: beaglev-fire-home
+      :link-type: ref
+
+      **BeagleV® Fire**
+      ^^^
+
+      Awesome board with RISC-V and FPGA in a BeagleBone form-factor
+      with PCIe over M.2 and SYZYGY high-speed connector!
+
+
+   .. grid-item-card::
       :link: bbai64-home
       :link-type: ref
 
