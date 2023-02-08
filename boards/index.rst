@@ -35,6 +35,7 @@ started.
    :maxdepth: 1
    :hidden:
 
+   /boards/beaglev/fire/index
    /boards/beaglebone/index
    /boards/beaglebone/black/index
    /boards/beaglebone/blue/index
