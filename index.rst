@@ -326,6 +326,7 @@ Capes
    :hidden:
    :caption: Boards
    
+   /boards/beaglev/fire/index
    /boards/beaglebone/ai-64/index
    /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
