@@ -6,6 +6,8 @@ Getting Started Guide
 Beagles are tiny computers ideal for learning and prototyping with electronics.
 Read the step-by-step getting started tutorial below to begin developing with your Beagle in minutes.
 
+.. _flash-latest-image:
+
 Update board with latest software
 ************************************
 
@@ -15,13 +17,13 @@ but executing this step, the longest step, will ensure the rest will go as smoot
 Download the latest software image
 ============================================
 
-Download the latest Debian image from `beagleboard.org/latest-images <https://beagleboard.org/latest-images>`_.
+Download the latest firmware image from `beagleboard.org distros <https://www.beagleboard.org/distros>`_ page.
 The "IoT" images provide more free disk space if you don't need to use a graphical user interface (GUI).
 
 .. NOTE::
 	Due to sizing necessities, this download may take 30 minutes or more.
 
-The Debian distribution is provided for the boards. The file you download will have an .img.xz extension.
+The Debian/Ubuntu distribution is provided for the boards. The file you download will have an .img.xz extension.
 This is a compressed sector-by-sector image of the SD card.
 
 |image0|
@@ -229,7 +231,7 @@ To take things to the next level of detail, consider "Exploring BeagleBone" whic
 the missing software manual and utilize "Embedded Linux Primer" as a companion textbook to provide
 a strong base on embedded Linux suitable for working with any hardware that will run Linux.
 
-.. |image0| image:: images/download-latestimage.png
+.. |image0| image:: images/distros.png
    :width: 75.0%
 .. |image1| image:: images/download-etcher.png
    :width: 75.0%

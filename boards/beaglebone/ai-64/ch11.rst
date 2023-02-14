@@ -17,9 +17,24 @@ You can find all BeagleBone AI-64 hardware files `here <https://git.beagleboard.
 .. _software-updates:
 
 Software Updates
--------------------------------------
+-----------------
 
-You can download and flash the supported image onto your BeagleBone AI-64 from `this <https://debian.beagle.cc/images/bbai64-emmc-flasher-debian-11.2-xfce-arm64-2022-01-14-8gb.img.xz>`_ source.
+Follow instructions below to download the latest image onto your BeagleBone AI-64:
+
+1. Go to `BeagleBoard.org distro <https://www.beagleboard.org/distros>`_ page.
+2. :ref:`filter-software-distribution-AI-64` from dropdown and download the image.
+
+.. _filter-software-distribution-AI-64:
+
+.. figure:: images/ch11/distros.png
+   :align: center
+   :alt: Filter Software Distributions for BeagleBone AI-64 
+
+   Filter Software Distributions for BeagleBone AI-64
+
+.. tip::
+   You can follow the :ref:`flash-latest-image` guide for more information on 
+   flashing the downloaded image to your board.
 
 To see what SW revision is loaded into the eMMC check `/etc/dogtag`.
 It should look something like as shown below,
