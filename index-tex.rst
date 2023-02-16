@@ -15,4 +15,4 @@ BeagleBoard Docs
    projects/index.rst
    books/index.rst
    accessories/index.rst
-   /boards/terms-and-conditions.rst
+   boards/terms-and-conditions.rst
