@@ -4,7 +4,7 @@ Connecting Up Your BeagleBone AI
 ####################################
 
 What’s In the Box
-*******************
+******************
 
 BeagleBone® AI comes in the box with the heat sink and antenna already
 attached. Developers can get up and running in five minutes with no
@@ -17,24 +17,25 @@ distribution. In the box you will find:
 TODO: Add links to the design materials for both
 
 .. image:: images/BB_AI_antenna_heat_sink_place_500px.jpg
+   :align: center
    :alt: BeagleBone AI Overview
 
 What’s Not in the Box
-=========================
+**********************
 
 You will need to purchase:
 
 -  USB C cable or USB C to USB A cable
 -  MicroSD Card (optional)
--  `Serial cable <https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#serial-cable>`_ (optional)
+-  `Serial cable <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#serial-cable>`_ (optional)
 
-More information or to purchase a replacement heat sink or antenna, please go to these web sites:
+More information or to purchase a replacement heat sink or antenna, please go to these websites:
 
 -  `Antenna <https://bit.ly/2kmXAzF>`_
 -  `Heat Sink <https://bit.ly/2klxxJa>`_
 
 Fans
-===========
+*****
 
 The pre-attached heat sink has M3 holes spaced 20x20 mm. The height of
 the heat sink clears the USB type A socket, and all other components on
@@ -42,7 +43,7 @@ the board except the 46-way header sockets and the Ethernet socket.
 
 If you run all of the accelerators or have an older software image,
 you’ll likely need fan. To find a fan, visit the link to `fans in the
-FAQ <https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#fans>`_.
+FAQ <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#fans>`_.
 
 .. caution::
 
@@ -55,7 +56,7 @@ https://www.newark.com/element14/6100310/beaglebone-ai-fan-cape/dp/50AH3704
 TODO: create short-links for any long URLs so that text works.
 
 Main Connection Scenarios
-******************************
+**************************
 
 This section will describe how to connect the board for use. The board
 can be configured in several different ways. Below we will walk through
@@ -64,13 +65,13 @@ dependent on the software image presently on your BeagleBone® AI. When
 all else fails, follow the instructions at
 https://beagleboard.org/upgrade
 
--  `Tethered to a PC via USB C cable <#tethered-to-a-pc>`__
+-  `Tethered to a PC via USB C cable <#tethered-to-a-pc>`_
 -  `Standalone Desktop with powered USB hub, display, keyboard and
-   mouse <#standalone-wdisplay-and-keyboardmouse>`__
--  `Wireless Connection to BeagleBone® AI <#wireless-connection>`__
+   mouse <#standalone-wdisplay-and-keyboardmouse>`_
+-  `Wireless Connection to BeagleBone® AI <#wireless-connection>`_
 
 Tethered to a PC
-========================
+*****************
 
 The most common way to program BeagleBone® AI is via a USB connection to
 a PC. If your computer has a USB C type port, BeagleBone® AI will both
@@ -88,14 +89,20 @@ loaded on your BeagleBone® AI.
 1.  Locate the USB Type-C connector on BeagleBone® AI 
 
 .. image:: images/BB_AI_USBC_and_3pin_500px.png
+   :align: center
+   :alt: USB connector and serial debug.
 
 2.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
 
 .. image:: images/BB_AI_connectingUSBC_500px.jpg
+   :align: center
+   :alt: Connecting serial cable.
 
 3.  Connect the other end of the USB cable to the PC USB 3 port.
 
 .. image:: images/BB_AI_PlugIn_500px.jpg
+   :align: center
+   :alt: connecting to PC
 
 4.  BeagleBone® AI will boot.
 
@@ -104,27 +111,38 @@ loaded on your BeagleBone® AI.
 6.  Look for a new mass storage drive to appear on the PC.
 
 .. image:: images/BB_AI_asadrive_500px.jpg
+   :align: center
+   :alt: BeagleBone storage drive options
 
 7.  Open the drive and open START.HTM with your web browser.
 
 .. image:: images/BB_AI_starthtm_500px.png
+   :align: center
+   :alt: BeagleBone drive 
 
 .. image:: images/BB_AI_connectedscreen_500px.jpg
+   :align: center
+   :alt: Getting started
 
 8.  Follow the instructions in the browser window.
 
 .. image:: images/BB_AI_ss_cloud9_500px.jpg
+   :align: center
+   :alt: BeagleBone instructions
 
 9.  Go to Cloud9 IDE.
 
 10. Open the directories in the left navigation of Cloud9.
 
 .. image:: images/BB_AI_ss_cloud9_dir_500px.jpg
+   :align: center
+   :alt: Cloud9 navigation
 
 Standalone w/Display and Keyboard/Mouse
-==============================================
+****************************************
 
 .. image:: images/BB_AI_Standalone_setup_750px.jpg
+   :align: center
    :alt: BeagleBone AI Overview
 
 .. note::
@@ -147,7 +165,7 @@ this configuration. We re working on a better solution.
 7. Follow the instructions at https://beagleboard.org/upgrade
 
 Wireless Connection
-===========================
+********************
 
 NOTE:Start with this image "am57xx-eMMC-flasher-debian-10.3-iot-tidl-armhf-2020-04-06-6gb.img.xz"
 loaded on your BeagleBone® AI.
@@ -160,17 +178,18 @@ loaded on your BeagleBone® AI.
 6. Follow the instructions in the browser window.
 
 Connecting a 3 PIN Serial Debug Cable
-*****************************************
+**************************************
 
 A 3 PIN serial debug cable can be helpful to debug when you need to view
 the boot messages through a terminal program such as putty on your host
 PC. This cable is not needed for most BeagleBone® AI boot up scenarios.
 
-Cables: https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#serial-cable
+Cables: https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#serial-cable
 
 Locate the 3 PIN debug header on BeagleBone® AI, near the USB C connection.
 
 .. image:: images/BB_AI_USBC_and_3pin_500px.png
+   :align: center
    :alt: BeagleBone AI Overview
 
 Press the small white connector into the 3 PIN debug header. The pinout is:
@@ -180,4 +199,5 @@ Press the small white connector into the 3 PIN debug header. The pinout is:
 - Pin 3: UART1_TX (i.e. BB-AI transmits out on this pin)
 
 .. image:: images/BB_AI_3pincableattach_500px.jpg
+   :align: center
    :alt: BeagleBone AI Overview

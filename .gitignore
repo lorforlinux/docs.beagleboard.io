@@ -10,7 +10,7 @@
 \#*\#
 cscope.*
 .dir
-
+*.diff
 /*.patch
 
 # The .cache directory will be used to cache toolchain capabilities if

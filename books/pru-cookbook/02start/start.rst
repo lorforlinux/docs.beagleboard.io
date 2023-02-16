@@ -9,8 +9,9 @@ latest software image on your beagle, how to run the Cloud9 IDE and how to
 blink an LED.
 
 If you already have your Beagle and know your way around it, you can find the
-code (and the whole book) on the PRU Cookbook github site: 
-https://github.com/MarkAYoder/PRUCookbook. 
+code at https://git.beagleboard.org/beagleboard/pru-cookbook-code and book
+contents at https://git.beagleboard.org/docs/docs.beagleboard.io under the
+books/pru-cookbook directory.
 
 Selecting a Beagle
 ********************
@@ -163,13 +164,13 @@ Installing the Latest OS on Your Bone
 Problem
 ---------
 
-You want to find the lastest version of Debian that is available for your Bone.
+You want to find the latest version of Debian that is available for your Bone.
 
 Solution
 ---------
 
 On your host computer open a browser and go to
-http://beagleboard.org/latest-images.
+http://www.beagleboard.org/distros.
 
 .. TODO  Update links
 
@@ -199,7 +200,7 @@ I've downloaded the image and need to flash my micro SD card.
 Solution
 ---------
 
-Get a micro SD card that has at least 4GB and preferibly 8GB.  
+Get a micro SD card that has at least 4GB and preferably 8GB.  
 
 There are many ways to flash the card, but the best seems to be Etcher by
 https://www.balena.io/.  Go to https://www.balena.io/etcher/ and download the version for your host 
@@ -229,7 +230,7 @@ Solution
 ------------
 
 The image you downloaded includes `Cloud9 <https://aws.amazon.com/cloud9/>`_,
-a web-based intergrated development environment (IDE) as shown in 
+a web-based integrated development environment (IDE) as shown in 
 :ref:`start_c9`.
 
 .. _start_c9:
@@ -240,7 +241,7 @@ a web-based intergrated development environment (IDE) as shown in
 
     Cloud9 IDE
 
-Just point the browswer on your host computer to http://192.168.7.2 
+Just point the browser on your host computer to http://192.168.7.2 
 and start exploring.  If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
 as shown in :ref:`start_c9_show_home`.
@@ -256,12 +257,12 @@ as shown in :ref:`start_c9_show_home`.
 
 If you want to edit files beyond your home directory you can link to the root file system by:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *cd*
-    bone$ *ln -s / root*
-    bone$ *cd root*
-    bone$ *ls*
+    bone$ cd
+    bone$ ln -s / root
+    bone$ cd root
+    bone$ ls
     bbb-uEnv.txt  boot  etc   ID.txt  lost+found  mnt           opt   root  sbin  sys  usr
     bin           dev   home  lib     media       nfs-uEnv.txt  proc  run   srv   tmp  var
 
@@ -278,29 +279,30 @@ You are ready to start playing with the examples and need to find the code.
 Solution
 ---------
 
-You can find the code (and the whole book) on the PRU Cookbook github site: 
-<https://github.com/MarkAYoder/PRUCookbook/tree/master/docs>. Just clone 
-it on your Beagle and then look in the *docs* directory.  
+You can find the code on the PRU Cookbook Code project on git.beagleboard.org: 
+https://git.beagleboard.org/beagleboard/pru-cookbook-code. Just clone 
+it on your Beagle.  
 
-.. code-block::bash
+.. code-block:: shell-session
 
-    bone$ *git clone https://github.com/MarkAYoder/PRUCookbook.git*
-    bone$ *cd PRUCookbook/docs/*
-    bone$ *ls -F*
-    01case/     05blocks/  book.adoc  copyright.adoc  index.html  projects.adoc
-    02start/    06io/      book.html  hack.sh*        Makefile    projects.html
-    03details/  07more/    book.pdf   header.adoc     notes.adoc  style.adoc
-    04debug/    08ai/      common/    index.adoc      notes.html  style.html
+    bone$ cd /opt/source
+    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
+    bone$ cd pru-cookbook-code
+    bone$ sudo ./install.sh
+    bone$ ls -F
+    01case/   03details/  05blocks/  07more/  README.md
+    02start/  04details/  06io/      08ai/
 
+Each chapter has its own directory that has all of the code.
 
-Each chapter has its own directory and within that directory 
-is a **code** directory that has all of the code.
+.. code-block:: shell-session
 
-.. code-block::bash
-
-    bone$ *cd 02start/code/*
-    bone$ *ls*
+    bone$ cd 02start/
+    bone$ ls
     hello.pru0.c  hello.pru1_1.c  Makefile  setup.sh
+    ai.notes         hello2.pru1_1.c  hello2.pru2_1.c  Makefile
+    hello2.pru0.c    hello2.pru1.c    hello.pru0.c     setup2.sh*
+    hello2.pru1_0.c  hello2.pru2_0.c  hello.pru1_1.c   setup.sh*
 
 Go and explore.
 
@@ -322,19 +324,21 @@ is some code that blinks the ``USR3`` LED ten times using the PRU.
 
 .. _start_hello:
 
-.. literalinclude:: code/hello.pru0.c
+.. literalinclude:: ../code/02start/hello.pru0.c
     :caption: hello.pru0.c
     :linenos:
 
-:download:`hello.pru0.c <code/hello.pru0.c>`
+:download:`hello.pru0.c <../code/02start/hello.pru0.c>`
 
 Later chapters will go into details of how this code works, but if you want 
 to run it right now do the following.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *git clone https://github.com/MarkAYoder/PRUCookbook.git*
-    bone$ *cd PRUCookbook/docs/02start/code*
+    bone$ cd /opt/source
+    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
+    bone$ cd pru-cookbook-code/02start
+    bone$ sudo ../install.sh
 
 .. tip::
 
@@ -347,17 +351,19 @@ to run it right now do the following.
 Running Code on the Black or Pocket
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *make TARGET=hello.pru0*
-    /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=hello.pru0,COMMON=/var/lib/cloud9/common
-    /var/lib/cloud9/common/Makefile:147: GEN_DIR=/tmp/cloud9-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
+    bone$ make TARGET=hello.pru0
+    /opt/source/pru-cookbook-code/common/Makefile:27: MODEL=TI_AM335x_BeagleBone_Green_Wireless,TARGET=hello.pru0,COMMON=/opt/source/pru-cookbook-code/common
     -    Stopping PRU 0
-    -	copying firmware file /tmp/cloud9-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw
+    CC	hello.pru0.c
+    "/opt/source/pru-cookbook-code/common/prugpio.h", line 53: warning #1181-D: #warning directive: "Found else"
+    LD	/tmp/vsx-examples/hello.pru0.o
+    -	copying firmware file /tmp/vsx-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw
+    -    Starting PRU 0
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
-    -    Starting PRU 0
-    MODEL   = TI_AM335x_BeagleBone_Black
+    MODEL   = TI_AM335x_BeagleBone_Green_Wireless
     PROC    = pru
     PRUN    = 0
     PRU_DIR = /sys/class/remoteproc/remoteproc1
@@ -366,9 +372,9 @@ Running Code on the Black or Pocket
 Running Code on the AI
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-    bone$ *make TARGET=hello.pru1_1*
+    bone$ make TARGET=hello.pru1_1
     /var/lib/cloud9/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
     CC	hello.pru1_1.c

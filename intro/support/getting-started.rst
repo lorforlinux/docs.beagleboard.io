@@ -15,13 +15,13 @@ but executing this step, the longest step, will ensure the rest will go as smoot
 Download the latest software image
 ============================================
 
-Download the lastest Debian image from `beagleboard.org/latest-images <https://beagleboard.org/latest-images>`_.
+Download the latest Debian image from `www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_.
 The "IoT" images provide more free disk space if you don't need to use a graphical user interface (GUI).
 
 .. NOTE::
 	Due to sizing necessities, this download may take 30 minutes or more.
 
-The Debian distribution is provied for the boards. The file you download will have an .img.xz extension.
+The Debian distribution is provided for the boards. The file you download will have an .img.xz extension.
 This is a compressed sector-by-sector image of the SD card.
 
 |image0|
@@ -72,7 +72,7 @@ Start your Beagle
 *****************
 
 If any step fails, it is recommended to update to the
-`latest software image <https://beagleboard.org/latest-images>`_
+`latest software image <https://www.beagleboard.org/distros>`_
 using the instructions above.
 
 Power and boot
@@ -81,17 +81,17 @@ Power and boot
 Most Beagles can be powered via a USB cable, providing a convenient way to provide both power to your
 Beagle and connectivity to your computer. Be sure the cable is of good quality and your source can provide enough power.
 
-Alternatively, your Beagle may have a barrel jack.
+Alternatively, your Beagle may have a barrel jack which can take power from a wall adapter. 
+Checkout :ref:`accessories-power-supplies` to get the correct adapter for your Beagle.
 
-.. Note::
-	Use only a 5V center positive adapter for all Beagles except BeagleBone Blue and BeagleBoard-X15 (12V).
+.. Danger::
+	Make sure to use only a 5V center positive adapter for all Beagles except BeagleBone Blue and BeagleBoard-X15 (12V).
 
 If you are using your Beagle with an `SD (microSD) card <https://en.wikipedia.org/wiki/Secure_Digital>`_, make sure it is inserted ahead of providing power.
 Most Beagles include programmed on-board flash and therefore do not require an SD card to be inserted.
 
 You'll see the power (PWR or ON) LED lit steadily. Within a minute or so, you should see the other LEDs
-blinking in their default configurations. Consult the Quick Start Guide (QSG) or System Reference
-Manual (SRM) for your board to locate these LEDs.
+blinking in their default configurations. Consult your :ref:`boards` documentation to locate these LEDs.
 
 - USR0 is typically configured at boot to blink in a heartbeat pattern.
 - USR1 is typically configured at boot to light during SD (microSD) card accesses.
@@ -122,7 +122,12 @@ network will add a suffix such as beaglebone-2.local.
 Browse to your Beagle
 ============================
 
-A web server with an IDE should be running on your Beagle. Point your browser to it to begin development.
+A web server with an Visual Studio Code (IDE) should be running on your Beagle. 
+Point your browser to **http://192.168.7.2:3000** to begin development.
+
+.. image:: images/vscode.png
+   :align: center
+   :alt: Visual Studio Code
 
 .. NOTE::
     Use either `Firefox <https://www.mozilla.org/firefox>`_ or `Chrome <https://www.google.com/chrome>`_
@@ -190,23 +195,22 @@ an older operating system or need additional drivers for serial access to older 
 	For Windows (64-bit):
 
 	1. Windows Driver Certification warning may pop up two or three times. Click "Ignore", "Install" or "Run".
-	2. To check if you're running 32 or 64-bit Windows see this:  `support.microsoft.com/kb/827218 <https://support.microsoft.com/kb/827218>`_.
-	3. On systems without the latest service release, you may get an error (0xc000007b). In that case, please install the following and retry: https://www.microsoft.com/en-us/download/confirmation.aspx?id=13523
+	2. To check if you're running 32 or 64-bit Windows see `this <https://support.microsoft.com/en-us/topic/determine-whether-your-computer-is-running-a-32-bit-version-or-64-bit-version-of-the-windows-operating-system-1b03ca69-ac5e-4b04-827b-c0c47145944b>`_.
+	3. On systems without the latest service release, you may get an error (0xc000007b). In that case, please perform the following and retry: https://answers.microsoft.com/en-us/windows/forum/all/windows-10-error-code-0xc000007b/02b74e7d-ce19-4ba4-90f0-e16e8d911866
 	4. You may need to reboot Windows.
 	5. These drivers have been tested to work up to Windows 10
 
 
 	Additional FTDI USB to serial/JTAG information and drivers are available from https://www.ftdichip.com/Drivers/VCP.htm
 
-	Additional USB to virtual Ethernet information and drivers are available from https://www.linux-usb.org/gadget/ and https://joshuawise.com/horndis
+	Additional USB to virtual Ethernet information and drivers are available from http://www.linux-usb.org/gadget/ and https://joshuawise.com/horndis
 
-	Visit https://beagleboard.org/support for additional debugging tips.
+	Visit https://docs.beagleboard.org/latest/intro/support/index.html for additional debugging tips.
 
 Hardware documentation
 **********************
 
-Be sure to check check the latest hardware documentation for your board at https://docs.beagleboard.org.
-
+Be sure to check check the latest hardware documentation for your board at https://docs.beagleboard.org. 
 Detailed design materials for various boards can be found at https://git.beagleboard.org/explore/projects/topics/boards.
 
 Books
@@ -229,7 +233,7 @@ To take things to the next level of detail, consider "Exploring BeagleBone" whic
 the missing software manual and utilize "Embedded Linux Primer" as a companion textbook to provide
 a strong base on embedded Linux suitable for working with any hardware that will run Linux.
 
-.. |image0| image:: images/download-latestimage.png
+.. |image0| image:: images/download-latestimage-www.png
    :width: 75.0%
 .. |image1| image:: images/download-etcher.png
    :width: 75.0%

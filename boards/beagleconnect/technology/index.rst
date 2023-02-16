@@ -55,7 +55,7 @@ High-level
 Software architecture
 ---------------------
 
-.. image:: media/bcf_block_diagram.svg
+.. image:: media/bcf_block_diagram.png
    :width: 600
    :align: center
    :height: 400
@@ -326,7 +326,7 @@ Flashing via a Linux Host
 If flashing the Freedom board via the BeagleBone fails here's a trick you can try to flash from a Linux host.
 
 Use :code:`sshfs` to mount the Bone's files on the Linux host. This assumes the
-Bone is plugged in the the USB and appears at :code:`192.168.7.2`:
+Bone is plugged in the USB and appears at :code:`192.168.7.2`:
 
 .. code-block:: bash
 
@@ -454,7 +454,7 @@ are 2 critical pieces of information:
 
 #. **The RF Channel**: As you may have guessed, IEEE 802.15.4 devices are only 
    able to communicate with each other if they are using the same frequency to 
-   transmit and recieve data. This information is part of the Physical Layer.
+   transmit and receive data. This information is part of the Physical Layer.
 
 #. The `PAN identifier <https://www.silabs.com/community/wireless/proprietary/knowledge-base.entry.html/2019/10/04/connect_tutorial6-ieee802154addressing-rapc>`_: 
    IEEE 802.15.4 devices are only be able to communicate with one another if 
@@ -580,9 +580,9 @@ Cloning the repository
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This repository utilizes `git submodules <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_ 
-to keep track of all of the projects required to reproduce the on-going work. 
+to keep track of all of the projects required to reproduce the ongoing work. 
 The instructions here only cover checking out the :code:`demo` branch which 
-should stay in a tested state. On-going development will be on the 
+should stay in a tested state. ongoing development will be on the 
 :code:`master` branch.
 
 Note: The parent directory :code:`~` is simply used as a placeholder for testing. 

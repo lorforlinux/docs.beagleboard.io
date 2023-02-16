@@ -23,4 +23,4 @@ RoHS Compliant: Yes
 Weight: 10g
 
 Rough model can be found at
-`github.com/beagleboard/pocketbeagle/tree/master/models <https://github.com/beagleboard/pocketbeagle/tree/master/models>`__
+`PocketBeagle models <https://git.beagleboard.org/beagleboard/pocketbeagle/-/tree/master/models>`__

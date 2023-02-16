@@ -52,7 +52,7 @@ for various computer vision tasks. A few example models are packaged as part of
 the SDK to run out-of-box demos. More can be downloaded using a download script
 made available in the edge_ai_apps repo.
 
-For more details on the the pre-imported models and related documentation please visit:
+For more details on the pre-imported models and related documentation please visit:
 https://github.com/TexasInstruments/edgeai-modelzoo
 
 

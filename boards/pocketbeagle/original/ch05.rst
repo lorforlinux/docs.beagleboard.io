@@ -222,7 +222,7 @@ Expansion Headers.
     | P2.21       | GND         |             |             | GND         |
     +-------------+-------------+-------------+-------------+-------------+
 
-.. Note:: A comprehensive tutorial for Power Inputs and Outputs for the OSD335x System in Package is available in the `'Tutorial Series' <https://octavosystems.com/app_notes/osd335x-design-tutorial/bare-minimum-boot/power-input-ouput/>`__ on the Octavo Systems website.
+.. Note:: A comprehensive tutorial for Power Inputs and Outputs for the OSD335x System in Package is available in the `'Tutorial Series' <https://octavosystems.com/app_notes/osd335x-design-tutorial/bare-minimum-boot/power-input-output/>`__ on the Octavo Systems website.
 
 .. _jtag_pads:
 

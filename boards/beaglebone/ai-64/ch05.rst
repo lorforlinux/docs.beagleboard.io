@@ -7,7 +7,7 @@ BeagleBone AI-64 High Level Specification
 
 .. _BeagleBone_AI-64-block-diagram:
 
-.. figure:: images/ch05/board-block-diagram.svg
+.. figure:: images/ch05/board-block-diagram.png
    :width: 400px
    :align: center 
    :alt: Fig: BeagleBone AI-64 Key Components
@@ -41,7 +41,7 @@ The SoC designed as a low power, high performance and highly integrated device a
 * One dual-core 64-bit Arm Cortex-A72 microprocessor subsystem at up to 2.0 GHz and up to 24K DMIPS (Dhrystone Million Instructions per Second)
 * Up to three Microcontroller Units (MCU), based on dual-core Arm Cortex-R5F processor running at up to 1.0 GHz, up to 12K DMIPS
 * Up to two TMS320C66x DSP CorePac modules running at up to 1.35 GHz, up to 40 GFLOPS
-* One C71x floating point, vector DSP running at up to up to 1.0 GHz, up to 80 GFLOPS
+* One C71x floating point, vector DSP running at up to 1.0 GHz, up to 80 GFLOPS
 * One deep-learning MMA, up to 8 TOPS (8b) at 1.0 GHz
 * Up to two gigabit dual-core Programmable Real-Time Unit and Industrial Communication Subsystems (PRU_ICSSG)
 * Two Navigator Subsystems (NAVSS) for data movement and control
@@ -154,7 +154,7 @@ The device is partitioned into three functional domains as shown in :ref:`soc-bl
 
 .. _soc-block-diagram:
 
-.. figure:: images/ch05/soc-block-diagram.svg
+.. figure:: images/ch05/soc-block-diagram.png
    :width: 400px
    :align: center 
    :alt: Fig: Device Top-level Block Diagram
@@ -173,7 +173,7 @@ Described in the following sections are the three memory devices found on the bo
 4GB LPDDR4
 ************
 
-A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memory used is is:
+A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memory used is:
 
 * Kingston Q3222PM1WDGTK-U
 

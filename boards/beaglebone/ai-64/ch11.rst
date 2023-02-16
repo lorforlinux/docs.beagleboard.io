@@ -11,7 +11,7 @@ All support for this design is through BeagleBoard.org community at: link: `Beag
 Hardware Design
 ------------------
 
-You can find all BeagleBone AI-64 hardware files `here <https://git.beagleboard.org/beagleboard/beaglebone-ai-64/-/tree/master/hw>`_ .
+You can find all BeagleBone AI-64 hardware files `here <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`_ under the `hw` folder.
 
 
 .. _software-updates:
@@ -43,7 +43,7 @@ Troubleshooting video output issues
 
 .. warning:: 
 
-   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. See :ref:`display-adaptors-figure`.
+   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. See :ref:`display-adapters-figure`.
 
 
 .. _getting-help:

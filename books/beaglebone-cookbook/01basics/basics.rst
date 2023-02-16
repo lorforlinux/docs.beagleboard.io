@@ -175,7 +175,7 @@ Connect your Bone to the Internet and log into it.  From the command line run:
     bone$ ls
 
 You can look around from the command line, or explore from Visual Sudio Code. 
-If you ar using VSC, go to the *File* menu and select *Open Folder ...* and 
+If you are using VSC, go to the *File* menu and select *Open Folder ...* and 
 select beaglebone-cookbook-code. Then explore.
 
 .. _basics_wire_breadboard:
@@ -313,7 +313,7 @@ This shows you a list of dates of the most recent Debian images (:ref:`basics_de
    Latest Debian images
 
 At the time of writing, we are using the *Bullseye* image.  
-Click on it's link. Scrolling up you'll find :ref:`basics_deb2`. 
+Click on its link. Scrolling up you'll find :ref:`basics_deb2`. 
 There are three types of snapshots, Minimal, IoT and Xfce Desktop. 
 IoT is the one we are running.
 

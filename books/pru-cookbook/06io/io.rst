@@ -39,7 +39,7 @@ On the images for the BeagleBone Black, the HDMI display driver is enabled by de
 and uses many of the ``P8`` pins.  If you are not using HDMI video (or the HDI audio, 
 or even the eMMC) you can disable it by editing ``/boot/uEnv.txt``
 
-Open ``/boot/uEnv.txt`` and scroll down aways until you see:
+Open ``/boot/uEnv.txt`` and scroll down always until you see:
 
 .. code-block:: bash
     :caption: /boot/uEnv.txt
@@ -104,7 +104,7 @@ This code will toggle ``P9_11`` on and off. Here's the setup file.
 :download:`setup.sh <code/setup.sh>`
 
 Notice in the code ``config-pin`` set ``P9_11`` to ``gpio``, not ``pruout``. This is because
-are are using the OCP interface to the pin, not the usual PRU interface.
+are using the OCP interface to the pin, not the usual PRU interface.
 
 Set your exports and make.
 
@@ -189,7 +189,7 @@ If you are using an oscilloscope, look closely and you'll see the following.
 
     PWM with jitter
 
-The PRU is still as solid as before in it's timing, but now it's going through
+The PRU is still as solid as before in its timing, but now it's going through
 the OCP interface.  This interface is shared with other parts of the system,
 therefore the sometimes the PRU must wait for the other parts to finish.  
 When this happens the pulse width is a bit longer than usual thus adding

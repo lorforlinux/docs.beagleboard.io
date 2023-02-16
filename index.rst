@@ -38,15 +38,16 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
 Boards
 ******
 
-This is is where you will find the System Reference Manuals (SRMs) for all of the boards.
+This is where you will find the System Reference Manuals (SRMs) for all of the boards.
 
 All Beagles are `open-hardware <https://www.oshwa.org/definition/>`__ with documentation on the
 design, including the
 `materials <https://git.beagleboard.org/explore/projects/topics/boards>`__ to modify the designs
 from source using appropriate design tools.
 
+* Check out our latest board at: :ref:`beagleplay-home`
 * Check out our most popular board at: :ref:`beagleboneblack-home`
-* Check out our latest board at: :ref:`bbai64-home`
+* Check out our highest performance board at: :ref:`bbai64-home`
 * Find all of our on: :ref:`boards`
 
 .. grid:: 1 1 2 3
@@ -54,7 +55,22 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
-      :link: beagleboneblack-home
+      :link: beagleplay-home
+      :link-type: ref
+
+      **BeaglePlay®**
+      ^^^
+
+      .. image:: boards/beagleplay/images/45font.png
+         :align: center
+      +++
+
+      A 64-bit ARM computer designed to simplify physical world interactions
+      to the connected world.
+
+
+   .. grid-item-card::
+      :link: bbai64-home
       :link-type: ref
 
       **BeagleBone® AI-64**
@@ -314,7 +330,8 @@ Capes
    :maxdepth: 1
    :hidden:
    :caption: Boards
-
+   
+   /boards/beagleplay/index
    /boards/beaglebone/ai-64/index
    /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
@@ -324,6 +341,7 @@ Capes
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
+   /boards/terms-and-conditions.rst
 
 
 Projects
@@ -338,6 +356,7 @@ developers. Some developers choose to host documentation for their :ref:`project
    :caption: Projects
 
    /projects/simppru/index
+   /projects/bb-config/index
    /boards/beagleconnect/index
 
 Books
@@ -356,6 +375,19 @@ This project hosts a collection of open-source :ref:`books-home` books written t
    /books/beaglebone-cookbook/index
    /books/pru-cookbook/index
 
+Accessories
+************
+
+This is a list of curated hardware accessories tested thouroghly with BeagleBone hardware. 
+The list is growing with support of volunteers like you. Checkout :ref:`accessories-home` 
+page for more information.
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Accessories
+
+   /accessories/index
 
 Indices and tables
 ********************

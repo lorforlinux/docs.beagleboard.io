@@ -4,12 +4,14 @@ BeagleBone AI Overview
 ########################
 
 .. image:: images/BB_AI_overview_image.png
+   :align: center
    :alt: BeagleBone AI Overview
 
 BeagleBone® AI Features
 ************************
 
-**Main Processor Features of the AM5729 Within BeagleBone® AI**
+Main Processor Features of the AM5729 Within BeagleBone® AI
+============================================================
 
 -  Dual 1.5GHz ARM® Cortex®-A15 with out-of-order speculative issue
    3-way superscalar execution pipeline for the fastest execution of
@@ -26,7 +28,8 @@ BeagleBone® AI Features
 -  Vivante® GC320 2D graphics accelerator
 -  Dual-Core PowerVR® SGX544™ 3D GPU
 
-**Communications**
+Communications
+===============
 
 -  BeagleBone Black header and mechanical compatibility
 -  16-bit LCD interfaces
@@ -35,24 +38,28 @@ BeagleBone® AI Features
 -  2 SPI ports
 -  Lots of PRU I/O pins
 
-**Memory**
+Memory
+=======
 
 -  1GB DDR3L
 -  16GB on-board eMMC flash
 
-**Connectors**
+Connectors
+===========
 
 -  USB Type-C connector for power and SuperSpeed dual-role controller
 -  Gigabit Ethernet
 -  802.11ac 2.4/5GHz WiFi via the AzureWave AW-CM256SM
 
-**Out of Box Software**
+Out of Box Software
+====================
 
 -  Zero-download out of box software environment
 
 Board Component Locations
-*******************************
+**************************
 
 .. image:: images/BB_AI_ICPlacement_800px.png
+   :align: center
    :alt: beaglebone ai component placement
 

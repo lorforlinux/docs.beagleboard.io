@@ -10,13 +10,13 @@ Change History
 .. ****************************
 
 Rev A0
-==============
+*******
 
 Initial prototype revision. Not taken to production.
 eMMC flash image provided by Embest.
 
 Rev A1
-==============
+*******
 
 Second round prototype.
 
@@ -31,12 +31,12 @@ Second round prototype.
 eMMC flash image provided by Embest.
 
 Rev A1a
-============
+********
 
 Alpha pilot-run units and initial production.
 
 -  `Added pull-down resistor on serial debug header RX
-   line <https://github.com/beagleboard/beaglebone-ai/issues/24>`__.
+   line <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/issues/24>`__.
 
 Alpha pilot-run eMMC flash image:
 https://debian.beagleboard.org/images/bbai-pilot-20190408.img.xz
@@ -45,27 +45,27 @@ Production eMMC flash image:
 http://debian.beagleboard.org/images/am57xx-eMMC-flasher-debian-9.9-lxqt-armhf-2019-08-03-4gb.img.xz
 
 Rev A2
-==========
+*******
 
 Proposed changes.
 
--  `Add footprint for pull-down resistor on serial debug header RX
-   line <https://github.com/beagleboard/beaglebone-ai/issues/24>`__.
+-  `HW: need pull-down on console uart RX line 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/issues/24>`__.
 
--  `Move microSD card cage closer to microHDMI to fit cases
-   better <https://github.com/beagleboard/beaglebone-ai/issues/25>`__.
+-  `HW: position of microSD may impact existing case designs 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/issues/25>`__.
 
--  `Connect AM5729 ball AB10 to to P9.13 to provide a
-   GPIO <https://github.com/beagleboard/beaglebone-ai/issues/22>`__.
+-  `HW: P9.13 does not have a GPIO 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/issues/22>`__.
 
--  `HDMI hot-plug detection
-   fixes <https://github.com/beagleboard/beaglebone-ai/issues/19>`__.
+-  `HW: HDMI hotplug detection not working 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/issues/19>`__.
 
--  `Add additional CAN port to the expansion
-   headers <https://github.com/beagleboard/beaglebone-ai/issues/20>`__.
+-  `HW: add extra DCAN 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/issues/20>`__.
 
--  `Fix JTAG connector to not require wire
-   mods <https://github.com/beagleboard/beaglebone-ai/issues/21>`__.
+-  `HW: wire mods required to enable JTAG 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/issues/21>`__.
 
--  `Add I2C EEPROM for board
-   identifier <https://github.com/beagleboard/beaglebone-ai/issues/23>`__.
+-  `HW: Small I2C nvmem/eeprom for board identifier 
+   <https://git.beagleboard.org/beagleboard/beaglebone-ai/issues/23>`__.

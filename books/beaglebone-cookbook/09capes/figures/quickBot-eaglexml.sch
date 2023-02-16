@@ -4,7 +4,7 @@
     <drawing>
         <layers>
             <layer name="Nets" color="2" number="91" visible="yes" active="yes" fill="1"/>
-            <layer name="Busses" color="1" number="92" visible="yes" active="yes" fill="1"/>
+            <layer name="buses" color="1" number="92" visible="yes" active="yes" fill="1"/>
             <layer name="Pins" color="2" number="93" visible="no" active="yes" fill="1"/>
             <layer name="Symbols" color="4" number="94" visible="yes" active="yes" fill="1"/>
             <layer name="Names" color="7" number="95" visible="yes" active="yes" fill="1"/>

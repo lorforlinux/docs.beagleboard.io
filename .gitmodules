@@ -1,3 +1,6 @@
 [submodule "books/beaglebone-cookbook/code"]
 	path = books/beaglebone-cookbook/code
 	url = https://git.beagleboard.org/beagleboard/beaglebone-cookbook-code.git
+[submodule "books/pru-cookbook/code"]
+	path = books/pru-cookbook/code
+	url = https://git.beagleboard.org/beagleboard/pru-cookbook-code

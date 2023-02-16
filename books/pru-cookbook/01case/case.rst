@@ -48,7 +48,7 @@ The following are resources used in this chapter.
 
 .. admonition:: Resources
 
-   * `Pocket Beagle System Reference Manual <https://docs.beagleboard.io/latest/boards/pocketbeagle/original/index.html>`_
+   * `PocketBeagle System Reference Manual <https://docs.beagleboard.io/latest/boards/pocketbeagle/original/index.html>`_
    * `BeagleBone Black P8 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id2>`_
       * `P8 Header Table from exploringBB <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP8HeaderTable.pdf>`_
    * `BeagleBone Black P9 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id3>`_
@@ -80,7 +80,7 @@ in :ref:`case_blue`.
 The `Robotics Control Library <https://beagleboard.org/librobotcontrol>`_ is a 
 package that is already installed on the Beagle 
 that contains a C library and example/testing programs. It uses the PRU to extend the 
-real-time hardware of the Bone by adding eight addional servo channels and one 
+real-time hardware of the Bone by adding eight additional servo channels and one 
 addition real-time encoder input.
 
 The following examples show how easy it is to use the PRU for robotics.
@@ -103,7 +103,7 @@ via the PRU that can be used out of the box.
 
 .. note::
    The I/O pins on the Beagles have a mutliplexer that lets you select what I/O 
-   appears on a given pin.  The Blue has the mux already configured to to run these
+   appears on a given pin.  The Blue has the mux already configured to run these
    examples.  Follow the instructions in 
    :ref:`details_configure_servos` 
    to configure the pins for the Black and the Pocket.
@@ -113,14 +113,14 @@ via the PRU that can be used out of the box.
 
 Just run:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo rc_test_servos -f 10 -p 1.5
 
 The ``-f 10`` says to use a frequency of 10 Hz and the ``-p 1.5`` says to set the position to ``1.5``.  The range of positions is
 ``-1.5`` to ``1.5``.   Run ``rc_test_servos -h`` to see all the options.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ rc_test_servos -h
 
@@ -133,7 +133,7 @@ The ``-f 10`` says to use a frequency of 10 Hz and the ``-p 1.5`` says to set th
    -s {limit}     Sweep servo back/forth between +- limit
                   Limit can be between 0 & 1.5
    -r {ch}        Use DSM radio channel {ch} to control servo
-   -h             Print this help messege 
+   -h             Print this help message 
 
    sample use to center servo channel 1:
       rc_test_servo -c 1 -p 0.0
@@ -141,7 +141,7 @@ The ``-f 10`` says to use a frequency of 10 Hz and the ``-p 1.5`` says to set th
 Discussion
 ------------
 
-The BeagleBone Blue sends these eight outputs to it's servo channels.  The others use the pins shown in the 
+The BeagleBone Blue sends these eight outputs to its servo channels.  The others use the pins shown in the 
 :ref:`case__register_to_pin_table`.
 
 .. _case__register_to_pin_table:
@@ -174,7 +174,7 @@ PRU register to pin table
 
 You can find these details in the 
 
-* `Pocket Beagle pinout <https://docs.google.com/spreadsheets/d/1FRGvYOyW1RiNSEVprvstfJAVeapnASgDXHtxeDOjgqw/edit?usp=sharing>`_
+* `PocketBeagle pinout <https://docs.google.com/spreadsheets/d/1FRGvYOyW1RiNSEVprvstfJAVeapnASgDXHtxeDOjgqw/edit?usp=sharing>`_
 * `BeagleBone AI PRU pins <https://docs.google.com/spreadsheets/d/1dFSBVem86vAUD7MLXvqdS-N0Efi8_g_O1iTqzql8DAo/edit#gid=0>`_
 
 
@@ -195,7 +195,7 @@ Solution
 ---------
 
 You can modify ``rc_test_servos.c``.  You'll find it on the bone online at
-https://github.com/beagleboard/librobotcontrol/blob/master/examples/src/rc_test_servos.c.
+https://git.beagleboard.org/beagleboard/librobotcontrol/-/blob/master/examples/src/rc_test_servos.c
 
 Just past line 250 you'll find a ``while`` loop that has calls to ``rc_servo_send_pulse_normalized(ch,servo_pos)`` and
 ``rc_servo_send_pulse_us(ch, width_us)``.  The first call sets the pulse width relative to the pulse period; the other
@@ -229,9 +229,9 @@ Solution
 The forth encoder can be implemented on the PRU. If you run ``rc_test_encoders_eqep`` 
 on the Blue, you will see the output of encoders E1-E3 which are connected to the eEQP hardware.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *rc_test_encoders_eqep* 
+   bone$ rc_test_encoders_eqep
 
    Raw encoder positions
          E1   |      E2   |      E3   | 
@@ -268,7 +268,7 @@ eQEP to pin mapping
 .. note::
 
    The I/O pins on the Beagles have a mutliplexer that lets you select what I/O 
-   appears on a given pin.  The Blue has the mux already configured to to run these
+   appears on a given pin.  The Blue has the mux already configured to run these
    examples.  Follow the instructions in 
    :ref:`details_configure_encoders` 
    to configure the pins for the Black and the Pocket.
@@ -288,13 +288,13 @@ Solution
 The forth encoder is implemented on the PRU and accessed with `sudo rc_test_encoders_pru`  
 
 .. note::
-   This command needs root permission, so the `sudo` is needed.  
+   This command needs root permission, so the `sudo` is needed.  The default password is `temppwd`.
 
 Here's what you will see
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *sudo rc_test_encoders_pru*
+   bone$ sudo rc_test_encoders_pru
    [sudo] password for debian: 
 
    Raw encoder position
@@ -343,17 +343,17 @@ If you want to be running a newer image, there are instructions on the site for 
 
 .. _case_installing_beaglelogic:
 
-.. code-block:: bash
+.. code-block:: shell-session
    :caption: Installing BeagleLogic
       
-   bone$ *git clone https://github.com/abhishek-kakkar/BeagleLogic*
-   bone$ *cd BeagleLogic/kernel*
-   bone$ *mv beaglelogic-00A0.dts beaglelogic-00A0.dts.orig*
-   bone$ *wget https://gist.githubusercontent.com/abhishek-kakkar/0761ef7b10822cff4b3efd194837f49c/raw/eb2cf6cfb59ff5ccb1710dcd7d4a40cc01cfc050/beaglelogic-00A0.dts*
-   bone$ *make overlay*
-   bone$ *sudo cp beaglelogic-00A0.dtbo /lib/firmware/*
-   bone$ *sudo update-initramfs -u -k \`uname -r`*
-   bone$ *sudo reboot*
+   bone$ git clone https://github.com/abhishek-kakkar/BeagleLogic
+   bone$ cd BeagleLogic/kernel
+   bone$ mv beaglelogic-00A0.dts beaglelogic-00A0.dts.orig
+   bone$ wget https://gist.githubusercontent.com/abhishek-kakkar/0761ef7b10822cff4b3efd194837f49c/raw/eb2cf6cfb59ff5ccb1710dcd7d4a40cc01cfc050/beaglelogic-00A0.dts
+   bone$ make overlay
+   bone$ sudo cp beaglelogic-00A0.dtbo /lib/firmware/
+   bone$ sudo update-initramfs -u -k \`uname -r`
+   bone$ sudo reboot
 
 Once the Bone has rebooted, browse to 192.168.7.2:4000 where you'll see
 :ref:`case_beaglelogic_capture`.  Here you can easily select the sample
@@ -386,17 +386,17 @@ logic analyzer on the Bone with no additional hardware needed.
 The kernel interface makes it easy to control the PRUs through the
 command line.  For example
 
-.. code-block:: bash
+.. code-block:: shell-session
       
-   bone$ *dd if=/dev/beaglelogic of=mydump bs=1M count=1*
+   bone$ dd if=/dev/beaglelogic of=mydump bs=1M count=1
 
 will capture a binary dump from the PRUs. The sample rate and number of 
 bits per sample can be controlled through ``/sys/``.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *cd /sys/devices/virtual/misc/beaglelogic*
-   bone$ *ls*
+   bone$ cd /sys/devices/virtual/misc/beaglelogic
+   bone$ ls
    buffers      filltestpattern  power       state         uevent
    bufunitsize  lasterror        samplerate  subsystem
    dev          memalloc         sampleunit  triggerflags
@@ -407,9 +407,9 @@ bits per sample can be controlled through ``/sys/``.
 
 You can set the sample rate by simply writing to ``samplerate``.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *echo 100000000 > samplerate*
+   bone$ echo 100000000 > samplerate
 
 `sysfs attributes Reference <https://beaglelogic.readthedocs.io/en/latest/sysfs_attributes.html>`_
 has more details on configuring via sysfs.
@@ -417,9 +417,9 @@ has more details on configuring via sysfs.
 If you run ``dmesg -Hw`` in another window you can see when a capture 
 is started and stopped.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   bone$ *dmesg -Hw*
+   bone$ dmesg -Hw
    [Jul25 08:46] misc beaglelogic: capture started with sample rate=100000000 Hz, sampleunit=1, triggerflags=0
    [  +0.086261] misc beaglelogic: capture session ended
 
@@ -429,164 +429,167 @@ BeagleLogic uses the two PRUs to sample at 100Msps.  Getting a PRU running at 20
 explaining how the PRUs get this type of performance.   
 
 
-NeoPixels -- 5050 RGB LEDs with Integrated Drivers (Falcon Christmas)
-***********************************************************************
+..
+  TODO This is currently broken with the latest version of Falcon Christmas (no F8-B-20.json file)
 
-Problem
---------
+  NeoPixels -- 5050 RGB LEDs with Integrated Drivers (Falcon Christmas)
+  ***********************************************************************
 
-You have an `Adafruit NeoPixel LED string <http://www.adafruit.com/products/1138>`_,
-`Adafruit NeoPixel LED matrix <http://www.adafruit.com/products/1487>`_ or
-any other type of 
-`WS2812 LED <https://cdn-shop.adafruit.com/datasheets/WS2812.pdf>`_
-and want to light it up.
+  Problem
+  --------
 
-.. TODO Show how to drive ws2812's with FPP.
+  You have an `Adafruit NeoPixel LED string <http://www.adafruit.com/products/1138>`_,
+  `Adafruit NeoPixel LED matrix <http://www.adafruit.com/products/1487>`_ or
+  any other type of 
+  `WS2812 LED <https://cdn-shop.adafruit.com/datasheets/WS2812.pdf>`_
+  and want to light it up.
 
-Solution
----------
+  .. TODO Show how to drive ws2812's with FPP.
 
-If you are driving just one string you can write your own code 
-(See :ref:`blocks_ws2812`)
-If you plan to drive multiple strings, then consider
-Falcon Christmas (`FPP <https://falconchristmas.com/>`_). 
-FPP can be used to drive both LEDs with an integrated
-driver (neopixels) or without an integrated driver.  Here we'll show you how to
-set up for the integrated drive and in the next section the no driver LEDs will be 
-show.
+  Solution
+  ---------
 
-Hardware
-----------
+  If you are driving just one string you can write your own code 
+  (See :ref:`blocks_ws2812`)
+  If you plan to drive multiple strings, then consider
+  Falcon Christmas (`FPP <https://falconchristmas.com/>`_). 
+  FPP can be used to drive both LEDs with an integrated
+  driver (neopixels) or without an integrated driver.  Here we'll show you how to
+  set up for the integrated drive and in the next section the no driver LEDs will be 
+  show.
 
-For this setup we'll wire a single string of NeoPixels to the Beagle.  
-I've attached the black wire on the string to ground on the Beagle 
-and the red wire to a 3.3V pin on the Beagle.
-The yellow data in line is attached to P1.31 (I'm using a PocketBeagle.).
+  Hardware
+  ----------
 
-How did I know to attach to P1.31?  The FalconChristmas git repo
-(https://github.com/FalconChristmas/fpp) has files that tell which pins
-attach to which port.  https://github.com/FalconChristmas/fpp/blob/master/capes/pb/strings/F8-B-20.json
-has a list of 20 ports and where they are connected.  Pin P1.31 appears on
-line 27.  It's the 20th entry in the list.  You could pick any of the others
-if you'd rather.
+  For this setup we'll wire a single string of NeoPixels to the Beagle.  
+  I've attached the black wire on the string to ground on the Beagle 
+  and the red wire to a 3.3V pin on the Beagle.
+  The yellow data in line is attached to P1.31 (I'm using a PocketBeagle.).
 
-Software Setup
----------------
+  How did I know to attach to P1.31?  The FalconChristmas git repo
+  (https://github.com/FalconChristmas/fpp) has files that tell which pins
+  attach to which port.  https://github.com/FalconChristmas/fpp/blob/master/capes/pb/strings/F8-B-20.json
+  has a list of 20 ports and where they are connected.  Pin P1.31 appears on
+  line 27.  It's the 20th entry in the list.  You could pick any of the others
+  if you'd rather.
 
-Assuming the PocketBeagle is attached via the USB cable, 
-on your host computer browse to <http://192.168.7.2/> and you will see 
-:ref:`case_fpp_program_control2`.
+  Software Setup
+  ---------------
 
-.. _case_fpp_program_control2:
+  Assuming the PocketBeagle is attached via the USB cable, 
+  on your host computer browse to <http://192.168.7.2/> and you will see 
+  :ref:`case_fpp_program_control2`.
 
-.. figure:: figures/fpp_program_control.png
-   :align: center
-   :alt: Falcon Play Program Control
+  .. _case_fpp_program_control2:
 
-   Falcon Play Program Control
+  .. figure:: figures/fpp_program_control.png
+     :align: center
+     :alt: Falcon Play Program Control
 
-You can test the display by first setting up the Channel Outputs and then 
-going to *Display Testing*.  :ref:`case_channel_outputs_menu2` shows where to 
-select Channel Outputs and :ref:`case_channel_outputs2` shows which settings to use.
+     Falcon Play Program Control
 
-.. _case_channel_outputs_menu2:
+  You can test the display by first setting up the Channel Outputs and then 
+  going to *Display Testing*.  :ref:`case_channel_outputs_menu2` shows where to 
+  select Channel Outputs and :ref:`case_channel_outputs2` shows which settings to use.
 
-.. figure:: figures/fpp_channel_outputs_menu.png
-   :align: center
-   :alt: Selecting Channel Outputs
+  .. _case_channel_outputs_menu2:
 
-   Selecting Channel Outputs
+  .. figure:: figures/fpp_channel_outputs_menu.png
+     :align: center
+     :alt: Selecting Channel Outputs
 
-.. _case_channel_outputs2:
+     Selecting Channel Outputs
 
-.. figure:: figures/fpp_channel_outputs_strings.png
-   :align: center
-   :alt: Channel Outputs Settings
+  .. _case_channel_outputs2:
 
-   Channel Outputs Settings
+  .. figure:: figures/fpp_channel_outputs_strings.png
+     :align: center
+     :alt: Channel Outputs Settings
 
-Click on the *Pixel Strings* tab.  Earlier we noted that *P1.31* is attached
-to port 20.  Note that at the bottom of the screen, port 20 has a PIXEL COUNT
-of 24.  We're telling FPP our string has 24 NeoPixels and they are attached
-to port 2 which in *P1.31*.  
+     Channel Outputs Settings
 
-Be sure to check the *Enable String Cape*.
+  Click on the *Pixel Strings* tab.  Earlier we noted that *P1.31* is attached
+  to port 20.  Note that at the bottom of the screen, port 20 has a PIXEL COUNT
+  of 24.  We're telling FPP our string has 24 NeoPixels and they are attached
+  to port 2 which in *P1.31*.  
 
-Next we need to test the display.  Select **Display Testing** shown in
-:ref:`case_display_testing_menu2`.
+  Be sure to check the *Enable String Cape*.
 
-.. _case_display_testing_menu2:
+  Next we need to test the display.  Select **Display Testing** shown in
+  :ref:`case_display_testing_menu2`.
 
-.. figure:: figures/fpp_display_testing_menu2.png
-   :align: center
-   :alt: Selecting Display Testing
+  .. _case_display_testing_menu2:
 
-   Selecting Display Testing
+  .. figure:: figures/fpp_display_testing_menu2.png
+     :align: center
+     :alt: Selecting Display Testing
 
-Set the *End Channel* to *72*. (72 is 3*24)  
-Click *Enable Test Mode* and your matrix should light up.  Try the different 
-testing patterns shown in :ref:`case_display_testing2`.
+     Selecting Display Testing
 
-.. note::
+  Set the *End Channel* to *72*. (72 is 3*24)  
+  Click *Enable Test Mode* and your matrix should light up.  Try the different 
+  testing patterns shown in :ref:`case_display_testing2`.
 
-   Clicking on the *-3* will subtract three from the End Channel, which should
-   then display three fewer LEDs which is one NeoPixel.  The last of your NeoPixels
-   should go black.  This is an easy way to make sure you have the correct pixel
-   count.
+  .. note::
 
-.. _case_display_testing2:
+     Clicking on the *-3* will subtract three from the End Channel, which should
+     then display three fewer LEDs which is one NeoPixel.  The last of your NeoPixels
+     should go black.  This is an easy way to make sure you have the correct pixel
+     count.
 
-.. figure:: figures/fpp_display_testing2.png
-   :align: center
-   :alt: Display Testing Options
+  .. _case_display_testing2:
 
-   Display Testing Options
+  .. figure:: figures/fpp_display_testing2.png
+     :align: center
+     :alt: Display Testing Options
 
-You can control the LED string using the E1.31 protocol. 
-(https://www.doityourselfchristmas.com/wiki/index.php?title=E1.31_(Streaming-ACN)_Protocol)
-First configure the input channels by going to Channel Inputs as shown in
-:ref:`case_channel_inputs`.
+     Display Testing Options
 
-.. _case_channel_inputs:
+  You can control the LED string using the E1.31 protocol. 
+  (https://www.doityourselfchristmas.com/wiki/index.php?title=E1.31_(Streaming-ACN)_Protocol)
+  First configure the input channels by going to Channel Inputs as shown in
+  :ref:`case_channel_inputs`.
 
-.. figure:: figures/fpp_channel_inputs.png
-   :align: center
-   :alt: Going to Channel Inputs
+  .. _case_channel_inputs:
 
-   Going to Channel Inputs
+  .. figure:: figures/fpp_channel_inputs.png
+     :align: center
+     :alt: Going to Channel Inputs
 
-Tell it you have 72 LEDs and enable the input as shown in :ref:`case_set_inputs`.
+     Going to Channel Inputs
 
-.. _case_set_inputs:
+  Tell it you have 72 LEDs and enable the input as shown in :ref:`case_set_inputs`.
 
-.. figure:: figures/fpp_inputs_setup2.png
-   :align: center
-   :alt: Setting Channel Inputs
+  .. _case_set_inputs:
 
-   Setting Channel Inputs
+  .. figure:: figures/fpp_inputs_setup2.png
+     :align: center
+     :alt: Setting Channel Inputs
 
-Finally go to the Status Page as shown in :ref:`case_status`.
+     Setting Channel Inputs
 
-.. _case_status:
+  Finally go to the Status Page as shown in :ref:`case_status`.
 
-.. figure:: figures/fpp_status.png
-   :align: center
-   :alt: Watching Status
+  .. _case_status:
 
-   Watching the status
+  .. figure:: figures/fpp_status.png
+     :align: center
+     :alt: Watching Status
 
-Now run a program on another computer that generated E1.31 packets.
-:ref:`case_e1.31_example` is an example python program.
+     Watching the status
 
-.. _case_e1.31_example:
+  Now run a program on another computer that generated E1.31 packets.
+  :ref:`case_e1.31_example` is an example python program.
 
-.. literalinclude:: code/e1.31-test.py
-   :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
-   :linenos:
+  .. _case_e1.31_example:
 
-:download:`e1.31-test.py <code/e1.31-test.py>` 
+  .. literalinclude:: ../code/01start/e1.31-test.py
+     :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
+     :linenos:
 
-.. TODO document the code
+  :download:`e1.31-test.py <../code/01start/e1.31-test.py>` 
+
+  .. TODO document the code
 
 .. _case_rgb_matrix:
 
@@ -646,9 +649,9 @@ to full white at the same time you will need at least a 4A supply.
 
 .. figure:: figures/pocketscroller.jpg
    :align: center
-   :alt: Pocket Beagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
+   :alt: PocketBeagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
 
-   Pocket Beagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
+   PocketBeagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
 
 Software
 ---------
@@ -745,10 +748,10 @@ following instructions at https://xlights.org/releases/.
 
 Run xLights and you'll see :ref:`case_xlights_setup`.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
-   host$ *chmod +x xLights-2021.18-x86_64.AppImage*
-   host$ *./xLights-2021.18-x86_64.AppImage*
+   host$ chmod +x xLights-2021.18-x86_64.AppImage
+   host$ ./xLights-2021.18-x86_64.AppImage
 
 .. TODO update the figures.
 
@@ -930,7 +933,7 @@ the *Content Setup* menu and select *File Manager*.  Click the black
 
    FPP file manager
 
-Once your sequence is uploaded, got to **Content Steup** and select **Playlists**. 
+Once your sequence is uploaded, got to **Content Setup** and select **Playlists**. 
 Enter you playlist name (I used **fire**) and click **Add**.  Then click
 **Add a Sequence/Entry** and select **Sequence Only** 
 (:ref:`case_playlist`), then click **Add**. 
@@ -964,7 +967,7 @@ simpPRU -- A python-like language for programming the PRUs
 ===========================================================
 
 `simpPRU <https://github.com/VedantParanjape/simpPRU>`_ is a simple, python-like 
-programming languge designed to make programming the PRUs easy. 
+programming language designed to make programming the PRUs easy. 
 It has detailed `documentation <https://simppru.readthedocs.io/en/latest/>`_ and
 many `examples <https://simppru.readthedocs.io/en/latest/examples/digital_read/>`_.
 
@@ -972,7 +975,7 @@ many `examples <https://simppru.readthedocs.io/en/latest/examples/digital_read/>
 
    simpPRU is a procedural programming language that is statically typed. 
    Variables and functions must be assigned data types during compilation.
-   It is typesafe, and data types of variables are decided during compilation.
+   It is type-safe, and data types of variables are decided during compilation.
    simPRU codes have a +.sim+ extension.
    simpPRU provides a console app to use Remoteproc functionality.
 
@@ -982,7 +985,7 @@ You can `build simpPRU <https://simppru.readthedocs.io/en/latest/install/build/>
 source, more easily just `install it <https://simppru.readthedocs.io/en/latest/install/install/>`_. 
 On the Beagle run:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ wget https://github.com/VedantParanjape/simpPRU/releases/download/1.4/simppru-1.4-armhf.deb
    bone$ sudo dpkg -i simppru-1.4-armhf.deb
@@ -993,15 +996,15 @@ Now, suppose you wanted to run the
 `LED blink <https://simppru.readthedocs.io/en/latest/examples/led_blink/>`_
 example which is reproduced here.
 
-.. literalinclude:: code/blink.sim
+.. literalinclude:: ../code/01start/blink.sim
    :caption: LED Blink (blink.sim)
    :linenos:
 
-:download:`blink.sim <code/blink.sim>`
+:download:`blink.sim <../code/01start/blink.sim>`
 
 Just run simppru
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ simppru blink.sim --load 
    Detected TI AM335x PocketBeagle
@@ -1016,7 +1019,7 @@ Detected TI AM335x PocketBeagle
 The +--load+ flag caused the compiled code to be copied to +/lib/firmware+.
 To start just do:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ cd /dev/remoteproc/pruss-core0/
    bone$ ls

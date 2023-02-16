@@ -23,7 +23,7 @@ The following are the skills that are needed before you actually start to contri
     - :ref:`linux-upstream-more-git`
     - :ref:`linux-upstream-c-programming`
     - :ref:`linux-upstream-cross-arch`
-    - :ref:`linux-upstream-embedded-busses`
+    - :ref:`linux-upstream-embedded-buses`
     - :ref:`linux-upstream-drivers`
     - :ref:`linux-upstream-device-trees`
 
@@ -36,7 +36,7 @@ More Git!
 
 It is highly recommended that you go through :ref:`beagleboard-git-usage` before starting
 to read and follow these guidelines. You will need to have a proper git setup on your
-computer inorder to effectively follow these steps.
+computer in order to effectively follow these steps.
 
 Creating your first patch
 =========================
@@ -82,9 +82,9 @@ a patch file using the following command:
     0001-contribute.rst-Add-git-section.patch
 
 This will generate one file that is generally referred to as the patch file.
-This is what you will now be sending upstream inorder to get your patch merged.
+This is what you will now be sending upstream in order to get your patch merged.
 But wait, there are a few more things we need to setup for sending a patch via e-mail.
-That is, ofcourse your email!
+That is, of course your email!
 
 For configuring your email ID for sending patches refer to this excellent stackoverflow thread,
 `configure git-send-email
@@ -96,7 +96,7 @@ Finally, after you have configured you email properly, you can send out a patch 
 
     git send-email 0001-contribute.rst-Add-git-section.patch
 
-replacing ofcourse the above patchfile name with whatever was your own patch.
+replacing of course the above patchfile name with whatever was your own patch.
 This command will then ask you ``To whom should the emails be sent (if anyone)?``
 Here, you have to write the email address of the list you want to send out the patch to.
 
@@ -111,7 +111,7 @@ C-Programming
 
 It is highly recommended that you have proficiency in C-Programming, because well the kernel is mostly
 written in C! For starters, you can go through Dennis Ritchie's C Programming book to understand
-the language and also solve the excercises given there for getting hands on.
+the language and also solve the exercises given there for getting hands on.
 
 .. _linux-upstream-cross-arch:
 
@@ -121,21 +121,21 @@ Cross-arch Development
 While working with the kernel, you'll most likely not be compiling it on the machine
 that you intend to actually boot it on.
 For example if you are compiling the Kernel for BeageBone Black it's probably not ideal
-for you to actually clone the entire kernel on BBB and then compile it there.
+for you to actually clone the entire kernel on BeagleBone Black and then compile it there.
 What you'd do instead is pick a much powerful machine like a Desktop PC or laptop and
 then use cross arch compilers like the arm-gcc for instance to compile the kernel for your
 target device.
 
-.. _linux-upstream-embedded-busses:
+.. _linux-upstream-embedded-buses:
 
-Basics of embedded busses (I2C, UART, SPI, etc.)
+Basics of embedded buses (I2C, UART, SPI, etc.)
 ************************************************
 
 In the world of embedded, you often need to communicate with peripherals over very low level protocols.
 To name a few, I2C, UART, SPI, etc. are all serial protocols used to communicate with a variety of devices and
 peripherals.
 
-It's recommended to understand atleast the basics of each of the protocol so you know what's actually going
+It's recommended to understand at least the basics of each of the protocol so you know what's actually going
 on when you write for instance an I2C or SPI driver to communicate with let's say a sensor.
 
 .. _linux-upstream-drivers:

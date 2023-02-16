@@ -7,6 +7,10 @@
 \usepackage{sectsty}
 \usepackage{lscape}
 \usepackage{longtable}
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\setmainfont{DejaVuSans}
+\setmonofont{FreeMono}
 
 \definecolor{bg-color}{HTML}{a97f2c}
 
@@ -15,3 +19,6 @@
 \addto\captionsenglish{\renewcommand{\contentsname}{Table of contents}}
 
 \allsectionsfont{\color{bg-color}}
+
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\footnotesize\oldtabular}

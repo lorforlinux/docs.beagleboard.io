@@ -15,10 +15,10 @@ Code
 -  Following code works on PocketBeagle, to use on other boards, please
    change the pins accordingly.
 
-Explaination
+Explanation
 ------------
 
-Since, PRU's hardware counter works at 200 MHz, it counts upto 2 x 108
+Since, PRU's hardware counter works at 200 MHz, it counts up to 2 x 108
 cycles in 1 second. So, this can be reliably used to count time without
 using ``delay``, as we can find exactly how much time 1 cycle takes.
 

@@ -5,7 +5,7 @@ IO Functions
    its value equal to respective R30/R31 register bit
 
    -  Example: ``P1_20`` is an constant integer variable with value
-      ``16``, similary ``P1_02`` is an constant integer variable with
+      ``16``, similarly ``P1_02`` is an constant integer variable with
       value ``9``
 
 Digital Write
@@ -159,8 +159,8 @@ Syntax
 
 ``start_counter()``
 
-Paramters
-^^^^^^^^^
+Parameters
+^^^^^^^^^^
 
 -  n/a
 
@@ -194,7 +194,7 @@ Syntax
 
 .. _paramters-1:
 
-Paramters
+Parameters
 ^^^^^^^^^
 
 -  n/a
@@ -342,9 +342,9 @@ Example
 
    init_message_channel();
 
-   int emp := receive_message();
+   int temp := receive_message();
 
-   if : emp >= 0 {
+   if : temp >= 0 {
        digital_write(P1_29, true);
    }
    else {
