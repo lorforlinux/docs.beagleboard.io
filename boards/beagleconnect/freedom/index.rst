@@ -10,7 +10,7 @@ BeagleConnect™ Freedom
 .. image:: media/BeagleConnect-Freedom-C5-Boards.jpg
   :align: center
   :alt: BeagleConnect™ Freedom board
-  :height: 700
+  :scale: 42%
 
 .. grid:: 1 1 2 3
    :margin: 4 4 0 0
@@ -25,6 +25,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/introduction.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter1 thumbnail
       
       +++
 
@@ -40,6 +41,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/change-history.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter2 thumbnail
 
       +++
 
@@ -54,6 +56,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/quick-start.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter3 thumbnail
 
       +++
 
@@ -68,6 +71,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/detailed-overview.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter4 thumbnail
 
       +++
 
@@ -82,6 +86,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/specifications.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter5 thumbnail
 
       +++
 
@@ -96,6 +101,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/hardware-design.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter6 thumbnail
 
       +++
 
@@ -110,6 +116,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/connectors.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter7 thumbnail
 
       +++
 
@@ -124,6 +131,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/support-documents.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter8 thumbnail
 
       +++
 
@@ -138,6 +146,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/mechanical-specifications.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter9 thumbnail
 
       +++
 
@@ -152,6 +161,7 @@ BeagleConnect™ Freedom
 
       .. image:: media/chapter-thumbnails/pictures.jpg
          :align: center
+         :alt: BeagleConnect™ Freedom Chapter10 thumbnail
 
       +++
 
