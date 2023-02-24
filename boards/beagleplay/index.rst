@@ -8,9 +8,9 @@ BeaglePlay
     visit https://docs.beagleboard.org/latest/
 
 .. image:: images/front.png
-  :align: center
-  :alt: BeaglePlay board
-  :scale: 42%
+    :width: 700
+    :align: center
+    :alt: BeaglePlay board
 
 .. grid:: 1 1 2 3
    :margin: 4 4 0 0
