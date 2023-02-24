@@ -1,4 +1,4 @@
-.. _beagleplay_grove:
+.. _beagleplay-grove:
 
 Using Grove
 ###########
