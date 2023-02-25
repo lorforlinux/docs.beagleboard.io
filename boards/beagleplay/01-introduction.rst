@@ -28,3 +28,12 @@ provides a positive development experience for users.
    :width: 598
    :align: center
    :alt: BeaglePlay
+
+Applications
+*************
+
+1. Building/industrial automation gateways
+2. Digital signage
+3. Human Machine Interface (HMI)
+4. BeagleConnect sensor gateways
+
