@@ -75,6 +75,8 @@ If any step fails, it is recommended to update to the
 `latest software image <https://www.beagleboard.org/distros>`_
 using the instructions above.
 
+.. _board-power-and-boot:
+
 Power and boot
 ================
 
