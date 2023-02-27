@@ -63,15 +63,30 @@ BeaglePlay
       Getting started guide.
 
    .. grid-item-card:: 
+      :link: beagleplay-demos-and-tutorials
+      :link-type: ref
+
+      **04. Demos & Tutorials**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/04-demos-and-tutorials.jpg
+         :align: center
+         :alt: BeaglePlay Chapter04 thumbnail
+
+      +++
+
+      Demos and Tutorials
+
+   .. grid-item-card:: 
       :link: beagleplay-detailed-overview
       :link-type: ref
 
-      **04. Detailed overview**
+      **05. Detailed overview**
       ^^^
 
-      .. image:: images/chapter-thumbnails/04-detailed-overview.jpg
+      .. image:: images/chapter-thumbnails/05-detailed-overview.jpg
          :align: center
-         :alt: BeaglePlay Chapter04 thumbnail
+         :alt: BeaglePlay Chapter05 thumbnail
 
       +++
 
@@ -81,12 +96,12 @@ BeaglePlay
       :link: beagleplay-high-level-specifications
       :link-type: ref
 
-      **05. High level specification**
+      **06. High level specification**
       ^^^
 
-      .. image:: images/chapter-thumbnails/05-high-level-specifications.jpg
+      .. image:: images/chapter-thumbnails/06-high-level-specifications.jpg
          :align: center
-         :alt: BeaglePlay Chapter05 thumbnail
+         :alt: BeaglePlay Chapter06 thumbnail
 
       +++
 
@@ -96,12 +111,12 @@ BeaglePlay
       :link: beagleplay-detailed-hardware-design
       :link-type: ref
 
-      **06. Detailed hardware design**
+      **07. Detailed hardware design**
       ^^^
 
-      .. image:: images/chapter-thumbnails/06-detailed-hardware-design.jpg
+      .. image:: images/chapter-thumbnails/07-detailed-hardware-design.jpg
          :align: center
-         :alt: BeaglePlay Chapter06 thumbnail
+         :alt: BeaglePlay Chapter07 thumbnail
 
       +++
 
@@ -111,12 +126,12 @@ BeaglePlay
       :link: beagleplay-connectors
       :link-type: ref
 
-      **07. Connectors**
+      **08. Connectors**
       ^^^
 
-      .. image:: images/chapter-thumbnails/07-connectors.jpg
+      .. image:: images/chapter-thumbnails/08-connectors.jpg
          :align: center
-         :alt: BeaglePlay Chapter07 thumbnail
+         :alt: BeaglePlay Chapter08 thumbnail
 
       +++
 
@@ -126,31 +141,16 @@ BeaglePlay
       :link: beagleplay-expansion
       :link-type: ref
 
-      **08. Expansion**
+      **09. Expansion**
       ^^^
 
-      .. image:: images/chapter-thumbnails/08-expansion.jpg
-         :align: center
-         :alt: BeaglePlay Chapter08 thumbnail
-
-      +++
-
-      BeaglePlay board expansion interface
-
-   .. grid-item-card:: 
-      :link: beagleplay-demos-and-tutorials
-      :link-type: ref
-
-      **09. Demos & Tutorials**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/09-demos-and-tutorials.jpg
+      .. image:: images/chapter-thumbnails/09-expansion.jpg
          :align: center
          :alt: BeaglePlay Chapter09 thumbnail
 
       +++
 
-      Demos and Tutorials
+      BeaglePlay board expansion interface
 
    .. grid-item-card:: 
       :link: beagleplay-support-documents
@@ -204,12 +204,12 @@ BeaglePlay
    01-introduction
    02-change-history
    03-quick-start
-   04-detailed-overview
-   05-high-level-specifications
-   06-detailed-hardware-design
-   07-connectors
-   08-expansion
-   09-demos-and-tutorials
+   04-demos-and-tutorials
+   05-detailed-overview
+   06-high-level-specifications
+   07-detailed-hardware-design
+   08-connectors
+   09-expansion
    10-support-documents
    11-mechanical-specifications
    12-additional-pictures
