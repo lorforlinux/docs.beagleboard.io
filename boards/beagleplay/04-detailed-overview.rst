@@ -96,15 +96,19 @@ Board components location
 
 This section describes the key components on the board, their location and function.
 
-.. figure:: images/components.jpg
+Front components location
+==========================
+
+.. figure:: images/components-front.jpg
     :width: 1400
     :align: center
-    :alt: BeaglePlay board components location
+    :alt: BeaglePlay board front components location
 
-    BeaglePlay board components location
+    BeaglePlay board front components location
 
 
-.. table:: BeaglePlay board components location
+.. table:: BeaglePlay board front components location
+    :align: center
         
     +----------------------------+---------------------------------------------------------------------------+
     | Feature                    | Description                                                               |
@@ -148,6 +152,40 @@ This section describes the key components on the board, their location and funct
     | USB-C port                 | Power and tethered connection port                                        |
     +----------------------------+---------------------------------------------------------------------------+
 
+Back components location
+==========================
+
+.. figure:: images/components-back.jpg
+    :width: 1400
+    :align: center
+    :alt: BeaglePlay board back components location
+
+    BeaglePlay board back components location
 
 
+.. table:: BeaglePlay board back components location
+    :align: center
         
+    +----------------------------+---------------------------------------------------------------------------+
+    | Feature                    | Description                                                               |
+    +============================+===========================================================================+
+    | CC1352P7                   | 2.4GHz BLE + SubG IEEE802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna     |
+    +----------------------------+---------------------------------------------------------------------------+
+    | WL1807MOD                  | Dual band WiFi + BLE module with 2 x 2.4GHz uFL antennas.                 |
+    +----------------------------+---------------------------------------------------------------------------+
+    | DP83TD510E                 | Single-pair ethernet PHY.                                                 |
+    +----------------------------+---------------------------------------------------------------------------+
+    | RTL8211F                   | Ethernet PHY.                                                             |
+    +----------------------------+---------------------------------------------------------------------------+
+    | AM6254                     | Main SoC                                                                  |
+    +----------------------------+---------------------------------------------------------------------------+
+    | 16GB eMMC                  | Flash storage                                                             |
+    +----------------------------+---------------------------------------------------------------------------+
+    | 2GB DDR$                   | RAM / Memory                                                              |
+    +----------------------------+---------------------------------------------------------------------------+
+    | BQ32002                    | Real Time Clock (RTC)                                                     |
+    +----------------------------+---------------------------------------------------------------------------+
+    | TPS6521901                 | Power management IC                                                       |
+    +----------------------------+---------------------------------------------------------------------------+
+    | IT66121                    | HDMI PHY                                                                  |
+    +----------------------------+---------------------------------------------------------------------------+
