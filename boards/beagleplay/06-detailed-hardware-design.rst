@@ -3,6 +3,12 @@
 Detailed hardware design
 #########################
 
+.. tip:: 
+    You can download BeaglePlay schematic to have clear view of 
+    all the elements that makes up the BeaglePlay hardware.
+
+    :download:`BeaglePlay schematic diagram PDF <BeaglePlay_SCH_PDF.pdf>`
+
 Power supply
 **************
 
