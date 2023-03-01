@@ -8,7 +8,7 @@ Change History
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
 
-.. _beagleplay-document-change-history:
+.. _beagleplay-document-changes:
 
 Document Changes
 ******************
