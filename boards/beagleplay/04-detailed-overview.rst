@@ -83,13 +83,6 @@ for parallel host interface to an external ASIC/FPGA. The AM62x device also supp
 for IP protection with the built-in Hardware Security Module (HSM) and employs advanced power management 
 support for portable and power-sensitive applications
 
-.. figure:: images/am625.png
-    :width: 1400
-    :align: center
-    :alt: AM6254 SoC block diagram 
-
-    AM6254 SoC block diagram
-
 
 Board components location
 **************************
