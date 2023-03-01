@@ -14,13 +14,13 @@ Step 1: Starting wpa_gui
 
 You can start ``wpa_gui`` either from ``Applications > Internet > wpa_gui`` or double click on the ``wpa_gui`` desktop application shortcut.
 
-.. figure:: images/wpa_gui_step1a.png
+.. figure:: ../images/wpa_gui_step1a.png
     :align: center
     :alt: Starting wpa_gui from Applications > Internet > wpa_gui
 
     Starting wpa_gui from Applications > Internet > wpa_gui
 
-.. figure:: images/wpa_gui_step1b.png
+.. figure:: ../images/wpa_gui_step1b.png
     :align: center
     :alt: Starting wpa_gui from Desktop application shortcut
 
@@ -39,7 +39,7 @@ Let's see the ``wpa_gui`` interface in detail,
     - Click on ``Scan`` to scan nearby WiFi access points.
 4. ``Manage Network`` tab shows you all the saved networks and options to manage those.
 
-.. figure:: images/wpa_gui_step2.png
+.. figure:: ../images/wpa_gui_step2.png
     :align: center
     :alt: wpa_gui interface
 
@@ -51,7 +51,7 @@ Step 3: Scanning & Connecting to WiFi access points
 To scan the WiFi access points around you, just click on ``Scan`` button availale under 
 ``wpa_gui > Current Status > Scan``.
 
-.. figure:: images/wpa_gui_step3a.png
+.. figure:: ../images/wpa_gui_step3a.png
     :align: center
     :alt: Scanning WiFi access points
 
@@ -71,7 +71,7 @@ Now, you just have to double click on the Network you want to connect to as show
     SSIDs and BSSIDs are not fully visible in screenshot below 
     but you can change the column length to see the WiFi names better.
 
-.. figure:: images/wpa_gui_step3b.png
+.. figure:: ../images/wpa_gui_step3b.png
     :align: center
     :alt: Selecting WiFi access point
 
@@ -81,14 +81,38 @@ Final step is to type your WiFi access point password under ``PSK`` input field 
 click on ``Add`` (as shown in screenshot below) which will automatically connect 
 your board to WiFi (if password is correct). 
 
-.. figure:: images/wpa_gui_step3c.png
+.. figure:: ../images/wpa_gui_step3c.png
     :align: center
     :alt: Connecting to WiFi access point
 
     Connecting to WiFi access point
 
-wpa_cli
-********
+wpa_cli (console)
+*****************
+
+.. tip:: 
+    Checkout :ref:`beagleplay-serial-console` section.
+
+Connect your BeaglePlay to a USB to UART cable through the UART debug 
+header pins near USB-C port of BeaglePlay. 
+
+.. table:: connecting BeaglePlay to USB-UART bridge
+
+    +-------------------------+----------------------------+
+    | USB to UART debug probe | BeaglePlay UART debug port |
+    +=========================+============================+
+    | Transmit (TX)           | Recieve (RX)               |
+    +-------------------------+----------------------------+
+    | Recieve (RX)            | Transmit (RX)              |
+    +-------------------------+----------------------------+
+    | Ground (GND)            | Ground (GND)               |
+    +-------------------------+----------------------------+
+
+After getting the access to BeaglePlay's console using application like ``tio`` 
+you can follow the exact steps in the section below to setup your WiFi using ``wpa_cli``.
+
+wpa_cli (XFCE)
+**************
 
 Another way of connecting to a WiFi access point is to use ``wpa_cli`` tool.
 
@@ -98,13 +122,13 @@ Step 1: Open up terminal
 
 Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
 
-.. figure:: images/wpa_cli_step1a.jpg
+.. figure:: ../images/wpa_cli_step1a.jpg
     :align: center
     :alt: Open terminal from Applications > Terminal Emulator
 
     Open terminal from Applications > Terminal Emulator    
 
-.. figure:: images/wpa_cli_step1b.jpg
+.. figure:: ../images/wpa_cli_step1b.jpg
     :align: center
     :alt: Open terminal from Task Manager
 
@@ -131,19 +155,19 @@ which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based
 3. Now save the details using ``ctrl + O`` then enter.
 4. To exit out of the ``nano`` text editor use ``ctrl + X``.
 
-.. figure:: images/wpa_cli_step2a.jpg
+.. figure:: ../images/wpa_cli_step2a.jpg
     :align: center
     :alt: Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
     Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
-.. figure:: images/wpa_cli_step2b.jpg
+.. figure:: ../images/wpa_cli_step2b.jpg
     :align: center
     :alt: Add SSID and PSK
 
     Add SSID and PSK
 
-.. figure:: images/wpa_cli_step2c.jpg
+.. figure:: ../images/wpa_cli_step2c.jpg
     :align: center
     :alt: Save credentials and Exit
 
@@ -177,13 +201,13 @@ after you add the credentials to ``wpa_supplicant-wlan0.conf``.
     rtt min/avg/max/mdev = 5.281/6.445/9.043/1.274 ms
 
 
-.. figure:: images/wpa_cli_step3a.jpg
+.. figure:: ../images/wpa_cli_step3a.jpg
     :align: center
     :alt: Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
     Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
-.. figure:: images/wpa_cli_step3b.jpg
+.. figure:: ../images/wpa_cli_step3b.jpg
     :align: center
     :alt: To check connection try running $ ping 8.8.8.8
 

@@ -7,42 +7,210 @@ BeaglePlay
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
 
-BeaglePlay is an open-source single board computer designed to simplify the process of adding
-sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system.
-It features a powerful 64-bit, quad-core processor and innovative connectivity options, including
-WiFi, Gigabit Ethernet, sub-GHz wireless, and single-pair Ethernet with power-over-data-line. With
-compatibility with 1,000s of off-the-shelf add-ons and a customized Debian Linux image, BeaglePlay
-makes expansion and customization easy. It also includes ribbon-cable connections for cameras and
-touch-screen displays, and a socket for a battery-backed real-time-clock, making it ideal for
-human-machine interface designs. With its competitive price and user-friendly design, BeaglePlay
-provides a positive development experience for users.
+.. image:: images/front.png
+    :width: 700
+    :align: center
+    :alt: BeaglePlay board
 
-.. admonition:: Contributors
+.. grid:: 1 1 2 3
+   :margin: 4 4 0 0
+   :gutter: 4
 
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+   .. grid-item-card::
+      :link: beagleplay-introduction
+      :link-type: ref
 
-.. note::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
+      **01. Introduction**
+      ^^^
 
-.. image:: images/45font.png
-   :width: 598
-   :align: center
-   :alt: BeaglePlay
+      .. image:: images/chapter-thumbnails/01-introduction.jpg
+         :align: center
+         :alt: BeaglePlay Chapter01 thumbnail
+      
+      +++
 
-.. toctree::
+      Introduction to BeaglePlay board.
+
+
+   .. grid-item-card::
+      :link: beagleplay-change-history
+      :link-type: ref
+
+      **02. Change History**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/02-change-history.jpg
+         :align: center
+         :alt: BeaglePlay Chapter02 thumbnail
+
+      +++
+
+      Hardware, Software, and Documentation change history.
+
+   .. grid-item-card:: 
+      :link: beagleplay-quick-start
+      :link-type: ref
+
+      **03. Quick start**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/03-quick-start.jpg
+         :align: center
+         :alt: BeaglePlay Chapter03 thumbnail
+
+      +++
+
+      Getting started guide.
+
+   .. grid-item-card:: 
+      :link: beagleplay-detailed-overview
+      :link-type: ref
+
+      **04. Detailed overview**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/04-detailed-overview.jpg
+         :align: center
+         :alt: BeaglePlay Chapter04 thumbnail
+
+      +++
+
+      Detailed overview.
+
+   .. grid-item-card:: 
+      :link: beagleplay-high-level-specifications
+      :link-type: ref
+
+      **05. High level specification**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/05-high-level-specifications.jpg
+         :align: center
+         :alt: BeaglePlay Chapter05 thumbnail
+
+      +++
+
+      High level specifications.
+
+   .. grid-item-card:: 
+      :link: beagleplay-detailed-hardware-design
+      :link-type: ref
+
+      **06. Detailed hardware design**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/06-detailed-hardware-design.jpg
+         :align: center
+         :alt: BeaglePlay Chapter06 thumbnail
+
+      +++
+
+      Detailed hardware design.
+
+   .. grid-item-card:: 
+      :link: beagleplay-connectors-and-pinouts
+      :link-type: ref
+
+      **07. Connectors & Pinouts**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/07-connectors-and-pinouts.jpg
+         :align: center
+         :alt: BeaglePlay Chapter07 thumbnail
+
+      +++
+
+      Connectors pinout diagrams and more.
+
+   .. grid-item-card:: 
+      :link: beagleplay-expansion
+      :link-type: ref
+
+      **08. Expansion**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/08-expansion.jpg
+         :align: center
+         :alt: BeaglePlay Chapter08 thumbnail
+
+      +++
+
+      BeaglePlay board expansion interface
+
+   .. grid-item-card:: 
+      :link: beagleplay-demos-and-tutorials
+      :link-type: ref
+
+      **09. Demos & Tutorials**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/09-demos-and-tutorials.jpg
+         :align: center
+         :alt: BeaglePlay Chapter09 thumbnail
+
+      +++
+
+      Demos and Tutorials
+
+   .. grid-item-card:: 
+      :link: beagleplay-support-documents
+      :link-type: ref
+
+      **10. Support**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/10-support-documents.jpg
+         :align: center
+         :alt: BeaglePlay Chapter10 thumbnail
+
+      +++
+
+      User support document for easy development.
+
+   .. grid-item-card:: 
+      :link: beagleplay-mechanical-specifications
+      :link-type: ref
+
+      **11. Mechanical Specifications**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/11-mechanical-specifications.jpg
+         :align: center
+         :alt: BeaglePlay Chapter11 thumbnail
+
+      +++
+
+      Mechanical dimensions.
+
+   .. grid-item-card:: 
+      :link: beagleplay-additional-pictures
+      :link-type: ref
+
+      **12. Additional Pictures**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/12-additional-pictures.jpg
+         :align: center
+         :alt: BeaglePlay Chapter12 thumbnail
+
+      +++
+
+      BeaglePlay Additional Pictures
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
-   /boards/beagleplay/connect-wifi.rst
-   /boards/beagleplay/using-serial-console.rst
-   /boards/beagleplay/using-mikrobus.rst
-   /boards/beagleplay/using-qwiic.rst
-   /boards/beagleplay/using-grove.rst
-   /boards/beagleplay/using-csi.rst
-   /boards/beagleplay/using-oldi.rst
-   /boards/beagleplay/zephyr-cc1352-development.rst
+   01-introduction
+   02-change-history
+   03-quick-start
+   04-detailed-overview
+   05-high-level-specifications
+   06-detailed-hardware-design
+   07-connectors-and-pinouts
+   08-expansion
+   09-demos-and-tutorials
+   10-support-documents
+   11-mechanical-specifications
+   12-additional-pictures
+
