@@ -24,7 +24,7 @@ provides a positive development experience for users.
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
-.. image:: images/45font.png
+.. image:: images/45front.png
    :width: 598
    :align: center
    :alt: BeaglePlay
