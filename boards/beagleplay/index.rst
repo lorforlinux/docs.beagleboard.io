@@ -108,13 +108,13 @@ BeaglePlay
       Detailed hardware design.
 
    .. grid-item-card:: 
-      :link: beagleplay-connectors
+      :link: beagleplay-connectors-and-pinouts
       :link-type: ref
 
-      **07. Connectors**
+      **07. Connectors & Pinouts**
       ^^^
 
-      .. image:: images/chapter-thumbnails/07-connectors.jpg
+      .. image:: images/chapter-thumbnails/07-connectors-and-pinouts.jpg
          :align: center
          :alt: BeaglePlay Chapter07 thumbnail
 
@@ -204,12 +204,12 @@ BeaglePlay
    01-introduction
    02-change-history
    03-quick-start
-   04-demos-and-tutorials
-   05-detailed-overview
-   06-high-level-specifications
-   07-detailed-hardware-design
-   08-connectors
-   09-expansion
+   04-detailed-overview
+   05-high-level-specifications
+   06-detailed-hardware-design
+   07-connectors-and-pinouts
+   08-expansion
+   09-demos-and-tutorials
    10-support-documents
    11-mechanical-specifications
    12-additional-pictures
