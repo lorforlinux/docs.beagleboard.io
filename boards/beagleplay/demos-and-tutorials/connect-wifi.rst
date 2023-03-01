@@ -87,8 +87,32 @@ your board to WiFi (if password is correct).
 
     Connecting to WiFi access point
 
-wpa_cli
-********
+wpa_cli (console)
+*****************
+
+.. tip:: 
+    Checkout :ref:`beagleplay-serial-console` section.
+
+Connect your BeaglePlay to a USB to UART cable through the UART debug 
+header pins near USB-C port of BeaglePlay. 
+
+.. table:: connecting BeaglePlay to USB-UART bridge
+
+    +-------------------------+----------------------------+
+    | USB to UART debug probe | BeaglePlay UART debug port |
+    +=========================+============================+
+    | Transmit (TX)           | Recieve (RX)               |
+    +-------------------------+----------------------------+
+    | Recieve (RX)            | Transmit (RX)              |
+    +-------------------------+----------------------------+
+    | Ground (GND)            | Ground (GND)               |
+    +-------------------------+----------------------------+
+
+After getting the access to BeaglePlay's console using application like ``tio`` 
+you can follow the exact steps in the section below to setup your WiFi using ``wpa_cli``.
+
+wpa_cli (XFCE)
+**************
 
 Another way of connecting to a WiFi access point is to use ``wpa_cli`` tool.
 
