@@ -101,6 +101,20 @@ from source using appropriate design tools.
       credit card sized with over a decade of support, software and 
       materials behind it making it ready for any application.
 
+   .. grid-item-card::
+      :link: beagleconnect_freedom_home
+      :link-type: ref
+
+      **BeagleConnect™ Freedom**
+      ^^^
+
+      .. image:: boards/beagleconnect/freedom/media/BeagleConnect-Freedom-C5-Boards-Presentation.png
+         :align: center
+      +++
+
+      BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
+      and is the first available BeagleConnect™ solution.
+
    .. grid-item-card:: 
       :link: beagleboneblack-home
       :link-type: ref
