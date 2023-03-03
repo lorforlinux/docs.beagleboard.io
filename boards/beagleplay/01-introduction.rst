@@ -30,10 +30,15 @@ includes:
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
-.. image:: images/45front.png
-   :width: 598
+.. table::
    :align: center
-   :alt: BeaglePlay
+   :widths: auto
+
+   +----------------------------------------------------+---------------------------------------------------------+
+   | .. image:: images/45front.png                      | .. image:: images/45back.png                            |
+   |    :align: center                                  |       :align: center                                    |
+   |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
+   +----------------------------------------------------+---------------------------------------------------------+
 
 .. _beagleplay-detailed-overview:
 
