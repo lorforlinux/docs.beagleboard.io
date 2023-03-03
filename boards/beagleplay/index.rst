@@ -12,6 +12,10 @@ BeaglePlay
     :align: center
     :alt: BeaglePlay board
 
+.. raw:: latex
+   
+   \begin{comment}
+
 .. grid:: 1 1 2 3
    :margin: 4 4 0 0
    :gutter: 4
@@ -31,51 +35,20 @@ BeaglePlay
 
       Introduction to BeaglePlay board.
 
-
-   .. grid-item-card::
-      :link: beagleplay-change-history
+   .. grid-item-card:: 
+      :link: beagleplay-quick-start
       :link-type: ref
 
-      **02. Change History**
+      **02. Quick start**
       ^^^
 
-      .. image:: images/chapter-thumbnails/02-change-history.jpg
+      .. image:: images/chapter-thumbnails/02-quick-start.jpg
          :align: center
          :alt: BeaglePlay Chapter02 thumbnail
 
       +++
 
-      Hardware, Software, and Documentation change history.
-
-   .. grid-item-card:: 
-      :link: beagleplay-quick-start
-      :link-type: ref
-
-      **03. Quick start**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/03-quick-start.jpg
-         :align: center
-         :alt: BeaglePlay Chapter03 thumbnail
-
-      +++
-
       Getting started guide.
-
-   .. grid-item-card:: 
-      :link: beagleplay-detailed-overview
-      :link-type: ref
-
-      **04. Detailed overview**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/04-detailed-overview.jpg
-         :align: center
-         :alt: BeaglePlay Chapter04 thumbnail
-
-      +++
-
-      Detailed overview.
 
    .. grid-item-card:: 
       :link: beagleplay-high-level-specifications
@@ -197,13 +170,17 @@ BeaglePlay
 
       BeaglePlay Additional Pictures
 
+.. raw:: latex
+
+   \end{comment}
+
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    01-introduction
    02-change-history
-   03-quick-start
+   02-quick-start
    04-detailed-overview
    05-high-level-specifications
    06-detailed-hardware-design
