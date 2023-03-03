@@ -179,7 +179,6 @@ BeaglePlay
    :hidden:
 
    01-introduction
-   02-change-history
    02-quick-start
    04-detailed-overview
    05-high-level-specifications
