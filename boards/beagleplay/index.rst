@@ -111,21 +111,6 @@ BeaglePlay
       BeaglePlay board expansion interface
 
    .. grid-item-card:: 
-      :link: beagleplay-demos-and-tutorials
-      :link-type: ref
-
-      **09. Demos & Tutorials**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/09-demos-and-tutorials.jpg
-         :align: center
-         :alt: BeaglePlay Chapter09 thumbnail
-
-      +++
-
-      Demos and Tutorials
-
-   .. grid-item-card:: 
       :link: beagleplay-support-documents
       :link-type: ref
 
