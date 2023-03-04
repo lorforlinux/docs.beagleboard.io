@@ -7,7 +7,8 @@
    width="347.70117"
    height="132.75584"
    viewBox="0 0 347.70118 132.75584"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="board-id.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,64 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="3.7503469"
+     inkscape:cx="173.85058"
+     inkscape:cy="66.6605"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g145735" />
   <g
      id="g145735"
      inkscape:groupmode="layer"
      inkscape:label="Page 18"
      transform="translate(-105.47633,-88.684161)">
-    <g
-       id="g146181"
-       transform="scale(0.017087,0.018066)">
-      <text
-         xml:space="preserve"
-         transform="translate(9832,10299.8)"
-         style="font-variant:normal;font-weight:normal;font-size:327.68px;font-family:F6;-inkscape-font-specification:F6;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146185"><tspan
-           x="0 196.608 393.216 589.82397 786.43201 983.03998 1179.6479 1376.256 1572.864 1769.4719 1966.08"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146183">Pin to Pin:</tspan></text>
-    </g>
-    <g
-       id="g146187"
-       transform="scale(0.017087,0.018066)">
-      <text
-         xml:space="preserve"
-         transform="translate(9832,11043.7)"
-         style="font-variant:normal;font-weight:normal;font-size:327.68px;font-family:F6;-inkscape-font-specification:F6;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146191"><tspan
-           x="0 196.608 393.216 589.82397 786.43201 983.03998 1179.6479 1376.256 1572.864 1769.4719 1966.08 2162.688 2359.2959 2555.9041 3932.1599 4128.7681 4325.376 4521.9839 4718.5918 4915.1997 5111.8081 5308.416 5505.0239 5701.6318 5898.2397 6094.8477 6291.4561 6488.064 6684.6719 6881.2798 7077.8877 7274.4956 7471.104 7667.7119 7864.3198 8060.9277 8257.5361 8454.1436 8650.752 8847.3594 9043.9678 9240.5762 9437.1836 9633.792 9830.3994 10027.008"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146189">BB AI TDA4VM: 4Kbit, Microchip, 24FC04HT-I/OT.</tspan></text>
-    </g>
-    <g
-       id="g146193"
-       transform="translate(77.744158,64.980192)">
-      <text
-         xml:space="preserve"
-         transform="translate(26.879999,37.439999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146197"><tspan
-           x="0 10.134295 22.21953 33.067112 43.372311 54.768978 58.856243 63.676212 75.072884 79.160141 87.979103 96.798058 106.42034 116.72554 128.81078 144.72057 148.80782 157.84747 167.73459 177.49741 181.83644"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146195">BOARD ID EEPROM 4Kbit</tspan></text>
-    </g>
-    <g
-       id="g146199"
-       transform="scale(0.017087,0.018066)">
-      <text
-         xml:space="preserve"
-         transform="translate(9832,11415.7)"
-         style="font-variant:normal;font-weight:normal;font-size:327.68px;font-family:F6;-inkscape-font-specification:F6;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146203"><tspan
-           x="0 196.608 393.216 589.82397 786.43201 983.03998 1179.6479 1376.256 1572.864 1769.4719 1966.08 2162.688 2359.2959 2555.9041 2752.512 2949.1199 3145.728 3342.3359 3538.9438 3735.552 3932.1599 4128.7681 4325.376 4521.9839 4718.5918 4915.1997 5111.8081 5308.416 5505.0239 5701.6318 5898.2397 6094.8477 6291.4561 6488.064 6684.6719 6881.2798 7077.8877 7274.4956 7471.104 7667.7119 7864.3198 8060.9277 8257.5361 8454.1436 8650.752 8847.3594 9043.9678 9240.5762 9437.1836 9633.792 9830.3994"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146201">BeagleBone Black: 32Kbit, Microchip, 24LC32AT-I/OT.</tspan></text>
-    </g>
     <g
        id="g146435">
       <path

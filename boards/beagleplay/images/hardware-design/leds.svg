@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="619.48828"
+   width="618.69092"
    height="285.59998"
-   viewBox="0 0 619.4883 285.59998"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   viewBox="0 0 618.69094 285.59998"
+   sodipodi:docname="leds.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="2.1049631"
+     inkscape:cx="309.74414"
+     inkscape:cy="142.99538"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g172357" />
   <g
      id="g172357"
      inkscape:groupmode="layer"
      inkscape:label="Page 21"
-     transform="translate(-110.91729,-359.19999)">
-    <g
-       id="g172719"
-       transform="translate(521.00189,84.706321)">
-      <text
-         xml:space="preserve"
-         transform="translate(40.32,292.79999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text172723"><tspan
-           x="0 7.6448603 16.463816 27.860483"
-           y="0"
-           sodipodi:role="line"
-           id="tspan172721">LEDs</tspan></text>
-    </g>
+     transform="translate(-110.70467,-359.19999)">
     <g
        id="g172807">
       <path

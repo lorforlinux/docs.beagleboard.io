@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="828.95258"
-   height="439.30289"
-   viewBox="0 0 828.95261 439.30289"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   width="828.65308"
+   height="395.0181"
+   viewBox="0 0 828.65311 395.0181"
+   sodipodi:docname="TPS65219.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,24 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.5730695"
+     inkscape:cx="414.47629"
+     inkscape:cy="175.45315"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4063" />
   <g
      id="g4063"
      inkscape:groupmode="layer"
      inkscape:label="Page 5"
-     transform="translate(-191.55699,-259.25709)">
-    <g
-       id="g4433">
-      <text
-         xml:space="preserve"
-         transform="translate(577.91998,272.64001)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text4437"><tspan
-           x="0 9.6222839 25.424015 30.243986"
-           y="0"
-           sodipodi:role="line"
-           id="tspan4435">PMIC</tspan></text>
-    </g>
+     transform="translate(-191.34414,-303.5419)">
     <g
        id="g4439"
        transform="scale(0.017087,0.018066)">

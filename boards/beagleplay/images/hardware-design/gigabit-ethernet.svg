@@ -7,7 +7,8 @@
    width="1010.6845"
    height="374.07062"
    viewBox="0 0 1010.6845 374.07062"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="gigabit-ethernet.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.2902147"
+     inkscape:cx="505.34225"
+     inkscape:cy="186.79062"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g64165" />
   <g
      id="g64165"
      inkscape:groupmode="layer"
      inkscape:label="Page 10"
      transform="translate(-84.99575,-27.9257)">
-    <g
-       id="g64581"
-       transform="translate(63.819831,82.3856)">
-      <text
-         xml:space="preserve"
-         transform="translate(20.16,30.719999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text64585"><tspan
-           x="0 11.520257 15.960632 25.503466 35.266289 44.80912 49.249496 55.517223 59.604485 68.423439 74.69117 84.225174 93.264824 99.629654 109.16366 118.20331"
-           y="0"
-           sodipodi:role="line"
-           id="tspan64583">Gigabit Ethernet</tspan></text>
-    </g>
     <g
        id="g64617">
       <path

@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="341.854"
-   height="190.69823"
-   viewBox="0 0 341.85402 190.69823"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   width="331.96967"
+   height="161.08838"
+   viewBox="0 0 331.96968 161.08838"
+   sodipodi:docname="TLV75801PDBVR.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,12 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="3.8144939"
+     inkscape:cx="161.22716"
+     inkscape:cy="65.801653"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4063" />
   <g
      id="g4063"
      inkscape:groupmode="layer"
      inkscape:label="Page 5"
-     transform="translate(-21.925158,-17.301768)">
+     transform="translate(-31.521211,-46.911613)">
     <g
        id="g4445">
       <text
@@ -88,18 +98,6 @@
            y="0"
            sodipodi:role="line"
            id="tspan4471">Vfb=0.55V</tspan></text>
-    </g>
-    <g
-       id="g4475">
-      <text
-         xml:space="preserve"
-         transform="translate(20.16,30.719999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text4479"><tspan
-           x="0 7.6448603 19.041529 31.126764 35.214027 44.377266 55.224846"
-           y="0"
-           sodipodi:role="line"
-           id="tspan4477">LDO 1V0</tspan></text>
     </g>
     <g
        id="g4553"

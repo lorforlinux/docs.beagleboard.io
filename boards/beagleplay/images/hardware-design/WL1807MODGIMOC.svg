@@ -7,7 +7,8 @@
    width="868.78705"
    height="416.64001"
    viewBox="0 0 868.78708 416.64001"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="WL1807MODGIMOC.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +24,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.5009432"
+     inkscape:cx="434.39352"
+     inkscape:cy="208.53554"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g162919" />
   <g
      id="g162919"
      inkscape:groupmode="layer"
@@ -61,19 +71,6 @@
            y="0"
            sodipodi:role="line"
            id="tspan163279">other to avoid stub.</tspan></text>
-    </g>
-    <g
-       id="g163283"
-       transform="translate(110.76734,22.153468)">
-      <text
-         xml:space="preserve"
-         transform="translate(40.32,64.32)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text163287"><tspan
-           x="0 16.27137 20.711744 29.209017 33.548046 37.635311 46.79855 51.62735 60.790588 72.310844 80.158745 89.198395"
-           y="0"
-           sodipodi:role="line"
-           id="tspan163285">WiFi 2.4G/5G</tspan></text>
     </g>
     <g
        id="g163327">

@@ -7,7 +7,8 @@
    width="1022.8281"
    height="186.79453"
    viewBox="0 0 1022.8281 186.79453"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="micro-sd-card.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.2748965"
+     inkscape:cx="511.41406"
+     inkscape:cy="93.34091"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g48603" />
   <g
      id="g48603"
      inkscape:groupmode="layer"
      inkscape:label="Page 9"
      transform="translate(-24.837621,-491.60548)">
-    <g
-       id="g48965"
-       transform="translate(0,23.207211)">
-      <text
-         xml:space="preserve"
-         transform="translate(40.32,507.84)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text48969"><tspan
-           x="0 15.909784 20.610401 29.985508 40.29071 52.375942 56.714977 65.031456 76.428123 80.515388 90.097412 100.94499 111.2502"
-           y="0"
-           sodipodi:role="line"
-           id="tspan48967">MICRO SD CARD</tspan></text>
-    </g>
     <g
        id="g49185">
       <path

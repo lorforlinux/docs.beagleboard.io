@@ -7,7 +7,8 @@
    width="450.88083"
    height="369.51538"
    viewBox="0 0 450.88085 369.51538"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="ddr4.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="2.779316"
+     inkscape:cx="225.59508"
+     inkscape:cy="184.57779"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g36257" />
   <g
      id="g36257"
      inkscape:groupmode="layer"
      inkscape:label="Page 8"
      transform="translate(-66.880084,-19.92463)">
-    <g
-       id="g36613"
-       transform="translate(53.376586,11.603606)">
-      <text
-         xml:space="preserve"
-         transform="translate(20.16,37.439999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text36617"><tspan
-           x="0 11.396668 22.793337 32.971771"
-           y="0"
-           sodipodi:role="line"
-           id="tspan36615">DDR4</tspan></text>
-    </g>
     <g
        id="g36931">
       <path

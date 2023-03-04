@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="669.77344"
-   height="195.44417"
-   viewBox="0 0 669.77346 195.44417"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   width="669.26013"
+   height="195.32784"
+   viewBox="0 0 669.26015 195.32784"
+   sodipodi:docname="qwiic.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,12 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.946927"
+     inkscape:cx="334.88672"
+     inkscape:cy="97.589688"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g177493" />
   <g
      id="g177493"
      inkscape:groupmode="layer"
      inkscape:label="Page 22"
-     transform="translate(-416.31818,-53.515826)">
+     transform="translate(-416.32001,-53.632165)">
     <g
        id="g177845">
       <path
@@ -42,19 +52,6 @@
          d="m 416.64001,235.2 v 0"
          style="fill:none;stroke:#000000;stroke-width:0.64;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:1.28;stroke-dashoffset:0;stroke-opacity:1"
          id="path177863" />
-    </g>
-    <g
-       id="g177877"
-       transform="translate(-9.2828845,38.291899)">
-      <text
-         xml:space="preserve"
-         transform="translate(430.07999,37.439999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text177881"><tspan
-           x="0 12.244135 28.637329 33.457298 38.157917 47.739944 51.827209 61.202316 70.965134 80.499146 90.03315 99.0728 106.51462 112.78235 122.31635"
-           y="0"
-           sodipodi:role="line"
-           id="tspan177879">QWIIC Connector</tspan></text>
     </g>
     <g
        id="g178145">

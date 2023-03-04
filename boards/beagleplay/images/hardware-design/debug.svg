@@ -7,7 +7,8 @@
    width="457.56833"
    height="147.40668"
    viewBox="0 0 457.56835 147.40668"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="debug.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +24,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="2.8498476"
+     inkscape:cx="228.78416"
+     inkscape:cy="73.688151"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g145735" />
   <g
      id="g145735"
      inkscape:groupmode="layer"
@@ -100,19 +110,6 @@
            y="0"
            sodipodi:role="line"
            id="tspan146153">Pin1: GND</tspan></text>
-    </g>
-    <g
-       id="g146163"
-       transform="translate(24.367572,30.169375)">
-      <text
-         xml:space="preserve"
-         transform="translate(26.879999,561.59998)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146167"><tspan
-           x="0 11.396668 20.277418 29.820251 39.583073"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146165">Debug</tspan></text>
     </g>
     <g
        id="g146211">

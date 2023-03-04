@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="886.52728"
-   height="147.76074"
-   viewBox="0 0 886.52732 147.76074"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   width="886.22852"
+   height="147.65308"
+   viewBox="0 0 886.22855 147.65307"
+   sodipodi:docname="mikroBUS.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.4709079"
+     inkscape:cx="443.26364"
+     inkscape:cy="74.103891"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g177493" />
   <g
      id="g177493"
      inkscape:groupmode="layer"
      inkscape:label="Page 22"
-     transform="translate(-94.75569,-302.15928)">
-    <g
-       id="g177865"
-       transform="translate(60.338749,47.574783)">
-      <text
-         xml:space="preserve"
-         transform="translate(33.599998,272.64001)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text177869"><tspan
-           x="0 15.909784 20.248816 28.926527 35.435074 44.969082 55.103374 64.637383"
-           y="0"
-           sodipodi:role="line"
-           id="tspan177867">MikroBus</tspan></text>
-    </g>
+     transform="translate(-94.543357,-302.26694)">
     <g
        id="g177889">
       <path

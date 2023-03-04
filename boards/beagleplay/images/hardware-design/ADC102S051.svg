@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="668.2832"
-   height="173.3667"
-   viewBox="0 0 668.28323 173.3667"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   width="668.4953"
+   height="173.25902"
+   viewBox="0 0 668.49533 173.25902"
+   sodipodi:docname="ADC102S051.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.9512686"
+     inkscape:cx="334.1416"
+     inkscape:cy="86.610323"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g177493" />
   <g
      id="g177493"
      inkscape:groupmode="layer"
      inkscape:label="Page 22"
-     transform="translate(-104.83772,-572.23332)">
-    <g
-       id="g177871"
-       transform="translate(63.17841,14.768979)">
-      <text
-         xml:space="preserve"
-         transform="translate(47.040001,575.03998)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text177875"><tspan
-           x="0 10.84758 22.244247"
-           y="0"
-           sodipodi:role="line"
-           id="tspan177873">ADC</tspan></text>
-    </g>
+     transform="translate(-104.62471,-572.34101)">
     <g
        id="g178017">
       <path

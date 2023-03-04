@@ -7,7 +7,8 @@
    width="609.04297"
    height="154.56097"
    viewBox="0 0 609.04299 154.56097"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="am62-jtag.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,38 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="2.141064"
+     inkscape:cx="304.52148"
+     inkscape:cy="77.064486"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g145735" />
   <g
      id="g145735"
      inkscape:groupmode="layer"
      inkscape:label="Page 18"
      transform="translate(-140.79859,-348.96302)">
-    <g
-       id="g146157"
-       transform="translate(115.69033,42.665939)">
-      <text
-         xml:space="preserve"
-         transform="translate(26.879999,319.67999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146161"><tspan
-           x="0 5.9852371 14.844094 25.691673"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146159">JTAG</tspan></text>
-    </g>
-    <g
-       id="g146169"
-       transform="translate(-0.8204946,43.486438)">
-      <text
-         xml:space="preserve"
-         transform="translate(557.76001,319.67999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text146173"><tspan
-           x="0 8.9513721 18.494205 28.037039 33.822414 43.197521 52.731525 62.265533 72.028358 80.909103 88.502411"
-           y="0"
-           sodipodi:role="line"
-           id="tspan146171">Tag-Connect</tspan></text>
-    </g>
     <g
        id="g146205"
        transform="scale(0.017087,0.018066)">

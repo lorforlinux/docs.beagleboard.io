@@ -4,10 +4,11 @@
 <svg
    version="1.1"
    id="svg25"
-   width="941.43939"
-   height="544.61255"
-   viewBox="0 0 941.43943 544.61255"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   width="941.44"
+   height="544.49182"
+   viewBox="0 0 941.44004 544.49182"
+   sodipodi:docname="usb.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,12 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.3851131"
+     inkscape:cx="470.7197"
+     inkscape:cy="272.17995"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g125651" />
   <g
      id="g125651"
      inkscape:groupmode="layer"
      inkscape:label="Page 15"
-     transform="translate(-80.320516,-33.377299)">
+     transform="translate(-80.319999,-33.473404)">
     <g
        id="g125999"
        transform="scale(0.017087,0.018066)">
@@ -41,19 +51,6 @@
            y="0"
            sodipodi:role="line"
            id="tspan126001">3.3V</tspan></text>
-    </g>
-    <g
-       id="g126005"
-       transform="translate(34.810817,55.697307)">
-      <text
-         xml:space="preserve"
-         transform="translate(53.759998,44.16)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text126009"><tspan
-           x="0 11.802746 20.215624 30.349918 39.354256 50.201836 54.289101 67.125404 71.212669 83.145004 91.557884 101.69218 110.69652"
-           y="0"
-           sodipodi:role="line"
-           id="tspan126007">USB_A &amp; USB_C</tspan></text>
     </g>
     <g
        id="g126011">

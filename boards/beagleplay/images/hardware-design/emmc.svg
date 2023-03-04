@@ -7,7 +7,8 @@
    width="901.12006"
    height="401.84476"
    viewBox="0 0 901.12009 401.84476"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="emmc.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +24,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.447088"
+     inkscape:cx="450.56003"
+     inkscape:cy="201.09351"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g48603" />
   <g
      id="g48603"
      inkscape:groupmode="layer"
@@ -40,19 +50,6 @@
            y="0"
            sodipodi:role="line"
            id="tspan48961">eMMC</tspan></text>
-    </g>
-    <g
-       id="g48971"
-       transform="translate(24.367571,19.72613)">
-      <text
-         xml:space="preserve"
-         transform="translate(26.879999,37.439999)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text48975"><tspan
-           x="0 9.03965 24.841381 40.643112 50.018219 57.97311 66.385986"
-           y="0"
-           sodipodi:role="line"
-           id="tspan48973">eMMC/SD</tspan></text>
     </g>
     <g
        id="g48977"

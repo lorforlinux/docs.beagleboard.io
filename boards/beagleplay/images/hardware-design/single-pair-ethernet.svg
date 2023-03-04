@@ -7,7 +7,8 @@
    width="1042.4277"
    height="564.38147"
    viewBox="0 0 1042.4278 564.38147"
-   sodipodi:docname="BeaglePlay_SCH_PDF.pdf"
+   sodipodi:docname="single-pair-ethernet.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +24,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="1.250926"
+     inkscape:cx="521.21387"
+     inkscape:cy="282.19094"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g79715" />
   <g
      id="g79715"
      inkscape:groupmode="layer"
      inkscape:label="Page 11"
      transform="translate(-40.356585,-13.218531)">
-    <g
-       id="g80199"
-       transform="translate(22.046851,-1.1603606)">
-      <text
-         xml:space="preserve"
-         transform="translate(33.599998,44.16)"
-         style="font-variant:normal;font-weight:normal;font-size:18.0793px;font-family:F5;-inkscape-font-specification:F5;writing-mode:lr-tb;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text80203"><tspan
-           x="0 9.03965 18.202888 28.337185 39.184765 47.597641 56.416595 61.951618 70.902992 80.066231 84.405258 92.721741 97.162109 106.92493 116.46777 120.90814 129.9478 135.48282 145.1051 154.64793 159.0883 165.59685 169.68411 178.50307 184.7708 194.30481 203.34445 209.70929 219.24329 228.28294 234.55067 238.63794 252.10913 256.5495 262.81723 272.35123 276.69028 286.31256 295.84656 307.24323"
-           y="0"
-           sodipodi:role="line"
-           id="tspan80201">10BASE-T1 Single-Pair Ethernet with PoDL</tspan></text>
-    </g>
     <g
        id="g80217"
        transform="scale(0.017087,0.018066)">
