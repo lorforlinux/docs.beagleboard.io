@@ -7,10 +7,17 @@ BeaglePlay
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
 
-.. image:: images/front.png
-    :width: 700
-    :align: center
-    :alt: BeaglePlay board
+
+.. table::
+   :align: center
+   :widths: auto
+
+   +----------------------------------------------------+---------------------------------------------------------+
+   | .. image:: images/front.png                        | .. image:: images/back.png                              |
+   |    :width: 700                                     |       :width: 700                                       |
+   |    :align: center                                  |       :align: center                                    |
+   |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
+   +----------------------------------------------------+---------------------------------------------------------+
 
 .. raw:: latex
    
@@ -51,15 +58,15 @@ BeaglePlay
       Getting started guide.
 
    .. grid-item-card:: 
-      :link: beagleplay-high-level-specifications
+      :link: beagleplay-design-and-specifications
       :link-type: ref
 
-      **05. High level specification**
+      **03. Design & Specifications**
       ^^^
 
-      .. image:: images/chapter-thumbnails/05-high-level-specifications.jpg
+      .. image:: images/chapter-thumbnails/03-design-and-specifications.jpg
          :align: center
-         :alt: BeaglePlay Chapter05 thumbnail
+         :alt: BeaglePlay Chapter03 thumbnail
 
       +++
 
@@ -165,12 +172,12 @@ BeaglePlay
 
    01-introduction
    02-quick-start
+   03-design-and-specifications.rst
    04-detailed-overview
    05-high-level-specifications
    06-detailed-hardware-design
    07-connectors-and-pinouts
    08-expansion
-   09-demos-and-tutorials
    10-support-documents
    11-mechanical-specifications
    12-additional-pictures
