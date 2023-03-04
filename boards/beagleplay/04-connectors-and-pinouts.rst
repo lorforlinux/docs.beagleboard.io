@@ -1,3 +1,21 @@
+.. _beagleplay-connectors-and-pinouts:
+
+Connectors & Pinouts
+#####################
+
+mikroBUS
+*********
+
+Grove
+******
+
+microSD
+********
+
+QWIIC
+******
+
+
 .. _beagleplay-expansion:
 
 Expansion

@@ -40,7 +40,8 @@ BeaglePlay
       
       +++
 
-      Introduction to BeaglePlay board.
+      Introduction to BeaglePlay board with information on each component 
+      location on both front and back of the board.
 
    .. grid-item-card:: 
       :link: beagleplay-quick-start
@@ -55,7 +56,8 @@ BeaglePlay
 
       +++
 
-      Getting started guide.
+      Getting started guide to enable you to start building your projects 
+      in no time.
 
    .. grid-item-card:: 
       :link: beagleplay-design-and-specifications
@@ -70,97 +72,56 @@ BeaglePlay
 
       +++
 
-      High level specifications.
+      Hardware and Mechanical design and specifications of the BeaglePlay board 
+      for those who want to know their board inside out.
 
    .. grid-item-card:: 
-      :link: beagleplay-detailed-hardware-design
+      :link: beagleplay-connectors-pinouts-extensions
       :link-type: ref
 
-      **06. Detailed hardware design**
+      **04. Connectors and pinouts**
       ^^^
 
-      .. image:: images/chapter-thumbnails/06-detailed-hardware-design.jpg
+      .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.jpg
          :align: center
-         :alt: BeaglePlay Chapter06 thumbnail
+         :alt: BeaglePlay Chapter04 thumbnail
 
       +++
 
-      Detailed hardware design.
+      Connectors and pinout diagrams with expansion details so that you can 
+      easily debug your connections and crate custom expansion hardware.
 
    .. grid-item-card:: 
-      :link: beagleplay-connectors-and-pinouts
+      :link: beagleplay-demos-and-tutorials
       :link-type: ref
 
-      **07. Connectors & Pinouts**
+      **05. Demos and tutorials**
       ^^^
 
-      .. image:: images/chapter-thumbnails/07-connectors-and-pinouts.jpg
+      .. image:: images/chapter-thumbnails/05-demos-and-tutorials.jpg
          :align: center
          :alt: BeaglePlay Chapter07 thumbnail
 
       +++
 
-      Connectors pinout diagrams and more.
-
-   .. grid-item-card:: 
-      :link: beagleplay-expansion
-      :link-type: ref
-
-      **08. Expansion**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/08-expansion.jpg
-         :align: center
-         :alt: BeaglePlay Chapter08 thumbnail
-
-      +++
-
-      BeaglePlay board expansion interface
+      Demos and tutorials for easy testing capabilities of the available 
+      hardware elements of the board.
 
    .. grid-item-card:: 
       :link: beagleplay-support-documents
       :link-type: ref
 
-      **10. Support**
+      **06. Support documents**
       ^^^
 
-      .. image:: images/chapter-thumbnails/10-support-documents.jpg
+      .. image:: images/chapter-thumbnails/06-support-documents.jpg
          :align: center
          :alt: BeaglePlay Chapter10 thumbnail
 
       +++
 
-      User support document for easy development.
-
-   .. grid-item-card:: 
-      :link: beagleplay-mechanical-specifications
-      :link-type: ref
-
-      **11. Mechanical Specifications**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/11-mechanical-specifications.jpg
-         :align: center
-         :alt: BeaglePlay Chapter11 thumbnail
-
-      +++
-
-      Mechanical dimensions.
-
-   .. grid-item-card:: 
-      :link: beagleplay-additional-pictures
-      :link-type: ref
-
-      **12. Additional Pictures**
-      ^^^
-
-      .. image:: images/chapter-thumbnails/12-additional-pictures.jpg
-         :align: center
-         :alt: BeaglePlay Chapter12 thumbnail
-
-      +++
-
-      BeaglePlay Additional Pictures
+      User support documents with hardware & software repositories and 
+      information what might be missing in the docs.
 
 .. raw:: latex
 
@@ -173,12 +134,6 @@ BeaglePlay
    01-introduction
    02-quick-start
    03-design-and-specifications.rst
-   04-detailed-overview
-   05-high-level-specifications
-   06-detailed-hardware-design
-   07-connectors-and-pinouts
-   08-expansion
-   10-support-documents
-   11-mechanical-specifications
-   12-additional-pictures
-
+   04-connectors-and-pinouts
+   05-demos-and-tutorials
+   06-support-documents
