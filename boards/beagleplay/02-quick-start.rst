@@ -56,7 +56,17 @@ to browse documents and start programming your BeaglePlay!
     BeaglePlay VSCode IDE (192.168.7.2:3000)
 
 
-.. tip::
-    Next few chapters are all about the beagleplay hardware design, specifications, connectors, pinouts, and expansion. 
-    If you just want to start experimenting with the board without focusing on the technical details, there are various 
-    demos and tutorials available for you to try out in :ref:`beagleplay-demos-and-tutorials` chapter.
+Demos and Tutorials
+*******************
+
+.. toctree::
+   :maxdepth: 1
+
+   demos-and-tutorials/using-serial-console
+   demos-and-tutorials/connect-wifi
+   demos-and-tutorials/using-grove
+   demos-and-tutorials/using-mikrobus
+   demos-and-tutorials/using-qwiic
+   demos-and-tutorials/using-oldi
+   demos-and-tutorials/using-csi
+   demos-and-tutorials/zephyr-cc1352-development
