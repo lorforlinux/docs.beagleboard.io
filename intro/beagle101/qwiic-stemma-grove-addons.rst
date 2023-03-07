@@ -16,7 +16,7 @@ For simplicity sake, I'll use these definitions
 * **board**: the Linux single board computer with the embedded interface controller you are using
 * **module**: a kernel module that might contain the driver
 
-.. _bone101_i2c:
+.. _beagle101_i2c:
 
 Using I2C with Linux drivers
 ****************************
@@ -82,15 +82,15 @@ Read further to discover how to find these bits of magic text used above.
 
 The generic steps are fairly simple:
 
-1. :ref:`Identify the name and address used to load the appropriate driver for your add-on <bone101_i2c_driver_name>`
-2. :ref:`Ensure the driver is included in your kernel build <bone101_i2c_kernel_cfg>`
-3. :ref:`Identify the location of the I2C signals on the board and the controller link in Linux <bone101_i2c_dev>`
-4. :ref:`Ensure the board pinmux is set properly to expose the I2C peripheral <bone101_i2c_pinmux>`
-5. :ref:`Ensure the board to add-on connection is good <bone101_i2c_wiring>`
-6. :ref:`Issue the Linux command to load the driver <bone101_i2c_command>`
-7. :ref:`Identify and utilize the interface provided by the driver <bone101_i2c_iio>`
+1. :ref:`Identify the name and address used to load the appropriate driver for your add-on <beagle101_i2c_driver_name>`
+2. :ref:`Ensure the driver is included in your kernel build <beagle101_i2c_kernel_cfg>`
+3. :ref:`Identify the location of the I2C signals on the board and the controller link in Linux <beagle101_i2c_dev>`
+4. :ref:`Ensure the board pinmux is set properly to expose the I2C peripheral <beagle101_i2c_pinmux>`
+5. :ref:`Ensure the board to add-on connection is good <beagle101_i2c_wiring>`
+6. :ref:`Issue the Linux command to load the driver <beagle101_i2c_command>`
+7. :ref:`Identify and utilize the interface provided by the driver <beagle101_i2c_iio>`
 
-.. _bone101_i2c_driver_name:
+.. _beagle101_i2c_driver_name:
 
 Driver name
 ===========
@@ -129,37 +129,37 @@ Searching through the kernel sources, we can find the driver code at
   within the text of the driver source, not just the filenames.
 
 
-.. _bone101_i2c_kernel_cfg:
+.. _beagle101_i2c_kernel_cfg:
 
 Kernel configuration
 ====================
 
-.. _bone101_i2c_dev:
+.. _beagle101_i2c_dev:
 
 I2C signals and controller
 ==========================
 
-.. _bone101_i2c_pinmux:
+.. _beagle101_i2c_pinmux:
 
 Pinmuxing
 =========
 
-.. _bone101_i2c_wiring:
+.. _beagle101_i2c_wiring:
 
 Wiring
 ======
 
-.. _bone101_i2c_command:
+.. _beagle101_i2c_command:
 
 Load driver
 ===========
 
-.. _bone101_i2c_iio:
+.. _beagle101_i2c_iio:
 
 Interface
 =========
 
-.. _bone101_i2c_addons:
+.. _beagle101_i2c_addons:
 
 Finding I2C add-on modules
 ==========================
@@ -172,7 +172,7 @@ Finding I2C add-on modules
   * `Sparkfun list of QWIIC devices <https://www.sparkfun.com/qwiic>`__
   * `Adafruit STEMMA QT introduction <https://learn.adafruit.com/introducing-adafruit-stemma-qt/sparkfun-qwiic>`__
 
-.. _bone101_i2c_pitfalls:
+.. _beagle101_i2c_pitfalls:
 
 Pitfalls
 ========

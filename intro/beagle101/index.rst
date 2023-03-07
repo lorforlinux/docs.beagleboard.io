@@ -1,13 +1,13 @@
-.. _intro_bone101:
+.. _intro_beagle-101:
 
-Bone101
-#######
+Beagle 101
+###########
 
 .. note::
    This page is under construction. Most of the information here is drastically out of date.
 
-This is a collection of articles to aide in quickly understanding how to make use of BeagleBone boards
-and other Beagles running Linux. Most of the useful information has moved to :ref:`bone-cook-book-home`, but some articles
+This is a collection of articles to aide in quickly understanding how to make use of Beagles running Linux.
+Most of the useful information has moved to :ref:`bone-cook-book-home`, but some articles
 are being built here from a different perspective.
 
 Articles under construction or to be imported and updated:
@@ -19,5 +19,5 @@ Articles under construction or to be imported and updated:
    :maxdepth: 1
    :hidden:
 
-   /intro/bone101/qwiic-stemma-grove-addons.rst
+   /intro/beagle101/qwiic-stemma-grove-addons.rst
 

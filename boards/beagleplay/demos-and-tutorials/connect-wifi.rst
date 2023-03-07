@@ -3,17 +3,17 @@
 Connect WiFi
 #############
 
-If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`_.
+If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`.
 
-Alternatively, you can use `wpa_cli` over a shell connection through:
+Alternatively, you can use ``wpa_cli`` over a shell connection through:
 
 * the serial console,
-* VS-Code or `ssh` over an USB network connection,
-* VS-Code or `ssh` over an Ethernet connection,
-* VS-Code or `ssh` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`_, or
-* :ref:`a local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`_.
+* VSCode or `ssh` over an USB network connection,
+* VSCode or `ssh` over an Ethernet connection,
+* VSCode or `ssh` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`, or
+* :ref:`a local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`.
 
-Once you have a shell connection, follow the :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`_.
+Once you have a shell connection, follow the :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`.
 
 .. _beagleplay-wifi-access-point:
 

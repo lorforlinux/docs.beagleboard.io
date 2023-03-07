@@ -57,6 +57,12 @@ Access VSCode
 Once connected, you can browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ to access the VSCode IDE 
 to browse documents and start programming your BeaglePlay!
 
+.. note::
+
+   You may get a warning about an invalid or self-signed certificate. This is a limitation of
+   not having a public URL for your board. If you have any questions about this, please as on
+   https://forum.beagleboard.org/tag/play.
+
 .. figure:: images/vscode.png
     :width: 1400
     :align: center

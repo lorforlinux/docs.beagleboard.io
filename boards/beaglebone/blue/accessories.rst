@@ -256,7 +256,7 @@ I2C devices
 
 -  See
    :ref:`One-Liner-Module-Tests#i2c <beaglebone-blue-one-liner-tests>`__
--  See :ref:`bone101_i2c`.
+-  See :ref:`beagle101_i2c`.
 
 .. _uart_devices:
 

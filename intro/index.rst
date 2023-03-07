@@ -33,6 +33,6 @@ projects ongoing on our :ref:`contribution` page.
    :maxdepth: 2
 
    /intro/support/index
-   /intro/bone101/index
+   /intro/beagle101/index
    /intro/contribution/index
 

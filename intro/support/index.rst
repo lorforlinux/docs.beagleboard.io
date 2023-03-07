@@ -103,7 +103,7 @@ form:
 Understanding Your Beagle
 *************************
 
--  :ref:`intro_bone101`
+-  :ref:`intro_beagle-101`
 -  `Hardware <https://beagleboard.org/Support/Hardware+Support>`_
 -  `Software <https://beagleboard.org/Support/Software+Support>`_
 -  :ref:`books-home`
