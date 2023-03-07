@@ -7,10 +7,10 @@ If you have a monitor and keyboard/mouse combo connected, the easiest way is to 
 
 Alternatively, you can use ``wpa_cli`` over a shell connection through:
 
-* the serial console,
-* VSCode or `ssh` over an USB network connection,
-* VSCode or `ssh` over an Ethernet connection,
-* VSCode or `ssh` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`, or
+* the :ref:`serial console <beagleplay-serial-console>`,
+* VSCode or ``ssh`` over a USB network connection,
+* VSCode or ``ssh`` over an Ethernet connection,
+* VSCode or ``ssh`` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`, or
 * :ref:`a local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`.
 
 Once you have a shell connection, follow the :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`.
@@ -41,7 +41,7 @@ will want to have DHCP enabled, but that is the typical default. Connect to the 
 "BeaglePlay" or "BeagleBone".
 
 .. note::
-   The configuration for the access point is in the file system at `/etc/hostapd/hostapd.conf`.
+   The configuration for the access point is in the file system at ``/etc/hostapd/hostapd.conf``.
 
 Once your are connected to the access point, BeaglePlay should provide your computer an IP address and use 192.168.8.1 for
 itself. It should also be broadcasting the mDNS name "beagleplay.local".
@@ -148,9 +148,6 @@ your board to WiFi (if password is correct).
 
 wpa_cli (shell)
 ****************
-
-.. tip:: 
-    Checkout :ref:`beagleplay-serial-console` section.
 
 Swap out "mywifi" and "mypassword" with your network SSID and password, respectively.
 
