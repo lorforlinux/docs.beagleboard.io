@@ -31,7 +31,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
    :caption: Introduction
 
    /intro/support/index
-   /intro/bone101/index
+   /intro/beagle101/index
    /intro/contribution/index
 
 

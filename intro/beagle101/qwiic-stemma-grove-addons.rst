@@ -82,13 +82,13 @@ Read further to discover how to find these bits of magic text used above.
 
 The generic steps are fairly simple:
 
-1. :ref:`Identify the name and address used to load the appropriate driver for your add-on <beagle101_i2c_driver_name>`
-2. :ref:`Ensure the driver is included in your kernel build <beagle101_i2c_kernel_cfg>`
-3. :ref:`Identify the location of the I2C signals on the board and the controller link in Linux <beagle101_i2c_dev>`
-4. :ref:`Ensure the board pinmux is set properly to expose the I2C peripheral <beagle101_i2c_pinmux>`
-5. :ref:`Ensure the board to add-on connection is good <beagle101_i2c_wiring>`
-6. :ref:`Issue the Linux command to load the driver <beagle101_i2c_command>`
-7. :ref:`Identify and utilize the interface provided by the driver <beagle101_i2c_iio>`
+1. :ref:`Identify driver name and address <beagle101_i2c_driver_name>`
+2. :ref:`Ensure driver is enabled in kernel build <beagle101_i2c_kernel_cfg>`
+3. :ref:`Identify I2C signals on board and controller in Linux <beagle101_i2c_dev>`
+4. :ref:`Ensure pinmux set to I2C <beagle101_i2c_pinmux>`
+5. :ref:`Ensure add-on connection is good <beagle101_i2c_wiring>`
+6. :ref:`Issue Linux command to load driver <beagle101_i2c_command>`
+7. :ref:`Identify and utilize interface provided by driver <beagle101_i2c_iio>`
 
 .. _beagle101_i2c_driver_name:
 
@@ -96,7 +96,7 @@ Driver name
 ===========
 
 One resource that is very helpful is the list that Vaishnav put together for supporting
-Mikroelektronika Click add-ons. His `list of Click add-ons with driver information <https://git.beagleboard.org/jkridner/manifesto/-/blob/main/click_info.csv>`__ can help a lot with matching
+Mikroelektronika Click add-ons. This `list of Click add-ons with driver information <https://git.beagleboard.org/beagleconnect/manifesto/-/blob/main/click_info.csv>`__ can help a lot with matching
 a device to the driver name, device address, and kernel configuration setting.
 
 .. note::
