@@ -16,7 +16,7 @@ BeagleConnect Freedom initial production firmware is release 0.0.3 of our own fo
 
 https://git.beagleboard.org/beagleconnect/zephyr/micropython/-/releases/0.0.3
 
-You can verify this version by using `mcumgr` over a UDP connection or `mcuboot` over the serial console shell.
+You can verify this version by using ``mcumgr`` over a UDP connection or ``mcuboot`` over the serial console shell.
 
 Examples
 ********
