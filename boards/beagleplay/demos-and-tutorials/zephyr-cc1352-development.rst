@@ -211,18 +211,10 @@ Steps
    You may find `Linux-WPAN.org <https://linux-wpan.org/documentation.html>`_ useful.
 
 
+.. _beagleplay-zephyr-development-setup:
+
 Setup Zephyr development on BeaglePlay
 *********************************************
-
-.. note::
-
-    Currently, https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 isn't public, so you'll need
-    to replace that with git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352
-
-.. note::
-
-    Currently, the active branch is `patches-for-cc1352p7`, not `sdk`. I plan to make `sdk` a slightly
-    cleaner version.
 
 #. Download and setup Zephyr for BeaglePlay
 
@@ -241,8 +233,7 @@ Setup Zephyr development on BeaglePlay
         tar xf zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         rm zephyr-sdk-0.15.1_linux-aarch64_minimal.tar.gz
         ./zephyr-sdk-0.15.1/setup.sh -t arm-zephyr-eabi -c
-        #west init -m https://git.beagleboard.org/beagleplay/zephyr-beagle-cc1352 --mr sdk zephyr-beagle-cc1352-sdk
-        west init -m git@git.beagleboard.org:beagleplay/zephyr-beagle-cc1352 --mr patches-for-cc1352p7 zephyr-beagle-cc1352-sdk
+        west init -m https://git.beagleboard.org/beagleconnect/zephyr/zephyr --mr sdk zephyr-beagle-cc1352-sdk
         cd $HOME/zephyr-beagle-cc1352-sdk
         python3 -m virtualenv zephyr-beagle-cc1352-env
         echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
@@ -258,7 +249,6 @@ Setup Zephyr development on BeaglePlay
 #. Activate the Zephyr build environment
 
     If you exit and come back, you'll need to reactivate your Zephyr build environment.
-
 
     .. code-block:: bash
         
@@ -284,7 +274,7 @@ Setup Zephyr development on BeaglePlay
         This is free software; see the source for copying conditions.  There is NO
         warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-    
+ 
 Build applications for BeaglePlay CC1352
 *********************************************
 

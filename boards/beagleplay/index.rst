@@ -13,7 +13,7 @@ BeaglePlay
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: images/front.png                        | .. image:: images/back.png                              |
+   | .. image:: images/front.webp                       | .. image:: images/back.webp                             |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |

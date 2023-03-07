@@ -7,16 +7,18 @@ What is BeagleConnect™ Freedom?
 ********************************
 
 BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
-and is the first available BeagleConnect™ solution. It implements:
+and is the first available BeagleConnect™ solution. It features:
 
-* BeagleConnect™ node device function for Bluetooth Low-Energy (BLE) and Sub-GHz 802.15.4 long range wireless
-* USB-based serial console and firmware updates
-* 2x `mikroBUS sockets <https://www.mikroe.com/mikrobus>`_ with BeagleConnect™ protocol support.
+* BeagleConnect™ node device for Bluetooth Low-Energy (BLE) and Sub-GHz 802.15.4 long range wireless,
+* Works with BeaglePlay® gateway,
+* USB-based serial console and firmware updates,
+* 2x `mikroBUS sockets <https://www.mikroe.com/mikrobus>`_,
+* On-board light and humidity/temperature sensors,
+* Battery-charger circuit, and
+* Buzzer, LEDs and buttons for user programming.
 
 .. image:: media/beagleconnect_freedom_annotated.webp
-   :width: 600
    :align: center
-   :height: 400
    :alt: BeagleConnect Freedom Annotated
 
 What makes BeagleConnect™ new and different?

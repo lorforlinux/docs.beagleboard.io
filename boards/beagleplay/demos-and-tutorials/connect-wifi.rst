@@ -3,6 +3,63 @@
 Connect WiFi
 #############
 
+If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`_.
+
+Alternatively, you can use `wpa_cli` over a shell connection through:
+
+* the serial console,
+* VS-Code or `ssh` over an USB network connection,
+* VS-Code or `ssh` over an Ethernet connection,
+* VS-Code or `ssh` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`_, or
+* :ref:`a local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`_.
+
+Once you have a shell connection, follow the :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`_.
+
+.. _beagleplay-wifi-access-point:
+
+BeaglePlay WiFi Access Point
+****************************
+
+Running the default image, your BeaglePlay should be hosting a WiFi access point with the SSID "BeaglePlay-XXXX", where *XXXX*
+is selected based on a hardware identifier on your board to try to increase the chances it will be unique.
+
+.. tip::
+   The "XXXX" will be a combination of numbers and the letters A through F.
+
+.. note::
+   At some point, we plan to introduce a captive portal design that will enable using your smartphone to provide
+   BeaglePlay local WiFi login information. For now, you'll need to use a computer and 
+
+Step 1. Connect to BeaglePlay-XXXX
+==================================
+
+.. tip::
+   The password is either "BeaglePlay" or "BeagleBone" and the IP address will be 192.168.8.1.
+
+Whatever your computer provides as a mechanism for searching for WiFi access points and connecting to them, just use that. You
+will want to have DHCP enabled, but that is the typical default. Connect to the "BeaglePlay-XXXX" access point and use the password
+"BeaglePlay" or "BeagleBone".
+
+.. note::
+   The configuration for the access point is in the file system at `/etc/hostapd/hostapd.conf`.
+
+Once your are connected to the access point, BeaglePlay should provide your computer an IP address and use 192.168.8.1 for
+itself. It should also be broadcasting the mDNS name "beagleplay.local".
+
+Step 2. Browse to 192.168.8.1
+=============================
+
+Once you have connected to the access point, you can simply open VSCode by browsing to `https://192.168.8.1:3000 <https://192.168.8.1:3000>`__.
+
+Within VSCode, you can press "CTRL-`" to open a terminal session to get access to a shell connection.
+
+You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and use the password `temppwd`.
+
+.. important::
+   Once logged in, you should change the default password using the `passwd` command.
+
+.. _beagleplay-wifi-wpa-gui:
+
 wpa_gui
 ********
 
@@ -87,29 +144,59 @@ your board to WiFi (if password is correct).
 
     Connecting to WiFi access point
 
-wpa_cli (console)
-*****************
+.. _beagleplay-wifi-wpa-cli:
+
+wpa_cli (shell)
+****************
 
 .. tip:: 
     Checkout :ref:`beagleplay-serial-console` section.
 
-Connect your BeaglePlay to a USB to UART cable through the UART debug 
-header pins near USB-C port of BeaglePlay. 
+Swap out "mywifi" and "mypassword" with your network SSID and password, respectively.
 
-.. table:: connecting BeaglePlay to USB-UART bridge
+.. code-block:: shell-session
 
-    +-------------------------+----------------------------+
-    | USB to UART debug probe | BeaglePlay UART debug port |
-    +=========================+============================+
-    | Transmit (TX)           | Recieve (RX)               |
-    +-------------------------+----------------------------+
-    | Recieve (RX)            | Transmit (RX)              |
-    +-------------------------+----------------------------+
-    | Ground (GND)            | Ground (GND)               |
-    +-------------------------+----------------------------+
+   debian@BeaglePlay:~$ wpa_cli scan
+   Selected interface 'wlan0'
+   OK
+   debian@BeaglePlay:~$ wpa_cli scan_results
+   Selected interface 'wlan0'
+   bssid / frequency / signal level / flags / ssid
+   68:ff:7b:03:0a:8a	5805	-49	[WPA2-PSK-CCMP][WPS][ESS]	mywifi
+   debian@BeaglePlay:~$ wpa_cli add_network
+   Selected interface 'wlan0'
+   1
+   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mywifi"'
+   Selected interface 'wlan0'
+   OK
+   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mypassword"'
+   Selected interface 'wlan0'
+   OK
+   debian@BeaglePlay:~$ wpa_cli enable_network 1
+   Selected interface 'wlan0'
+   OK
+   debian@BeaglePlay:~$ ifconfig wlan0
+   wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+           inet 192.168.0.245  netmask 255.255.255.0  broadcast 192.168.0.255
+           inet6 fe80::6e30:2aff:fe29:757d  prefixlen 64  scopeid 0x20<link>
+           inet6 2601:408:c083:b6c0::e074  prefixlen 128  scopeid 0x0<global>
+           ether 6c:30:2a:29:75:7d  txqueuelen 1000  (Ethernet)
+           RX packets 985  bytes 144667 (141.2 KiB)
+           RX errors 0  dropped 0  overruns 0  frame 0
+           TX packets 52  bytes 10826 (10.5 KiB)
+           TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-After getting the access to BeaglePlay's console using application like ``tio`` 
-you can follow the exact steps in the section below to setup your WiFi using ``wpa_cli``.
+.. important::
+   The single quotes around the double quotes are needed to make sure the
+   double quotes are given to `wpa_cli`. It expects to see them.
+
+.. note::
+   For more information about `wpa_cli`, see https://w1.fi/wpa_supplicant/
+
+To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. This is described
+in :ref:`beagleplay-wifi-wpa-cli-xfce`_.
+
+.. _beagleplay-wifi-wpa-cli-xfce:
 
 wpa_cli (XFCE)
 **************

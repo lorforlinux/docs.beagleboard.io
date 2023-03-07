@@ -3,8 +3,9 @@
 Using BeagleConnect Greybus
 ###########################
 
-This section describes the usage model we are developing. To use the current
-code in development, please refer to the [development] section.
+.. note::
+
+   This is still in development.
 
 BeagleConnect wireless user experience
 ***************************************

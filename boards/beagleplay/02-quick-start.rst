@@ -3,10 +3,6 @@
 Quick Start Guide
 ####################
 
-.. tip::
-    This section provides you with the basic quick start guide for Tutorials & demos 
-    you can checout :ref:`beagleplay-demos-and-tutorials` chapter.
-
 What's included in the box?
 ****************************
 
@@ -14,12 +10,25 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 
 1. BeaglePlay board
 2. A sub-GHz antenna
-3. 3pcs 2.5GHz/5GHz antennas
+3. Three (3) 2.5GHz/5GHz antennas
+4. Plastic standoff hardware
+5. Quick-start card
 
 .. image:: images/45fontall.png
     :width: 1400
     :align: center
     :alt: BeaglePlay box contents
+
+Attaching antennas
+******************
+
+.. note::
+   Attaching the antennas can be complicated. This is not the expected BeaglePlay
+   experience and we hope to fix it in the future. This is necessary if you
+   plan to use any of the wireless connectivity features.
+
+.. important::
+   Add documentation on attaching antennas here.
 
 Tethering to PC
 ****************
@@ -45,7 +54,7 @@ For tethering to your PC you'll need a USB-C to USB-A data cable.
 Access VSCode
 ****************
 
-Once connected you can browse to ``192.168.7.2:3000`` to access the VSCode IDE 
+Once connected, you can browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ to access the VSCode IDE 
 to browse documents and start programming your BeaglePlay!
 
 .. figure:: images/vscode.png

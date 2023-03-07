@@ -10,9 +10,9 @@ WiFi, Gigabit Ethernet, sub-GHz wireless, and single-pair Ethernet with power-ov
 compatibility with 1,000s of off-the-shelf add-ons and a customized Debian Linux image, BeaglePlay
 makes expansion and customization easy. It also includes ribbon-cable connections for cameras and
 touch-screen displays, and a socket for a battery-backed real-time-clock, making it ideal for
-human-machine interface designs. With its competitive price and user-friendly design, BeaglePlay
-provides a positive development experience for users. Some of the real world applications for BeaglePlay 
-includes:
+human-machine interface designs. With its competitive price and user-friendly design, we expect BeaglePlay
+to provide you with a positive development experience. Some of the real world applications for BeaglePlay 
+include:
 
 - Building/industrial automation gateways
 - Digital signage
@@ -35,7 +35,7 @@ includes:
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: images/45front.png                      | .. image:: images/45back.png                            |
+   | .. image:: images/45front.webp                     | .. image:: images/45back.webp                           |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
    +----------------------------------------------------+---------------------------------------------------------+
@@ -76,7 +76,6 @@ Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug i
     |                            | - PHY: DP83TD510E 10Mbit single-pair Ethernet phy                         |
     |                            | - Connector: RJ-11 jack                                                   |
     |                            | - Power (PoDL): Input: N/A (protection to 12V), Output: 5V @ 250mA        |
-    |                            | - Isolation: ???                                                          |
     +----------------------------+---------------------------------------------------------------------------+
     | USB type-C                 | - PD/CC: None, HS shorted to both sides                                   |
     |                            | - Power: Input: 5V @ 3A, Output: N/A                                      |
@@ -89,14 +88,15 @@ Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug i
     |                            | - mikroBUS connector (I2C/UART/SPI/MCAN/MCASP/PWM/GPIO)                   |
     |                            | - Grove connector (I2C/UART/ADC/PWM/GPIO)                                 |
     |                            | - QWIIC connector (I2C)                                                   |
-    |                            | - CSI connector like BBAI-64/R-Pi                                         |
+    |                            | - CSI connector compatible with BeagleBone AI-64, Raspberry Pi Zero W,    |
+    |                            |   or Raspberry Pi Compute Module IO Board (22-pin)                        |
     |                            | - OLDI connector (40-pin)                                                 |
     +----------------------------+---------------------------------------------------------------------------+
             
 AM6254 SoC 
 ===========
 
-The low-cost AM62x Sitara™ MPU family of application processors are built for Linux® application development. 
+The low-cost Texas Instruments AM625 family of application processors are built for Linux® application development. 
 With scalable Arm® Cortex®-A53 performance and embedded features, such as: dual-display support and 3D 
 graphics acceleration, along with an extensive set of peripherals that make the AM62x device well-suited 
 for a broad range of industrial and automotive applications while offering intelligent features and optimized 
@@ -109,7 +109,7 @@ Some of these applications include:
 - Touchless building access
 - Driver monitoring systems
 
-AM62x Sitara™ processors are industrial-grade in the 13 x 13 mm package (ALW) and can meet the AEC-Q100 
+AM625 processors are industrial-grade in the 13 x 13 mm package (ALW) and can meet the AEC-Q100 
 automotive standard in the 17.2 x 17.2 mm package (AMC). Industrial and Automotive functional safety 
 requirements can be addressed using the integrated Cortex-M4F cores and dedicated peripherals, which 
 can all be isolated from the rest of the AM62x processor.
@@ -134,7 +134,7 @@ This section describes the key components on the board, their location and funct
 Front components location
 -------------------------
 
-.. figure:: images/components-front.jpg
+.. figure:: images/components-front.webp
     :width: 1400
     :align: center
     :alt: BeaglePlay board front components location
@@ -155,13 +155,13 @@ Front components location
     +----------------------------+---------------------------------------------------------------------------+
     | JTAG (AM62)                | AM6254 SoC JTAG debug port.                                               |
     +----------------------------+---------------------------------------------------------------------------+
-    | mikroBUS                   | MikroElectronica mikroBUS connected to CC1352P7 for MikroE Click boards.  |
+    | mikroBUS                   | mikroBUS for MikroE Click boards or any compliant add-on.                 |
     +----------------------------+---------------------------------------------------------------------------+
     | OLDI                       | AM6254 OpenLDI(OLDI) display port.                                        |
     +----------------------------+---------------------------------------------------------------------------+
     | CSI2                       | AM6254 Camera Serial Interface (CSI2).                                    |
     +----------------------------+---------------------------------------------------------------------------+
-    | Grove                      | SeeedStudio grove modules connection port.                                |
+    | Grove                      | SeeedStudio Grove modules connection port.                                |
     +----------------------------+---------------------------------------------------------------------------+
     | QWIIC                      | SparkFun QWIIC / Adafruit STEMMA-QT port for I2C modules connectivity.    |
     +----------------------------+---------------------------------------------------------------------------+
@@ -192,7 +192,7 @@ Front components location
 Back components location
 -------------------------
 
-.. figure:: images/components-back.jpg
+.. figure:: images/components-back.webp
     :width: 1400
     :align: center
     :alt: BeaglePlay board back components location

@@ -1,10 +1,10 @@
 .. _beagleconnect_freedom_home:
 
-BeagleConnect™ Freedom
-######################
+BeagleConnect Freedom
+#####################
 
 
-BeagleConnect Freedom is an open-hardware wireless hardware platform developed by BeagleBoard.org and built around the TI CC1352P7 microcontroller, which supports both 
+BeagleConnect™ Freedom is an open-hardware wireless hardware platform developed by BeagleBoard.org and built around the TI CC1352P7 microcontroller, which supports both 
 2.4-GHz and long-range, low-power Sub-1 GHz wireless protocols. Rapidly prototyping of IoT applications is accelerated by hardware compatibility with over 1,000 mikroBUS add-on sensors,
 acutators, indicators and additional connectivity and storage options, and backed with software support utilizing the Zephyr scalable and modular real-time operating system, allowing developers
 to tailor the solution to their specific needs.  BeagleConnect Freedom further includes MSP430F5503 for USB-to-UART functionality, temperature and humidity sensor, light sensor, SPI flash,
@@ -17,7 +17,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
 
    This is a work in progress, for latest documentation please visit https://docs.beagleboard.org/latest/
 
-.. image:: images/font1.png
+.. image:: images/front1.webp
   :align: center
   :alt: BeagleConnect™ Freedom board
   :scale: 42%
