@@ -108,7 +108,7 @@ from source using appropriate design tools.
       **BeagleConnect™ Freedom**
       ^^^
 
-      .. image:: boards/beagleconnect/freedom/media/BeagleConnect-Freedom-C5-Boards-Presentation.png
+      .. image:: boards/beagleconnect/freedom/images/front1.webp
          :align: center
       +++
 
