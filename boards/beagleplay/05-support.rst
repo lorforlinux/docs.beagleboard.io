@@ -32,7 +32,7 @@ Hardware docs
 ==============
 
 For any hardware document like schematic diagram PDF, 
-EDA files, and more you can checkout the 
+EDA files, issue tracker, and more you can checkout the 
 `BeaglePlay repository <https://git.beagleboard.org/beagleplay/beagleplay>`_.
 
 Software docs
@@ -46,6 +46,9 @@ Support forum
 
 For any additional support you can submit your queries on our forum,
 https://forum.beagleboard.org/tag/play
+
+Pictures
+========
 
 .. _beagleplay-change-history:
 
@@ -78,7 +81,7 @@ specific hardware and software revisions are noted below.
 Board Changes
 ==============
 
-For all changes, see https://git.beagleboard.org/beagleplay/beagleplay. Versions released intor production
+For all changes, see https://git.beagleboard.org/beagleplay/beagleplay. Versions released into production
 are noted below.
 
 .. table:: BeaglePlay board change history
@@ -86,6 +89,6 @@ are noted below.
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |
     +=========+============================================================+======================+=======+
-    | A2      |   Initial production version                               |                      |       |
+    | TBD     |   Initial production version                               | 2023-03-08           | JK    |
     +---------+------------------------------------------------------------+----------------------+-------+
 
