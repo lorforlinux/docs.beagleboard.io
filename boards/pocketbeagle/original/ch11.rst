@@ -54,7 +54,7 @@ RMA Support
 
 If you feel your board is defective or has issues and before returning
 merchandise, please seek approval from the manufacturer using
-`beagleboard.org/support/rma <https://beagleboard.org/support/rma>`__.
+`beagleboard.org/support/rma <https://www.beagleboard.org/rma>`__.
 You will need the manufacturer, model, revision and serial number of the
 board.
 

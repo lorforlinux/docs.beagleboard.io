@@ -16,3 +16,4 @@ BeagleBoard Docs
    boards/index.rst
    projects/index.rst
    books/index.rst
+   accessories/index.rst

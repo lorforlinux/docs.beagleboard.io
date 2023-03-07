@@ -75,7 +75,7 @@ UART, I2C, CAN, Quadrature encoders, PWR
 4-wire JST-SH (1mm pitch)
 
 -  `4-wire Grove
-   cable <https://www.seeedstudio.com/Grove-Universal-4-Pin-to-Beaglebone-Blue-4-Pin-Female-JST-SH-Convertion-Cable-(10-pcs-pack)-p-3026.html>`__
+   cable <https://www.seeedstudio.com/Grove-Universal-4-Pin-to-BeagleBone-Blue-4-Pin-Female-JST-SH-Convertion-Cable-(10-pcs-pack)-p-3026.html>`__
    (`Digi-Key <https://www.digikey.com/product-detail/en/seeed-technology-co-ltd/114991495/1597-1622-ND/8558386>`__)
 -  `Hobby King SKU
    258000190-0 <https://hobbyking.com/en_us/jst-sh-4pin-male-with-pig-tail.html>`__
@@ -104,7 +104,7 @@ SPI, GPIO, ADC
 -  `Digi-Key
    housings <https://www.digikey.com/product-detail/en/jst-sales-america-inc/SHR-06V-S-B/455-1381-ND/759870>`__
 -  `6-wire Grove cable (4
-   populated) <https://www.seeedstudio.com/Grove-Universal-4-Pin-to-Beaglebone-Blue-6-Pin-Female-JST-SH-Convertion-Cable-(10-pcs-pack)-p-3027.html>`__
+   populated) <https://www.seeedstudio.com/Grove-Universal-4-Pin-to-BeagleBone-Blue-6-Pin-Female-JST-SH-Convertion-Cable-(10-pcs-pack)-p-3027.html>`__
    (`Digi-Key <https://www.digikey.com/product-detail/en/seeed-technology-co-ltd/114991496/1597-1623-ND/8558387>`__)
 
 Motors

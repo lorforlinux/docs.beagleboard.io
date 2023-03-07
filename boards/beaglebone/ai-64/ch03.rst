@@ -22,10 +22,10 @@ All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter ar
    Fig 3.1 BeagleBone AI-64 connections ports
 
 Methods of operation
---------------------------
+----------------------
 
 1.  Tethered to a PC
-2.  Standalone development platform in a PC configurtion using external peripherals
+2.  Standalone development platform in a PC configuration using external peripherals
 
 .. _whats-in-the-box:
 
@@ -75,7 +75,7 @@ Each of these configurations is discussed in general terms in the following sect
 Tethered To A PC
 -------------------------
 
-In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the conected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. 
+In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the connected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. 
 
 .. _tethered-figure:
 

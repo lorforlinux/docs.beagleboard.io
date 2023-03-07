@@ -72,7 +72,7 @@ python3 files with the Relay Cape work well!
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the Relay Cape. Please remember
-that older firmware will work differently on the BBB or other related am335x SBC.
+that older firmware will work differently on the BeagleBone Black or other related am335x SBC.
 
 C Source with File Descriptors
 ******************************
@@ -88,13 +88,13 @@ You can name this file GPIO.c and use gcc to handle compiling the source into a 
     This is an example of programming GPIO from C using the sysfs interface on
     a BeagleBone Black/BeagleBone Black Wireless or other am335x board with the Relay Cape.
 
-    Use the Relay Cape attached to the BBB for a change in seconds and then exit with CTRL-C.
+    Use the Relay Cape attached to the BeagleBone Black for a change in seconds and then exit with CTRL-C.
 
     The original source can be found here by Mr. Tranter: https://github.com/tranter/blogs/blob/master/gpio/part5/demo1.c
 
     Jeff Tranter <jtranter@ics.com>
 
-    and...Seth. I changed the source a bit to fit the BBB and Relay Cape while using sysfs.
+    and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using sysfs.
 
     */
 
@@ -249,4 +249,4 @@ One thing to note: `sudo apt install cmake`
 
 8. ./LibGPIO
 
-These are a few examples on how to use the RelayCape and am335x supported BBBW/BBB SBCs.
+These are a few examples on how to use the RelayCape and am335x supported BeagleBone Black Wireless/BeagleBone Black SBCs.
