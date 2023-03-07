@@ -63,12 +63,11 @@ and apply power, either by the USB cable or 5V adapter.
 If using an original BeagleBone or PocketBeagle, you are done.
 
 .. note::
-    If using BeagleBone Black, BeagleBone Blue, BeagleBone AI, BeagleBone AI-64 or other board with on-board eMMC
+    If using BeagleBone Black, BeagleBone Blue, BeagleBone AI, BeagleBone AI-64, BeaglePlay or other board with on-board eMMC
     flash and you desire to write the image to your on-board eMMC, you'll need to follow the
     instructions at http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC.
-    When the flashing is complete, all 4 USRx LEDs will be steady on or off. The latest Debian
-    flasher images automatically power down the board upon completion. This can take up to 45 minutes.
-    Power-down your board, remove the SD card and apply power again to finish.
+    When the flashing is complete, all 4 USRx LEDs will be steady off and possibly
+    power down the board upon completion. This can take up to 45 minutes.  Power-down your board, remove the SD card and apply power again to finish.
 
 Start your Beagle
 *****************
@@ -101,7 +100,7 @@ blinking in their default configurations. Consult your :ref:`boards` documentati
 - USR1 is typically configured at boot to light during SD (microSD) card accesses.
 - USR2 is typically configured at boot to light during CPU activity.
 - USR3 is typically configured at boot to light during eMMC accesses.
-- USR4/WIFI is typically configured at boot to light with WiFi (client) network association (BeagleBone Blue and BeagleBone AI only).
+- USR4/WIFI is typically configured at boot to light with WiFi (client) network association (Only on boards with built-in WiFi or M.2).
 
 Enable a network connection
 ============================
