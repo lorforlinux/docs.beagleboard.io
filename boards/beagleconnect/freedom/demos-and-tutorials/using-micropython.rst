@@ -21,7 +21,7 @@ You can verify this version by using `mcumgr` over a UDP connection or `mcuboot`
 Examples
 ********
 
-.. code-block: shell-session
+.. code-block:: shell-session
 
         debian@BeaglePlay:~$ sudo systemd-resolve --set-mdns=yes --interface=lowpan0
         debian@BeaglePlay:~$ avahi-browse -r -t _zephyr._tcp
@@ -108,7 +108,7 @@ Examples
 
 Press reset
 
-.. code-block: shell-session
+.. code-block:: shell-session
 
         I: gd25q16c@0: SFDP v 1.0 AP ff with 2 PH
         I: PH0: ff00 rev 1.0: 9 DW @ 30
