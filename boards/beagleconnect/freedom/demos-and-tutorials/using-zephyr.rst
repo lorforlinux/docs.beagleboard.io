@@ -19,11 +19,13 @@ environment. Please adjust as you see fit.
 Required
 ========
 
-* BeaglePlay
+* BeaglePlay with provided antennas
 
-* BeagleConnect Freedom
+* BeagleConnect Freedom with provided USB cable
 
 * 2x 5V/3A USB power adapters
+
+* USB Type-C cable for use with BeaglePlay
 
 Recommended
 ===============
@@ -33,13 +35,15 @@ Recommended
 Install the SDK on BeaglePlay
 *****************************
 
-See :ref:`beagleplay-zephyr-development-setup`_.
+See :ref:`beagleplay-zephyr-development-setup`.
 
 .. important::
 
-   #TODO: note the tested version of software for BeaglePlay
+   TODO: note the tested version of software for BeaglePlay
    
-   #TODO: describe how to know it is working
+.. important::
+
+   TODO: describe how to know it is working
 
 Change default board
 ====================
