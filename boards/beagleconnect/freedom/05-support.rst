@@ -68,15 +68,13 @@ Document Changes
 For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
 specific hardware and software revisions are noted below.
 
-.. _beagleconnect-freedom-board-changes:
-
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |
     +=========+============================================================+======================+=======+
     |         |                                                            |                      |       |
     +---------+------------------------------------------------------------+----------------------+-------+
 
-.. _beagleconnect-board-changes:
+.. _beagleconnect-freedom-board-changes:
 
 Board Changes
 ==============
@@ -84,7 +82,7 @@ Board Changes
 For all changes, see https://git.beagleboard.org/beagleconnect/freedom. Versions released into production
 are noted below.
 
-.. table:: BeaglePlay board change history
+.. table:: BeagleConnect Freedom board change history
 
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |
