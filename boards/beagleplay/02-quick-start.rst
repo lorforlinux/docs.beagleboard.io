@@ -70,6 +70,7 @@ to browse documents and start programming your BeaglePlay!
 
     BeaglePlay VSCode IDE (192.168.7.2:3000)
 
+.. _beagleplay-demos-and-tutorials:
 
 Demos and Tutorials
 *******************
