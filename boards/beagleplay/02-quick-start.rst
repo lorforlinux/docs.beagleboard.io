@@ -79,9 +79,9 @@ Demos and Tutorials
 
    demos-and-tutorials/using-serial-console
    demos-and-tutorials/connect-wifi
+   demos-and-tutorials/using-qwiic
    demos-and-tutorials/using-grove
    demos-and-tutorials/using-mikrobus
-   demos-and-tutorials/using-qwiic
    demos-and-tutorials/using-oldi
    demos-and-tutorials/using-csi
    demos-and-tutorials/zephyr-cc1352-development

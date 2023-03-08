@@ -33,7 +33,7 @@ Hardware docs
 
 For any hardware document like schematic diagram PDF, 
 EDA files, issue tracker, and more you can checkout the 
-`BeaglePlay repository <https://git.beagleboard.org/beagleplay/beagleplay>`_.
+`BeaglePlay design repository <https://git.beagleboard.org/beagleplay/beagleplay>`_.
 
 Software docs
 ==============
@@ -89,6 +89,6 @@ are noted below.
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |
     +=========+============================================================+======================+=======+
-    | TBD     |   Initial production version                               | 2023-03-08           | JK    |
+    | A2      |   Initial production version                               | 2023-03-08           | JK    |
     +---------+------------------------------------------------------------+----------------------+-------+
 
