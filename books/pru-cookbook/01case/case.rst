@@ -587,7 +587,7 @@ explaining how the PRUs get this type of performance.
      :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
      :linenos:
 
-  :download:`e1.31-test.py <../code/02start/e1.31-test.py>` 
+  :download:`e1.31-test.py <../code/02start/e1.31-test.py>`
 
   .. TODO document the code
 
@@ -996,11 +996,11 @@ Now, suppose you wanted to run the
 `LED blink <https://simppru.readthedocs.io/en/latest/examples/led_blink/>`_
 example which is reproduced here.
 
-.. literalinclude:: ../code/02start/blink.sim
+.. literalinclude:: ../code/01case/blink.sim
    :caption: LED Blink (blink.sim)
    :linenos:
 
-:download:`blink.sim <../code/02start/blink.sim>`
+:download:`blink.sim <../code/01case/blink.sim>`
 
 Just run simppru
 
