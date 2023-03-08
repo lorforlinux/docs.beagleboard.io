@@ -19,7 +19,7 @@ Background and overview
    * See `elinux.org Cape Expansion Headers for BeagleBone page <https://elinux.org/Beagleboard:Cape_Expansion_Headers>`_
    * See :ref:`BeagleBone Black System Reference Manual Connectors section <beagleboneblack-connectors>`
    * See :ref:`BeagleBone AI System Reference Manual Connectors section <beaglebone-ai-connectors>`
-   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <TODO>`
+   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <cape-board-support-1>`
 
 .. note:: Below, when mentioning "Black", this is true for all AM3358-based BeagleBone boards. "AI" is AM5729-based. "AI-64" is TDA4VM-based.
 
@@ -51,19 +51,19 @@ More details can be found in :ref:`bone-methodology`.
 
     Legend
 
-    * |D|: Digital general purpose input and output (GPIO)
-    * |I|: Inter-integrated circuit bus (|I2C|) ports
-    * |S|: Serial peripheral interface (SPI) ports
-    * |U|: Universal asynchronous reciever/transmitter (UART) serial ports
-    * |C|: CAN
-    * |A|: Analog inputs
-    * |E|: PWM
-    * |Q|: Capture/EQEP
-    * |M|: MMC/SD/SDIO
-    * |B|: I2S/audio serial ports
-    * |L|: LCD
-    * |P|: PRU
-    * |Y|: ECAP
+    * |D| : Digital general purpose input and output (GPIO)
+    * |I| : Inter-integrated circuit bus (|I2C|) ports
+    * |S| : Serial peripheral interface (SPI) ports
+    * |U| : Universal asynchronous reciever/transmitter (UART) serial ports
+    * |C| : CAN
+    * |A| : Analog inputs
+    * |E| : PWM
+    * |Q| : Capture/EQEP
+    * |M| : MMC/SD/SDIO
+    * |B| : I2S/audio serial ports
+    * |L| : LCD
+    * |P| : PRU
+    * |Y| : ECAP
 
 .. table:: Overall
 

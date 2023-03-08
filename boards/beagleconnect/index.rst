@@ -30,12 +30,6 @@ as well as libraries for communicating over various networks, BeagleConnect
 simply eliminates the need for these libraries by shifting the burden into the 
 most massive and collaborative software project of all time, the `Linux kernel <https://en.wikipedia.org/wiki/Linux_kernel>`_.
 
-.. image:: freedom/media/bcf-c5-boards.jpg
-   :width: 600
-   :align: center
-   :height: 400
-   :alt: BeagleConnect Freedom C5 Boards
-
 These are the tools used to automate things in 
 `scientific data collection <https://en.wikipedia.org/wiki/Data_collection_system>`_, 
 `data science <https://en.wikipedia.org/wiki/Data_science>`_, 
@@ -105,13 +99,8 @@ For home automaters, integration into WebThings…
    :alt: BeagleConnect
 
 
-BeagleConnect Boards
+BeagleConnect boards
 ********************
 
-Get started using your BeagleConnect.
-
-.. toctree::
-   :maxdepth: 2
-
-   .. /boards/beagleconnect/freedom/index.rst
+* :ref:`beagleconnect_freedom_home`
 
