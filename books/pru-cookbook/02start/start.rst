@@ -170,7 +170,7 @@ Solution
 ---------
 
 On your host computer open a browser and go to
-http://beagleboard.org/latest-images.
+http://www.beagleboard.org/distros.
 
 .. TODO  Update links
 

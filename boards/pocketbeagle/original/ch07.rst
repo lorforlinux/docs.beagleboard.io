@@ -289,7 +289,7 @@ Figure 46, with one Click Board facing each direction. When choosing
 Click boards, make sure you are checking that they meet the 3.3V
 requirements for PocketBeagle. A growing number of community members are
 trying out various Click Boards and posting results on the
-`'PocketBeagle Wiki mikroBus Click Boards page' <https://github.com/beagleboard/pocketbeagle/wiki/mikroBus%E2%84%A2-Click-Boards>`__.
+`'PocketBeagle Wiki mikroBus Click Boards page' <https://git.beagleboard.org/beagleboard/pocketbeagle/-/wikis/mikroBus%E2%84%A2-Click-Boards>`__.
 
 .. figure:: images/46fig-PB-Mikro.png 
    :align: center
@@ -305,7 +305,7 @@ Setting up an additional USB Connection
 You can add an additional USB connection to PocketBeagle easily by
 connecting a microUSB breakout. By default in the current software, the
 system should be configured to use this port as a host. Keep up to date
-on this project on the `'PocketBeagle Wiki FAQ' <https://github.com/beagleboard/pocketbeagle/wiki/FAQ>`__.
+on this project on the `'PocketBeagle Wiki FAQ' <https://git.beagleboard.org/beagleboard/pocketbeagle/-/wikis/FAQ>`__.
 
 .. image:: images/PocketBeagle_microUSB_bb1.png
     :align: center

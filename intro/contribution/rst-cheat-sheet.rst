@@ -39,9 +39,9 @@ matching overline and underline to indicate a heading.
 
 1. Document heading (H1) use ``#``.
 2. First heading (H2) use ``*``.
-3. First heading (H2) use ``=``.
-4. First heading (H2) use ``-``.
-5. First heading (H2) use ``~``.
+3. Second heading (H3) use ``=``.
+4. Third heading (H4) use ``-``.
+5. Fourth heading (H5) use ``~``.
 
 .. note::
     You can include only one (H1) ``#`` in a single documentation page.
@@ -187,7 +187,7 @@ We have three types of links to use in sphinx,
 3. Explicit links (labels that can be used anywhere in the project).
 
 External links
-***************
+==============
 
 For a simple link to a site the format is
 
@@ -238,6 +238,61 @@ label for this chapter. These are called the explicit links amd you can referenc
 
 Both can be used inside/outside of the document and the rendered link will take you directly to that specific segment.
 
+Annotations
+***********
+
+.. code-block:: ReStructuredText
+
+    .. callout:: <1>
+
+        .. code-block:: python <2>
+
+            import numpy as np # <﻿1> <3>
+            import math # <﻿2>
+
+        .. annotations:: <4>
+
+            <﻿1> Comment #1 <5>
+
+            <﻿2> Comment #2
+
+    .. annotations::
+
+        <1> Indent everything under a `callout`
+
+        <2> Create a normal block for what you want to annotate
+
+        <3> Add ``<number>`` everywhere you want to annotate. Put it under a comment block if you want the code to run when copied directly.
+
+        <4> Create an `annotations` block to hold your callout comments
+
+        <5> Create an entry, separating each with a blank line and prefixing them with ``<number>``
+
+Output
+------
+
+.. callout::
+
+    .. code-block:: python
+
+        import numpy as np # <1>
+        import math # <2>
+
+    .. annotations::
+
+        <1> Comment #1
+
+        <2> Comment #2
+
+.. important::
+
+    In the example, I inserted the invisible UTF character U+FEFF after the opening ``<`` to avoid it being
+    interpreted as a callout symbol. Be sure to remove that character if you attempt to copy-and-paste the
+    example.
+
+More
+====
+
 .. rubric:: footnotes
 
 .. [#] `reStructuredText wiki page <https://en.wikipedia.org/wiki/ReStructuredText>`_
@@ -247,3 +302,4 @@ Both can be used inside/outside of the document and the rendered link will take 
 .. [#] `Quick reStructuredText (sourceforge) <https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets>`_
 
 .. [#] `A two-page cheatsheet for restructured text <https://github.com/ralsina/rst-cheatsheet>`_
+

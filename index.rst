@@ -31,7 +31,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
    :caption: Introduction
 
    /intro/support/index
-   /intro/bone101/index
+   /intro/beagle101/index
    /intro/contribution/index
 
 
@@ -45,13 +45,29 @@ design, including the
 `materials <https://git.beagleboard.org/explore/projects/topics/boards>`__ to modify the designs
 from source using appropriate design tools.
 
+* Check out our latest board at: :ref:`beagleplay-home`
 * Check out our most popular board at: :ref:`beagleboneblack-home`
-* Check out our latest board at: :ref:`bbai64-home`
+* Check out our highest performance board at: :ref:`bbai64-home`
 * Find all of our on: :ref:`boards`
 
 .. grid:: 1 1 2 3
    :margin: 4 4 0 0
    :gutter: 4
+
+   .. grid-item-card::
+      :link: beagleplay-home
+      :link-type: ref
+
+      **BeaglePlay®**
+      ^^^
+
+      .. image:: boards/beagleplay/images/45front.png
+         :align: center
+      +++
+
+      A 64-bit ARM computer designed to simplify physical world interactions
+      to the connected world.
+
 
    .. grid-item-card::
       :link: bbai64-home
@@ -84,6 +100,20 @@ from source using appropriate design tools.
       microcontrollers and tons of features like Ethernet and HDMI – 
       credit card sized with over a decade of support, software and 
       materials behind it making it ready for any application.
+
+   .. grid-item-card::
+      :link: beagleconnect_freedom_home
+      :link-type: ref
+
+      **BeagleConnect™ Freedom**
+      ^^^
+
+      .. image:: boards/beagleconnect/freedom/images/front1.webp
+         :align: center
+      +++
+
+      BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
+      and is the first available BeagleConnect™ solution.
 
    .. grid-item-card:: 
       :link: beagleboneblack-home
@@ -315,6 +345,7 @@ Capes
    :hidden:
    :caption: Boards
    
+   /boards/beagleplay/index
    /boards/beaglebone/ai-64/index
    /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
