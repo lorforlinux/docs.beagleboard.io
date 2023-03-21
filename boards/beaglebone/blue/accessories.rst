@@ -256,7 +256,7 @@ I2C devices
 
 -  See
    :ref:`One-Liner-Module-Tests#i2c <beaglebone-blue-one-liner-tests>`__
--  See :ref:`bone101_i2c`.
+-  See :ref:`beagle101_i2c`.
 
 .. _uart_devices:
 
@@ -279,4 +279,4 @@ Bluetooth devices
 =====================
 
 -  `WowWee Groove Cube
-   Speaker <https://github.com/beagleboard/beaglebone-blue/wiki/One-Liner-Module-Tests#Grove_I2C_modules>`__
+   Speaker <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/One-Liner-Module-Tests#grove-i2c-modules>`__

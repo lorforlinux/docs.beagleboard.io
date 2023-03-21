@@ -260,7 +260,7 @@ Discission
 -----------
 
 Suppose you want to make ``P9_31`` a PRU output pin. First go to the
-`am5729 System Reference Manual <https://github.com/beagleboard/beaglebone-ai/wiki/System-Reference-Manual#p8.10-p8.13>`_
+`am5729 System Reference Manual <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/System-Reference-Manual>`_
 and look up ``P9_31``.  
 
 .. tip::

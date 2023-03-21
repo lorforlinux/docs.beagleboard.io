@@ -414,7 +414,7 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 
    The provided pre-compiled overlays enable the |I2C| bus driver only, not a specific device driver.  Either a custom
    overlay is required to load the device driver or usermode device driver loading can be performed, depending on
-   the driver. See :ref:`bone101_i2c` for information on loading |I2C| drivers from userspace.
+   the driver. See :ref:`beagle101_i2c` for information on loading |I2C| drivers from userspace.
 
 .. code-block:: c
    :linenos:

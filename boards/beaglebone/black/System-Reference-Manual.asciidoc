@@ -231,7 +231,7 @@ Before returning the board, please visit
 _BeagleBoard.org/support_
 
 For up to date SW images and technical information refer to
-https://beagleboard.org/latest-images[_https://beagleboard.org/latest-images_]
+https://www.beagleboard.org/distros[_https://www.beagleboard.org/distros_]
 
 All support for this board is provided via community support at
 https://beagleboard.org/discuss[_beagleboard.org/discuss_]
@@ -5684,7 +5684,7 @@ Provided there is:
 This directory is not always kept up to date in every SW release due to
 the frequency of changes of the SW. The best solution is to download the
 files from
-https://beagleboard.org/latest-images[_beagleboard.org/latest-images_]
+https://www.beagleboard.org/distros[_beagleboard.org/latest-images_]
 
 We do not track SW revision of what is in the eMMC. SW is tracked
 separately from the HW due to the frequency of changes which would

@@ -3,8 +3,6 @@
 Support
 #########
 
-.. note:: #TODO# all the links need updating and content moved into this repo, especially bone101.
-
 Getting started
 ***************
 
@@ -23,18 +21,18 @@ Getting support
 ***************
 
 BeagleBoard.org products and `open
-hardware <https://www.oshwa.org/definition/>`__ designs are supported
+hardware <https://www.oshwa.org/definition/>`_ designs are supported
 via the on-line community resources. We are very confident in our
 community’s ability to provide useful answers in a timely manner. If you
 don’t get a productive response within 24 hours, please escalate issues
 to Jason Kridner (contact info available on the `About
-Page <https://beagleboard.org/about>`__). In case it is needed, Jason
+Page <https://beagleboard.org/about>`_). In case it is needed, Jason
 will help escalate issues to suppliers, manufacturers or others. Be sure
 to provide a link to your questions on the `community
-forums <https://forum.beagleboard.org>`__ as answers will be provided
+forums <https://forum.beagleboard.org>`_ as answers will be provided
 there.
 
-Be sure to ask `smart questions <http://www.catb.org/~esr/faqs/smart-questions.html>`__
+Be sure to ask `smart questions <http://www.catb.org/~esr/faqs/smart-questions.html>`_
 that provide the following:
 
 *  What are you trying to accomplish?
@@ -51,14 +49,23 @@ that provide the following:
 Diagnostic tools
 ================
 
-Best to be prepared with good diagnostic information to aide with
-support.
-
-.. note::
-   #TODO#: Need a reference to how to run `beagle-version`.
+Best to be prepared with good diagnostic information to aide with support.
 
 -  Output of `beagle-version` script needed for support requests
--  `Beagle Tester source <https://git.beagleboard.org/jkridner/beagle-tester>`__
+-  `Beagle Tester source <https://git.beagleboard.org/jkridner/beagle-tester>`_
+
+.. figure:: images/beagle-version.png
+   :align: center
+   :alt: Run beagle-version
+
+.. figure:: images/beagle-version-download.png
+   :align: center
+   :alt: Download beagle-version output
+
+.. tip::
+   For debugging purposes you can either share the ``beagle-version.txt`` file you just downloaded 
+   using the steps shown in pictures above Or you can just paste the terminal output of ``sudo beagle-version`` 
+   to https://pastebin.com/ and send us the link.
 
 Community resources
 ===================
@@ -69,19 +76,18 @@ BeagleBoard.org is a “community” project with free support only given to
 those who are willing to discussing their issues openly for the benefit
 of the entire community.
 
--  `Frequently Asked Questions <https://forum.beagleboard.org/c/faq>`__
--  `Mailing List <https://forum.beagleboard.org>`__
--  `Live Chat <https://beagleboard.org/chat>`__
+-  `Frequently Asked Questions <https://forum.beagleboard.org/c/faq>`_
+-  `Mailing List <https://forum.beagleboard.org>`_
+-  `Live Chat <https://beagleboard.org/chat>`_
 
 .. _consulting-resources:
 
 Consulting and other resources
 ==============================
 
-Need timely response or contract resources because you are building a
-product?
+Need timely response or contract resources because you are building a product?
 
--  `Resources <https://beagleboard.org/resources>`__
+- `Resources <https://beagleboard.org/resources>`_
 
 Repairs
 =======
@@ -89,27 +95,29 @@ Repairs
 Repairs and replacements only provided on unmodified boards purchased
 via an authorized distributor within the first 90 days. All repaired
 board will have their flash reset to factory contents. For repairs and
-replacements, please contact ‘support’ at BeagleBoard.org using the RMA
+replacements, please contact ``support`` at BeagleBoard.org using the RMA
 form:
 
--  `RMA request <https://www.beagleboard.org/rma>`__
+-  `RMA request <https://www.beagleboard.org/rma>`_
 
 Understanding Your Beagle
 *************************
 
--  `BeagleBone Introduction <https://beagleboard.org/Support/bone101>`__
--  `Hardware <https://beagleboard.org/Support/Hardware+Support>`__
--  `Software <https://beagleboard.org/Support/Software+Support>`__
--  `Books <https://beagleboard.org/books>`__
+-  :ref:`intro_beagle-101`
+-  `Hardware <https://beagleboard.org/Support/Hardware+Support>`_
+-  `Software <https://beagleboard.org/Support/Software+Support>`_
+-  :ref:`books-home`
 
-   -  `Exploring BeagleBone <https://beagleboard.org/ebb>`__
-   -  `BeagleBone Cookbook <https://beagleboard.org/cookbook>`__
-   -  `Bad to the Bone <https://beagleboard.org/bad-to-the-bone>`__
+   - :ref:`pru-cookbook-home`
+   - :ref:`bone-cook-book-home`
+   - `Exploring BeagleBone <https://beagleboard.org/ebb>`_
+   - `Bad to the Bone <https://beagleboard.org/bad-to-the-bone>`_
 
 Working with Cape Add-on Boards
 *******************************
 
 - :ref:`capes`
 - :ref:`beaglebone-cape-interface-spec`
+- :ref:`accessories-home`
 
 

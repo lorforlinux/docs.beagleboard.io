@@ -27,8 +27,9 @@ See the LICENSE file regarding the copyright of these materials.
 
 This LICENSE does not apply to BeagleBoard.org Foundation trademarks. Express written permission is required
 for use of BeagleBoard.org Foundation trademarks, including, but not limited to BeagleBoard.org, BeagleBone,
-BeagleBoard, PocketBeagle, BeagleBoard Compatible, BeagleBoard Embedded, and BeagleBoard Approved. Please visit
-https://www.beagleboard.org/brand-use and https://www.beagleboard.org/partner-programs for additional details.
+BeagleBoard, PocketBeagle, BeagleV, BeaglePlay, BeagleConnect, BeagleBoard Compatible, BeagleBoard Embedded,
+and BeagleBoard Approved. Please visit https://www.beagleboard.org/brand-use and
+https://www.beagleboard.org/partner-programs for additional details.
 
 
 ADDITIONAL TERMS

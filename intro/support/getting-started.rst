@@ -17,7 +17,7 @@ but executing this step, the longest step, will ensure the rest will go as smoot
 Download the latest software image
 ============================================
 
-Download the latest firmware image from `beagleboard.org distros <https://www.beagleboard.org/distros>`_ page.
+Download the latest software image from `beagleboard.org distros <https://www.beagleboard.org/distros>`_ page.
 The "IoT" images provide more free disk space if you don't need to use a graphical user interface (GUI).
 
 .. NOTE::
@@ -63,19 +63,20 @@ and apply power, either by the USB cable or 5V adapter.
 If using an original BeagleBone or PocketBeagle, you are done.
 
 .. note::
-    If using BeagleBone Black, BeagleBone Blue, BeagleBone AI, BeagleBone AI-64 or other board with on-board eMMC
+    If using BeagleBone Black, BeagleBone Blue, BeagleBone AI, BeagleBone AI-64, BeaglePlay or other board with on-board eMMC
     flash and you desire to write the image to your on-board eMMC, you'll need to follow the
     instructions at http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC.
-    When the flashing is complete, all 4 USRx LEDs will be steady on or off. The latest Debian
-    flasher images automatically power down the board upon completion. This can take up to 45 minutes.
-    Power-down your board, remove the SD card and apply power again to finish.
+    When the flashing is complete, all 4 USRx LEDs will be steady off and possibly
+    power down the board upon completion. This can take up to 45 minutes.  Power-down your board, remove the SD card and apply power again to finish.
 
 Start your Beagle
 *****************
 
 If any step fails, it is recommended to update to the
-`latest software image <https://beagleboard.org/latest-images>`_
+`latest software image <https://www.beagleboard.org/distros>`_
 using the instructions above.
+
+.. _board-power-and-boot:
 
 Power and boot
 ================
@@ -83,23 +84,23 @@ Power and boot
 Most Beagles can be powered via a USB cable, providing a convenient way to provide both power to your
 Beagle and connectivity to your computer. Be sure the cable is of good quality and your source can provide enough power.
 
-Alternatively, your Beagle may have a barrel jack.
+Alternatively, your Beagle may have a barrel jack which can take power from a wall adapter. 
+Checkout :ref:`accessories-power-supplies` to get the correct adapter for your Beagle.
 
-.. Note::
-	Use only a 5V center positive adapter for all Beagles except BeagleBone Blue and BeagleBoard-X15 (12V).
+.. Danger::
+	Make sure to use only a 5V center positive adapter for all Beagles except BeagleBone Blue and BeagleBoard-X15 (12V).
 
 If you are using your Beagle with an `SD (microSD) card <https://en.wikipedia.org/wiki/Secure_Digital>`_, make sure it is inserted ahead of providing power.
 Most Beagles include programmed on-board flash and therefore do not require an SD card to be inserted.
 
 You'll see the power (PWR or ON) LED lit steadily. Within a minute or so, you should see the other LEDs
-blinking in their default configurations. Consult the Quick Start Guide (QSG) or System Reference
-Manual (SRM) for your board to locate these LEDs.
+blinking in their default configurations. Consult your :ref:`boards` documentation to locate these LEDs.
 
 - USR0 is typically configured at boot to blink in a heartbeat pattern.
 - USR1 is typically configured at boot to light during SD (microSD) card accesses.
 - USR2 is typically configured at boot to light during CPU activity.
 - USR3 is typically configured at boot to light during eMMC accesses.
-- USR4/WIFI is typically configured at boot to light with WiFi (client) network association (BeagleBone Blue and BeagleBone AI only).
+- USR4/WIFI is typically configured at boot to light with WiFi (client) network association (Only on boards with built-in WiFi or M.2).
 
 Enable a network connection
 ============================
@@ -124,7 +125,12 @@ network will add a suffix such as beaglebone-2.local.
 Browse to your Beagle
 ============================
 
-A web server with an IDE should be running on your Beagle. Point your browser to it to begin development.
+A web server with an Visual Studio Code (IDE) should be running on your Beagle. 
+Point your browser to **http://192.168.7.2:3000** to begin development.
+
+.. image:: images/vscode.png
+   :align: center
+   :alt: Visual Studio Code
 
 .. NOTE::
     Use either `Firefox <https://www.mozilla.org/firefox>`_ or `Chrome <https://www.google.com/chrome>`_
@@ -207,8 +213,7 @@ an older operating system or need additional drivers for serial access to older 
 Hardware documentation
 **********************
 
-Be sure to check check the latest hardware documentation for your board at https://docs.beagleboard.org.
-
+Be sure to check check the latest hardware documentation for your board at https://docs.beagleboard.org. 
 Detailed design materials for various boards can be found at https://git.beagleboard.org/explore/projects/topics/boards.
 
 Books
