@@ -5,8 +5,8 @@
    height="48.449795mm"
    viewBox="-597839 -5435 23041.788 19074.51"
    id="svg22445"
-   sodipodi:docname="BeagleConnectFreedom-Back-Annotated.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="BeagleConnect-Freedom-Back-Annotated.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    inkscape:export-filename="/home/lorforlinux/Documents/Upside Down Labs/Custom Technology Development/BeagleBoard.org/Github/beagleconnect/graphics/BeagleConnectFreedom-Back-Annotated.png"
    inkscape:export-xdpi="2000"
    inkscape:export-ydpi="2000"
@@ -20741,21 +20741,23 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="693"
+     inkscape:window-width="1280"
+     inkscape:window-height="1367"
      id="namedview22447"
      showgrid="false"
-     inkscape:zoom="1.194107"
-     inkscape:cx="61.970996"
-     inkscape:cy="92.956494"
+     inkscape:zoom="1.6887223"
+     inkscape:cx="142.71144"
+     inkscape:cy="187.12372"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:current-layer="svg22445"
      inkscape:snap-nodes="false"
      inkscape:document-rotation="0"
      inkscape:pagecheckerboard="0"
-     inkscape:document-units="mm" />
+     inkscape:document-units="mm"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <title
      id="title2">BeagleConnect C5 (Back)</title>
   <desc
@@ -65560,7 +65562,7 @@
        id="tspan17210"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-577988.81"
-       y="5933.9487">DIO_17</tspan></text>
+       y="5933.9487">DIO_19</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect17214"
@@ -65579,7 +65581,7 @@
        id="tspan17216"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-578287.56"
-       y="6722.7036">DIO_16</tspan></text>
+       y="6722.7036">DIO_20</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect17220"
@@ -65598,7 +65600,7 @@
        id="tspan17222"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-578328.94"
-       y="7511.4614">DIO_13</tspan></text>
+       y="7511.4614">DIO_21</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect17226"
@@ -65617,7 +65619,7 @@
        id="tspan17228"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-578322.25"
-       y="8300.2188">DIO_12</tspan></text>
+       y="8300.2188">DIO_22</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect17232"
@@ -65892,7 +65894,7 @@
        id="tspan257707"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-595690"
-       y="5922.3784">DIO_23</tspan></text>
+       y="5922.3784">DIO_24</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect274634"
@@ -65911,7 +65913,7 @@
        id="tspan274636"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-595913.19"
-       y="6711.1343">DIO_06</tspan></text>
+       y="6711.1343">DIO_05</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect274640"
@@ -65930,7 +65932,7 @@
        id="tspan274642"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:437.444px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke-width:82.0212"
        x="-595712.75"
-       y="7499.8921">DIO_28</tspan></text>
+       y="7499.8921">DIO_27</tspan></text>
   <rect
      style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:39.37;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect274646"

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.1"
-   width="36.30125mm"
-   height="59.894379mm"
-   viewBox="-597839 -5435 14291.826 23580.202"
+   width="27.88879mm"
+   height="46.18964mm"
+   viewBox="-597839 -5435 10979.835 18184.695"
    id="svg22445"
-   sodipodi:docname="BeagleConnectFreedom-Back.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   inkscape:export-filename="/home/lorforlinux/Documents/Upside Down Labs/Custom Technology Development/BeagleBoard.org/Github/beagleconnect/graphics/BeagleConnectFreedom-Back.png"
-   inkscape:export-xdpi="2000"
-   inkscape:export-ydpi="2000"
+   sodipodi:docname="BeagleConnect-Freedom-Back.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="BeagleConnectFreedom-Back-Annotated.png"
+   inkscape:export-xdpi="742"
+   inkscape:export-ydpi="742"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -3610,7 +3610,7 @@
        xlink:href="#linearGradient171281"
        id="radialGradient48464"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.5216759,-0.03143235,0.01596308,1.0880437,-146027.35,-593828.74)"
+       gradientTransform="matrix(1.1853671,-0.02448542,0.01243505,0.84757284,-112552.33,-594868.3)"
        cx="95303.32"
        cy="7402.9824"
        fx="95303.32"
@@ -12676,7 +12676,7 @@
        xlink:href="#linearGradient171281"
        id="radialGradient171273"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.54244375,-0.00394821,0.00486916,0.4304751,-66104.502,-591308.72)"
+       gradientTransform="matrix(0.4225571,-0.00307561,0.00379302,0.33533488,-50293.398,-592905.22)"
        cx="95303.32"
        cy="7402.9824"
        fx="95303.32"
@@ -19649,7 +19649,7 @@
        fy="-856.58539"
        r="306.60764"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7766192,0,0,1.7766192,428953.01,2086.3581)" />
+       gradientTransform="matrix(1.3839648,0,0,1.3839648,201866.29,424.04046)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient103045"
@@ -19659,7 +19659,7 @@
        x2="-570539.94"
        y2="-829.26453"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7766192,0,0,1.7766192,428773.27,2037.8193)" />
+       gradientTransform="matrix(1.3839648,0,0,1.3839648,201726.27,386.22936)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient171281"
@@ -19836,7 +19836,7 @@
        xlink:href="#linearGradient171281"
        id="radialGradient103478"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.43016928,-0.0034675,0.00386134,0.37806281,-50265.073,-594961.34)"
+       gradientTransform="matrix(0.33509665,-0.00270114,0.00300794,0.29450634,-37954.675,-595750.57)"
        cx="95303.32"
        cy="7402.9824"
        fx="95303.32"
@@ -20683,6 +20683,54 @@
        y1="8122.6802"
        x2="5481.9429"
        y2="8122.6802" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath53463">
+      <rect
+         style="opacity:0.53268;fill:#aa8800;fill-opacity:1;stroke:none;stroke-width:86.9217;stroke-opacity:1"
+         id="rect53465"
+         width="962.72821"
+         height="9765.6211"
+         x="87217.906"
+         y="6438.7656"
+         ry="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath411190">
+      <rect
+         style="opacity:0.53268;fill:#aa8800;fill-opacity:1;stroke:none;stroke-width:86.9217;stroke-opacity:1"
+         id="rect411188"
+         width="962.72821"
+         height="9765.6211"
+         x="87217.906"
+         y="6438.7656"
+         ry="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath53463-3">
+      <rect
+         style="opacity:0.53268;fill:#aa8800;fill-opacity:1;stroke:none;stroke-width:86.9217;stroke-opacity:1"
+         id="rect53465-6"
+         width="962.72821"
+         height="9765.6211"
+         x="87217.906"
+         y="6438.7656"
+         ry="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath411373">
+      <rect
+         style="opacity:0.53268;fill:#aa8800;fill-opacity:1;stroke:none;stroke-width:86.9217;stroke-opacity:1"
+         id="rect411371"
+         width="962.72821"
+         height="9765.6211"
+         x="87217.906"
+         y="6438.7656"
+         ry="0" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -20693,13 +20741,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="693"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
      id="namedview22447"
      showgrid="false"
      inkscape:zoom="2.388214"
-     inkscape:cx="41.034849"
-     inkscape:cy="123.52327"
+     inkscape:cx="135.66623"
+     inkscape:cy="139.43474"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -20707,16 +20755,18 @@
      inkscape:snap-nodes="false"
      inkscape:document-rotation="0"
      inkscape:pagecheckerboard="0"
-     inkscape:document-units="mm" />
+     inkscape:document-units="mm"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <title
      id="title2">BeagleConnect C5 (Back)</title>
   <desc
      id="desc4">Picture generated by PcbDraw</desc>
   <g
-     transform="matrix(-1,0,0,1,-482735.3,-14535.269)"
+     transform="matrix(-1,0,0,1,-484615.68,-18853.106)"
      id="highlightContainer" />
   <g
-     transform="matrix(-1,0,0,1,-482735.3,-14535.269)"
+     transform="matrix(-1,0,0,1,-484615.68,-18853.106)"
      id="componentContainer">
     <!--Diode_SMD:D_SOD-523.back-->
     <g
@@ -20840,13 +20890,13 @@
      id="style48427" />
   <g
      id="highlightContainer-1"
-     transform="translate(-718627.92,-19583.117)" />
+     transform="translate(-720508.3,-23900.954)" />
   <g
      id="componentContainer-7"
-     transform="translate(-718627.92,-19583.117)" />
+     transform="translate(-720508.3,-23900.954)" />
   <g
      id="g25059"
-     transform="translate(-660255.15,493.37248)"
+     transform="matrix(0.77898787,0,0,0.77898787,-646613.66,-816.87604)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -20919,7 +20969,7 @@
   </g>
   <g
      id="g171259"
-     transform="translate(-660231.15,581.62371)">
+     transform="matrix(0.77898787,0,0,0.77898787,-646594.97,-748.12934)">
     <rect
        style="fill:#333333;fill-opacity:1;stroke-width:846.298;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3385.23, 846.298;stroke-dashoffset:3469.85"
        id="rect48855"
@@ -20937,7 +20987,7 @@
   </g>
   <g
      id="g171265"
-     transform="translate(-657854.85,581.62371)">
+     transform="matrix(0.77898787,0,0,0.77898787,-644743.85,-748.12934)">
     <rect
        style="fill:#333333;fill-opacity:1;stroke-width:846.298;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3385.23, 846.298;stroke-dashoffset:3469.85"
        id="rect171261"
@@ -20954,7 +21004,7 @@
        y="15732.038" />
   </g>
   <g
-     transform="matrix(-1,0,0,1,-482735.3,-14535.269)"
+     transform="matrix(-0.77898787,0,0,0.77898787,-508327.84,-12524.005)"
      id="boardContainer">
     <g
        clip-path="url(#cut-off)"
@@ -61288,7 +61338,7 @@
      id="g25092"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200"
-     transform="rotate(180,-262426.32,6650.3213)">
+     transform="matrix(-0.77898787,0,0,-0.77898787,-541136.75,9159.832)">
     <rect
        style="opacity:1;fill:url(#radialGradient25069);fill-opacity:1;stroke-width:7143.14;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:28572.8, 7143.14;stroke-dashoffset:29287.1"
        id="rect25061"
@@ -61305,7 +61355,7 @@
   </g>
   <g
      id="g25108"
-     transform="matrix(1.2835533,0,0,1.2835533,-712548.84,1128.3626)"
+     transform="matrix(0.99987245,0,0,0.99987245,-687349.81,-322.22644)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61326,14 +61376,14 @@
        ry="52.399593" />
   </g>
   <g
-     transform="matrix(1.000042,0,0,1.000042,-645961.48,-37068.086)"
+     transform="matrix(1.000042,0,0,1.000042,-647841.86,-41385.923)"
      id="highlightContainer-0" />
   <g
-     transform="matrix(1.000042,0,0,1.000042,-645961.48,-37068.086)"
+     transform="matrix(1.000042,0,0,1.000042,-647841.86,-41385.923)"
      id="componentContainer-5" />
   <g
      id="g5024"
-     transform="matrix(0,-0.71715253,0.71715253,0,-595294.19,10838.679)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-596009.86,7241.992)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61376,7 +61426,7 @@
   </g>
   <g
      id="g48094"
-     transform="matrix(0,-0.71715253,0.71715253,0,-595689.98,10838.679)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-596318.18,7241.992)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61419,7 +61469,7 @@
   </g>
   <g
      id="g48112"
-     transform="matrix(0,-0.71715253,0.71715253,0,-596299.55,10838.679)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-596793.03,7241.992)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61462,7 +61512,7 @@
   </g>
   <g
      id="g48130"
-     transform="matrix(0,-0.71715253,0.71715253,0,-596690.17,10838.679)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-597097.31,7241.992)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61505,7 +61555,7 @@
   </g>
   <g
      id="g48142"
-     transform="matrix(0,-0.71715253,0.71715253,0,-597084.16,10838.679)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-597404.22,7241.992)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61550,7 +61600,7 @@
      id="g48514"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200"
-     transform="rotate(-90,-259403.13,338918.38)">
+     transform="matrix(0,-0.77898787,0.77898787,0,-598368.1,60740.208)">
     <rect
        style="fill:url(#linearGradient48325);fill-opacity:1;stroke:#85857e;stroke-width:0.971252;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:18.8976;stroke-opacity:1"
        id="rect48311"
@@ -61596,18 +61646,18 @@
        ry="29.889357" />
   </g>
   <rect
-     style="fill:url(#radialGradient48464);fill-opacity:1;stroke-width:1586.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6344.98, 1586.25;stroke-dashoffset:6503.61"
+     style="fill:url(#radialGradient48464);fill-opacity:1;stroke-width:1235.67;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4942.66, 1235.67;stroke-dashoffset:5066.23"
      id="rect48462"
-     width="515.13708"
-     height="725.00085"
-     x="-1145.9537"
-     y="-589132.06"
+     width="401.28555"
+     height="564.76685"
+     x="308.52307"
+     y="-591209.62"
      transform="rotate(-90)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200" />
   <g
      id="g48735"
-     transform="translate(-645573.63,4304.2183)"
+     transform="matrix(0.77898787,0,0,0.77898787,-635176.94,2151.7267)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61649,7 +61699,7 @@
   </g>
   <g
      id="g48783"
-     transform="rotate(-90,-265752.91,332918.44)"
+     transform="matrix(0,-0.77898787,0.77898787,0,-598640.63,51119.925)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61691,7 +61741,7 @@
   </g>
   <g
      id="g48793"
-     transform="translate(-645575.02,3499.4814)"
+     transform="matrix(0.77898787,0,0,0.77898787,-635178.02,1524.8464)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61733,7 +61783,7 @@
   </g>
   <g
      id="g49009"
-     transform="matrix(0,0.71715253,-0.71715253,0,-593531.16,882.2927)"
+     transform="matrix(0,0.55865312,-0.55865312,0,-594636.47,-513.91194)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61776,7 +61826,7 @@
   </g>
   <g
      id="g49081"
-     transform="matrix(0,-0.71715253,0.71715253,0,-595789.65,13652.89)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-596395.81,9434.228)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61819,7 +61869,7 @@
   </g>
   <g
      id="g49305"
-     transform="matrix(0,-3.0748693,3.0748693,0,-622825.38,238225.88)"
+     transform="matrix(0,-2.3952859,2.3952859,0,-617456.33,184373.86)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61861,7 +61911,7 @@
   </g>
   <g
      id="g49345"
-     transform="matrix(-2.8403863,0,0,-3.5342229,-573095.14,10971.908)"
+     transform="matrix(-2.2126265,0,0,-2.7531168,-578717.07,7345.776)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61904,7 +61954,7 @@
   </g>
   <g
      id="g49385"
-     transform="translate(-649517.08,5825.4416)"
+     transform="matrix(0.77898787,0,0,0.77898787,-638248.83,3336.7412)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61946,7 +61996,7 @@
   </g>
   <g
      id="g49409"
-     transform="translate(-657786.13,5634.2188)"
+     transform="matrix(0.77898787,0,0,0.77898787,-644690.32,3187.781)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -61988,7 +62038,7 @@
   </g>
   <g
      id="g49469"
-     transform="matrix(0,1.4377506,-1.4377506,0,-582299.46,-100004.21)"
+     transform="matrix(0,1.1199903,-1.1199903,0,-585887.13,-79103.274)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62029,14 +62079,14 @@
        transform="rotate(-90)" />
   </g>
   <g
-     transform="matrix(1.0000092,0,0,1.0000092,-660961.39,-13710.623)"
+     transform="matrix(1.0000092,0,0,1.0000092,-662841.77,-18028.46)"
      id="highlightContainer-7" />
   <g
-     transform="matrix(1.0000092,0,0,1.0000092,-660961.39,-13710.623)"
+     transform="matrix(1.0000092,0,0,1.0000092,-662841.77,-18028.46)"
      id="componentContainer-56" />
   <g
      id="g72717"
-     transform="matrix(1.4515522,0,0,1.4515522,-724603.42,-575.43663)"
+     transform="matrix(1.1307416,0,0,1.1307416,-696740.19,-1649.4653)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62381,7 +62431,7 @@
   </g>
   <g
      id="g170635"
-     transform="matrix(1.4515522,0,0,1.4515522,-733607.35,-590.28963)"
+     transform="matrix(1.1307416,0,0,1.1307416,-703754.14,-1661.0356)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62726,7 +62776,7 @@
   </g>
   <g
      id="g170757"
-     transform="translate(-648158.9,-5814.3109)"
+     transform="matrix(0.77898787,0,0,0.77898787,-637190.82,-5730.4848)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62768,7 +62818,7 @@
   </g>
   <g
      id="g170773"
-     transform="matrix(0,-0.71715253,0.71715253,0,-595140.16,5689.1436)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-595889.88,3230.5667)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62811,7 +62861,7 @@
   </g>
   <g
      id="g170827"
-     transform="matrix(0,0.71715253,-0.71715253,0,-581539.51,1035.4302)"
+     transform="matrix(0,0.55865312,-0.55865312,0,-585295.13,-394.61964)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62854,7 +62904,7 @@
   </g>
   <g
      id="g170845"
-     transform="matrix(0,0.71715253,-0.71715253,0,-593401.48,-2534.8305)"
+     transform="matrix(0,0.55865312,-0.55865312,0,-594535.46,-3175.8093)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62897,7 +62947,7 @@
   </g>
   <g
      id="g170881"
-     transform="matrix(0,0.71715253,-0.71715253,0,-593000.78,-2547.8513)"
+     transform="matrix(0,0.55865312,-0.55865312,0,-594223.33,-3185.9524)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62940,7 +62990,7 @@
   </g>
   <g
      id="g170893"
-     transform="matrix(0,0.71715253,-0.71715253,0,-594403.62,10158.084)"
+     transform="matrix(0,0.55865312,-0.55865312,0,-595316.11,6711.817)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -62983,7 +63033,7 @@
   </g>
   <g
      id="g170915"
-     transform="rotate(180,-267084.81,4469.1463)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-548394.56,5761.614)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63025,7 +63075,7 @@
   </g>
   <g
      id="g170925"
-     transform="rotate(-90,-265882.91,328142.03)"
+     transform="matrix(0,-0.77898787,0.77898787,0,-595021.13,47297.892)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63067,7 +63117,7 @@
   </g>
   <g
      id="g170935"
-     transform="translate(-655577.13,-5797.0004)"
+     transform="matrix(0.77898787,0,0,0.77898787,-642969.54,-5717.0001)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63109,7 +63159,7 @@
   </g>
   <g
      id="g170945"
-     transform="rotate(180,-266687.02,4469.1463)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-547774.82,5761.614)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63151,7 +63201,7 @@
   </g>
   <g
      id="g170955"
-     transform="translate(-654774.55,-5797.0004)"
+     transform="matrix(0.77898787,0,0,0.77898787,-642344.33,-5717.0001)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63193,7 +63243,7 @@
   </g>
   <g
      id="g170965"
-     transform="translate(-653975.13,-5797.0004)"
+     transform="matrix(0.77898787,0,0,0.77898787,-641721.59,-5717.0001)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63235,7 +63285,7 @@
   </g>
   <g
      id="g170975"
-     transform="rotate(180,-266281.6,4469.1463)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-547143.18,5761.614)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63277,7 +63327,7 @@
   </g>
   <g
      id="g171049"
-     transform="rotate(180,-264054.83,11513.213)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-543673.93,16736.099)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63319,7 +63369,7 @@
   </g>
   <g
      id="g171069"
-     transform="rotate(180,-263658.62,10260.71)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-543056.64,14784.73)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63361,7 +63411,7 @@
   </g>
   <g
      id="g171079"
-     transform="rotate(180,-263859.26,11491.579)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-543369.24,16702.394)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63403,7 +63453,7 @@
   </g>
   <g
      id="g171181"
-     transform="rotate(180,-265795.25,7738.0172)"
+     transform="matrix(-0.77898787,0,0,-0.77898787,-546385.45,10854.436)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63445,7 +63495,7 @@
   </g>
   <g
      id="g171217"
-     transform="matrix(0,-0.71715253,0.71715253,0,-590645.52,19780.192)"
+     transform="matrix(0,-0.55865312,0.55865312,0,-592388.6,14207.322)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63487,16 +63537,16 @@
     </g>
   </g>
   <rect
-     style="fill:url(#radialGradient171273);fill-opacity:1;stroke-width:2088;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8352.05, 2088;stroke-dashoffset:8560.83"
+     style="fill:url(#radialGradient171273);fill-opacity:1;stroke-width:1626.53;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6506.15, 1626.53;stroke-dashoffset:6668.78"
      id="rect171267"
-     width="896.45233"
-     height="721.86737"
-     x="-14819.973"
-     y="-588859.19"
+     width="698.3255"
+     height="562.32593"
+     x="-10343.372"
+     y="-590997.06"
      transform="rotate(-90)" />
   <g
      id="g102953"
-     transform="matrix(1.3787701,0,0,1.5118679,201303.93,2301.1374)">
+     transform="matrix(1.0740452,0,0,1.1777268,24530.414,591.35096)">
     <rect
        style="opacity:1;fill:#d6ddfa;fill-opacity:1;stroke-width:1582.16;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6328.67, 1582.16;stroke-dashoffset:6486.9"
        id="rect102863"
@@ -63542,7 +63592,7 @@
   </g>
   <g
      id="g102967"
-     transform="matrix(-1.0359464,0,0,-0.92808523,-1181738.7,5738.8028)">
+     transform="matrix(-0.80698968,0,0,-0.72296713,-1052843.1,3269.2506)">
     <rect
        style="opacity:1;fill:#d6ddfa;fill-opacity:1;stroke-width:1582.16;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6328.67, 1582.16;stroke-dashoffset:6486.9"
        id="rect102955"
@@ -63587,32 +63637,32 @@
        y="1244.7405" />
   </g>
   <rect
-     style="fill:#ddba78;fill-opacity:1;stroke-width:2797.82;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:11191.3, 2797.82;stroke-dashoffset:11471.1"
+     style="fill:#ddba78;fill-opacity:1;stroke-width:2179.47;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8717.89, 2179.47;stroke-dashoffset:8935.85"
      id="rect103037"
-     width="147.21788"
-     height="253.5419"
-     x="-583910.25"
-     y="437.76099"
+     width="114.68095"
+     height="197.50606"
+     x="-587141.94"
+     y="-860.19666"
      ry="0" />
   <rect
-     style="fill:url(#radialGradient102977);fill-opacity:1;stroke-width:2797.82;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:11191.3, 2797.82;stroke-dashoffset:11471.1"
+     style="fill:url(#radialGradient102977);fill-opacity:1;stroke-width:2179.47;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8717.89, 2179.47;stroke-dashoffset:8935.85"
      id="rect102969"
-     width="1089.4501"
-     height="1089.4501"
-     x="-584976.56"
-     y="19.806946"
-     ry="204.26147" />
+     width="848.6684"
+     height="848.6684"
+     x="-587972.56"
+     y="-1185.778"
+     ry="159.11722" />
   <rect
-     style="fill:url(#linearGradient103047);fill-opacity:1;stroke-width:3426.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:13706.4, 3426.6;stroke-dashoffset:14049.2"
+     style="fill:url(#linearGradient103047);fill-opacity:1;stroke-width:2669.28;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:10677.1, 2669.28;stroke-dashoffset:10944.2"
      id="rect103039"
-     width="220.82681"
-     height="253.5419"
-     x="-585079.81"
-     y="437.76099"
+     width="172.02141"
+     height="197.50606"
+     x="-588053"
+     y="-860.19666"
      ry="0" />
   <g
      id="g103434"
-     transform="translate(-3.3949409e-4,509.02737)">
+     transform="matrix(0.77898787,0,0,0.77898787,-132282.91,-804.68104)">
     <rect
        style="fill:#d1b072;fill-opacity:1;stroke-width:2285.9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:9143.63, 2285.9;stroke-dashoffset:9372.24"
        id="rect103074"
@@ -63717,7 +63767,7 @@
   </g>
   <g
      id="g103474"
-     transform="matrix(0.92233005,0,0,0.92233005,-48518.239,2015.9888)">
+     transform="matrix(0.71848392,0,0,0.71848392,-170078.03,369.22366)">
     <path
        id="rect103436"
        style="opacity:0.993;fill:url(#radialGradient103444);fill-opacity:1;stroke-width:1590.9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6363.63, 1590.9;stroke-dashoffset:6522.72"
@@ -63730,16 +63780,16 @@
        r="288.72375" />
   </g>
   <rect
-     style="fill:url(#radialGradient103478);fill-opacity:1;stroke-width:1742.53;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6970.17, 1742.53;stroke-dashoffset:7144.41"
+     style="fill:url(#radialGradient103478);fill-opacity:1;stroke-width:1357.41;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5429.68, 1357.41;stroke-dashoffset:5565.41"
      id="rect103476"
-     width="710.90552"
-     height="633.97681"
-     x="-9595.3643"
-     y="-592810.06"
+     width="553.78674"
+     height="493.86023"
+     x="-6273.4644"
+     y="-594074.75"
      transform="rotate(-90)" />
   <g
      id="g103490"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592827.2,3412.2868)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-594088.1,1456.9229)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63782,7 +63832,7 @@
   </g>
   <g
      id="g103508"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-588301.9,1847.3918)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-590562.94,237.88856)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63825,7 +63875,7 @@
   </g>
   <g
      id="g103520"
-     transform="matrix(0.37293094,0,0,0.37293094,-592681.06,3246.8211)"
+     transform="matrix(0.29050868,0,0,0.29050868,-593974.27,1328.0271)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63868,7 +63918,7 @@
   </g>
   <g
      id="g103532"
-     transform="matrix(0,-0.37293094,0.37293094,0,-591920.32,6231.0709)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593381.66,3652.7215)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63911,7 +63961,7 @@
   </g>
   <g
      id="g103544"
-     transform="matrix(0.263702,-0.263702,0.263702,0.263702,-593797.67,4334.5812)"
+     transform="matrix(0.20542066,-0.20542066,0.20542066,0.20542066,-594844.08,2175.379)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63954,7 +64004,7 @@
   </g>
   <g
      id="g103556"
-     transform="matrix(0.263702,-0.263702,0.263702,0.263702,-594012.4,4123.2141)"
+     transform="matrix(0.20542066,-0.20542066,0.20542066,0.20542066,-595011.35,2010.7266)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -63997,7 +64047,7 @@
   </g>
   <g
      id="g103568"
-     transform="matrix(0,-0.37293094,0.37293094,0,-591923.88,5451.6743)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593384.43,3045.581)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64040,7 +64090,7 @@
   </g>
   <g
      id="g103580"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-588946.47,4445.7776)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-591065.06,2261.9997)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64083,7 +64133,7 @@
   </g>
   <g
      id="g103592"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-588633.66,4146.7297)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-590821.39,2029.045)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64126,7 +64176,7 @@
   </g>
   <g
      id="g103604"
-     transform="matrix(0,-0.37293094,0.37293094,0,-591616.74,5147.5971)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593145.17,2808.7086)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64169,7 +64219,7 @@
   </g>
   <g
      id="g103616"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-589219.15,4146.7777)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-591277.47,2029.0824)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64212,7 +64262,7 @@
   </g>
   <g
      id="g103628"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592199.9,4560.258)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593599.44,2351.1785)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64255,7 +64305,7 @@
   </g>
   <g
      id="g103640"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592507.99,4560.258)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593839.45,2351.1785)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64298,7 +64348,7 @@
   </g>
   <g
      id="g103652"
-     transform="matrix(0,-0.37293094,0.37293094,0,-591894.98,3977.3736)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593361.92,1897.1187)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64341,7 +64391,7 @@
   </g>
   <g
      id="g103664"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592203.42,3977.3736)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593602.19,1897.1187)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64384,7 +64434,7 @@
   </g>
   <g
      id="g103676"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592504.95,3977.3736)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593837.07,1897.1187)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64427,7 +64477,7 @@
   </g>
   <g
      id="g103688"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-588913.29,2674.5444)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-591039.22,882.23046)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64470,7 +64520,7 @@
   </g>
   <g
      id="g103700"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592201.11,3072.7743)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593600.39,1192.4468)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64513,7 +64563,7 @@
   </g>
   <g
      id="g103712"
-     transform="matrix(0,-0.37293094,0.37293094,0,-592518.76,3081.9814)"
+     transform="matrix(0,-0.29050868,0.29050868,0,-593847.83,1199.619)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64556,7 +64606,7 @@
   </g>
   <g
      id="g103832"
-     transform="matrix(0,0.37293094,-0.37293094,0,-584824.28,562.20815)"
+     transform="matrix(0,0.29050868,-0.29050868,0,-587853.93,-763.25384)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64599,7 +64649,7 @@
   </g>
   <g
      id="g103844"
-     transform="matrix(0,0.37293094,-0.37293094,0,-585726.12,556.61726)"
+     transform="matrix(0,0.29050868,-0.29050868,0,-588556.44,-767.60914)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64642,7 +64692,7 @@
   </g>
   <g
      id="g103856"
-     transform="matrix(0,0.37293094,-0.37293094,0,-586054.5,245.27891)"
+     transform="matrix(0,0.29050868,-0.29050868,0,-588812.26,-1010.1378)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64685,7 +64735,7 @@
   </g>
   <g
      id="g103868"
-     transform="matrix(0,0.37293094,-0.37293094,0,-586646.65,558.32667)"
+     transform="matrix(0,0.29050868,-0.29050868,0,-589273.54,-766.27754)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64728,7 +64778,7 @@
   </g>
   <g
      id="g103880"
-     transform="matrix(0,0.37293094,-0.37293094,0,-584920.88,-1439.6236)"
+     transform="matrix(0,0.29050868,-0.29050868,0,-587929.18,-2322.6564)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64771,7 +64821,7 @@
   </g>
   <g
      id="g103892"
-     transform="matrix(0,0.37293094,-0.37293094,0,-585819.81,-1426.1681)"
+     transform="matrix(0,0.29050868,-0.29050868,0,-588629.44,-2312.1748)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64814,7 +64864,7 @@
   </g>
   <g
      id="g103904"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-584511.05,1844.9983)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-587609.93,236.02406)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64857,7 +64907,7 @@
   </g>
   <g
      id="g103916"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-585405.52,1847.0886)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-588306.7,237.65236)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64900,7 +64950,7 @@
   </g>
   <g
      id="g103928"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-585370.32,3844.4244)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-588279.29,1793.5528)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
@@ -64943,7 +64993,7 @@
   </g>
   <g
      id="g103940"
-     transform="matrix(-0.37293094,0,0,-0.37293094,-584417.56,3852.5646)"
+     transform="matrix(-0.29050868,0,0,-0.29050868,-587537.1,1799.894)"
      inkscape:export-xdpi="1200"
      inkscape:export-ydpi="1200">
     <rect
