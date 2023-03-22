@@ -71,17 +71,5 @@ to browse documents and start programming your BeaglePlay!
     BeaglePlay VSCode IDE (192.168.7.2:3000)
 
 
-Demos and Tutorials
-*******************
-
-.. toctree::
-   :maxdepth: 1
-
-   demos-and-tutorials/using-serial-console
-   demos-and-tutorials/connect-wifi
-   demos-and-tutorials/using-grove
-   demos-and-tutorials/using-mikrobus
-   demos-and-tutorials/using-qwiic
-   demos-and-tutorials/using-oldi
-   demos-and-tutorials/using-csi
-   demos-and-tutorials/zephyr-cc1352-development
+.. tip:: 
+   Checkout :ref:`beagleplay-demos` for more information.
