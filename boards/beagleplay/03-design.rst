@@ -93,7 +93,7 @@ TPS65219 - PMIC
     TPS65219 Power Management Integrated Circuit (PMIC) schematic
 
 
-General connectivity and expansion
+General Connectivity and Expansion
 ***********************************
 
 One of the main advantage of using a Single Board Computer (SBC) is having direct accessibility of 
@@ -101,10 +101,11 @@ general purpose input & output (GPIO) pins and other interfaces like I2C, SPI, A
 board shines in this domain as well with mikroBUS connector that can take 1000s of click board from 
 `MikroElektronika <https://www.mikroe.com/>`_, Grove connector allows to connect hundereds of Grove modules 
 from `Seeed Studio <https://www.seeedstudio.com/grove.html>`_, and QWIIC connector allows to connect I2C modules 
-like QWIIC modules from spartkfun or STEMMA QT modules from Adafruit. Not only that you also get one USB-A port 
-and one USB-C port. BeaglePlay's USB-A port with host support so that you can connect any USB device 
-like your keyboard & mouse combo, USB-C connector allows to power the board and to connect the board to 
-a PC to connect via SSH & use pre-installed and actively running VisualStudio Code at ``192.168.7.2:3000``.
+like QWIIC modules from `SparkFun <https://www.sparkfun.com/qwiic>`_ or STEMMA QT modules from 
+`Adafruit <https://www.adafruit.com/category/1005>`_. Note that you also get one USB-A port and one USB-C port.
+BeaglePlay's USB-A port with host support enables you to connect any USB device like your keyboard & mouse. 
+The USB-C connector allows you to power the board and to connect the board to a PC. You can then connect via SSH or 
+use the pre-installed VisualStudio Code editor by putting the address ``192.168.7.2:3000`` in your web browser.
 
 USB A & USB C
 ==============
@@ -159,10 +160,10 @@ Qwiic
 Buttons and LEDs
 ********************
 
-To interact with the Single Board Computers we use buttons for input and LEDs visual feedback to the user. 
-On your BeaglePlay board you'll find 3 buttons namely power, reset, and user button each with a specific purpuse. 
-For visual feedback you'll see 5 user LEDs near USB-C port and 6 more indicator LEDs near you BeaglePlay board's 
-Single Pair ethernet port. Schematic diagrams below shows how these button and LEDs are wired inside you BeaglePlay.
+To interact with the Single Board Computers we use buttons for input and LEDs for visual feedback. 
+On your BeaglePlay board you will find 3 buttons each with a specific purpose: power, reset, and user. 
+For visual feedback you will find 5 user LEDs near USB-C port and 6 more indicator LEDs near your BeaglePlay's 
+Single Pair ethernet port. Schematic diagrams below show how these buttons and LEDs are wired.
 
 Buttons
 ========
@@ -321,7 +322,7 @@ RTC
 
     Real Time Clock (RTC)
 
-UART Debug port
+UART Debug Port
 ================
 
 .. figure:: images/hardware-design/debug.svg
@@ -356,7 +357,7 @@ CC1352 JTAG & TagConnect
 Mechanical Specifications 
 **************************
 
-Dimensions & weight
+Dimensions & Weight
 ===================
 
 .. table:: Dimensions & weight
