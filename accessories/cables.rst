@@ -54,6 +54,16 @@ The default serial port settings for the board are:
     | Handshake    | None         |
     +--------------+--------------+
 
+TagConnect (JTAG)
+==================
+
+Boards like :ref:`beagleconnect_freedom_home` and :ref:`beagleplay-home` uses TagConnect 
+interface which allows you to do firmware update and JTAG hardware debugging. To use the 
+interface, you'll require the parts below from `tag-connect <https://www.tag-connect.com>`_
+
+1. `10pin TagConnect (no legs) ribbon cable. <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
+2. `TagConnect retaining clip. <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
+
 Standard FTDI Cable
 ====================
 
@@ -164,6 +174,22 @@ Bad HDMI Cables
 ================
 
 `High Speed HDMI Cable with Ethernet ,Type D Micro M/M Cable <http://www.newegg.com/Product/Product.aspx?Item=N82E16882241049>`_: Didn't work, not grounded. 
+
+microHDMI to VGA
+=================
+
+`Cable Matters Micro HDMI to VGA Adapter <https://www.amazon.com/Cable-Matters-Active-Female-Adapter/dp/B00879EZJI/ref=sr_1_2?ie=UTF8&qid=1381610066&sr=8-2&keywords=micro-hdmi+to+vga>`_
+
+
+HDMI to Composite/CVBS/RCA AV Video Converter
+===============================================
+
+- `Sounce HDMI to RCA,HDMI to AV <https://www.amazon.in/Sounce-Composite-Converter-Supports-DVD-Black/dp/B098DMMS3Z>`_
+
+HDMI-Female to Micro HDMI-Male Adapter
+=======================================
+
+- `Lapster Micro HDMI Male to HDMI Female <https://www.amazon.in/Lapster-Micro-Female-Converter-Adapter/dp/B08PP924DK>`_
 
 miniDP to HDMI 
 ****************

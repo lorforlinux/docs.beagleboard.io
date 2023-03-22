@@ -70,7 +70,7 @@ This section will include all the tested accessories for BeagleBoard.org hardwar
       :link: accessories-cables
       :link-type: ref
 
-      **cables**
+      **Cables**
       ^^^
 
       .. image:: images/cards/cables.jpg
@@ -78,19 +78,6 @@ This section will include all the tested accessories for BeagleBoard.org hardwar
       +++
 
       USB, debug, HDMI, and other cables.
-
-   .. grid-item-card:: 
-      :link: accessories-adapters
-      :link-type: ref
-
-      **Adapters**
-      ^^^
-
-      .. image:: images/cards/adapters.jpg
-         :align: center
-      +++
-
-      Display adapters
 
    .. grid-item-card:: 
       :link: accessories-cameras
@@ -115,5 +102,4 @@ This section will include all the tested accessories for BeagleBoard.org hardwar
    /accessories/displays
    /accessories/peripherals
    /accessories/cables
-   /accessories/adapters
    /accessories/cameras
