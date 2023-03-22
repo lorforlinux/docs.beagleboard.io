@@ -75,14 +75,11 @@ to browse documents and start programming your BeaglePlay!
 Demos and Tutorials
 *******************
 
-.. toctree::
-   :maxdepth: 1
-
-   demos-and-tutorials/using-serial-console
-   demos-and-tutorials/connect-wifi
-   demos-and-tutorials/using-qwiic
-   demos-and-tutorials/using-grove
-   demos-and-tutorials/using-mikrobus
-   demos-and-tutorials/using-oldi
-   demos-and-tutorials/using-csi
-   demos-and-tutorials/zephyr-cc1352-development
+* :ref:`beagleplay-serial-console`
+* :ref:`beagleplay-connect-wifi`
+* :ref:`beagleplay-qwiic`
+* :ref:`beagleplay-grove`
+* :ref:`beagleplay-mikrobus`
+* :ref:`beagleplay-oldi`
+* :ref:`beagleplay-csi`
+* :ref:`beagleplay-zephyr-development`

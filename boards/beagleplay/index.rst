@@ -15,7 +15,6 @@ BeaglePlay
    +----------------------------------------------------+---------------------------------------------------------+
    | .. image:: images/front.webp                       | .. image:: images/back.webp                             |
    |    :width: 700                                     |       :width: 700                                       |
-   |    :height: 748                                    |       :height: 725                                      |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
    +----------------------------------------------------+---------------------------------------------------------+
@@ -35,7 +34,7 @@ BeaglePlay
       **1. Introduction**
       ^^^
 
-      .. image:: images/chapter-thumbnails/01-introduction.jpg
+      .. image:: images/chapter-thumbnails/01-introduction.webp
          :align: center
          :alt: BeaglePlay Chapter01 thumbnail
       
@@ -51,7 +50,7 @@ BeaglePlay
       **2. Quick start**
       ^^^
 
-      .. image:: images/chapter-thumbnails/02-quick-start.jpg
+      .. image:: images/chapter-thumbnails/02-quick-start.webp
          :align: center
          :alt: BeaglePlay Chapter02 thumbnail
 
@@ -67,7 +66,7 @@ BeaglePlay
       **3. Design & Specifications**
       ^^^
 
-      .. image:: images/chapter-thumbnails/03-design-and-specifications.jpg
+      .. image:: images/chapter-thumbnails/03-design-and-specifications.webp
          :align: center
          :alt: BeaglePlay Chapter03 thumbnail
 
@@ -83,7 +82,7 @@ BeaglePlay
       **4. Expansion**
       ^^^
 
-      .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.jpg
+      .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.webp
          :align: center
          :alt: BeaglePlay Chapter04 thumbnail
 
@@ -91,17 +90,32 @@ BeaglePlay
 
       Connector pinout diagrams with expansion details so that you can 
       easily debug your connections and create custom expansion hardware.
+      
+   .. grid-item-card:: 
+      :link: beagleplay-demos
+      :link-type: ref
+
+      **5. Demos**
+      ^^^
+
+      .. image:: images/chapter-thumbnails/05-demos-and-tutorials.webp
+         :align: center
+         :alt: BeaglePlay Chapter5 thumbnail
+
+      +++
+
+      Demos and tutorials to quickly learn about the BeaglePlay capabilities.
 
    .. grid-item-card:: 
       :link: beagleplay-support
       :link-type: ref
 
-      **5. Support**
+      **6. Support**
       ^^^
 
-      .. image:: images/chapter-thumbnails/06-support-documents.jpg
+      .. image:: images/chapter-thumbnails/06-support-documents.webp
          :align: center
-         :alt: BeaglePlay Chapter10 thumbnail
+         :alt: BeaglePlay Chapter6 thumbnail
 
       +++
 
@@ -120,4 +134,5 @@ BeaglePlay
    02-quick-start
    03-design
    04-expansion
-   05-support
+   05-demos
+   06-support

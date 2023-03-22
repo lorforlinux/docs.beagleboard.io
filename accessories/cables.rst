@@ -57,7 +57,7 @@ The default serial port settings for the board are:
 TagConnect (JTAG)
 ==================
 
-Boards like :ref:`beagleconnect_freedom_home` and :ref:`beagleplay-home` uses TagConnect 
+Boards like :ref:`beagleconnect_freedom_home` and :ref:`beagleplay-home` use TagConnect 
 interface which allows you to do firmware update and JTAG hardware debugging. To use the 
 interface, you'll require the parts below from `tag-connect <https://www.tag-connect.com>`_
 
