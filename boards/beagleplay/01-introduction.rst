@@ -37,7 +37,6 @@ include:
    +----------------------------------------------------+---------------------------------------------------------+
    | .. image:: images/45front.webp                     | .. image:: images/45back.webp                           |
    |    :width: 700px                                   |       :width: 700px                                     |
-   |    :height: 521px                                  |       :height: 718px                                    |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
    +----------------------------------------------------+---------------------------------------------------------+
@@ -138,7 +137,6 @@ Front components location
 
 .. figure:: images/components-front.webp
     :width: 1400
-    :height: 788
     :align: center
     :alt: BeaglePlay board front components location
 
@@ -197,7 +195,6 @@ Back components location
 
 .. figure:: images/components-back.webp
     :width: 1400
-    :height: 788
     :align: center
     :alt: BeaglePlay board back components location
 
