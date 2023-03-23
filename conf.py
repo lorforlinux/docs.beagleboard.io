@@ -17,7 +17,7 @@ BBDOCS_BASE = Path(__file__).resolve().parents[0]
 # -- Project information -----------------------------------------------------
 
 project = 'BeagleBoard Docs'
-copyright = '2022, BeagleBoard.org Foundation'
+copyright = '2023, BeagleBoard.org Foundation'
 author = 'BeagleBoard.org Foundation'
 
 
