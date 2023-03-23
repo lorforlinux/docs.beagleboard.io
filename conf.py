@@ -28,8 +28,27 @@ sys.path.append(os.path.abspath("./_ext"))
 extensions = [
     "callouts",
     "sphinxcontrib.rsvgconverter",
-    "sphinx_design"
+    "sphinx_design",
+    "sphinxcontrib.images",
+    "sphinx.ext.imgconverter"
 ]
+
+from sphinx.ext import imgconverter
+
+class WebPConverter(imgconverter.ImageConverter):
+    def apply(self, source, target):
+        import os
+        from PIL import Image
+        
+        ext = os.path.splitext(source)[-1].lower()
+        if ext == '.webp':
+            with Image.open(source) as img:
+                img.save(target, format='PNG')
+        else:
+            super().apply(source, target)
+
+if 'latex' in tags:
+    imgconverter = WebPConverter
 
 templates_path = ['_templates']
 
