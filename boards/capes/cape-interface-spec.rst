@@ -501,7 +501,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
    See https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree for
    more background. A custom overlay is required to overload the compatible string to load a non-spidev driver.
 
-.. note:: #TODO# figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
+.. todo:: figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
 
 .. code-block:: c
    :linenos:
@@ -666,8 +666,11 @@ CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 ADC
 *******
 
-* TODO: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
-* TODO: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
+.. todo:: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
+
+.. todo:: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
+
+.. todo:: I believe a multiplexing IIO driver is the future solution
 
 .. table:: ADC pins
 
@@ -940,7 +943,7 @@ On BeagleBone's without an eQEP on specific pins, consider using the PRU to perf
 eCAP
 -------
 
-#TODO: This doesn't include any abstraction yet.
+.. todo:: This doesn't include any abstraction yet.
 
 .. table:: ECAP pins
 
@@ -1318,9 +1321,7 @@ The overlay situation for PRUs is a bit more complex than with other peripherals
 GPIO
 ----------
 
-TODO<br>
-For each of the pins with a GPIO, there should be a symlink that comes from the names 
-*
+.. todo:: For each of the pins with a GPIO, there should be a symlink that comes from the names 
 
 
 .. _bone-methodology:
@@ -1365,7 +1366,12 @@ TBD
 Verification
 ----------------
 
-TODO: The steps used to verify all of these configurations is to be documented here. It will serve to document what has been tested, how to reproduce the configurations, and how to verify each major triannual release. All faults will be documented in the issue tracker.
+.. todo:: 
+
+   The steps used to verify all of these configurations is to be documented
+   here. It will serve to document what has been tested, how to reproduce the
+   configurations, and how to verify each major triannual release. All faults
+   will be documented in the issue tracker.
 
 References
 -------------

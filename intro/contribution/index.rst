@@ -66,14 +66,27 @@ The most obvious way to contribute is using the `git.beagleboard.org Gitlab serv
 bugs, suggest enhancements and providing merge requests, also called pull requests, the provide fixes to software, hardware
 designs and documentation.
 
+This documentation has a number of ``todo`` items where help is needed:
+
+.. todolist::
+
 Reporting bugs
 ===============
+
+.. todo::
+   Describe where and how to report issues on git.beagleboard.org
 
 Suggesting enhancements
 =======================
 
+.. todo::
+   Describe how to introduct ideas on forum.beagleboard.org and git.beagleboard.org
+
 Submitting merge requests
 =========================
+
+.. todo::
+   Describe how to introduct ideas on forum.beagleboard.org and git.beagleboard.org
 
 Style and usage guidelines
 **************************

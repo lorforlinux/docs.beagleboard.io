@@ -145,17 +145,17 @@ Device Drivers in Embedded Systems
 
 I used the term "Drivers" in the above section, but what does it really mean?
 
-**Why "device" drivers?**
+.. todo::
 
-TODO
+   **Why "device" drivers?**
 
-**Why do we need drivers?**
+.. todo::
 
-TODO
+   **Why do we need drivers?**
 
-**What do drivers look like?**
+.. todo::
 
-TODO
+   **What do drivers look like?**
 
 .. _linux-upstream-device-trees:
 
