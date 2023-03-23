@@ -108,7 +108,7 @@ with open(BBDOCS_BASE  / "VERSION") as f:
 release = version
 
 # Variables here holds default settings
-pages_url = "http://docs.beagleboard.io"
+pages_url = "https://docs.beagleboard.io"
 pages_slug = "latest"
 gitlab_user = "docs"
 gitlab_version = "main"
