@@ -30,7 +30,8 @@ extensions = [
     "sphinxcontrib.rsvgconverter",
     "sphinx_design",
     "sphinxcontrib.images",
-    "sphinx.ext.imgconverter"
+    "sphinx.ext.imgconverter",
+    "sphinx.ext.todo"
 ]
 
 from sphinx.ext import imgconverter
