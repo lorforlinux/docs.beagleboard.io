@@ -73,7 +73,9 @@ with the data streams from any of hundreds of sensor options, including
 stored in simple `data files <https://en.wikipedia.org/wiki/Comma-separated_values>` 
 or processed and visualized.
 
-#TODO: provide images demonstrating Jupyter Notebook visualization
+.. todo::
+
+   provide images demonstrating Jupyter Notebook visualization
 
 For embedded systems developers, data is easily extracted using the standard IIO
 interface provided by the Linux kernel running on the gateway using any of 
@@ -90,12 +92,13 @@ For DevOps…
 
 For home automaters, integration into WebThings…
 
-#TODO: think a bit more about this section with some feedback from Cathy.
+.. todo::
+
+   think a bit more about this section with some feedback from Cathy.
 
 .. image:: freedom/media/BeagleConnect-Freedom-Front.png
    :width: 598
    :align: center
-   :height: 400
    :alt: BeagleConnect Freedom
 
 
