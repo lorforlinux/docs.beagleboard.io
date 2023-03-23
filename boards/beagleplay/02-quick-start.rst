@@ -30,6 +30,13 @@ Attaching antennas
 .. important::
    Add documentation on attaching antennas here.
 
+You can watch this video to see how to attach the attennas.
+
+.. image:: images/attach-antennas.webp
+   :alt: YouTube video of BeaglePlay antenna connection
+   :width: 1280
+   :target: https://youtu.be/8zeIVd-JRc0
+
 Tethering to PC
 ****************
 
