@@ -34,6 +34,8 @@ extensions = [
     "sphinx.ext.todo"
 ]
 
+todo_include_todos = True
+
 from sphinx.ext import imgconverter
 
 class WebPConverter(imgconverter.ImageConverter):
