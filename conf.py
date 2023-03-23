@@ -47,8 +47,8 @@ class WebPConverter(imgconverter.ImageConverter):
         else:
             super().apply(source, target)
 
-if 'latex' in tags:
-    imgconverter = WebPConverter
+#if 'latex' in tags:
+imgconverter = WebPConverter
 
 templates_path = ['_templates']
 
