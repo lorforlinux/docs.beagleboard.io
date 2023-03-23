@@ -12,11 +12,11 @@ architecture.
 .. note:: 
     This documentation and the associated software are each a work-in-progress.
 
-.. image:: ../freedom/media/image1.jpg
+.. image:: ../freedom/media/BeagleConnect-Freedom-Front.png
    :width: 598
    :align: center
    :height: 400
-   :alt: BeagleConnect
+   :alt: BeagleConnect Freedom
 
 BeagleConnect™ is built using `Greybus <https://kernel-recipes.org/en/2015/talks/an-introduction-to-greybus/>`__
 code in the Linux kernel originally designed for mobile phones.

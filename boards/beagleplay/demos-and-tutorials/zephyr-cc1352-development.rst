@@ -36,9 +36,9 @@ Download and install the Debian Linux operating system image for BeaglePlay.
 
 #. Power BeaglePlay via the USB-C connector.
 
-.. note::
+.. todo::
 
-   *TODO* describe how to know it is working
+   describe how to know it is working
 
 Log into BeaglePlay
 *********************************
@@ -47,9 +47,9 @@ Please either plug in a keyboard, monitor and mouse or :code:`ssh` into the boar
 somewhere else for instructions on this. You can also point your web browser to the board to log
 into the Visual Studio Code IDE environment.
 
-.. note::
+.. todo::
 
-    *TODO* A big part of what is missing here is to put your BeaglePlay on the Internet such
+    A big part of what is missing here is to put your BeaglePlay on the Internet such
     that we can download things in later steps. That has been initially brushed over.
 
 Flash existing IEEE 802.15.4 radio bridge (WPANUSB) firmware
@@ -357,8 +357,8 @@ Build applications for BeagleConnect Freedom
         west build -d build/greybus modules/lib/greybus/samples/subsys/greybus/net -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
 
 
-Flash applications to BeagleConnect Freedom from BeagleBone Green Gateway
-=========================================================================
+Flash applications to BeagleConnect Freedom
+===========================================
 
 And then you can flash the BeagleConnect Freedom boards over USB
 
@@ -375,4 +375,6 @@ And then you can flash the BeagleConnect Freedom boards over USB
 Debug applications over the serial terminal
 ===========================================
 
-#TODO#
+.. todo::
+
+   Describe how to handle the serial connection

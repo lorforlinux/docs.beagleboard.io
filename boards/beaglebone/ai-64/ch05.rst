@@ -222,9 +222,9 @@ As mentioned earlier, there are two boot modes:
 * **eMMC Boot:** This is the default boot mode and will allow for the fastest boot time and will enable the board to boot out of the box using the pre-flashed OS image without having to purchase an microSD card or an microSD card writer.
 * **SD Boot:** This mode will boot from the microSD slot. This mode can be used to override what is on the eMMC device and can be used to program the eMMC when used in the manufacturing process or for field updates.
 
-.. note ::
+.. todo::
 
-   TODO: This section needs more work and references to greater detail. Other boot modes are possible.
+   This section needs more work and references to greater detail. Other boot modes are possible.
    Software to support USB and serial boot modes is not provided by beagleboard.org._Please contact TI for support of this feature.
 
 

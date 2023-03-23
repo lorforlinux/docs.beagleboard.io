@@ -79,7 +79,9 @@ shown below
    :scale: 20
    :align: center
 
-   TODO: IMX219 CSI sensor connection with BeagleBone® AI-64 for Edge AI
+.. todo::
+
+   IMX219 CSI sensor connection with BeagleBone® AI-64 for Edge AI
 
 Note that the headers have to be lifted up to connect the cameras
 
@@ -182,7 +184,9 @@ shown in the image below.
    :scale: 25
    :align: center
 
-   TODO: BeagleBone® AI-64 wallpaper upon boot
+.. todo::
+
+   BeagleBone® AI-64 wallpaper upon boot
 
 You can also view the boot log by connecting the UART cable to your PC and
 use a serial port communications program.
@@ -245,4 +249,6 @@ https://code.visualstudio.com/docs/remote/ssh
    :scale: 90
    :align: center
 
-   TODO: Microsoft Visual Studio Code for connecting to BeagleBone® AI-64 for Edge AI via SSH
+.. todo::
+
+   Microsoft Visual Studio Code for connecting to BeagleBone® AI-64 for Edge AI via SSH

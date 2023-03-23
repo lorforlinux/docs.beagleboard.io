@@ -12,7 +12,8 @@ specifications in  a short and crisp form as well.
     You can download BeaglePlay schematic to have clear view of 
     all the elements that makes up the BeaglePlay hardware.
 
-    :download:`BeaglePlay schematic diagram PDF <https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_SCH_PDF.pdf>`
+    `BeaglePlay design repository <https://git.beagleboard.org/beagleplay/beagleplay>`__
+
 
 Block diagram
 *************
