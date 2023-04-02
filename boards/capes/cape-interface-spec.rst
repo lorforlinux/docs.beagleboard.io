@@ -19,7 +19,7 @@ Background and overview
    * See `elinux.org Cape Expansion Headers for BeagleBone page <https://elinux.org/Beagleboard:Cape_Expansion_Headers>`_
    * See :ref:`BeagleBone Black System Reference Manual Connectors section <beagleboneblack-connectors>`
    * See :ref:`BeagleBone AI System Reference Manual Connectors section <beaglebone-ai-connectors>`
-   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <TODO>`
+   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <cape-board-support-1>`
 
 .. note:: Below, when mentioning "Black", this is true for all AM3358-based BeagleBone boards. "AI" is AM5729-based. "AI-64" is TDA4VM-based.
 
@@ -51,19 +51,19 @@ More details can be found in :ref:`bone-methodology`.
 
     Legend
 
-    * |D|: Digital general purpose input and output (GPIO)
-    * |I|: Inter-integrated circuit bus (|I2C|) ports
-    * |S|: Serial peripheral interface (SPI) ports
-    * |U|: Universal asynchronous reciever/transmitter (UART) serial ports
-    * |C|: CAN
-    * |A|: Analog inputs
-    * |E|: PWM
-    * |Q|: Capture/EQEP
-    * |M|: MMC/SD/SDIO
-    * |B|: I2S/audio serial ports
-    * |L|: LCD
-    * |P|: PRU
-    * |Y|: ECAP
+    * |D| : Digital general purpose input and output (GPIO)
+    * |I| : Inter-integrated circuit bus (|I2C|) ports
+    * |S| : Serial peripheral interface (SPI) ports
+    * |U| : Universal asynchronous reciever/transmitter (UART) serial ports
+    * |C| : CAN
+    * |A| : Analog inputs
+    * |E| : PWM
+    * |Q| : Capture/EQEP
+    * |M| : MMC/SD/SDIO
+    * |B| : I2S/audio serial ports
+    * |L| : LCD
+    * |P| : PRU
+    * |Y| : ECAP
 
 .. table:: Overall
 
@@ -501,7 +501,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
    See https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree for
    more background. A custom overlay is required to overload the compatible string to load a non-spidev driver.
 
-.. note:: #TODO# figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
+.. todo:: figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
 
 .. code-block:: c
    :linenos:
@@ -666,8 +666,11 @@ CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 ADC
 *******
 
-* TODO: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
-* TODO: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
+.. todo:: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
+
+.. todo:: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
+
+.. todo:: I believe a multiplexing IIO driver is the future solution
 
 .. table:: ADC pins
 
@@ -940,7 +943,7 @@ On BeagleBone's without an eQEP on specific pins, consider using the PRU to perf
 eCAP
 -------
 
-#TODO: This doesn't include any abstraction yet.
+.. todo:: This doesn't include any abstraction yet.
 
 .. table:: ECAP pins
 
@@ -1318,9 +1321,7 @@ The overlay situation for PRUs is a bit more complex than with other peripherals
 GPIO
 ----------
 
-TODO<br>
-For each of the pins with a GPIO, there should be a symlink that comes from the names 
-*
+.. todo:: For each of the pins with a GPIO, there should be a symlink that comes from the names 
 
 
 .. _bone-methodology:
@@ -1365,7 +1366,12 @@ TBD
 Verification
 ----------------
 
-TODO: The steps used to verify all of these configurations is to be documented here. It will serve to document what has been tested, how to reproduce the configurations, and how to verify each major triannual release. All faults will be documented in the issue tracker.
+.. todo:: 
+
+   The steps used to verify all of these configurations is to be documented
+   here. It will serve to document what has been tested, how to reproduce the
+   configurations, and how to verify each major triannual release. All faults
+   will be documented in the issue tracker.
 
 References
 -------------

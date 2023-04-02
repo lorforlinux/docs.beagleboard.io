@@ -35,7 +35,8 @@ include:
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: images/45front.webp                     | .. image:: images/45back.webp                           |
+   | .. image:: images/front.webp                       | .. image:: images/back.webp                             |
+   |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
    +----------------------------------------------------+---------------------------------------------------------+

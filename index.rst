@@ -355,7 +355,7 @@ Capes
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
-   /boards/terms-and-conditions.rst
+   /boards/terms-and-conditions
 
 
 Projects

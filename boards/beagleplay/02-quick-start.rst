@@ -30,6 +30,13 @@ Attaching antennas
 .. important::
    Add documentation on attaching antennas here.
 
+You can watch this video to see how to attach the attennas.
+
+.. image:: images/attach-antennas.webp
+   :alt: YouTube video of BeaglePlay antenna connection
+   :width: 1280
+   :target: https://youtu.be/8zeIVd-JRc0
+
 Tethering to PC
 ****************
 
@@ -70,6 +77,16 @@ to browse documents and start programming your BeaglePlay!
 
     BeaglePlay VSCode IDE (192.168.7.2:3000)
 
+.. _beagleplay-demos-and-tutorials:
 
-.. tip:: 
-   Checkout :ref:`beagleplay-demos` for more information.
+Demos and Tutorials
+*******************
+
+* :ref:`beagleplay-serial-console`
+* :ref:`beagleplay-connect-wifi`
+* :ref:`beagleplay-qwiic`
+* :ref:`beagleplay-grove`
+* :ref:`beagleplay-mikrobus`
+* :ref:`beagleplay-oldi`
+* :ref:`beagleplay-csi`
+* :ref:`beagleplay-zephyr-development`

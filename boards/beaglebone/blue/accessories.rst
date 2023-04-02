@@ -3,9 +3,9 @@
 Accessories 
 ###############
 
-.. note::
+.. todo::
 
-   #TODO#: We are going to work on a unified accessories page for all the boards and it should replace this.
+   We are going to work on a unified accessories page for all the boards and it should replace this.
 
 .. _chassis_and_kits:
 

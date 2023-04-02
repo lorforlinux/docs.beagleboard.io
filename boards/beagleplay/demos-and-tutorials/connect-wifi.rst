@@ -185,10 +185,10 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
 
 .. important::
    The single quotes around the double quotes are needed to make sure the
-   double quotes are given to `wpa_cli`. It expects to see them.
+   double quotes are given to ``wpa_cli``. It expects to see them.
 
 .. note::
-   For more information about `wpa_cli`, see https://w1.fi/wpa_supplicant/
+   For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
 
 To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. This is described
 in :ref:`beagleplay-wifi-wpa-cli-xfce`_.
@@ -198,7 +198,7 @@ in :ref:`beagleplay-wifi-wpa-cli-xfce`_.
 wpa_cli (XFCE)
 **************
 
-Another way of connecting to a WiFi access point is to use ``wpa_cli`` tool.
+Another way of connecting to a WiFi access point is to edit the ``wpa_supplicant`` configuration file.
 
 
 Step 1: Open up terminal
