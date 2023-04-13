@@ -9,8 +9,8 @@ What's included in the box?
 When you purchase a brand new BeaglePlay, In the box you'll get:
 
 1. BeaglePlay board
-2. A sub-GHz antenna
-3. Three (3) 2.5GHz/5GHz antennas
+2. One (1) sub-GHz antenna
+3. Three (3) 2.4GHz/5GHz antennas
 4. Plastic standoff hardware
 5. Quick-start card
 
@@ -49,7 +49,7 @@ Tethering to PC
     4. Browsing to your Beagle.
     5. Troubleshooting.
 
-For tethering to your PC you'll need a USB-C to USB-A data cable.
+For tethering to your PC you'll need a USB-C data cable.
 
 .. figure:: images/tethered-connection.jpg
     :width: 1400
