@@ -47,7 +47,7 @@ Detailed overview
 ******************
 
 BeaglePlay is built around Texas Instruments AM62x Sitara™ Processors which is a 
-Human-machine-interaction SoC with Arm® Cortex®-A53. It comes with 2GB DDR4 RAM, 16GB eMMC storage,
+Quad-Core Arm® Cortex®-A53 Human-machine-interaction SoC. It comes with 2GB DDR4 RAM, 16GB eMMC storage,
 Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug interface, and much more. 
 
 .. table:: BeaglePlay features
@@ -70,27 +70,26 @@ Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug i
     |                            | - BeagleConnect Wireless enabled                                          |
     |                            | - Antennas: 2.4GHz & SubG IEEE802.15.4 software defined radio (SDR)       |
     +----------------------------+---------------------------------------------------------------------------+
-    | Ethernet                   | - PHY: Realtek RTL8211F-VD-CG gigabit Ethernet phy                        |
+    | Ethernet                   | - PHY: Realtek RTL8211F-VD-CG Gigabit Ethernet phy                        |
     |                            | - Connector: integrated magnetics RJ-45                                   |
     +----------------------------+---------------------------------------------------------------------------+
     | Single-pair Ethernet       | - BeagleConnect Wired enabled                                             |
-    |                            | - PHY: DP83TD510E 10Mbit single-pair Ethernet phy                         |
+    |                            | - PHY: DP83TD510E 10Mbit 10BASE-T1L single-pair Ethernet phy              |
     |                            | - Connector: RJ-11 jack                                                   |
     |                            | - Power (PoDL): Input: N/A (protection to 12V), Output: 5V @ 250mA        |
     +----------------------------+---------------------------------------------------------------------------+
     | USB type-C                 | - PD/CC: None, HS shorted to both sides                                   |
-    |                            | - Power: Input: 5V @ 3A, Output: N/A                                      |
+    |                            | - Power: Input: 5V @ 3A, Output: N/A (USB-C DRP Not supported)            |
     +----------------------------+---------------------------------------------------------------------------+
-    | HDMI                       | - PHY: IT66121                                                            |
+    | HDMI                       | - Transmitter: IT66121                                                    |
     |                            | - Connector: full-size                                                    |
     +----------------------------+---------------------------------------------------------------------------+
     | Other connectors           | - microSD                                                                 |
-    |                            | - USB type-A (480Mbit)                                                    |
+    |                            | - USB 2.0 type-A (480Mbit)                                                    |
     |                            | - mikroBUS connector (I2C/UART/SPI/MCAN/MCASP/PWM/GPIO)                   |
     |                            | - Grove connector (I2C/UART/ADC/PWM/GPIO)                                 |
     |                            | - QWIIC connector (I2C)                                                   |
-    |                            | - CSI connector compatible with BeagleBone AI-64, Raspberry Pi Zero W,    |
-    |                            |   or Raspberry Pi Compute Module IO Board (22-pin)                        |
+    |                            | - CSI connector compatible with BeagleBone AI-64, Raspberry Pi Zero / CM4 (22-pin)                        |
     |                            | - OLDI connector (40-pin)                                                 |
     +----------------------------+---------------------------------------------------------------------------+
             
@@ -112,7 +111,7 @@ Some of these applications include:
 
 AM625 processors are industrial-grade in the 13 x 13 mm package (ALW) and can meet the AEC-Q100 
 automotive standard in the 17.2 x 17.2 mm package (AMC). Industrial and Automotive functional safety 
-requirements can be addressed using the integrated Cortex-M4F cores and dedicated peripherals, which 
+requirements can be addressed using the integrated Cortex-M4F core and dedicated peripherals, which 
 can all be isolated from the rest of the AM62x processor.
 
 .. tip:: 
@@ -121,10 +120,9 @@ can all be isolated from the rest of the AM62x processor.
 The 3-port Gigabit Ethernet switch has one internal port and two external ports with Time-Sensitive 
 Networking (TSN) support. An additional PRU module on the device enables real-time I/O capability 
 for customer’s own use cases. In addition, the extensive set of peripherals included in AM62x 
-enables system-level connectivity, such as: USB, MMC/SD, Camera interface, OSPI, CAN-FD and GPMC 
-for parallel host interface to an external ASIC/FPGA. The AM62x device also supports secure boot 
-for IP protection with the built-in Hardware Security Module (HSM) and employs advanced power management 
-support for portable and power-sensitive applications
+enables system-level connectivity, such as: USB, MMC/SD, CSI Camera interface, OSPI, CAN-FD and GPMC 
+for parallel host interface to an external ASIC/FPGA. The AM62x device also employs advanced power management 
+support for portable and power-sensitive applications.
 
 
 Board components location
@@ -152,42 +150,42 @@ Front components location
     | RTC Battery                | BQ32002 Real Time Clock (RTC) Battery holder takes CR1220 3V battery      |
     +----------------------------+---------------------------------------------------------------------------+
     | User LEDs                  | Five user LEDs, :ref:`board-power-and-boot` section provides more details.|
-    |                            | These LEDs are connect to the AM6254 SoC.                                 |
+    |                            | These LEDs are connect to the AM6254 SoC                                  |
     +----------------------------+---------------------------------------------------------------------------+
-    | JTAG (AM62)                | AM6254 SoC JTAG debug port.                                               |
+    | JTAG (AM62)                | AM6254 SoC JTAG debug port                                                |
     +----------------------------+---------------------------------------------------------------------------+
-    | mikroBUS                   | mikroBUS for MikroE Click boards or any compliant add-on.                 |
+    | mikroBUS                   | mikroBUS for MikroE Click boards or any compliant add-on                  |
     +----------------------------+---------------------------------------------------------------------------+
-    | OLDI                       | AM6254 OpenLDI(OLDI) display port.                                        |
+    | OLDI                       | AM6254 OpenLDI(OLDI) display port                                         |
     +----------------------------+---------------------------------------------------------------------------+
-    | CSI                        | AM6254 Camera Serial Interface (MIPI CSI-2).                              |
+    | CSI                        | AM6254 Camera Serial Interface (MIPI CSI-2)                               |
     +----------------------------+---------------------------------------------------------------------------+
-    | Grove                      | SeeedStudio Grove modules connection port.                                |
+    | Grove                      | SeeedStudio Grove modules connection port                                 |
     +----------------------------+---------------------------------------------------------------------------+
-    | QWIIC                      | SparkFun QWIIC / Adafruit STEMMA-QT port for I2C modules connectivity.    |
+    | QWIIC                      | SparkFun QWIIC / Adafruit STEMMA-QT port for I2C modules connectivity     |
     +----------------------------+---------------------------------------------------------------------------+
     | User Button                | Programmable user button, also servers as boot mode slect button          |
-    |                            | (SDCard/eMMC). Press down to select SD Card as boot medium.               |
+    |                            | (SD Card/eMMC). Press down to select SD Card as boot medium                |
     +----------------------------+---------------------------------------------------------------------------+
-    | SDCard                     | Use to expand storage, boot linux image or flash latest image on eMMC.    |
+    | SD Card                    | Use to expand storage, boot linux image or flash latest image on eMMC     |
     +----------------------------+---------------------------------------------------------------------------+
-    | Reset button               | Press to reset BeaglePlay board (AM6254 SoC).                             |
+    | Reset button               | Press to reset BeaglePlay board (AM6254 SoC)                              |
     +----------------------------+---------------------------------------------------------------------------+
-    | JTAG (CC1352)              | JTAG debug port for CC1352P7.                                             |
+    | JTAG (CC1352)              | JTAG debug port for CC1352P7                                              |
     +----------------------------+---------------------------------------------------------------------------+
-    | Power button               | Press to shut-down (OFF), hold down to boot (ON).                         |
+    | Power button               | Press to shut-down (OFF), hold down to boot (ON)                          |
     +----------------------------+---------------------------------------------------------------------------+
-    | Power & Connectivity LEDs  | Indicator LEDs for Power ON, CC1352 RF, and Single-pair connectivity.     |
+    | Power & Connectivity LEDs  | Indicator LEDs for Power ON, CC1352 RF, and Single-pair connectivity      |
     +----------------------------+---------------------------------------------------------------------------+
-    | Single-pair Ethernet       | Single-pair Ethernet connectivity port with power over data line.         |
+    | Single-pair Ethernet       | Single-pair Ethernet connectivity port with power over data line          |
     +----------------------------+---------------------------------------------------------------------------+
-    | GigaBit Ethernet           | 1Gb/s Wired internet connectivity.                                        |
+    | GigaBit Ethernet           | 1Gb/s Wired internet connectivity                                         |
     +----------------------------+---------------------------------------------------------------------------+
-    | HDMI Output                | Full size HDMI port for connecting to external display monitors.          |
+    | HDMI Output                | Full size HDMI port for connecting to external display monitors           |
     +----------------------------+---------------------------------------------------------------------------+
-    | USB-A host port            | Port to connect USB devices like cameras, keyboard & mouse combos, etc.   |
+    | USB-A host port            | Port to connect USB devices like cameras, keyboard & mouse combos, etc    |
     +----------------------------+---------------------------------------------------------------------------+
-    | USB-C port                 | Power and tethered connection port.                                       |
+    | USB-C port                 | Power and Device data role port                                           |
     +----------------------------+---------------------------------------------------------------------------+
 
 Back components location
@@ -207,24 +205,24 @@ Back components location
     +----------------------------+---------------------------------------------------------------------------+
     | Feature                    | Description                                                               |
     +============================+===========================================================================+
-    | CC1352P7                   | 2.4GHz BLE + SubG IEEE802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna.    |
+    | CC1352P7                   | 2.4GHz BLE + SubG IEEE 802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna     |
     +----------------------------+---------------------------------------------------------------------------+
-    | WL1807MOD                  | Dual band (2.4GHz & 5GHz) WiFi module with 2 x uFL antennas.              |
+    | WL1807MOD                  | Dual band (2.4GHz & 5GHz) WiFi module with 2 x uFL antennas               |
     +----------------------------+---------------------------------------------------------------------------+
-    | DP83TD510E                 | Single-pair ethernet PHY.                                                 |
+    | DP83TD510E                 | Single-pair IEEE 802.3cg 10BASE-T1L Ethernet PHY                          |
     +----------------------------+---------------------------------------------------------------------------+
-    | RTL8211F                   | Ethernet PHY.                                                             |
+    | RTL8211F                   | Gigabit IEEE 802.11 Ethernet PHY                                          |
     +----------------------------+---------------------------------------------------------------------------+
-    | AM6254                     | Main SoC.                                                                 |
+    | AM6254                     | Main SoC                                                                  |
     +----------------------------+---------------------------------------------------------------------------+
-    | 16GB eMMC                  | Flash storage.                                                            |
+    | 16GB eMMC                  | Flash storage                                                             |
     +----------------------------+---------------------------------------------------------------------------+
-    | 2GB DDR$                   | RAM / Memory.                                                             |
+    | 2GB DDR4                   | RAM / Memory                                                              |
     +----------------------------+---------------------------------------------------------------------------+
-    | BQ32002                    | Real Time Clock (RTC).                                                    |
+    | BQ32002                    | Real Time Clock (RTC)                                                     |
     +----------------------------+---------------------------------------------------------------------------+
-    | TPS6521901                 | Power management IC.                                                      |
+    | TPS6521901                 | Power Management IC                                                       |
     +----------------------------+---------------------------------------------------------------------------+
-    | IT66121                    | HDMI PHY.                                                                 |
+    | IT66121                    | HDMI Transmitter                                                          |
     +----------------------------+---------------------------------------------------------------------------+
 

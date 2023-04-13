@@ -88,14 +88,18 @@ Steps
         echo "    fdtoverlays /overlays/k3-am625-beagleplay-bcfserial-no-firmware.dtbo" | sudo tee -a /boot/firmware/extlinux/extlinux.conf
         sudo shutdown -r now
 
+    .. note::
+
+        The default password is `temppwd`.
+
 #. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleplay/cc1352/wpanusb/-/releases>`_.
 
     .. code-block:: bash
 
         cd
-        wget https://debian.beagle.cc/images/cc1352-wpanusb-0.0.2.zip
-        unzip cc1352-wpanusb-0.0.2.zip
-        ./build/play/cc2538-bsl.py build/play
+        wget https://files.beagle.cc/file/beagleboard-public-2021/images/download
+        unzip download
+        build/play/cc2538-bsl.py build/play/wpanusb
 
 #. Ensure the `bcfserial` driver is set to load.
 
@@ -279,12 +283,6 @@ Build applications for BeaglePlay CC1352
 *********************************************
 
 Now you can build various Zephyr applications
-
-.. note::
-
-    Currently, https://git.beagleboard.org/beagleplay/micropython isn't public, so you'll need
-    to replace that with git@git.beagleboard.org:beagleplay/micropython
-
 
 #. Build and flash Blinky example
 
