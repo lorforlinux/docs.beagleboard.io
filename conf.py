@@ -36,22 +36,8 @@ extensions = [
 
 todo_include_todos = True
 
-from sphinx.ext import imgconverter
-
-class WebPConverter(imgconverter.ImageConverter):
-    def apply(self, source, target):
-        import os
-        from PIL import Image
-        
-        ext = os.path.splitext(source)[-1].lower()
-        if ext == '.webp':
-            with Image.open(source) as img:
-                img.save(target, format='PNG')
-        else:
-            super().apply(source, target)
-
-#if 'latex' in tags:
-imgconverter = WebPConverter
+from sphinx.ext.imgconverter import ImagemagickConverter
+ImagemagickConverter.conversion_rules.append(('image/webp', 'image/jpeg'))
 
 templates_path = ['_templates']
 
