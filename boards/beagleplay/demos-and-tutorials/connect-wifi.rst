@@ -166,7 +166,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mywifi"'
    Selected interface 'wlan0'
    OK
-   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mypassword"'
+   debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
    Selected interface 'wlan0'
    OK
    debian@BeaglePlay:~$ wpa_cli enable_network 1
