@@ -12,7 +12,7 @@ The **app_edgeai** application at a high level can be split into 3 parts,
 
 Here are the data flows for each reference demo and the corresponding GStreamer
 launch strings that **app_edgeai** application generates. User can interact with
-the application via the :ref:`pub_edgeai_configuration`
+the application via the :ref:`ai_64_edgeai_configuration`
 
 .. _ai_64_edgeai_image_classification_data_flow:
 
