@@ -79,6 +79,9 @@ Indentation
 
 This the simplest way of adding code snippet in ReStructuredText.
 
+Example
+-------
+
 .. callout::
 
     .. code-block:: ReStructuredText
@@ -111,6 +114,9 @@ Code block
 Simple indentation only supports python program highlighting but, with code block you can 
 specify which language is your code written in. ``code-block`` also provides better readability 
 and line numbers support you can useas shown below.
+
+Example
+-------
 
 .. callout::
 
@@ -146,18 +152,19 @@ Literal include
 
 To include the entire code or a code snippet from a program file you can use this directive.
 
+Example
+-------
+
 .. callout::
 
     .. code-block:: ReStructuredText
 
         .. literalinclude:: filename.cpp <1>
-            :caption: <2>
+            :caption: Example C++ file <2>
             :linenos: <3>
             :language: C++ <4>
             :lines: 2, 4-7 <5>
-            :start-after: 4 <6>
-            :end-before: 7 <7>
-            :lineno-start: 113 <8>
+            :lineno-start: 113 <6>
 
     .. annotations::
 
@@ -171,75 +178,27 @@ To include the entire code or a code snippet from a program file you can use thi
 
         <5> Cherry pick some lines from a big program file.
 
-        <6> Display the code snippet from a specific line number.
+        <6> Instead of starting line number from 1 start it with some other number. It's useful when you use :lines:, :start-after:, and :end-before:.
 
-        <7> Set a specific line number as end of code snippet.
+Output
+------
 
-        <8> Instead of starting line number from 1 start it with some other number. It's useful when you use :lines:, :start-after:, and :end-before:.
+.. literalinclude:: filename.cpp
+   :caption: Example C++ file
+   :linenos:
+   :language: C++
+   :lines: 2, 4-7
+   :lineno-start: 113
 
-Links
-******
-
-We have three types of links to use in sphinx,
-
-1. External links (http(s) links).
-2. Implicit links to title (within same rst file).
-3. Explicit links (labels that can be used anywhere in the project).
-
-External links
-==============
-
-For a simple link to a site the format is
-
-.. code-block:: rst
-
-    `<www.beagleboard.org>`_
-
-this will be rendered as `<www.beagleboard.org>`_. 
-
-You can also include a label to the link as shown below.
-
-.. code-block:: rst
-
-    `BeagleBoard.org <www.beagleboard.org>`_
-
-this will be rendered as `BeagleBoard.org <www.beagleboard.org>`_. 
-
-Implicit Links
-==============
-
-These are basically the headings inside the rst page which can 
-be used as a link to that section within document. 
-
-.. code-block:: rst
-
-    `Links`_
-
-when rendered it becomes `Links`_
-
-Explicit link
-==============
-
-These are special links you can assign to a specific part of the document and reference anywhere 
-in the project unlike implicit links which can be used only within the document they are defined. 
-On top of each page you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
-label for this chapter. These are called the explicit links amd you can reference these using two methods.
-
-.. code-block:: rst
-    :linenos:
-
-    rst-cheat-sheet_
-
-.. code-block:: rst
-    :linenos:
-    :lineno-start: 2
-
-    :ref:`<rst-cheat-sheet>`_
-
-Both can be used inside/outside of the document and the rendered link will take you directly to that specific segment.
+.. _rst-annotations:
 
 Annotations
-***********
+===========
+
+We have a plug-in installed that enables annotated code blocks. Below is an example.
+
+Example
+-------
 
 .. code-block:: ReStructuredText
 
@@ -290,6 +249,65 @@ Output
     interpreted as a callout symbol. Be sure to remove that character if you attempt to copy-and-paste the
     example.
 
+
+Links
+******
+
+We have three types of links to use in sphinx,
+
+1. External links (http(s) links).
+2. Implicit links to title (within same rst file).
+3. Explicit links (labels that can be used anywhere in the project).
+
+External links
+==============
+
+For a simple link to a site the format is
+
+.. code-block:: rst
+
+    `<www.beagleboard.org>`_
+
+this will be rendered as `<www.beagleboard.org>`_. 
+
+You can also include a label to the link as shown below.
+
+.. code-block:: rst
+
+    `BeagleBoard.org <www.beagleboard.org>`_
+
+this will be rendered as `BeagleBoard.org <www.beagleboard.org>`_. 
+
+Implicit Links
+==============
+
+These are basically the headings inside the rst page which can 
+be used as a link to that section within document. 
+
+.. code-block:: rst
+
+    `Links`_
+
+when rendered it becomes `Links`_
+
+Explicit link
+==============
+
+.. todo:: The terminology ``Implicit`` and ``Explicit`` is not accurate here.
+
+These are special links you can assign to a specific part of the document and reference anywhere 
+in the project unlike implicit links which can be used only within the document they are defined. 
+On top of each page you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
+label for this chapter. These are called the explicit links amd you can reference these using ``ref:``.
+
+.. note:: This can be used inside or outside of the document and the rendered link will take you directly to that specific section.
+
+.. code-block:: rst
+
+    :ref:`rst-cheat-sheet`
+
+When rendered it becomes :ref:`rst-cheat-sheet`.
+
 More
 ====
 
@@ -302,4 +320,3 @@ More
 .. [#] `Quick reStructuredText (sourceforge) <https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets>`_
 
 .. [#] `A two-page cheatsheet for restructured text <https://github.com/ralsina/rst-cheatsheet>`_
-

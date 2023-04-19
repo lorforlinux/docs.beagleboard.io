@@ -56,10 +56,10 @@ Demos and tutorials
         beginner
 
 .. card:: 
-    :link: beagleplay-quiic
+    :link: beagleplay-qwiic
     :link-type: ref
 
-    **Using quiic**
+    **Using QWIIC**
     ^^^
     Learn to expand your BeaglePlay capabilities via quiic I2C boards.
     +++
@@ -71,7 +71,7 @@ Demos and tutorials
     :link: beagleplay-oldi
     :link-type: ref
 
-    **Using oldi**
+    **Using OLDI**
     ^^^
     Learn how to connect and run oldi displays with BeaglePlay.
     +++
@@ -92,7 +92,7 @@ Demos and tutorials
         intermediate
 
 .. card:: 
-    :link: zephyr-development
+    :link: beagleplay-zephyr-development
     :link-type: ref
 
     **Zephyr development**

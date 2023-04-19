@@ -15,11 +15,15 @@ A cape is simply a board--often a printed circuit board (PCB) that connects to t
 and +P9+ headers and follows a few standard pin usages. You can stack up to four capes onto the 
 Bone. Capes can range in size from Bone-sized (:ref:`capes_miniDisplay`) to much larger than the Bone (:ref:`capes_7inLCD`).
 
+.. todo:: Add better cape examples, rather than ones out of production
+
 This chapter shows how to attach a couple of capes, move your design to a protoboard, then to a PCB, 
 and finally on to mass production.
 
+.. todo:: Update display cape example
+
 ..
-  #TODO# LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
+  LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
   .. _capes_7inLCD:
 
   Using a Seven-Inch LCD Cape
