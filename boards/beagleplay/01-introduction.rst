@@ -63,7 +63,7 @@ Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug i
     +----------------------------+---------------------------------------------------------------------------+
     | Storage                    | 16GB eMMC                                                                 |
     +----------------------------+---------------------------------------------------------------------------+
-    | WiFi                       | - PHY: WL1807MOD (roadmap to next-gen TI WiFi)                            |
+    | WiFi                       | - PHY: WL1807MOD (roadmap to next-gen TI CC33XX WiFi 6 & BLE)             |
     |                            | - Antennas: 2.4GHz & 5GHz                                                 |
     +----------------------------+---------------------------------------------------------------------------+
     | BLE/SubG                   | - CC1352P7 M4+M0 with BeagleConnect firmware                              |
