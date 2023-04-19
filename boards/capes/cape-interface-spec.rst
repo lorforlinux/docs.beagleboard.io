@@ -520,7 +520,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
         };
    }
 
-In :ref:`bone_cape_spec_spi_example`_, you can specify what driver you want to load and provide any properties it might need.
+In :ref:`bone_cape_spec_spi_example`, you can specify what driver you want to load and provide any properties it might need.
 
 * https://www.kernel.org/doc/html/v5.10/spi/spi-summary.html
 * https://www.kernel.org/doc/Documentation/devicetree/bindings/spi/
