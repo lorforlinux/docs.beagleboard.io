@@ -32,7 +32,7 @@ Attaching antennas
 
 You can watch this video to see how to attach the attennas.
 
-.. image:: images/attach-antennas.webp
+.. image:: images/attach-antennas.*
    :alt: YouTube video of BeaglePlay antenna connection
    :width: 1280
    :target: https://youtu.be/8zeIVd-JRc0
