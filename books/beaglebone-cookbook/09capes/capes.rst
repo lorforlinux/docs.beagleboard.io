@@ -885,7 +885,7 @@ for tips on converting from one to the other.
 
 *DesignSpark PCB*
 
-The free `DesignSpark PCB <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
+The free `DesignSpark <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
 but it runs only on Windows. Also, it doesn't seem to have the following of Eagle at this time.
 
 .. _capes_upverter:
