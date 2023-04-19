@@ -75,10 +75,6 @@ https://www.amazon.com/Raspberry-Pi-Camera-Module-Megapixel/dp/B01ER2SKFS
 The camera can be connected to any of the 2 RPi zero 22 pin camera headers on BB AI-64 as
 shown below
 
-.. figure:: 
-   :scale: 20
-   :align: center
-
 .. todo::
 
    IMX219 CSI sensor connection with BeagleBone® AI-64 for Edge AI
@@ -180,10 +176,6 @@ Once the SD card is firmly inserted in its slot and the board is powered ON,
 the board will take less than 20sec to boot and display a wallpaper as
 shown in the image below.
 
-.. figure:: 
-   :scale: 25
-   :align: center
-
 .. todo::
 
    BeagleBone® AI-64 wallpaper upon boot
@@ -244,10 +236,6 @@ You also require the "Remote development extension pack" installed in VSCode
 as mentioned here:
 
 https://code.visualstudio.com/docs/remote/ssh
-
-.. figure:: 
-   :scale: 90
-   :align: center
 
 .. todo::
 

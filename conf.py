@@ -8,9 +8,10 @@ import os
 import sys
 from pathlib import Path
 import re
-# sys.path.insert(0, os.path.abspath('.'))
-# sys.path.append('.')
 import sphinx_rtd_theme
+from sphinx.ext.imgconverter import ImagemagickConverter
+
+ImagemagickConverter.conversion_rules.append(('image/webp', 'image/jpeg'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
@@ -19,7 +20,6 @@ BBDOCS_BASE = Path(__file__).resolve().parents[0]
 project = 'BeagleBoard Docs'
 copyright = '2023, BeagleBoard.org Foundation'
 author = 'BeagleBoard.org Foundation'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -36,8 +36,10 @@ extensions = [
 
 todo_include_todos = True
 
-from sphinx.ext.imgconverter import ImagemagickConverter
-ImagemagickConverter.conversion_rules.append(('image/webp', 'image/jpeg'))
+# Update supported_image_types selection priority order
+from sphinx.builders.html import StandaloneHTMLBuilder
+StandaloneHTMLBuilder.supported_image_types = ['image/svg+xml', 'image/webp', 'image/jpg', 
+                                       'image/jpeg', 'image/gif', 'image/png']
 
 templates_path = ['_templates']
 

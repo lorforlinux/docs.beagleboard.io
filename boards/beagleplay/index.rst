@@ -13,7 +13,7 @@ BeaglePlay
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: images/front.webp                       | .. image:: images/back.webp                             |
+   | .. image:: images/front.*                          | .. image:: images/back.*                                |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
@@ -34,7 +34,7 @@ BeaglePlay
       **1. Introduction**
       ^^^
 
-      .. image:: images/chapter-thumbnails/01-introduction.webp
+      .. image:: images/chapter-thumbnails/01-introduction.*
          :align: center
          :alt: BeaglePlay Chapter01 thumbnail
       
@@ -50,7 +50,7 @@ BeaglePlay
       **2. Quick start**
       ^^^
 
-      .. image:: images/chapter-thumbnails/02-quick-start.webp
+      .. image:: images/chapter-thumbnails/02-quick-start.*
          :align: center
          :alt: BeaglePlay Chapter02 thumbnail
 
@@ -66,7 +66,7 @@ BeaglePlay
       **3. Design & Specifications**
       ^^^
 
-      .. image:: images/chapter-thumbnails/03-design-and-specifications.webp
+      .. image:: images/chapter-thumbnails/03-design-and-specifications.*
          :align: center
          :alt: BeaglePlay Chapter03 thumbnail
 
@@ -82,7 +82,7 @@ BeaglePlay
       **4. Expansion**
       ^^^
 
-      .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.webp
+      .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.*
          :align: center
          :alt: BeaglePlay Chapter04 thumbnail
 
@@ -98,7 +98,7 @@ BeaglePlay
       **5. Demos**
       ^^^
 
-      .. image:: images/chapter-thumbnails/05-demos-and-tutorials.webp
+      .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
          :align: center
          :alt: BeaglePlay Chapter5 thumbnail
 
@@ -113,7 +113,7 @@ BeaglePlay
       **6. Support**
       ^^^
 
-      .. image:: images/chapter-thumbnails/06-support-documents.webp
+      .. image:: images/chapter-thumbnails/06-support-documents.*
          :align: center
          :alt: BeaglePlay Chapter6 thumbnail
 
