@@ -72,11 +72,11 @@ Standard FTDI Cable
 The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. 
 It can purchased from several different sources including but not limited to:
 
-- `DigiKey <http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393>`_
-- `Newark <http://www.newark.com/jsp/search/productdetail.jsp?SKU=34M8872&CMP=KNC-GPLA&mckv=%7Cpcrid%7C19038771501%7Cplid%7C>`_
-- `Sparkfun <https://www.sparkfun.com/products/9717>`_
-- `FTDI <http://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>`_
-- `Adafruit <https://www.adafruit.com/products/70>`_
+- `FTDI serial cable direct <http://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>`_
+- `FTDI serial cable at DigiKey <http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393>`_
+- `FTDI serial cable at Newark <http://www.newark.com/jsp/search/productdetail.jsp?SKU=34M8872&CMP=KNC-GPLA&mckv=%7Cpcrid%7C19038771501%7Cplid%7C>`_
+- `FTDI serial cable at Sparkfun <https://www.sparkfun.com/products/9717>`_
+- `FTDI serial cable at Adafruit <https://www.adafruit.com/products/70>`_
 
 .. image:: images/FTDI_Cable.jpg
     :align: center
@@ -87,7 +87,7 @@ Pin 1 on the cable is the black wire and connects to pin 1 on the board. (the pi
 Adafruit 4 Pin Cable (PL2303)
 ==============================
 
-This is a Prolific chipset based cable sold by `Adafruit <http://www.adafruit.com/products/954>`_.
+This is a Prolific chipset based cable sold by `Adafruit 4-pin serial cable <http://www.adafruit.com/products/954>`_.
 Some people have reported issues with the cable causing some issues with data corruption. Your experience 
 may vary. You will need to install the Prolific drivers, downloadable from Adafruit.
 

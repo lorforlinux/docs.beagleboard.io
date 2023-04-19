@@ -29,31 +29,5 @@ html_static_path = ['_static']
 
 # -- Options for PDF output -------------------------------------------------
 
-from sphinx.builders.latex import LaTeXBuilder
-
-# add .webp to the LaTeX builder's image file extensions
-LaTeXBuilder.supported_image_types += ['.webp']
-
-class WebPConverter:
-    def apply(self, **kwargs):
-        from PIL import Image
-        for infile in kwargs['images']:
-            if infile.endswith('.webp'):
-                outfile = infile.replace('.webp', '.png')
-                try:
-                    im = Image.open(infile)
-                    im.save(outfile)
-                except OSError:
-                    print(f'Cannot convert {infile}')
-
-# add WebPConverter to the imgconverter extension's converters list
-imgconverter_image_converters = {
-    '.webp': WebPConverter,
-}
-
 #latex_engine = 'xelatex'
-imgconverter_image_format = 'png'
-
-latex_elements = {
-  'extraclassoptions': 'openany,oneside'
-}
+imgconverter_image_format = 'image/jpeg'

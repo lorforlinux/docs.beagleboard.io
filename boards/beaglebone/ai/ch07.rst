@@ -1486,8 +1486,13 @@ it is only an output from BeagleBone AI to capes on BeagleBone AI.)
     | **2nd 15**      |                 | Driver off     |
     +-----------------+-----------------+----------------+
 
+.. todo:: This table needs entries
 
 .. table:: P9.32-P9.40
+
+    +-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+    |                 | P9.32  | P9.33  | P9.34  | P9.35  | P9.36  | P9.37  | P9.38  | P9.39  | P9.40  |
+    +=================+========+========+========+========+========+========+========+========+========+
 
 .. table:: P9.41-P9.42
 
@@ -1569,42 +1574,45 @@ it is only an output from BeagleBone AI to capes on BeagleBone AI.)
     | **2nd 15**      | Driver off       | Driver off      |
     +-----------------+------------------+-----------------+
 
+.. todo:: Table entries needed
 
 .. table:: P9.43-P9.46
 
-TODO
+    +-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+    |                 | P9.32  | P9.33  | P9.34  | P9.35  | P9.36  | P9.37  | P9.38  | P9.39  | P9.40  |
+    +=================+========+========+========+========+========+========+========+========+========+
 
 Serial Debug
 **************
 
-TODO
+.. todo:: Need info on BealgeBone AI serial debug
 
 USB 3 Type-C
 **************
 
-TODO
+.. todo:: Need info on BealgeBone AI USB Type-C connection
 
 USB 2 Type-A
 ***************
 
-TODO
+.. todo:: Need info on BealgeBone AI USB Type-A connection
 
 Gigabit Ethernet
 *******************
 
-TODO
+.. todo:: Need info on BealgeBone AI USB Gigabit Ethernet connection
 
 Coaxial
 *********
 
-TODO
+.. todo:: Need info on BealgeBone AI u.FL antenna connection
 
 microSD Memory
 ****************
 
-TODO
+.. todo:: Need info on BealgeBone AI uSD card slot
 
 microHDMI
 ***********
 
-TODO
+.. todo:: Need info on BealgeBone AI uHDMI connection

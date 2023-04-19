@@ -53,11 +53,11 @@ of these memories variables are stored.
 
 .. _blocks_shared:
 
-.. literalinclude:: code/shared.pru0.c
+.. literalinclude:: ../code/05blocks/shared.pru0.c
    :caption: shared.pro0.c - Examples of Using Different Memory Locations
    :linenos:
 
-:download:`shared.pru0.c <code/shared.pru0.c>`
+:download:`shared.pru0.c <../code/05blocks/shared.pru0.c>`
 
 
 Discussion
@@ -312,11 +312,11 @@ the code work.  Fortunately the Makefile always runs it.
 
 .. _blocks_write_init_pins:
 
-.. literalinclude:: code/write_init_pins.sh
+.. literalinclude:: ../code/05blocks/write_init_pins.sh
    :caption: write_init_pins.sh
    :linenos:
 
-:download:`write_init_pins.sh <code/write_init_pins.sh>`
+:download:`write_init_pins.sh <../code/05blocks/write_init_pins.sh>`
 
 The ``readelf`` command extracts the path and value from the ``.out`` file.
 
@@ -366,11 +366,11 @@ for details on making it work.
 
 .. _blocks_pwm1:
 
-.. literalinclude:: code/pwm1.pru0.c
+.. literalinclude:: ../code/05blocks/pwm1.pru0.c
    :caption: pwm1.pru0.c
    :linenos:
 
-:download:`pwm1.pru0.c <code/pwm1.pru0.c>`
+:download:`pwm1.pru0.c <../code/05blocks/pwm1.pru0.c>`
 
 To run this code you need to configure the pin muxes to output the PRU.  If you are on the Black run
 
@@ -419,11 +419,11 @@ Discussion
 
 Since this is our first example we'll discuss the many parts in detail.
 
-.. literalinclude:: code/pwm1.pru0.c
+.. literalinclude:: ../code/05blocks/pwm1.pru0.c
    :caption: pwm1.pru0.c
    :linenos:
 
-:download:`pwm1.pru0.c <code/pwm1.pru0.c>`
+:download:`pwm1.pru0.c <../code/05blocks/pwm1.pru0.c>`
 
 :ref:`blocks_pwm1_line_by_line` is a line-by-line expanation of the c code.
 
@@ -448,11 +448,11 @@ Since this is our first example we'll discuss the many parts in detail.
 
 Here's what's in ``resource_table_empty.h``
 
-.. literalinclude:: code/resource_table_empty.h
+.. literalinclude:: ../code/05blocks/resource_table_empty.h
    :caption: resource_table_empty.c
    :linenos:
 
-:download:`resource_table_empty.c <code/resource_table_empty.h>`
+:download:`resource_table_empty.c <../code/05blocks/resource_table_empty.h>`
 
 .. table:: Line-by-line (continuted)
 
@@ -616,11 +616,11 @@ We want a square wave, so we need to add a delay to correct for the delay of loo
 
 Here's the code that does just that.
 
-.. literalinclude:: code/pwm2.pru0.c
+.. literalinclude:: ../code/05blocks/pwm2.pru0.c
    :caption: pwm2.pru0.c
    :linenos:
 
-:download:`pwm2.pru0.c <code/pwm2.pru0.c>`
+:download:`pwm2.pru0.c <../code/05blocks/pwm2.pru0.c>`
 
 The output now looks like:
 
@@ -691,19 +691,19 @@ the ARM can write values into the DRAM and change the PWM on and off times.
 
 .. _blocks_pwm4:
 
-.. literalinclude:: code/pwm4.pru0.c
+.. literalinclude:: ../code/05blocks/pwm4.pru0.c
    :caption: pwm4.pru0.c
    :linenos:
 
-:download:`pwm4.pru0.c <code/pwm4.pru0.c>`
+:download:`pwm4.pru0.c <../code/05blocks/pwm4.pru0.c>`
 
 Here is code that runs on the ARM side to set the on and off time values.
 
-.. literalinclude:: code/pwm-test.c
+.. literalinclude:: ../code/05blocks/pwm-test.c
    :caption: pwm-test.c
    :linenos:
 
-:download:`pwm-test.c <code/pwm-test.c>`
+:download:`pwm-test.c <../code/05blocks/pwm-test.c>`
 
 A quick check on the 'scope shows :ref:`blocks_pwm_arm_control`.
 
@@ -734,11 +734,11 @@ Solution
 
 Simple loop unrolling can greatly improve the speed.  ``pwm5.pru0.c`` is our unrolled version.
 
-.. literalinclude:: code/pwm5.pru0.c
+.. literalinclude:: ../code/05blocks/pwm5.pru0.c
    :caption: pwm5.pru0.c Unrolled
    :linenos:
 
-:download:`pwm5.pru0.c <code/pwm5.pru0.c>`
+:download:`pwm5.pru0.c <../code/05blocks/pwm5.pru0.c>`
 
 The output of ``pwm5.pru0.c`` is in the figure below.
 
@@ -806,11 +806,11 @@ in each channel starts about 15ns later than the channel above it.
 
 The solution is to declare ``Rtmp`` (line 35) which holds the value for ``__R30``.
 
-.. literalinclude:: code/pwm6.pru0.c
+.. literalinclude:: ../code/05blocks/pwm6.pru0.c
    :caption: pwm6.pru0.c Sync'ed Version of pwm5.pru0.c 
    :linenos:
 
-:download:`pwm6.pru0.c Sync'ed Version of pwm5.pru0.c <code/pwm6.pru0.c>`
+:download:`pwm6.pru0.c Sync'ed Version of pwm5.pru0.c <../code/05blocks/pwm6.pru0.c>`
 
 Each channel writes it's value to ``Rtmp`` (lines 17 and 20) and then after
 each channel has updated, ``Rtmp`` is copied to ``__R30`` (line 54).
@@ -854,19 +854,19 @@ will make the period half as long.
 
 Here's the code (``pwm7.pru0.c``)
 
-.. literalinclude:: code/pwm7.pru0.c
+.. literalinclude:: ../code/05blocks/pwm7.pru0.c
    :caption: pwm7.pru0.c Using Both PRUs
    :linenos:
 
-:download:`pwm7.pru0.c Using Both PRUs <code/pwm7.pru0.c>`
+:download:`pwm7.pru0.c Using Both PRUs <../code/05blocks/pwm7.pru0.c>`
 
 Be sure to run ``pwm7_setup.sh`` to get the correct pins configured.
 
-.. literalinclude:: code/pwm7_setup.sh
+.. literalinclude:: ../code/05blocks/pwm7_setup.sh
    :caption: pwm7_setup.sh
    :linenos:
 
-:download:`pw7_setup.sh <code/pwm7_setup.sh>`
+:download:`pw7_setup.sh <../code/05blocks/pwm7_setup.sh>`
 
 This makes sure the PRU 1 pins are properly configured.
 
@@ -960,19 +960,19 @@ Page 225 of the `AM335x TRM 225 <https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf
 has details of how it works.  Here's the code for PRU 0, which at the end of the
 ``while`` loop signals PRU 1 to start(``pwm8.pru0.c``).
 
-.. literalinclude:: code/pwm8.pru0.c
+.. literalinclude:: ../code/05blocks/pwm8.pru0.c
    :caption: pwm8.pru0.c PRU 0 using INTC to send a signal to PRU 1 
    :linenos:
 
-:download:`pwm8.pru0.c  PRU 0 using INTC to send a signal to PRU 1 <code/pwm8.pru0.c>`
+:download:`pwm8.pru0.c  PRU 0 using INTC to send a signal to PRU 1 <../code/05blocks/pwm8.pru0.c>`
 
 PRU 2's code waits for PRU 0 before going.
 
-.. literalinclude:: code/pwm8.pru1.c
+.. literalinclude:: ../code/05blocks/pwm8.pru1.c
    :caption: pwm8.pru1.c PRU 1 waiting for INTC from PRU 0
    :linenos:
 
-:download:`pwm8.pru1.c PRU 1 waiting for INTC from PRU 0 <code/pwm8.pru1.c>`
+:download:`pwm8.pru1.c PRU 1 waiting for INTC from PRU 0 <../code/05blocks/pwm8.pru1.c>`
 
 In ``pwm8.pru0.c`` PRU 1 waits for a signal from PRU 0, so be sure to start PRU 1 first.
 
@@ -1046,19 +1046,19 @@ These values came from :ref:`blocks_mapping_bits`.
 
 Configure the pins with ``input_setup.sh``.
 
-.. literalinclude:: code/input_setup.sh
+.. literalinclude:: ../code/05blocks/input_setup.sh
    :caption: input_setup.sh
    :linenos:
 
-:download:`input_setup.sh <code/input_setup.sh>`
+:download:`input_setup.sh <../code/05blocks//input_setup.sh>`
 
 The following code reads the input pin and writes its value to the output pin.
 
-.. literalinclude:: code/input.pru0.c
-   :caption: code/input.pru0.c
+.. literalinclude:: ../code/05blocks/input.pru0.c
+   :caption: input.pru0.c
    :linenos:
 
-:download:`input.pru0.c <code/input.pru0.c>`
+:download:`input.pru0.c <../code/05blocks/input.pru0.c>`
 
 Discussion
 -----------
@@ -1090,11 +1090,11 @@ in chapter 13 of `Exploring BeagleBone by Derek Molloy <http://exploringbeaglebo
 
 Here's the code.
 
-.. literalinclude:: code/sine.pru0.c
+.. literalinclude:: ../code/05blocks/sine.pru0.c
    :caption: sine.pru0.c
    :linenos:
 
-:download:`sine.pru0.c <code/sine.pru0.c>`
+:download:`sine.pru0.c <../code/05blocks/sine.pru0.c>`
 
 
 Set the ``#define`` at line 7 to the number of samples in one cycle of the waveform 
@@ -1293,11 +1293,11 @@ You can look in `/tmp/cloud9-examples/sine.pru0.map` to see how much memory is b
 
 .. _blocks_sine_map:
 
-.. literalinclude:: code/sine.map
+.. literalinclude:: ../code/05blocks/sine.map
    :caption: /tmp/cloud9-examples/sine.pru0.map for Sine Wave
    :linenos:
 
-:download:`lines=1..22 <code/sine.map>`
+:download:`lines=1..22 <../code/05blocks/sine.map>`
 
 Notice line 15 shows 0x18c0 bytes are being used for instructions.  That's 6336 
 in decimal.
@@ -1347,11 +1347,11 @@ which to turns all pixels white.
 
 .. _blocks_neo1:
 
-.. literalinclude:: code/neo1.pru0.c
+.. literalinclude:: ../code/05blocks/neo1.pru0.c
    :caption: neo1.pru0.c - Code to turn all NeoPixels's white
    :linenos:
 
-:download:`neo1.pru0.c <code/neo1.pru0.c>`
+:download:`neo1.pru0.c <../code/05blocks/neo1.pru0.c>`
 
 Discussion
 -----------
@@ -1423,11 +1423,11 @@ then run the code in :ref:`blocks_neo2`.
 
 .. _blocks_neo2:
 
-.. literalinclude:: code/neo2.pru0.c
+.. literalinclude:: ../code/05blocks/neo2.pru0.c
    :caption: neo2.pru0.c - Code to turn on green, red, blue
    :linenos:
 
-:download:`neo2.pru0.c <code/neo2.pru0.c>`
+:download:`neo2.pru0.c <../code/05blocks/neo2.pru0.c>`
 
 This will make the first LED green, the second red and the third blue.
 
@@ -1499,11 +1499,11 @@ the code in action.
 
 .. _blocks_neo3:
 
-.. literalinclude:: code/neo3.pru0.c
+.. literalinclude:: ../code/05blocks/neo3.pru0.c
    :caption: neo3.pru0.c - Code to animate a red pixel running around a ring of blue
    :linenos:
 
-:download:`neo3.pru0.c <code/neo3.pru0.c>`
+:download:`neo3.pru0.c <../code/05blocks/neo3.pru0.c>`
 
 .. _blocks_neo3_video:
 
@@ -1551,11 +1551,11 @@ an example.
 
 .. _blocks_neo4:
 
-.. literalinclude:: code/neo4.pru0.c
+.. literalinclude:: ../code/05blocks/neo4.pru0.c
    :caption: neo4.pru0.c - Code to talk to the PRU via rpmsg_pru
    :linenos:
 
-:download:`neo4.pru0.c <code/neo4.pru0.c>`
+:download:`neo4.pru0.c <../code/05blocks/neo4.pru0.c>`
 
 Run the code as usual.
 
@@ -1632,11 +1632,11 @@ You can now use programs running on the ARM to send colors to the PRU.
 
 .. _blocks_neo-rainbow:
 
-.. literalinclude:: code/neo-rainbow.py
+.. literalinclude:: ../code/05blocks/neo-rainbow.py
    :caption: neo-rainbow.py - A python program using /dev/rpmsg_pru30
    :linenos:
 
-:download:`neo-rainbow.py <code/neo-rainbow.py>`
+:download:`neo-rainbow.py <../code/05blocks/neo-rainbow.py>`
 
 
 Line 19 writes the data to the PRU.  Be sure to have a newline, or space after
@@ -1719,21 +1719,21 @@ high-level view of how to drive the display.
 
 .. _blocks_rgb_python:
 
-.. literalinclude:: code/rgb_python.py
+.. literalinclude:: ../code/05blocks/rgb_python.py
    :caption: rgb_python.py - Python code for driving RGB LED matrix
    :linenos:
 
-:download:`rgb_python.py <code/rgb_python.py>`
+:download:`rgb_python.py <../code/05blocks/rgb_python.py>`
 
 Be sure to run the :ref:`blocks_rgb_setup` script before running the python code.
 
 .. _blocks_rgb_setup:
 
-.. literalinclude:: code/rgb_python_setup.sh
+.. literalinclude:: ../code/05blocks/rgb_python_setup.sh
    :caption: rgb_python_setup.sh
    :linenos:
 
-:download:`rgb_python_setup.sh <code/rgb_python_setup.sh>`
+:download:`rgb_python_setup.sh <../code/05blocks/rgb_python_setup.sh>`
 
 Make sure line 29 is commented out and line 30 is uncommented. 
 Later we'll configure for _pruout_, but for now the python code doesn't use 
@@ -1766,11 +1766,11 @@ Be sure to run ``bone$ source rgb_setup.sh`` first.
 .. _blocks_rgb1:
 
 
-.. literalinclude:: code/rgb1.pru0.c
+.. literalinclude:: ../code/05blocks/rgb1.pru0.c
    :caption: PRU code for driving the RGB LED matrix
    :linenos:
 
-:download:`rgb1.pru0.c <code/rgb1.pru0.c>`
+:download:`rgb1.pru0.c <../code/05blocks/rgb1.pru0.c>`
 
 
 The results are shown in :ref:`blocks_rgb_pru`.
@@ -1806,10 +1806,15 @@ Notice the labels on the connect match the labels in the code.
 :ref:`blocks_pocket_scroller_pins` shows how the pins on the display are 
 mapped to the pins on the PocketBeagle.
 
-.. ToDo  Make a mapping table for the Black
-.. https://github.com/FalconChristmas/fpp/blob/master/src/pru/OctoscrollerV2.hp
+.. todo::
+
+   Make a mapping table for the Black
+
+   https://github.com/FalconChristmas/fpp/blob/master/src/pru/OctoscrollerV2.hp
+
 
 .. _blocks_pocket_scroller_pins:
+
 
 .. table:: PocketScroller pin table
 
@@ -1842,6 +1847,7 @@ mapped to the pins on the PocketBeagle.
   +-----------------+---------------+------------------------+------------------+-------------------+
   |LAT              |P1_36          |3-14                    |110               |PRU0.0             |
   +-----------------+---------------+------------------------+------------------+-------------------+
+
 
 The J1 mapping to gpio port and bit number comes from 
 https://github.com/FalconChristmas/fpp/blob/master/capes/pb/panels/PocketScroller.json.
@@ -1919,21 +1925,21 @@ Do the following.
 
 .. code-block:: bash
 
-  bone$ *cd 05blocks/code/module*
+  bone$ *cd code/05blocks/module*
   bone$ *sudo apt install linux-headers-\`uname -r`*
   bone$ *wget https://github.com/beagleboard/linux/raw/4.9/drivers/rpmsg/rpmsg_pru.c*
   bone$ *make*
   make -C /lib/modules/4.9.88-ti-r111/build M=$PWD
   make[1]: Entering directory '/usr/src/linux-headers-4.9.88-ti-r111'
-    LD      /home/debian/PRUCookbook/docs/05blocks/code/module/built-in.o
-    CC [M]  /home/debian/PRUCookbook/docs/05blocks/code/module/rpmsg_client_sample.o
-    CC [M]  /home/debian/PRUCookbook/docs/05blocks/code/module/rpmsg_pru.o
+    LD      /home/debian/PRUCookbook/docs/code/05blocks/module/built-in.o
+    CC [M]  /home/debian/PRUCookbook/docs/code/05blocks/module/rpmsg_client_sample.o
+    CC [M]  /home/debian/PRUCookbook/docs/code/05blocks/module/rpmsg_pru.o
     Building modules, stage 2.
     MODPOST 2 modules
-    CC      /home/debian/PRUCookbook/docs/05blocks/code/module/rpmsg_client_sample.mod.o
-    LD [M]  /home/debian/PRUCookbook/docs/05blocks/code/module/rpmsg_client_sample.ko
-    CC      /home/debian/PRUCookbook/docs/05blocks/code/module/rpmsg_pru.mod.o
-    LD [M]  /home/debian/PRUCookbook/docs/05blocks/code/module/rpmsg_pru.ko
+    CC      /home/debian/PRUCookbook/docs/code/05blocks/module/rpmsg_client_sample.mod.o
+    LD [M]  /home/debian/PRUCookbook/docs/code/05blocks/module/rpmsg_client_sample.ko
+    CC      /home/debian/PRUCookbook/docs/code/05blocks/module/rpmsg_pru.mod.o
+    LD [M]  /home/debian/PRUCookbook/docs/code/05blocks/module/rpmsg_pru.ko
   make[1]: Leaving directory '/usr/src/linux-headers-4.9.88-ti-r111'
   bone$ *sudo insmod rpmsg_pru.ko*
   bone$ *lsmod | grep rpm*
@@ -1946,11 +1952,11 @@ It's now installed and ready to go.
 
 
 Copyright
-==========
+**********
 
-.. literalinclude:: code/copyright.c
+.. literalinclude:: ../code/05blocks/copyright.c
    :caption: copyright.c
    :linenos:
 
-:download:`copyright.c <code/copyright.c>`
+:download:`copyright.c <../code/05blocks/copyright.c>`
 
