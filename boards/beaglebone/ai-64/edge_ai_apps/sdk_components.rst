@@ -103,7 +103,7 @@ For more information visit `Processor SDK RTOS Getting Started Guide <https://so
 .. _ai_64_edgeai_psdk_linux:
 
 BeagleBone® AI-64 Linux
-===================
+========================
 
 The BeagleBone® AI-64 Linux for Edge AI  gets all the Linux kernel, filesystem, device-drivers and more
 from BeagleBone® AI-64 Linux
