@@ -180,16 +180,6 @@ Example
 
         <6> Instead of starting line number from 1 start it with some other number. It's useful when you use :lines:, :start-after:, and :end-before:.
 
-Output
-------
-
-.. literalinclude:: filename.cpp
-   :caption: Example C++ file
-   :linenos:
-   :language: C++
-   :lines: 2, 4-7
-   :lineno-start: 113
-
 .. _rst-annotations:
 
 Annotations
