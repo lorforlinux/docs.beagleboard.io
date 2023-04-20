@@ -191,7 +191,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
 
 To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. This is described
-in :ref:`<beagleplay-wifi-wpa-cli-xfce>`_.
+in :ref:`beagleplay-wifi-wpa-cli-xfce`.
 
 .. _beagleplay-wifi-wpa-cli-xfce:
 

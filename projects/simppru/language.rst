@@ -533,15 +533,15 @@ Syntax
        return <data_type>;
    }
 
-- **Note** : If return data type is void, then return statement is not
-needed, and if still it is added, it must be return nothing, i.e.,
-something like this ``return ;``
+.. note:: If return data type is void, then return statement is not
+   needed, and if still it is added, it must be return nothing, i.e.,
+   something like this ``return ;``
 
-- **Warning** : ``return`` can only be present in the body of the function
-only once, that too at the end of the function, not inside any compound
-statements.
+.. warning:: ``return`` can only be present in the body of the function
+   only once, that too at the end of the function, not inside any compound
+   statements.
 
-- **Wrong** : ``return`` inside a compound statement, this syntax is not allowed.
+.. danger:: ``return`` inside a compound statement, this syntax is not allowed.
 
 .. code:: python
 
