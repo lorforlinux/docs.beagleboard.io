@@ -328,7 +328,7 @@ For-loop statement
 For loop is a range based for loop. Range variable is a local variable
 with scope only inside the for loop.
 
-.. _syntax-1:
+.. _lang-syntax-1:
 
 Syntax
 ~~~~~~
@@ -405,7 +405,7 @@ While-loop statement
 
 While loop statement repeatedly executes a target statement as long as a given condition is true.
 
-.. _syntax-2:
+.. _lang-syntax-2:
 
 Syntax
 ~~~~~~
@@ -453,7 +453,7 @@ break
 ``break`` is used to break execution in a loop statement, either
 ``for loop`` or ``while loop``. It exits the loop upon calling.
 
-.. _syntax-3:
+.. _lang-syntax-3:
 
 Syntax
 ^^^^^^
@@ -479,7 +479,7 @@ continue
 ``continue`` is used to continue execution in a loop statement, either
 ``for loop`` or ``while loop``.
 
-.. _syntax-4:
+.. _lang-syntax-4:
 
 Syntax
 ^^^^^^
@@ -518,7 +518,7 @@ function.
 
 - **Warning** : Function must be defined before calling it.
 
-.. _syntax-5:
+.. _lang-syntax-5:
 
 Syntax
 ^^^^^^
@@ -625,7 +625,7 @@ Functions can be called only if, they have been defined earlier. They
 return data types according to their definition. Parameters are passed
 by value. Only pass by value is supported as of now.
 
-.. _syntax-6:
+.. _lang-syntax-6:
 
 Syntax
 ^^^^^^

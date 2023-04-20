@@ -1,7 +1,7 @@
 .. _bb_config_home:
 
 BB-Config
-########
+#########
 
 .. toctree::
    :maxdepth: 1

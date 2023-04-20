@@ -76,7 +76,7 @@ BeaglePlay
       for those who want to know their board inside and out.
 
    .. grid-item-card:: 
-      :link: beagleplay-connectors-expansion
+      :link: beagleplay-expansion
       :link-type: ref
 
       **4. Expansion**

@@ -72,11 +72,11 @@ Standard FTDI Cable
 The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. 
 It can purchased from several different sources including but not limited to:
 
-- `DigiKey <https://www.digikey.com/product-detail/en/ftdi-future-technology-devices-international-ltd/TTL-232R-3V3/768-1015-ND/1836393>`_
-- `Newark <https://www.newark.com/ftdi/ttl-232r-3v3/usb-to-serial-converter-cable/dp/34M8872?st=TTL-232R-3V3>`_
-- `Sparkfun <https://www.sparkfun.com/products/9717>`_
-- `FTDI <https://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>`_
-- `Adafruit <https://www.adafruit.com/products/70>`_
+- `FTDI serial cable direct <https://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>`_
+- `FTDI serial cable at DigiKey <https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393>`_
+- `FTDI serial cable at Newark <https://www.newark.com/ftdi/ttl-232r-3v3/usb-to-serial-converter-cable/dp/34M8872?st=TTL-232R-3V3>`_
+- `FTDI serial cable at Sparkfun <https://www.sparkfun.com/products/9717>`_
+- `FTDI serial cable at Adafruit <https://www.adafruit.com/products/70>`_
 
 .. image:: images/FTDI_Cable.jpg
     :align: center
@@ -87,9 +87,9 @@ Pin 1 on the cable is the black wire and connects to pin 1 on the board. (the pi
 Adafruit 4 Pin Cable (CP2102)
 ==============================
 
-One is from `Adafruit <http://www.adafruit.com/products/954>`_. Originally 
+`Adafruit 4-pin serial cable<http://www.adafruit.com/products/954>`_ (Originally 
 this is a Prolific chipset based cable, as of Dec. 21, 2016 we will be 
-shipping cables with SiLabs CP2012 chipset instead of Prolific. 
+shipping cables with SiLabs CP2012 chipset instead of Prolific.)
 
 .. image:: images/RPI_Serial.png
     :align: center

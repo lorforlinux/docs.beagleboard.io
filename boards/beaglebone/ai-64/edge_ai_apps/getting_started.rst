@@ -60,7 +60,7 @@ USB Camera
 UVC (USB video class) compliant USB cameras are supported on the BeagleBone® AI-64.
 The driver for the same is enabled in linux image. The linux image has been tested with
 C270/C920/C922 versions of Logitech USB cameras. Please refer to
-:ref:`pub_edgeai_multiple_usb_cams` to stream from multiple USB cameras
+`the TI Edge AI SDK FAQ <https://software-dl.ti.com/jacinto7/esd/edgeai-sdk-j721e/latest/exports/docs/faq.html>`__ to stream from multiple USB cameras
 simultaneously.
 
 .. _ai_64_edgeai_imx219_sensor:
@@ -92,7 +92,7 @@ Note that the headers have to be lifted up to connect the cameras
 
 Two RPi cameras can be connected to 2 headers for multi camera use-cases
 
-Please refer :ref:`pub_edgeai_camera_sources` to know how to list all the cameras
+Please refer :ref:`ai_64_edgeai_camera_sources` to know how to list all the cameras
 connected and select which one to use for the demo.
 
 By default imx219 will be configured to capture at 8 bit, but it also supports
@@ -119,6 +119,7 @@ required:
     - Set the input format in the ``/opt/edge_ai_apps/configs/rpiV2_cam_example.yaml``
       as ``rggb10``
 
+.. _ai_64_edgeai_install_dependencies:
 
 Software setup
 ==============
@@ -130,6 +131,8 @@ Preparing SD card image
 
 Download the ``bullseye-xfce-edgeai-arm64`` image from the links below and
 flash it to SD card using `Balena etcher <https://www.balena.io/etcher/>`_ tool.
+
+.. todo: Images should be on https://files.debian.cc and linked from https://www.beagleboard.org/distros
 
 - To use via SD card: `bbai64-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz <https://rcn-ee.net/rootfs/bb.org/testing/2022-08-02/bullseye-xfce-edgeai-arm64/bbai64-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz>`_
 - To flash on eMMC: `bbai64-emmc-flasher-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz <https://rcn-ee.net/rootfs/bb.org/testing/2022-08-02/bullseye-xfce-edgeai-arm64/bbai64-emmc-flasher-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz>`_
