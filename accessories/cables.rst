@@ -87,7 +87,7 @@ Pin 1 on the cable is the black wire and connects to pin 1 on the board. (the pi
 Adafruit 4 Pin Cable (CP2102)
 ==============================
 
-`Adafruit 4-pin serial cable<http://www.adafruit.com/products/954>`_ (Originally 
+`Adafruit 4-pin serial cable <http://www.adafruit.com/products/954>`_ (Originally 
 this is a Prolific chipset based cable, as of Dec. 21, 2016 we will be 
 shipping cables with SiLabs CP2012 chipset instead of Prolific.)
 
