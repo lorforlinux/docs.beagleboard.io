@@ -229,7 +229,7 @@ following features:
 Memory
 ********
 
-.. __5_3_1_1gb_ddr3l:
+.. _bbai_ddr:
 
 1GB DDR3L
 ==========
@@ -256,20 +256,24 @@ cards. The microSD card is not provided with the board.
 Boot Modes
 *************
 
+.. todo:: Need info on BBAI boot mode settings
+
 Power Management
 ******************
+
+.. todo:: Need info on BBAI power management
 
 Connectivity
 ******************
 
-.. TODO: Add WiFi/Bluetooth/Ethernet
+.. todo:: Add WiFi/Bluetooth/Ethernet
 
 BeagleBone® AI supports the majority of the functions of the AM5729 SOC
 through connectors or expansion header pin accessibility. See section 7
 for more information on expansion header pinouts. There are a few
 functions that are not accessible which are: (TBD)
 
-.. TODO: This text needs to go somewhere.
+.. todo:: This text needs to go somewhere.
 
 .. table:: On-board I2C Devices
 

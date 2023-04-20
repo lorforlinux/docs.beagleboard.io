@@ -976,12 +976,21 @@ Black via this signal. It does, however, act as a hardware power-on.)
 TODO: (On BeagleBone Black, SYS_RESET was a bi-directional signal, but
 it is only an output from BeagleBone AI to capes on BeagleBone AI.)
 
-.. table:: P9.01-P9.04
+.. table:: P9.01-P9.05
 
+    +--------+--------+----------+----------+--------+
+    | P9.01  | P9.02  | P9.03    | P9.04    | P9.05  |
+    +========+========+==========+==========+========+
+    | GND    | GND    | VOUT_3V3 | VOUT_3V3 | VIN    |
+    +--------+--------+----------+----------+--------+
 
-.. table:: P9.05-P9.08
+.. table:: P9.06-P9.10
 
-.. table:: P9.09-P9.10
+    +--------+----------+----------+--------+--------+
+    | P9.06  | P9.07   | P9.08    | P9.09  | P9.10  |
+    +========+==========+==========+========+========+
+    | VIN    | VOUT_SYS | VOUT_SYS | RESET# | RESET# |
+    +--------+----------+----------+--------+--------+
 
 .. table:: P9.11-P9.13
 
@@ -1478,7 +1487,16 @@ it is only an output from BeagleBone AI to capes on BeagleBone AI.)
     +-----------------+-----------------+----------------+
 
 
+.. todo:: This table needs entries
+
 .. table:: P9.32-P9.40
+
+    +-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+    |                 | P9.32  | P9.33  | P9.34  | P9.35  | P9.36  | P9.37  | P9.38  | P9.39  | P9.40  |
+    +=================+========+========+========+========+========+========+========+========+========+
+    | **Row 1**       | P9.32  | P9.33  | P9.34  | P9.35  | P9.36  | P9.37  | P9.38  | P9.39  | P9.40  |
+    +-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+
 
 .. table:: P9.41-P9.42
 
@@ -1561,41 +1579,48 @@ it is only an output from BeagleBone AI to capes on BeagleBone AI.)
     +-----------------+------------------+-----------------+
 
 
+.. todo:: Table entries needed
+
 .. table:: P9.43-P9.46
 
-TODO
+    +-----------------+--------+--------+--------+--------+
+    |                 | P9.43  | P9.44  | P9.45  | P9.46  |
+    +=================+========+========+========+========+
+    | **Row 1**       | P9.43  | P9.44  | P9.45  | P9.46  |
+    +-----------------+--------+--------+--------+--------+
+
 
 Serial Debug
 **************
 
-TODO
+.. todo:: Need info on BealgeBone AI serial debug
 
 USB 3 Type-C
 **************
 
-TODO
+.. todo:: Need info on BealgeBone AI USB Type-C connection
 
 USB 2 Type-A
 ***************
 
-TODO
+.. todo:: Need info on BealgeBone AI USB Type-A connection
 
 Gigabit Ethernet
 *******************
 
-TODO
+.. todo:: Need info on BealgeBone AI USB Gigabit Ethernet connection
 
 Coaxial
 *********
 
-TODO
+.. todo:: Need info on BealgeBone AI u.FL antenna connection
 
 microSD Memory
 ****************
 
-TODO
+.. todo:: Need info on BealgeBone AI uSD card slot
 
 microHDMI
 ***********
 
-TODO
+.. todo:: Need info on BealgeBone AI uHDMI connection

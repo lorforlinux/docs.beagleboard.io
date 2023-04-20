@@ -13,13 +13,17 @@ you want to share your hardware with the masses.
 You can easily expand the functionality of the Bone by adding a  `cape <http://bit.ly/1wucweC>`_. 
 A cape is simply a board--often a printed circuit board (PCB) that connects to the +P8+ 
 and +P9+ headers and follows a few standard pin usages. You can stack up to four capes onto the 
-Bone. Capes can range in size from Bone-sized (:ref:`capes_miniDisplay`) to much larger than the Bone (:ref:`capes_7inLCD`).
+Bone. Capes can range in size covering a few pins to much larger than the Bone.
+
+.. todo:: Add cape examples of various sizes
 
 This chapter shows how to attach a couple of capes, move your design to a protoboard, then to a PCB, 
 and finally on to mass production.
 
+.. todo:: Update display cape example
+
 ..
-  #TODO# LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
+  LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
   .. _capes_7inLCD:
 
   Using a Seven-Inch LCD Cape
@@ -881,7 +885,7 @@ for tips on converting from one to the other.
 
 *DesignSpark PCB*
 
-The free `DesignSpark PCB <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
+The free `DesignSpark <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
 but it runs only on Windows. Also, it doesn't seem to have the following of Eagle at this time.
 
 .. _capes_upverter:

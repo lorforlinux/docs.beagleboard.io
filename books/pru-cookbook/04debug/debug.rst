@@ -391,11 +391,11 @@ For example
 
 .. * TODO - Add code for Blue.
 
-.. literalinclude:: code/uart1.pru1_0.c
+.. literalinclude:: ../code/04debug/uart1.pru1_0.c
    :caption: uart1.pru1_0.c
    :linenos:
 
-:download:`uart1.pru1_0.c <code/uart1.pru1_0.c>`
+:download:`uart1.pru1_0.c <../code/04debug/uart1.pru1_0.c>`
 
 Set the following variables so ``make`` will know what to compile.
 
@@ -433,11 +433,11 @@ Here's the code (``uart1.pru1_0.c``) that does it.
 
 .. _debug_uart1:
 
-.. literalinclude:: code/uart1.pru1_0.c
+.. literalinclude:: ../code/04debug/uart1.pru1_0.c
    :caption: uart1.pru1_0.c
    :linenos:
 
-:download:`uart1.pru1_0.c <code/uart1.pru1_0.c>`
+:download:`uart1.pru1_0.c <../code/04debug/uart1.pru1_0.c>`
 
 .. note::
 
@@ -462,11 +462,11 @@ receive register on the UART.
 These simple lines should be enough to place in your code to print out
 debugging information.
 
-.. literalinclude:: code/uart2.pru0.c
+.. literalinclude:: ../code/04debug/uart2.pru0.c
    :caption: uart2.pru0.c
    :linenos:
 
-:download:`uart2.pru0.c <code/uart2.pru0.c>`
+:download:`uart2.pru0.c <../code/04debug/uart2.pru0.c>`
 
 If you want to try ``uart2.pru0.c``, run the following:
 
@@ -504,22 +504,22 @@ wait for the FIFO to empty, which may cause your code to miss something.
 
 .. _debug_uart2:
 
-.. literalinclude:: code/uart2.pru1_0.c
+.. literalinclude:: ../code/04debug/uart2.pru1_0.c
    :caption: uart2.pru1_0.c
    :linenos:
 
-:download:`uart2.pru1_0.c <code/uart2.pru1_0.c>`
+:download:`uart2.pru1_0.c <../code/04debug/uart2.pru1_0.c>`
 
 More complex examples can be built using the principles shown in these examples.
 
 Copyright
 ==========
 
-.. literalinclude:: code/copyright.c
+.. literalinclude:: ../code/04debug/copyright.c
    :caption: copyright.c
    :linenos:
 
-:download:`copyright.c <code/copyright.c>`
+:download:`copyright.c <../code/04debug/copyright.c>`
 
 .. rubric:: Footnotes
 

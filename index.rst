@@ -76,7 +76,7 @@ from source using appropriate design tools.
       **BeagleBone® AI-64**
       ^^^
 
-      .. image:: boards/images/beaglebone-ai-64-400x.webp
+      .. image:: boards/images/beaglebone-ai-64-400x.*
          :align: center
       +++
 
@@ -108,7 +108,7 @@ from source using appropriate design tools.
       **BeagleConnect™ Freedom**
       ^^^
 
-      .. image:: boards/beagleconnect/freedom/images/front1.webp
+      .. image:: boards/beagleconnect/freedom/images/front1.*
          :align: center
       +++
 

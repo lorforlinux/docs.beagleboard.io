@@ -92,7 +92,7 @@ Steps
 
         The default password is `temppwd`.
 
-#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleplay/cc1352/wpanusb/-/releases>`_.
+#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases>`_.
 
     .. code-block:: bash
 

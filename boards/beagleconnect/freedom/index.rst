@@ -17,7 +17,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
 
    This is a work in progress, for latest documentation please visit https://docs.beagleboard.org/latest/
 
-.. image:: images/front1.webp
+.. image:: images/front1.*
   :align: center
   :alt: BeagleConnect™ Freedom board
   :scale: 42%
@@ -37,7 +37,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **1. Introduction**
       ^^^
 
-      .. image:: media/chapter-thumbnails/01-introduction.webp
+      .. image:: media/chapter-thumbnails/01-introduction.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter1 thumbnail
       
@@ -53,7 +53,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **2. Quick start**
       ^^^
 
-      .. image:: media/chapter-thumbnails/02-quick-start.webp
+      .. image:: media/chapter-thumbnails/02-quick-start.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter2 thumbnail
 
@@ -68,7 +68,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **3. Design & Specifications**
       ^^^
 
-      .. image:: media/chapter-thumbnails/03-design-and-specifications.webp
+      .. image:: media/chapter-thumbnails/03-design-and-specifications.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter3 thumbnail
 
@@ -84,7 +84,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **4. Expansion**
       ^^^
 
-      .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.webp
+      .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter4 thumbnail
 
@@ -100,7 +100,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **5. Demos & tutorials**
       ^^^
 
-      .. image:: media/chapter-thumbnails/05-demos-and-tutorials.webp
+      .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter5 thumbnail
 
@@ -115,7 +115,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **6. Support**
       ^^^
 
-      .. image:: media/chapter-thumbnails/06-support-documents.webp
+      .. image:: media/chapter-thumbnails/06-support-documents.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter6 thumbnail
 

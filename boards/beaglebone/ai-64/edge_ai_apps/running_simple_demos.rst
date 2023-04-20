@@ -20,7 +20,7 @@ Running Python based demo applications
 Python based demos are simple executable scripts written for image
 classification, object detection and semantic segmentation. Demos are
 configured using a YAML file. Details on configuration file parameters can
-be found in :ref:`pub_edgeai_configuration`
+be found in :ref:`ai_64_edgeai_configuration`
 
 Sample configuration files for out of the box demos can be found in
 ``edge_ai_apps/configs`` this folder also contains a template config file

@@ -246,17 +246,15 @@ SPI devices
 SPI TFT displays
 ------------------
 
--  `Adafruit 2.4" LCD
-   breakout <https://www.adafruit.com/products/2478>`__
+-  `Adafruit 2.4" LCD breakout <https://www.adafruit.com/products/2478>`__
 
 .. _i2c_devices:
 
 I2C devices
 ==============
 
--  See
-   :ref:`One-Liner-Module-Tests#i2c <beaglebone-blue-one-liner-tests>`__
--  See :ref:`beagle101_i2c`.
+-  See :ref:`One Liner Module Tests <beaglebone-blue-one-liner-tests-i2c>`
+-  See :ref:`beagle101_i2c`
 
 .. _uart_devices:
 

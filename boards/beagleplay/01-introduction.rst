@@ -35,7 +35,7 @@ include:
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: images/front.webp                       | .. image:: images/back.webp                             |
+   | .. image:: images/front.*                          | .. image:: images/back.*                                |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
@@ -63,7 +63,7 @@ Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug i
     +----------------------------+---------------------------------------------------------------------------+
     | Storage                    | 16GB eMMC                                                                 |
     +----------------------------+---------------------------------------------------------------------------+
-    | WiFi                       | - PHY: WL1807MOD (roadmap to next-gen TI WiFi)                            |
+    | WiFi                       | - PHY: WL1807MOD (roadmap to next-gen TI CC33XX WiFi 6 & BLE)             |
     |                            | - Antennas: 2.4GHz & 5GHz                                                 |
     +----------------------------+---------------------------------------------------------------------------+
     | BLE/SubG                   | - CC1352P7 M4+M0 with BeagleConnect firmware                              |
@@ -85,11 +85,12 @@ Full size HDMI, USB-A host port, USB-C power & connectivity port, serial debug i
     |                            | - Connector: full-size                                                    |
     +----------------------------+---------------------------------------------------------------------------+
     | Other connectors           | - microSD                                                                 |
-    |                            | - USB 2.0 type-A (480Mbit)                                                    |
+    |                            | - USB 2.0 type-A (480Mbit)                                                |
     |                            | - mikroBUS connector (I2C/UART/SPI/MCAN/MCASP/PWM/GPIO)                   |
     |                            | - Grove connector (I2C/UART/ADC/PWM/GPIO)                                 |
     |                            | - QWIIC connector (I2C)                                                   |
-    |                            | - CSI connector compatible with BeagleBone AI-64, Raspberry Pi Zero / CM4 (22-pin)                        |
+    |                            | - CSI connector compatible with BeagleBone AI-64,                         |
+    |                            |   Raspberry Pi Zero / CM4 (22-pin)                                        |
     |                            | - OLDI connector (40-pin)                                                 |
     +----------------------------+---------------------------------------------------------------------------+
             
@@ -133,7 +134,7 @@ This section describes the key components on the board, their location and funct
 Front components location
 -------------------------
 
-.. figure:: images/components-front.webp
+.. figure:: images/components-front.*
     :width: 1400
     :align: center
     :alt: BeaglePlay board front components location
@@ -165,7 +166,7 @@ Front components location
     | QWIIC                      | SparkFun QWIIC / Adafruit STEMMA-QT port for I2C modules connectivity     |
     +----------------------------+---------------------------------------------------------------------------+
     | User Button                | Programmable user button, also servers as boot mode slect button          |
-    |                            | (SD Card/eMMC). Press down to select SD Card as boot medium                |
+    |                            | (SD Card/eMMC). Press down to select SD Card as boot medium               |
     +----------------------------+---------------------------------------------------------------------------+
     | SD Card                    | Use to expand storage, boot linux image or flash latest image on eMMC     |
     +----------------------------+---------------------------------------------------------------------------+
@@ -191,7 +192,7 @@ Front components location
 Back components location
 -------------------------
 
-.. figure:: images/components-back.webp
+.. figure:: images/components-back.*
     :width: 1400
     :align: center
     :alt: BeaglePlay board back components location
@@ -205,7 +206,7 @@ Back components location
     +----------------------------+---------------------------------------------------------------------------+
     | Feature                    | Description                                                               |
     +============================+===========================================================================+
-    | CC1352P7                   | 2.4GHz BLE + SubG IEEE 802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna     |
+    | CC1352P7                   | 2.4GHz BLE + SubG IEEE 802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna    |
     +----------------------------+---------------------------------------------------------------------------+
     | WL1807MOD                  | Dual band (2.4GHz & 5GHz) WiFi module with 2 x uFL antennas               |
     +----------------------------+---------------------------------------------------------------------------+

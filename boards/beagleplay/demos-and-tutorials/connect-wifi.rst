@@ -51,7 +51,7 @@ Step 2. Browse to 192.168.8.1
 
 Once you have connected to the access point, you can simply open VSCode by browsing to `https://192.168.8.1:3000 <https://192.168.8.1:3000>`__.
 
-Within VSCode, you can press "CTRL-`" to open a terminal session to get access to a shell connection.
+Within VSCode, you can press "CTRL-\`" to open a terminal session to get access to a shell connection.
 
 You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and use the password `temppwd`.
 
@@ -166,7 +166,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mywifi"'
    Selected interface 'wlan0'
    OK
-   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mypassword"'
+   debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
    Selected interface 'wlan0'
    OK
    debian@BeaglePlay:~$ wpa_cli enable_network 1
@@ -191,7 +191,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
 
 To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. This is described
-in :ref:`beagleplay-wifi-wpa-cli-xfce`_.
+in :ref:`<beagleplay-wifi-wpa-cli-xfce>`_.
 
 .. _beagleplay-wifi-wpa-cli-xfce:
 
