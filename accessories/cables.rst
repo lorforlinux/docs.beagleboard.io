@@ -56,6 +56,90 @@ The default serial port settings for the board are:
     | Handshake    | None         |
     +--------------+--------------+
 
+JST-SH serial cables
+====================
+
+These cables are not active (only wries and connector) and provide interface 
+between serial cables listed below and serial debug ports on new BeagleBone boards like BeagleBone AI 
+and BeagleBone AI-64. You can purchase these cables from different sources including:
+
+1. `Farnell <https://uk.farnell.com/element14/1103004000156/beaglebone-ai-serials-cable/dp/3291081>`_
+2. `DigiKey <https://www.digikey.in/en/products/detail/digi-key-electronics/BBCAI/10187731?s=N4Ig7CBcoIYE5QIwA5EGYA0IYBcmZAAcBLJABgDYxEyBOMAXwaA>`_
+
+Standard FTDI Cable
+====================
+
+The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. 
+It can purchased from several different sources including but not limited to:
+
+- `DigiKey <https://www.digikey.com/product-detail/en/ftdi-future-technology-devices-international-ltd/TTL-232R-3V3/768-1015-ND/1836393>`_
+- `Newark <https://www.newark.com/ftdi/ttl-232r-3v3/usb-to-serial-converter-cable/dp/34M8872?st=TTL-232R-3V3>`_
+- `Sparkfun <https://www.sparkfun.com/products/9717>`_
+- `FTDI <https://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>`_
+- `Adafruit <https://www.adafruit.com/products/70>`_
+
+.. image:: images/FTDI_Cable.jpg
+    :align: center
+    :alt: FTDI Cable
+
+Pin 1 on the cable is the black wire and connects to pin 1 on the board. (the pin with the white dot next to it)
+
+Adafruit 4 Pin Cable (CP2102)
+==============================
+
+One is from `Adafruit <http://www.adafruit.com/products/954>`_. Originally 
+this is a Prolific chipset based cable, as of Dec. 21, 2016 we will be 
+shipping cables with SiLabs CP2012 chipset instead of Prolific. 
+
+.. image:: images/RPI_Serial.png
+    :align: center
+    :alt: 4 pin serial cable
+    
+.. table:: Adafruit 4 pin serial cable connection to BeagleBone Black
+
+    +--------------+--------------+
+    | Board        | Wire         |
+    +==============+==============+
+    | Pin 1 (GND)  | Black (GND)  |
+    +--------------+--------------+
+    | Pin 4 (RX)   | Green (TX)   |
+    +--------------+--------------+
+    | Pin 5 (TX)   | White (RX)   |
+    +--------------+--------------+
+
+.. note:: 
+    The naming of the signals reflect those of the cable. 
+    The swapping of TX and RX takes place on the board.
+
+    You will also find an extra RED wire on this cable 
+    that supplies 5V @ 500mA which could power the 
+    board if connected to one of the VDD_5V pins 
+    (P9_05, P9_06). Just leave it unconnected.
+
+FTDI 3 Pin Cable
+================
+
+You can purchase the another version direct from 
+`FTDI <http://apple.clickandbuild.com/cnb/shop/ftdichip?op=catalogue-products-null&prodCategoryID=167&title=TTL-232R-RPi>`_ 
+This cable only has three wires for connection. You can 
+find the datasheet and a picture at 
+`Cable <http://www.ftdichip.com/Support/Documents/DataSheets/Cables/DS_TTL-232R_RPi.pdf>`_
+
+.. table:: 
+
+    +--------------+--------------+
+    | Board        | Wire         |
+    +==============+==============+
+    | Pin 1 (GND)  | Black (GND)  |
+    +--------------+--------------+
+    | Pin 4 (RX)   | Orange (TX)  |
+    +--------------+--------------+
+    | Pin 5 (TX)   | Yellow (RX)  |
+    +--------------+--------------+
+
+JTAG debug Cables
+*****************
+
 TagConnect (JTAG)
 ==================
 
@@ -65,54 +149,6 @@ interface, the the parts below from `tag-connect <https://www.tag-connect.com>`_
 
 1. `10pin TagConnect (no legs) ribbon cable. <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
 2. `TagConnect retaining clip. <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
-
-Standard FTDI Cable
-====================
-
-The debug cable is a standard FTDI to TTL cable. Make sure you get the 3.3V version. 
-It can purchased from several different sources including but not limited to:
-
-- `DigiKey <http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393>`_
-- `Newark <http://www.newark.com/jsp/search/productdetail.jsp?SKU=34M8872&CMP=KNC-GPLA&mckv=%7Cpcrid%7C19038771501%7Cplid%7C>`_
-- `Sparkfun <https://www.sparkfun.com/products/9717>`_
-- `FTDI <http://www.ftdichip.com/Products/Cables/USBTTLSerial.htm>`_
-- `Adafruit <https://www.adafruit.com/products/70>`_
-
-.. image:: images/FTDI_Cable.jpg
-    :align: center
-    :alt: FTDI Cable
-
-Pin 1 on the cable is the black wire and connects to pin 1 on the board. (the pin with the white dot next to it)
-
-Adafruit 4 Pin Cable (PL2303)
-==============================
-
-This is a Prolific chipset based cable sold by `Adafruit <http://www.adafruit.com/products/954>`_.
-Some people have reported issues with the cable causing some issues with data corruption. Your experience 
-may vary. You will need to install the Prolific drivers, downloadable from Adafruit.
-
-.. image:: images/RPI_Serial.png
-    :align: center
-    :alt: 4 pin serial cable
-    
-.. table:: Adafruit 4 pin serial cable connection to BeagleBone Black
-
-    +--------------+--------------+--------------+
-    | Board        | Wire         | Function     |
-    +==============+==============+==============+
-    | Pin 1        | Black        | Ground       |
-    +--------------+--------------+--------------+
-    | Pin 4        | Green        | Receive      |
-    +--------------+--------------+--------------+
-    | Pin 5        | White        | Transmit     |
-    +--------------+--------------+--------------+
-
-
-.. note:: 
-    The naming of the signals reflect those of the cable. 
-    The swapping of TX and RX takes place on the board.
-
-You will also find an extra RED wire on this cable, this can be left unconnected.
 
 
 HDMI Cables
