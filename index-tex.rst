@@ -20,9 +20,6 @@ BeagleBoard Docs
    boards/capes/index
    boards/pocketbeagle/original/index
    boards/beagleconnect/freedom/index
-   boards/capes/index
-   boards/pocketbeagle/original/index
-   boards/beagleconnect/freedom/index
    boards/beagleboard/index
    projects/index
    books/index
