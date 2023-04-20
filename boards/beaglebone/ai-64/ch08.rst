@@ -1490,10 +1490,12 @@ the connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
    Fig-Single expansion connector
 
-The connector is typically mounted on the bottom side of the board as
-shown in :ref:`single-cape-expansion-connector-figure`. These are very common connectors and should be
-easily located. You can also use two single row 23 pin headers for each
-of the dual row headers.
+The connector is typically mounted on the bottom side of the board as 
+shown in :ref:`single-cape-expansion-connector-figure` . These are very 
+common connectors and should be easily located. You can also use two 
+single row 23 pin headers for each of the dual row headers.
+
+.. _single-cape-expansion-connector-figure:
 
 .. figure:: images/ch08/proto.jpg
    :width: 400px
@@ -1501,8 +1503,6 @@ of the dual row headers.
    :alt: Fig-Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
 
    Fig-Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
-
-.. _single-cape-expansion-connector-figure:
 
 It is allowed to only populate the pins you need. As this is a
 non-stacking configuration, there is no need for all headers to be
@@ -1709,11 +1709,12 @@ detected will be used to set the pin muxing of each pin. This will
 prevent other modes from being supported on stacked cards and may result
 in them being inoperative.
 
-In :ref:`section-7-1` of this document, the functions of the pins are defined
-as well as the pin muxing options. Refer to this section for more
-information on what each pin is. To simplify things, if you use the
-default name as the function for each pin and use those functions, it
-will simplify board design and reduce conflicts with other boards.
+In :ref:`beaglebone-ai-64-connectors` section of this document, the 
+functions of the pins are defined as well as the pin muxing options. 
+Refer to this section for more information on what each pin is. To 
+simplify things, if you use the default name as the function for each 
+pin and use those functions, it will simplify board design 
+and reduce conflicts with other boards.
 
 Interoperability is up to the board suppliers and the user. This
 specification does not specify a fixed function on any pin and any pin
