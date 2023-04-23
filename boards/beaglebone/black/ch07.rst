@@ -1160,6 +1160,10 @@ Each board has a debug serial interface that can be accessed by using a special 
 
    Serial Debug Header
 
+.. todo::
+
+   Make all figure references actual references
+
 Two signals are provided, TX and RX on this connector. The levels on
 these signals are 3.3V. In order to access these signals, a FTDI USB to
 Serial cable is recommended as shown in *Figure 55* below.
@@ -1177,15 +1181,19 @@ The cable can be purchased from several different places and must be the
 3.3V version TTL-232R-3V3. Information on the cable itself can be found
 direct from FTDI at: `pdf <https://ftdichip.com/wp-content/uploads/2020/07/DS_USB_RS232_CABLES.pdf>`_
 
-.. note:
+.. todo::
 
-   #TODO#: move accessory links to a single common document for all boards.
+   move accessory links to a single common document for all boards.
 
 Pin 1 of the cable is the black wire. That must align with the pin 1 on
 the board which is designated by the white dot next to the connector on
 the board.
 
 Refer to the support WIKI `http://elinux.org/BeagleBoneBlack <http://elinux.org/BeagleBoneBlack>`_ for more sources of this cable and other options that will work.
+
+.. todo::
+
+   We should include all support information in docs.beagleboard.org now and leave eLinux to others, freeing it as much as possible
 
 Table is the pinout of the connector as reflected in the schematic. It is the same as the FTDI cable which can be found at `https://ftdichip.com/wp-content/uploads/2020/07/DS_USB_RS232_CABLES.pdf <https://ftdichip.com/wp-content/uploads/2020/07/DS_USB_RS232_CABLES.pdf>`_ with the exception that only three pins are used on the board. The pin numbers are defined in *Table 14*. The signals are from the perspective of the board.
 

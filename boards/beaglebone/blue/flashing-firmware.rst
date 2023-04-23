@@ -8,9 +8,9 @@ Overview
 
 Most Beaglebones have a built in 4 GB SD card known as a eMMC (embedded
 MMC). When the boards are made the eMMC is “flashed” with some version
-of the Beaglebone OS that is usually outdated. Therefore, whenever
-receiving the Beaglebone it is recommend that you update the eMMC with
-the last version of the Beaglebone OS or a specific version of it if
+of the BeagleBone OS that is usually outdated. Therefore, whenever
+receiving the BeagleBone it is recommend that you update the eMMC with
+the last version of the BeagleBone OS or a specific version of it if
 someone tells you otherwise.
 
 Required Items
@@ -18,7 +18,7 @@ Required Items
 
 1. Micro sd card. 4 GB minimum
 2. Micro sd card reader or a built in sd card reader for your PC
-3. Beaglebone image you want to flash.
+3. BeagleBone image you want to flash.
 4. `Etcher utility <https://etcher.io/>`__ for your PC’s OS.
 
 Steps Overview
@@ -26,20 +26,20 @@ Steps Overview
 
 1. Burn the image you want to flash onto a micro sd card using the
    Etcher utility.
-2. Boot the Beaglebone like normal and place the micro sd card into the
+2. Boot the BeagleBone like normal and place the micro sd card into the
    board once booted.
 3. Update the micro sd card image so its in “flashing” mode.
-4. Insert micro sd card, remove power from the Beaglebone, hold sd card
+4. Insert micro sd card, remove power from the BeagleBone, hold sd card
    select button, power up board
 5. Let the board flash
 
 Windows PCs
 =============
 
-1.  Download the `Beaglebone
-    OS <https://beagleboard.org/latest-images>`__ image you want to use.
+1.  Download the `BeagleBone
+    OS <https://www.beagleboard.org/distros>`__ image you want to use.
 2.  Use the `Etcher utility <https://etcher.io/>`__ to burn the
-    Beaglebone image you want to use on the micro sd card you plan on
+    BeagleBone image you want to use on the micro sd card you plan on
     using.
 3.  Make sure you don’t have the micro sd card plugged into your board.
 4.  Boot the board
@@ -71,9 +71,9 @@ Windows PCs
 13. Restart (RST button) or power up (while still pushing SD button).
 
 Flashing can take some minutes. ## Linux/Mac PCs 1. Download the
-`Beaglebone OS <https://beagleboard.org/latest-images>`__ image you want
+`BeagleBone OS <https://www.beagleboard.org/distros>`__ image you want
 to use. 1. Use the `Etcher utility <https://etcher.io/>`__ to burn the
-Beaglebone image you want to use on the micro sd card you plan on using.
+BeagleBone image you want to use on the micro sd card you plan on using.
 1. On the SD card edit the file ``/boot/uEnv.txt`` in order for the SD
 card contents to be flashed onto the firmware eMMC. (Otherwise the BBBL
 will do no more than boot the SD image.) Uncomment the line containing

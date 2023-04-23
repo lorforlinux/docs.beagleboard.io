@@ -34,8 +34,10 @@ It's all on a GitHub repository.
 
 .. code-block:: shell-session
 
+    bone$ cd /opt/source
     bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
-
+    bone$ cd pru-cookbook-code
+    bone$ sudo ./install.sh
 .. note::
    #TODO#: The version of code used needs to be noted in the documentation.
 
@@ -166,23 +168,19 @@ Now you are ready to compile and run.  This is automated for you in the Makefile
 .. code-block:: shell-session
 
     bone$ make
-    /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=gpio.pru0,COMMON=/var/lib/cloud9/common
-    /var/lib/cloud9/common/Makefile:147: GEN_DIR=/tmp/cloud9-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
+    /opt/source/pru-cookbook-code/common/Makefile:27: MODEL=TI_AM335x_BeagleBone_Green_Wireless,TARGET=gpio.pru0,COMMON=/opt/source/pru-cookbook-code/common
     -    Stopping PRU 0
-    /bin/sh: 1: echo: echo: I/O error
-    Cannot stop 0
     CC	gpio.pru0.c
-    "/var/lib/cloud9/common/prugpio.h", line 53: warning #1181-D: #warning directive: "Found am335x"
-    LD	/tmp/cloud9-examples/gpio.pru0.o
-    -	copying firmware file /tmp/cloud9-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw
-    write_init_pins.sh
-    writing "out" to "/sys/class/gpio/gpio30/direction"
+    "/opt/source/pru-cookbook-code/common/prugpio.h", line 53: warning #1181-D: #warning directive: "Found else"
+    LD	/tmp/vsx-examples/gpio.pru0.o
+    -	copying firmware file /tmp/vsx-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw
     -    Starting PRU 0
-    MODEL   = TI_AM335x_BeagleBone_Black
+    write_init_pins.sh
+    MODEL   = TI_AM335x_BeagleBone_Green_Wireless
     PROC    = pru
     PRUN    = 0
     PRU_DIR = /sys/class/remoteproc/remoteproc1
-    rm /tmp/cloud9-examples/gpio.pru0.o
+    rm /tmp/vsx-examples/gpio.pru0.o
 
 Congratulations, your are now running a PRU.  If you have an LED attached to
 ``P9_11`` on the Black, or ``P2_05`` on the Pocket, it should be blinking.
@@ -215,11 +213,11 @@ The setup file also contains instructions to figure out which Beagle you are run
 and then configure the pins accordingly.
 
 
-.. literalinclude:: ../code/06io/gpio_setup.sh
-   :caption: gpio_setup.sh
+.. literalinclude:: ../code/06io/setup.sh
+   :caption: setup.sh
    :linenos:
 
-:download:`gpio_setup.sh <../code/06io/gpio_setup.sh>`
+:download:`setup.sh <../code/06io/setup.sh>`
 
 .. table::
 
@@ -335,11 +333,11 @@ The ``am57xx_pru.cmd`` does the same for the AI.
 Both files can be found in ``/var/lib/cloud9/common``.
 
 
-.. literalinclude:: ../code/06io/am335x_pru.cmd
+.. literalinclude:: ../code/03details/am335x_pru.cmd
    :caption: am335x_pru.cmd
    :linenos:
 
-:download:`am335x_pru.cmd <../code/06io/am335x_pru.cmd>`
+:download:`am335x_pru.cmd <../code/03details/am335x_pru.cmd>`
 
 .. TODO does  this need updating?
 
@@ -464,11 +462,11 @@ everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
 
-.. literalinclude:: ../code/06io/servos_setup.sh
+.. literalinclude:: ../code/03details/servos_setup.sh
    :caption: servos_setup.sh
    :linenos:
 
-:download:`servos_setup.sh <../code/06io/servos_setup.sh>`
+:download:`servos_setup.sh <../code/03details/servos_setup.sh>`
 
 Discussion
 -----------
@@ -494,11 +492,11 @@ It depends on which Beagle you are running on.  If you are on the AI or Blue,
 everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
-.. literalinclude:: ../code/06io/encoder_setup.sh
+.. literalinclude:: ../code/03details/encoder_setup.sh
    :caption: encoder_setup.sh
    :linenos:
 
-:download:`encoder_setup.sh <../code/06io/encoder_setup.sh>`
+:download:`encoder_setup.sh <../code/03details/encoder_setup.sh>`
 
 Discussion
 -----------

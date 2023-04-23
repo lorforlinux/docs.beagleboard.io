@@ -1,177 +1,140 @@
 .. _beagleconnect_freedom_home:
 
 BeagleConnect Freedom
-######################
+#####################
+
+
+BeagleConnect™ Freedom is an open-hardware wireless hardware platform developed by BeagleBoard.org and built around the TI CC1352P7 microcontroller, which supports both 
+2.4-GHz and long-range, low-power Sub-1 GHz wireless protocols. Rapidly prototyping of IoT applications is accelerated by hardware compatibility with over 1,000 mikroBUS add-on sensors,
+acutators, indicators and additional connectivity and storage options, and backed with software support utilizing the Zephyr scalable and modular real-time operating system, allowing developers
+to tailor the solution to their specific needs.  BeagleConnect Freedom further includes MSP430F5503 for USB-to-UART functionality, temperature and humidity sensor, light sensor, SPI flash,
+battery charger, buzzer, LEDs, and JTAG connections to make it a comprehensive solution for IoT development and prototyping.
+
+The TI CC1352P7 microcontroller (MCU) includes a 48-MHz Arm Cortex-M4F processor, 704KB Flash memory, 256KB ROM, 8KB Cache SRAM, 144KB of ultra-low leakage SRAM, and
+over-the-air upgrades (OTA) capability. This MCU provides flexible support for many different protocols and bands making it suitable for many different communication requirements.
 
 .. important::
 
-   Currently under development
+   This is a work in progress, for latest documentation please visit https://docs.beagleboard.org/latest/
 
-.. image:: media/image1.jpg
-   :width: 600
-   :align: center
-   :height: 400
-   :alt: BeagleConnect-Freedom-C5-HandPhoto
+.. image:: images/front1.*
+  :align: center
+  :alt: BeagleConnect™ Freedom board
+  :scale: 42%
 
-The initial BeagleConnect™ Freedom production release will:
+.. raw:: latex
+   
+   \begin{comment}
 
-* Support at least 100 mikroBUS-based Click boards from Mikroelectronika
-* Work with Bluetooth Low Energy (BLE)-enabled Linux computers at 2.4GHz
-* Work with long-range sub-1GHz IEEE 802.15.4 wireless connections at 500 
-  meters with data rates of 1kbps, and
-* Work with a low-cost BeagleBoard.org Linux single-board computer (SBC) as a 
-  BeagleConnect™ gateway device and work with at least 10 other BeagleConnect™ 
-  node devices each supporting 2 add-on sensor, actuator or indicator devices.
+.. grid:: 1 1 2 3
+   :margin: 4 4 0 0
+   :gutter: 4
 
-Future releases will be collaborated with the community, evolve dynamically, 
-and contain additional functionality. The goal is to support over 500 add-on 
-devices within the first year after the initial release.
+   .. grid-item-card::
+      :link: beagleconnect-freedom-introduction
+      :link-type: ref
 
-.. important::
-   BeagleConnect™ Freedom enables wirelessly adding new device nodes 
-   and is targeted to cost initially around US$20 with a roadmap to variants as 
-   low as US$1. 
+      **1. Introduction**
+      ^^^
 
-BeagleConnect™ Freedom
-**********************
+      .. image:: media/chapter-thumbnails/01-introduction.*
+         :align: center
+         :alt: BeagleConnect™ Freedom Chapter1 thumbnail
+      
+      +++
 
-BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
-and is the first available BeagleConnect™ solution. It implements:
-
-* BeagleConnect™ gateway device function for Sub-GHz 802.15.4 long-range 
-  wireless
-* BeagleConnect™ node device function for Bluetooth Low-Energy (BLE) and 
-  Sub-GHz 802.15.4 long range wireless
-* USB-based serial console and firmware updates
-* 2x `mikroBUS sockets <https://www.mikroe.com/mikrobus>`_ with BeagleConnect™ 
-  protocol support
-
-#TODO: provide image of BeagleConnect™ Freedom in a case with a hand for size perspective
-
-BeagleConnect™ Freedom beta kit
-*******************************
-
-A small number of beta kits have been assembled with BeagleConnect™ Freedom 
-rev C5 boards, which is the version that should be taken to production.
-
-The kit includes:
-
-* 1x `Seeed BeagleBone® Green Gateway <https://wiki.seeedstudio.com/BeagleBone-Green-Gateway/>`_ (board, USB cable)
-* 3x BeagleConnect™ Freedom (board, attenna, USB cable)
-* 1x `Mikroelectronika Click ID Board <https://www.mikroe.com/unique-id-click>`_
-
-To get started with this kit, see [demo-1].
+      Introduction to BeagleConnect™ Freedom.
 
 
-What makes BeagleConnect™ new and different?
-********************************************
+   .. grid-item-card:: 
+      :link: beagleconnect-freedom-quick-start
+      :link-type: ref
 
-.. important::
-  BeagleConnect™ solves IoT in a different and better way than any 
-  previous solution.
+      **2. Quick start**
+      ^^^
 
-The device interface software is already done
-=============================================
+      .. image:: media/chapter-thumbnails/02-quick-start.*
+         :align: center
+         :alt: BeagleConnect™ Freedom Chapter2 thumbnail
 
-BeagleConnect™ uses the collaboratively developed Linux kernel to contain the 
-intelligence required to speak to these devices (sensors, actuators, and 
-indicators), rather than relying on writing code on a microcontroller specific 
-to these devices. Some existing solutions rely on large libraries of 
-microcontroller code, but the integration of communications, maintenance of the
-library with a limited set of developer resources and other constraints to be 
-explained later make those other solutions less suitable for rapid prototyping 
-than BeagleConnect™.
+      +++
 
-Linux presents these devices abstractly in ways that are self-descriptive. Add 
-an accelerometer to the system and you are automatically fed a stream of force 
-values in standard units. Add a temperature sensor and you get it back in 
-standard units again. Same for sensing magnetism, proximity, color, light, 
-frequency, orientation, or multitudes of other inputs. Indicators, such as LEDs
-and displays, are similarly abstracted with a few other kernel subsystems and 
-more advanced actuators with and without feedback control are in the process of
-being developed and standardized. In places where proper Linux kernel drivers 
-exist, no new specialized code needs to be created for the devices.
+      Getting started guide and tutorials.
 
-Important: *Bottom line*: For hundreds of devices, users won't have to write a 
-single line of code to add them their systems. The automation code they do 
-write can be extremely simple, done with graphical tools or in any language 
-they want. Maintenance of the code is centralized in a small reusable set of 
-microcontroller firmware and the Linux kernel, which is highly peer reviewed 
-under a `highly-regarded governance model <https://wiki.p2pfoundation.net/Linux_-_Governance>`_. 
+   .. grid-item-card:: 
+      :link: beagleconnect-freedom-design
+      :link-type: ref
 
-ongoing maintenance
-====================
+      **3. Design & Specifications**
+      ^^^
 
-Because there isn't code specific to any given network-of-devices configuration
-, we can all leverage the same software code base. This means that when someone
-fixes an issue in either BeagleConnect™ firmware or the Linux kernel, you 
-benefit from the fixes. The source for BeagleConnect™ firmware is also 
-submitted to the `Zephyr Project <https://www.zephyrproject.org/>`_ upstream, 
-further increasing the user base. Additionally, we will maintain stable 
-branches of the software and provide mechanisms for updating firmware on 
-BeagleConnect™ hardware. With a single, relatively small firmware load, the 
-potential for bugs is kept low. With large user base, the potential for 
-discovering and resolving bugs is high.
+      .. image:: media/chapter-thumbnails/03-design-and-specifications.*
+         :align: center
+         :alt: BeagleConnect™ Freedom Chapter3 thumbnail
 
-Rapid prototyping without wiring
-================================
+      +++
 
-BeagleConnect™ utilizes the `mikroBUS standard <https://elinux.org/Mikrobus>`_.
-The mikroBUS standard interface is flexible enough for almost any typical 
-sensor or indicator with hundreds of devices available.
+      Hardware and mechanical design and specifications of the BeagleConnect Freedom
+      board and enclosure for those who want to know their board inside and out.
 
-Note: Currently, we have support in the Linux kernel for a bit over 100 Click 
-mikroBUS add-on boards from Mikroelektronika and are working with 
-Mikroelektronika on a updated version of the specification for these boards to 
-self-identify. Further, eventually the vast majority of over 800 currently 
-available Click mikroBUS add-on boards will be supported as well as the 
-hundreds of compliant boards developed every year. 
+   .. grid-item-card:: 
+      :link: beagleconnect-freedom-expansion
+      :link-type: ref
 
-Long-range, low-power wireless
-==============================
+      **4. Expansion**
+      ^^^
 
-BeagleConnect™ Freedom wireless hardware is built around a 
-`TI CC1352P7 <http://www.ti.com/product/CC1352P7>`_ multiprotocol and multi-band 
-Sub-1 GHz and 2.4-GHz wireless microcontroller (MCU). CC1352P7 includes a 48-MHz
-Arm® Cortex®-M4F processor, 704KB Flash, 256KB ROM, 8KB Cache SRAM, 144KB of 
-ultra-low leakage SRAM, and `Over-the-Air <https://en.wikipedia.org/wiki/Over-the-air_programming>`_ 
-upgrades (OTA).
+      .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
+         :align: center
+         :alt: BeagleConnect™ Freedom Chapter4 thumbnail
 
-Full customization possible
-===========================
+      +++
 
-BeagleConnect™ utilizes `open source hardware <https://www.oshwa.org/definition/>`_ 
-and `open source software <https://en.wikipedia.org/wiki/Open-source_software>`_, 
-making it possible to optimize hardware and software implementations and 
-sourcing to meet end-product requirements. BeagleConnect™ is meant to enable 
-rapid-prototyping and not to necessarily satisfy any particular end-product’s 
-requirements, but with full considerations for go-to-market needs.
+      Connector pinout diagrams with expansion details so that you can 
+      easily debug your connections and create custom expansion hardware.
 
-Each BeagleBoard.org BeagleConnect™ solution will be:
+   .. grid-item-card:: 
+      :link: beagleconnect-freedom-demos
+      :link-type: ref
 
-* Readily available for over 10 years,
-* Built with fully open source software with submissions to mainline Linux and 
-  Zephyr repositories to aide in support and porting,
-* Built with fully open source and non-restrictive hardware design including 
-  schematic, bill-of-materials, layout, and manufacturing files (with only the 
-  BeagleBoard.org logo removed due to licensing restrictions of our brand),
-* Built with parts where at least a compatible part is available from worldwide
-  distributors in any quantity,
-* Built with design and manufacturing partners able to help scale derivative
-  designs,
-* Based on a security model using public/private keypairs that can be replaced 
-  to secure your own network, and
-* Fully FCC/CE certified.
+      **5. Demos & tutorials**
+      ^^^
 
-Getting Started
-***************
+      .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
+         :align: center
+         :alt: BeagleConnect™ Freedom Chapter5 thumbnail
 
-* :ref:`Typical BeagleConnect Freedom usage with a Linux host <beagleconnect-usage>`
-* :ref:`Programming BeagleConnect Freedom with Zephyr <beagleconnect-zephyr>`
+      +++
+
+      Demos and tutorials to quickly learn about the BeagleConnect capabilities.
+
+   .. grid-item-card:: 
+      :link: beagleconnect-freedom-support
+      :link-type: ref
+
+      **6. Support**
+      ^^^
+
+      .. image:: media/chapter-thumbnails/06-support-documents.*
+         :align: center
+         :alt: BeagleConnect™ Freedom Chapter6 thumbnail
+
+      +++
+
+      Additional supporting information, images, documents, change history and
+      hardware & software repositories including issue trackers.
+
+.. raw:: latex
+
+   \end{comment}
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   /boards/beagleconnect/freedom/usage.rst
-   /boards/beagleconnect/freedom/zephyr.rst
+   01-introduction
+   02-quick-start
+   03-design
+   04-expansion
+   05-demos
+   06-support

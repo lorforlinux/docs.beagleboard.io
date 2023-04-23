@@ -14,17 +14,17 @@ Hardware Design
 ~~~~~~~~~~~~~~~~~~~~
 
 Design documentation can be found on the wiki.
-https://github.com/beagleboard/pocketbeagle Including:
+https://git.beagleboard.org/beagleboard/pocketbeagle/ Including:
 
 -  Schematic in PDF
-   https://github.com/beagleboard/pocketbeagle/blob/master/PocketBeagle_sch.pdf
+   https://git.beagleboard.org/beagleboard/pocketbeagle/-/blob/master/PocketBeagle_sch.pdf
 -  Schematic and layout in EAGLE
-   https://github.com/beagleboard/pocketbeagle/tree/master/EAGLE
+   https://git.beagleboard.org/beagleboard/pocketbeagle/-/tree/master/EAGLE
 -  Schematic and layout in KiCAD
-   https://github.com/beagleboard/pocketbeagle/tree/master/KiCAD
+   https://git.beagleboard.org/beagleboard/pocketbeagle/-/tree/master/KiCAD
 -  Bill of Materials
-   https://github.com/beagleboard/pocketbeagle/blob/master/PocketBeagle_BOM.csv
--  System Reference Manual https://github.com/beagleboard/pocketbeagle.
+   https://git.beagleboard.org/beagleboard/pocketbeagle/-/blob/master/PocketBeagle_BOM.csv
+-  :ref:`pocketbeagle-home` docs.
 
 .. _software_updates:
 
@@ -35,7 +35,7 @@ It is a good idea to always use the latest software. Instructions for
 how to update your software to the latest version can be found at:
 
 Download the latest software files from
-`beagleboard.org/latest-images <https://beagleboard.org/latest-images>`__
+`www.beagleboard.org/distros <https://www.beagleboard.org/distros>`__
 
 .. _export_information:
 
@@ -45,7 +45,7 @@ Export Information
 -  ECCN: EAR99
 -  CCATS: G173833
 -  Documentation:
-   `github.com/beagleboard/pocketbeagle/blob/master/regulatory/PocketBeagle_Export_Classification.pdf <https://github.com/beagleboard/pocketbeagle/blob/master/regulatory/PocketBeagle_Export_Classification.pdf>`__
+   `PocketBeagle_Export_Classification.pdf <https://git.beagleboard.org/beagleboard/pocketbeagle/-/blob/master/regulatory/PocketBeagle_Export_Classification.pdf>`__
 
 .. _rma_support:
 
@@ -54,7 +54,7 @@ RMA Support
 
 If you feel your board is defective or has issues and before returning
 merchandise, please seek approval from the manufacturer using
-`beagleboard.org/support/rma <https://beagleboard.org/support/rma>`__.
+`beagleboard.org/support/rma <https://www.beagleboard.org/rma>`__.
 You will need the manufacturer, model, revision and serial number of the
 board.
 
@@ -65,7 +65,7 @@ Getting Help
 
 If you need some up to date troubleshooting techniques, the Wiki is a
 great place to start
-`github.com/beagleboard/pocketbeagle/wiki <https://github.com/beagleboard/pocketbeagle/wiki>`__.
+`PocketBeagle wiki <https://git.beagleboard.org/beagleboard/pocketbeagle/-/wikis/home>`__.
 
 If you need professional support, check out
 `beagleboard.org/resources <https://beagleboard.org/resources>`__.

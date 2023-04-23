@@ -89,19 +89,19 @@ The figure above shows we've been using the _Enhanced **GPIO** interface when us
 ``pass:[__]R30``, but it also shows you can use the OCP.  You get access to many more
 GPIO pins, but it's a slower access.
 
-.. literalinclude:: code/gpio.pru0.c
+.. literalinclude:: ../code/06io/gpio.pru0.c
    :caption: gpio.pru0.c
    :linenos:
 
-:download:`gpio.pru0.c <code/gpio.pru0.c>`
+:download:`gpio.pru0.c <../code/06io/gpio.pru0.c>`
 
 This code will toggle ``P9_11`` on and off. Here's the setup file.
 
-.. literalinclude:: code/setup.sh
+.. literalinclude:: ../code/06io/setup.sh
    :caption: setup.sh
    :linenos:
 
-:download:`setup.sh <code/setup.sh>`
+:download:`setup.sh <../code/06io/setup.sh>`
 
 Notice in the code ``config-pin`` set ``P9_11`` to ``gpio``, not ``pruout``. This is because
 are using the OCP interface to the pin, not the usual PRU interface.

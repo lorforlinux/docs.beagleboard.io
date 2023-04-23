@@ -228,4 +228,4 @@ Multi Input Multi Output
 
 .. note::
     * Video file from RTSP server used for RTSP input test
-    * Please refer to the :ref:`pub_edgeai_known_issues` section for more details
+    * Please refer to the `TI Edge AI SDK release notes and known issues <https://software-dl.ti.com/jacinto7/esd/edgeai-sdk-j721e/latest/exports/docs/release_notes.html>`__ for more details

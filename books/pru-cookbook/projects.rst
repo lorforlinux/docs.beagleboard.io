@@ -86,7 +86,7 @@ documentation visit the PRU-ICSS wiki.
     **Type:** Code Library
 
     **References:**
-        http://hipstercircuits.com/pypruss-a-simple-pru-python-binding-for-beaglebone/
+        https://github.com/MuneebMohammed/pypruss
 
 .. dropdown:: **Geiger**
     :open:
@@ -187,7 +187,7 @@ documentation visit the PRU-ICSS wiki.
 .. dropdown:: **Thermal imaging camera**
     :open:
     
-    **Description:** Thermal camera using Beaglebone Black, a small LCD, and a thermal array sensor    
+    **Description:** Thermal camera using BeagleBone Black, a small LCD, and a thermal array sensor    
 
     **Type:** Project Code Library
 
@@ -208,8 +208,8 @@ documentation visit the PRU-ICSS wiki.
 .. dropdown:: **Emulated memory interface**
     :open:
     
-    **Description:** ABX loads amovie into the Beaglebone's memory and then launches the memory emulator 
-    on the PRU sub-processor of the Beaglebone's ARM AM335x
+    **Description:** ABX loads amovie into the BeagleBone's memory and then launches the memory emulator 
+    on the PRU sub-processor of the BeagleBone's ARM AM335x
     
     **Type:** Project
 
@@ -231,7 +231,7 @@ documentation visit the PRU-ICSS wiki.
     :open:
     
     **Description:** Investigating the fastest way to program using JTAG and provide 
-    for debugging facilities built into the Beaglebone.
+    for debugging facilities built into the BeagleBone.
 
     **Type:** Project
     
@@ -262,8 +262,8 @@ documentation visit the PRU-ICSS wiki.
 .. dropdown:: **VisualPRU**
     :open:
     
-    **Description:** VisualPRU is a minimal browser-based editor and debugger for the Beaglebone PRUs. 
-    The app runs from a local server on the Beaglebone.
+    **Description:** VisualPRU is a minimal browser-based editor and debugger for the BeagleBone PRUs. 
+    The app runs from a local server on the BeagleBone.
     
     **Type:**  Editor and Debugger
     

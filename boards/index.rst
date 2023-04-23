@@ -1,7 +1,12 @@
+:orphan:
+
 .. _boards:
 
 Boards
 ######
+
+:ref:`BeaglePlay <beagleplay-home>` is designed to make embedded Linux simpler with boundless options
+for connectivity, sensors, actuators and indicators without breadboarding or other complex wiring solutions.
 
 :ref:`BeagleBone <beaglebone-all-home>` is a family of ARM-based, Linux-capable boards intended to be
 bare-bones, with a balance of features to enable rapid prototyping and provide a solid

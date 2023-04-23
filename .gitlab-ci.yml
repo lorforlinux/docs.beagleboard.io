@@ -12,8 +12,22 @@ pages:
   tags:
   - docker-arm64
   script:
-  - apk add ttf-dejavu ttf-freefont
   - "./gitlab-build.sh"
   artifacts:
     paths:
     - public
+  except:
+    - tags
+
+docs:
+  tags:
+  - docs
+  script:
+  - "./gitlab-build.sh"
+  artifacts:
+    paths:
+    - public
+  only:
+    - tags
+  except:
+    - branches

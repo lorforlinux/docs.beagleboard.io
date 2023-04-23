@@ -170,7 +170,7 @@ Solution
 ---------
 
 On your host computer open a browser and go to
-http://beagleboard.org/latest-images.
+http://www.beagleboard.org/distros.
 
 .. TODO  Update links
 
@@ -285,14 +285,15 @@ it on your Beagle.
 
 .. code-block:: shell-session
 
+    bone$ cd /opt/source
     bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
     bone$ cd pru-cookbook-code
+    bone$ sudo ./install.sh
     bone$ ls -F
     01case/   03details/  05blocks/  07more/  README.md
     02start/  04details/  06io/      08ai/
 
-Each chapter has its own directory and within that directory 
-is a **code** directory that has all of the code.
+Each chapter has its own directory that has all of the code.
 
 .. code-block:: shell-session
 
@@ -334,8 +335,10 @@ to run it right now do the following.
 
 .. code-block:: shell-session
 
+    bone$ cd /opt/source
     bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
     bone$ cd pru-cookbook-code/02start
+    bone$ sudo ../install.sh
 
 .. tip::
 
@@ -351,14 +354,16 @@ Running Code on the Black or Pocket
 .. code-block:: shell-session
 
     bone$ make TARGET=hello.pru0
-    /var/lib/cloud9/common/Makefile:28: MODEL=TI_AM335x_BeagleBone_Black,TARGET=hello.pru0,COMMON=/var/lib/cloud9/common
-    /var/lib/cloud9/common/Makefile:147: GEN_DIR=/tmp/cloud9-examples,CHIP=am335x,PROC=pru,PRUN=0,PRU_DIR=/sys/class/remoteproc/remoteproc1,EXE=.out
+    /opt/source/pru-cookbook-code/common/Makefile:27: MODEL=TI_AM335x_BeagleBone_Green_Wireless,TARGET=hello.pru0,COMMON=/opt/source/pru-cookbook-code/common
     -    Stopping PRU 0
-    -	copying firmware file /tmp/cloud9-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw
+    CC	hello.pru0.c
+    "/opt/source/pru-cookbook-code/common/prugpio.h", line 53: warning #1181-D: #warning directive: "Found else"
+    LD	/tmp/vsx-examples/hello.pru0.o
+    -	copying firmware file /tmp/vsx-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw
+    -    Starting PRU 0
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
-    -    Starting PRU 0
-    MODEL   = TI_AM335x_BeagleBone_Black
+    MODEL   = TI_AM335x_BeagleBone_Green_Wireless
     PROC    = pru
     PRUN    = 0
     PRU_DIR = /sys/class/remoteproc/remoteproc1

@@ -121,7 +121,7 @@ Cross-arch Development
 While working with the kernel, you'll most likely not be compiling it on the machine
 that you intend to actually boot it on.
 For example if you are compiling the Kernel for BeageBone Black it's probably not ideal
-for you to actually clone the entire kernel on BBB and then compile it there.
+for you to actually clone the entire kernel on BeagleBone Black and then compile it there.
 What you'd do instead is pick a much powerful machine like a Desktop PC or laptop and
 then use cross arch compilers like the arm-gcc for instance to compile the kernel for your
 target device.
@@ -145,17 +145,17 @@ Device Drivers in Embedded Systems
 
 I used the term "Drivers" in the above section, but what does it really mean?
 
-**Why "device" drivers?**
+.. todo::
 
-TODO
+   **Why "device" drivers?**
 
-**Why do we need drivers?**
+.. todo::
 
-TODO
+   **Why do we need drivers?**
 
-**What do drivers look like?**
+.. todo::
 
-TODO
+   **What do drivers look like?**
 
 .. _linux-upstream-device-trees:
 

@@ -8,18 +8,18 @@ import os
 import sys
 from pathlib import Path
 import re
-# sys.path.insert(0, os.path.abspath('.'))
-# sys.path.append('.')
 import sphinx_rtd_theme
+from sphinx.ext.imgconverter import ImagemagickConverter
+
+ImagemagickConverter.conversion_rules.append(('image/webp', 'image/jpeg'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
 # -- Project information -----------------------------------------------------
 
 project = 'BeagleBoard Docs'
-copyright = '2022, BeagleBoard.org Foundation'
+copyright = '2023, BeagleBoard.org Foundation'
 author = 'BeagleBoard.org Foundation'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -28,8 +28,18 @@ sys.path.append(os.path.abspath("./_ext"))
 extensions = [
     "callouts",
     "sphinxcontrib.rsvgconverter",
-    "sphinx_design"
+    "sphinx_design",
+    "sphinxcontrib.images",
+    "sphinx.ext.imgconverter",
+    "sphinx.ext.todo"
 ]
+
+todo_include_todos = True
+
+# Update supported_image_types selection priority order
+from sphinx.builders.html import StandaloneHTMLBuilder
+StandaloneHTMLBuilder.supported_image_types = ['image/svg+xml', 'image/webp', 'image/jpg', 
+                                       'image/jpeg', 'image/gif', 'image/png']
 
 templates_path = ['_templates']
 
@@ -86,7 +96,7 @@ with open(BBDOCS_BASE  / "VERSION") as f:
 release = version
 
 # Variables here holds default settings
-pages_url = "http://docs.beagleboard.io"
+pages_url = "https://docs.beagleboard.io"
 pages_slug = "latest"
 gitlab_user = "docs"
 gitlab_version = "main"

@@ -48,7 +48,7 @@ The following are resources used in this chapter.
 
 .. admonition:: Resources
 
-   * `Pocket Beagle System Reference Manual <https://docs.beagleboard.io/latest/boards/pocketbeagle/original/index.html>`_
+   * `PocketBeagle System Reference Manual <https://docs.beagleboard.io/latest/boards/pocketbeagle/original/index.html>`_
    * `BeagleBone Black P8 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id2>`_
       * `P8 Header Table from exploringBB <https://github.com/derekmolloy/exploringBB/blob/master/chp06/docs/BeagleboneBlackP8HeaderTable.pdf>`_
    * `BeagleBone Black P9 Header Table <https://docs.beagleboard.io/latest/boards/beaglebone/black/ch07.html#id3>`_
@@ -133,7 +133,7 @@ The ``-f 10`` says to use a frequency of 10 Hz and the ``-p 1.5`` says to set th
    -s {limit}     Sweep servo back/forth between +- limit
                   Limit can be between 0 & 1.5
    -r {ch}        Use DSM radio channel {ch} to control servo
-   -h             Print this help messege 
+   -h             Print this help message 
 
    sample use to center servo channel 1:
       rc_test_servo -c 1 -p 0.0
@@ -174,7 +174,7 @@ PRU register to pin table
 
 You can find these details in the 
 
-* `Pocket Beagle pinout <https://docs.google.com/spreadsheets/d/1FRGvYOyW1RiNSEVprvstfJAVeapnASgDXHtxeDOjgqw/edit?usp=sharing>`_
+* `PocketBeagle pinout <https://docs.google.com/spreadsheets/d/1FRGvYOyW1RiNSEVprvstfJAVeapnASgDXHtxeDOjgqw/edit?usp=sharing>`_
 * `BeagleBone AI PRU pins <https://docs.google.com/spreadsheets/d/1dFSBVem86vAUD7MLXvqdS-N0Efi8_g_O1iTqzql8DAo/edit#gid=0>`_
 
 
@@ -195,7 +195,7 @@ Solution
 ---------
 
 You can modify ``rc_test_servos.c``.  You'll find it on the bone online at
-https://github.com/beagleboard/librobotcontrol/blob/master/examples/src/rc_test_servos.c.
+https://git.beagleboard.org/beagleboard/librobotcontrol/-/blob/master/examples/src/rc_test_servos.c
 
 Just past line 250 you'll find a ``while`` loop that has calls to ``rc_servo_send_pulse_normalized(ch,servo_pos)`` and
 ``rc_servo_send_pulse_us(ch, width_us)``.  The first call sets the pulse width relative to the pulse period; the other
@@ -583,11 +583,11 @@ explaining how the PRUs get this type of performance.
 
   .. _case_e1.31_example:
 
-  .. literalinclude:: ../code/01start/e1.31-test.py
+  .. literalinclude:: ../code/02start/e1.31-test.py
      :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
      :linenos:
 
-  :download:`e1.31-test.py <../code/01start/e1.31-test.py>` 
+  :download:`e1.31-test.py <../code/02start/e1.31-test.py>`
 
   .. TODO document the code
 
@@ -649,9 +649,9 @@ to full white at the same time you will need at least a 4A supply.
 
 .. figure:: figures/pocketscroller.jpg
    :align: center
-   :alt: Pocket Beagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
+   :alt: PocketBeagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
 
-   Pocket Beagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
+   PocketBeagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
 
 Software
 ---------
@@ -996,11 +996,11 @@ Now, suppose you wanted to run the
 `LED blink <https://simppru.readthedocs.io/en/latest/examples/led_blink/>`_
 example which is reproduced here.
 
-.. literalinclude:: ../code/01start/blink.sim
+.. literalinclude:: ../code/01case/blink.sim
    :caption: LED Blink (blink.sim)
    :linenos:
 
-:download:`blink.sim <../code/01start/blink.sim>`
+:download:`blink.sim <../code/01case/blink.sim>`
 
 Just run simppru
 

@@ -1,9 +1,4 @@
 #!/bin/bash
-
-apk add git
-apk add rsync
-apk add date
-
 export VER_LATEST_MAJOR=1
 export VER_LATEST_MINOR=0
 export VER_LATEST_EXTRA=wip
@@ -45,6 +40,7 @@ HERE
 
 	sphinx-build -b html . public/$VER_DIR/
 	sphinx-build -M latexpdf . public/$VER_DIR/
+	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 	rm -rf public/$VER_DIR/latex
 
