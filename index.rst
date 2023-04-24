@@ -351,7 +351,6 @@ Capes
    /boards/beaglebone/black/index
    /boards/beaglebone/blue/index
    /boards/beaglebone/index
-   /boards/capes/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
@@ -401,6 +400,7 @@ page for more information.
    :hidden:
    :caption: Accessories
 
+   /boards/capes/index
    /accessories/index
 
 Indices and tables
