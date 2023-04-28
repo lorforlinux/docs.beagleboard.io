@@ -118,6 +118,13 @@ Document Change History
 Board Changes
 -----------------
 
+Rev C3a
+********
+
+PCB revision C.
+
+* New USB Type-A connector.
+
 Rev C3
 ********
 
