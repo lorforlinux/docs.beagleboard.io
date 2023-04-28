@@ -18,8 +18,17 @@ https://git.beagleboard.org/beagleconnect/zephyr/micropython/-/releases/0.0.3
 
 You can verify this version by using ``mcumgr`` over a UDP connection or ``mcuboot`` over the serial console shell.
 
+Latest releases are part of our Zephyr SDK releases.
+
+https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases
+
 Examples
 ********
+
+0.0.3
+=====
+
+The first boards were flashed with this firmware.
 
 .. code-block:: shell-session
 
@@ -186,14 +195,17 @@ Press reset
         [tio 07:40:16] Disconnected
         debian@BeaglePlay:~$
 
+0.2.2
+=====
+
 
 Updating
 ********
 
 .. code-block:: bash
 
-   wget https://git.beagleboard.org/beagleconnect/zephyr/micropython/-/jobs/artifacts/0.0.3/download?job=release_job -O micropython-0.0.3.zip
-   unzip micropython-0.0.3.zip
+   wget 
+   unzip 
    ./build/freedom/cc2538-bsl.py build/freedom/micropython-w-boot
 
 Contributing
