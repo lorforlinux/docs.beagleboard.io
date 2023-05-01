@@ -43,7 +43,13 @@ You can watch this video to see how to attach the attennas.
 
     .. raw:: html
 
-        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" src="https://www.youtube.com/embed/8zeIVd-JRc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
+        src="https://www.youtube.com/embed/8zeIVd-JRc0" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+        </iframe>
 
 Tethering to PC
 ****************
