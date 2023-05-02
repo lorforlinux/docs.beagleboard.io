@@ -6,8 +6,6 @@
 BeagleBoard Documentation
 ############################
 
-Mark was here.
-
 Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`__.
 
 Official documentation releases are provided at https://docs.beagle.cc (cached with local proxies) and
