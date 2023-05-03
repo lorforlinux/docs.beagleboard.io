@@ -96,7 +96,7 @@ For home automaters, integration into WebThings…
 
    think a bit more about this section with some feedback from Cathy.
 
-.. image:: freedom/media/BeagleConnect-Freedom-Front.png
+.. image:: freedom/media/BeagleConnect-Boards-Angled.*
    :width: 598
    :align: center
    :alt: BeagleConnect Freedom
