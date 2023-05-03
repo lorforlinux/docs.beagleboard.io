@@ -11,7 +11,7 @@ import re
 import sphinx_rtd_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
-ImagemagickConverter.conversion_rules.append(('image/webp', 'image/jpeg'))
+ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
