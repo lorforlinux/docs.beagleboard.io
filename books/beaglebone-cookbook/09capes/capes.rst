@@ -249,7 +249,7 @@ headers like the ones shown in :ref:`capes_stacking_headers`? No more than one s
 
 .. _capes_stacking_headers:
 
-.. figure:: figures/stacking_headers.JPG
+.. figure:: figures/stacking_headers.*
     :align: center
     :alt: 
 
@@ -585,7 +585,7 @@ Testing the quickBot motors interface (quickBot_motor_test.js)
 
 .. _quickBot_motor_kickback:
 
-.. figure:: figures/quickBot_motor_kickback.JPG
+.. figure:: figures/quickBot_motor_kickback.*
     :align: center
     :alt: quickBot kicking back
 
@@ -596,7 +596,7 @@ design at your lab workbench, as shown in :ref:`quickBot_scope_fig`.
 
 .. _quickBot_scope_fig:
 
-.. figure:: figures/quickBot_motor_test_scope.JPG
+.. figure:: figures/quickBot_motor_test_scope.*
     :align: center
     :alt: quickBot under scope
 
@@ -1118,7 +1118,7 @@ looking to make some money on your design, you'll want to go another route, like
 
 .. _capes_quickbot_pcb:
 
-.. figure:: figures/quickBot_pcb.JPG
+.. figure:: figures/quickBot_pcb.*
     :align: center
     :alt: QuickBot PCB
 
@@ -1134,7 +1134,7 @@ When you begin assembling your board, it is advisable to assemble it in function
 
 .. _capes_motors_soldered:
 
-.. figure:: figures/quickBot_motors.jpg
+.. figure:: figures/quickBot_motors.*
     :align: center
     :alt: QuickBot motors under test
 

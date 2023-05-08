@@ -10,7 +10,7 @@ Additional Pictures
    PocketBeagle Front BW
                                 
 
-.. figure:: images/PocketBeagle_Back_BW.jpg
+.. figure:: images/PocketBeagle_Back_BW.*
    :align: center
    :alt: PocketBeagle Back BW
 
