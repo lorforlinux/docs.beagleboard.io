@@ -20,7 +20,7 @@ Pictures
 
    Bottom Side
 
-.. figure:: images/DSC00505.png
+.. figure:: images/DSC00505.*
    :width: 768px
    :height: 768px
    :align: center
