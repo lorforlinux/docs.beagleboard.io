@@ -1748,7 +1748,7 @@ Your display should look like :ref:`blocks_rgb_python_jpg`.
 
 .. _blocks_rgb_python_jpg:
 
-.. figure:: figures/rgb_python.jpg
+.. figure:: figures/rgb_python.*
   :align: center
   :alt: Display running rgb_python.py
 

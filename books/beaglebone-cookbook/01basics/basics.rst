@@ -47,7 +47,7 @@ the Bone, as shown in :ref:`basics_pluggingIn_fig`.
 
 .. _basics_pluggingIn_fig:
 
-.. figure:: figures/pluggingIn.jpg
+.. figure:: figures/pluggingIn.*
    :align: center
    :alt: Plugging BeagleBone Black into a USB port
    
