@@ -14,7 +14,7 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 4. Plastic standoff hardware
 5. Quick-start card
 
-.. image:: images/45fontall.png
+.. image:: images/product-pictures/45fontall.*
     :width: 1400
     :align: center
     :alt: BeaglePlay box contents

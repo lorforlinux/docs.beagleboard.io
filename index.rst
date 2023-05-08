@@ -61,7 +61,7 @@ from source using appropriate design tools.
       **BeaglePlay®**
       ^^^
 
-      .. image:: boards/beagleplay/images/45front.png
+      .. image:: boards/beagleplay/images/product-images/45front.*
          :align: center
       +++
 

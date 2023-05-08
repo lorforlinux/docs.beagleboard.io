@@ -35,7 +35,7 @@ include:
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: images/front.*                          | .. image:: images/back.*                                |
+   | .. image:: images/product-pictures/front.*         | .. image:: images/product-pictures/back.*               |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
