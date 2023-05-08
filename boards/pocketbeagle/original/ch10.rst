@@ -3,7 +3,7 @@
 Additional Pictures
 ============================
 
-.. figure:: images/PocketBeagle_Front_BW.jpg
+.. figure:: images/PocketBeagle_Front_BW.*
    :align: center
    :alt: PocketBeagle Front BW
 
