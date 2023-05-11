@@ -36,13 +36,12 @@ extensions = [
 
 todo_include_todos = True
 
-# Update supported_image_types selection priority order
+# Update (HTML) supported_image_types selection priority order
 from sphinx.builders.html import StandaloneHTMLBuilder
 StandaloneHTMLBuilder.supported_image_types = ['image/svg+xml', 'image/webp', 'image/jpg', 
                                        'image/jpeg', 'image/gif', 'image/png']
 
-
-# Update supported_image_types selection priority order
+# Update (PDF) supported_image_types selection priority order
 from sphinx.builders.latex import LaTeXBuilder
 LaTeXBuilder.supported_image_types = ['application/pdf', 'image/jpg', 'image/jpeg', 'image/png']
 
