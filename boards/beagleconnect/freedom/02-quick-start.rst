@@ -38,9 +38,15 @@ What's included in the box?
 Attaching antenna
 ******************
 
-.. todo::
+To connect the SubGHz antenna with SMA connector to the BeagleConnect Freedom 
+you just have to align, place and rotate the antenna clockwise as shown in the 
+image below. To ditach the antenna just twist it anti-clocwise.
 
-   Describe how to screw on the antenna.
+.. figure:: media/BeagleConnect-Freedom-antenna-connection.*
+   :align: center
+   :width: 1247
+
+   Aattaching antenna to BeagleConnect Freedom
 
 
 Tethering to PC
