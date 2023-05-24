@@ -14,7 +14,7 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 4. Plastic standoff hardware
 5. Quick-start card
 
-.. image:: images/45fontall.png
+.. image:: images/product-pictures/45fontall.*
     :width: 1400
     :align: center
     :alt: BeaglePlay box contents
@@ -43,7 +43,13 @@ You can watch this video to see how to attach the attennas.
 
     .. raw:: html
 
-        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" src="https://www.youtube.com/embed/8zeIVd-JRc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
+        src="https://www.youtube.com/embed/8zeIVd-JRc0" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+        </iframe>
 
 Tethering to PC
 ****************

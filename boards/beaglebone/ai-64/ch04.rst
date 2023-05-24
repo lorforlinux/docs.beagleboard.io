@@ -176,7 +176,7 @@ Board components
 
 .. _board-components-figure:
 
-.. figure:: images/ch04/components.png
+.. figure:: images/ch04/components.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 board components

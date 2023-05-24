@@ -17,19 +17,16 @@ and is the first available BeagleConnect™ solution. It features:
 * Battery-charger circuit, and
 * Buzzer, LEDs and buttons for user programming.
 
-.. figure:: media/BeagleConnect-Freedom-Front-Annotated-wbg.*
-   :width: 1247
+.. table::
    :align: center
-   :alt: BeagleConnect Freedom front pinout diagram
+   :widths: auto
 
-   BeagleConnect Freedom Front Annotated
-
-.. figure:: media/BeagleConnect-Freedom-Back-Annotated-wbg.*
-   :width: 1274
-   :align: center
-   :alt: BeagleConnect Freedom Back Annotated
-
-   BeagleConnect Freedom Back Annotated
+   +----------------------------------------------------------------+---------------------------------------------------------------+
+   | .. image:: media/BeagleConnect-Freedom-Front-Annotated-wbg.*   | .. image:: media/BeagleConnect-Freedom-Back-Annotated-wbg.*   |
+   |    :width: 700                                                 |       :width: 700                                             |
+   |    :align: center                                              |       :align: center                                          |
+   |    :alt: BeagleConnect Freedom front pinout diagram            |       :alt: BeagleConnect Freedom Back Annotated              |
+   +----------------------------------------------------------------+---------------------------------------------------------------+
 
 What makes BeagleConnect™ new and different?
 **********************************************

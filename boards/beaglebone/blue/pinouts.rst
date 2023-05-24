@@ -4,7 +4,7 @@
 BeagleBone Blue Pinouts 
 #########################
 
-.. image:: media/BeagleBone_Blue_pinouts.png 
+.. image:: media/BeagleBone_Blue_pinouts.*
    :align: center
 
 .. image:: media/pinout.jpg

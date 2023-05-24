@@ -298,7 +298,7 @@ you can get such a cable from places such as
 
 .. _ftdi_cable:
 
-.. figure:: figures/FTDIcable.jpg
+.. figure:: figures/FTDIcable.*
   :align: center
   :alt: FTDI cable
 

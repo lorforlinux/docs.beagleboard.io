@@ -61,7 +61,7 @@ from source using appropriate design tools.
       **BeaglePlay®**
       ^^^
 
-      .. image:: boards/beagleplay/images/45front.png
+      .. image:: boards/beagleplay/images/product-images/45front.*
          :align: center
       +++
 
@@ -108,7 +108,7 @@ from source using appropriate design tools.
       **BeagleConnect™ Freedom**
       ^^^
 
-      .. image:: boards/beagleconnect/freedom/images/front1.*
+      .. image:: boards/beagleconnect/freedom/media/product-pictures/front1.*
          :align: center
       +++
 

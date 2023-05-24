@@ -15,13 +15,38 @@ What's included in the box?
 
    Image with what's inside the box and a better description.
 
+.. only:: latex
+    
+   .. image:: https://img.youtube.com/vi/bJYZ6PTiV9g/maxresdefault.jpg
+      :alt: BeagleConnect unboxing YouTube video
+      :width: 1280
+      :target: https://www.youtube.com/watch?v=bJYZ6PTiV9g
+
+.. only:: html
+
+    .. raw:: html
+
+        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
+        src="https://www.youtube.com/embed/bJYZ6PTiV9g" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+        </iframe>
+
 
 Attaching antenna
 ******************
 
-.. todo::
+To connect the SubGHz antenna with SMA connector to the BeagleConnect Freedom 
+you just have to align, place and rotate the antenna clockwise as shown in the 
+image below. To ditach the antenna just twist it anti-clocwise.
 
-   Describe how to screw on the antenna.
+.. figure:: media/BeagleConnect-Freedom-antenna-connection.*
+   :align: center
+   :width: 1247
+
+   Aattaching antenna to BeagleConnect Freedom
 
 
 Tethering to PC
