@@ -28,6 +28,10 @@ and is the first available BeagleConnect™ solution. It features:
    |    :alt: BeagleConnect Freedom front pinout diagram            |       :alt: BeagleConnect Freedom Back Annotated              |
    +----------------------------------------------------------------+---------------------------------------------------------------+
 
+.. image:: media/BeagleConnect-Freedom-with-case.*
+  :align: center
+  :alt: BeagleConnect™ Freedom board
+
 What makes BeagleConnect™ new and different?
 **********************************************
 

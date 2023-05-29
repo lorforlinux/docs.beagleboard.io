@@ -17,10 +17,9 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
 
    This is a work in progress, for latest documentation please visit https://docs.beagleboard.org/latest/
 
-.. image:: media/product-pictures/front1.*
+.. image:: media/BeagleConnect-Freedom-Hand.*
   :align: center
   :alt: BeagleConnect™ Freedom board
-  :scale: 42%
 
 .. raw:: latex
    
