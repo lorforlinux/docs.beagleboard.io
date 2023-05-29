@@ -1,3 +1,8 @@
+.. _beaglev-ahead-expansion:
+
+Expansion
+#########
+
 .. _beaglev-ahead-connectors:
 
 Connectors
