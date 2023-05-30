@@ -3,6 +3,10 @@
 BeagleV-Ahead
 ###################
 
+.. image:: media/BeagleV-Ahead-with-hand.*
+    :align: center
+    :alt: BeagleV Ahead with hand
+ 
 .. important::
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
