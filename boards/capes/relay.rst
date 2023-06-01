@@ -20,7 +20,7 @@ Installation
 ************
 
 No special configuration is required. When you plug the Relay Cape into your BeagleBoard, 
-it is automatically recognized by the Cape Universal function.
+it will automatically be recognized by the Cape Universal function.
 
 You can check to see if the Relay Cape is recognized with the following command.
 
@@ -33,7 +33,7 @@ If you see `BBORG_RELAY-00A2.kernel` in this list, it has been loaded correctly.
 
 If it is not loaded correctly, you can also load it directly 
 by adding the following to the U-Boot options 
-(which can be reflected by changing /boot/uEnv.txt).
+(which can be reflected by changing the file /boot/uEnv.txt) to reflect the text below.
 
 .. code-block::
 
@@ -54,8 +54,8 @@ The LEDs can be controlled by modifying the files in its directory.
 
     echo 1 > relay1/brightness
 
-This allows you to adjust the brightness; 
-entering 1 for brightness turns it ON, and entering 0 turns it OFF.
+This allows you to adjust the brightness;
+entering 1 for brightness turns it ON while entering 0 turns it OFF.
 
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
@@ -86,12 +86,13 @@ python3 files with the Relay Cape work well!
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the Relay Cape. Please remember
-that older firmware will work differently on the BBB or other related am335x SBC.
+that older firmware will work differently on the BBB or other related am335x SoC.
 
 C Source with File Descriptors
 ******************************
 
-You can name this file GPIO.c and use gcc to handle compiling the source into a binary like so:
+You can name this file GPIO.c and use gcc to handle compiling the source into a binary like so onboard the BBB
+or other related am335x SoC/SiP:
 
 `gcc GPIO.c -o GPIO`
 
@@ -245,7 +246,7 @@ One thing to note: `sudo apt install cmake`
 
 4. mkdir build && touch CMakeLists.txt
 
-5. In CMakeLists.txt, add these values and text via nano CMakeLists.txt
+5. In CMakeLists.txt, add these values and text via nano or your favorite editor!
 
 .. code-block::
 
