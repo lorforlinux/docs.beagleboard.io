@@ -177,9 +177,11 @@ One thing to note: `sudo apt install cmake`
 .. code-block::
 
     /*
+
     Simple gpiod example of toggling a LED connected to a gpio line from
     the BeagleBone Black Wireless and Relay Cape.
     Exits with or without CTRL-C.
+
     */
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
