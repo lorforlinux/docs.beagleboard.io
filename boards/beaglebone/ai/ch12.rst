@@ -15,7 +15,7 @@ REGULATORY, COMPLIANCE, AND EXPORT INFORMATION
 -  TARIC: 8473302000
 -  ECCN: 5A992.C
 -  CCATS:
-   `Z1613110/G180570 <https://github.com/beagleboard/beaglebone-ai/blob/master/regulatory/Validation_Z1613110.pdf>`__
+   `Z1613110/G180570 <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/tree/master/regulatory/Validation_Z1613110.pdf>`__
 -  RoHS/REACH: TBD
 -  Volatility: TBD
 
@@ -42,7 +42,7 @@ WARRANTY AND DISCLAIMERS
 The design materials referred to in this document are *\*NOT
 SUPPORTED\** and **DO NOT** constitute a reference design. Support of
 the open source developer community is provided through the
-resources defined at https://beagleboard.org/support.
+resources defined at https://docs.beagleboard.org/latest/intro/support/index.html.
 
 THERE IS NO WARRANTY FOR THE DESIGN MATERIALS, TO THE EXTENT PERMITTED
 BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT

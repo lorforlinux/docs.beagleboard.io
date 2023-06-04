@@ -13,13 +13,17 @@ you want to share your hardware with the masses.
 You can easily expand the functionality of the Bone by adding a  `cape <http://bit.ly/1wucweC>`_. 
 A cape is simply a board--often a printed circuit board (PCB) that connects to the +P8+ 
 and +P9+ headers and follows a few standard pin usages. You can stack up to four capes onto the 
-Bone. Capes can range in size from Bone-sized (:ref:`capes_miniDisplay`) to much larger than the Bone (:ref:`capes_7inLCD`).
+Bone. Capes can range in size covering a few pins to much larger than the Bone.
+
+.. todo:: Add cape examples of various sizes
 
 This chapter shows how to attach a couple of capes, move your design to a protoboard, then to a PCB, 
 and finally on to mass production.
 
+.. todo:: Update display cape example
+
 ..
-  #TODO# LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
+  LCD7 is no longer available. Example needs to be redone with a board that is available. Removing due to broken links
   .. _capes_7inLCD:
 
   Using a Seven-Inch LCD Cape
@@ -245,7 +249,7 @@ headers like the ones shown in :ref:`capes_stacking_headers`? No more than one s
 
 .. _capes_stacking_headers:
 
-.. figure:: figures/stacking_headers.JPG
+.. figure:: figures/stacking_headers.*
     :align: center
     :alt: 
 
@@ -581,7 +585,7 @@ Testing the quickBot motors interface (quickBot_motor_test.js)
 
 .. _quickBot_motor_kickback:
 
-.. figure:: figures/quickBot_motor_kickback.JPG
+.. figure:: figures/quickBot_motor_kickback.*
     :align: center
     :alt: quickBot kicking back
 
@@ -592,7 +596,7 @@ design at your lab workbench, as shown in :ref:`quickBot_scope_fig`.
 
 .. _quickBot_scope_fig:
 
-.. figure:: figures/quickBot_motor_test_scope.JPG
+.. figure:: figures/quickBot_motor_test_scope.*
     :align: center
     :alt: quickBot under scope
 
@@ -881,7 +885,7 @@ for tips on converting from one to the other.
 
 *DesignSpark PCB*
 
-The free `DesignSpark PCB <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
+The free `DesignSpark <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
 but it runs only on Windows. Also, it doesn't seem to have the following of Eagle at this time.
 
 .. _capes_upverter:
@@ -1114,7 +1118,7 @@ looking to make some money on your design, you'll want to go another route, like
 
 .. _capes_quickbot_pcb:
 
-.. figure:: figures/quickBot_pcb.JPG
+.. figure:: figures/quickBot_pcb.*
     :align: center
     :alt: QuickBot PCB
 
@@ -1130,7 +1134,7 @@ When you begin assembling your board, it is advisable to assemble it in function
 
 .. _capes_motors_soldered:
 
-.. figure:: figures/quickBot_motors.jpg
+.. figure:: figures/quickBot_motors.*
     :align: center
     :alt: QuickBot motors under test
 

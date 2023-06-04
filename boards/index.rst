@@ -1,7 +1,12 @@
+:orphan:
+
 .. _boards:
 
 Boards
 ######
+
+:ref:`BeaglePlay <beagleplay-home>` is designed to make embedded Linux simpler with boundless options
+for connectivity, sensors, actuators and indicators without breadboarding or other complex wiring solutions.
 
 :ref:`BeagleBone <beaglebone-all-home>` is a family of ARM-based, Linux-capable boards intended to be
 bare-bones, with a balance of features to enable rapid prototyping and provide a solid
@@ -30,18 +35,4 @@ started.
     
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   /boards/beaglebone/index
-   /boards/beaglebone/black/index
-   /boards/beaglebone/blue/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/ai-64/index
-   /boards/pocketbeagle/original/index
-   /boards/capes/index
-   /boards/beagleconnect/index
-   /boards/beagleboard/index
 

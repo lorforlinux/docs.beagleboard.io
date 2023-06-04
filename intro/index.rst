@@ -6,22 +6,33 @@ Introduction
 Welcome to the BeagleBoard documentation project. If you are looking for help with your Beagle
 open-hardware development platform, you've found the right place!
 
-For the latest versions of this documentation, be sure to check the official release sites:
+.. important::
+   
+   This documentation is a work in progress. For the latest versions of this documentation, 
+   be sure to check the official release sites:
 
-* https://docs.beagle.cc (cached with local proxies)
-* https://docs.beagleboard.org (non-cached, without proxies)
+   * https://docs.beagle.cc (cached with local proxies)
+   * https://docs.beagleboard.org (non-cached, without proxies)
 
-Please check out our :ref:`support` page` to find out how to get started, resolve issues,
-and engage the developer community.
+   For bleeding edge (development-stage) documentation:
 
-Don't forget that this is an open-source project! Your contributions are welcome. Learn about how
-to contribute to the BeagleBoard documentation project and any of the many open-source Beagle
+   * https://docs.beagleboard.io (straight from `docs repo <https://git.beagleboard.org/docs/docs.beagleboard.io>`_)
+
+Please check out our :ref:`support` page to find out how to get started, resolve issues,
+and engage with the developer community. Don't forget that this is an open-source project! Your contributions are welcome. 
+Learn about how to contribute to the BeagleBoard documentation project and any of the many open-source Beagle
 projects ongoing on our :ref:`contribution` page.
+
+.. warning::
+   Make sure you thoroughly read and agree with our :ref:`boards-terms-and-conditions` which covers 
+   warnings, restrictions, disclaimers, and warranty for all of our boards. Use of either the boards or 
+   the design materials constitutes agreement to the T&C including any modifications done to 
+   the hardware or software solutions provided by beagleboard.org foundation.
 
 .. toctree::
    :maxdepth: 2
 
    /intro/support/index
-   /intro/bone101/index
+   /intro/beagle101/index
    /intro/contribution/index
 

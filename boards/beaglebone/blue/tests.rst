@@ -69,6 +69,8 @@ GPS
 
       tio /dev/ttyO2 -b 4800
 
+.. _beaglebone-blue-one-liner-tests-i2c:
+
 I2C
 ====
 

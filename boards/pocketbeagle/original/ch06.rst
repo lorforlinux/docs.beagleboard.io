@@ -5,7 +5,7 @@ Detailed Hardware Design
 
 The following sections contain schematic references for PocketBeagle.
 Full schematics in both PDF and Eagle are available on the
-`'PocketBeagle Wiki' <https://github.com/beagleboard/pocketbeagle>`__
+`'PocketBeagle Wiki' <https://git.beagleboard.org/beagleboard/pocketbeagle>`__
 
 .. _osd3358_sm_sip_design:
 

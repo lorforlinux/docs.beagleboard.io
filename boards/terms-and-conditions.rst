@@ -1,7 +1,7 @@
 .. _boards-terms-and-conditions:
 
-BeagleBoard.org general Terms & Conditions
-###########################################
+Terms & Conditions
+##################
 
 DESIGN
 *******
@@ -27,8 +27,9 @@ See the LICENSE file regarding the copyright of these materials.
 
 This LICENSE does not apply to BeagleBoard.org Foundation trademarks. Express written permission is required
 for use of BeagleBoard.org Foundation trademarks, including, but not limited to BeagleBoard.org, BeagleBone,
-BeagleBoard, PocketBeagle, BeagleBoard Compatible, BeagleBoard Embedded, and BeagleBoard Approved. Please visit
-https://www.beagleboard.org/brand-use and https://www.beagleboard.org/partner-programs for additional details.
+BeagleBoard, PocketBeagle, BeagleV, BeaglePlay, BeagleConnect, BeagleBoard Compatible, BeagleBoard Embedded,
+and BeagleBoard Approved. Please visit https://www.beagleboard.org/brand-use and
+https://www.beagleboard.org/partner-programs for additional details.
 
 
 ADDITIONAL TERMS
@@ -186,32 +187,42 @@ BeagleBoard.org Foundation
 Oakland Twp, MI 48306 U.S.A.
 
 
-**WARRANTY:** The board assembly as purchased is warranted
-against defects in materials and workmanship for a period of 90 days
-from purchase. This warranty does not cover any problems occurring as a
-result of improper use, modifications, exposure to water, excessive
-voltages, abuse, or accidents. All boards will be returned via standard
-mail if an issue is found. If no issue is found or express return is
-needed, the customer will pay all shipping costs.
+**WARRANTY:** If purchased from an authorized distributor, as listed on the board page 
+at https://www.beagleboard.org/boards, then the board assembly as purchased is warranted 
+against defects in materials and workmanship for a period of 90 days from purchase. This 
+warranty does not cover any problems occurring as a result of improper use, modifications, 
+exposure to water, excessive voltages, abuse, or accidents. No boards should be sent to 
+back to a distributor without contacting rma/support.
 
 
-Before returning the board, please visit
+.. note::
+    Repairs and replacements only provided on unmodified boards purchased via an authorized distributor 
+    **within the first 90 days**. All repaired board will have their flash reset to factory contents. For 
+    repairs and replacements, please contact 'support' at BeagleBoard.org using the RMA form:
 
+    `RMA request <https://www.beagleboard.org/rma>`_
 
-BeagleBoard.org/support
+    Before making any attempt to return your defective board to a distributor 
+    you should visit `support page <https://docs.beagleboard.org/latest/intro/support/index.html>`_ 
+    and reach out to `Jason <https://beagleboard.org/about/jkridner>`_ for possible solutions.
+    
+    Additional terms:
+    - Your repaired/replacement boards will not be sent by priority shipment, please be patient. 
+    - You are responsible for all the expenses if there isn't really an issue with the board.
+    - If no issue is found or express return is needed, the customer will pay all shipping costs.
 
 
 For up to date SW images and technical information refer to
-https://beagleboard.org/latest-images
+https://www.beagleboard.org/distros
 
 
-All support for this board is provided via community support at
-BeagleBoard.org forum
+All support for is provided via community support at
+`https://forum.beagleboard.org <https://forum.beagleboard.org/>`_
 
 
-To return a defective board for repair, please request an RMA at
-beagleboard.org/support/rma
+To return a defective board for repair, please request a return materials authorization (RMA) at
+https://www.beagleboard.org/rma
 
 
-Please DO NOT return the board without approval from the RMA team
-first.
+.. important::
+    Please **DO NOT** return the board without approval from the RMA team first.

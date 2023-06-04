@@ -79,15 +79,6 @@ BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.**
 
 **NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.**
 
-P8.E1-P8.E4
-------------
-
-+----------+----------+-----------+-----+
-| E1       | E2       | E3        | E4  |
-+==========+==========+===========+=====+
-| USB1 DP  | USB1 DN  | VSYS_5V0  | GND |
-+----------+----------+-----------+-----+
-
 P8.01-P8.02
 ------------
 
@@ -772,7 +763,7 @@ The **GPIO** row is the expected gpio identifier number in the Linux
 kernel.
 
 Each row includes the gpiochipX and pinY in the format of 
-`X Y`. You can use these values to direcly control the GPIO pins with the 
+`X Y`. You can use these values to directly control the GPIO pins with the 
 commands shown below.
 
 .. code::
@@ -819,6 +810,14 @@ BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.**
 
 **NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.**
 
+P9.E1-P9.E4
+------------
+
++----------+----------+-----------+-----+
+| E1       | E2       | E3        | E4  |
++==========+==========+===========+=====+
+| USB1 DP  | USB1 DN  | VSYS_5V0  | GND |
++----------+----------+-----------+-----+
 
 P9.01-P9.05
 ------------

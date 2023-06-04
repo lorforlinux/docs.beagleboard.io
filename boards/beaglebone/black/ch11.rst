@@ -21,7 +21,7 @@ Provided there is:
 * System Reference Manual (This document).
 
 This directory is not always kept up to date in every SW release due to the frequency of changes of the SW. The best solution is to download the files from
-`http://beagleboard.org/latest-images <http://beagleboard.org/latest-images>`_
+`http://www.beagleboard.org/distros <http://www.beagleboard.org/distros>`_
 
 We do not track SW revision of what is in the eMMC. SW is tracked
 separately from the HW due to the frequency of changes which would

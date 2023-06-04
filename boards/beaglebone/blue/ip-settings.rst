@@ -1,4 +1,4 @@
-.. _beaglebone-blue-ip-settings
+.. _beaglebone-blue-ip-settings:
 
 IP settings
 ############

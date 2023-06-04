@@ -1,0 +1,10 @@
+:orphan:
+
+.. _not-found:
+
+Document not found
+##################
+
+.. todo::
+
+   We need a 404 document to help people handle broken links (report, find, etc.).

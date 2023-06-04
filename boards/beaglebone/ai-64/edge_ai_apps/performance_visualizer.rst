@@ -6,7 +6,7 @@ Performance Visualization Tool
 The performance visualization tool can be used to view all the performance
 statistics recorded when running the edge AI C++ demo application. This includes
 the CPU and HWA loading, DDR bandwidth, Junction Temperatures and FPS obtained.
-Refer to :ref:`pub_edgeai_available_statistics` for details on the performance 
+Refer to :ref:`ai_64_edgeai_available_statistics` for details on the performance 
 metrics available to be plotted.
 
 This tool works as follows:
@@ -20,7 +20,7 @@ This tool works as follows:
       which can be easily viewed by a visiting a URL in any browser. This script uses
       Streamlit package to update the graphs in real-time, as the Edge AI application
       runs in parallel. However, since Streamlit is not supported in the SDK out of box,
-      this script needs to run on docker. Please refer to :ref:`pub_edgeai_docker_env`
+      this script needs to run on docker. Please refer to :ref:`ai_64_edgeai_docker_env`
       for building and running a docker container.
 
 

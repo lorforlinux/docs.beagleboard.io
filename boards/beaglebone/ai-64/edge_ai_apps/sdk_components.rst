@@ -7,7 +7,7 @@ The BeagleBone® AI-64 Linux for Edge AI can be divided into 3 parts, Applicatio
 BeagleBone® AI-64 Linux and Processor SDK RTOS. Users can get the latest application
 updates and bug fixes from the public repositories (GitHub and git.ti.com)
 which aligns with the SDK releases done quarterly. One can also build every component
-from source by following the steps here, :ref:`pub_edgeai_sdk_development_flow`
+from source by following the steps in the `TI Edge AI SDK development flow <https://software-dl.ti.com/jacinto7/esd/edgeai-sdk-j721e/latest/exports/docs/development_flow.html>`__.
 
 .. figure:: ./images/edgeai-sdk-components.png
    :scale: 50
@@ -74,7 +74,7 @@ edgeai-gst-plugins
 This repo provides the source of custom GStreamer plugins which helps offload
 tasks to TDA4 hardware accelerators and advanced DSPs with the help of
 edgeai-tiovx-modules. The repo gets downloaded, built and installed as part
-of the :ref:`pub_edgeai_install_dependencies` step.
+of the :ref:`ai_64_edgeai_install_dependencies` step.
 
 Source code and documentation: https://github.com/TexasInstruments/edgeai-gst-plugins
 
@@ -85,7 +85,7 @@ edgeai-tiovx-modules
 This repo provides OpenVx modules which help access underlying hardware
 accelerators in the  TDA4 SoC and serves as a bridge between GStreamer
 custom elements and underlying OpenVx custom kernels. The repo gets downloaded,
-built and installed as part of the :ref:`pub_edgeai_install_dependencies` step.
+built and installed as part of the :ref:`ai_64_edgeai_install_dependencies` step.
 
 Source code and documentation: https://github.com/TexasInstruments/edgeai-tiovx-modules
 
@@ -103,7 +103,7 @@ For more information visit `Processor SDK RTOS Getting Started Guide <https://so
 .. _ai_64_edgeai_psdk_linux:
 
 BeagleBone® AI-64 Linux
-===================
+========================
 
 The BeagleBone® AI-64 Linux for Edge AI  gets all the Linux kernel, filesystem, device-drivers and more
 from BeagleBone® AI-64 Linux

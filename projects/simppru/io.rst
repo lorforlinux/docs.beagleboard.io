@@ -61,7 +61,7 @@ specified input pin. It is a function with return type ``boolean`` and
 it's parameter is a ``integer`` whose value must be the pin number to be
 read or PRU R31 register bit.
 
-.. _syntax-1:
+.. _io-syntax-1:
 
 Syntax
 ~~~~~~
@@ -108,7 +108,7 @@ Delay
 When this is called PRU does absolutely nothing, it just sits there
 waiting.
 
-.. _syntax-2:
+.. _io-syntax-2:
 
 Syntax
 ~~~~~~
@@ -152,7 +152,7 @@ Start counter
 counts number of CPU cycles. So it can be used to count time elapsed, as
 it is known that each cycle takes 5 nanoseconds.
 
-.. _syntax-3:
+.. _io-syntax-3:
 
 Syntax
 ~~~~~~
@@ -185,7 +185,7 @@ Stop counter
 
 ``stop_counter`` is a function which stops PRU's internal counter.
 
-.. _syntax-4:
+.. _io-syntax-4:
 
 Syntax
 ~~~~~~
@@ -195,7 +195,7 @@ Syntax
 .. _paramters-1:
 
 Parameters
-^^^^^^^^^
+^^^^^^^^^^
 
 -  n/a
 
@@ -222,7 +222,7 @@ Read counter
 returns the value. It counts number of CPU cycles. So it can be used to
 count time elapsed, as it is known that each cycle takes 5 nanoseconds.
 
-.. _syntax-5:
+.. _io-syntax-5:
 
 Syntax
 ~~~~~~
@@ -274,7 +274,7 @@ necessary structures to use RPMSG to communicate, it expects a init
 message from the ARM core to initialise. It is a necessary to call this
 function before using any of the message functions.
 
-.. _syntax-6:
+.. _io-syntax-6:
 
 Syntax
 ~~~~~~
@@ -312,7 +312,7 @@ ARM to the PRU, messages can only be ``integers``, as only they are
 supported as of now. It uses RPMSG channel setup by
 ``init_message_channel`` to receive messages from ARM core.
 
-.. _syntax-7:
+.. _io-syntax-7:
 
 Syntax
 ~~~~~~
@@ -363,7 +363,7 @@ from PRU to the ARM core.
 For sending arrays, arrays are automatically converted to a string, for
 example, [1, 2, 3, 4] would become “1 2 3 4”.
 
-.. _syntax-8:
+.. _io-syntax-8:
 
 Syntax
 ~~~~~~

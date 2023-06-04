@@ -27,7 +27,7 @@ You will need to purchase:
 
 -  USB C cable or USB C to USB A cable
 -  MicroSD Card (optional)
--  `Serial cable <https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#serial-cable>`_ (optional)
+-  `Serial cable <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#serial-cable>`_ (optional)
 
 More information or to purchase a replacement heat sink or antenna, please go to these websites:
 
@@ -43,7 +43,7 @@ the board except the 46-way header sockets and the Ethernet socket.
 
 If you run all of the accelerators or have an older software image,
 you’ll likely need fan. To find a fan, visit the link to `fans in the
-FAQ <https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#fans>`_.
+FAQ <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#fans>`_.
 
 .. caution::
 
@@ -184,7 +184,7 @@ A 3 PIN serial debug cable can be helpful to debug when you need to view
 the boot messages through a terminal program such as putty on your host
 PC. This cable is not needed for most BeagleBone® AI boot up scenarios.
 
-Cables: https://github.com/beagleboard/beaglebone-ai/wiki/Frequently-Asked-Questions#serial-cable
+Cables: https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#serial-cable
 
 Locate the 3 PIN debug header on BeagleBone® AI, near the USB C connection.
 

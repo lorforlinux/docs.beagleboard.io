@@ -3,7 +3,7 @@
 Moving to the BeagleBone AI
 ############################
 
-So far all our examples have focussed mostly on the BeagleBone Black and Pocket Beagle.
+So far all our examples have focussed mostly on the BeagleBone Black and PocketBeagle.
 These are both based on the am335x chip.  The new kid on the block is the BeagleBone AI
 which is based on the am5729. The new chip brings with it new capabilities one of
 which is four PRUs.  This chapter details what changes when moving from two to
@@ -260,7 +260,7 @@ Discission
 -----------
 
 Suppose you want to make ``P9_31`` a PRU output pin. First go to the
-`am5729 System Reference Manual <https://github.com/beagleboard/beaglebone-ai/wiki/System-Reference-Manual#p8.10-p8.13>`_
+`am5729 System Reference Manual <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/System-Reference-Manual>`_
 and look up ``P9_31``.  
 
 .. tip::

@@ -9,7 +9,7 @@ file.
 
 From a repo of input sources, output sources and models one can define advance
 dataflows which connect them in various configurations. Details on configuration
-file parameters can be found in :ref:`pub_edgeai_configuration`
+file parameters can be found in :ref:`ai_64_edgeai_configuration`
 
 Single input multi inference demo
 ---------------------------------

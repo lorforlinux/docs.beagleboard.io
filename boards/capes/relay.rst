@@ -60,20 +60,6 @@ entering 1 for brightness turns it ON while entering 0 turns it OFF.
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
 
-Side Note: 
-**********
-
-Please make sure you attach something to your Relay when running your source...
-
-For instance, use COM and NC for an LED or pump. See the below photo for wiring your LED.
-
-.. image:: images/RelayOne.png
-   :align: center
-
-This photo, along with others, can be found here: 
-
-* `ncd.io <https://ncd.io/relay-logic/>`_   
-
 Code to Get Started
 *******************
 
@@ -86,13 +72,12 @@ python3 files with the Relay Cape work well!
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the Relay Cape. Please remember
-that older firmware will work differently on the BBB or other related am335x SoC.
+that older firmware will work differently on the BeagleBone Black or other related am335x SBC.
 
 C Source with File Descriptors
 ******************************
 
-You can name this file GPIO.c and use gcc to handle compiling the source into a binary like so onboard the BBB
-or other related am335x SoC/SiP:
+You can name this file GPIO.c and use gcc to handle compiling the source into a binary like so:
 
 `gcc GPIO.c -o GPIO`
 
@@ -103,13 +88,13 @@ or other related am335x SoC/SiP:
     This is an example of programming GPIO from C using the sysfs interface on
     a BeagleBone Black/BeagleBone Black Wireless or other am335x board with the Relay Cape.
 
-    Use the Relay Cape attached to the BBB for a change in seconds and then exit with CTRL-C.
+    Use the Relay Cape attached to the BeagleBone Black for a change in seconds and then exit with CTRL-C.
 
     The original source can be found here by Mr. Tranter: https://github.com/tranter/blogs/blob/master/gpio/part5/demo1.c
 
     Jeff Tranter <jtranter@ics.com>
 
-    and...Seth. I changed the source a bit to fit the BBB and Relay Cape while using sysfs.
+    and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using sysfs.
 
     */
 
@@ -177,11 +162,9 @@ One thing to note: `sudo apt install cmake`
 .. code-block::
 
     /*
-
     Simple gpiod example of toggling a LED connected to a gpio line from
     the BeagleBone Black Wireless and Relay Cape.
     Exits with or without CTRL-C.
-
     */
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
@@ -266,4 +249,4 @@ One thing to note: `sudo apt install cmake`
 
 8. ./LibGPIO
 
-These are a few examples on how to use the RelayCape and am335x supported BBBW/BBB SBCs.
+These are a few examples on how to use the RelayCape and am335x supported BeagleBone Black Wireless/BeagleBone Black SBCs.

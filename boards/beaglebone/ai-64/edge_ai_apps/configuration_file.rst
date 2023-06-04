@@ -230,7 +230,7 @@ Below are some of the use case specific properties:
    output
 
 The content of the model directory and its structure is discussed in detail in
-:ref:`pub_edgeai_import_custom_models`
+:ref:`ai_64_edgeai_import_custom_models`
 
 
 Outputs

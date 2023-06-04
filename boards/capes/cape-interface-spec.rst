@@ -19,7 +19,7 @@ Background and overview
    * See `elinux.org Cape Expansion Headers for BeagleBone page <https://elinux.org/Beagleboard:Cape_Expansion_Headers>`_
    * See :ref:`BeagleBone Black System Reference Manual Connectors section <beagleboneblack-connectors>`
    * See :ref:`BeagleBone AI System Reference Manual Connectors section <beaglebone-ai-connectors>`
-   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <TODO>`
+   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <cape-board-support-1>`
 
 .. note:: Below, when mentioning "Black", this is true for all AM3358-based BeagleBone boards. "AI" is AM5729-based. "AI-64" is TDA4VM-based.
 
@@ -51,19 +51,19 @@ More details can be found in :ref:`bone-methodology`.
 
     Legend
 
-    * |D|: Digital general purpose input and output (GPIO)
-    * |I|: Inter-integrated circuit bus (|I2C|) ports
-    * |S|: Serial peripheral interface (SPI) ports
-    * |U|: Universal asynchronous reciever/transmitter (UART) serial ports
-    * |C|: CAN
-    * |A|: Analog inputs
-    * |E|: PWM
-    * |Q|: Capture/EQEP
-    * |M|: MMC/SD/SDIO
-    * |B|: I2S/audio serial ports
-    * |L|: LCD
-    * |P|: PRU
-    * |Y|: ECAP
+    * |D| : Digital general purpose input and output (GPIO)
+    * |I| : Inter-integrated circuit bus (|I2C|) ports
+    * |S| : Serial peripheral interface (SPI) ports
+    * |U| : Universal asynchronous reciever/transmitter (UART) serial ports
+    * |C| : CAN
+    * |A| : Analog inputs
+    * |E| : PWM
+    * |Q| : Capture/EQEP
+    * |M| : MMC/SD/SDIO
+    * |B| : I2S/audio serial ports
+    * |L| : LCD
+    * |P| : PRU
+    * |Y| : ECAP
 
 .. table:: Overall
 
@@ -414,9 +414,9 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 
    The provided pre-compiled overlays enable the |I2C| bus driver only, not a specific device driver.  Either a custom
    overlay is required to load the device driver or usermode device driver loading can be performed, depending on
-   the driver. See :ref:`bone101_i2c` for information on loading |I2C| drivers from userspace.
+   the driver. See :ref:`beagle101_i2c` for information on loading |I2C| drivers from userspace.
 
-.. code-block:: c
+.. code-block::
    :linenos:
    :caption: Example device tree overlay to enable I2C driver
    :name: bone_cape_spec_i2c_example
@@ -501,9 +501,9 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
    See https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree for
    more background. A custom overlay is required to overload the compatible string to load a non-spidev driver.
 
-.. note:: #TODO# figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
+.. todo:: figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
 
-.. code-block:: c
+.. code-block::
    :linenos:
    :caption: Example device tree overlay to enable SPI driver
    :name: bone_cape_spec_spi_example
@@ -528,7 +528,7 @@ In :ref:`bone_cape_spec_spi_example`, you can specify what driver you want to lo
 .. _bone-uart:
 
 UART
-*****
+****
 
 UART bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 
@@ -608,7 +608,7 @@ UART bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 .. _bone-can:
 
 CAN
-*****
+***
 
 CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 
@@ -664,10 +664,13 @@ CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 .. _bone-analog:
 
 ADC
-*******
+***
 
-* TODO: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
-* TODO: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
+.. todo:: We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There's nothing for sure that IIO devices will show up in the same place.
+
+.. todo:: I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y 
+
+.. todo:: I believe a multiplexing IIO driver is the future solution
 
 .. table:: ADC pins
 
@@ -757,8 +760,12 @@ ADC
 	+-----------+----------------------+--------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 
+.. _bone-pwm:
+
 PWM
--------
+***
+
+.. todo:: remove deep references to git trees
 
 PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. For the definitions, you can see `bbai-bone-buses.dtsi#L415 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbai-bone-buses.dtsi#L415>`_ & `bbb-bone-buses.dtsi#L432 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbb-bone-buses.dtsi#L432>`_
 
@@ -833,7 +840,7 @@ PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. F
 	+------------------+--------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
 
 TIMER PWM
--------------
+*********
 
 TIMER PWM bone bus uses ti,omap-dmtimer-pwm driver, and timer nodes that allow creating compatible overlays for Black, AI and AI-64. For the timer node definitions, you can see `bbai-bone-buses.dtsi#L449 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbai-bone-buses.dtsi#L449>`_ & `bbb-bone-buses.dtsi#L466 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbb-bone-buses.dtsi#L466>`_.
 
@@ -858,7 +865,7 @@ TIMER PWM bone bus uses ti,omap-dmtimer-pwm driver, and timer nodes that allow c
 .. _bone-capture:
 
 eQEP
-********
+****
 
 .. table:: eQEP pins
 
@@ -937,10 +944,12 @@ On BeagleBone's without an eQEP on specific pins, consider using the PRU to perf
 
 
 
-eCAP
--------
+.. _bone-ecap:
 
-#TODO: This doesn't include any abstraction yet.
+eCAP
+****
+
+.. todo:: This doesn't include any abstraction yet.
 
 .. table:: ECAP pins
 
@@ -1027,8 +1036,10 @@ eCAP
 	+-----------------------------------------------+-------------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-eMMC
-------
+.. _bone-mmc:
+
+MMC/SDIO
+********
 
 .. table:: Bone eMMC
 
@@ -1065,8 +1076,10 @@ eMMC
 	+--------+-------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
+.. _bone-lcd:
+
 LCD
-------
+***
 
 .. table:: 16bit LCD interface
 
@@ -1123,8 +1136,10 @@ LCD
 	+--------+-----+----------+
 
 
+.. _bone-i2s:
+
 McASP
----------
+*****
 
 .. table:: Bone McASP0
 
@@ -1154,8 +1169,10 @@ McASP
 	| McASP0 | McASP1  |          |
 	+--------+---------+----------+
 
+.. _bone-pru:
+
 PRU
--------
+***
 
 The overlay situation for PRUs is a bit more complex than with other peripherals. The mechanism for loading, starting and stopping the PRUs can go through either [https://www.kernel.org/doc/html/latest/driver-api/uio-howto.html UIO] or [https://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/PRU-ICSS/Linux_Drivers/RemoteProc_and_RPMsg.html RemoteProc].
 
@@ -1316,11 +1333,9 @@ The overlay situation for PRUs is a bit more complex than with other peripherals
 	+-------------+--------------------+------------------+
 
 GPIO
-----------
+****
 
-TODO<br>
-For each of the pins with a GPIO, there should be a symlink that comes from the names 
-*
+.. todo:: For each of the pins with a GPIO, there should be a symlink that comes from the names 
 
 
 .. _bone-methodology:
@@ -1331,13 +1346,15 @@ Methodology
 The methodology for applied in the kernel and software images to expose the software interfaces is to be documented here. The most fundamental elements are the device tree entries, including overlays, and udev rules.
 
 Device Trees
-=============
+============
+
+.. todo:: Describe how the Device Trees expose symbols for reuse across boards
 
 udev rules
-=========================
+==========
 
 10-of-symlink.rules
-------------------------
+--------------------
 
 .. code-block::
 
@@ -1351,7 +1368,7 @@ udev rules
 		TAG+="systemd", ENV{SYSTEMD_ALIAS}+="/dev/%E{OF_SYMLINK}"
 
 TBD
-****************
+---
 
 .. code-block::
 
@@ -1363,12 +1380,17 @@ TBD
 
 
 Verification
-----------------
+============
 
-TODO: The steps used to verify all of these configurations is to be documented here. It will serve to document what has been tested, how to reproduce the configurations, and how to verify each major triannual release. All faults will be documented in the issue tracker.
+.. todo:: 
+
+   The steps used to verify all of these configurations is to be documented
+   here. It will serve to document what has been tested, how to reproduce the
+   configurations, and how to verify each major triannual release. All faults
+   will be documented in the issue tracker.
 
 References
--------------
+**********
 
 - `Device Tree: Supporting Similar Boards - The BeagleBone Example <https://beagleboard.org/blog/2022-03-31-device-tree-supporting-similar-boards-the-beaglebone-example>`_
 - `Google drive with summary of expansion signals on various BeagleBoard.org designs <https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing>`_

@@ -39,9 +39,9 @@ matching overline and underline to indicate a heading.
 
 1. Document heading (H1) use ``#``.
 2. First heading (H2) use ``*``.
-3. First heading (H2) use ``=``.
-4. First heading (H2) use ``-``.
-5. First heading (H2) use ``~``.
+3. Second heading (H3) use ``=``.
+4. Third heading (H4) use ``-``.
+5. Fourth heading (H5) use ``~``.
 
 .. note::
     You can include only one (H1) ``#`` in a single documentation page.
@@ -79,6 +79,9 @@ Indentation
 
 This the simplest way of adding code snippet in ReStructuredText.
 
+Example
+-------
+
 .. callout::
 
     .. code-block:: ReStructuredText
@@ -111,6 +114,9 @@ Code block
 Simple indentation only supports python program highlighting but, with code block you can 
 specify which language is your code written in. ``code-block`` also provides better readability 
 and line numbers support you can useas shown below.
+
+Example
+-------
 
 .. callout::
 
@@ -146,18 +152,19 @@ Literal include
 
 To include the entire code or a code snippet from a program file you can use this directive.
 
+Example
+-------
+
 .. callout::
 
     .. code-block:: ReStructuredText
 
         .. literalinclude:: filename.cpp <1>
-            :caption: <2>
+            :caption: Example C++ file <2>
             :linenos: <3>
             :language: C++ <4>
             :lines: 2, 4-7 <5>
-            :start-after: 4 <6>
-            :end-before: 7 <7>
-            :lineno-start: 113 <8>
+            :lineno-start: 113 <6>
 
     .. annotations::
 
@@ -171,11 +178,67 @@ To include the entire code or a code snippet from a program file you can use thi
 
         <5> Cherry pick some lines from a big program file.
 
-        <6> Display the code snippet from a specific line number.
+        <6> Instead of starting line number from 1 start it with some other number. It's useful when you use :lines:, :start-after:, and :end-before:.
 
-        <7> Set a specific line number as end of code snippet.
+.. _rst-annotations:
 
-        <8> Instead of starting line number from 1 start it with some other number. It's useful when you use :lines:, :start-after:, and :end-before:.
+Annotations
+===========
+
+We have a plug-in installed that enables annotated code blocks. Below is an example.
+
+Example
+-------
+
+.. code-block:: ReStructuredText
+
+    .. callout:: <1>
+
+        .. code-block:: python <2>
+
+            import numpy as np # <﻿1> <3>
+            import math # <﻿2>
+
+        .. annotations:: <4>
+
+            <﻿1> Comment #1 <5>
+
+            <﻿2> Comment #2
+
+    .. annotations::
+
+        <1> Indent everything under a `callout`
+
+        <2> Create a normal block for what you want to annotate
+
+        <3> Add ``<number>`` everywhere you want to annotate. Put it under a comment block if you want the code to run when copied directly.
+
+        <4> Create an `annotations` block to hold your callout comments
+
+        <5> Create an entry, separating each with a blank line and prefixing them with ``<number>``
+
+Output
+------
+
+.. callout::
+
+    .. code-block:: python
+
+        import numpy as np # <1>
+        import math # <2>
+
+    .. annotations::
+
+        <1> Comment #1
+
+        <2> Comment #2
+
+.. important::
+
+    In the example, I inserted the invisible UTF character U+FEFF after the opening ``<`` to avoid it being
+    interpreted as a callout symbol. Be sure to remove that character if you attempt to copy-and-paste the
+    example.
+
 
 Links
 ******
@@ -187,7 +250,7 @@ We have three types of links to use in sphinx,
 3. Explicit links (labels that can be used anywhere in the project).
 
 External links
-***************
+==============
 
 For a simple link to a site the format is
 
@@ -220,23 +283,58 @@ when rendered it becomes `Links`_
 Explicit link
 ==============
 
+.. todo:: The terminology ``Implicit`` and ``Explicit`` is not accurate here.
+
 These are special links you can assign to a specific part of the document and reference anywhere 
 in the project unlike implicit links which can be used only within the document they are defined. 
 On top of each page you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
-label for this chapter. These are called the explicit links amd you can reference these using two methods.
+label for this chapter. These are called the explicit links amd you can reference these using ``ref:``.
+
+.. note:: This can be used inside or outside of the document and the rendered link will take you directly to that specific section.
 
 .. code-block:: rst
-    :linenos:
 
-    rst-cheat-sheet_
+    :ref:`rst-cheat-sheet`
 
-.. code-block:: rst
-    :linenos:
-    :lineno-start: 2
+When rendered it becomes :ref:`rst-cheat-sheet`.
 
-    :ref:`<rst-cheat-sheet>`_
+YouTube Videos
+==============
 
-Both can be used inside/outside of the document and the rendered link will take you directly to that specific segment.
+This section shows you the typical way of adding a YouTube video to 
+docs.BeagleBoard.org in a way that you see on page playable embedded 
+YouTube video when you look at HTML version of the docs and only a 
+clicable thumnail linked to the YouTube video when you see the PDF. 
+
+.. callout::
+
+    .. code-block:: rst
+
+        .. only:: latex
+            
+            .. image:: https://img.youtube.com/vi/<YouTube_video_ID>/maxresdefault.jpg <1>
+                :alt: BeagleConnect unboxing YouTube video
+                :width: 1280
+                :target: https://www.youtube.com/watch?v=<YouTube_video_ID> <2>
+
+        .. only:: html
+
+            .. raw:: html
+
+                <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
+                src="https://www.youtube.com/embed/<YouTube_video_ID>" <3>
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+    
+    .. annotations::
+
+        <1> <2> <3> Here you have to replace the <YouTube_video_ID> with your actual youtube ID.
+
+More
+====
 
 .. rubric:: footnotes
 

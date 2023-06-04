@@ -260,7 +260,7 @@ To make this recipe, you will need:
 .. _tips_FTDIcable_fig:
 
 
-.. figure:: figures/FTDIcable.jpg
+.. figure:: figures/FTDIcable.*
    :align: center
    :alt: FTDI Cable
 
