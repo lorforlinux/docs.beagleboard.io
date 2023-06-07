@@ -543,7 +543,7 @@ Try rotating the encoder clockwise and counter-clockwise.
 You'll see an output like this:
 
 .. code-block:: bash
-   
+
    data = 32
    data = 40
    data = 44
@@ -622,11 +622,11 @@ If you don't need the NMEA formatting, you can skip the *npm* part and remove th
 
 .. note:: 
   If you get an error like this
-  TypeError: Cannot call method 'readline' of undefined
+  *TypeError: Cannot call method 'readline' of undefined*
 
-add this line to the end of file ``/usr/local/lib/node_modules/bonescript/serial.js``:
+   add this line to the end of file ``/usr/local/lib/node_modules/bonescript/serial.js``:
 
-*exports.serialParsers = m.module.parsers;*
+   *exports.serialParsers = m.module.parsers;*
 
 .. _cape-headers-serial_fig:
 
@@ -683,14 +683,17 @@ shows that you have wired your device to |I2C| bus *2*.
    Table of |I2C| outputs
 
 
-Once the |I2C|  device is wired up, you can use a couple handy |I2C| 
+Once the |I2C| device is wired up, you can use a couple handy |I2C| 
 tools to test the device. Because these are Linux command-line tools, 
 you have to use *2* as the bus number. *i2cdetect*, shown in :ref:`js_i2cTools`, 
 shows which |I2C|  devices are on the bus. The *-r* flag indicates which bus to use. 
-Our TMP101 is appearing at address *0x498*. You can use the *i2cget* command to read 
+Our TMP101 is appearing at address *0x49*. You can use the *i2cget* command to read 
 the value. It returns the temperature in hexadecimal and degrees C. 
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
 Try warming up the TMP101 with your finger and running *i2cget* again.
+
+.. todo
+   fix deg
 
 .. _js_i2cTools:
 
@@ -743,7 +746,7 @@ Assuming the TMP101 is on bus 2 (the last digit is the bus number)
   0 -rw-rw-r-- 1 root gpio 4096 Dec 31  1999 uevent
 
 
-Assuming the TMP101 is at address 0x48:
+Assuming the TMP101 is at address 0x49
 
 .. code-block:: bash
 
@@ -764,18 +767,16 @@ Yes, it's there, now see what happened.
 .. code-block:: bash
 
   bone$ ls
-  2-0049  delete_device  device  i2c-dev  name  
-  new_device  of_node  power  subsystem  uevent
+  2-0049  delete_device  device  i2c-dev  name new_device  of_node  power  subsystem  uevent
 
 
 Notice a new directory has appeared. It's for i2c bus 2, address 0x49. Look into it.
 
 .. code-block:: bash
 
-  bone$ cd 2-0048/hwmon/hwmon0
+  bone$ cd 2-0049/hwmon/hwmon0
   bone$ ls -F
-  device@  name  power/  subsystem@  temp1_input  temp1_max  
-  temp1_max_hyst  uevent  update_interval
+  device@  name  power/  subsystem@  temp1_input  temp1_max temp1_max_hyst  uevent  update_interval
   bone$ cat temp1_input
   24250
 
@@ -838,6 +839,7 @@ using the kernel driver.  First you need to install the i2c module.
 :download:`i2ctmp101.py <../code/02sensors/i2ctmp101.py>`
 
 This gets only 8 bits for the temperature. See the TMP101 datasheet 
+(https://www.ti.com/product/TMP101)
 for details on how  to get up to 12 bits.
 
 Reading Temperature via a Dallas 1-Wire Device
@@ -879,7 +881,9 @@ Wire up as shown in :ref:`sensors_1-wire_fig`.
 
    Wiring a Dallas 1-Wire temperature sensor 
 
-.. note:: 
+.. hide
+   The bit.ly doesn't work.
+  .. note:: 
   This solution, written by Elias Bakken (@AgentBrum), 
   originally appeared on`Hipstercircuits <http://bit.ly/1FaRbbK>`_.
 
@@ -912,7 +916,7 @@ Now run the following command to discover the serial number on your device:
 I have two devices wired in parallel on the same P9_12 input. 
 This shows the serial numbers for all the devices. 
 
-Finally, add the code in :ref:`sensors_onewire__code` in to a 
+Finally, add the code in :ref:`py_onewire__code` in to a 
 file named *w1.py*, edit the path assigned to *w1* so 
 that the path points to your device, and then run it.
 
