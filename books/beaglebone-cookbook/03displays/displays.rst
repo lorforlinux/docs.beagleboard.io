@@ -305,7 +305,7 @@ This solution uses an `Adafruit Bicolor 8x8 LED Square Pixel Matrix w/|I2C| Back
 To make this recipe, you will need:
 
 * Breadboard and jumper wires
-* Two 4.7 R resistors.
+* Two 4.7 |kohm| resistors.
 * |I2C| LED matrix
 
 The LED matrix is a 5 V device, but you can drive it from 3.3 V. Wire, as shown in :ref:`displays_i2cMatrix_fig`.
@@ -341,7 +341,7 @@ Using |I2C| command-line tools to discover the address of the display
      70: 70 -- -- -- -- -- -- -- 
 
 Here, you can see a device at *0x49* and *0x70*. I know I have a temperature 
-sensor at *0x49*, so the LED matrix must be at *0.70*. 
+sensor at *0x49*, so the LED matrix must be at *0x70*. 
 
 Find the code in :ref:`displays_matrix_i2c` and run it by using the following command:
 
@@ -355,12 +355,14 @@ Find the code in :ref:`displays_matrix_i2c` and run it by using the following co
 LED matrix display (matrixLEDi2c.py)
 =====================================
 
-.. code-block:: C
+.. literalinclude:: ../code/03displays/matrixLEDi2c.py
+   :caption: LED matrix display (matrixLEDi2c.py)
+   :linenos:
 
-     include::../code/03displays/matrixLEDi2c.py
+:download:`matrixLEDi2c.py <../code/03displays/matrixLEDi2c.py>`
 
 
-1. This line states which bus to use. The last digit gives the BoneScript bus number.
+1. This line states which bus to use. The last digit gives the |I2C| bus number.
 
 2. This specifies the address of the LED matrix, *0x70* in our case.
 
