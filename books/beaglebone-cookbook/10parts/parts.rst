@@ -1,5 +1,8 @@
 .. _beaglebone-cookbook-parts:
 
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
+
 Parts and Suppliers
 ####################
 
@@ -81,7 +84,7 @@ If you want something more permanent, try `Adafruit's Perma-Proto Breadboard <ht
 Resistors
 ==========
 
-We use 220 , 1k, 4.7k, 10k, 20k, and 22k resistors in this book. 
+We use 220 , 1k, 4.7k, 10k, 20k, and 22 |kohm| resistors in this book. 
 All are 0.25 W.  The easiest way to get all these, and many more, is to order `SparkFun's Resistor Kit <http://bit.ly/1EXREh8>`_.  
 It's a great way to be ready for future projects, because it has 500 resistors. 
 `RadioShack's 500-piece Resistor Assortment <http://shack.net/1B4Io4V>`_ is a bit more 

@@ -1,5 +1,8 @@
 .. _beaglebone-cookbook-sensors:
 
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
+
 Sensors
 ########
 
@@ -272,7 +275,7 @@ To make this recipe, you will need:
 - Breadboard and jumper wires.
 - 10k trimpot or
 - Flex resistor (optional)
-- 22k resistor
+- 22 |kohm| resistor
 
 .. todo 
    Convert to Omega
@@ -291,7 +294,7 @@ is wired to one of the seven analog-in ports (*P9_36*).
    :align: center
    :alt: Analog
 
-   Wiring a 10k variable resistor (trimpot) to an ADC port
+   Wiring a 10 |kohm| variable resistor (trimpot) to an ADC port
 
 :ref:`sensors_analogIn_code` shows the code used to read the variable resistor.  
 Add the code to a file called _analogIn.js_ and run it; then change the resistor and run it again. The voltage read will change.
@@ -323,7 +326,7 @@ A variable resistor with two terminals
 Some resistive sensors have only two terminals, such as the flex sensor in :ref:`sensors_flexResistor_fig`
 The resistance between its two terminals changes when it is flexed.
 In this case, we need to add a fixed resistor in series with the flex sensor. :ref:`sensors_flexResistor_fig` 
-shows how to wire in a 22k resistor to give a voltage to measure
+shows how to wire in a 22 |kohm| resistor to give a voltage to measure
 across the flex sensor.
 
 .. _sensors_flexResistor_fig:
@@ -418,7 +421,7 @@ pulse width on the *Echo* output. The width of the pulse tells you the distance.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 10k and 20k resistors
+* 10 |kohm| and 20 |kohm| resistors
 * HC-SR04 Ultrsonic Range Sensor.
 
 Wire the sensor as shown in :ref:`sensors_hc-sr04_fig`. 
@@ -657,7 +660,7 @@ sensor that uses a standard |I2C|-based serial protocol.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* Two 4.7k resistors.
+* Two 4.7 |kohm| resistors.
 * TMP101 temperature sensor.
 
 Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
@@ -868,7 +871,7 @@ You can wire it to any GPIO port.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 4.7k resistor
+* 4.7 |kohm| resistor
 * DS18B20 1-wire temperature sensor.
 
 Wire up as shown in :ref:`sensors_1-wire_fig`.
