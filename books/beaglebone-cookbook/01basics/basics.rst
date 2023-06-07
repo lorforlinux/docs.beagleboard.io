@@ -209,7 +209,7 @@ negative rail and 3.3 V (*P9_3*) is wired to the positive rail.
 Breadboard wired to BeagleBone Black
 -------------------------------------
 
-.. figure::figures/template_bb.png
+.. figure:: figures/template_bb.png
    :align: center
    :alt: Breadboard
    
