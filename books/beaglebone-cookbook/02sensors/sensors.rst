@@ -11,7 +11,7 @@ as shown in :ref:`sensors_host_port`.
 .. note::
   
    All the examples in the book assume you have cloned the Cookbook 
-   repository on www.github.com. Go here :ref:`basics_repo` for instructions.
+   repository on git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
 .. _sensors_host_port:
 
