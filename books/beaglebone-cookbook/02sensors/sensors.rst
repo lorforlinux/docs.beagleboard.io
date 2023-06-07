@@ -113,7 +113,7 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 .. note::
 
    All the examples in the book assume you have cloned the 
-   Cookbook repository on www.github.com. Go here 
+   Cookbook repository on git.beagleboard.org. Go here 
    :ref:`basics_repo` for instructions.
 
 - Double-click the *pushbutton.py* file to open it.
