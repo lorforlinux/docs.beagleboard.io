@@ -26,7 +26,8 @@ You want to use BeagleBone Black as a desktop computer with keyboard, mouse, and
 Solution
 ---------
 
-The Bone comes with USB and a microHDMI output. All you need to do is connect your keyboard, mouse, and HDMI display to it. 
+The Bone comes with USB and a microHDMI output. All you need to do is connect your keyboard, mouse, 
+and HDMI display to it. 
 
 To make this recipe, you will need:
 
@@ -57,7 +58,8 @@ The adapter looks something like :ref:`tips_HDMI_adaptor_fig`.
 
    Female HDMI-to-male microHDMI adapter
 
-Plug the small end into the microHDMI input on the Bone and plug your HDMI cable into the other end of the 
+Plug the small end into the microHDMI input on the Bone and plug your HDMI cable 
+into the other end of the 
 adapter and your monitor. If nothing displays on your Bone, reboot.
 
 If nothing appears after the reboot, edit the ``/boot/uEnv.txt`` file. Search for the line containing 
@@ -83,7 +85,7 @@ The ``/boot/uEnv.txt`` file contains a number of configuration commands that are
 The *#* character is used to add comments; that is, everything to the right of a +# is ignored by the 
 Bone and is assumed to be for humans to read. In the previous example, *###Disable auto loading* is 
 a comment that informs us the next line(s) are for disabling things. Two *disable_uboot_overlay* 
-commands follow. Both should be commented-out and won't be executed by the Bon
+commands follow. Both should be commented-out and won't be executed by the Bone.
 
 Why not just remove the line?  Later, you might decide you need more general-purpose input/output 
 (GPIO) pins and don't need the HDMI display. If so, just remove the *#* from the ``disable_uboot_overlay_video=1`` 
@@ -121,7 +123,7 @@ Solution
 --------
 
 For projects that require a host computer, we assume that you are running 
-`Linux Ubuntu 20.04 LTS <http://bit.ly/1wXOwkw>`_. You can be running either a native installation, 
+`Linux Ubuntu 22.04 LTS <http://bit.ly/1wXOwkw>`_. You can be running either a native installation, 
 through `Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/>`_, via a virtual 
 machine such as `VirtualBox <https://www.virtualbox.org/>`_, or in the cloud (`Microsoft Azure <https://portal.azure.com/>`_ 
 or `Amazon Elastic Compute Cloud <http://aws.amazon.com/ec2/>`_, EC2, for example).
@@ -136,7 +138,8 @@ Getting to the Command Shell via SSH
 Problem
 --------
 
-You want to connect to the command shell of a remote Bone from your host pass:[<span class="keep-together">computer</span>].
+You want to connect to the command shell of a remote Bone from your host 
+computer.
 
 Solution
 ---------
@@ -155,8 +158,10 @@ connect by using the following command to log in as user *debian*, (note the *$*
 
 .. _tips_passwords:
 
-*debian* has the default password *tempped* It's best to change the password:
-==============================================================================
+Default password
+----------------
+
+*debian* has the default password *temppwd*. It's best to change the password:
 
 .. code-block:: bash
 
