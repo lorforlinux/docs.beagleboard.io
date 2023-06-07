@@ -10,7 +10,7 @@ BeagleBone Black's general-purpose input/output (GPIO) pins. The Bone has
 
 .. note:: 
      All the examples in the book assume you have cloned the Cookbook 
-     repository on www.github.com. Go here :ref:`basics_repo` for instructions.
+     repository on git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
 .. _js_P8P9_fig:
 

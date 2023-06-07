@@ -34,7 +34,7 @@ When you know which type of motor to use, interfacing is easy. This chapter show
 
 .. note:: 
     All the examples in the book assume you have cloned the Cookbook repository on 
-    www.github.com. Go here :ref:`basics_repo` for instructions.
+    git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
 .. _motors_servo:
 
