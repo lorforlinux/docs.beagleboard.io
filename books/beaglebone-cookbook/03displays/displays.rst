@@ -1,5 +1,9 @@
 .. _beaglebone-cookbook-displays:
 
+.. |I2C| replace:: I\ :sup:`2`\ C
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
+
 Displays and Other Outputs
 ###########################
 
@@ -98,14 +102,14 @@ Connect an LED to one of the GPIO pins using a series resistor
 to limit the current. To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 220R to 470R resistor.
+* 220 |ohm| to 470 |ohm| resistor.
 * LED
 
 .. WARNING:: 
 
      The value of the current limiting resistor depends on the LED you are using. 
      The Bone can drive only 4 to 6 mA, so you might need a larger resistor to keep 
-     from pulling too much current. A 330R or 470R resistor might be better.
+     from pulling too much current. A 330 |ohm| or 470 |ohm| resistor might be better.
 
 :ref:`displays_externLED_fig` shows how you can wire the LED to pin 14 of 
 the *P9* header (*P9_14*). Every circuit in this book (:ref:`basics_wire_breadboard`) 
@@ -237,7 +241,7 @@ The pwm's are accessed through */dev/bone/pwm*
      bone$ ls
      0  1  2
 
-Here we see six pwmchips that can be used, each has two channels. Explore one.
+Here we see three pwmchips that can be used, each has two channels. Explore one.
 
 .. code-block:: bash
 
@@ -248,8 +252,9 @@ Here we see six pwmchips that can be used, each has two channels. Explore one.
      bone$ ls
      capture  duty_cycle  enable  period  polarity  power  uevent
 
-     Here is where you can set the period and duty_cycle (in ns) and enable the pwm.
-     Attach in LED to P9_14 and if you set the period long enough you can see the LED flash.
+
+Here is where you can set the period and duty_cycle (in ns) and enable the pwm.
+Attach in LED to P9_14 and if you set the period long enough you can see the LED flash.
 
 .. code-block:: bash
 
@@ -314,8 +319,6 @@ The LED matrix is a 5 V device, but you can drive it from 3.3 V. Wire, as shown 
      Wiring an |I2C| LED matrix
 
 :ref:`sensors_i2c_temp` shows how to use *i2cdetect* to discover the address of an |I2C| device.
-
-.. |I2C| replace:: I\ :sup:`2`\ C
 
 Run the *i2cdetect -y -r 2* command to discover the address of the display on |I2C| bus 2, as shown in :ref:`displays_i2cdetect`.
 
