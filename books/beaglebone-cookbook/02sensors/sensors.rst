@@ -293,7 +293,7 @@ is wired to one of the seven analog-in ports (*P9_36*).
 
    Wiring a 10k variable resistor (trimpot) to an ADC port
 
-:ref:`sensors_analogIn_code` shows the BoneScript code used to read the variable resistor.  
+:ref:`sensors_analogIn_code` shows the code used to read the variable resistor.  
 Add the code to a file called _analogIn.js_ and run it; then change the resistor and run it again. The voltage read will change.
 
 .. _py_analogIn_code:
@@ -520,8 +520,8 @@ Then run the following commands:
 This will enable *eQEP2* on pins *P8_11* and *P8_12*. 
 The *2* after the *qep* returned by *show-pins* shows it's *eQEP2*.  
 
-Finally, add the code in :ref:`digital_rotaryEncoder_js` 
-to a file named *rotaryEncoder.js* and run it.
+Finally, add the code in :ref:`digital_rotaryEncoder_py` 
+to a file named *rotaryEncoder.py* and run it.
 
 .. _digital_rotaryEncoder_py:
 
@@ -542,8 +542,8 @@ to a file named *rotaryEncoder.js* and run it.
 Try rotating the encoder clockwise and counter-clockwise. 
 You'll see an output like this:
 
-.. code-block::bash
-
+.. code-block:: bash
+   
    data = 32
    data = 40
    data = 44
@@ -555,7 +555,6 @@ You'll see an output like this:
    data = 999973
    data = 999972
    ^C
-
 
 The values you get for *data* will depend on which way you are 
 turning the device and how quickly. You will need to press ^C (Ctrl-C) to end.
@@ -787,7 +786,7 @@ You can try the Linux Kernel Driver Database,
 https://cateee.net/lkddb/ to see them.
 
 Once the driver is in place, you can read it via code. 
-:ref:`py_i2cTemp_code` shows how to read the TMP101 from BoneScript.
+:ref:`py_i2cTemp_code` shows how to read the TMP101.
 
 .. _py_i2cTemp_code:
 
