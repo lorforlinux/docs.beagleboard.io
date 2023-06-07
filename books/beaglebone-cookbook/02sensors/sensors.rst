@@ -370,7 +370,7 @@ as shown in :ref:`sensors_ultrasonic_fig`. The device outputs ~6.4 mV/in when po
 
    Wiring the LV-MaxSonar-EZ1 Sonar Range Finder to the *P9_33* analog-in port
 
-:ref:`sensors_ultrasonicRange_code` 
+:ref:`py_ultrasonicRange_code` 
 shows the code that reads the sensor at a fixed interval.
 
 .. _py_ultrasonicRange_code:
@@ -418,7 +418,7 @@ pulse width on the *Echo* output. The width of the pulse tells you the distance.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 10 k and 20 k resistors
+* 10k and 20k resistors
 * HC-SR04 Ultrsonic Range Sensor.
 
 Wire the sensor as shown in :ref:`sensors_hc-sr04_fig`. 
@@ -658,7 +658,7 @@ sensor that uses a standard |I2C|-based serial protocol.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* Two 4.7 k resistors.
+* Two 4.7k resistors.
 * TMP101 temperature sensor.
 
 Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
@@ -867,7 +867,7 @@ You can wire it to any GPIO port.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 4.7 k resistor
+* 4.7k resistor
 * DS18B20 1-wire temperature sensor.
 
 Wire up as shown in :ref:`sensors_1-wire_fig`.
