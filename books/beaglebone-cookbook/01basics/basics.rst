@@ -281,7 +281,7 @@ Change to the directory that contains your file, make it executable, and then ru
 .. code-block:: bash
 
     bone$ cd ~/examples/BeagleBone/Black/
-    bone$ <strong>./seqLEDs.py
+    bone$ ./seqLEDs.py
 
 
 The *cd* is the change directory command. After you *cd*, 
@@ -303,6 +303,9 @@ Solution
 
 On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
 This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
+
+.. todo 
+   Update for 2023-06-03
 
 .. _basics_deb1:
 
@@ -331,7 +334,6 @@ with *am335x-debian-11.3-iot-* is used for the non-AI boards. The one beginning
 with *am57xx-debian-* is for programming the Beagle AI's.
 
 .. note::
-
    The onboard flash is often called the *eMMC* memory. We just call it *onboard flash*, but you'll 
    often see *eMMC* appearing in filenames of images used to update the onboard flash.
 
