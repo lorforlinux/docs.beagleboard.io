@@ -1,11 +1,11 @@
 .. _beaglebone-cookbook-displays:
 
+Displays and Other Outputs
+###########################
+
 .. |I2C| replace:: I\ :sup:`2`\ C
 .. |kohm| replace:: kΩ
 .. |ohm| replace:: Ω
-
-Displays and Other Outputs
-###########################
 
 In this chapter, you will learn how to control physical hardware via 
 BeagleBone Black's general-purpose input/output (GPIO) pins. The Bone has 

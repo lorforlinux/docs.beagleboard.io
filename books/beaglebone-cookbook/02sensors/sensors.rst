@@ -1,10 +1,10 @@
 .. _beaglebone-cookbook-sensors:
 
-.. |kohm| replace:: kΩ
-.. |ohm| replace:: Ω
-
 Sensors
 ########
+
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
 
 In this chapter, you will learn how to sense the physical world with BeagleBone Black. 
 Various types of electronic sensors, such as cameras and microphones, can be connected 
