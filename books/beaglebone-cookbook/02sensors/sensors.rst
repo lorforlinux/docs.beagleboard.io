@@ -343,7 +343,7 @@ Reading a Distance Sensor (Analog or Variable Voltage Sensor)
 Problem
 --------
 
-You want to measure distance with a `LV-MaxSonar-EZ1 Sonar Range Finder <http://bit.ly/1Mt5Elr>`_, 
+You want to measure distance with a `LV-MaxSonar-EZ1 Sonar Range Finder <https://www.sparkfun.com/products/11309>`_, 
 which outputs a voltage in proportion to the distance.
 
 Solution
