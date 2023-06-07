@@ -150,7 +150,7 @@ To make this recipe, you will need:
 
 * Breadboard and jumper wires.
 * Pushbutton switch.
-* Magnetic reed switch.
+* Magnetic reed switch. (optional)
 
 You can wire up either a pushbutton, a magnetic reed switch, 
 or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
@@ -163,7 +163,7 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
    
    Diagram for wiring a pushbutton and magnetic reed switch input
 
-The code in :ref:`js_pushbutton_code` 
+The code in :ref:`py_pushbutton_code` 
 reads GPIO port *P9_42*, which is attached to the pushbutton. 
 
 .. _py_pushbutton_code:
@@ -182,12 +182,12 @@ reads GPIO port *P9_42*, which is attached to the pushbutton.
 
 :download:`pushbutton.js <../code/02sensors/pushbutton.js>`
 
-Put this code in a file called *pushbutton.js* following the steps in :ref:`sensors_getting_started`. 
+Put this code in a file called *pushbutton.py* following the steps in :ref:`sensors_getting_started`. 
 In the VSC *bash* tab, run it by using the following commands:
 
 .. code-block:: bash
 
-  bone$ ./pushbutton.js
+  bone$ ./pushbutton.py
   data = 0
   data = 0
   data = 1
@@ -274,7 +274,11 @@ To make this recipe, you will need:
 - Flex resistor (optional)
 - 22k resistor
 
+.. todo 
+   Convert to Omega
+
 A variable resistor with three terminals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :ref:`sensors_analogIn_fig` shows a simple variable resistor (trimpot) 
 wired to the Bone. One end terminal is wired to the ADC 1.8 V power supply on pin *P9_32*, 
@@ -314,6 +318,7 @@ Add the code to a file called _analogIn.js_ and run it; then change the resistor
   outputs a value between 0 and 4096.
 
 A variable resistor with two terminals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some resistive sensors have only two terminals, such as the flex sensor in :ref:`sensors_flexResistor_fig`
 The resistance between its two terminals changes when it is flexed.
