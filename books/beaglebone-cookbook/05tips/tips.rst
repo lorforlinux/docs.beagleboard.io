@@ -940,21 +940,21 @@ Web servers typically listen to port *80*. First, look up the IP address of your
 
 .. code-block:: bash
 
-   host$ ifconfig
-   eth0      Link encap:Ethernet  HWaddr 00:e0:4e:00:22:51  
-             inet addr:137.112.41.35  Bcast:137.112.41.255  Mask:255.255.255.0
-             inet6 addr: fe80::2e0:4eff:fe00:2251/64 Scope:Link
-             UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-             RX packets:5371019 errors:0 dropped:0 overruns:0 frame:0
-             TX packets:4720856 errors:0 dropped:0 overruns:0 carrier:0
-            collisions:0 txqueuelen:1000 
-            RX bytes:1667916614 (1.6 GB)  TX bytes:597909671 (597.9 MB)
+   host$ ip a
+   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+      inet 127.0.0.1/8 scope host lo
+         valid_lft forever preferred_lft forever
+      inet6 ::1/128 scope host
+         valid_lft forever preferred_lft forever
+   2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1280 qdisc mq state UP group default qlen 1000
+      link/ether 00:15:5d:7c:e8:dc brd ff:ff:ff:ff:ff:ff
+      inet 172.31.43.210/20 brd 172.31.47.255 scope global eth0
+         valid_lft forever preferred_lft forever
+      inet6 fe80::215:5dff:fe7c:e8dc/64 scope link
+         valid_lft forever preferred_lft forever
 
-   eth1      Link encap:Ethernet  HWaddr 00:1d:60:40:58:e6   
-   ...
-
-
-It's the number following *inet addr:*, which in my case is *137.112.41.35*. 
+It's the number following *inet*, which in my case is *172.31.43.210*. 
 
 .. tip::
 
@@ -968,7 +968,7 @@ Then run the following, using your host's IP address:
 .. code-block:: bash
 
    host$ sudo iptables -t nat -A PREROUTING -p tcp -s 0/0 \
-        -d 137.112.41.35 --dport 1080 -j DNAT --to 192.168.7.2:80
+        -d 172.31.43.210 --dport 1080 -j DNAT --to 192.168.7.2:80
 
 
 Now browse to your host computer at port *1080*. That is, if your host's IP address 
@@ -997,10 +997,10 @@ First install and check the status:
 
 .. code-block:: bash
 
+   bone$ sudo apt update
    bone$ sudo apt install ufw
    bone$ sudo ufw status
    Status: inactive
-
 
 Now turn off everything coming in and leave on all outgoing. 
 Note, this won't take effect until *ufw* is enabled.
@@ -1034,9 +1034,10 @@ Just to be sure, you can install *nmap* on your host computer to see what ports 
    80/tcp   open  http
    3000/tcp open  ppp
 
-Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 
-Currently there are three ports visible:  22, 80 and 3000 (visual studio code) Now turn on the firewall and see what happens.
+Currently there are three ports visible:  22, 80 and 3000 (visual studio code). 
+Now turn on the firewall and see what happens.
 
 .. code-block:: bash
 
@@ -1053,8 +1054,7 @@ Currently there are three ports visible:  22, 80 and 3000 (visual studio code) N
    PORT     STATE SERVICE
    22/tcp   open  ssh
 
-Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
-
+   Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 
 Only port 22 (ssh) is accessible now.  
 
@@ -1066,7 +1066,7 @@ The firewall will remain on, even after a reboot. Disable it now if you don't wa
    Firewall stopped and disabled on system startup
 
 
-See the How-To Geek article for more examples.
+See the `How-To Geek article <https://www.howtogeek.com/devops/how-to-secure-your-linux-server-with-a-ufw-firewall/>`_ for more examples.
 
 .. _tips_apt:
 
