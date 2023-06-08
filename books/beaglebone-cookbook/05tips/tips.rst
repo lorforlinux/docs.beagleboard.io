@@ -1085,7 +1085,7 @@ Solution
    Your Bone needs to be on the network for this to work. See :ref:`networking_wired`, 
    :ref:`networking_wireless`, or :ref:`networking_usb`.
 
-The easiest way to install more software is to use +apt+:
+The easiest way to install more software is to use **apt**:
 
 .. code-block:: bash
 
@@ -1104,7 +1104,7 @@ How do you find out what software you can install?  Try running this:
 
    bone$ apt-cache pkgnames | sort > /tmp/list
    bone$ wc /tmp/list
-      67303   67303 1348342 /tmp/list
+     67974   67974 1369852 /tmp/list
    bone$ less /tmp/list
 
 
@@ -1112,7 +1112,7 @@ The first command lists all the packages that *apt* knows about and sorts them a
 them in ``/tmp/list``. The second command shows why you want to put the list in a file. 
 The *wc* command counts the number of lines, words, and characters in a file. In our case, 
 there are over 67,000 packages from which we can choose! The *less* command displays the sorted 
-list, one page at a time. Press the space bar to go to the next page. Press Q to quit.  
+list, one page at a time. Press the space bar to go to the next page. Press **q** to quit.  
 
 Suppose that you would like to install an online dictionary (*dict*). Just run the following command:
 
@@ -1185,7 +1185,7 @@ If you booted from the microSD card, run the following command:
 
 
 The *df* command shows what partitions are already mounted. 
-The line */dev/mmcblk0p2  7.2G  2.0G  4.9G  29% /* shows that *mmcblk0* partition *p2* 
+The line ``/dev/mmcblk0p2  7.2G  2.0G  4.9G  29% /`` shows that *mmcblk0* partition *p2* 
 is mounted as */*, the root file system. The general rule is that the media you're booted from 
 (either the onboard flash or the microSD card) will appear as *mmcblk0*. 
 The second partition (*p2*) is the root of the file system. 
@@ -1238,7 +1238,7 @@ Solution
 To free up space, you can remove preinstalled packages or discover big files to remove.
 
 Removing preinstalled packages
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You might not need a few things that come preinstalled in the Debian image, including such 
 things as OpenCV, the Chromium web browser, and some documentation. 
@@ -1260,7 +1260,7 @@ Here's how you can remove these:
 
 
 Discovering big files
-
+^^^^^^^^^^^^^^^^^^^^^
 
 The *du* (disk usage) command offers a quick way to discover big files:
 
@@ -1309,7 +1309,7 @@ following command to see what's taking up the space in ``/var``:
 
 .. code-block:: bash
 
-   bone$ sudo du -sh /usr/*
+   bone$ sudo du -sh /var/*
    4.0K	/var/backups
    76M	/var/cache
    93M	/var/lib
@@ -1366,7 +1366,7 @@ After a moment, you'll see the following:
 keys to navigate the file structure to discover where the big unused files are. Press ? for help.
 
 .. warning:: 
-   Be careful not to press the D key, because it's used to delete a file or directory.
+   Be careful not to press the **d** key, because it's used to delete a file or directory.
 
 .. _misc_libsoc:
 
