@@ -74,11 +74,15 @@ If nothing appears after the reboot, edit the ``/boot/uEnv.txt`` file. Search fo
 
 Then reboot.
 
-.. PRODUCTION: in the following tip, we're trying to display the hash symbol (#), all by itself, in constant width. Using *#* produces an empty space in the build, and I don't know how to escape special characters within what should be literal strings.
+.. PRODUCTION: in the following tip, we're trying to display the hash symbol (#), 
+..  all by itself, in constant width. Using *#* produces an empty space in the build, 
+..  and I don't know how to escape special characters within what should be literal strings.
 
-.. Adding to my confusion, the # signs are dropped in the first paragraph of the tip, but not in the second, which is formatted in the same exact way.
+.. Adding to my confusion, the # signs are dropped in the first paragraph of the tip, 
+..  but not in the second, which is formatted in the same exact way.
 
-.. Also, using ## in the code italicizes the second # and everything after it in the line, which should not happen.
+.. Also, using ## in the code italicizes the second # and everything after it in the line, 
+..  which should not happen.
 
 
 The ``/boot/uEnv.txt`` file contains a number of configuration commands that are executed at boot time. 
@@ -152,8 +156,21 @@ connect by using the following command to log in as user *debian*, (note the *$*
 .. code-block:: bash
 
    host$ ssh debian@192.168.7.2
-   Warning: Permanently added 'bone,192.168.7.2' (ECDSA) to the list of known hosts.
-   Last login: Mon Dec 22 07:53:06 2014 from yoder-linux.local
+   Warning: Permanently added '192.168.7.2' (ED25519) to the list of known hosts.
+   Debian GNU/Linux 11
+
+   BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
+   Support: https://bbb.io/debian
+   default username:password is [debian:temppwd]
+
+
+   The programs included with the Debian GNU/Linux system are free software;
+   the exact distribution terms for each program are described in the
+   individual files in /usr/share/doc/*/copyright.
+
+   Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+   permitted by applicable law.
+   Last login: Thu Jun  8 14:02:40 2023 from 192.168.7.1
    bone$ 
 
 .. _tips_passwords:
@@ -172,6 +189,27 @@ Default password
    Retype new UNIX password: 
    password: password updated successfully
 
+Removing the *Message of the Day*
+=================================
+
+Problem
+-------
+
+Every time you login a long message is displayed that you don't need to see.
+
+Solution
+--------
+
+The contents of the files `/etc/motd`, `/etc/issue` and `/etc/issue.net` are displayed 
+everytime you long it.  You can prevent them from being displayed by moving them elsewhere.
+
+.. code-block:: bash
+
+   bone$ sudo mv /etc/motd /etc/motd.orig
+   bone$ sudo mv /etc/issue /etc/issue.orig
+   bone$ sudo mv /etc/issue.net /etc/issue.net.orig
+
+Now, the next time you `ssh` in they won't be displayed.
 
 .. _tips_serial:
 
