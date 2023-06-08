@@ -607,7 +607,7 @@ First, you need to `set up a Gmail account <https://mail.google.com>`_, if you d
 Then add the code in :ref:`networking_nodemailer_code` to a file named ``emailTest.py``. Substitute your own Gmail username.  For the password:
 
 * Go to: https://myaccount.google.com/security
-* Select App password.
+* Go to *2-Step Verification* and at the bottom, select App password.
 * Generate your own 16 char password and copy it into ``emailTest.py``.
 * Be sure to delete password when done https://myaccount.google.com/apppasswords .
 
