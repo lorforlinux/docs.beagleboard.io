@@ -91,7 +91,7 @@ BeagleBone Black already has the *nginx* web server running.
 
 When you point your browser to *192.168.7.2*, you are using the *nginx* web server. 
 The web pages are served from */var/www/html/*. Add the HTML in :ref:`networking_index_html` 
-to a file called */var/www/html/test.html*, and then point your browser to *192.168.7.2://test.html*.
+to a file called */var/www/html/test.html*, and then point your browser to *192.168.7.2:/test.html*.
 
 .. _networking_index_html:
 
@@ -128,7 +128,7 @@ Solution
 with a small core and easy-to-extend philosophy. :ref:`networking_builtin_server` 
 shows how to use nginx, the web server that's already running. This recipe shows how 
 easy it is to build your own server. This is an adaptation of 
-`Python WebServer With Flask and Raspberry Pi <https://towardsdatascience.com/python-webserver-with-flask-and-raspberry-pi-398423cc6f5>`_.
+`Python WebServer With Flask and Raspberry Pi <https://towardsdatascience.com/python-webserver-with-flask-and-raspberry-pi-398423cc6f5d>`_.
 
 First, install flask:
 
