@@ -228,6 +228,10 @@ Sometimes, you can't connect to the Bone via SSH, but you have a network working
 There is a way to access the command line to fix things without requiring extra hardware. (:ref:`tips_FTDI` 
 shows a way that works even if you don't have a network working over USB, but it requires a special serial-to-USB cable.)
 
+.. note:: 
+      This method doesn't work with WSL.
+
+
 First, check to ensure that the serial port is there. On the host computer, run the following command:
 
 .. code-block:: bash
@@ -236,8 +240,8 @@ First, check to ensure that the serial port is there. On the host computer, run 
    0 crw-rw---- 1 root dialout 166, 0 Jun 19 11:47 /dev/ttyACM0
 
 
-``/dev/ttyACM0`` is a serial port on your host computer that the Bone creates when it boots up. 
-The letters *crw-rw----* show that you can't access it as a normal user. However, you ``can`` 
+*/dev/ttyACM0* is a serial port on your host computer that the Bone creates when it boots up. 
+The letters *crw-rw----* show that you can't access it as a normal user. However, you can 
 access it if you are part of *dialout* group. See if you are in the *dialout* group:
 
 .. code-block:: bash
@@ -373,7 +377,7 @@ Log in to your Bone and enter the following command:
 .. code-block:: bash
 
    bone$ cat /etc/dogtag
-   BeagleBoard.org Debian Bullseye IoT Image 2022-07-01
+   BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
 
 
 :ref:`basics_latest_os` shows how to open the ``ID.txt`` file to see the OS version. 
@@ -391,9 +395,23 @@ You want to access the BeagleBone's graphical desktop from your host computer.
 Solution
 ---------
 
-Run the installed Virtual Network Computing (VNC) server:
+Install and run a Virtual Network Computing (VNC) server:
+
+.. todo  
+   Check this with desktop installed
 
 .. code-block:: bash
+
+   bone$ sudo apt update
+   bone$ sudo apt install tightvncserver
+   Reading package lists... Done
+   Building dependency tree... Done
+   Reading state information... Done
+   The following additional packages will be installed:
+   ...
+   update-alternatives: using /usr/bin/Xtightvnc to provide /usr/bin/Xvnc (Xvnc) in auto mode
+   update-alternatives: using /usr/bin/tightvncpasswd to provide /usr/bin/vncpasswd (vncpasswd) in auto mode
+   Processing triggers for libc-bin (2.31-13+deb11u6) ...
 
    bone$ tightvncserver
 
@@ -453,10 +471,13 @@ Click Connect to start graphical access to your Bone, as shown in :ref:`tips_vnc
    You need to have X Windows installed and running for the VNC to work. 
    Here's how to install it. This needs some 250M of disk space and 19 minutes to install.
 
+.. todo  
+   This isn't working as of 8-June-2023
+
 .. code-block:: bash
 
    bone$ bone$ sudo apt install bbb.io-xfce4-desktop
-   bone$ cp /etc/bbb.io/templates/fbdev.xorg.conf /etc/X11/xorg.conf
+   bone$ sdo cp /etc/bbb.io/templates/fbdev.xorg.conf /etc/X11/xorg.conf
    bone$ startxfce4
    /usr/bin/startxfce4: Starting X server
    /usr/bin/startxfce4: 122: exec: xinit: not found
@@ -688,7 +709,7 @@ Solution
    For the correct instructions for the image you are using, go to
    `latest-images <http://forum.beagleboard.org/tag/latest-images>`_ and click on the image you are using.  
 
-I'm running Debian 11.x (Bullseye), the middle one.
+I'm running Debian 11.x (Bullseye), the top one, on the BeagleBone Black.
 
 .. _tips_latest-images_fig:
 
@@ -698,7 +719,8 @@ I'm running Debian 11.x (Bullseye), the middle one.
 
    Latest Beagle Images
 
-Scroll to the top of the page and you'll see instructions on setting up Wifi. The instructions here are based on using +networkctl+
+Scroll to the top of the page and you'll see instructions on setting up Wifi. 
+The instructions here are based on using **networkctl**.
 
 .. _tips_networkfig:
 
@@ -850,6 +872,7 @@ reach the Internet in general, nor can the Internet reach it. On one hand, this 
 no good can't access your Bone. On the other hand, your Bone can't reach the rest of the world.
 
 Letting your bone see the world: setting up IP masquerading
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to set up IP masquerading on your host and configure your Bone to use it. Here is a solution that works 
 with a host computer running Linux. Add the code in :ref:`tips_ipmasq_code` to a 
