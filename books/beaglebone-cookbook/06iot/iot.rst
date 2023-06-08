@@ -393,6 +393,9 @@ You have live, continuous,  data coming into your Bone via one of the Analog Ins
 Solution
 ---------
 
+.. todo
+  Check this
+
 Analog in - Continuous (This is based on information at: http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/Kernel/Kernel_Drivers/ADC.html#Continuous%20Mode)
 
 Reading a continuous analog signal requires some set up. First go to the iio devices directory.
@@ -404,8 +407,8 @@ Reading a continuous analog signal requires some set up. First go to the iio dev
   buffer/  in_voltage0_raw  in_voltage2_raw  in_voltage4_raw  in_voltage6_raw  name      power/          subsystem@
   dev      in_voltage1_raw  in_voltage3_raw  in_voltage5_raw  in_voltage7_raw  of_node@  scan_elements/  uevent
 
-
-Here you see the files used to read the one shot values. Look in *scan_elements* to see how to enable continuous input.
+Here you see the files used to read the one shot values. 
+Look in *scan_elements* to see how to enable continuous input.
 
 .. code-block:: bash
 
@@ -415,7 +418,10 @@ Here you see the files used to read the one shot values. Look in *scan_elements*
   in_voltage0_type   in_voltage2_en     in_voltage3_index  in_voltage4_type   in_voltage6_en     in_voltage7_index
   in_voltage1_en     in_voltage2_index  in_voltage3_type   in_voltage5_en     in_voltage6_index  in_voltage7_type
 
-Here you see three values for each analog input, _en (enable), _index (index of this channel in the buffer’s chunks) and _type (How the ADC stores its data). (See the link above for details.) Let's use the input at *P9.40* which is *AIN1*. To enable this input:
+Here you see three values for each analog input, _en (enable),
+ _index (index of this channel in the buffer’s chunks) and 
+ _type (How the ADC stores its data). (See the link above for details.) 
+ Let's use the input at *P9.40* which is *AIN1*. To enable this input:
 
 .. code-block:: bash
 
@@ -450,8 +456,8 @@ Let's use a 512 sample buffer. You might need to experiment with this.
 
   1KHz sine wave sampled at 8KHz
 
-An example Python program that does the above and the reads and 
-plot the buffer is here: analogInContinuous.py 
+An example Python program that does the above and reads and 
+plots the buffer is **analogInContinuous.py**.
 
 .. _analog_code:
 
@@ -564,10 +570,10 @@ A number of files get installed, including the ADC file. Now try rerunning.
   bone$ ./analogInContinuous.py
   Hit ^C to stop
 
-Here's the output of a 10KHz sine wave. 
+Here's the output of a 10KHz triangle wave. 
 
 .. TODO  
-  Is this trun: (The plot is wrong, but eLinux won't let me fix it.)
+  Is this true: (The plot is wrong, but eLinux won't let me fix it.)
 
 .. _analog_tri_fig:
 
