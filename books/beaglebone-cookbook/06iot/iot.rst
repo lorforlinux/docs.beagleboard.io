@@ -209,9 +209,14 @@ function. Now, let’s create a new Python script. We will name it app1.py:
 
 :download:`app1.py <../code/06iot/flask/app1.py>`
 
-Note that we create a formatted string("timeString") using the date and time from the "now" object, that has the current time stored on it.
+Note that we create a formatted string ("timeString") using the date and time from the "now" object, 
+that has the current time stored on it.
 
-Next important thing on the above code, is that we created a dictionary of variables (a set of keys, such as the title that is associated with values, such as HELLO!) to pass into the template. On “return”, we will return the index.html template to the web browser using the variables in the templateData dictionary.
+Next important thing on the above code, is that we created a dictionary of variables 
+(a set of keys, such as the title that is associated with values, such as HELLO!) 
+to pass into the template. 
+On “return”, we will return the *index1.html* template to the web browser using 
+the variables in the *templateData* dictionary.
 
 Execute the Python script:
 
@@ -232,7 +237,7 @@ Open any web browser and browse to 192.168.7.2:8080. You should see:
 
 Note that the page’s content changes dynamically any time that you refresh 
 it with the actual variable data passed by Python script. In our case, 
-“title” is a fixed value, but “time” change it every second.
+“title” is a fixed value, but “time” changes every minute.
 
 Displaying GPIO Status in a Web Browser - reading a button
 ===========================================================
@@ -253,7 +258,6 @@ To make this recipe, you will need:
 * Pushbutton switch.
 
 Wire your pushbutton as shown in :ref:`js_pushbutton_fig`. 
-
 Wire a button to *P9_11* and have the web page display the value of the button.
 
 Let’s use a new Python script named *app2.py*.
@@ -266,7 +270,7 @@ Let’s use a new Python script named *app2.py*.
 
 :download:`app2.py <../code/06iot/flask/app2.py>`
 
-Look that what we are doing is defining the button on *P9_11* as input, reading its value and 
+What we are doing is defining the button on *P9_11* as input, reading its value and 
 storing it in *buttonSts*. Inside the function *index()*, we will pass that value to our web 
 page through “button” that is part of our variable dictionary: *templateData*.
 
@@ -285,7 +289,6 @@ Now, run the following command:
 .. code-block:: bash
 
   bone$ ./app2.py
-
 
 Point your browser to `http://192.168.7.2:8080`, and the 
 page will look like :ref:`flask_app2_fig`.
@@ -318,17 +321,15 @@ Now that we know how to “read” GPIO Status, let’s change them. What we wil
 the web page. We have an LED connected to *P9_14*. Controlling remotely we will change 
 its status from LOW to HIGH and vice-versa.
 
-The python script Let’s create a new Python script and named it *app3.py*.
+Create a new Python script and name it *app3.py*.
 
 .. _flask_app3:
 
-A simple Flask-based web server to read a GPIO (app3.py)
+.. literalinclude:: ../code/06iot/flask/app3.py
+   :caption: A simple Flask-based web server to read a GPIO (app3.py)
+   :linenos:
 
-.. code-block:: python
-
-  include::../code/06iot/flask/app3.py
-
-
+:download:`app3.py <../code/06iot/flask/app3.py>`
 
 What we have new on above code is the new “route”:
 
@@ -336,26 +337,24 @@ What we have new on above code is the new “route”:
 
 From the webpage, calls will be generated with the format:
 
-
 http://192.168.7.2:8081/ledRed/on
 
 or
 
 http://192.168.7.2:8081/ledRed/off
 
-
 For the above example, *ledRed* is the “deviceName” and *on* or *off* are examples of 
 possible “action”. Those routes will be identified and properly “worked”. The main steps are:
 
 * Convert the string “ledRED”, for example, on its equivalent GPIO pin. The integer variable ledRed is equivalent to P9_14. We store this value on variable “actuator”
-* For each actuator, we will analyze the “action”, or “command” and act properly. If “action = on” for example, we must use the command: GPIO.output(actuator, GPIO.HIGH)
+* For each actuator, we will analyze the “action”, or “command” and act properly. 
+  If “action = on” for example, we must use the command: ``f.write("1")``
 * Update the status of each actuator
-* Update the variable library
 * Return the data to index.html
 
 
-Let’s now create an index.html to show the GPIO status of each 
-actuator and more important, create “buttons” to send the commands:
+Let’s now create an *index.html* to show the GPIO status of each 
+actuator and more importantly, create “buttons” to send the commands:
 
 .. _flask_index3:
 
@@ -368,7 +367,6 @@ actuator and more important, create “buttons” to send the commands:
 .. code-block:: bash
 
   bone$ ./app3.py
-
 
 Point your browser as before and you will see:
 
