@@ -867,47 +867,29 @@ but you want to program it graphically.
 Solution
 ---------
 
+.. todo 
+  Need to figure  out how to add the twitter node and the gpio node.
+
 `Node-RED <http://nodered.org/>`_ is a visual tool for wiring the IoT. 
 It makes it easy to turn on a light when a certain hashtag is tweeted, 
 or spin a motor if the forecast is for hot weather.
 
-Installing Node-RED
+Starting Node-RED
 ====================
 
-To install Node-RED, run the following commands:
+Node-RED is already installed, to run Node-RED, use the following command to start.
 
 .. code-block:: bash
 
-  bone$ cd          # Change to home directory
-  bone$ git clone https://github.com/node-red/node-red.git
-  bone$ cd node-red/
-  bone$ npm install --production    # almost 6 minutes
-  bone$ cd nodes
-  bone$ git clone https://github.com/node-red/node-red-nodes.git # 2 seconds
-  bone$ cd ~/node-red
+  bone$ sudo systemctl start nodered
 
-
-To run Node-RED, use the following commands:
+Or run the following to have Node-RED start everytime you reboot.
 
 .. code-block:: bash
 
-  bone$ cd ~/node-red
-  bone$ node red.js
-  Welcome to Node-RED
+  bone$ sudo systemctl enable --now nodered
 
-
-- 18 Aug 16:31:43 - [red] Version: 0.8.1.git
-- 18 Aug 16:31:43 - [red] Loading palette nodes
-- 18 Aug 16:31:49 - [26-rawserial.js] Info : only really needed for Windows boxes without serialport npm module installed.
-- 18 Aug 16:31:56 - ------------------------------------------
-- 18 Aug 16:31:56 - [red] Failed to register 44 node types
-- 18 Aug 16:31:56 - [red] Run with -v for details
-- 18 Aug 16:31:56 - ------------------------------------------
-- 18 Aug 16:31:56 - [red] Server now running at http://127.0.0.1:1880/
-- 18 Aug 16:31:56 - [red] Loading flows : flows_yoder-debian-bone.json
-
-
-The second-to-last line informs you that Node-RED is listening on part *1880*. Point your browser to 
+Node-RED is listening on part *1880*. Point your browser to 
 http://192.168.7.2:1880, and you will see the screen shown in :ref:`networking_node_red_fig`.
 
 .. _networking_node_red_fig:
