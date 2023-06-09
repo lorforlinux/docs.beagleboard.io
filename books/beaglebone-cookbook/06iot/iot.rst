@@ -713,7 +713,7 @@ Because your Bone is on the network, it's not hard to access the current weather
 
   bash$ export APPID="Your key"
 
-* Then add the code in :ref:`networking_weather_code` to a file named ``weather.js``.
+* Then add the code in :ref:`networking_weather_code` to a file named ``weather.py``.
 * Run the python script.
 
 
@@ -729,18 +729,19 @@ Because your Bone is on the network, it's not hard to access the current weather
 2. Prints the forecast for the next day.
 3. Prints everything returned by the weather site.
 
+Uncomment what you want to be displayed.
+
 Run this by using the following commands:
 
 .. code-block:: bash
 
-  bone$ chmod *x weather.py
   bone$ ./weather.js
   Getting weather
-  Temp:  85.1
-  Humid: 50
-  Low:   62.02
-  High:  85.1
-  sunrise: 2022-07-14 14:32:46
+  Temp:  73.72
+  Humid: 31
+  Low:   54.21
+  High:  75.47
+  sunrise: 2023-06-09 14:21:07
 
 The weather API returns lots of information. Use Python to extract the information you want.
 
@@ -775,7 +776,7 @@ Creating a Project and App
   export API_KEY='XXX'
   export API_SECRET_KEY='XXX'
   export BEARER_TOKEN='XXX'
-  export TOKEN='4XXX'
+  export TOKEN='XXXX'
   export TOKEN_SECRET='XXX'
 
 * Next, source the file so the values will appear in your bash session.
@@ -834,9 +835,9 @@ Around line 15 is the *id* number.  Paste in the value returned above.
 :download:`twitter_delete_tweet.py <../code/06iot/twitter_delete_tweet.py>`
 
 .. TODO
-  Start Here
+  Start Here.  Update for python.
 
-The code in :ref:`networking_pushbutton_code` snds a tweet whenever a button is pushed.
+The code in :ref:`networking_pushbutton_code` sends a tweet whenever a button is pushed.
 
 .. _networking_pushbutton_code:
 
