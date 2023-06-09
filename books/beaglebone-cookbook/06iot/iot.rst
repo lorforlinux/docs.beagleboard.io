@@ -643,7 +643,7 @@ Sending an SMS Message
 =======================
 
 .. TODO  
-  My twilio account is suspended.
+  My twilio account is suspended, using yoder@rose-hulman.edu.
 
 Problem
 --------
@@ -658,23 +658,37 @@ but you will need to `verify the number <http://bit.ly/1MrHBBF>`_ to which you a
 to `Twilio's home page <https://www.twilio.com/>`_ and set up an account. Note your account SID and 
 authorization token. If you are using the free version, be sure to `verify your numbers <http://bit.ly/19c7GZ7>`_.
 
-Next, install Trilio by using the following command:
+Next, install Trilio by using the following command for python:
+
+.. todo  
+  Need to show setup.sh file too.  Test everything.
+
+.. code-block:: bash
+
+  bone$ sudo apt install python-pip
+  bone$ sudo pip install twilio
+
+or for Javascript:
 
 .. code-block:: bash
 
   bone$ npm install -g twilio
 
-
-Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilio-test.js`` and run it. Your text will be sent.
+Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioTest.py`` and run it. Your text will be sent.
 
 .. _networking_twilio_code:
+
+.. literalinclude:: ../code/06iot/twilioTest.py 
+   :caption: Sending SMS messages using Twilio (``twilioTest.py``)
+   :linenos:
+
+:download:`twilioTest.py  <../code/06iot/twilioTest.py>`
 
 .. literalinclude:: ../code/06iot/twilio-test.js
    :caption: Sending SMS messages using Twilio (``twilio-test.js``)
    :linenos:
 
 :download:`twilio-test.js <../code/06iot/twilio-test.js>`
-:download:`nodemailer-test.js <../code/06iot/nodemailer-test.js>`
 
 Twilio allows a small number of free text messages, enough to test your code and to play around some.
 
