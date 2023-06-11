@@ -68,6 +68,13 @@ Steps:
 How does ClickID work?
 **********************
 
+.. todo::
+
+   * How do turn off the driver?
+   * How do turn on spidev?
+   * How do I enable GPIO?
+   * How do a provide a manifest?
+
 
 .. todo::
 
