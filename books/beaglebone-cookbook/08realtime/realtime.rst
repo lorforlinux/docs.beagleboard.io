@@ -200,7 +200,7 @@ Memory Map chapter (sensors). Table 2-2 indicates that *GPIO0* starts at address
 go to Section 25.4.1, "GPIO Registers." This shows that *GPIO_DATAIN* has an offset of *0x138*, *GPIO_CLEARDATAOUT* 
 has an offset of *0x190*, and *GPIO_SETDATAOUT* has an offset of *0x194*.  
 
-This means you read from address *0x44E0_7000* * *0x138* = *0x44E0_7138* to see the status of the LED:
+This means you read from address *0x44E0_7000* + *0x138* = *0x44E0_7138* to see the status of the LED:
 
 .. code-block:: bash
 
@@ -212,7 +212,7 @@ This means you read from address *0x44E0_7000* * *0x138* = *0x44E0_7138* to see 
 
 The returned value *0xC000C404* (*1100 0000 0000 0000 1100 0100 0000 0100* in binary) has bit 31 set to *1*, 
 which means the LED is on. Turn the LED off by writing *0x80000000* (*1000 0000 0000 0000 0000 0000 0000 0000* binary) 
-to the *GPIO_CLEARDATA* register at *0x44E0_7000* * *0x190* = *0x44E0_7190*:
+to the *GPIO_CLEARDATA* register at *0x44E0_7000* + *0x190* = *0x44E0_7190*:
 
 .. code-block:: bash
 
@@ -496,12 +496,15 @@ This will generate the file *cyclictest.png* which contains your plot.  It shoul
 Notice the NON-RT data have much longer latenices. They may not happen often (fewer than 10 times in each bin), 
 but they are occurring and may be enough to miss a real-time deadline.
 
-The PREEMPT-RT times are all under a 150s. 
+The PREEMPT-RT times are all under a 150 us. 
 
 .. _realtime_simpPRU:
 
 I/O with simpPRU
 =================
+
+.. todo
+    This should be checked.
 
 Problem
 --------
