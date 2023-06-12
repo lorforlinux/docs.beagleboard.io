@@ -28,7 +28,7 @@ JavaScript and moving up with increasing speed (and effort) to using the PRUs.
 
 .. _realtime_JavaScript:
 
-I/O with JavaScript
+I/O with Python and JavaScript
 ====================
 
 Problem
@@ -77,12 +77,12 @@ pushbutton, and turns on the LED attached to *P9_12* when the button is pushed.
 :download:`pushLED.js <../code/08realtime/pushLED.js>`
 
 
-Add the code to a file named ``pushLED.js`` and run it by using the following commands:
+Add the code to a file named ``pushLED.py`` and run it by using the following commands:
 
 .. code-block:: bash
 
-    bone$ chmod *x pushLED.js
-    bone$ ./pushLED.js
+    bone$ chmod *x pushLED.py
+    bone$ ./pushLED.py
     data = 0
     data = 0
     data = 1
@@ -104,8 +104,9 @@ You want to use the C language to process inputs in real time, or Python/JavaScr
 Solution
 ---------
 
-:ref:`realtime_JavaScript` shows how to control an LED with a pushbutton using JavaScript. This recipe accomplishes 
-the same thing using C. It does it in the same way, opening the correct /sys/class/gpio files and reading an writing them.
+:ref:`realtime_JavaScript` shows how to control an LED with a pushbutton using Python and JavaScript. 
+This recipe accomplishes the same thing using C. 
+It does it in the same way, opening the correct /sys/class/gpio files and reading an writing them.
 
 Wire up the pushbutton and LED as shown in :ref:`realtime_pushLED_fig`. 
 Then add the code in :ref:`realtime_pushLED_c_code` to a file named ``pushLED.c``.
@@ -162,7 +163,7 @@ First, download and install *devmem2*:
 
 .. code-block:: bash
 
-    bone$ wget http://free-electrons.com/pub/mirror/devmem2.c
+    bone$ wget http://bootlin.com/pub/mirror/devmem2.c
     bone$ gcc -o devmem2 devmem2.c
     bone$ sudo mv devmem2 /usr/bin
 
