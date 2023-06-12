@@ -1049,17 +1049,19 @@ to a file called ``launchPad.ino`` and run it on your LaunchPad.
 
 :download:`launchPad.ino <../code/06iot/launchPad/launchPad.ino>`
 
-1. Set the mode for the built-in red and green LEDs.
+.. annotations::
 
-2. Start the serial port at 9600 baud.
+  <1> Set the mode for the built-in red and green LEDs.
 
-3. Prompt the user, which in this case is the Bone.
+  <2> Start the serial port at 9600 baud.
 
-4. Set the LEDs to the current values of the *red* and *green* variables.
+  <3> Prompt the user, which in this case is the Bone.
 
-5. Wait for characters to arrive on the serial port.
+  <4> Set the LEDs to the current values of the *red* and *green* variables.
 
-6. After the characters are received, read it and respond to it.
+  <5> Wait for characters to arrive on the serial port.
+
+  <6> After the characters are received, read it and respond to it.
 
 On the Bone, add the script in :ref:`js_launchPadBeagle_code` to a file called `launchPad.js` and run it.
 

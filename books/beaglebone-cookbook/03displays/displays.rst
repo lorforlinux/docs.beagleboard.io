@@ -361,18 +361,19 @@ LED matrix display (matrixLEDi2c.py)
 
 :download:`matrixLEDi2c.py <../code/03displays/matrixLEDi2c.py>`
 
+   .. annotations::
 
-1. This line states which bus to use. The last digit gives the |I2C| bus number.
+     <1> This line states which bus to use. The last digit gives the |I2C| bus number.
 
-2. This specifies the address of the LED matrix, *0x70* in our case.
+     <2> This specifies the address of the LED matrix, *0x70* in our case.
 
-3. This indicates which LEDs to turn on. The first byte is for the first column of ``green`` LEDs. In this case, all are turned off. The next byte is for the first column of ``red`` LEDs. The hex *0x3c* number is *0b00111100* in binary. This means the first two red LEDs are off, the next four are on, and the last two are off. The next byte (*0x00*) says the second column of *green* LEDs are all off, the fourth byte (*0x42* = *0b01000010*) says just two *red* LEDs are on, and so on. Declarations define four different patterns to display on the LED matrix, the last being all turned off.
+     <3> This indicates which LEDs to turn on. The first byte is for the first column of ``green`` LEDs. In this case, all are turned off. The next byte is for the first column of ``red`` LEDs. The hex *0x3c* number is *0b00111100* in binary. This means the first two red LEDs are off, the next four are on, and the last two are off. The next byte (*0x00*) says the second column of *green* LEDs are all off, the fourth byte (*0x42* = *0b01000010*) says just two *red* LEDs are on, and so on. Declarations define four different patterns to display on the LED matrix, the last being all turned off.
 
-4. Send three commands to the matrix to get it ready to display.
+     <4> Send three commands to the matrix to get it ready to display.
 
-5. Now, we are ready to display the various patterns. After each pattern is displayed, we sleep a certain amount of time so that the pattern can be seen.
+     <5> Now, we are ready to display the various patterns. After each pattern is displayed, we sleep a certain amount of time so that the pattern can be seen.
 
-6. Finally, send commands to the LED matrix to set the brightness. This makes the display fade out and back in again.
+     <6> Finally, send commands to the LED matrix to set the brightness. This makes the display fade out and back in again.
 
 .. _displays_drive5V:
 
