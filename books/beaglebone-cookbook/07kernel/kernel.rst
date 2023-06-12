@@ -390,7 +390,7 @@ To download and compile the kernel, follow these steps:
 3. *build_deb.sh* is the master builder. If needed, it will download the cross compilers 
    needed to compile the kernel (`gcc <https://gcc.gnu.org/>`_ is the current cross compiler). 
    If there is a kernel at ``~/linux-dev``, it will use it; otherwise, 
-   it will download a copy to ``bb-kernel/ignore/linux-src``. 
+   it will download a copy to ``ti-linux-kernel-dev/ignore/linux-src``. 
    It will then patch the kernel so that it will run on the Bone. 
 
 .. note:: 
@@ -401,7 +401,7 @@ After the kernel is patched, you'll see a screen similar to :ref:`kernel_config_
 
 .. _kernel_config_fig:
 
-.. figure:: figures/KernelConfig3.16.png
+.. figure:: figures/KernelConfig5.10.png
     :align: center
     :alt: Kernel configuration menu
 
@@ -410,7 +410,7 @@ After the kernel is patched, you'll see a screen similar to :ref:`kernel_config_
 You can use the arrow keys to navigate. No changes need to be made, so you can just press the right 
 arrow and Enter to start the kernel compiling. The entire process took about 25 minutes on my 8-core host. 
 
-The ``bb-kernel/KERNEL`` directory contains the source code for the kernel. The ``bb-kernel/deploy``
+The ``ti-linux-kernel-dev/KERNEL`` directory contains the source code for the kernel. The ``ti-linux-kernel-dev/deploy``
 directory contains the compiled kernel and the files needed to run it.
 
 .. _kernel_install:
@@ -421,7 +421,7 @@ Installing the Kernel on the Bone
 To copy the new kernel and all its files to the microSD card, you need to halt the Bone, 
 and then pull the microSD card out and put it in an microSD card reader on your host computer. 
 Run *Disk* (see :ref:`basics_latest_os`) to learn where the microSD card appears on your host 
-(mine appears in ``/dev/sdb``). Then open the ``bb-kernel/system.sh`` file and find this line near the end:
+(mine appears in ``/dev/sdb``). Then open the ``ti-linux-kernel-dev/system.sh`` file and find this line near the end:
 
 .. code-block:: bash
 
@@ -435,7 +435,7 @@ Change that line to look like this (where */dev/sdb* is the path to your device)
     MMC=/dev/sdb
 
 
-Now, while in the ``bb-kernel`` directory, run the following command:
+Now, while in the ``ti-linux-kernel-dev`` directory, run the following command:
 
 .. code-block:: bash
 
@@ -473,6 +473,8 @@ will see that you are running your compiled kernel.
 Using the Installed Cross Compiler
 ===================================
 
+.. todo
+    This should be removed 
 Problem
 --------
 
@@ -496,12 +498,12 @@ Solution
 
 :ref:`kernel_compiling` installs a cross compiler, but you need to set up a 
 couple of things so that it can be found. :ref:`kernel_compiling` installed the 
-kernel and other tools in a directory called ``bb-kernel``. Run the 
+kernel and other tools in a directory called ``ti-linux-kernel-dev``. Run the 
 following commands to find the path to the cross compiler:
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/dl
+    host$ cd ti-linux-kernel-dev/dl
     host$ ls
     gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux
     gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux.tar.xz
@@ -548,7 +550,7 @@ to the *$PATH* the shell uses to find the commands it runs:
 .. code-block:: bash
 
     host$ pwd
-    /home/yoder/BeagleBoard/bb-kernel/dl/\
+    /home/yoder/BeagleBoard/ti-linux-kernel-dev/dl/\
         gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux/bin
         
     host$ echo $PATH
@@ -564,7 +566,7 @@ to be run. Currently, the cross-development tools are not in the *$PATH*. Let's 
 
     host$ export PATH=`pwd`:$PATH
     host$ echo $PATH
-    /home/yoder/BeagleBoard/bb-kernel/dl/\
+    /home/yoder/BeagleBoard/ti-linux-kernel-dev/dl/\
         gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux/bin:\
         /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
         /usr/games:/usr/local/games
@@ -639,13 +641,13 @@ Solution
 Here's how to use it:
 
 - Install the kernel sources (:ref:`kernel_compiling`).
-- Change to the kernel directory (+cd bb-kernel/KERNEL+).
-- Add :ref:`kernel_hello_patch` to a file named ``hello.patch`` in the ``bb-kernel/KERNEL`` directory.
+- Change to the kernel directory (+cd ti-linux-kernel-dev/KERNEL+).
+- Add :ref:`kernel_hello_patch` to a file named ``hello.patch`` in the ``ti-linux-kernel-dev/KERNEL`` directory.
 - Run the following commands:
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/KERNEL
+    host$ cd ti-linux-kernel-dev/KERNEL
     host$ patch -p1 &lt; hello.patch
     patching file hello/Makefile
     patching file hello/hello.c
@@ -681,7 +683,7 @@ Before making your changes, check out a new branch:
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/KERNEL
+    host$ cd ti-linux-kernel-dev/KERNEL
     host$ git status
     # On branch master
     nothing to commit (working directory clean)
@@ -702,7 +704,7 @@ to the kernel you want. I did some work with a simple character driver that we c
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/KERNEL/drivers/char/
+    host$ cd ti-linux-kernel-dev/KERNEL/drivers/char/
     host$ git status
     # On branch hello1
     # Changes not staged for commit:
