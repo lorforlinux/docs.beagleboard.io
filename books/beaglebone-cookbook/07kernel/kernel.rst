@@ -36,11 +36,11 @@ Use the following command to determine which kernel you are running:
 .. code-block:: bash
 
     bone$ uname -a
-    Linux beaglebone 3.8.13-bone67 #1 SMP Wed Sep 24 21:30:03 UTC 2014 armv7l
+    Linux beaglebone 5.10.168-ti-r62 #1bullseye SMP PREEMPT Tue May 23 20:15:00 UTC 2023 armv7l GNU/Linux
     GNU/Linux
 
 
-The *3.8.13-bone67* string is the kernel version.
+The *5.10.168-ti-r62* string is the kernel version.
 
 To update to the current kernel, ensure that your Bone is on the Internet 
 (:ref:`networking_usb` or :ref:`networking_wired`) and then run the following commands:
@@ -49,19 +49,29 @@ To update to the current kernel, ensure that your Bone is on the Internet
 
     bone$ apt-cache pkgnames | grep linux-image | sort | less
     ...
-    linux-image-3.15.8-armv7-x5
-    linux-image-3.15.8-bone5
-    linux-image-3.15.8-bone6
+    linux-image-5.10.162-ti-r59
+    linux-image-5.10.162-ti-rt-r56
+    linux-image-5.10.162-ti-rt-r57
+    linux-image-5.10.162-ti-rt-r58
+    linux-image-5.10.162-ti-rt-r59
+    linux-image-5.10.168-armv7-lpae-x71
+    linux-image-5.10.168-armv7-rt-x71
+    linux-image-5.10.168-armv7-x71
+    linux-image-5.10.168-bone71
+    linux-image-5.10.168-bone-rt-r71
+    linux-image-5.10.168-ti-r60
+    linux-image-5.10.168-ti-r61
+    linux-image-5.10.168-ti-r62
+    linux-image-5.10.168-ti-rt-r60
+    linux-image-5.10.168-ti-rt-r61
+    linux-image-5.10.168-ti-rt-r62
     ...
-    linux-image-3.16.0-rc7-bone1
-    ...
-    linux-image-3.8.13-bone60
-    linux-image-3.8.13-bone61
-    linux-image-3.8.13-bone62
-    bone$ sudo apt install linux-image-3.14.23-ti-r35
+
+    bone$ sudo apt install linux-image-5.10.162-ti-rt-r59
     bone$ sudo reboot
+
     bone$ uname -a
-    Linux beaglebone 3.14.23-ti-r35 #1 SMP PREEMPT Wed Nov 19 21:11:08 UTC 2014 armv7l
+    Linux beaglebone 5.10.162-ti-rt-r59 #1 SMP PREEMPT Wed Nov 19 21:11:08 UTC 2014 armv7l
     GNU/Linux
 
 
@@ -86,7 +96,7 @@ Solution
 ---------
 
 The solution is to run in kernel space by building a kernel module. There are entire 
-`books on writing Linux Device Drivers <http://bit.ly/1Fb0usf>`_. This recipe assumes that 
+`books on writing Linux Device Drivers <https://bootlin.com/doc/books/ldd3.pdf>`_. This recipe assumes that 
 the driver has already been written and shows how to compile and install it. After you've 
 followed the steps for this simple module, you will be able to apply them to any other module.
 
@@ -105,7 +115,7 @@ Headers for the version of the kernel you're running:
 
 .. code-block:: bash
 
-    bone$ sudo apt install linux-headers-``uname -r``
+    bone$ sudo apt install linux-headers-`uname -r`
 
 .. note:: 
 
@@ -136,19 +146,17 @@ Now, compile the kernel module by using the *make* command:
 .. code-block:: bash
 
     bone$ make
-    make -C /lib/modules/3.8.13-bone67/build \
-        SUBDIRS=/home/debian/beaglebone-cookbook-code/07kernel/hello modules
-    make[1]: Entering directory `/usr/src/linux-headers-3.8.13-bone67'
-    CC [M]  /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.o
-    Building modules, stage 2.
-    MODPOST 1 modules
-    CC      /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.mod.o
-    LD [M]  /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.ko
-    make[1]: Leaving directory `/usr/src/linux-headers-3.8.13-bone67'
+    make -C /lib/modules/5.10.168-ti-r62/build M=$PWD
+    make[1]: Entering directory '/usr/src/linux-headers-5.10.168-ti-r62'
+    CC [M]  /home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.o
+    MODPOST /home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/Module.symvers
+    CC [M]  /home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.mod.o
+    LD [M]  /home/debian/host/BeagleBoard/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.ko
+    make[1]: Leaving directory '/usr/src/linux-headers-5.10.168-ti-r62'
+    
     bone$ ls
     Makefile        hello.c   hello.mod.c  hello.o
     Module.symvers  hello.ko  hello.mod.o  modules.order
-
 
 Notice that several files have been created. 
 ``hello.ko`` is the one you want. Try a couple of commands with it:
@@ -156,17 +164,20 @@ Notice that several files have been created.
 .. code-block:: bash
 
     bone$ modinfo hello.ko
-    filename:       /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.ko
-    srcversion:     87C6AEED7791B4B90C3B50C
+    filename:       /home/debian/host/BeagleBoard/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.ko
+    license:        GPL
+    description:    Hello World Example
+    author:         Boris Houndleroy
     depends:        
-    vermagic:       3.8.13-bone67 SMP mod_unload modversions ARMv7 thumb2 p2v8
+    name:           hello
+    vermagic:       5.10.168-ti-r62 SMP preempt mod_unload modversions ARMv7 p2v8 
+    
     bone$ sudo insmod hello.ko
     bone$ dmesg | tail -4
-    [419313.320052] bone-iio-helper helper.15: ready
-    [419313.322776] bone-capemgr bone_capemgr.9: slot #8: Applied #1 overlays.
-    [491540.999431] Loading hello module...
-    [491540.999476] Hello world
-
+    [  377.944777] lm75 1-004a: hwmon1: sensor 'tmp101'
+    [  377.944976] i2c i2c-1: new_device: Instantiated device tmp101 at 0x4a
+    [85819.772666] Loading hello module...
+    [85819.772687] Hello, World!
 
 The first command displays information about the module. The *insmod* command inserts the module into the running kernel. 
 If all goes well, nothing is displayed, but the module does print something in the kernel log. The *dmesg* command displays 
@@ -373,16 +384,26 @@ To download and compile the kernel, follow these steps:
 
 .. code-block:: bash
 
-    host$ git clone https://github.com/RobertCNelson/bb-kernel.git # <1>
-    host$ cd bb-kernel
-    host$ git tag # <2>
-    host$ git checkout 3.8.13-bone60 -b v3.8.13-bone60 # <3>
-    host$ ./build_kernel.sh # <4>
+    host$ git clone https://git.beagleboard.org/RobertCNelson/ti-linux-kernel-dev # <1>
+    host$ cd ti-linux-kernel-dev
+    host$ git checkout ti-linux-5.10.y # <2>
+    host$ ./build_deb.sh # <3>
+
+.. note:: 
+    If you are using a 64 bit Bone, **git checkout ti-linux-arm64-5.10.y**
 
 1. The first command clones a repository with the tools to build the kernel for the Bone.
-2. This command lists all the different versions of the kernel that you can build. You'll need to pick one of these. How do you know which one to pick? A good first step is to choose the one you are currently running.  *uname -a* will reveal which one that is. When you are able to reproduce the current kernel, go to `Linux Kernel Newbies <http://kernelnewbies.org/>`_ to see what features are available in other kernels. `LinuxChanges <http://bit.ly/1AjiL00>`_ shows the features in the newest kernel and `LinuxVersions <http://bit.ly/1MrIHx3>`_ links to features of previous kernels.
-3. When you know which kernel to try, use *git checkout* to check it out. This command checks out at tag *3.8.13-bone60* and creates a new branch, *v3.8.13-bone60*.
-4. *build_kernel* is the master builder. If needed, it will download the cross compilers needed to compile the kernel (`linaro <http://www.linaro.org/>`_ is the current cross compiler). If there is a kernel at ``~/linux-dev``, it will use it; otherwise, it will download a copy to ``bb-kernel/ignore/linux-src``. It will then patch the kernel so that it will run on the Bone. 
+2. When you know which kernel to try, use *git checkout* to check it out. 
+   This command checks out branch *ti-linux-5.10.y*.
+3. *build_deb.sh* is the master builder. If needed, it will download the cross compilers 
+   needed to compile the kernel (`gcc <https://gcc.gnu.org/>`_ is the current cross compiler). 
+   If there is a kernel at ``~/linux-dev``, it will use it; otherwise, 
+   it will download a copy to ``bb-kernel/ignore/linux-src``. 
+   It will then patch the kernel so that it will run on the Bone. 
+
+.. note:: 
+    *build_deb.sh* may ask you to install additional files. Just run **sudo apt install *files*** to
+    install them.
 
 After the kernel is patched, you'll see a screen similar to :ref:`kernel_config_fig`, on which you can configure the kernel.
 
