@@ -29,7 +29,7 @@ JavaScript and moving up with increasing speed (and effort) to using the PRUs.
 .. _realtime_JavaScript:
 
 I/O with Python and JavaScript
-====================
+==============================
 
 Problem
 --------
