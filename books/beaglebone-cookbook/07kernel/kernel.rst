@@ -12,14 +12,6 @@ You usually won't need to mess with the kernel, but sometimes you might want to 
 that requires a different kernel. This chapter shows how to switch kernels. The nice thing is you 
 can have multiple kernels on your system at the same time and select from among them which to boot up.
 
-.. TODO 
-    is this still true?
-
-.. note:: 
-    We assume here that you are logged on to your Bone as *root* and superuser privileges. 
-    You also need to be logged in to your Linux host computer as a nonsuperuser.
-
-
 Updating the Kernel
 ====================
 
