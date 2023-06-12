@@ -418,55 +418,96 @@ directory contains the compiled kernel and the files needed to run it.
 Installing the Kernel on the Bone
 ===================================
 
-To copy the new kernel and all its files to the microSD card, you need to halt the Bone, 
-and then pull the microSD card out and put it in an microSD card reader on your host computer. 
-Run *Disk* (see :ref:`basics_latest_os`) to learn where the microSD card appears on your host 
-(mine appears in ``/dev/sdb``). Then open the ``ti-linux-kernel-dev/system.sh`` file and find this line near the end:
+The **./build_deb.sh** script creates a single .deb file that contains all the files needed for the new kernel. 
+You find it here:
 
 .. code-block:: bash
 
-    MMC=/dev/sde
+    host$ cd ti-linux-kernel-dev/deploy
+    host$ ls -sh
+    total 40M
+    7.7M linux-headers-5.10.168-ti-r62_1xross_armhf.deb  8.0K linux-upstream_1xross_armhf.buildinfo
+     33M linux-image-5.10.168-ti-r62_1xross_armhf.deb    4.0K linux-upstream_1xross_armhf.changes
+    1.1M linux-libc-dev_1xross_armhf.deb
 
-
-Change that line to look like this (where */dev/sdb* is the path to your device):
-
-.. code-block:: bash
-    
-    MMC=/dev/sdb
-
-
-Now, while in the ``ti-linux-kernel-dev`` directory, run the following command:
+The **linux-image-** file is the one we want. It contains over 3000 files.
 
 .. code-block:: bash
 
-    host$ tools/install_kernel.sh
-    [sudo] password for yoder: 
+    host$ dpkg -c linux-image-5.10.168-ti-r62_1xross_armhf.deb | wc
+       3251   19506  379250
 
-    I see...
-    fdisk -l:
-    Disk /dev/sda: 160.0 GB, 160041885696 bytes
-    Disk /dev/sdb: 3951 MB, 3951034368 bytes
-    Disk /dev/sdc: 100 MB, 100663296 bytes
+The **dpkg** command lists all the files in the .deb file and the wc counts all the lines in the output. 
+You can see those files with:
 
-    lsblk:
-    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-    sda      8:0    0 149.1G  0 disk 
-    ├─sda1   8:1    0 141.1G  0 part /
-    ├─sda2   8:2    0     1K  0 part 
-    └─sda5   8:5    0     8G  0 part [SWAP]
-    sdb      8:16   1   3.7G  0 disk 
-    ├─sdb1   8:17   1    16M  0 part 
-    └─sdb2   8:18   1   3.7G  0 part 
-    sdc      8:32   1    96M  0 disk 
-    -----------------------------
-    Are you 100% sure, on selecting [/dev/sdb] (y/n)? y
+.. code-block:: bash
+ 
+    host$ dpkg -c linux-image-5.10.168-ti-r62_1xross_armhf.deb | less
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./boot/
+    -rw-r--r-- root/root   4763113 2023-06-12 12:57 ./boot/System.map-5.10.168-ti-r62
+    -rw-r--r-- root/root    191331 2023-06-12 12:57 ./boot/config-5.10.168-ti-r62
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./boot/dtbs/
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/
+    -rwxr-xr-x root/root     90644 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir2110.dtb
+    -rwxr-xr-x root/root     91362 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir3220.dtb
+    -rwxr-xr-x root/root     91633 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir5221.dtb
+    -rwxr-xr-x root/root     88684 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-base0033.dtb
 
+You can see it's putting things in the **/boot** directory.
 
-The script lists the partitions it sees and asks if you have the correct one. 
-If you are sure, press Y, and the script will uncompress and copy the files to 
-the correct locations on your card. When this is finished, eject your card, plug 
-it into the Bone, and boot it up. Run *uname -a*, and you 
-will see that you are running your compiled kernel.
+Note: You can also look into the other two .deb files and see what they install.
+
+Move the **linux-image-** file to your Bone.
+
+.. code-block:: bash
+
+    host$ scp linux-image-5.10.168-ti-r62_1xross_armhf.deb bone:.
+
+You might have to use debian@192.168.7.2 for bone if you haven't set everything up.
+
+Now ssh to the bone.
+
+.. code-block:: bash
+
+    host$ ssh bone
+    bone$ ls -sh
+    bin  exercises linux-image-5.10.168-ti-r62_1xross_armhf.deb
+
+Now install it.
+
+.. code-block:: bash
+
+    bone$ sudo dpkg --install linux-image-5.10.168-ti-r62_1xross_armhf.deb
+
+Wait a while. (Mine took almore 2 minutes.) Once done check /boot.
+
+.. code-block:: bash
+        
+    bone$ ls -sh /boot
+    total 40M
+    160K config-4.19.94-ti-r50        4.0K SOC.sh                     4.0K uEnv.txt.orig
+    180K config-5.10.168-ti-r62       3.5M System.map-4.19.94-ti-r50  9.7M vmlinuz-4.19.94-ti-r50
+    4.0K dtbs                         4.1M System.map-5.10.168-ti-r62 8.6M vmlinuz-5.10.168-ti-r62
+    6.4M initrd.img-4.19.94-ti-r50    4.0K uboot
+    6.8M initrd.img-5.10.168-ti-r62   4.0K uEnv.txt
+
+You see the new kernel files along with the old files. Check uEnv.txt.
+
+.. code-block:: bash
+
+    bone$ head /boot/uEnv.txt
+    #Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
+    # uname_r=4.19.94-ti-r50
+    uname_r=5.10.168-ti-r62
+
+I added the commented out uname_r line to make it easy to switch between versions of the kernel.
+
+Reboot and test out the new kernel.
+
+.. code-block:: bash
+
+    bone$ sudo reboot
 
 .. _kernel_using_cross_compiler:
 
@@ -475,6 +516,7 @@ Using the Installed Cross Compiler
 
 .. todo
     This should be removed 
+
 Problem
 --------
 
@@ -620,6 +662,9 @@ The *file* command shows that *a.out* was compiled for an ARM processor.
 Applying Patches
 =================
 
+.. todo
+    Remove patches?
+    
 Problem
 --------
 
