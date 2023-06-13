@@ -277,9 +277,6 @@ To make this recipe, you will need:
 - Flex resistor (optional)
 - 22 |kohm| resistor
 
-.. todo 
-   Convert to Omega
-
 A variable resistor with three terminals
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
