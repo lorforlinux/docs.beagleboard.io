@@ -5,6 +5,7 @@ Sensors
 
 .. |kohm| replace:: kΩ
 .. |ohm| replace:: Ω
+.. |deg| replace:: °
 
 In this chapter, you will learn how to sense the physical world with BeagleBone Black. 
 Various types of electronic sensors, such as cameras and microphones, can be connected 
