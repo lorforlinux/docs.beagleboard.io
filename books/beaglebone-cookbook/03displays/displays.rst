@@ -135,13 +135,13 @@ and find the code shown in :ref:`py_externLED_code`.
 
 :download:`externLED.py <../code/03displays/externLED.py>`
 
-.. _js_externLED_code:
+.. _c_externLED_code:
 
-.. literalinclude:: ../code/03displays/externLED.js
-   :caption: Code for using an external LED (externLED.js)
+.. literalinclude:: ../code/03displays/externLED.c
+   :caption: Code for using an external LED (externLED.c)
    :linenos:
 
-:download:`externLED.js <../code/03displays/externLED.js>`
+:download:`externLED.c <../code/03displays/externLED.c>`
 
 Save your file and run the code as before (:ref:`displays_onboardLED`).
 
