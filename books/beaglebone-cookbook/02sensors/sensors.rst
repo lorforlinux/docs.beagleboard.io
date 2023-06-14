@@ -126,7 +126,7 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 
 .. code-block::
 
-  root@beaglebone:~/boneSensors# ./pushbutton.js
+  debian@beaglebone:beaglebone-cookbook/code/02sensors$ ./pushbutton.py
   data= 0
   data= 0
   data= 1
@@ -178,13 +178,13 @@ reads GPIO port *P9_42*, which is attached to the pushbutton.
 
 :download:`pushbutton.py <../code/02sensors/pushbutton.py>`
 
-.. _js_pushbutton_code:
+.. _c_pushbutton_code:
 
-.. literalinclude:: ../code/02sensors/pushbutton.js
-   :caption: Monitoring a pushbutton (pushbutton.js)
+.. literalinclude:: ../code/02sensors/pushbutton.c
+   :caption: Monitoring a pushbutton (pushbutton.c)
    :linenos:
 
-:download:`pushbutton.js <../code/02sensors/pushbutton.js>`
+:download:`pushbutton.c <../code/02sensors/pushbutton.c>`
 
 Put this code in a file called *pushbutton.py* following the steps in :ref:`sensors_getting_started`. 
 In the VSC *bash* tab, run it by using the following commands:
@@ -201,6 +201,18 @@ In the VSC *bash* tab, run it by using the following commands:
 The command runs it. Try pushing the button. The code reads the pin and prints its current value.
 
 You will have to press ^C (Ctrl-C) to stop the code.
+
+If you want to run the C version do:
+
+.. code-block:: bash
+
+  bone$ gcc -o pushbutton pushbutton.c -lgpiod
+  bone$ ./pushbutton
+  data = 0
+  data = 0
+  data = 1
+  data = 1
+  ^C
 
 If you want to use the magnetic reed switch wired as shown in 
 :ref:`js_pushbutton_fig`, change *P9_42* to *P9_26* which is gpio *14*. 
