@@ -126,6 +126,9 @@ the LED. The _short_ lead always goes to ground.
 
 After you've wired it, start VSC (see :ref:`basics_vsc`) 
 and find the code shown in :ref:`py_externLED_code`.
+Notice that it looks very similar to the *internLED* code, in fact it only
+differs in the line number (18 instead of 21).  The built-in LEDs use the same
+GPIO interface as the GPIO pins.
 
 .. _py_externLED_code:
 
