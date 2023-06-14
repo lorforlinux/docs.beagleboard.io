@@ -9,6 +9,12 @@ Using boards with ClickID
 What is mikroBUS?
 =================
 
+mikroBUS is an open standard for add-on boards for sensors, connectivity, displays, storage and more with over 1,400 available from just a single source, `MikroE <https://www.mikroe.com/click>`_. With the flexibility of all of the most common embedded serial busses, UART, I2C and SPI, along with ADC, PWM and GPIO functions, it is a great solution for connecting all sorts of electronics.
+
+.. note::
+
+   Learn more at https://www.mikroe.com/mikrobus
+
 What is ClickID?
 ================
 
@@ -38,9 +44,11 @@ What if my add-on doesn't have ClickID?
 It is still possible a ``manifest`` has been created for your add-on as we have created over 100 of them. You can install the existing manifest files onto your BeaglePlay.
 
 
-sudo apt update
-sudo apt install bb-clickid-manifests
-cat /opt/manifests/amibient-light-click.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
+.. code::
+
+   sudo apt update
+   sudo apt install bb-clickid-manifests
+   cat /opt/manifests/amibient-light-click.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
 
 It'll forget on reboot... need to have a boot service.
 
@@ -65,8 +73,18 @@ Steps:
 
    Patched Linux with out-of-tree Mikrobus driver: https://git.beagleboard.org/beagleboard/linux
 
+
 How does ClickID work?
 **********************
+
+
+Disabling the mikroBUS driver
+*****************************
+
+If you'd like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a deivce tree overlay at boot.
+
+
+
 
 .. todo::
 
