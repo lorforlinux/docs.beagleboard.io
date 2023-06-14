@@ -4,10 +4,10 @@ Introduction
 #############
 
 BeagleV Ahead is an open-source RISC-V Single Board Computer (SBC) in the form 
-factor of BeagleBone Black. It has the same P8 & P9 cape header pins allowing you 
-to stack your favourite BeagleBone cape on top to expand it's capability. 
-It's designed as an affordable RISC-V enabled pocket-size computer for anybody 
-who want's to dive deep into the new RISC-V ISA.
+factor of BeagleBone Black. It has the same P8 & P9 cape header pins as BeagleBone Black 
+allowing you to stack your favourite BeagleBone cape on top to expand it's capability. 
+Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable 
+RISC-V enabled pocket-size computer for anybody who want's to dive deep into the new RISC-V ISA.
 
 .. table::
    :align: center
