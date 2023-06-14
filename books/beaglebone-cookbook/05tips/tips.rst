@@ -380,9 +380,8 @@ Log in to your Bone and enter the following command:
    BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
 
 
-:ref:`basics_latest_os` shows how to open the ``ID.txt`` file to see the OS version. 
-The ``/etc/dogtag`` file has the same contents and is easier to find if you already 
-have a command prompt. See :ref:`basics_install_os` if you need to update your OS.
+:ref:`basics_latest_os` shows how to open the ``/etc/dogtag`` file to see the OS version. 
+See :ref:`basics_install_os` if you need to update your OS.
 
 Controlling the Bone Remotely with a VNC
 =========================================

@@ -55,7 +55,7 @@ through *USR3*, but we'll refer to them as the *USER* LEDs.
 
      The four *USER* LEDs
 
-Place the code shown in :ref:`js_internLED_code` in a file called ``internLED.js``. 
+Place the code shown in :ref:`py_internLED_code` in a file called ``internLED.py``. 
 You can do this using VSC to edit files (as shown in :ref:`basics_vsc`) or with 
 a more traditional editor (as shown in :ref:`tips_editing_files`).
 
@@ -67,21 +67,20 @@ a more traditional editor (as shown in :ref:`tips_editing_files`).
 
 :download:`internLED.py <../code/03displays/internLED.py>`
 
-.. _js_internLED_code:
+.. _c_internLED_code:
 
-.. literalinclude:: ../code/03displays/internLED.js
-   :caption: Using an internal LED (internLED.js)
+.. literalinclude:: ../code/03displays/internLED.c
+   :caption: Using an internal LED (internLED.c)
    :linenos:
 
-:download:`internLED.js <../code/03displays/internLED.js>`
+:download:`internLED.c <../code/03displays/internLED.c>`
 
 In the *bash* command window, enter the following commands:
 
 .. code-block:: bash
 
      bone$ cd ~/beaglebone-cookbook-code/03displays
-     bone$ ./internLED.js
-
+     bone$ ./internLED.py
 
 The *USER0* LED should now be flashing.
 

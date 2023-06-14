@@ -131,7 +131,7 @@ following the instructions in :ref:`basics_out_of_the_box` to log into the Bone.
 
 .. code-block:: bash
 
-    bone$ cat /ID.txt
+    bone$ cat /etc/dogtag
     BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
 
 I'm running the 2023-06-03 version.
