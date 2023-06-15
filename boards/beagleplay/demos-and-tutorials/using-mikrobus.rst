@@ -83,8 +83,50 @@ Disabling the mikroBUS driver
 
 If you'd like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a deivce tree overlay at boot.
 
+.. todo::
 
+    Document kernel version that integrates this overlay and where to get update instructions.
 
+.. note::
+
+    To utilize the overlay with these instructions, make sure to have TBD version of kernel, modules and firmware installed. Use `uname -a` to determine the currently running kernel version. See TBD for information on how to update.
+
+Apply overlay to disable mikrobus0 instance.
+
+.. code-block:: bash
+
+    echo "    fdtoverlays /overlays/k3-am625-beagleplay-release-mikrobus.dtbo" | sudo tee -a /boot/firmware/extlinux/extlinux.conf
+    sudo shutdown -r now
+
+Log back in after reboot and verify the device driver did not capture the busses.
+
+.. code-block:: shell-session
+
+    debian@BeaglePlay:~$ ls /dev/play
+    grove  mikrobus  qwiic
+    debian@BeaglePlay:~$ ls /dev/play/mikrobus/
+    i2c
+    debian@BeaglePlay:~$ ls /sys/bus/mikrobus/devices/
+    debian@BeaglePlay:~$ ls /proc/device-tree/chosen/overlays/
+    k3-am625-beagleplay-release-mikrobus  name
+    debian@BeaglePlay:~$
+
+To re-enable.
+
+.. code-block:: bash
+
+    sudo sed -e '/release-mikrobus/ s/^#*/#/' -i /boot/firmware/extlinux/extlinux.conf
+    sudo shutdown -r now
+
+Verify driver is enabled again.
+
+.. code-block:: shell-session
+
+    debian@BeaglePlay:~$ ls /sys/bus/mikrobus/devices/
+    mikrobus-0
+    debian@BeaglePlay:~$ ls /proc/device-tree/chosen/overlays/
+    ls: cannot access '/proc/device-tree/chosen/overlays/': No such file or directory
+    debian@BeaglePlay:~$
 
 .. todo::
 
