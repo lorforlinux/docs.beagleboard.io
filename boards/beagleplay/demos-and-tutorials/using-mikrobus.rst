@@ -24,11 +24,13 @@ ClickID enables mikroBUS add-on boards to be identified along with the configura
 
    Learn more at https://github.com/MikroElektronika/click_id
 
+BeaglePlay's Linux kernel is patched with a mikrobus driver that automatically reads the ClickID and loads a driver, greatly simplifying usage.
+
 
 Does my add-on have ClickID?
 ============================
 
-Look for the "ID" logo on the board. It is likely on the back.
+Look for the "ID" logo on the board. It should be on the side with the pins sticking out, near the AN pin.
 
 .. todo::
 
@@ -48,7 +50,7 @@ It is still possible a ``manifest`` has been created for your add-on as we have 
 
    sudo apt update
    sudo apt install bb-clickid-manifests
-   cat /opt/manifests/amibient-light-click.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
+   cat /lib/firmware/mikrobus/amibient-light-click.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
 
 It'll forget on reboot... need to have a boot service.
 
