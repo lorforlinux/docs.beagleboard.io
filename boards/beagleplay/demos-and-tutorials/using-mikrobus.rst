@@ -49,7 +49,7 @@ It is still possible a ``manifest`` has been created for your add-on as we have 
 .. code::
 
    sudo apt update
-   sudo apt install bb-clickid-manifests
+   sudo apt install bbb.io-clickid-manifests
    cat /lib/firmware/mikrobus/amibient-light-click.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
 
 It'll forget on reboot... need to have a boot service.
