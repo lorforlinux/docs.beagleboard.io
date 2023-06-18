@@ -103,6 +103,18 @@ Demos and tutorials
         
         intermediate
 
+.. card::
+    :link: play-kernel-development
+    :link-type: ref
+
+    **Linux Kernel development**
+    ^^^
+    Compile and install Linux Kernel to your beagleplay.
+    +++
+    .. admonition:: Complexity level
+
+        intermediate
+
 .. raw:: latex
 
    \end{comment}
@@ -119,3 +131,4 @@ Demos and tutorials
    demos-and-tutorials/using-oldi
    demos-and-tutorials/using-csi
    demos-and-tutorials/zephyr-cc1352-development
+   demos-and-tutorials/play-kernel-development
