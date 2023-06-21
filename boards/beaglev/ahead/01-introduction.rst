@@ -17,7 +17,7 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
    | .. image:: media/product-pictures/front.*          | .. image:: media/product-pictures/back.*                |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
-   |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
+   |    :alt: BeagleV Ahead front                       |       :alt: BeagleV Ahead back                          |
    +----------------------------------------------------+---------------------------------------------------------+
 
 .. _beaglev-ahead-detaild-overview:
