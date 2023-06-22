@@ -102,40 +102,40 @@ IIO driver
 
 https://docs.kernel.org/driver-api/iio/intro.html
 
-.. code: shell-session
+.. code-block:: shell-session
 
-    debian@BeaglePlay:~$ iio_info 
+    debian@BeaglePlay:~$ iio_info
     Library version: 0.24 (git tag: v0.24)
     Compiled with backends: local xml ip usb
     IIO context created with local backend.
     Backend version: 0.24 (git tag: v0.24)
     Backend description string: Linux BeaglePlay 5.10.168-ti-arm64-r104 #1bullseye SMP Thu Jun 8 23:07:22 UTC 2023 aarch64
     IIO context has 2 attributes:
-	    local,kernel: 5.10.168-ti-arm64-r104
-	    uri: local:
+    	    local,kernel: 5.10.168-ti-arm64-r104
+    	    uri: local:
     IIO context has 2 devices:
-	    iio:device0: opt3001
-		    1 channels found:
-			illuminance:  (input)
-			    2 channel-specific attributes found:
-				    attr  0: input value: 163.680000
-				    attr  1: integration_time value: 0.800000
-		    2 device-specific attributes found:
-				    attr  0: current_timestamp_clock value: realtime
-    
-				    attr  1: integration_time_available value: 0.1 0.8
-		    No trigger on this device
-	    iio:device1: adc102s051
-		    2 channels found:
-			    voltage1:  (input)
-			    2 channel-specific attributes found:
-				    attr  0: raw value: 4084
-				    attr  1: scale value: 0.805664062
-			    voltage0:  (input)
-			    2 channel-specific attributes found:
-				    attr  0: raw value: 2440
-				    attr  1: scale value: 0.805664062
-		    No trigger on this device
+    	    iio:device0: opt3001
+    		    1 channels found:
+    			illuminance:  (input)
+    			    2 channel-specific attributes found:
+    				    attr  0: input value: 163.680000
+    				    attr  1: integration_time value: 0.800000
+    		    2 device-specific attributes found:
+    				    attr  0: current_timestamp_clock value: realtime
+        
+    				    attr  1: integration_time_available value: 0.1 0.8
+    		    No trigger on this device
+    	    iio:device1: adc102s051
+    		    2 channels found:
+    			    voltage1:  (input)
+    			    2 channel-specific attributes found:
+    				    attr  0: raw value: 4084
+    				    attr  1: scale value: 0.805664062
+    			    voltage0:  (input)
+    			    2 channel-specific attributes found:
+    				    attr  0: raw value: 2440
+    				    attr  1: scale value: 0.805664062
+    		    No trigger on this device
 
 
 Storage driver
