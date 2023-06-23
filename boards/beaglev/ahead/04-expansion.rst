@@ -3,13 +3,8 @@
 Expansion
 #########
 
-.. _beaglev-ahead-connectors:
-
-Connectors
-############
-
-Expansion Connectors
-*********************
+Cape Headers
+*************
 
 The expansion interface on the board is comprised of two headers P8 (46 pin) & P9 (46 pin).
 All signals on the expansion headers are **3.3V** unless otherwise indicated.
