@@ -11,6 +11,20 @@ specifications in  a short and crisp form as well.
 Block diagram
 **************
 
+.. figure:: media/hardware-design/SystemBlockDiagram.*
+    :width: 740
+    :align: center
+    :alt: System block diagram
+
+    System block diagram
+
+.. figure:: media/hardware-design/I2C-Usage.*
+    :width: 420
+    :align: center
+    :alt: I2C-Usage diagram
+
+    I2C-Usage diagram
+ 
 System on Chip (SoC)
 *********************
 
