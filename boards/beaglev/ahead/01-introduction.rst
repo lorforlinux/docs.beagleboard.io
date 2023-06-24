@@ -20,6 +20,21 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
    |    :alt: BeagleV Ahead front                       |       :alt: BeagleV Ahead back                          |
    +----------------------------------------------------+---------------------------------------------------------+
 
+Pinout Diagrams
+***************
+
+.. figure:: media/pinout/BeagleV-Ahead-P8.*
+    :align: center
+    :alt: BeagleV Ahead P8 cape header pinout
+
+    BeagleV Ahead P8 cape header pinout
+
+.. figure:: media/pinout/BeagleV-Ahead-P9.*
+    :align: center
+    :alt: BeagleV Ahead P9 cape header pinout
+
+    BeagleV Ahead P9 cape header pinout
+
 .. _beaglev-ahead-detaild-overview:
 
 Detailed overview
