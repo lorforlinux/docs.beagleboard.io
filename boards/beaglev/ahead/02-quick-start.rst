@@ -24,30 +24,31 @@ Antenna guide
 
 .. warning:: uFL antenna connectors are very delicate and should be handled with care.
 
-Connecting antenna
-===================
+.. tabs::
 
-To use WiFi you are **required** to connect the 2.5GHz/5GHz antenna provided 
-in the BeagleV Ahead box. Below is a guide to connect the antenna to your 
-BeagleV Ahead board.
+   .. group-tab:: Connecting antenna
 
-.. figure:: media/antenna-guide/connect.*
-    :align: center
-    :alt: Connecting 2.5GHz/5GHz antenna to BeagleV Ahead.
+      To use WiFi you are **required** to connect the 2.5GHz/5GHz antenna provided 
+      in the BeagleV Ahead box. Below is a guide to connect the antenna to your 
+      BeagleV Ahead board.
 
-    Connecting 2.5GHz/5GHz antenna to BeagleV Ahead.
+      .. figure:: media/antenna-guide/connect.*
+          :align: center
+          :alt: Connecting 2.5GHz/5GHz antenna to BeagleV Ahead.
 
-Disconnecting antenna
-=====================
+          Connecting 2.5GHz/5GHz antenna to BeagleV Ahead.
 
-If for some reason you want to disconnect the antenna from your BeagleV Ahead board 
-you can follow the guide below to remove the antenna without beaking the uFL antenna connector.
+   .. group-tab:: Disconnecting antenna
 
-.. figure:: media/antenna-guide/remove.*
-    :align: center
-    :alt: Removing 2.5GHz/5GHz antenna to BeagleV Ahead.
 
-    Removing 2.5GHz/5GHz antenna to BeagleV Ahead.
+      If for some reason you want to disconnect the antenna from your BeagleV Ahead board 
+      you can follow the guide below to remove the antenna without beaking the uFL antenna connector.
+
+      .. figure:: media/antenna-guide/remove.*
+          :align: center
+          :alt: Removing 2.5GHz/5GHz antenna to BeagleV Ahead.
+
+          Removing 2.5GHz/5GHz antenna to BeagleV Ahead.
 
 Tethering to PC
 ****************
