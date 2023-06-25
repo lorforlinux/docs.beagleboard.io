@@ -15,7 +15,7 @@ as shown in :ref:`sensors_host_port`.
 
 .. _sensors_host_port:
 
-.. figure:: figures/black_hardware_details.png
+.. figure:: figures/black_hardware_details.*
    :align: center
    :alt: USB Host Port
 
@@ -59,7 +59,7 @@ Solution
 
 .. _sensors_cape_headers:
 
-.. figure:: figures/cape-headers.png
+.. figure:: figures/cape-headers.*
    :align: center
    :alt: Sensor Connection Modes
    

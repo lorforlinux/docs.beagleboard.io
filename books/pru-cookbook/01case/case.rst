@@ -647,7 +647,7 @@ to full white at the same time you will need at least a 4A supply.
 
 .. _case_pocket:
 
-.. figure:: figures/pocketscroller.jpg
+.. figure:: figures/pocketscroller.*
    :align: center
    :alt: PocketBeagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
 
@@ -888,7 +888,7 @@ select **Twinkle 50%**.  You matrix should have a colorful twinkle pattern
 
 .. _case_xlights_twinkle:
 
-.. figure:: figures/xlights_twinkle.jpg
+.. figure:: figures/xlights_twinkle.*
    :align: center
    :alt: xLights Twinkle test pattern
 

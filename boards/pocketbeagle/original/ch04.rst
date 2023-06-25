@@ -137,7 +137,7 @@ and function.
 Figure below shows the locations of the devices, connectors, LEDs,
 and switches on the PCB layout of the board.
 
-.. figure:: images/21fig-PB-walkaround.png
+.. figure:: images/21fig-PB-walkaround.*
    :align: center
    :alt: Key Board Component Locations
 

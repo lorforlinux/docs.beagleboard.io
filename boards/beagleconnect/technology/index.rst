@@ -12,7 +12,7 @@ architecture.
 .. note:: 
     This documentation and the associated software are each a work-in-progress.
 
-.. image:: ../freedom/media/BeagleConnect-Freedom-Front.png
+.. image:: ../freedom/media/BeagleConnect-Freedom-Front.*
    :width: 598
    :align: center
    :height: 400

@@ -3,14 +3,14 @@
 Additional Pictures
 ============================
 
-.. figure:: images/PocketBeagle_Front_BW.jpg
+.. figure:: images/PocketBeagle_Front_BW.*
    :align: center
    :alt: PocketBeagle Front BW
 
    PocketBeagle Front BW
                                 
 
-.. figure:: images/PocketBeagle_Back_BW.jpg
+.. figure:: images/PocketBeagle_Back_BW.*
    :align: center
    :alt: PocketBeagle Back BW
 

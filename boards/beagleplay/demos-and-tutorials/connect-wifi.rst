@@ -138,7 +138,7 @@ Final step is to type your WiFi access point password under ``PSK`` input field 
 click on ``Add`` (as shown in screenshot below) which will automatically connect 
 your board to WiFi (if password is correct). 
 
-.. figure:: ../images/wpa_gui_step3c.png
+.. figure:: ../images/wpa_gui_step3c.*
     :align: center
     :alt: Connecting to WiFi access point
 

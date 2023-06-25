@@ -198,14 +198,21 @@ Press reset
 0.2.2
 =====
 
+.. todo::
+
+   Need to describe functionality of 0.2.2
 
 Updating
 ********
 
+Look for the latest firmware release on https://www.beagleboard.org/distros or on https://beagleconnect.org.
+
+Download, unzip and flash the ``micropython-w-boot`` image.
+
 .. code-block:: bash
 
-   wget 
-   unzip 
+   wget https://files.beagle.cc/file/beagleboard-public-2021/images/zephyr-beagle-cc1352-0.2.2.zip
+   unzip zephyr-beagle-cc1352-0.2.2.zip
    ./build/freedom/cc2538-bsl.py build/freedom/micropython-w-boot
 
 Contributing

@@ -11,7 +11,7 @@ import re
 import sphinx_rtd_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
-ImagemagickConverter.conversion_rules.append(('image/webp', 'image/jpeg'))
+ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
@@ -36,10 +36,14 @@ extensions = [
 
 todo_include_todos = True
 
-# Update supported_image_types selection priority order
+# Update (HTML) supported_image_types selection priority order
 from sphinx.builders.html import StandaloneHTMLBuilder
 StandaloneHTMLBuilder.supported_image_types = ['image/svg+xml', 'image/webp', 'image/jpg', 
                                        'image/jpeg', 'image/gif', 'image/png']
+
+# Update (PDF) supported_image_types selection priority order
+from sphinx.builders.latex import LaTeXBuilder
+LaTeXBuilder.supported_image_types = ['application/pdf', 'image/jpg', 'image/jpeg', 'image/png']
 
 templates_path = ['_templates']
 
