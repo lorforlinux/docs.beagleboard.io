@@ -23,17 +23,26 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
 Pinout Diagrams
 ***************
 
-.. figure:: media/pinout/BeagleV-Ahead-P8.*
-    :align: center
-    :alt: BeagleV Ahead P8 cape header pinout
+Choose the cape header to see respective pinout diagram.
 
-    BeagleV Ahead P8 cape header pinout
+.. tabs::
 
-.. figure:: media/pinout/BeagleV-Ahead-P9.*
-    :align: center
-    :alt: BeagleV Ahead P9 cape header pinout
+   .. group-tab:: P8 cape header
 
-    BeagleV Ahead P9 cape header pinout
+        .. figure:: media/pinout/BeagleV-Ahead-P8.*
+            :align: center
+            :alt: BeagleV Ahead P8 cape header pinout
+
+            BeagleV Ahead P8 cape header pinout
+
+
+   .. group-tab:: P9 cape header
+
+        .. figure:: media/pinout/BeagleV-Ahead-P9.*
+            :align: center
+            :alt: BeagleV Ahead P9 cape header pinout
+
+            BeagleV Ahead P9 cape header pinout
 
 .. _beaglev-ahead-detaild-overview:
 
