@@ -7,7 +7,7 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
-Converting a tmp117 to a tmp 114
+Converting a tmp117 to a tmp114
 ================================
 
 Problem
@@ -34,7 +34,7 @@ Let's see if there are any matches in */lib/modules*.
 
 .. code-block:: bash
 
-    bone$  find /lib/modules/ -iname "*tmp*"
+    bone$ find /lib/modules/ -iname "*tmp*"
     /lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/iio/temperature/tmp006.ko.xz
     /lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/iio/temperature/tmp007.ko.xz
     /lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp103.ko.xz
@@ -56,8 +56,8 @@ The first line in the table is **mainline**.  Click on the **browse** link on th
 Here you will see the top level of the Linux sourse tree for the *mainline* version of the kernel.
 Click on **drivers** and then **iio**. Finally, since tmp114 is a temperture sensor, click on **temperature**.
 Here you see all the source code for the iio temperature drivers for the mainline version of the kernel. 
-We've seen tmp006 and tmp007 before, tmp117 is new. Maybe it will work.  Click on **tmp117.c** to see the code.
-Looks like it also works for the tmp116.  Let's try convering it to work with the tmp114.
+We've seen tmp006 and tmp007 as before, tmp117 is new. Maybe it will work.  Click on **tmp117.c** to see the code.
+Looks like it also works for the tmp116 too.  Let's try convering it to work with the tmp114.
 
 A quick way to copy the code to the bone is to right-click on the **plain** link and select *Copy link address*.
 Then, on the bone enter **wget** and paste the link.  Mine looks like the following, yours will be similar.
@@ -148,6 +148,7 @@ more messages.
 If all worked you shouldn't see any messages, either after the command or in the dmesg window.
 If you want to insert the module again, you will have to remove it first.
 Remove with:
+
 .. code-block:: bash
 
     bone$ sudo rmmod tmp114
@@ -162,7 +163,7 @@ so I run:
 
 .. code-block:: bash
 
-     i2cdetect -y -r 3
+    bone$ i2cdetect -y -r 3
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
     00:                         -- -- -- -- -- -- -- --
     10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -193,7 +194,7 @@ Registers and IDs
 Each |I2C| device has a number of internal registers that interact with the device.
 The tmp114 uses different register numbers than the tmp117, so you need to change these values.
 To do this, Google for the data sheets for each and look them up. 
-I found them at: https://www.ti.com/lit/gpn/tmp114 and https://www.ti.com/lit/gpn/TMP117.
+I found them at: https://www.ti.com/lit/gpn/tmp114 and https://www.ti.com/lit/gpn/tmp117.
 
 Creating a new device
 ^^^^^^^^^^^^^^^^^^^^^
@@ -222,7 +223,7 @@ The final **3** in the path is for bus **3**, your milage may vary.
 We then change the group to **gpio** and give it write permission.
 You only need to do this once.
 
-Now make the device.
+Now make a new device.
 
 .. code-block:: bash
 
@@ -273,7 +274,7 @@ If you try to run i2cget again, you'll get an error:
     bone$ i2cget -y 3 0x4d 0 w
     Error: Could not set address to 0x4d: Device or resource busy
 
-This is because the module is using it.  Delete the driver and you'll have access again.
+This is because the module is using it.  Delete the device and you'll have access again.
 
 .. code-block:: bash
 
@@ -282,3 +283,85 @@ This is because the module is using it.  Delete the driver and you'll have acces
     0x8e10
 
 You should also see a message in dmesg.
+
+
+Documenting with Sphinx
+========================
+
+Problem
+-------
+
+You want to add or update the Beagle documentation.
+
+Solution
+--------
+
+BeagleBoard.org uses the `Sphinx Python Documentation Generator 
+<https://www.sphinx-doc.org/en/master/index.html>`_ and the 
+`rst <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ markup language.
+
+Here's what you need to do to fork the repository and render a local copy of
+the documentation.  Browse to https://docs.beagleboard.org/latest/ and click on 
+the **Edit on GitLab** button on the upper-right of the page. CLone the repository.
+
+Downloading Sphinx
+^^^^^^^^^^^^^^^^^^
+Run the following to download Sphinx. Note:  This will take a while, it loads
+some 6G bytes.
+
+.. code-block:: bash
+
+    bone$ sudo apt update
+    bone$ sudo apt upgrade
+    bone$ sudo apt install -y \
+        make git wget \
+        doxygen graphviz librsvg2-bin\
+        texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended \
+        python3 python3-pip \
+        python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.svg2pdfconverter \
+        python3-pil \
+        imagemagick-6.q16 librsvg2-bin webp \
+        texlive-full texlive-latex-extra texlive-fonts-extra \
+        fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
+    bone$ python3 -m pip install --upgrade pip
+    bone$ pip install -U sphinx_design 
+    bone$ pip install -U sphinxcontrib-images
+    bone$ pip install -U sphinx-serve
+
+These instructions came from `lorforlinux 
+<https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
+on the Beagleboard Slack channel.
+
+Now go to the cloned *docs.beagleboard.io* repository folder and do the following.
+To clean build directory:
+
+.. code-block:: bash
+
+    bone$ cd docs.beagleboard.io
+    bone$ make clean
+
+To generate HTML output of docs:
+
+.. code-block:: bash
+
+    bone$ make html
+
+To generate PDF output of docs:
+
+.. code-block::bash
+
+    bone$ make latexpdf
+
+To preview docs on your local machine:
+
+.. code-block:: bash
+
+    bone$ sphinx-serve
+
+Then point your browser to localhost:8081.
+
+.. tip:: 
+    You can keep the sphinx-serve running until you clean the build directory 
+    using make clean.
+    Warnings will be hidden after first run of make html or make latexpdf, 
+    to see all the warnings again just run make clean before building HTML or PDF
