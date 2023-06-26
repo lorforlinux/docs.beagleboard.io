@@ -302,7 +302,26 @@ BeagleBoard.org uses the `Sphinx Python Documentation Generator
 
 Here's what you need to do to fork the repository and render a local copy of
 the documentation.  Browse to https://docs.beagleboard.org/latest/ and click on 
-the **Edit on GitLab** button on the upper-right of the page. CLone the repository.
+the **Edit on GitLab** button on the upper-right of the page. Clone the repository.
+
+.. code-block:: bash
+
+    bash$ git clone git@git.beagleboard.org:docs/docs.beagleboard.io.git
+    bash$ cd docs.beagleboard.io
+
+Then run the following to load the **code** submodule
+
+.. code-block:: bash
+
+    bash$ git submodule update --init
+
+Now, sync changes with upstream:
+
+.. code-block:: bash
+
+    bone$ git remote add upstream https://git.beagleboard.org/docs/docs.beagleboard.io.git
+    bone$ git fetch upstream
+    bone$ git pull upstream main
 
 Downloading Sphinx
 ^^^^^^^^^^^^^^^^^^
@@ -348,7 +367,7 @@ To generate HTML output of docs:
 
 To generate PDF output of docs:
 
-.. code-block::bash
+.. code-block:: bash
 
     bone$ make latexpdf
 
@@ -365,3 +384,22 @@ Then point your browser to localhost:8081.
     using make clean.
     Warnings will be hidden after first run of make html or make latexpdf, 
     to see all the warnings again just run make clean before building HTML or PDF
+
+
+Creating A New Book
+^^^^^^^^^^^^^^^^^^^^
+- Create a new book folder here: 
+  https://git.beagleboard.org/docs/docs.beagleboard.io/-/tree/main/books
+- Create rst files for all the chapters in there respective folders so 
+  that you can easily manage media for that chapter as shown here: 
+  https://git.beagleboard.org/docs/docs.beagleboard.io/-/tree/main/books/pru-cookbook
+- Create an index.rst file in the book folder and add a table of content (toc) 
+  for all the chapters. For example see this file: 
+  https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/books/pru-cookbook/index.rst
+- Add the bookname/index.rst reference in the main index file as well: 
+  https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/books/index.rst
+- At last you have to update the two files below to render the book in HTML and 
+  PDF version of the docs respectively:
+  https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index.rst
+  https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index-tex.rst
+
