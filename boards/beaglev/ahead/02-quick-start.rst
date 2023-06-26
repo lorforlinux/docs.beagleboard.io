@@ -28,15 +28,15 @@ Antenna guide
 
    .. group-tab:: Connecting antenna
 
-      To use WiFi you are **required** to connect the 2.5GHz/5GHz antenna provided 
+      To use WiFi you are **required** to connect the 2.4GHz/5GHz antenna provided 
       in the BeagleV Ahead box. Below is a guide to connect the antenna to your 
       BeagleV Ahead board.
 
       .. figure:: media/antenna-guide/connect.*
           :align: center
-          :alt: Connecting 2.5GHz/5GHz antenna to BeagleV Ahead.
+          :alt: Connecting 2.4GHz/5GHz antenna to BeagleV Ahead.
 
-          Connecting 2.5GHz/5GHz antenna to BeagleV Ahead.
+          Connecting 2.4GHz/5GHz antenna to BeagleV Ahead.
 
    .. group-tab:: Disconnecting antenna
 
@@ -46,9 +46,9 @@ Antenna guide
 
       .. figure:: media/antenna-guide/remove.*
           :align: center
-          :alt: Removing 2.5GHz/5GHz antenna to BeagleV Ahead.
+          :alt: Removing 2.4GHz/5GHz antenna to BeagleV Ahead.
 
-          Removing 2.5GHz/5GHz antenna to BeagleV Ahead.
+          Removing 2.4GHz/5GHz antenna to BeagleV Ahead.
 
 Tethering to PC
 ****************
