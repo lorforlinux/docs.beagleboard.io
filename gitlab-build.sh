@@ -83,30 +83,18 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export VERSION_MAJOR=${TAG_VER[0]}
 	export VERSION_MINOR=${TAG_VER[1]}
 	export EXTRAVERSION=${TAG_SPLIT[1]}
-	# export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | head -1 | sed 's/.*origin\///')
-	if [ "$PROJECT_BRANCH" != "" ]; then export GIT_BRANCH=$PROJECT_BRANCH; else export GIT_BRANCH=$CI_DEFAULT_BRANCH; fi
-
-	if [ "$GIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
-		export VER_DIR=latest
-		export PAGES_URL=https://docs.beagleboard.org
-		export PAGES_SLUG=latest
-		export GITLAB_USER=docs
-		export GITLAB_HOST=$CI_SERVER_HOST
-		export PROJECT_BRANCH=$GIT_BRANCH
-		export PROJECT_REPO=docs.beagleboard.io
-		do_build
-	elif [ "$GIT_BRANCH" != "" ]; then
-		export VER_DIR=$GIT_BRANCH
-		export PAGES_URL=https://docs.beagleboard.org
-		export PAGES_SLUG=$GIT_BRANCH
-		export GITLAB_USER=docs
-		export GITLAB_HOST=$CI_SERVER_HOST
-		export PROJECT_BRANCH=$GIT_BRANCH
-		export PROJECT_REPO=docs.beagleboard.io
-		do_build
+	export PAGES_URL=https://docs.beagleboard.org
+	export GITLAB_USER=docs
+	export GITLAB_HOST=$CI_SERVER_HOST
+	export PROJECT_REPO=docs.beagleboard.io
+	if [ "$PROJECT_BRANCH" ]; then
+		export VER_DIR=$PROJECT_BRANCH
+		export PAGES_SLUG=$PROJECT_BRANCH
 	else
-		echo "***** Branch not found for tag *****"
+		export VER_DIR=latest
+		export PAGES_SLUG=latest
 	fi
+	do_build
 else
 	echo "***** Not on a branch or tag *****"
 fi
