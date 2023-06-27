@@ -14,6 +14,7 @@ from sphinx.ext.imgconverter import ImagemagickConverter
 ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
+print("BBDOCS_BASE: ", BBDOCS_BASE)
 
 # -- Project information -----------------------------------------------------
 
