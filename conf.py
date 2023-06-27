@@ -14,7 +14,6 @@ from sphinx.ext.imgconverter import ImagemagickConverter
 ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
-print("BBDOCS_BASE: ", BBDOCS_BASE)
 
 # -- Project information -----------------------------------------------------
 
@@ -65,8 +64,8 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
 }
 html_title = "BeagleBoard Documentation"
-html_logo = "_static/images/logo.svg"
-html_favicon = "_static/images/favicon.ico"
+html_logo = str(BBDOCS_BASE / "_static" / "images" / "logo.svg")
+html_favicon = str(BBDOCS_BASE / "_static" / "images" / "favicon.ico")
 html_static_path = [str(BBDOCS_BASE / "_static")]
 html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
