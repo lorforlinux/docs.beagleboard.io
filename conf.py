@@ -65,12 +65,8 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
 }
 html_title = "BeagleBoard Documentation"
-html_logo = str(BBDOCS_BASE / "_static" / "images" / "logo.svg")
-print(html_logo)
-html_favicon = str(BBDOCS_BASE / "_static" / "images" / "favicon.ico")
-print(html_favicon)
-print(os.listdir(str(BBDOCS_BASE / "_static")))
-print(os.listdir(str(BBDOCS_BASE / "_static" / "images")))
+html_logo = "_static/images/logo.svg"
+html_favicon = "_static/images/favicon.ico"
 html_static_path = [str(BBDOCS_BASE / "_static")]
 html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
