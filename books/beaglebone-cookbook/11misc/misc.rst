@@ -403,3 +403,42 @@ Creating A New Book
   https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index.rst
   https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index-tex.rst
 
+
+
+Running Sparkfun's qwiic Python Examples
+========================================
+
+Many of the Sparkfun qwiic devices have Python examples showing 
+how to use them.  Unfortunately the examples assume |I2C| bus 
+1 is used, but the qwiic bus on the Play is bus 5. 
+Here is a quick hack to get the Sparkfun Python examples to use
+bus 5. I'll show it for the Joystick, but it should work for the 
+others as well.
+
+Clone the Qwiic I2C repo:
+
+.. code-block:: bash
+
+    bone$ git clone git@github.com:sparkfun/Qwiic_I2C_Py.git
+    bone$ cd Qwiic_I2C_Py/qwiic_i2c
+
+Edit **linux_i2c.py** and go to around line 62 and change it to:
+
+.. code-block:: bash
+
+    iBus = 5
+
+Next, cd up a level to the Qwiic_I2C_Py directory and install
+
+.. code-block:: bash
+
+    bone$ cd ..
+    bone$ sudo python setup.py install
+
+Next, browse to Sparkfun's qwiic Joystick page,
+https://www.sparkfun.com/products/15168 and click on the 
+**DOCUMENTS** tab and then on **Python Package**. Follow the pip
+instillation instructions (sudo pip install sparkfun-qwiic-joystick)
+
+Finally, run one of the Joystick examples. If it isn't using 
+bus 5, try reinstalling setup.py again.
