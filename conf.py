@@ -66,7 +66,11 @@ html_theme_options = {
 }
 html_title = "BeagleBoard Documentation"
 html_logo = str(BBDOCS_BASE / "_static" / "images" / "logo.svg")
+print(html_logo)
 html_favicon = str(BBDOCS_BASE / "_static" / "images" / "favicon.ico")
+print(html_favicon)
+print(os.listdir(str(BBDOCS_BASE / "_static")))
+print(os.listdir(str(BBDOCS_BASE / "_static" / "images")))
 html_static_path = [str(BBDOCS_BASE / "_static")]
 html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
