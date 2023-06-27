@@ -83,7 +83,9 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export VERSION_MAJOR=${TAG_VER[0]}
 	export VERSION_MINOR=${TAG_VER[1]}
 	export EXTRAVERSION=${TAG_SPLIT[1]}
-	export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | head -1 | sed 's/.*origin\///')
+	# export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | head -1 | sed 's/.*origin\///')
+	if ["$PROJECT_BRANCH" != ""]; then export GIT_BRANCH=$PROJECT_BRANCH; else export GIT_BRANCH=$CI_DEFAULT_BRANCH; fi
+
 	if [ "$GIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 		export VER_DIR=latest
 		export PAGES_URL=https://docs.beagleboard.org
