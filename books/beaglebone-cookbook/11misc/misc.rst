@@ -346,7 +346,7 @@ some 6G bytes.
     bone$ pip install -U sphinx_design 
     bone$ pip install -U sphinxcontrib-images
     bone$ pip install -U sphinx-serve
-
+       
 These instructions came from `lorforlinux 
 <https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
 on the Beagleboard Slack channel.
@@ -415,30 +415,36 @@ Here is a quick hack to get the Sparkfun Python examples to use
 bus 5. I'll show it for the Joystick, but it should work for the 
 others as well.
 
-Clone the Qwiic I2C repo:
+First, browse to Sparkfun's qwiic Joystick page,
+https://www.sparkfun.com/products/15168 and click on the 
+**DOCUMENTS** tab and then on **Python Package**. Follow the pip
+instillation instructions (sudo pip install sparkfun-qwiic-joystick)
 
-.. code-block:: bash
+Next, uninstall the current qwiic |I2C| package.
+
+.. code-block:: shell-session
+
+    bone$ sudo pip uninstall sparkfun-qwiic-i2c
+
+Then clone the Qwiic |I2C| repo:
+
+.. code-block:: shell-session
 
     bone$ git clone git@github.com:sparkfun/Qwiic_I2C_Py.git
     bone$ cd Qwiic_I2C_Py/qwiic_i2c
 
 Edit **linux_i2c.py** and go to around line 62 and change it to:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     iBus = 5
 
-Next, cd up a level to the Qwiic_I2C_Py directory and install
+Next, cd up a level to the Qwiic_I2C_Py directory and reinstall
 
 .. code-block:: bash
 
     bone$ cd ..
     bone$ sudo python setup.py install
-
-Next, browse to Sparkfun's qwiic Joystick page,
-https://www.sparkfun.com/products/15168 and click on the 
-**DOCUMENTS** tab and then on **Python Package**. Follow the pip
-instillation instructions (sudo pip install sparkfun-qwiic-joystick)
 
 Finally, run one of the Joystick examples. If it isn't using 
 bus 5, try reinstalling setup.py again.
