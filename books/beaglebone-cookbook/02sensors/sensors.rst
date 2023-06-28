@@ -306,24 +306,30 @@ is wired to one of the seven analog-in ports (*P9_36*).
 
    Wiring a 10 |kohm| variable resistor (trimpot) to an ADC port
 
-:ref:`sensors_analogIn_code` shows the code used to read the variable resistor.  
-Add the code to a file called _analogIn.js_ and run it; then change the resistor and run it again. The voltage read will change.
+:ref:`py_analogIn_code` shows the code used to read the variable resistor.  
+Add the code to a file called *analogIn.py* and run it; then change the resistor and run it again. The voltage read will change.
 
-.. _py_analogIn_code:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/analogIn.py
-   :caption: Reading an analog voltage (analogIn.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`analogIn.py <../code/02sensors/analogIn.py>`
+         .. _py_analogIn_code:
 
-.. _sensors_analogIn_code:
+         .. literalinclude:: ../code/02sensors/analogIn.py
+            :caption: Reading an analog voltage (analogIn.py)
+            :linenos:
 
-.. literalinclude:: ../code/02sensors/analogIn.js
-   :caption: Reading an analog voltage (analogIn.js)
-   :linenos:
+         :download:`analogIn.py <../code/02sensors/analogIn.py>`
 
-:download:`analogIn.js <../code/02sensors/analogIn.js>`
+   .. group-tab:: JavaScript
+
+         .. _sensors_analogIn_code:
+
+         .. literalinclude:: ../code/02sensors/analogIn.js
+            :caption: Reading an analog voltage (analogIn.js)
+            :linenos:
+
+         :download:`analogIn.js <../code/02sensors/analogIn.js>`
 
 .. note::
 
@@ -386,22 +392,27 @@ as shown in :ref:`sensors_ultrasonic_fig`. The device outputs ~6.4 mV/in when po
 :ref:`py_ultrasonicRange_code` 
 shows the code that reads the sensor at a fixed interval.
 
-.. _py_ultrasonicRange_code:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/ultrasonicRange.py
-   :caption: Reading an analog voltage (ultrasonicRange.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
+      .. _py_ultrasonicRange_code:
 
-.. _sensors_ultrasonicRange_code:
+      .. literalinclude:: ../code/02sensors/ultrasonicRange.py
+         :caption: Reading an analog voltage (ultrasonicRange.py)
+         :linenos:
 
+      :download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
 
-.. literalinclude:: ../code/02sensors/ultrasonicRange.js
-   :caption: Reading an analog voltage (ultrasonicRange.js)
-   :linenos:
+   .. group-tab:: JavaScript
 
-:download:`ultrasonicRange.js <../code/02sensors/ultrasonicRange.js>`
+      .. _sensors_ultrasonicRange_code:
+
+      .. literalinclude:: ../code/02sensors/ultrasonicRange.js
+         :caption: Reading an analog voltage (ultrasonicRange.js)
+         :linenos:
+
+      :download:`ultrasonicRange.js <../code/02sensors/ultrasonicRange.js>`
 
 .. _sensors_hc-sr04:
 
@@ -536,21 +547,27 @@ The *2* after the *qep* returned by *show-pins* shows it's *eQEP2*.
 Finally, add the code in :ref:`digital_rotaryEncoder_py` 
 to a file named *rotaryEncoder.py* and run it.
 
-.. _digital_rotaryEncoder_py:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/rotaryEncoder.py
-   :caption: Reading a rotary encoder (rotaryEncoder.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
+      .. _digital_rotaryEncoder_py:
 
-.. _digital_rotaryEncoder_js:
+      .. literalinclude:: ../code/02sensors/rotaryEncoder.py
+         :caption: Reading a rotary encoder (rotaryEncoder.py)
+         :linenos:
 
-.. literalinclude:: ../code/02sensors/rotaryEncoder.js
-   :caption: Reading a rotary encoder (rotaryEncoder.js)
-   :linenos:
+      :download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
 
-:download:`rotaryEncoder.js <../code/02sensors/rotaryEncoder.js>`
+   .. group-tab:: JavaScript
+
+      .. _digital_rotaryEncoder_js:
+
+      .. literalinclude:: ../code/02sensors/rotaryEncoder.js
+         :caption: Reading a rotary encoder (rotaryEncoder.js)
+         :linenos:
+
+      :download:`rotaryEncoder.js <../code/02sensors/rotaryEncoder.js>`
 
 Try rotating the encoder clockwise and counter-clockwise. 
 You'll see an output like this:
