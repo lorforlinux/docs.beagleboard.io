@@ -170,21 +170,26 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
 The code in :ref:`py_pushbutton_code` 
 reads GPIO port *P9_42*, which is attached to the pushbutton. 
 
-.. _py_pushbutton_code:
+.. tabs::
+   .. group-tab:: Python
 
-.. literalinclude:: ../code/02sensors/pushbutton.py
-   :caption: Monitoring a pushbutton (pushbutton.py)
-   :linenos:
+      .. _py_pushbutton_code:
 
-:download:`pushbutton.py <../code/02sensors/pushbutton.py>`
+      .. literalinclude:: ../code/02sensors/pushbutton.py
+         :caption: Monitoring a pushbutton (pushbutton.py)
+         :linenos:
 
-.. _c_pushbutton_code:
+      :download:`pushbutton.py <../code/02sensors/pushbutton.py>`
 
-.. literalinclude:: ../code/02sensors/pushbutton.c
-   :caption: Monitoring a pushbutton (pushbutton.c)
-   :linenos:
+   .. group-tab:: c
 
-:download:`pushbutton.c <../code/02sensors/pushbutton.c>`
+      .. _c_pushbutton_code:
+
+      .. literalinclude:: ../code/02sensors/pushbutton.c
+         :caption: Monitoring a pushbutton (pushbutton.c)
+         :linenos:
+
+      :download:`pushbutton.c <../code/02sensors/pushbutton.c>`
 
 Put this code in a file called *pushbutton.py* following the steps in :ref:`sensors_getting_started`. 
 In the VSC *bash* tab, run it by using the following commands:
