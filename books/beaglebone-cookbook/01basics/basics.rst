@@ -119,16 +119,16 @@ Solution
    update version
 
 This book uses `Debian <https://www.debian.org>`_, the Linux distribution that currently ships on the Bone. 
-However this book is based on a newer version (BeagleBoard.org Debian Bullseye IoT Image 2022-07-01) 
+However this book is based on a newer version (BeagleBoard.org Debian Bullseye IoT Image 2023-06-03) 
 than what is shipping at the time of this writing. You can see which version your Bone is running by 
 following the instructions in :ref:`basics_out_of_the_box` to log into the Bone.  Then run:
 
 .. code-block:: bash
 
     bone$ cat /ID.txt
-    BeagleBoard.org Debian Bullseye IoT Image 2022-07-01
+    BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
 
-I'm running the 2022-07-01 version.
+I'm running the 2023-06-03 version.
 
 Running the Python and JavaScript Examples
 ===========================================
@@ -136,7 +136,7 @@ Running the Python and JavaScript Examples
 Problem
 --------
 
-You'd like to learn Python and JavaScript interact with the Bone to 
+You'd like to learn Python or JavaScript interact with the Bone to 
 perform physical computing tasks without first learning Linux.
 
 Solution
@@ -145,7 +145,7 @@ Solution
 Plug your board into the USB of your host computer and browse to 
 http://192.168.7.2:3000 using Google Chrome or Firefox (as shown in 
 :ref:`basics_out_of_the_box`). In the left 
-column, click on *EXAMPLES*, then *BeagleBone* and then *Black*. 
+column, click on *examples*, then *BeagleBone* and then *Black*. 
 Several sample scripts will appear.  Go and explore them.
 
 .. tip::
@@ -234,7 +234,7 @@ Plug your Bone into a host computer via the USB cable. Open a browser
 browse to http://192.168.7.2:3000 on your host. You will see something 
 like :ref:`basics_05gettingStarted_fig`.
 
-Click the *EXAMPLES* folder on the left and then click *BeagleBoard* and then *Black*, 
+Click the *examples* folder on the left and then click *BeagleBoard* and then *Black*, 
 finally double-click ``seqLEDs.py``. You can now edit the file. 
 
 .. note:: 
