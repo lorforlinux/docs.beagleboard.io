@@ -38,8 +38,8 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
-	sphinx-build -j auto -b html . public/$VER_DIR/
-	sphinx-build -j auto -M latexpdf . public/$VER_DIR/
+	make html BUILDDIR=public/$VER_DIR/
+	make latexpdf BUILDDIR=public/$VER_DIR/
 	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 	rm -rf public/$VER_DIR/latex
