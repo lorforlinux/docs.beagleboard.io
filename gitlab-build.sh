@@ -47,7 +47,10 @@ HERE
 
 	# Build, optimize, and serve PDF
 	make latexpdf BUILDDIR=public/$VER_DIR
+	pdfcpu version
+	du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
 	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+	du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 
 	# Cleanup
