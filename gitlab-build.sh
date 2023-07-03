@@ -38,6 +38,9 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
+	echo "**** env ****"
+	env
+
 	echo "**** make clean ****"
 	# Clean build directory
 	make clean BUILDDIR=public/$VER_DIR
