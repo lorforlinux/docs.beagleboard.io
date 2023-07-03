@@ -71,7 +71,61 @@ The first command lists the versions of the kernel that are available. The secon
 After you have rebooted, the new kernel will be running.
 
 If the current kernel is doing its job adequately, you probably don't need to update, but sometimes a new 
-software package requires a more up-to-date kernel. Fortunately, precompiled kernels are available and ready to download.  
+software package requires a more up-to-date kernel. 
+Fortunately, precompiled kernels are available and ready to download.  
+
+Seeing which kernels are installed
+^^^
+
+You can have multiple kernels install at the same time. T
+hey are saved in **/boot**
+
+.. code-block:: bash
+
+    bone$ cd /boot
+    bone$ ls 
+    config-5.10.168-ti-r62      initrd.img-5.10.168-ti-r63  uboot                    vmlinuz-5.10.168-ti-r63
+    config-5.10.168-ti-r63      SOC.sh                      uEnv.txt
+    dtbs                        System.map-5.10.168-ti-r62  uEnv.txt.orig
+    initrd.img-5.10.168-ti-r62  System.map-5.10.168-ti-r63  vmlinuz-5.10.168-ti-r62
+
+Here I have two kernel versions installed. 
+
+.. tabs::
+
+    .. group-tab:: Bone
+
+        On the Bone (Not the Play) the file **uEnv.txt** tells which 
+        kernel to use on the next reboot. Here are the first few lines:
+
+        .. code-block:: bash
+
+            Line
+            1 #Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
+            2 
+            3 # uname_r=4.14.108-ti-r137
+            4 uname_r=4.19.94-ti-r50
+            5 # uname_r=5.4.52-ti-r17
+            6 #uuid=
+
+        Lines 3-5 list the various kernels, and the uncommented one on line 4 is the one that will be used next time. You will have to add your own uname's. Get the names from the files in /boot. Be careful, if you mistype the name your Bone won't boot.
+
+    .. group-tab:: Play
+
+        On the Play you can see which version of the kernel will boot
+        next by:
+
+        .. code-block:: bash
+
+            play$ cat /boot/firmware/kversion
+            5.10.168-ti-arm64-r106
+
+If you want to change the version run:
+
+.. code-block:: bash
+
+    bone$ sudo apt install linux-image-5.10.168-ti-arm64-r105 --reinstall 
+
 
 .. _kernel_building_modules:
 
