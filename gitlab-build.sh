@@ -55,15 +55,21 @@ HERE
 	make latexpdf BUILDDIR=public/$VER_DIR
 
 	echo "**** pdfcpu ****"
-	if [ ! -f /usr/local/bin/pdfcpu ] ; then
-		wget https://github.com/pdfcpu/pdfcpu/releases/download/v0.4.0/pdfcpu_0.4.0_Linux_x86_64.tar.xz
-		tar xf pdfcpu_0.4.0_Linux_x86_64.tar.xz
-		mv -v pdfcpu_0.4.0_Linux_arm64/pdfcpu /usr/local/bin/
+	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
+		echo "**** check and install pdfcpu ****"
+		if [ ! -f /usr/local/bin/pdfcpu ] ; then
+			wget https://github.com/pdfcpu/pdfcpu/releases/download/v0.4.0/pdfcpu_0.4.0_Linux_x86_64.tar.xz
+			tar xf pdfcpu_0.4.0_Linux_x86_64.tar.xz
+			mv -v pdfcpu_0.4.0_Linux_arm64/pdfcpu /usr/local/bin/
+		fi
+		/usr/local/bin/pdfcpu version
+		du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
+		/usr/local/bin/pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+		du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
+	else
+		pdfcpu version
+		pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
 	fi
-	/usr/local/bin/pdfcpu version
-	du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
-	/usr/local/bin/pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
-	du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 
 	echo "**** cleanup ****"
