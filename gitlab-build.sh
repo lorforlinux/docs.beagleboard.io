@@ -38,6 +38,7 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
+	make clean
 	make html BUILDDIR=public/$VER_DIR/
 	make latexpdf BUILDDIR=public/$VER_DIR/
 	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
@@ -91,6 +92,7 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 		export VER_DIR=$PROJECT_BRANCH
 		export PAGES_SLUG=$PROJECT_BRANCH
 	else
+		export PROJECT_BRANCH=latest
 		export VER_DIR=latest
 		export PAGES_SLUG=latest
 	fi
