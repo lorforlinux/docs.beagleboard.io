@@ -58,8 +58,9 @@ HERE
 	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
 		echo "**** check and install pdfcpu ****"
 		if [ ! -f /usr/local/bin/pdfcpu ] ; then
-			wget https://github.com/pdfcpu/pdfcpu/releases/download/v0.4.0/pdfcpu_0.4.0_Linux_x86_64.tar.xz
-			tar xf pdfcpu_0.4.0_Linux_x86_64.tar.xz
+			wget https://github.com/pdfcpu/pdfcpu/releases/download/v0.4.0/pdfcpu_0.4.0_Linux_arm64.tar.xz
+			pdfcpu_0.4.0_Linux_arm64.tar.xz
+			tar xf pdfcpu_0.4.0_Linux_arm64.tar.xz
 			mv -v pdfcpu_0.4.0_Linux_arm64/pdfcpu /usr/local/bin/
 		fi
 		/usr/local/bin/pdfcpu version
