@@ -10,7 +10,7 @@ cache:
 
 pages:
   tags:
-  - docker-amd64
+  - docker-arm64
   script:
   - "./gitlab-build.sh"
   artifacts:
