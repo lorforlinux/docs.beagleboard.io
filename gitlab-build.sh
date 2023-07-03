@@ -38,15 +38,20 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
+	echo "**** make clean ****"
 	# Clean build directory
 	make clean BUILDDIR=public/$VER_DIR
 
+	echo "**** make html ****"
 	# Build and serve HTML
 	make html BUILDDIR=public/$VER_DIR
 	mv public/$VER_DIR/html/* public/$VER_DIR/
 
+	echo "**** make latexpdf ****"
 	# Build, optimize, and serve PDF
 	make latexpdf BUILDDIR=public/$VER_DIR
+
+	echo "**** pdfcpu ****"
 	ls -lha /usr/local/bin/*
 	pdfcpu version
 	du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
@@ -54,6 +59,7 @@ HERE
 	du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 
+	echo "**** cleanup ****"
 	# Cleanup
 	rm -rf public/$VER_DIR/doctrees
 	rm -rf public/$VER_DIR/latex
