@@ -9,8 +9,6 @@ cache:
   - public
 
 pages:
-  tags:
-  - docker-arm64
   script:
   - "./gitlab-build.sh"
   artifacts:
