@@ -38,12 +38,20 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
-	sphinx-build -b html . public/$VER_DIR/
-	make latexpdf BUILDDIR=public/$VER_DIR/
+	# Clean build directory
+	make clean BUILDDIR=public/$VER_DIR
+
+	# Build and serve HTML
+	make html BUILDDIR=public/$VER_DIR
+	mv public/$VER_DIR/html/* public/$VER_DIR/
+
+	# Build, optimize, and serve PDF
+	make latexpdf BUILDDIR=public/$VER_DIR
 	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 	rm -rf public/$VER_DIR/latex
 
+	# Update docs.beagleboard.org
 	if [ "$CI_COMMIT_TAG" != "" ]; then
 		if [ "$VER_DIR" = "latest" ]; then
 			cp public/index.html /var/www/docs
