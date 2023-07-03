@@ -38,6 +38,9 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
+	# Clean build directory
+	make clean BUILDDIR=public/$VER_DIR
+
 	# Build and serve HTML
 	make html BUILDDIR=public/$VER_DIR
 	mv public/$VER_DIR/html/* public/$VER_DIR/
