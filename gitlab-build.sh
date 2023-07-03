@@ -38,9 +38,9 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
-	make clean
-	make html BUILDDIR=public/$VER_DIR/
-	make latexpdf BUILDDIR=public/$VER_DIR/
+	make clean BUILDDIR=public/$VER_DIR
+	make html BUILDDIR=public/$VER_DIR
+	make latexpdf BUILDDIR=public/$VER_DIR
 	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 	rm -rf public/$VER_DIR/latex
