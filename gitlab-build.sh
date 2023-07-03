@@ -47,12 +47,20 @@ HERE
 
 	echo "**** make html ****"
 	# Build and serve HTML
-	make html BUILDDIR=public/$VER_DIR
+	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
+	    make -j4 html BUILDDIR=public/$VER_DIR
+	else
+		make html BUILDDIR=public/$VER_DIR
+	fi
 	mv public/$VER_DIR/html/* public/$VER_DIR/
 
 	echo "**** make latexpdf ****"
 	# Build, optimize, and serve PDF
-	make latexpdf BUILDDIR=public/$VER_DIR
+	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
+		make -j4 latexpdf BUILDDIR=public/$VER_DIR
+	else
+		make latexpdf BUILDDIR=public/$VER_DIR
+	fi
 
 	echo "**** pdfcpu ****"
 	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
