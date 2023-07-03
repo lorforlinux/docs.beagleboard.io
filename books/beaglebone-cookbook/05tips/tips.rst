@@ -26,7 +26,8 @@ You want to use BeagleBone Black as a desktop computer with keyboard, mouse, and
 Solution
 ---------
 
-The Bone comes with USB and a microHDMI output. All you need to do is connect your keyboard, mouse, and HDMI display to it. 
+The Bone comes with USB and a microHDMI output. All you need to do is connect your keyboard, mouse, 
+and HDMI display to it. 
 
 To make this recipe, you will need:
 
@@ -57,7 +58,8 @@ The adapter looks something like :ref:`tips_HDMI_adaptor_fig`.
 
    Female HDMI-to-male microHDMI adapter
 
-Plug the small end into the microHDMI input on the Bone and plug your HDMI cable into the other end of the 
+Plug the small end into the microHDMI input on the Bone and plug your HDMI cable 
+into the other end of the 
 adapter and your monitor. If nothing displays on your Bone, reboot.
 
 If nothing appears after the reboot, edit the ``/boot/uEnv.txt`` file. Search for the line containing 
@@ -72,18 +74,22 @@ If nothing appears after the reboot, edit the ``/boot/uEnv.txt`` file. Search fo
 
 Then reboot.
 
-.. PRODUCTION: in the following tip, we're trying to display the hash symbol (#), all by itself, in constant width. Using *#* produces an empty space in the build, and I don't know how to escape special characters within what should be literal strings.
+.. PRODUCTION: in the following tip, we're trying to display the hash symbol (#), 
+..  all by itself, in constant width. Using *#* produces an empty space in the build, 
+..  and I don't know how to escape special characters within what should be literal strings.
 
-.. Adding to my confusion, the # signs are dropped in the first paragraph of the tip, but not in the second, which is formatted in the same exact way.
+.. Adding to my confusion, the # signs are dropped in the first paragraph of the tip, 
+..  but not in the second, which is formatted in the same exact way.
 
-.. Also, using ## in the code italicizes the second # and everything after it in the line, which should not happen.
+.. Also, using ## in the code italicizes the second # and everything after it in the line, 
+..  which should not happen.
 
 
 The ``/boot/uEnv.txt`` file contains a number of configuration commands that are executed at boot time. 
 The *#* character is used to add comments; that is, everything to the right of a +# is ignored by the 
 Bone and is assumed to be for humans to read. In the previous example, *###Disable auto loading* is 
 a comment that informs us the next line(s) are for disabling things. Two *disable_uboot_overlay* 
-commands follow. Both should be commented-out and won't be executed by the Bon
+commands follow. Both should be commented-out and won't be executed by the Bone.
 
 Why not just remove the line?  Later, you might decide you need more general-purpose input/output 
 (GPIO) pins and don't need the HDMI display. If so, just remove the *#* from the ``disable_uboot_overlay_video=1`` 
@@ -121,7 +127,7 @@ Solution
 --------
 
 For projects that require a host computer, we assume that you are running 
-`Linux Ubuntu 20.04 LTS <http://bit.ly/1wXOwkw>`_. You can be running either a native installation, 
+`Linux Ubuntu 22.04 LTS <http://bit.ly/1wXOwkw>`_. You can be running either a native installation, 
 through `Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/>`_, via a virtual 
 machine such as `VirtualBox <https://www.virtualbox.org/>`_, or in the cloud (`Microsoft Azure <https://portal.azure.com/>`_ 
 or `Amazon Elastic Compute Cloud <http://aws.amazon.com/ec2/>`_, EC2, for example).
@@ -136,7 +142,8 @@ Getting to the Command Shell via SSH
 Problem
 --------
 
-You want to connect to the command shell of a remote Bone from your host pass:[<span class="keep-together">computer</span>].
+You want to connect to the command shell of a remote Bone from your host 
+computer.
 
 Solution
 ---------
@@ -149,14 +156,29 @@ connect by using the following command to log in as user *debian*, (note the *$*
 .. code-block:: bash
 
    host$ ssh debian@192.168.7.2
-   Warning: Permanently added 'bone,192.168.7.2' (ECDSA) to the list of known hosts.
-   Last login: Mon Dec 22 07:53:06 2014 from yoder-linux.local
+   Warning: Permanently added '192.168.7.2' (ED25519) to the list of known hosts.
+   Debian GNU/Linux 11
+
+   BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
+   Support: https://bbb.io/debian
+   default username:password is [debian:temppwd]
+
+
+   The programs included with the Debian GNU/Linux system are free software;
+   the exact distribution terms for each program are described in the
+   individual files in /usr/share/doc/*/copyright.
+
+   Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+   permitted by applicable law.
+   Last login: Thu Jun  8 14:02:40 2023 from 192.168.7.1
    bone$ 
 
 .. _tips_passwords:
 
-*debian* has the default password *tempped* It's best to change the password:
-==============================================================================
+Default password
+----------------
+
+*debian* has the default password *temppwd*. It's best to change the password:
 
 .. code-block:: bash
 
@@ -167,6 +189,27 @@ connect by using the following command to log in as user *debian*, (note the *$*
    Retype new UNIX password: 
    password: password updated successfully
 
+Removing the *Message of the Day*
+=================================
+
+Problem
+-------
+
+Every time you login a long message is displayed that you don't need to see.
+
+Solution
+--------
+
+The contents of the files `/etc/motd`, `/etc/issue` and `/etc/issue.net` are displayed 
+everytime you long it.  You can prevent them from being displayed by moving them elsewhere.
+
+.. code-block:: bash
+
+   bone$ sudo mv /etc/motd /etc/motd.orig
+   bone$ sudo mv /etc/issue /etc/issue.orig
+   bone$ sudo mv /etc/issue.net /etc/issue.net.orig
+
+Now, the next time you `ssh` in they won't be displayed.
 
 .. _tips_serial:
 
@@ -185,6 +228,10 @@ Sometimes, you can't connect to the Bone via SSH, but you have a network working
 There is a way to access the command line to fix things without requiring extra hardware. (:ref:`tips_FTDI` 
 shows a way that works even if you don't have a network working over USB, but it requires a special serial-to-USB cable.)
 
+.. note:: 
+      This method doesn't work with WSL.
+
+
 First, check to ensure that the serial port is there. On the host computer, run the following command:
 
 .. code-block:: bash
@@ -193,8 +240,8 @@ First, check to ensure that the serial port is there. On the host computer, run 
    0 crw-rw---- 1 root dialout 166, 0 Jun 19 11:47 /dev/ttyACM0
 
 
-``/dev/ttyACM0`` is a serial port on your host computer that the Bone creates when it boots up. 
-The letters *crw-rw----* show that you can't access it as a normal user. However, you ``can`` 
+*/dev/ttyACM0* is a serial port on your host computer that the Bone creates when it boots up. 
+The letters *crw-rw----* show that you can't access it as a normal user. However, you can 
 access it if you are part of *dialout* group. See if you are in the *dialout* group:
 
 .. code-block:: bash
@@ -330,12 +377,11 @@ Log in to your Bone and enter the following command:
 .. code-block:: bash
 
    bone$ cat /etc/dogtag
-   BeagleBoard.org Debian Bullseye IoT Image 2022-07-01
+   BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
 
 
-:ref:`basics_latest_os` shows how to open the ``ID.txt`` file to see the OS version. 
-The ``/etc/dogtag`` file has the same contents and is easier to find if you already 
-have a command prompt. See :ref:`basics_install_os` if you need to update your OS.
+:ref:`basics_latest_os` shows how to open the ``/etc/dogtag`` file to see the OS version. 
+See :ref:`basics_install_os` if you need to update your OS.
 
 Controlling the Bone Remotely with a VNC
 =========================================
@@ -348,9 +394,23 @@ You want to access the BeagleBone's graphical desktop from your host computer.
 Solution
 ---------
 
-Run the installed Virtual Network Computing (VNC) server:
+Install and run a Virtual Network Computing (VNC) server:
+
+.. todo  
+   Check this with desktop installed
 
 .. code-block:: bash
+
+   bone$ sudo apt update
+   bone$ sudo apt install tightvncserver
+   Reading package lists... Done
+   Building dependency tree... Done
+   Reading state information... Done
+   The following additional packages will be installed:
+   ...
+   update-alternatives: using /usr/bin/Xtightvnc to provide /usr/bin/Xvnc (Xvnc) in auto mode
+   update-alternatives: using /usr/bin/tightvncpasswd to provide /usr/bin/vncpasswd (vncpasswd) in auto mode
+   Processing triggers for libc-bin (2.31-13+deb11u6) ...
 
    bone$ tightvncserver
 
@@ -410,10 +470,13 @@ Click Connect to start graphical access to your Bone, as shown in :ref:`tips_vnc
    You need to have X Windows installed and running for the VNC to work. 
    Here's how to install it. This needs some 250M of disk space and 19 minutes to install.
 
+.. todo  
+   This isn't working as of 8-June-2023
+
 .. code-block:: bash
 
    bone$ bone$ sudo apt install bbb.io-xfce4-desktop
-   bone$ cp /etc/bbb.io/templates/fbdev.xorg.conf /etc/X11/xorg.conf
+   bone$ sdo cp /etc/bbb.io/templates/fbdev.xorg.conf /etc/X11/xorg.conf
    bone$ startxfce4
    /usr/bin/startxfce4: Starting X server
    /usr/bin/startxfce4: 122: exec: xinit: not found
@@ -645,7 +708,7 @@ Solution
    For the correct instructions for the image you are using, go to
    `latest-images <http://forum.beagleboard.org/tag/latest-images>`_ and click on the image you are using.  
 
-I'm running Debian 11.x (Bullseye), the middle one.
+I'm running Debian 11.x (Bullseye), the top one, on the BeagleBone Black.
 
 .. _tips_latest-images_fig:
 
@@ -655,7 +718,8 @@ I'm running Debian 11.x (Bullseye), the middle one.
 
    Latest Beagle Images
 
-Scroll to the top of the page and you'll see instructions on setting up Wifi. The instructions here are based on using +networkctl+
+Scroll to the top of the page and you'll see instructions on setting up Wifi. 
+The instructions here are based on using **networkctl**.
 
 .. _tips_networkfig:
 
@@ -807,6 +871,7 @@ reach the Internet in general, nor can the Internet reach it. On one hand, this 
 no good can't access your Bone. On the other hand, your Bone can't reach the rest of the world.
 
 Letting your bone see the world: setting up IP masquerading
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to set up IP masquerading on your host and configure your Bone to use it. Here is a solution that works 
 with a host computer running Linux. Add the code in :ref:`tips_ipmasq_code` to a 
@@ -874,21 +939,21 @@ Web servers typically listen to port *80*. First, look up the IP address of your
 
 .. code-block:: bash
 
-   host$ ifconfig
-   eth0      Link encap:Ethernet  HWaddr 00:e0:4e:00:22:51  
-             inet addr:137.112.41.35  Bcast:137.112.41.255  Mask:255.255.255.0
-             inet6 addr: fe80::2e0:4eff:fe00:2251/64 Scope:Link
-             UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-             RX packets:5371019 errors:0 dropped:0 overruns:0 frame:0
-             TX packets:4720856 errors:0 dropped:0 overruns:0 carrier:0
-            collisions:0 txqueuelen:1000 
-            RX bytes:1667916614 (1.6 GB)  TX bytes:597909671 (597.9 MB)
+   host$ ip a
+   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+      inet 127.0.0.1/8 scope host lo
+         valid_lft forever preferred_lft forever
+      inet6 ::1/128 scope host
+         valid_lft forever preferred_lft forever
+   2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1280 qdisc mq state UP group default qlen 1000
+      link/ether 00:15:5d:7c:e8:dc brd ff:ff:ff:ff:ff:ff
+      inet 172.31.43.210/20 brd 172.31.47.255 scope global eth0
+         valid_lft forever preferred_lft forever
+      inet6 fe80::215:5dff:fe7c:e8dc/64 scope link
+         valid_lft forever preferred_lft forever
 
-   eth1      Link encap:Ethernet  HWaddr 00:1d:60:40:58:e6   
-   ...
-
-
-It's the number following *inet addr:*, which in my case is *137.112.41.35*. 
+It's the number following *inet*, which in my case is *172.31.43.210*. 
 
 .. tip::
 
@@ -902,7 +967,7 @@ Then run the following, using your host's IP address:
 .. code-block:: bash
 
    host$ sudo iptables -t nat -A PREROUTING -p tcp -s 0/0 \
-        -d 137.112.41.35 --dport 1080 -j DNAT --to 192.168.7.2:80
+        -d 172.31.43.210 --dport 1080 -j DNAT --to 192.168.7.2:80
 
 
 Now browse to your host computer at port *1080*. That is, if your host's IP address 
@@ -931,10 +996,10 @@ First install and check the status:
 
 .. code-block:: bash
 
+   bone$ sudo apt update
    bone$ sudo apt install ufw
    bone$ sudo ufw status
    Status: inactive
-
 
 Now turn off everything coming in and leave on all outgoing. 
 Note, this won't take effect until *ufw* is enabled.
@@ -968,9 +1033,10 @@ Just to be sure, you can install *nmap* on your host computer to see what ports 
    80/tcp   open  http
    3000/tcp open  ppp
 
-Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 
-Currently there are three ports visible:  22, 80 and 3000 (visual studio code) Now turn on the firewall and see what happens.
+Currently there are three ports visible:  22, 80 and 3000 (visual studio code). 
+Now turn on the firewall and see what happens.
 
 .. code-block:: bash
 
@@ -987,8 +1053,7 @@ Currently there are three ports visible:  22, 80 and 3000 (visual studio code) N
    PORT     STATE SERVICE
    22/tcp   open  ssh
 
-Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
-
+   Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 
 Only port 22 (ssh) is accessible now.  
 
@@ -1000,7 +1065,7 @@ The firewall will remain on, even after a reboot. Disable it now if you don't wa
    Firewall stopped and disabled on system startup
 
 
-See the How-To Geek article for more examples.
+See the `How-To Geek article <https://www.howtogeek.com/devops/how-to-secure-your-linux-server-with-a-ufw-firewall/>`_ for more examples.
 
 .. _tips_apt:
 
@@ -1019,7 +1084,7 @@ Solution
    Your Bone needs to be on the network for this to work. See :ref:`networking_wired`, 
    :ref:`networking_wireless`, or :ref:`networking_usb`.
 
-The easiest way to install more software is to use +apt+:
+The easiest way to install more software is to use **apt**:
 
 .. code-block:: bash
 
@@ -1038,7 +1103,7 @@ How do you find out what software you can install?  Try running this:
 
    bone$ apt-cache pkgnames | sort > /tmp/list
    bone$ wc /tmp/list
-      67303   67303 1348342 /tmp/list
+     67974   67974 1369852 /tmp/list
    bone$ less /tmp/list
 
 
@@ -1046,7 +1111,7 @@ The first command lists all the packages that *apt* knows about and sorts them a
 them in ``/tmp/list``. The second command shows why you want to put the list in a file. 
 The *wc* command counts the number of lines, words, and characters in a file. In our case, 
 there are over 67,000 packages from which we can choose! The *less* command displays the sorted 
-list, one page at a time. Press the space bar to go to the next page. Press Q to quit.  
+list, one page at a time. Press the space bar to go to the next page. Press **q** to quit.  
 
 Suppose that you would like to install an online dictionary (*dict*). Just run the following command:
 
@@ -1119,7 +1184,7 @@ If you booted from the microSD card, run the following command:
 
 
 The *df* command shows what partitions are already mounted. 
-The line */dev/mmcblk0p2  7.2G  2.0G  4.9G  29% /* shows that *mmcblk0* partition *p2* 
+The line ``/dev/mmcblk0p2  7.2G  2.0G  4.9G  29% /`` shows that *mmcblk0* partition *p2* 
 is mounted as */*, the root file system. The general rule is that the media you're booted from 
 (either the onboard flash or the microSD card) will appear as *mmcblk0*. 
 The second partition (*p2*) is the root of the file system. 
@@ -1172,7 +1237,7 @@ Solution
 To free up space, you can remove preinstalled packages or discover big files to remove.
 
 Removing preinstalled packages
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You might not need a few things that come preinstalled in the Debian image, including such 
 things as OpenCV, the Chromium web browser, and some documentation. 
@@ -1194,7 +1259,7 @@ Here's how you can remove these:
 
 
 Discovering big files
-
+^^^^^^^^^^^^^^^^^^^^^
 
 The *du* (disk usage) command offers a quick way to discover big files:
 
@@ -1243,7 +1308,7 @@ following command to see what's taking up the space in ``/var``:
 
 .. code-block:: bash
 
-   bone$ sudo du -sh /usr/*
+   bone$ sudo du -sh /var/*
    4.0K	/var/backups
    76M	/var/cache
    93M	/var/lib
@@ -1300,7 +1365,7 @@ After a moment, you'll see the following:
 keys to navigate the file structure to discover where the big unused files are. Press ? for help.
 
 .. warning:: 
-   Be careful not to press the D key, because it's used to delete a file or directory.
+   Be careful not to press the **d** key, because it's used to delete a file or directory.
 
 .. _misc_libsoc:
 

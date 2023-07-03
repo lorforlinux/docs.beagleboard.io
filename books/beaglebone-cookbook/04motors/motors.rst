@@ -7,6 +7,11 @@ Motors
 
 .. |ohm| replace:: Ω
 
+.. |deg| replace:: °
+
+.. todo
+    Figure out degrees
+
 One of the many fun things about embedded computers is that you can move physical things with motors.
 But there are so many different kinds of motors (``servo``, ``stepper``, ``DC``), so how do you select the right one?
 
@@ -14,11 +19,10 @@ The type of motor you use depends on the type of motion you want:
 
 - R/C or hobby servo motor
     Can be quickly positioned at various absolute angles, but some don't spin. In fact, many can turn only about 180{deg}.
-
-    - Stepper motor
-        Spins and can also rotate in precise relative angles, such as turning 45{deg}. Stepper motors come in two types: ``bipolar`` (which has four wires) and ``unipolar`` (which has five or six wires).
-    - DC motor
-        Spins either clockwise or counter-clockwise and can have the greatest speed of the three. But a DC motor can't easily be made to turn to a given angle.
+- Stepper motor
+    Spins and can also rotate in precise relative angles, such as turning 45°. Stepper motors come in two types: ``bipolar`` (which has four wires) and ``unipolar`` (which has five or six wires).
+- DC motor
+    Spins either clockwise or counter-clockwise and can have the greatest speed of the three. But a DC motor can't easily be made to turn to a given angle.
         
 When you know which type of motor to use, interfacing is easy. This chapter shows how to interface with each of these motors.
 
@@ -34,7 +38,7 @@ When you know which type of motor to use, interfacing is easy. This chapter show
 
 .. note:: 
     All the examples in the book assume you have cloned the Cookbook repository on 
-    www.github.com. Go here :ref:`basics_repo` for instructions.
+    git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
 .. _motors_servo:
 
@@ -83,9 +87,9 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
 
 .. code-block:: bash
 
-    bone$ <strong>cd ~/beaglebone-cookbook-code/04motors</strong>
-    bone$ <strong>config-pin P9_16 pwm</strong>
-    bone$ <strong>./servoMotor.py</strong>
+    bone$ cd ~/beaglebone-cookbook-code/04motors
+    bone$ config-pin P9_16 pwm
+    bone$ ./servoMotor.py
 
 .. _py_servoMotor_code:
 
@@ -123,10 +127,10 @@ Combine the code from :ref:`digital_rotaryEncoder_js` and :ref:`motors_servo`.
 
 .. code-block:: bash
 
-    bone$ <strong>config-pin P9_16 pwm</strong>
-    bone$ <strong>config-pin P8_11 eqep</strong>
-    bone$ <strong>config-pin P8_12 eqep</strong>
-    bone$ <strong>./servoEncoder.py</strong>
+    bone$ config-pin P9_16 pwm
+    bone$ config-pin P8_11 eqep
+    bone$ config-pin P8_12 eqep
+    bone$ ./servoEncoder.py
 
 .. _py_servoEncoder_code:
 
@@ -154,7 +158,7 @@ but it won't.  Most motors require more current than the GPIO ports on the Bone 
 Our solution is to use a transistor to control the current to the bone. 
 
 Here we configure the encoder to returns value between 0 and 180 inclusive. This value is then 
-mapped to a value between *min* (0.6 ma) and *max* (2.5 ms).  This number is converted from 
+mapped to a value between *min* (0.6 ms) and *max* (2.5 ms).  This number is converted from 
 milliseconds and nanoseconds (time 1000000) and sent to the servo motor via the pwm.
 
 
@@ -319,11 +323,12 @@ Wire, as shown in :ref:`motors_unipolar_fig`.
     The IC in :ref:`motors_unipolar_fig` is illustrated 
     upside down from the way it is usually displayed. 
 
-That is, the notch for pin 1 is on the bottom. This made drawing the diagram much cleaner.
+    That is, the notch for pin 1 is on the bottom. This made drawing the diagram much cleaner.
 
-Also, notice the ``banded`` wire running the *P9_7* (5 V) to the UL2003A. 
-The stepper motor I'm using runs better at 5 V, so I'm using the Bone's 5 V power supply. 
-The signal coming from the GPIO pins is 3.3 V, but the U2003A will step them up to 5 V to drive the motor.
+    Also, notice the ``banded`` wire running the *P9_7* (5 V) to the UL2003A. 
+    The stepper motor I'm using runs better at 5 V, so I'm using the Bone's 5 V power supply. 
+    The signal coming from the GPIO pins is 3.3 V, but the U2003A will step them up to 5 V to drive 
+    the motor.
 
 .. _motors_unipolar_fig:
 
@@ -357,7 +362,4 @@ so :ref:`motors_unistepperMotor_code` shows only the lines that you need to chan
 The code in this example makes the following changes:
 
 * The *states* are different. Here, we have two pins high at a time.
-* The time between steps (*ms*) is shorter, and the number of steps per 
-
-direction (*max*) is bigger. The unipolar stepper I'm using has many 
-more steps per rotation, so I need more steps to make it go around.
+* The time between steps (*ms*) is shorter, and the number of steps per direction (*max*) is bigger. The unipolar stepper I'm using has many more steps per rotation, so I need more steps to make it go around.

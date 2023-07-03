@@ -12,14 +12,6 @@ You usually won't need to mess with the kernel, but sometimes you might want to 
 that requires a different kernel. This chapter shows how to switch kernels. The nice thing is you 
 can have multiple kernels on your system at the same time and select from among them which to boot up.
 
-.. TODO 
-    is this still true?
-
-.. note:: 
-    We assume here that you are logged on to your Bone as *root* and superuser privileges. 
-    You also need to be logged in to your Linux host computer as a nonsuperuser.
-
-
 Updating the Kernel
 ====================
 
@@ -36,11 +28,11 @@ Use the following command to determine which kernel you are running:
 .. code-block:: bash
 
     bone$ uname -a
-    Linux beaglebone 3.8.13-bone67 #1 SMP Wed Sep 24 21:30:03 UTC 2014 armv7l
+    Linux beaglebone 5.10.168-ti-r62 #1bullseye SMP PREEMPT Tue May 23 20:15:00 UTC 2023 armv7l GNU/Linux
     GNU/Linux
 
 
-The *3.8.13-bone67* string is the kernel version.
+The *5.10.168-ti-r62* string is the kernel version.
 
 To update to the current kernel, ensure that your Bone is on the Internet 
 (:ref:`networking_usb` or :ref:`networking_wired`) and then run the following commands:
@@ -49,19 +41,29 @@ To update to the current kernel, ensure that your Bone is on the Internet
 
     bone$ apt-cache pkgnames | grep linux-image | sort | less
     ...
-    linux-image-3.15.8-armv7-x5
-    linux-image-3.15.8-bone5
-    linux-image-3.15.8-bone6
+    linux-image-5.10.162-ti-r59
+    linux-image-5.10.162-ti-rt-r56
+    linux-image-5.10.162-ti-rt-r57
+    linux-image-5.10.162-ti-rt-r58
+    linux-image-5.10.162-ti-rt-r59
+    linux-image-5.10.168-armv7-lpae-x71
+    linux-image-5.10.168-armv7-rt-x71
+    linux-image-5.10.168-armv7-x71
+    linux-image-5.10.168-bone71
+    linux-image-5.10.168-bone-rt-r71
+    linux-image-5.10.168-ti-r60
+    linux-image-5.10.168-ti-r61
+    linux-image-5.10.168-ti-r62
+    linux-image-5.10.168-ti-rt-r60
+    linux-image-5.10.168-ti-rt-r61
+    linux-image-5.10.168-ti-rt-r62
     ...
-    linux-image-3.16.0-rc7-bone1
-    ...
-    linux-image-3.8.13-bone60
-    linux-image-3.8.13-bone61
-    linux-image-3.8.13-bone62
-    bone$ sudo apt install linux-image-3.14.23-ti-r35
+
+    bone$ sudo apt install linux-image-5.10.162-ti-rt-r59
     bone$ sudo reboot
+
     bone$ uname -a
-    Linux beaglebone 3.14.23-ti-r35 #1 SMP PREEMPT Wed Nov 19 21:11:08 UTC 2014 armv7l
+    Linux beaglebone 5.10.162-ti-rt-r59 #1 SMP PREEMPT Wed Nov 19 21:11:08 UTC 2014 armv7l
     GNU/Linux
 
 
@@ -86,7 +88,7 @@ Solution
 ---------
 
 The solution is to run in kernel space by building a kernel module. There are entire 
-`books on writing Linux Device Drivers <http://bit.ly/1Fb0usf>`_. This recipe assumes that 
+`books on writing Linux Device Drivers <https://bootlin.com/doc/books/ldd3.pdf>`_. This recipe assumes that 
 the driver has already been written and shows how to compile and install it. After you've 
 followed the steps for this simple module, you will be able to apply them to any other module.
 
@@ -105,7 +107,7 @@ Headers for the version of the kernel you're running:
 
 .. code-block:: bash
 
-    bone$ sudo apt install linux-headers-``uname -r``
+    bone$ sudo apt install linux-headers-`uname -r`
 
 .. note:: 
 
@@ -136,19 +138,17 @@ Now, compile the kernel module by using the *make* command:
 .. code-block:: bash
 
     bone$ make
-    make -C /lib/modules/3.8.13-bone67/build \
-        SUBDIRS=/home/debian/beaglebone-cookbook-code/07kernel/hello modules
-    make[1]: Entering directory `/usr/src/linux-headers-3.8.13-bone67'
-    CC [M]  /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.o
-    Building modules, stage 2.
-    MODPOST 1 modules
-    CC      /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.mod.o
-    LD [M]  /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.ko
-    make[1]: Leaving directory `/usr/src/linux-headers-3.8.13-bone67'
+    make -C /lib/modules/5.10.168-ti-r62/build M=$PWD
+    make[1]: Entering directory '/usr/src/linux-headers-5.10.168-ti-r62'
+    CC [M]  /home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.o
+    MODPOST /home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/Module.symvers
+    CC [M]  /home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.mod.o
+    LD [M]  /home/debian/host/BeagleBoard/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.ko
+    make[1]: Leaving directory '/usr/src/linux-headers-5.10.168-ti-r62'
+    
     bone$ ls
     Makefile        hello.c   hello.mod.c  hello.o
     Module.symvers  hello.ko  hello.mod.o  modules.order
-
 
 Notice that several files have been created. 
 ``hello.ko`` is the one you want. Try a couple of commands with it:
@@ -156,17 +156,20 @@ Notice that several files have been created.
 .. code-block:: bash
 
     bone$ modinfo hello.ko
-    filename:       /home/debian/beaglebone-cookbook-code/07kernel/hello/hello.ko
-    srcversion:     87C6AEED7791B4B90C3B50C
+    filename:       /home/debian/host/BeagleBoard/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.ko
+    license:        GPL
+    description:    Hello World Example
+    author:         Boris Houndleroy
     depends:        
-    vermagic:       3.8.13-bone67 SMP mod_unload modversions ARMv7 thumb2 p2v8
+    name:           hello
+    vermagic:       5.10.168-ti-r62 SMP preempt mod_unload modversions ARMv7 p2v8 
+    
     bone$ sudo insmod hello.ko
     bone$ dmesg | tail -4
-    [419313.320052] bone-iio-helper helper.15: ready
-    [419313.322776] bone-capemgr bone_capemgr.9: slot #8: Applied #1 overlays.
-    [491540.999431] Loading hello module...
-    [491540.999476] Hello world
-
+    [  377.944777] lm75 1-004a: hwmon1: sensor 'tmp101'
+    [  377.944976] i2c i2c-1: new_device: Instantiated device tmp101 at 0x4a
+    [85819.772666] Loading hello module...
+    [85819.772687] Hello, World!
 
 The first command displays information about the module. The *insmod* command inserts the module into the running kernel. 
 If all goes well, nothing is displayed, but the module does print something in the kernel log. The *dmesg* command displays 
@@ -373,22 +376,32 @@ To download and compile the kernel, follow these steps:
 
 .. code-block:: bash
 
-    host$ git clone https://github.com/RobertCNelson/bb-kernel.git # <1>
-    host$ cd bb-kernel
-    host$ git tag # <2>
-    host$ git checkout 3.8.13-bone60 -b v3.8.13-bone60 # <3>
-    host$ ./build_kernel.sh # <4>
+    host$ git clone https://git.beagleboard.org/RobertCNelson/ti-linux-kernel-dev # <1>
+    host$ cd ti-linux-kernel-dev
+    host$ git checkout ti-linux-5.10.y # <2>
+    host$ ./build_deb.sh # <3>
+
+.. note:: 
+    If you are using a 64 bit Bone, **git checkout ti-linux-arm64-5.10.y**
 
 1. The first command clones a repository with the tools to build the kernel for the Bone.
-2. This command lists all the different versions of the kernel that you can build. You'll need to pick one of these. How do you know which one to pick? A good first step is to choose the one you are currently running.  *uname -a* will reveal which one that is. When you are able to reproduce the current kernel, go to `Linux Kernel Newbies <http://kernelnewbies.org/>`_ to see what features are available in other kernels. `LinuxChanges <http://bit.ly/1AjiL00>`_ shows the features in the newest kernel and `LinuxVersions <http://bit.ly/1MrIHx3>`_ links to features of previous kernels.
-3. When you know which kernel to try, use *git checkout* to check it out. This command checks out at tag *3.8.13-bone60* and creates a new branch, *v3.8.13-bone60*.
-4. *build_kernel* is the master builder. If needed, it will download the cross compilers needed to compile the kernel (`linaro <http://www.linaro.org/>`_ is the current cross compiler). If there is a kernel at ``~/linux-dev``, it will use it; otherwise, it will download a copy to ``bb-kernel/ignore/linux-src``. It will then patch the kernel so that it will run on the Bone. 
+2. When you know which kernel to try, use *git checkout* to check it out. 
+   This command checks out branch *ti-linux-5.10.y*.
+3. *build_deb.sh* is the master builder. If needed, it will download the cross compilers 
+   needed to compile the kernel (`gcc <https://gcc.gnu.org/>`_ is the current cross compiler). 
+   If there is a kernel at ``~/linux-dev``, it will use it; otherwise, 
+   it will download a copy to ``ti-linux-kernel-dev/ignore/linux-src``. 
+   It will then patch the kernel so that it will run on the Bone. 
+
+.. note:: 
+    *build_deb.sh* may ask you to install additional files. Just run **sudo apt install *files*** to
+    install them.
 
 After the kernel is patched, you'll see a screen similar to :ref:`kernel_config_fig`, on which you can configure the kernel.
 
 .. _kernel_config_fig:
 
-.. figure:: figures/KernelConfig3.16.png
+.. figure:: figures/KernelConfig5.10.png
     :align: center
     :alt: Kernel configuration menu
 
@@ -397,7 +410,7 @@ After the kernel is patched, you'll see a screen similar to :ref:`kernel_config_
 You can use the arrow keys to navigate. No changes need to be made, so you can just press the right 
 arrow and Enter to start the kernel compiling. The entire process took about 25 minutes on my 8-core host. 
 
-The ``bb-kernel/KERNEL`` directory contains the source code for the kernel. The ``bb-kernel/deploy``
+The ``ti-linux-kernel-dev/KERNEL`` directory contains the source code for the kernel. The ``ti-linux-kernel-dev/deploy``
 directory contains the compiled kernel and the files needed to run it.
 
 .. _kernel_install:
@@ -405,60 +418,104 @@ directory contains the compiled kernel and the files needed to run it.
 Installing the Kernel on the Bone
 ===================================
 
-To copy the new kernel and all its files to the microSD card, you need to halt the Bone, 
-and then pull the microSD card out and put it in an microSD card reader on your host computer. 
-Run *Disk* (see :ref:`basics_latest_os`) to learn where the microSD card appears on your host 
-(mine appears in ``/dev/sdb``). Then open the ``bb-kernel/system.sh`` file and find this line near the end:
+The **./build_deb.sh** script creates a single .deb file that contains all the files needed for the new kernel. 
+You find it here:
 
 .. code-block:: bash
 
-    MMC=/dev/sde
+    host$ cd ti-linux-kernel-dev/deploy
+    host$ ls -sh
+    total 40M
+    7.7M linux-headers-5.10.168-ti-r62_1xross_armhf.deb  8.0K linux-upstream_1xross_armhf.buildinfo
+     33M linux-image-5.10.168-ti-r62_1xross_armhf.deb    4.0K linux-upstream_1xross_armhf.changes
+    1.1M linux-libc-dev_1xross_armhf.deb
 
-
-Change that line to look like this (where */dev/sdb* is the path to your device):
-
-.. code-block:: bash
-    
-    MMC=/dev/sdb
-
-
-Now, while in the ``bb-kernel`` directory, run the following command:
+The **linux-image-** file is the one we want. It contains over 3000 files.
 
 .. code-block:: bash
 
-    host$ tools/install_kernel.sh
-    [sudo] password for yoder: 
+    host$ dpkg -c linux-image-5.10.168-ti-r62_1xross_armhf.deb | wc
+       3251   19506  379250
 
-    I see...
-    fdisk -l:
-    Disk /dev/sda: 160.0 GB, 160041885696 bytes
-    Disk /dev/sdb: 3951 MB, 3951034368 bytes
-    Disk /dev/sdc: 100 MB, 100663296 bytes
+The **dpkg** command lists all the files in the .deb file and the wc counts all the lines in the output. 
+You can see those files with:
 
-    lsblk:
-    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-    sda      8:0    0 149.1G  0 disk 
-    ├─sda1   8:1    0 141.1G  0 part /
-    ├─sda2   8:2    0     1K  0 part 
-    └─sda5   8:5    0     8G  0 part [SWAP]
-    sdb      8:16   1   3.7G  0 disk 
-    ├─sdb1   8:17   1    16M  0 part 
-    └─sdb2   8:18   1   3.7G  0 part 
-    sdc      8:32   1    96M  0 disk 
-    -----------------------------
-    Are you 100% sure, on selecting [/dev/sdb] (y/n)? y
+.. code-block:: bash
+ 
+    host$ dpkg -c linux-image-5.10.168-ti-r62_1xross_armhf.deb | less
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./boot/
+    -rw-r--r-- root/root   4763113 2023-06-12 12:57 ./boot/System.map-5.10.168-ti-r62
+    -rw-r--r-- root/root    191331 2023-06-12 12:57 ./boot/config-5.10.168-ti-r62
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./boot/dtbs/
+    drwxr-xr-x root/root         0 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/
+    -rwxr-xr-x root/root     90644 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir2110.dtb
+    -rwxr-xr-x root/root     91362 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir3220.dtb
+    -rwxr-xr-x root/root     91633 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir5221.dtb
+    -rwxr-xr-x root/root     88684 2023-06-12 12:57 ./boot/dtbs/5.10.168-ti-r62/am335x-base0033.dtb
 
+You can see it's putting things in the **/boot** directory.
 
-The script lists the partitions it sees and asks if you have the correct one. 
-If you are sure, press Y, and the script will uncompress and copy the files to 
-the correct locations on your card. When this is finished, eject your card, plug 
-it into the Bone, and boot it up. Run *uname -a*, and you 
-will see that you are running your compiled kernel.
+Note: You can also look into the other two .deb files and see what they install.
+
+Move the **linux-image-** file to your Bone.
+
+.. code-block:: bash
+
+    host$ scp linux-image-5.10.168-ti-r62_1xross_armhf.deb bone:.
+
+You might have to use debian@192.168.7.2 for bone if you haven't set everything up.
+
+Now ssh to the bone.
+
+.. code-block:: bash
+
+    host$ ssh bone
+    bone$ ls -sh
+    bin  exercises linux-image-5.10.168-ti-r62_1xross_armhf.deb
+
+Now install it.
+
+.. code-block:: bash
+
+    bone$ sudo dpkg --install linux-image-5.10.168-ti-r62_1xross_armhf.deb
+
+Wait a while. (Mine took almore 2 minutes.) Once done check /boot.
+
+.. code-block:: bash
+        
+    bone$ ls -sh /boot
+    total 40M
+    160K config-4.19.94-ti-r50        4.0K SOC.sh                     4.0K uEnv.txt.orig
+    180K config-5.10.168-ti-r62       3.5M System.map-4.19.94-ti-r50  9.7M vmlinuz-4.19.94-ti-r50
+    4.0K dtbs                         4.1M System.map-5.10.168-ti-r62 8.6M vmlinuz-5.10.168-ti-r62
+    6.4M initrd.img-4.19.94-ti-r50    4.0K uboot
+    6.8M initrd.img-5.10.168-ti-r62   4.0K uEnv.txt
+
+You see the new kernel files along with the old files. Check uEnv.txt.
+
+.. code-block:: bash
+
+    bone$ head /boot/uEnv.txt
+    #Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
+    # uname_r=4.19.94-ti-r50
+    uname_r=5.10.168-ti-r62
+
+I added the commented out uname_r line to make it easy to switch between versions of the kernel.
+
+Reboot and test out the new kernel.
+
+.. code-block:: bash
+
+    bone$ sudo reboot
 
 .. _kernel_using_cross_compiler:
 
 Using the Installed Cross Compiler
 ===================================
+
+.. todo
+    This should be removed 
 
 Problem
 --------
@@ -483,12 +540,12 @@ Solution
 
 :ref:`kernel_compiling` installs a cross compiler, but you need to set up a 
 couple of things so that it can be found. :ref:`kernel_compiling` installed the 
-kernel and other tools in a directory called ``bb-kernel``. Run the 
+kernel and other tools in a directory called ``ti-linux-kernel-dev``. Run the 
 following commands to find the path to the cross compiler:
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/dl
+    host$ cd ti-linux-kernel-dev/dl
     host$ ls
     gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux
     gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux.tar.xz
@@ -535,7 +592,7 @@ to the *$PATH* the shell uses to find the commands it runs:
 .. code-block:: bash
 
     host$ pwd
-    /home/yoder/BeagleBoard/bb-kernel/dl/\
+    /home/yoder/BeagleBoard/ti-linux-kernel-dev/dl/\
         gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux/bin
         
     host$ echo $PATH
@@ -551,7 +608,7 @@ to be run. Currently, the cross-development tools are not in the *$PATH*. Let's 
 
     host$ export PATH=`pwd`:$PATH
     host$ echo $PATH
-    /home/yoder/BeagleBoard/bb-kernel/dl/\
+    /home/yoder/BeagleBoard/ti-linux-kernel-dev/dl/\
         gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux/bin:\
         /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
         /usr/games:/usr/local/games
@@ -605,6 +662,9 @@ The *file* command shows that *a.out* was compiled for an ARM processor.
 Applying Patches
 =================
 
+.. todo
+    Remove patches?
+    
 Problem
 --------
 
@@ -626,13 +686,13 @@ Solution
 Here's how to use it:
 
 - Install the kernel sources (:ref:`kernel_compiling`).
-- Change to the kernel directory (+cd bb-kernel/KERNEL+).
-- Add :ref:`kernel_hello_patch` to a file named ``hello.patch`` in the ``bb-kernel/KERNEL`` directory.
+- Change to the kernel directory (+cd ti-linux-kernel-dev/KERNEL+).
+- Add :ref:`kernel_hello_patch` to a file named ``hello.patch`` in the ``ti-linux-kernel-dev/KERNEL`` directory.
 - Run the following commands:
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/KERNEL
+    host$ cd ti-linux-kernel-dev/KERNEL
     host$ patch -p1 &lt; hello.patch
     patching file hello/Makefile
     patching file hello/hello.c
@@ -668,7 +728,7 @@ Before making your changes, check out a new branch:
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/KERNEL
+    host$ cd ti-linux-kernel-dev/KERNEL
     host$ git status
     # On branch master
     nothing to commit (working directory clean)
@@ -689,7 +749,7 @@ to the kernel you want. I did some work with a simple character driver that we c
 
 .. code-block:: bash
 
-    host$ cd bb-kernel/KERNEL/drivers/char/
+    host$ cd ti-linux-kernel-dev/KERNEL/drivers/char/
     host$ git status
     # On branch hello1
     # Changes not staged for commit:

@@ -91,7 +91,7 @@ BeagleBone Black already has the *nginx* web server running.
 
 When you point your browser to *192.168.7.2*, you are using the *nginx* web server. 
 The web pages are served from */var/www/html/*. Add the HTML in :ref:`networking_index_html` 
-to a file called */var/www/html/test.html*, and then point your browser to *192.168.7.2://test.html*.
+to a file called */var/www/html/test.html*, and then point your browser to *192.168.7.2:/test.html*.
 
 .. _networking_index_html:
 
@@ -128,7 +128,7 @@ Solution
 with a small core and easy-to-extend philosophy. :ref:`networking_builtin_server` 
 shows how to use nginx, the web server that's already running. This recipe shows how 
 easy it is to build your own server. This is an adaptation of 
-`Python WebServer With Flask and Raspberry Pi <https://towardsdatascience.com/python-webserver-with-flask-and-raspberry-pi-398423cc6f5>`_.
+`Python WebServer With Flask and Raspberry Pi <https://towardsdatascience.com/python-webserver-with-flask-and-raspberry-pi-398423cc6f5d>`_.
 
 First, install flask:
 
@@ -209,9 +209,14 @@ function. Now, let’s create a new Python script. We will name it app1.py:
 
 :download:`app1.py <../code/06iot/flask/app1.py>`
 
-Note that we create a formatted string("timeString") using the date and time from the "now" object, that has the current time stored on it.
+Note that we create a formatted string ("timeString") using the date and time from the "now" object, 
+that has the current time stored on it.
 
-Next important thing on the above code, is that we created a dictionary of variables (a set of keys, such as the title that is associated with values, such as HELLO!) to pass into the template. On “return”, we will return the index.html template to the web browser using the variables in the templateData dictionary.
+Next important thing on the above code, is that we created a dictionary of variables 
+(a set of keys, such as the title that is associated with values, such as HELLO!) 
+to pass into the template. 
+On “return”, we will return the *index1.html* template to the web browser using 
+the variables in the *templateData* dictionary.
 
 Execute the Python script:
 
@@ -232,7 +237,7 @@ Open any web browser and browse to 192.168.7.2:8080. You should see:
 
 Note that the page’s content changes dynamically any time that you refresh 
 it with the actual variable data passed by Python script. In our case, 
-“title” is a fixed value, but “time” change it every second.
+“title” is a fixed value, but “time” changes every minute.
 
 Displaying GPIO Status in a Web Browser - reading a button
 ===========================================================
@@ -253,7 +258,6 @@ To make this recipe, you will need:
 * Pushbutton switch.
 
 Wire your pushbutton as shown in :ref:`js_pushbutton_fig`. 
-
 Wire a button to *P9_11* and have the web page display the value of the button.
 
 Let’s use a new Python script named *app2.py*.
@@ -266,7 +270,7 @@ Let’s use a new Python script named *app2.py*.
 
 :download:`app2.py <../code/06iot/flask/app2.py>`
 
-Look that what we are doing is defining the button on *P9_11* as input, reading its value and 
+What we are doing is defining the button on *P9_11* as input, reading its value and 
 storing it in *buttonSts*. Inside the function *index()*, we will pass that value to our web 
 page through “button” that is part of our variable dictionary: *templateData*.
 
@@ -285,7 +289,6 @@ Now, run the following command:
 .. code-block:: bash
 
   bone$ ./app2.py
-
 
 Point your browser to `http://192.168.7.2:8080`, and the 
 page will look like :ref:`flask_app2_fig`.
@@ -318,17 +321,15 @@ Now that we know how to “read” GPIO Status, let’s change them. What we wil
 the web page. We have an LED connected to *P9_14*. Controlling remotely we will change 
 its status from LOW to HIGH and vice-versa.
 
-The python script Let’s create a new Python script and named it *app3.py*.
+Create a new Python script and name it *app3.py*.
 
 .. _flask_app3:
 
-A simple Flask-based web server to read a GPIO (app3.py)
+.. literalinclude:: ../code/06iot/flask/app3.py
+   :caption: A simple Flask-based web server to read a GPIO (app3.py)
+   :linenos:
 
-.. code-block:: python
-
-  include::../code/06iot/flask/app3.py
-
-
+:download:`app3.py <../code/06iot/flask/app3.py>`
 
 What we have new on above code is the new “route”:
 
@@ -336,26 +337,24 @@ What we have new on above code is the new “route”:
 
 From the webpage, calls will be generated with the format:
 
-
 http://192.168.7.2:8081/ledRed/on
 
 or
 
 http://192.168.7.2:8081/ledRed/off
 
-
 For the above example, *ledRed* is the “deviceName” and *on* or *off* are examples of 
 possible “action”. Those routes will be identified and properly “worked”. The main steps are:
 
 * Convert the string “ledRED”, for example, on its equivalent GPIO pin. The integer variable ledRed is equivalent to P9_14. We store this value on variable “actuator”
-* For each actuator, we will analyze the “action”, or “command” and act properly. If “action = on” for example, we must use the command: GPIO.output(actuator, GPIO.HIGH)
+* For each actuator, we will analyze the “action”, or “command” and act properly. 
+  If “action = on” for example, we must use the command: ``f.write("1")``
 * Update the status of each actuator
-* Update the variable library
 * Return the data to index.html
 
 
-Let’s now create an index.html to show the GPIO status of each 
-actuator and more important, create “buttons” to send the commands:
+Let’s now create an *index.html* to show the GPIO status of each 
+actuator and more importantly, create “buttons” to send the commands:
 
 .. _flask_index3:
 
@@ -368,7 +367,6 @@ actuator and more important, create “buttons” to send the commands:
 .. code-block:: bash
 
   bone$ ./app3.py
-
 
 Point your browser as before and you will see:
 
@@ -395,6 +393,9 @@ You have live, continuous,  data coming into your Bone via one of the Analog Ins
 Solution
 ---------
 
+.. todo
+  Check this
+
 Analog in - Continuous (This is based on information at: http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/Kernel/Kernel_Drivers/ADC.html#Continuous%20Mode)
 
 Reading a continuous analog signal requires some set up. First go to the iio devices directory.
@@ -406,8 +407,8 @@ Reading a continuous analog signal requires some set up. First go to the iio dev
   buffer/  in_voltage0_raw  in_voltage2_raw  in_voltage4_raw  in_voltage6_raw  name      power/          subsystem@
   dev      in_voltage1_raw  in_voltage3_raw  in_voltage5_raw  in_voltage7_raw  of_node@  scan_elements/  uevent
 
-
-Here you see the files used to read the one shot values. Look in *scan_elements* to see how to enable continuous input.
+Here you see the files used to read the one shot values. 
+Look in *scan_elements* to see how to enable continuous input.
 
 .. code-block:: bash
 
@@ -417,7 +418,10 @@ Here you see the files used to read the one shot values. Look in *scan_elements*
   in_voltage0_type   in_voltage2_en     in_voltage3_index  in_voltage4_type   in_voltage6_en     in_voltage7_index
   in_voltage1_en     in_voltage2_index  in_voltage3_type   in_voltage5_en     in_voltage6_index  in_voltage7_type
 
-Here you see three values for each analog input, _en (enable), _index (index of this channel in the buffer’s chunks) and _type (How the ADC stores its data). (See the link above for details.) Let's use the input at *P9.40* which is *AIN1*. To enable this input:
+Here you see three values for each analog input, _en (enable),
+ _index (index of this channel in the buffer’s chunks) and 
+ _type (How the ADC stores its data). (See the link above for details.) 
+ Let's use the input at *P9.40* which is *AIN1*. To enable this input:
 
 .. code-block:: bash
 
@@ -452,8 +456,8 @@ Let's use a 512 sample buffer. You might need to experiment with this.
 
   1KHz sine wave sampled at 8KHz
 
-An example Python program that does the above and the reads and 
-plot the buffer is here: analogInContinuous.py 
+An example Python program that does the above and reads and 
+plots the buffer is **analogInContinuous.py**.
 
 .. _analog_code:
 
@@ -566,10 +570,10 @@ A number of files get installed, including the ADC file. Now try rerunning.
   bone$ ./analogInContinuous.py
   Hit ^C to stop
 
-Here's the output of a 10KHz sine wave. 
+Here's the output of a 10KHz triangle wave. 
 
 .. TODO  
-  Is this trun: (The plot is wrong, but eLinux won't let me fix it.)
+  Is this true: (The plot is wrong, but eLinux won't let me fix it.)
 
 .. _analog_tri_fig:
 
@@ -603,7 +607,7 @@ First, you need to `set up a Gmail account <https://mail.google.com>`_, if you d
 Then add the code in :ref:`networking_nodemailer_code` to a file named ``emailTest.py``. Substitute your own Gmail username.  For the password:
 
 * Go to: https://myaccount.google.com/security
-* Select App password.
+* Go to *2-Step Verification* and at the bottom, select App password.
 * Generate your own 16 char password and copy it into ``emailTest.py``.
 * Be sure to delete password when done https://myaccount.google.com/apppasswords .
 
@@ -639,7 +643,7 @@ Sending an SMS Message
 =======================
 
 .. TODO  
-  My twilio account is suspended.
+  My twilio account is suspended, using yoder@rose-hulman.edu.
 
 Problem
 --------
@@ -654,23 +658,37 @@ but you will need to `verify the number <http://bit.ly/1MrHBBF>`_ to which you a
 to `Twilio's home page <https://www.twilio.com/>`_ and set up an account. Note your account SID and 
 authorization token. If you are using the free version, be sure to `verify your numbers <http://bit.ly/19c7GZ7>`_.
 
-Next, install Trilio by using the following command:
+Next, install Trilio by using the following command for python:
+
+.. todo  
+  Need to show setup.sh file too.  Test everything.
+
+.. code-block:: bash
+
+  bone$ sudo apt install python-pip
+  bone$ sudo pip install twilio
+
+or for Javascript:
 
 .. code-block:: bash
 
   bone$ npm install -g twilio
 
-
-Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilio-test.js`` and run it. Your text will be sent.
+Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioTest.py`` and run it. Your text will be sent.
 
 .. _networking_twilio_code:
+
+.. literalinclude:: ../code/06iot/twilioTest.py 
+   :caption: Sending SMS messages using Twilio (``twilioTest.py``)
+   :linenos:
+
+:download:`twilioTest.py  <../code/06iot/twilioTest.py>`
 
 .. literalinclude:: ../code/06iot/twilio-test.js
    :caption: Sending SMS messages using Twilio (``twilio-test.js``)
    :linenos:
 
 :download:`twilio-test.js <../code/06iot/twilio-test.js>`
-:download:`nodemailer-test.js <../code/06iot/nodemailer-test.js>`
 
 Twilio allows a small number of free text messages, enough to test your code and to play around some.
 
@@ -695,7 +713,7 @@ Because your Bone is on the network, it's not hard to access the current weather
 
   bash$ export APPID="Your key"
 
-* Then add the code in :ref:`networking_weather_code` to a file named ``weather.js``.
+* Then add the code in :ref:`networking_weather_code` to a file named ``weather.py``.
 * Run the python script.
 
 
@@ -711,18 +729,19 @@ Because your Bone is on the network, it's not hard to access the current weather
 2. Prints the forecast for the next day.
 3. Prints everything returned by the weather site.
 
+Uncomment what you want to be displayed.
+
 Run this by using the following commands:
 
 .. code-block:: bash
 
-  bone$ chmod *x weather.py
   bone$ ./weather.js
   Getting weather
-  Temp:  85.1
-  Humid: 50
-  Low:   62.02
-  High:  85.1
-  sunrise: 2022-07-14 14:32:46
+  Temp:  73.72
+  Humid: 31
+  Low:   54.21
+  High:  75.47
+  sunrise: 2023-06-09 14:21:07
 
 The weather API returns lots of information. Use Python to extract the information you want.
 
@@ -757,7 +776,7 @@ Creating a Project and App
   export API_KEY='XXX'
   export API_SECRET_KEY='XXX'
   export BEARER_TOKEN='XXX'
-  export TOKEN='4XXX'
+  export TOKEN='XXXX'
   export TOKEN_SECRET='XXX'
 
 * Next, source the file so the values will appear in your bash session.
@@ -816,9 +835,9 @@ Around line 15 is the *id* number.  Paste in the value returned above.
 :download:`twitter_delete_tweet.py <../code/06iot/twitter_delete_tweet.py>`
 
 .. TODO
-  Start Here
+  Start Here.  Update for python.
 
-The code in :ref:`networking_pushbutton_code` snds a tweet whenever a button is pushed.
+The code in :ref:`networking_pushbutton_code` sends a tweet whenever a button is pushed.
 
 .. _networking_pushbutton_code:
 
@@ -848,47 +867,29 @@ but you want to program it graphically.
 Solution
 ---------
 
+.. todo 
+  Need to figure  out how to add the twitter node and the gpio node.
+
 `Node-RED <http://nodered.org/>`_ is a visual tool for wiring the IoT. 
 It makes it easy to turn on a light when a certain hashtag is tweeted, 
 or spin a motor if the forecast is for hot weather.
 
-Installing Node-RED
+Starting Node-RED
 ====================
 
-To install Node-RED, run the following commands:
+Node-RED is already installed, to run Node-RED, use the following command to start.
 
 .. code-block:: bash
 
-  bone$ cd          # Change to home directory
-  bone$ git clone https://github.com/node-red/node-red.git
-  bone$ cd node-red/
-  bone$ npm install --production    # almost 6 minutes
-  bone$ cd nodes
-  bone$ git clone https://github.com/node-red/node-red-nodes.git # 2 seconds
-  bone$ cd ~/node-red
+  bone$ sudo systemctl start nodered
 
-
-To run Node-RED, use the following commands:
+Or run the following to have Node-RED start everytime you reboot.
 
 .. code-block:: bash
 
-  bone$ cd ~/node-red
-  bone$ node red.js
-  Welcome to Node-RED
+  bone$ sudo systemctl enable --now nodered
 
-
-- 18 Aug 16:31:43 - [red] Version: 0.8.1.git
-- 18 Aug 16:31:43 - [red] Loading palette nodes
-- 18 Aug 16:31:49 - [26-rawserial.js] Info : only really needed for Windows boxes without serialport npm module installed.
-- 18 Aug 16:31:56 - ------------------------------------------
-- 18 Aug 16:31:56 - [red] Failed to register 44 node types
-- 18 Aug 16:31:56 - [red] Run with -v for details
-- 18 Aug 16:31:56 - ------------------------------------------
-- 18 Aug 16:31:56 - [red] Server now running at http://127.0.0.1:1880/
-- 18 Aug 16:31:56 - [red] Loading flows : flows_yoder-debian-bone.json
-
-
-The second-to-last line informs you that Node-RED is listening on part *1880*. Point your browser to 
+Node-RED is listening on part *1880*. Point your browser to 
 http://192.168.7.2:1880, and you will see the screen shown in :ref:`networking_node_red_fig`.
 
 .. _networking_node_red_fig:
@@ -1048,17 +1049,19 @@ to a file called ``launchPad.ino`` and run it on your LaunchPad.
 
 :download:`launchPad.ino <../code/06iot/launchPad/launchPad.ino>`
 
-1. Set the mode for the built-in red and green LEDs.
+.. annotations::
 
-2. Start the serial port at 9600 baud.
+  <1> Set the mode for the built-in red and green LEDs.
 
-3. Prompt the user, which in this case is the Bone.
+  <2> Start the serial port at 9600 baud.
 
-4. Set the LEDs to the current values of the *red* and *green* variables.
+  <3> Prompt the user, which in this case is the Bone.
 
-5. Wait for characters to arrive on the serial port.
+  <4> Set the LEDs to the current values of the *red* and *green* variables.
 
-6. After the characters are received, read it and respond to it.
+  <5> Wait for characters to arrive on the serial port.
+
+  <6> After the characters are received, read it and respond to it.
 
 On the Bone, add the script in :ref:`js_launchPadBeagle_code` to a file called `launchPad.js` and run it.
 

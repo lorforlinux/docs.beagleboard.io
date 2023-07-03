@@ -3,6 +3,10 @@
 Displays and Other Outputs
 ###########################
 
+.. |I2C| replace:: I\ :sup:`2`\ C
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
+
 In this chapter, you will learn how to control physical hardware via 
 BeagleBone Black's general-purpose input/output (GPIO) pins. The Bone has 
 65 GPIO pins that are brought out on two 46-pin headers, called 
@@ -10,7 +14,7 @@ BeagleBone Black's general-purpose input/output (GPIO) pins. The Bone has
 
 .. note:: 
      All the examples in the book assume you have cloned the Cookbook 
-     repository on www.github.com. Go here :ref:`basics_repo` for instructions.
+     repository on git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
 .. _js_P8P9_fig:
 
@@ -51,7 +55,7 @@ through *USR3*, but we'll refer to them as the *USER* LEDs.
 
      The four *USER* LEDs
 
-Place the code shown in :ref:`js_internLED_code` in a file called ``internLED.js``. 
+Place the code shown in :ref:`py_internLED_code` in a file called ``internLED.py``. 
 You can do this using VSC to edit files (as shown in :ref:`basics_vsc`) or with 
 a more traditional editor (as shown in :ref:`tips_editing_files`).
 
@@ -63,21 +67,20 @@ a more traditional editor (as shown in :ref:`tips_editing_files`).
 
 :download:`internLED.py <../code/03displays/internLED.py>`
 
-.. _js_internLED_code:
+.. _c_internLED_code:
 
-.. literalinclude:: ../code/03displays/internLED.js
-   :caption: Using an internal LED (internLED.js)
+.. literalinclude:: ../code/03displays/internLED.c
+   :caption: Using an internal LED (internLED.c)
    :linenos:
 
-:download:`internLED.js <../code/03displays/internLED.js>`
+:download:`internLED.c <../code/03displays/internLED.c>`
 
 In the *bash* command window, enter the following commands:
 
 .. code-block:: bash
 
      bone$ cd ~/beaglebone-cookbook-code/03displays
-     bone$ ./internLED.js
-
+     bone$ ./internLED.py
 
 The *USER0* LED should now be flashing.
 
@@ -98,14 +101,14 @@ Connect an LED to one of the GPIO pins using a series resistor
 to limit the current. To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 220R to 470R resistor.
+* 220 |ohm| to 470 |ohm| resistor.
 * LED
 
 .. WARNING:: 
 
      The value of the current limiting resistor depends on the LED you are using. 
      The Bone can drive only 4 to 6 mA, so you might need a larger resistor to keep 
-     from pulling too much current. A 330R or 470R resistor might be better.
+     from pulling too much current. A 330 |ohm| or 470 |ohm| resistor might be better.
 
 :ref:`displays_externLED_fig` shows how you can wire the LED to pin 14 of 
 the *P9* header (*P9_14*). Every circuit in this book (:ref:`basics_wire_breadboard`) 
@@ -123,6 +126,9 @@ the LED. The _short_ lead always goes to ground.
 
 After you've wired it, start VSC (see :ref:`basics_vsc`) 
 and find the code shown in :ref:`py_externLED_code`.
+Notice that it looks very similar to the *internLED* code, in fact it only
+differs in the line number (18 instead of 21).  The built-in LEDs use the same
+GPIO interface as the GPIO pins.
 
 .. _py_externLED_code:
 
@@ -132,13 +138,13 @@ and find the code shown in :ref:`py_externLED_code`.
 
 :download:`externLED.py <../code/03displays/externLED.py>`
 
-.. _js_externLED_code:
+.. _c_externLED_code:
 
-.. literalinclude:: ../code/03displays/externLED.js
-   :caption: Code for using an external LED (externLED.js)
+.. literalinclude:: ../code/03displays/externLED.c
+   :caption: Code for using an external LED (externLED.c)
    :linenos:
 
-:download:`externLED.js <../code/03displays/externLED.js>`
+:download:`externLED.c <../code/03displays/externLED.c>`
 
 Save your file and run the code as before (:ref:`displays_onboardLED`).
 
@@ -237,7 +243,7 @@ The pwm's are accessed through */dev/bone/pwm*
      bone$ ls
      0  1  2
 
-Here we see six pwmchips that can be used, each has two channels. Explore one.
+Here we see three pwmchips that can be used, each has two channels. Explore one.
 
 .. code-block:: bash
 
@@ -248,8 +254,9 @@ Here we see six pwmchips that can be used, each has two channels. Explore one.
      bone$ ls
      capture  duty_cycle  enable  period  polarity  power  uevent
 
-     Here is where you can set the period and duty_cycle (in ns) and enable the pwm.
-     Attach in LED to P9_14 and if you set the period long enough you can see the LED flash.
+
+Here is where you can set the period and duty_cycle (in ns) and enable the pwm.
+Attach in LED to P9_14 and if you set the period long enough you can see the LED flash.
 
 .. code-block:: bash
 
@@ -300,7 +307,7 @@ This solution uses an `Adafruit Bicolor 8x8 LED Square Pixel Matrix w/|I2C| Back
 To make this recipe, you will need:
 
 * Breadboard and jumper wires
-* Two 4.7 R resistors.
+* Two 4.7 |kohm| resistors.
 * |I2C| LED matrix
 
 The LED matrix is a 5 V device, but you can drive it from 3.3 V. Wire, as shown in :ref:`displays_i2cMatrix_fig`.
@@ -314,8 +321,6 @@ The LED matrix is a 5 V device, but you can drive it from 3.3 V. Wire, as shown 
      Wiring an |I2C| LED matrix
 
 :ref:`sensors_i2c_temp` shows how to use *i2cdetect* to discover the address of an |I2C| device.
-
-.. |I2C| replace:: I\ :sup:`2`\ C
 
 Run the *i2cdetect -y -r 2* command to discover the address of the display on |I2C| bus 2, as shown in :ref:`displays_i2cdetect`.
 
@@ -338,7 +343,7 @@ Using |I2C| command-line tools to discover the address of the display
      70: 70 -- -- -- -- -- -- -- 
 
 Here, you can see a device at *0x49* and *0x70*. I know I have a temperature 
-sensor at *0x49*, so the LED matrix must be at *0.70*. 
+sensor at *0x49*, so the LED matrix must be at *0x70*. 
 
 Find the code in :ref:`displays_matrix_i2c` and run it by using the following command:
 
@@ -352,22 +357,25 @@ Find the code in :ref:`displays_matrix_i2c` and run it by using the following co
 LED matrix display (matrixLEDi2c.py)
 =====================================
 
-.. code-block:: C
+.. literalinclude:: ../code/03displays/matrixLEDi2c.py
+   :caption: LED matrix display (matrixLEDi2c.py)
+   :linenos:
 
-     include::../code/03displays/matrixLEDi2c.py
+:download:`matrixLEDi2c.py <../code/03displays/matrixLEDi2c.py>`
 
+   .. annotations::
 
-1. This line states which bus to use. The last digit gives the BoneScript bus number.
+     <1> This line states which bus to use. The last digit gives the |I2C| bus number.
 
-2. This specifies the address of the LED matrix, *0x70* in our case.
+     <2> This specifies the address of the LED matrix, *0x70* in our case.
 
-3. This indicates which LEDs to turn on. The first byte is for the first column of ``green`` LEDs. In this case, all are turned off. The next byte is for the first column of ``red`` LEDs. The hex *0x3c* number is *0b00111100* in binary. This means the first two red LEDs are off, the next four are on, and the last two are off. The next byte (*0x00*) says the second column of *green* LEDs are all off, the fourth byte (*0x42* = *0b01000010*) says just two *red* LEDs are on, and so on. Declarations define four different patterns to display on the LED matrix, the last being all turned off.
+     <3> This indicates which LEDs to turn on. The first byte is for the first column of ``green`` LEDs. In this case, all are turned off. The next byte is for the first column of ``red`` LEDs. The hex *0x3c* number is *0b00111100* in binary. This means the first two red LEDs are off, the next four are on, and the last two are off. The next byte (*0x00*) says the second column of *green* LEDs are all off, the fourth byte (*0x42* = *0b01000010*) says just two *red* LEDs are on, and so on. Declarations define four different patterns to display on the LED matrix, the last being all turned off.
 
-4. Send three commands to the matrix to get it ready to display.
+     <4> Send three commands to the matrix to get it ready to display.
 
-5. Now, we are ready to display the various patterns. After each pattern is displayed, we sleep a certain amount of time so that the pattern can be seen.
+     <5> Now, we are ready to display the various patterns. After each pattern is displayed, we sleep a certain amount of time so that the pattern can be seen.
 
-6. Finally, send commands to the LED matrix to set the brightness. This makes the display fade out and back in again.
+     <6> Finally, send commands to the LED matrix to set the brightness. This makes the display fade out and back in again.
 
 .. _displays_drive5V:
 

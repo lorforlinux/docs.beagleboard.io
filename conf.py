@@ -31,7 +31,8 @@ extensions = [
     "sphinx_design",
     "sphinxcontrib.images",
     "sphinx.ext.imgconverter",
-    "sphinx.ext.todo"
+    "sphinx.ext.todo",
+    "sphinx_tabs.tabs"
 ]
 
 todo_include_todos = True
