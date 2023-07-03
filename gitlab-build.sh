@@ -38,18 +38,21 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
-	# Clean build directory
-	make clean BUILDDIR=public/$VER_DIR
+	# Clean _build directory
+	make clean
 
-	# Build and serve HTML
-	make html BUILDDIR=public/$VER_DIR
-	mv public/$VER_DIR/html/* public/$VER_DIR/
+	# HTML: Build, clean and serve
+	make html
+	rm -rf public/$VER_DIR/
+	mv _build/html/* public/$VER_DIR/
 
-	# Build, optimize, and serve PDF
-	make latexpdf BUILDDIR=public/$VER_DIR
-	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
-	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
-	rm -rf public/$VER_DIR/latex
+	# PDF: Build, optimize, and serve
+	make latexpdf
+	pdfcpu optimize _build//latex/beagleboard-docs.pdf
+	mv _build/latex/beagleboard-docs.pdf public/$VER_DIR/
+
+	# Clean _build directory (optional)
+	make clean
 
 	# Update docs.beagleboard.org
 	if [ "$CI_COMMIT_TAG" != "" ]; then
