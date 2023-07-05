@@ -91,21 +91,29 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
     bone$ config-pin P9_16 pwm
     bone$ ./servoMotor.py
 
-.. _py_servoMotor_code:
+.. tabs::
 
-.. literalinclude:: ../code/04motors/servoMotor.py
-   :caption: Code for driving a servo motor (servoMotor.py)
-   :linenos:
+    .. group-tab:: Python
 
-:download:`servoMotor.py <../code/04motors/servoMotor.py>`
+        .. _py_servoMotor_code:
 
-.. _motors_servoMotor_code:
+        .. literalinclude:: ../code/04motors/servoMotor.py
+            :caption: Code for driving a servo motor (servoMotor.py)
+            :language: Python
+            :linenos:
 
-.. literalinclude:: ../code/04motors/servoMotor.js
-   :caption: Code for driving a servo motor (servoMotor.js)
-   :linenos:
+        :download:`servoMotor.py <../code/04motors/servoMotor.py>`
 
-:download:`servoMotor.js <../code/04motors/servoMotor.js>`
+    .. group-tab:: JavaScript
+
+        .. _motors_servoMotor_code:
+
+        .. literalinclude:: ../code/04motors/servoMotor.js
+            :caption: Code for driving a servo motor (servoMotor.js)
+            :language: JavaScript
+            :linenos:
+
+        :download:`servoMotor.js <../code/04motors/servoMotor.js>`
 
 
 Running the code causes the motor to move back and forth, progressing to successive  
@@ -184,23 +192,31 @@ Wire your breadboard as shown in :ref:`motors_dcMotor_fig`.
 
     Wiring a DC motor to spin one direction
 
-Use the code in :ref:`motors_dcMotor_code` (``dcMotor.js``) to run the motor.
+Use the code in :ref:`py_dcMotor_code` to run the motor.
 
-.. _py_dcMotor_code:
+.. tabs::
 
-.. literalinclude:: ../code/04motors/dcMotor.py
-   :caption: Driving a DC motor in one direction (dcMotor.py)
-   :linenos:
+    .. group-tab:: Python
 
-:download:`dcMotor.py <../code/04motors/dcMotor.py>`
+        .. _py_dcMotor_code:
 
-.. _motors_dcMotor_code:
+        .. literalinclude:: ../code/04motors/dcMotor.py
+                :caption: Driving a DC motor in one direction (dcMotor.py)
+                :language: Python
+                :linenos:
 
-.. literalinclude:: ../code/04motors/dcMotor.js
-   :caption: Driving a DC motor in one direction (dcMotor.js)
-   :linenos:
+        :download:`dcMotor.py <../code/04motors/dcMotor.py>`
 
-:download:`dcMotor.js <../code/04motors/dcMotor.js>`
+    .. group-tab:: JavaScript
+
+        .. _motors_dcMotor_code:
+
+        .. literalinclude:: ../code/04motors/dcMotor.js
+            :caption: Driving a DC motor in one direction (dcMotor.js)
+            :language: JavaScript
+            :linenos:
+
+        :download:`dcMotor.js <../code/04motors/dcMotor.js>`
 
 See Also
 =========
