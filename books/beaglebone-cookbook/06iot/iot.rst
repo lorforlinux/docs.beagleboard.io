@@ -408,7 +408,10 @@ Solution
 .. todo
   Check this
 
-Analog in - Continuous (This is based on information at: http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/Kernel/Kernel_Drivers/ADC.html#Continuous%20Mode)
+Analog in - Continuous 
+^^^^^^^^^^^^^^^^^^^^^^
+
+(This is based on information at: http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/Kernel/Kernel_Drivers/ADC.html#Continuous%20Mode)
 
 Reading a continuous analog signal requires some set up. First go to the iio devices directory.
 
@@ -432,7 +435,7 @@ Look in *scan_elements* to see how to enable continuous input.
 
 Here you see three values for each analog input, _en (enable),
  _index (index of this channel in the buffer’s chunks) and 
- _type (How the ADC stores its data). (See the link above for details.) 
+ _type (how the ADC stores its data). (See the link above for details.) 
  Let's use the input at *P9.40* which is *AIN1*. To enable this input:
 
 .. code-block:: bash
@@ -506,7 +509,7 @@ It's a good idea to disable the buffer when done.
 
 
 Analog in - Continuous, Change the sample rate
-===============================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The built in ADCs sample at 8k samples/second by default. 
 They can run as fast as 200k samples/second by editing a device tree.
@@ -688,19 +691,27 @@ or for Javascript:
 
 Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioTest.py`` and run it. Your text will be sent.
 
-.. _networking_twilio_code:
+.. tabs::
 
-.. literalinclude:: ../code/06iot/twilioTest.py 
-   :caption: Sending SMS messages using Twilio (``twilioTest.py``)
-   :linenos:
+  .. group-tab:: Python
+    
+    .. _networking_twilio_code:
 
-:download:`twilioTest.py  <../code/06iot/twilioTest.py>`
+    .. literalinclude:: ../code/06iot/twilioTest.py 
+        :caption: Sending SMS messages using Twilio (``twilioTest.py``)
+        :language: Python
+        :linenos:
 
-.. literalinclude:: ../code/06iot/twilio-test.js
-   :caption: Sending SMS messages using Twilio (``twilio-test.js``)
-   :linenos:
+    :download:`twilioTest.py  <../code/06iot/twilioTest.py>`
 
-:download:`twilio-test.js <../code/06iot/twilio-test.js>`
+  .. group-tab:: JavaScript
+
+    .. literalinclude:: ../code/06iot/twilio-test.js
+        :caption: Sending SMS messages using Twilio (``twilio-test.js``)
+        :language: JavaScript
+        :linenos:
+
+    :download:`twilio-test.js <../code/06iot/twilio-test.js>`
 
 Twilio allows a small number of free text messages, enough to test your code and to play around some.
 
@@ -1057,6 +1068,7 @@ to a file called ``launchPad.ino`` and run it on your LaunchPad.
 
 .. literalinclude:: ../code/06iot/launchPad/launchPad.ino
    :caption: LaunchPad code for communicating via the UART (launchPad.ino)
+   :language: c
    :linenos:
 
 :download:`launchPad.ino <../code/06iot/launchPad/launchPad.ino>`
@@ -1081,27 +1093,30 @@ On the Bone, add the script in :ref:`js_launchPadBeagle_code` to a file called `
 
 .. literalinclude:: ../code/06iot/launchPad.js
    :caption: Code for communicating via the UART (launchPad.js)
+   :language: JavaScript
    :linenos:
 
 :download:`launchPad.js <../code/06iot/launchPad.js>`
 
-1. Select which serial port to use. :ref:`networking_cape-headers-serial_fig` sows what's available. We've wired *P9_24* and *P9_26*, so we are using serial port */dev/ttyO1*. (Note that's the letter ``O`` and not the number ``zero``.)
+.. annotations::
 
-2. Set the baudrate to 9600, which matches the setting on the LaunchPad.
+  <1> Select which serial port to use. :ref:`networking_cape-headers-serial_fig` sows what's available. We've wired *P9_24* and *P9_26*, so we are using serial port */dev/ttyO1*. (Note that's the letter ``O`` and not the number ``zero``.)
 
-3. Read one line at a time up to the newline character (*\n*).
+  <2> Set the baudrate to 9600, which matches the setting on the LaunchPad.
 
-4. Open the serial port and call *onSerial()* whenever there is data available.
+  <3> Read one line at a time up to the newline character (*\n*).
 
-5. Determine what event has happened on the serial port and respond to it.
+  <4> Open the serial port and call *onSerial()* whenever there is data available.
 
-6. If the serial port has been *opened*, start calling *sendCommand()* every 1000 ms.
+  <5> Determine what event has happened on the serial port and respond to it.
 
-7. These are the two commands to send.
+  <6> If the serial port has been *opened*, start calling *sendCommand()* every 1000 ms.
 
-8. Write the character out to the serial port and to the LaunchPad.
+  <7> These are the two commands to send.
 
-9. Move to the next command.
+  <8> Write the character out to the serial port and to the LaunchPad.
+
+  <9> Move to the next command.
 
 .. _networking_cape-headers-serial_fig:
 
@@ -1112,7 +1127,7 @@ On the Bone, add the script in :ref:`js_launchPadBeagle_code` to a file called `
   Table of UART outputs
 
 Discussion
-************
+----------
 
 When you run the script in :ref:`js_launchPadBeagle_code`, the Bone opens up the 
 serial port and every second sends a new command, either *r* or *g*. 
