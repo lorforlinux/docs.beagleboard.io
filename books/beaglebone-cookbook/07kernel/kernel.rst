@@ -265,14 +265,18 @@ To download and compile the kernel, follow these steps:
 .. note:: 
     If you are using a 64 bit Bone, **git checkout ti-linux-arm64-5.10.y**
 
-1. The first command clones a repository with the tools to build the kernel for the Bone.
-2. When you know which kernel to try, use *git checkout* to check it out. 
-   This command checks out branch *ti-linux-5.10.y*.
-3. *build_deb.sh* is the master builder. If needed, it will download the cross compilers 
-   needed to compile the kernel (`gcc <https://gcc.gnu.org/>`_ is the current cross compiler). 
-   If there is a kernel at ``~/linux-dev``, it will use it; otherwise, 
-   it will download a copy to ``ti-linux-kernel-dev/ignore/linux-src``. 
-   It will then patch the kernel so that it will run on the Bone. 
+.. annotations::
+
+    <1> The first command clones a repository with the tools to build the kernel for the Bone.
+    
+    <2> When you know which kernel to try, use *git checkout* to check it out. 
+    This command checks out branch *ti-linux-5.10.y*.
+    
+    <3> *build_deb.sh* is the master builder. If needed, it will download the cross compilers 
+    needed to compile the kernel (`gcc <https://gcc.gnu.org/>`_ is the current cross compiler). 
+    If there is a kernel at ``~/linux-dev``, it will use it; otherwise, 
+    it will download a copy to ``ti-linux-kernel-dev/ignore/linux-src``. 
+    It will then patch the kernel so that it will run on the Bone. 
 
 .. note:: 
     *build_deb.sh* may ask you to install additional files. Just run **sudo apt install *files*** to
@@ -392,116 +396,58 @@ Reboot and test out the new kernel.
 
 .. _kernel_using_cross_compiler:
 
-Using the Installed Cross Compiler
-===================================
-
-.. todo
-    This should be removed 
+Installin a Cross Compiler
+==========================
 
 Problem
 --------
 
-You have followed the instructions in :ref:`kernel_compiling` 
-and want to use the cross compiler it has downloaded.
-
-.. tip::
-    You can cross-compile without installing the 
-    entire kernel source by running the following:
-
-    .. code-block:: bash
-
-        host$ sudo apt install gcc-arm-linux-gnueabihf
-
-
-Then skip down to :ref:`kernel_skip_to_here`. 
-
+You want to compile on your host computer and run on the Beagle.
 
 Solution
 ---------
 
-:ref:`kernel_compiling` installs a cross compiler, but you need to set up a 
-couple of things so that it can be found. :ref:`kernel_compiling` installed the 
-kernel and other tools in a directory called ``ti-linux-kernel-dev``. Run the 
-following commands to find the path to the cross compiler:
+Run the following:
 
-.. code-block:: bash
+.. tabs::
 
-    host$ cd ti-linux-kernel-dev/dl
-    host$ ls
-    gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux
-    gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux.tar.xz
+    .. group-tab:: 32-bit
 
+        .. code-block:: bash
 
-Here, the path to the cross compiler contains the version number 
-of the compiler. Yours might be different from mine. *cd* into it:
+            host$ sudo apt install gcc-arm-linux-gnueabihf
 
-.. code-block:: bash
+    .. group-tab:: 64-bit
 
-    host$ cd gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux
-    host$ ls
-    20130415-gcc-linaro-arm-linux-gnueabihf  bin  libexec
-    arm-linux-gnueabihf                      lib  share
+        .. code-block:: bash
 
-
-At this point, we are interested in what's in ``bin``:
-
-.. code-block:: bash
-
-    host$ cd bin
-    host$ ls
-    arm-linux-gnueabihf-addr2line     arm-linux-gnueabihf-gfortran
-    arm-linux-gnueabihf-ar            arm-linux-gnueabihf-gprof
-    arm-linux-gnueabihf-as            arm-linux-gnueabihf-ld
-    arm-linux-gnueabihf-c+*           arm-linux-gnueabihf-ld.bfd
-    arm-linux-gnueabihf-c++filt       arm-linux-gnueabihf-ldd
-    arm-linux-gnueabihf-cpp           arm-linux-gnueabihf-ld.gold
-    arm-linux-gnueabihf-ct-ng.config  arm-linux-gnueabihf-nm
-    arm-linux-gnueabihf-elfedit       arm-linux-gnueabihf-objcopy
-    arm-linux-gnueabihf-g+*           arm-linux-gnueabihf-objdump
-    arm-linux-gnueabihf-gcc           arm-linux-gnueabihf-pkg-config
-    arm-linux-gnueabihf-gcc-4.7.3     arm-linux-gnueabihf-pkg-config-real
-    arm-linux-gnueabihf-gcc-ar        arm-linux-gnueabihf-ranlib
-    arm-linux-gnueabihf-gcc-nm        arm-linux-gnueabihf-readelf
-    arm-linux-gnueabihf-gcc-ranlib    arm-linux-gnueabihf-size
-    arm-linux-gnueabihf-gcov          arm-linux-gnueabihf-strings
-    arm-linux-gnueabihf-gdb           arm-linux-gnueabihf-strip
-
-
-What you see are all the cross-development tools. You need to add this directory 
-to the *$PATH* the shell uses to find the commands it runs:
-
-.. code-block:: bash
-
-    host$ pwd
-    /home/yoder/BeagleBoard/ti-linux-kernel-dev/dl/\
-        gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux/bin
-        
-    host$ echo $PATH
-        /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
-        /usr/games:/usr/local/games
-
-
-The first command displays the path to the directory where the cross-development 
-tools are located. The second shows which directories are searched to find commands 
-to be run. Currently, the cross-development tools are not in the *$PATH*. Let's add it:
-
-.. code-block:: bash
-
-    host$ export PATH=`pwd`:$PATH
-    host$ echo $PATH
-    /home/yoder/BeagleBoard/ti-linux-kernel-dev/dl/\
-        gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux/bin:\
-        /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
-        /usr/games:/usr/local/games
-
+            host$ sudo apt install gcc-aarch64-linux-gnu
 
 .. note:: 
-    Those are backtick characters (left of the "1" key on your keyboard) around *pwd*.
+    From now on use **arm** if you are using a 32-bit machine and
+    **aarch64** if you are using a 64-bit machine.
 
+This installs a cross compiler, but you need to set up a 
+couple of things so that it can be found.  At the command prompt,
+enter **arm-<TAB><TAB>** to see  what was installed.
 
-The second line shows the *$PATH* now contains the directory with the cross-development tools.
+.. code-block:: bash
 
-.. _kernel_skip_to_here:
+    host$ arm-<TAB><TAB>
+    arm-linux-gnueabihf-addr2line      arm-linux-gnueabihf-gcc-nm         arm-linux-gnueabihf-ld.bfd
+    arm-linux-gnueabihf-ar             arm-linux-gnueabihf-gcc-nm-11      arm-linux-gnueabihf-ld.gold
+    arm-linux-gnueabihf-as             arm-linux-gnueabihf-gcc-ranlib     arm-linux-gnueabihf-lto-dump-11
+    arm-linux-gnueabihf-c++filt        arm-linux-gnueabihf-gcc-ranlib-11  arm-linux-gnueabihf-nm
+    arm-linux-gnueabihf-cpp            arm-linux-gnueabihf-gcov           arm-linux-gnueabihf-objcopy
+    arm-linux-gnueabihf-cpp-11         arm-linux-gnueabihf-gcov-11        arm-linux-gnueabihf-objdump
+    arm-linux-gnueabihf-dwp            arm-linux-gnueabihf-gcov-dump      arm-linux-gnueabihf-ranlib
+    arm-linux-gnueabihf-elfedit        arm-linux-gnueabihf-gcov-dump-11   arm-linux-gnueabihf-readelf
+    arm-linux-gnueabihf-gcc            arm-linux-gnueabihf-gcov-tool      arm-linux-gnueabihf-size
+    arm-linux-gnueabihf-gcc-11         arm-linux-gnueabihf-gcov-tool-11   arm-linux-gnueabihf-strings
+    arm-linux-gnueabihf-gcc-ar         arm-linux-gnueabihf-gprof          arm-linux-gnueabihf-strip
+    arm-linux-gnueabihf-gcc-ar-11      arm-linux-gnueabihf-ld 
+
+What you see are all the cross-development tools. 
 
 Setting Up Variables
 =====================
@@ -513,15 +459,15 @@ Now, set up a couple of variables to know which compiler you are using:
     host$ export ARCH=arm
     host$ export CROSS_COMPILE=arm-linux-gnueabihf-
 
-
 These lines set up the standard environmental variables so that you can determine which cross-development 
 tools to use. Test the cross compiler by adding :ref:`kernel_helloWorld` to a file named _helloWorld.c_.
 
 .. _kernel_helloWorld:
 
 .. literalinclude:: ../code/07kernel/helloWorld.c
-   :caption: Simple helloWorld.c to test cross compiling (helloWorld.c)
-   :linenos:
+    :language: c
+    :caption: Simple helloWorld.c to test cross compiling (helloWorld.c)
+    :linenos:
 
 :download:`helloWorld.c <../code/07kernel/helloWorld.c>`
 
@@ -535,8 +481,10 @@ You can then cross-compile by using the following commands:
     dynamically linked (uses shared libs), for GNU/Linux 2.6.31, 
     BuildID[sha1]=0x10182364352b9f3cb15d1aa61395aeede11a52ad, not stripped
 
-
 The *file* command shows that *a.out* was compiled for an ARM processor.
+
+.. todo
+    Need to install libc.
 
 .. _kernel_patches:
 
