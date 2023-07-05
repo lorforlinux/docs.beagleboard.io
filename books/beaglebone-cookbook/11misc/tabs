@@ -1,31 +1,23 @@
 .. tabs::
 
-   .. group-tab:: Commands       
-                            
-        .. code-block:: shell-session
-
-            bone$ sudo apt update
-            bone$ sudo apt upgrade
-            bone$ sudo apt install -y \
-                make git wget \
-                doxygen graphviz librsvg2-bin\
-                texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended \
-                python3 python3-pip \
-                python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.svg2pdfconverter \
-                python3-pil \
-                imagemagick-6.q16 librsvg2-bin webp \
-                texlive-full texlive-latex-extra texlive-fonts-extra \
-                fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
-            bone$ python3 -m pip install --upgrade pip
-            bone$ pip install -U sphinx_design 
-            bone$ pip install -U sphinxcontrib-images
-            bone$ pip install -U sphinx-serve
-
-   .. group-tab:: Shell Output                       
+     .. group-tab:: Python
           
-      .. code-block:: shell-session            
-                
-        bone$ git remote add upstream https://git.beagleboard.org/docs/docs.beagleboard.io.git
-        bone$ git fetch upstream
-        bone$ git pull upstream main
-   
+          .. _py_internLED_code:
+
+          .. literalinclude:: ../code/03displays/internLED.py
+               :caption: Using an internal LED (internLED.py)
+               :language: python
+               :linenos:
+
+          :download:`internLED.py <../code/03displays/internLED.py>`
+
+     .. group-tab:: C
+
+          .. _c_internLED_code:
+
+          .. literalinclude:: ../code/03displays/internLED.c
+               :caption: Using an internal LED (internLED.c)
+               :language: c
+               :linenos:
+
+          :download:`internLED.c <../code/03displays/internLED.c>`

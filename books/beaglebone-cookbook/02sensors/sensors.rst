@@ -970,11 +970,11 @@ Finally, add the code in :ref:`py_onewire__code` in to a
 file named *w1.py*, edit the path assigned to *w1* so 
 that the path points to your device, and then run it.
 
-.. _py_onewire__code:
-
 .. tabs::
 
    .. group-tab:: Python
+
+      .. _py_onewire__code:
 
       .. literalinclude:: ../code/02sensors/w1.py
          :caption: Reading a temperature with a DS18B20 (w1.py)

@@ -59,21 +59,29 @@ Place the code shown in :ref:`py_internLED_code` in a file called ``internLED.py
 You can do this using VSC to edit files (as shown in :ref:`basics_vsc`) or with 
 a more traditional editor (as shown in :ref:`tips_editing_files`).
 
-.. _py_internLED_code:
+.. tabs::
 
-.. literalinclude:: ../code/03displays/internLED.py
-   :caption: Using an internal LED (internLED.py)
-   :linenos:
+     .. group-tab:: Python
+          
+          .. _py_internLED_code:
 
-:download:`internLED.py <../code/03displays/internLED.py>`
+          .. literalinclude:: ../code/03displays/internLED.py
+               :caption: Using an internal LED (internLED.py)
+               :language: python
+               :linenos:
 
-.. _c_internLED_code:
+          :download:`internLED.py <../code/03displays/internLED.py>`
 
-.. literalinclude:: ../code/03displays/internLED.c
-   :caption: Using an internal LED (internLED.c)
-   :linenos:
+     .. group-tab:: C
 
-:download:`internLED.c <../code/03displays/internLED.c>`
+          .. _c_internLED_code:
+
+          .. literalinclude:: ../code/03displays/internLED.c
+               :caption: Using an internal LED (internLED.c)
+               :language: c
+               :linenos:
+
+          :download:`internLED.c <../code/03displays/internLED.c>`
 
 In the *bash* command window, enter the following commands:
 
@@ -130,21 +138,29 @@ Notice that it looks very similar to the *internLED* code, in fact it only
 differs in the line number (18 instead of 21).  The built-in LEDs use the same
 GPIO interface as the GPIO pins.
 
-.. _py_externLED_code:
+.. tabs::
 
-.. literalinclude:: ../code/03displays/externLED.py
-   :caption: Code for using an external LED (externLED.py)
-   :linenos:
+     .. group-tab:: Python
 
-:download:`externLED.py <../code/03displays/externLED.py>`
+          .. _py_externLED_code:
 
-.. _c_externLED_code:
+          .. literalinclude:: ../code/03displays/externLED.py
+               :caption: Code for using an external LED (externLED.py)
+               :language: python
+               :linenos:
 
-.. literalinclude:: ../code/03displays/externLED.c
-   :caption: Code for using an external LED (externLED.c)
-   :linenos:
+          :download:`externLED.py <../code/03displays/externLED.py>`
 
-:download:`externLED.c <../code/03displays/externLED.c>`
+     .. group-tab:: C
+
+          .. _c_externLED_code:
+
+          .. literalinclude:: ../code/03displays/externLED.c
+               :caption: Code for using an external LED (externLED.c)
+               :language: c
+               :linenos:
+
+          :download:`externLED.c <../code/03displays/externLED.c>`
 
 Save your file and run the code as before (:ref:`displays_onboardLED`).
 
@@ -205,21 +221,29 @@ the same circuit as before (:ref:`displays_externLED_fig`). Find the code in
 
 Then run it as before.
 
-.. _py_fadeLED_code:
+.. tabs::
 
-.. literalinclude:: ../code/03displays/fadeLED.py
-   :caption: Code for using an external LED (fadeLED.py)
-   :linenos:
+     .. group-tab:: Python
 
-:download:`fadeLED.py <../code/03displays/fadeLED.py>`
+          .. _py_fadeLED_code:
 
-.. _js_fadeLED_code:
+          .. literalinclude:: ../code/03displays/fadeLED.py
+               :caption: Code for using an external LED (fadeLED.py)
+               :language: python
+               :linenos:
 
-.. literalinclude:: ../code/03displays/fadeLED.js
-   :caption: Code for using an external LED (fadeLED.js)
-   :linenos:
+          :download:`fadeLED.py <../code/03displays/fadeLED.py>`
 
-:download:`fadeLED.js <../code/03displays/fadeLED.js>`
+     .. group-tab:: JavaScript
+
+          .. _js_fadeLED_code:
+
+          .. literalinclude:: ../code/03displays/fadeLED.js
+               :caption: Code for using an external LED (fadeLED.js)
+               :language: JavaScript
+               :linenos:
+
+          :download:`fadeLED.js <../code/03displays/fadeLED.js>`
 
 The Bone has several outputs that can be use as pwm's as shown in :ref:`cape-headers-pwm_fig`.  
 There are three *EHRPWM's* which each has a pair  of pwm channels. Each pair must have the same period.  
@@ -500,6 +524,7 @@ Then add the code from :ref:`speak_code` in a file called ``speak.js`` and run.
 
 .. literalinclude:: ../code/03displays/speak.js
    :caption: A program that talks (speak.js)
+   :language: JavaScript
    :linenos:
 
 :download:`speak.js <../code/03displays/speak.js>`
