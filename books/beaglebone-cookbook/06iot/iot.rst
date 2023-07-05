@@ -97,6 +97,7 @@ to a file called */var/www/html/test.html*, and then point your browser to *192.
 
 .. literalinclude:: ../code/06iot/test.html
    :caption: A sample web page (test.html)
+   :language: html
    :linenos:
 
 :download:`test.html <../code/06iot/test.html>`
@@ -154,6 +155,7 @@ Our first example is *helloWorld.py*
 
 .. literalinclude:: ../code/06iot/flask/helloWorld.py
    :caption: Python code for flask hello world (helloWorld.py)
+   :language: python
    :linenos:
 
 :download:`helloWorld.py <../code/06iot/flask/helloWorld.py>`
@@ -190,6 +192,7 @@ Here's what's in *templates/index1.html*:
 
 .. literalinclude:: ../code/06iot/flask/templates/index1.html
    :caption: index1.html
+   :language: html
    :linenos:
 
 :download:`index1.html <../code/06iot/flask/templates/index1.html>`
@@ -262,6 +265,9 @@ Wire a button to *P9_11* and have the web page display the value of the button.
 
 Let’s use a new Python script named *app2.py*.
 
+.. todo 
+  Convert to gpiod
+
 .. _flask_app2:
 
 .. literalinclude:: ../code/06iot/flask/app2.py
@@ -280,6 +286,7 @@ Let’s also see the new *index2.html* to show the GPIO status:
 
 .. literalinclude:: ../code/06iot/flask/templates/index2.html
    :caption: A simple Flask-based web server to read a GPIO (index2.html)
+   :language: html
    :linenos:
 
 :download:`index2.html <../code/06iot/flask/templates/index2.html>`
@@ -360,6 +367,7 @@ actuator and more importantly, create “buttons” to send the commands:
 
 .. literalinclude:: ../code/06iot/flask/templates/index3.html
    :caption: A simple Flask-based web server to write a GPIO (index3.html)
+   :language: html
    :linenos:
 
 :download:`index3.html <../code/06iot/flask/templates/index3.html>`
@@ -381,6 +389,10 @@ Status of a GPIO pin on a web page
 Try clicking the "TURN ON" and "TURN OFF" buttons and your LED will respond.
 
 *app4.py* and *app5.py* combine the previous apps.  Try them out.
+
+:download:`app4.py <../code/06iot/flask/app4.py>`
+:download:`app5.py <../code/06iot/flask/app5.py>`
+
 
 Plotting Data
 ==============
