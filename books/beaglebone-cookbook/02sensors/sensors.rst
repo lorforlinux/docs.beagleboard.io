@@ -177,6 +177,7 @@ reads GPIO port *P9_42*, which is attached to the pushbutton.
 
       .. literalinclude:: ../code/02sensors/pushbutton.py
          :caption: Monitoring a pushbutton (pushbutton.py)
+         :language: python
          :linenos:
 
       :download:`pushbutton.py <../code/02sensors/pushbutton.py>`
@@ -187,6 +188,7 @@ reads GPIO port *P9_42*, which is attached to the pushbutton.
 
       .. literalinclude:: ../code/02sensors/pushbutton.c
          :caption: Monitoring a pushbutton (pushbutton.c)
+         :language: c
          :linenos:
 
       :download:`pushbutton.c <../code/02sensors/pushbutton.c>`
@@ -322,6 +324,7 @@ Add the code to a file called *analogIn.py* and run it; then change the resistor
 
          .. literalinclude:: ../code/02sensors/analogIn.py
             :caption: Reading an analog voltage (analogIn.py)
+            :language: python
             :linenos:
 
          :download:`analogIn.py <../code/02sensors/analogIn.py>`
@@ -332,6 +335,7 @@ Add the code to a file called *analogIn.py* and run it; then change the resistor
 
          .. literalinclude:: ../code/02sensors/analogIn.js
             :caption: Reading an analog voltage (analogIn.js)
+            :language: JavaScript
             :linenos:
 
          :download:`analogIn.js <../code/02sensors/analogIn.js>`
@@ -405,6 +409,7 @@ shows the code that reads the sensor at a fixed interval.
 
       .. literalinclude:: ../code/02sensors/ultrasonicRange.py
          :caption: Reading an analog voltage (ultrasonicRange.py)
+         :language: python
          :linenos:
 
       :download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
@@ -415,6 +420,7 @@ shows the code that reads the sensor at a fixed interval.
 
       .. literalinclude:: ../code/02sensors/ultrasonicRange.js
          :caption: Reading an analog voltage (ultrasonicRange.js)
+         :language: JavaScript
          :linenos:
 
       :download:`ultrasonicRange.js <../code/02sensors/ultrasonicRange.js>`
@@ -560,6 +566,7 @@ to a file named *rotaryEncoder.py* and run it.
 
       .. literalinclude:: ../code/02sensors/rotaryEncoder.py
          :caption: Reading a rotary encoder (rotaryEncoder.py)
+         :language: python
          :linenos:
 
       :download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
@@ -570,6 +577,7 @@ to a file named *rotaryEncoder.py* and run it.
 
       .. literalinclude:: ../code/02sensors/rotaryEncoder.js
          :caption: Reading a rotary encoder (rotaryEncoder.js)
+         :language: JavaScript
          :linenos:
 
       :download:`rotaryEncoder.js <../code/02sensors/rotaryEncoder.js>`
@@ -824,21 +832,28 @@ https://cateee.net/lkddb/ to see them.
 Once the driver is in place, you can read it via code. 
 :ref:`py_i2cTemp_code` shows how to read the TMP101.
 
-.. _py_i2cTemp_code:
+.. tabs::
+   .. group-tab:: Python
 
-.. literalinclude:: ../code/02sensors/i2cTemp.py
-   :caption: Reading an |I2C|  device (i2cTemp.py)
-   :linenos:
+      .. _py_i2cTemp_code:
 
-:download:`i2cTemp.py <../code/02sensors/i2cTemp.py>`
+      .. literalinclude:: ../code/02sensors/i2cTemp.py
+         :caption: Reading an |I2C|  device (i2cTemp.py)
+         :language: python
+         :linenos:
 
-.. _js_i2cTemp_code:
+      :download:`i2cTemp.py <../code/02sensors/i2cTemp.py>`
 
-.. literalinclude:: ../code/02sensors/i2cTemp.js
-   :caption: Reading an |I2C|  device (i2cTemp.js)
-   :linenos:
+   .. group-tab:: JavaScript
 
-:download:`i2cTemp.js <../code/02sensors/i2cTemp.js>`
+      .. _js_i2cTemp_code:
+
+      .. literalinclude:: ../code/02sensors/i2cTemp.js
+         :caption: Reading an |I2C|  device (i2cTemp.js)
+         :language: JavaScript
+         :linenos:
+
+      :download:`i2cTemp.js <../code/02sensors/i2cTemp.js>`
 
 Run the code by using the following command:
 
@@ -957,19 +972,27 @@ that the path points to your device, and then run it.
 
 .. _py_onewire__code:
 
-.. literalinclude:: ../code/02sensors/w1.py
-   :caption: Reading a temperature with a DS18B20 (w1.py)
-   :linenos:
+.. tabs::
 
-:download:`w1.py <../code/02sensors/w1.py>`
+   .. group-tab:: Python
 
-.. _sensors_onewire__code:
+      .. literalinclude:: ../code/02sensors/w1.py
+         :caption: Reading a temperature with a DS18B20 (w1.py)
+         :language: python
+         :linenos:
 
-.. literalinclude:: ../code/02sensors/w1.js
-   :caption: Reading a temperature with a DS18B20 (w1.js)
-   :linenos:
+      :download:`w1.py <../code/02sensors/w1.py>`
 
-:download:`w1.js <../code/02sensors/w1.js>`
+   .. group-tab:: JavaScript
+
+      .. _sensors_onewire__code:
+
+      .. literalinclude:: ../code/02sensors/w1.js
+         :caption: Reading a temperature with a DS18B20 (w1.js)
+         :language: JavaScript
+         :linenos:
+
+      :download:`w1.js <../code/02sensors/w1.js>`
 
 .. code-block:: bash
 
