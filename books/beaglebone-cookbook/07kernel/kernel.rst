@@ -75,7 +75,7 @@ software package requires a more up-to-date kernel.
 Fortunately, precompiled kernels are available and ready to download.  
 
 Seeing which kernels are installed
-^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can have multiple kernels install at the same time. T
 hey are saved in **/boot**
@@ -152,6 +152,7 @@ For our example module, add the code in :ref:`kernel_simple_module` to a file ca
 
 .. literalinclude:: ../code/07kernel/hello.c
    :caption: Simple Kernel Module (hello.c)
+   :language: c
    :linenos:
 
 :download:`hello.c <../code/07kernel/hello.c>`
@@ -228,180 +229,6 @@ Notice that several files have been created.
 The first command displays information about the module. The *insmod* command inserts the module into the running kernel. 
 If all goes well, nothing is displayed, but the module does print something in the kernel log. The *dmesg* command displays 
 the messages in the log, and the *tail -4* command shows the last four messages. The last two messages are from the module. It worked!
-
-.. _kernel_LEDs:
-
-Controlling LEDs by Using SYSFS Entries
-========================================
-
-Problem
----------
-
-You want to control the onboard LEDs from the command line.
-
-Solution
----------
-
-On Linux, `everything is a file <http://bit.ly/1AjhWUW>`_ that is, you can access all the inputs and outputs, the LEDs, 
-and so on by opening the right ``file`` and reading or writing to it. For example, try the following:
-
-.. code-block:: bash
-
-    bone$ cd /sys/class/leds/
-    bone$ ls
-    beaglebone:green:usr0  beaglebone:green:usr2
-    beaglebone:green:usr1  beaglebone:green:usr3
-
-
-What you are seeing are four directories, one for each onboard LED. Now try this:
-
-.. code-block:: bash
-
-    bone$ cd beaglebone\:green\:usr0
-    bone$ ls
-    brightness  device  max_brightness  power  subsystem  trigger  uevent
-    bone$ cat trigger
-    none nand-disk mmc0 mmc1 timer oneshot [heartbeat] 
-        backlight gpio cpu0 default-on transient 
-
-
-The first command changes into the directory for LED *usr0*, which is the LED closest to the edge of the board. 
-The *[heartbeat]* indicates that the default trigger (behavior) for the LED is to blink in the heartbeat pattern. 
-Look at your LED.  Is it blinking in a heartbeat pattern?
-
-Then try the following:
-
-.. code-block:: bash
-
-    bone$ echo none > trigger
-    bone$ cat trigger 
-    [none] nand-disk mmc0 mmc1 timer oneshot heartbeat
-        backlight gpio cpu0 default-on transient 
-
-
-This instructs the LED to use *none* for a trigger. Look again. It should be no longer blinking.
-
-Now, try turning it on and off:
-
-.. code-block:: bash
-
-    bone$ echo 1 > brightness
-    bone$ echo 0 > brightness
-
-
-The LED should be turning on and off with the commands.
-
-.. _kernel_gpio_sysfs:
-
-Controlling GPIOs by Using SYSFS Entries
-=========================================
-
-Problem
---------
-
-You want to control a GPIO pin from the command line.
-
-Solution
----------
-
-:ref:`kernel_LEDs` introduces the *sysfs*. This recipe shows how to read and write a GPIO pin. 
-
-Reading a GPIO Pin via sysfs
-=============================
-
-Suppose that you want to read the state of the *P9_42* GPIO pin. (:ref:`sensors_pushbutton` shows how to wire a switch to *P9_42*.)  
-First, you need to map the *P9* header location to GPIO number using :ref:`kernel_gpio_map_fig`, which shows that *P9_42* maps to GPIO 7.
-
-.. _kernel_gpio_map_fig:
-
-.. figure:: figures/cape-headers-digitalGPIO7.png
-    :align: center
-    :alt: Mapping Header Position to GPIO Numbers
-
-    Mapping P9_42 header position to GPIO 7
-
-Next, change to the GPIO *sysfs* directory:
-
-.. code-block:: bash
-
-    bone$ cd /sys/class/gpio/
-    bone$ ls
-    export  gpiochip0  gpiochip32  gpiochip64  gpiochip96  unexport
-
-
-The *ls* command shows all the GPIO pins that have be exported. In this case, none have, 
-so you see only the four GPIO controllers. Export using the *export* command:
-
-.. code-block:: bash
-
-    bone$ echo 7 > export
-    bone$ ls
-    export  gpio7  gpiochip0  gpiochip32  gpiochip64  gpiochip96  unexport
-
-
-Now you can see the ``gpio7`` directory. Change into the ``gpio7`` directory and look around:
-
-.. code-block:: bash
-
-    bone$ cd gpio7
-    bone$ ls
-    active_low  direction  edge  power  subsystem  uevent  value
-    bone$ cat direction
-    in
-    bone$ cat value
-    0
-
-
-Notice that the pin is already configured to be an input pin. (If it wasn't already configured that way, 
-use *echo in > direction* to configure it.) You can also see that its current value is *0*—that is, it 
-isn't pressed. Try pressing and holding it and running again:
-
-.. code-block:: bash
-
-    bone$ cat value
-    1
-
-
-The *1* informs you that the switch is pressed. When you are done with GPIO 7, you can always *unexport* it:
-
-.. code-block:: bash
-
-    bone$ cd ..
-    bone$ echo 7 > unexport
-    bone$ ls
-    export  gpiochip0  gpiochip32  gpiochip64  gpiochip96  unexport
-
-
-Writing a GPIO Pin via sysfs
-=============================
-
-Now, suppose that you want to control an external LED. :ref:`displays_externalLED` shows 
-how to wire an LED to *P9_14*. :ref:`kernel_gpio_map_fig` shows *P9_14* is GPIO 50. Following 
-the approach in :ref:`kernel_gpio_sysfs`, enable GPIO 50 and make it an output:
-
-.. code-block:: bash
-
-    bone$ cd /sys/class/gpio/
-    bone$ echo 50 > export
-    bone$ ls
-    gpio50  gpiochip0  gpiochip32  gpiochip64  gpiochip96
-    bone$ cd gpio50
-    bone$ ls
-    active_low  direction  edge  power  subsystem  uevent  value
-    bone$ cat direction
-    in
-
-
-By default, *P9_14* is set as an input. Switch it to an output and turn it on:
-
-.. code-block:: bash
-
-    bone$ echo out > direction
-    bone$ echo 1 > value
-    bone$ echo 0 > value
-
-
-The LED turns on when a *1* is written to *value* and turns off when a *0* is written.
 
 .. _kernel_compiling:
 
