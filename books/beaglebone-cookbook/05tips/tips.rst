@@ -881,6 +881,7 @@ file called ``ipMasquerade.sh`` on your host computer.
 
 .. literalinclude:: ../code/05tips/ipMasquerade.sh
    :caption: Code for IP Masquerading (ipMasquerade.sh)
+   :language: bash
    :linenos:
 
 :download:`ipMasquerade.sh <../code/05tips/ipMasquerade.sh>`
@@ -903,6 +904,7 @@ in :ref:`tips_setDNS` to ``setDNS.sh`` on your host computer.
 
 .. literalinclude:: ../code/05tips/setDNS.sh
    :caption: Code for setting the DNS on the Bone (setDNS.sh)
+   :language: bash
    :linenos:
 
 :download:`setDNS.sh <../code/05tips/setDNS.sh>`
@@ -1387,6 +1389,7 @@ and is much faster.  The approach is the same, write to the */sys/class/gpio* fi
 
 .. literalinclude:: ../code/05tips/blinkLED.c
    :caption: Use C to blink an LED (blinkLED.c)
+   :language: c
    :linenos:
 
 :download:`blinkLED.c <../code/05tips/blinkLED.c>`
