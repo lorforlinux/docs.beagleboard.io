@@ -268,6 +268,7 @@ Add the code in :ref:`realtime_pushLEDmmap_h` to a file named ``pushLEDmmap.h``.
 
 .. literalinclude:: ../code/08realtime/pushLEDmmap.h
    :caption: Memory address definitions (pushLEDmmap.h)
+   :language: c
    :linenos:
 
 :download:`pushLEDmmap.h <../code/08realtime/pushLEDmmap.h>`
@@ -279,6 +280,7 @@ Add the code in :ref:`realtime_pushLEDmmap_c` to a file named ``pushLEDmmap.c``.
 
 .. literalinclude:: ../code/08realtime/pushLEDmmap.c
    :caption: Code for directly reading memory addresses (pushLEDmmap.c)
+   :language: c
    :linenos:
 
 :download:`pushLEDmmap.c <../code/08realtime/pushLEDmmap.c>`
