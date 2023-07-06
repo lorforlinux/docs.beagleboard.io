@@ -38,12 +38,46 @@ HERE
 
 	echo "**** Updating $PAGES_URL/$VER_DIR ****"
 
-	sphinx-build -j auto -b html . public/$VER_DIR/
-	sphinx-build -j auto -M latexpdf . public/$VER_DIR/
-	pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+	echo "**** env ****"
+	env
+
+	echo "**** make clean ****"
+	# Clean build directory
+	make clean BUILDDIR=public/$VER_DIR
+
+	echo "**** make html ****"
+	# Build and serve HTML
+	make html BUILDDIR=public/$VER_DIR
+	mv public/$VER_DIR/html/* public/$VER_DIR/
+
+	echo "**** make latexpdf ****"
+	# Build, optimize, and serve PDF
+	make latexpdf BUILDDIR=public/$VER_DIR
+
+	echo "**** pdfcpu ****"
+	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
+		echo "**** check and install pdfcpu ****"
+		if [ ! -f /usr/local/bin/pdfcpu ] ; then
+			wget https://github.com/pdfcpu/pdfcpu/releases/download/v0.4.0/pdfcpu_0.4.0_Linux_arm64.tar.xz
+			tar xf pdfcpu_0.4.0_Linux_arm64.tar.xz
+			mv -v pdfcpu_0.4.0_Linux_arm64/pdfcpu /usr/local/bin/
+		fi
+		/usr/local/bin/pdfcpu version
+		du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
+		/usr/local/bin/pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+		du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
+	else
+		pdfcpu version
+		pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+	fi
 	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
+
+	echo "**** cleanup ****"
+	# Cleanup
+	rm -rf public/$VER_DIR/doctrees
 	rm -rf public/$VER_DIR/latex
 
+	# Update docs.beagleboard.org
 	if [ "$CI_COMMIT_TAG" != "" ]; then
 		if [ "$VER_DIR" = "latest" ]; then
 			cp public/index.html /var/www/docs
@@ -83,28 +117,19 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export VERSION_MAJOR=${TAG_VER[0]}
 	export VERSION_MINOR=${TAG_VER[1]}
 	export EXTRAVERSION=${TAG_SPLIT[1]}
-	export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | sed 's/.*origin\///')
-	if [ "$GIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
-		export VER_DIR=latest
-		export PAGES_URL=https://docs.beagleboard.org
-		export PAGES_SLUG=latest
-		export GITLAB_USER=docs
-		export GITLAB_HOST=$CI_SERVER_HOST
-		export PROJECT_BRANCH=$GIT_BRANCH
-		export PROJECT_REPO=docs.beagleboard.io
-		do_build
-	elif [ "$GIT_BRANCH" != "" ]; then
-		export VER_DIR=$GIT_BRANCH
-		export PAGES_URL=https://docs.beagleboard.org
-		export PAGES_SLUG=$GIT_BRANCH
-		export GITLAB_USER=docs
-		export GITLAB_HOST=$CI_SERVER_HOST
-		export PROJECT_BRANCH=$GIT_BRANCH
-		export PROJECT_REPO=docs.beagleboard.io
-		do_build
+	export PAGES_URL=https://docs.beagleboard.org
+	export GITLAB_USER=docs
+	export GITLAB_HOST=$CI_SERVER_HOST
+	export PROJECT_REPO=docs.beagleboard.io
+	if [ "$PROJECT_BRANCH" ]; then
+		export VER_DIR=$PROJECT_BRANCH
+		export PAGES_SLUG=$PROJECT_BRANCH
 	else
-		echo "***** Branch not found for tag *****"
+		export PROJECT_BRANCH=latest
+		export VER_DIR=latest
+		export PAGES_SLUG=latest
 	fi
+	do_build
 else
 	echo "***** Not on a branch or tag *****"
 fi

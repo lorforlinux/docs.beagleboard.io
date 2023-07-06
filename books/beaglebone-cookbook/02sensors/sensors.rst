@@ -3,6 +3,10 @@
 Sensors
 ########
 
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
+.. |deg| replace:: °
+
 In this chapter, you will learn how to sense the physical world with BeagleBone Black. 
 Various types of electronic sensors, such as cameras and microphones, can be connected 
 to the Bone using one or more interfaces provided by the standard USB 2.0 host port, 
@@ -11,7 +15,7 @@ as shown in :ref:`sensors_host_port`.
 .. note::
   
    All the examples in the book assume you have cloned the Cookbook 
-   repository on www.github.com. Go here :ref:`basics_repo` for instructions.
+   repository on git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
 .. _sensors_host_port:
 
@@ -113,7 +117,7 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 .. note::
 
    All the examples in the book assume you have cloned the 
-   Cookbook repository on www.github.com. Go here 
+   Cookbook repository on git.beagleboard.org. Go here 
    :ref:`basics_repo` for instructions.
 
 - Double-click the *pushbutton.py* file to open it.
@@ -122,7 +126,7 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 
 .. code-block::
 
-  root@beaglebone:~/boneSensors# ./pushbutton.js
+  debian@beaglebone:beaglebone-cookbook/code/02sensors$ ./pushbutton.py
   data= 0
   data= 0
   data= 1
@@ -150,7 +154,7 @@ To make this recipe, you will need:
 
 * Breadboard and jumper wires.
 * Pushbutton switch.
-* Magnetic reed switch.
+* Magnetic reed switch. (optional)
 
 You can wire up either a pushbutton, a magnetic reed switch, 
 or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
@@ -163,31 +167,38 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
    
    Diagram for wiring a pushbutton and magnetic reed switch input
 
-The code in :ref:`js_pushbutton_code` 
+The code in :ref:`py_pushbutton_code` 
 reads GPIO port *P9_42*, which is attached to the pushbutton. 
 
-.. _py_pushbutton_code:
+.. tabs::
+   .. group-tab:: Python
 
-.. literalinclude:: ../code/02sensors/pushbutton.py
-   :caption: Monitoring a pushbutton (pushbutton.py)
-   :linenos:
+      .. _py_pushbutton_code:
 
-:download:`pushbutton.py <../code/02sensors/pushbutton.py>`
+      .. literalinclude:: ../code/02sensors/pushbutton.py
+         :caption: Monitoring a pushbutton (pushbutton.py)
+         :language: python
+         :linenos:
 
-.. _js_pushbutton_code:
+      :download:`pushbutton.py <../code/02sensors/pushbutton.py>`
 
-.. literalinclude:: ../code/02sensors/pushbutton.js
-   :caption: Monitoring a pushbutton (pushbutton.js)
-   :linenos:
+   .. group-tab:: c
 
-:download:`pushbutton.js <../code/02sensors/pushbutton.js>`
+      .. _c_pushbutton_code:
 
-Put this code in a file called *pushbutton.js* following the steps in :ref:`sensors_getting_started`. 
+      .. literalinclude:: ../code/02sensors/pushbutton.c
+         :caption: Monitoring a pushbutton (pushbutton.c)
+         :language: c
+         :linenos:
+
+      :download:`pushbutton.c <../code/02sensors/pushbutton.c>`
+
+Put this code in a file called *pushbutton.py* following the steps in :ref:`sensors_getting_started`. 
 In the VSC *bash* tab, run it by using the following commands:
 
 .. code-block:: bash
 
-  bone$ ./pushbutton.js
+  bone$ ./pushbutton.py
   data = 0
   data = 0
   data = 1
@@ -197,6 +208,18 @@ In the VSC *bash* tab, run it by using the following commands:
 The command runs it. Try pushing the button. The code reads the pin and prints its current value.
 
 You will have to press ^C (Ctrl-C) to stop the code.
+
+If you want to run the C version do:
+
+.. code-block:: bash
+
+  bone$ gcc -o pushbutton pushbutton.c -lgpiod
+  bone$ ./pushbutton
+  data = 0
+  data = 0
+  data = 1
+  data = 1
+  ^C
 
 If you want to use the magnetic reed switch wired as shown in 
 :ref:`js_pushbutton_fig`, change *P9_42* to *P9_26* which is gpio *14*. 
@@ -272,9 +295,10 @@ To make this recipe, you will need:
 - Breadboard and jumper wires.
 - 10k trimpot or
 - Flex resistor (optional)
-- 22k resistor
+- 22 |kohm| resistor
 
 A variable resistor with three terminals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :ref:`sensors_analogIn_fig` shows a simple variable resistor (trimpot) 
 wired to the Bone. One end terminal is wired to the ADC 1.8 V power supply on pin *P9_32*, 
@@ -287,26 +311,34 @@ is wired to one of the seven analog-in ports (*P9_36*).
    :align: center
    :alt: Analog
 
-   Wiring a 10k variable resistor (trimpot) to an ADC port
+   Wiring a 10 |kohm| variable resistor (trimpot) to an ADC port
 
-:ref:`sensors_analogIn_code` shows the BoneScript code used to read the variable resistor.  
-Add the code to a file called _analogIn.js_ and run it; then change the resistor and run it again. The voltage read will change.
+:ref:`py_analogIn_code` shows the code used to read the variable resistor.  
+Add the code to a file called *analogIn.py* and run it; then change the resistor and run it again. The voltage read will change.
 
-.. _py_analogIn_code:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/analogIn.py
-   :caption: Reading an analog voltage (analogIn.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`analogIn.py <../code/02sensors/analogIn.py>`
+         .. _py_analogIn_code:
 
-.. _sensors_analogIn_code:
+         .. literalinclude:: ../code/02sensors/analogIn.py
+            :caption: Reading an analog voltage (analogIn.py)
+            :language: python
+            :linenos:
 
-.. literalinclude:: ../code/02sensors/analogIn.js
-   :caption: Reading an analog voltage (analogIn.js)
-   :linenos:
+         :download:`analogIn.py <../code/02sensors/analogIn.py>`
 
-:download:`analogIn.js <../code/02sensors/analogIn.js>`
+   .. group-tab:: JavaScript
+
+         .. _sensors_analogIn_code:
+
+         .. literalinclude:: ../code/02sensors/analogIn.js
+            :caption: Reading an analog voltage (analogIn.js)
+            :language: JavaScript
+            :linenos:
+
+         :download:`analogIn.js <../code/02sensors/analogIn.js>`
 
 .. note::
 
@@ -314,11 +346,12 @@ Add the code to a file called _analogIn.js_ and run it; then change the resistor
   outputs a value between 0 and 4096.
 
 A variable resistor with two terminals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some resistive sensors have only two terminals, such as the flex sensor in :ref:`sensors_flexResistor_fig`
 The resistance between its two terminals changes when it is flexed.
 In this case, we need to add a fixed resistor in series with the flex sensor. :ref:`sensors_flexResistor_fig` 
-shows how to wire in a 22k resistor to give a voltage to measure
+shows how to wire in a 22 |kohm| resistor to give a voltage to measure
 across the flex sensor.
 
 .. _sensors_flexResistor_fig:
@@ -338,7 +371,7 @@ Reading a Distance Sensor (Analog or Variable Voltage Sensor)
 Problem
 --------
 
-You want to measure distance with a `LV-MaxSonar-EZ1 Sonar Range Finder <http://bit.ly/1Mt5Elr>`_, 
+You want to measure distance with a `LV-MaxSonar-EZ1 Sonar Range Finder <https://www.sparkfun.com/products/11309>`_, 
 which outputs a voltage in proportion to the distance.
 
 Solution
@@ -365,25 +398,32 @@ as shown in :ref:`sensors_ultrasonic_fig`. The device outputs ~6.4 mV/in when po
 
    Wiring the LV-MaxSonar-EZ1 Sonar Range Finder to the *P9_33* analog-in port
 
-:ref:`sensors_ultrasonicRange_code` 
+:ref:`py_ultrasonicRange_code` 
 shows the code that reads the sensor at a fixed interval.
 
-.. _py_ultrasonicRange_code:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/ultrasonicRange.py
-   :caption: Reading an analog voltage (ultrasonicRange.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
+      .. _py_ultrasonicRange_code:
 
-.. _sensors_ultrasonicRange_code:
+      .. literalinclude:: ../code/02sensors/ultrasonicRange.py
+         :caption: Reading an analog voltage (ultrasonicRange.py)
+         :language: python
+         :linenos:
 
+      :download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
 
-.. literalinclude:: ../code/02sensors/ultrasonicRange.js
-   :caption: Reading an analog voltage (ultrasonicRange.js)
-   :linenos:
+   .. group-tab:: JavaScript
 
-:download:`ultrasonicRange.js <../code/02sensors/ultrasonicRange.js>`
+      .. _sensors_ultrasonicRange_code:
+
+      .. literalinclude:: ../code/02sensors/ultrasonicRange.js
+         :caption: Reading an analog voltage (ultrasonicRange.js)
+         :language: JavaScript
+         :linenos:
+
+      :download:`ultrasonicRange.js <../code/02sensors/ultrasonicRange.js>`
 
 .. _sensors_hc-sr04:
 
@@ -413,7 +453,7 @@ pulse width on the *Echo* output. The width of the pulse tells you the distance.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 10 k and 20 k resistors
+* 10 |kohm| and 20 |kohm| resistors
 * HC-SR04 Ultrsonic Range Sensor.
 
 Wire the sensor as shown in :ref:`sensors_hc-sr04_fig`. 
@@ -515,29 +555,37 @@ Then run the following commands:
 This will enable *eQEP2* on pins *P8_11* and *P8_12*. 
 The *2* after the *qep* returned by *show-pins* shows it's *eQEP2*.  
 
-Finally, add the code in :ref:`digital_rotaryEncoder_js` 
-to a file named *rotaryEncoder.js* and run it.
+Finally, add the code in :ref:`digital_rotaryEncoder_py` 
+to a file named *rotaryEncoder.py* and run it.
 
-.. _digital_rotaryEncoder_py:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/rotaryEncoder.py
-   :caption: Reading a rotary encoder (rotaryEncoder.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
+      .. _digital_rotaryEncoder_py:
 
-.. _digital_rotaryEncoder_js:
+      .. literalinclude:: ../code/02sensors/rotaryEncoder.py
+         :caption: Reading a rotary encoder (rotaryEncoder.py)
+         :language: python
+         :linenos:
 
-.. literalinclude:: ../code/02sensors/rotaryEncoder.js
-   :caption: Reading a rotary encoder (rotaryEncoder.js)
-   :linenos:
+      :download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
 
-:download:`rotaryEncoder.js <../code/02sensors/rotaryEncoder.js>`
+   .. group-tab:: JavaScript
+
+      .. _digital_rotaryEncoder_js:
+
+      .. literalinclude:: ../code/02sensors/rotaryEncoder.js
+         :caption: Reading a rotary encoder (rotaryEncoder.js)
+         :language: JavaScript
+         :linenos:
+
+      :download:`rotaryEncoder.js <../code/02sensors/rotaryEncoder.js>`
 
 Try rotating the encoder clockwise and counter-clockwise. 
 You'll see an output like this:
 
-.. code-block::bash
+.. code-block:: bash
 
    data = 32
    data = 40
@@ -550,7 +598,6 @@ You'll see an output like this:
    data = 999973
    data = 999972
    ^C
-
 
 The values you get for *data* will depend on which way you are 
 turning the device and how quickly. You will need to press ^C (Ctrl-C) to end.
@@ -618,11 +665,11 @@ If you don't need the NMEA formatting, you can skip the *npm* part and remove th
 
 .. note:: 
   If you get an error like this
-  TypeError: Cannot call method 'readline' of undefined
+  *TypeError: Cannot call method 'readline' of undefined*
 
-add this line to the end of file ``/usr/local/lib/node_modules/bonescript/serial.js``:
+   add this line to the end of file ``/usr/local/lib/node_modules/bonescript/serial.js``:
 
-*exports.serialParsers = m.module.parsers;*
+   *exports.serialParsers = m.module.parsers;*
 
 .. _cape-headers-serial_fig:
 
@@ -653,7 +700,7 @@ sensor that uses a standard |I2C|-based serial protocol.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* Two 4.7 k resistors.
+* Two 4.7 |kohm| resistors.
 * TMP101 temperature sensor.
 
 Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
@@ -679,14 +726,17 @@ shows that you have wired your device to |I2C| bus *2*.
    Table of |I2C| outputs
 
 
-Once the |I2C|  device is wired up, you can use a couple handy |I2C| 
+Once the |I2C| device is wired up, you can use a couple handy |I2C| 
 tools to test the device. Because these are Linux command-line tools, 
 you have to use *2* as the bus number. *i2cdetect*, shown in :ref:`js_i2cTools`, 
 shows which |I2C|  devices are on the bus. The *-r* flag indicates which bus to use. 
-Our TMP101 is appearing at address *0x498*. You can use the *i2cget* command to read 
+Our TMP101 is appearing at address *0x49*. You can use the *i2cget* command to read 
 the value. It returns the temperature in hexadecimal and degrees C. 
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
 Try warming up the TMP101 with your finger and running *i2cget* again.
+
+.. todo
+   fix deg
 
 .. _js_i2cTools:
 
@@ -739,7 +789,7 @@ Assuming the TMP101 is on bus 2 (the last digit is the bus number)
   0 -rw-rw-r-- 1 root gpio 4096 Dec 31  1999 uevent
 
 
-Assuming the TMP101 is at address 0x48:
+Assuming the TMP101 is at address 0x49
 
 .. code-block:: bash
 
@@ -760,18 +810,16 @@ Yes, it's there, now see what happened.
 .. code-block:: bash
 
   bone$ ls
-  2-0049  delete_device  device  i2c-dev  name  
-  new_device  of_node  power  subsystem  uevent
+  2-0049  delete_device  device  i2c-dev  name new_device  of_node  power  subsystem  uevent
 
 
 Notice a new directory has appeared. It's for i2c bus 2, address 0x49. Look into it.
 
 .. code-block:: bash
 
-  bone$ cd 2-0048/hwmon/hwmon0
+  bone$ cd 2-0049/hwmon/hwmon0
   bone$ ls -F
-  device@  name  power/  subsystem@  temp1_input  temp1_max  
-  temp1_max_hyst  uevent  update_interval
+  device@  name  power/  subsystem@  temp1_input  temp1_max temp1_max_hyst  uevent  update_interval
   bone$ cat temp1_input
   24250
 
@@ -782,23 +830,30 @@ You can try the Linux Kernel Driver Database,
 https://cateee.net/lkddb/ to see them.
 
 Once the driver is in place, you can read it via code. 
-:ref:`py_i2cTemp_code` shows how to read the TMP101 from BoneScript.
+:ref:`py_i2cTemp_code` shows how to read the TMP101.
 
-.. _py_i2cTemp_code:
+.. tabs::
+   .. group-tab:: Python
 
-.. literalinclude:: ../code/02sensors/i2cTemp.py
-   :caption: Reading an |I2C|  device (i2cTemp.py)
-   :linenos:
+      .. _py_i2cTemp_code:
 
-:download:`i2cTemp.py <../code/02sensors/i2cTemp.py>`
+      .. literalinclude:: ../code/02sensors/i2cTemp.py
+         :caption: Reading an |I2C|  device (i2cTemp.py)
+         :language: python
+         :linenos:
 
-.. _js_i2cTemp_code:
+      :download:`i2cTemp.py <../code/02sensors/i2cTemp.py>`
 
-.. literalinclude:: ../code/02sensors/i2cTemp.js
-   :caption: Reading an |I2C|  device (i2cTemp.js)
-   :linenos:
+   .. group-tab:: JavaScript
 
-:download:`i2cTemp.js <../code/02sensors/i2cTemp.js>`
+      .. _js_i2cTemp_code:
+
+      .. literalinclude:: ../code/02sensors/i2cTemp.js
+         :caption: Reading an |I2C|  device (i2cTemp.js)
+         :language: JavaScript
+         :linenos:
+
+      :download:`i2cTemp.js <../code/02sensors/i2cTemp.js>`
 
 Run the code by using the following command:
 
@@ -834,6 +889,7 @@ using the kernel driver.  First you need to install the i2c module.
 :download:`i2ctmp101.py <../code/02sensors/i2ctmp101.py>`
 
 This gets only 8 bits for the temperature. See the TMP101 datasheet 
+(https://www.ti.com/product/TMP101)
 for details on how  to get up to 12 bits.
 
 Reading Temperature via a Dallas 1-Wire Device
@@ -862,7 +918,7 @@ You can wire it to any GPIO port.
 To make this recipe, you will need:
 
 * Breadboard and jumper wires.
-* 4.7 k resistor
+* 4.7 |kohm| resistor
 * DS18B20 1-wire temperature sensor.
 
 Wire up as shown in :ref:`sensors_1-wire_fig`.
@@ -875,7 +931,9 @@ Wire up as shown in :ref:`sensors_1-wire_fig`.
 
    Wiring a Dallas 1-Wire temperature sensor 
 
-.. note:: 
+.. hide
+   The bit.ly doesn't work.
+  .. note:: 
   This solution, written by Elias Bakken (@AgentBrum), 
   originally appeared on`Hipstercircuits <http://bit.ly/1FaRbbK>`_.
 
@@ -908,25 +966,33 @@ Now run the following command to discover the serial number on your device:
 I have two devices wired in parallel on the same P9_12 input. 
 This shows the serial numbers for all the devices. 
 
-Finally, add the code in :ref:`sensors_onewire__code` in to a 
+Finally, add the code in :ref:`py_onewire__code` in to a 
 file named *w1.py*, edit the path assigned to *w1* so 
 that the path points to your device, and then run it.
 
-.. _py_onewire__code:
+.. tabs::
 
-.. literalinclude:: ../code/02sensors/w1.py
-   :caption: Reading a temperature with a DS18B20 (w1.py)
-   :linenos:
+   .. group-tab:: Python
 
-:download:`w1.py <../code/02sensors/w1.py>`
+      .. _py_onewire__code:
 
-.. _sensors_onewire__code:
+      .. literalinclude:: ../code/02sensors/w1.py
+         :caption: Reading a temperature with a DS18B20 (w1.py)
+         :language: python
+         :linenos:
 
-.. literalinclude:: ../code/02sensors/w1.js
-   :caption: Reading a temperature with a DS18B20 (w1.js)
-   :linenos:
+      :download:`w1.py <../code/02sensors/w1.py>`
 
-:download:`w1.js <../code/02sensors/w1.js>`
+   .. group-tab:: JavaScript
+
+      .. _sensors_onewire__code:
+
+      .. literalinclude:: ../code/02sensors/w1.js
+         :caption: Reading a temperature with a DS18B20 (w1.js)
+         :language: JavaScript
+         :linenos:
+
+      :download:`w1.js <../code/02sensors/w1.js>`
 
 .. code-block:: bash
 

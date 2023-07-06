@@ -26,9 +26,14 @@ Install the latest software image for BeaglePlay
     specifics of which image was used to test these instructions need be included
     here moving forward and the detailed instructions can be referenced elsewhere.
 
-Download and install the Debian Linux operating system image for BeaglePlay.
+You may want to download and install the latest Debian Linux operating system
+image for BeaglePlay.
 
-#. These instructions were validated with the BeagleBoard.org Debian image `am625x-emmc-flasher-debian-11.5-xfce-arm64-2023-01-04-10gb.img.xz <https://rcn-ee.net/rootfs/debian-arm64-xfce/2023-01-04/am625x-debian-11.6-xfce-arm64-2023-01-04-10gb.img.xz>`_.
+.. note::
+
+    These instructions were validated with the BeagleBoard.org Debian image
+    `BeaglePlay Debian 11.6 Flasher 2023-03-10
+    <https://www.beagleboard.org/distros/beagleplay-debian-11-6-flasher-2023-03-10>`_.
 
 #. Load this image to a microSD card using a tool like Etcher.
 
@@ -36,9 +41,21 @@ Download and install the Debian Linux operating system image for BeaglePlay.
 
 #. Power BeaglePlay via the USB-C connector.
 
+#. Wait for the LEDs to start blinking, then turn off.
+
+#. Remove power from BeaglePlay.
+
+#. *IMPORTANT* Remove microSD card from BeaglePlay.
+
+#. Apply power to BeaglePlay.
+
+.. note::
+
+   This will flash the CC1352 as well as the eMMC flash on BeaglePlay.
+
 .. todo::
 
-   describe how to know it is working
+   Describe how to know it is working
 
 Log into BeaglePlay
 *********************************
@@ -92,7 +109,7 @@ Steps
 
         The default password is `temppwd`.
 
-#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases>`_.
+#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases>`_ or `distros on www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_.
 
     .. code-block:: bash
 

@@ -414,6 +414,7 @@ page for more information.
    :hidden:
    :caption: Accessories
 
+   /boards/capes/index
    /accessories/index
 
 Indices and tables
