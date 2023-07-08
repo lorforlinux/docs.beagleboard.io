@@ -79,7 +79,7 @@ Xuantie C910 processor clocked at 1.85GHz with a 4 TOPS NPU, support for
     |                            | - Connector: Mini HDMI                                                    |
     +----------------------------+---------------------------------------------------------------------------+
     | Other connectors           | - microSD                                                                 |
-    |                            | - mikroBUS shuttle connector (I2C/UART/SPI/MCAN/MCASP/PWM/GPIO)           |
+    |                            | - mikroBUS shuttle connector (I2C/UART/SPI/ADC/PWM/GPIO)                  |
     |                            | - 2 x CSI connector compatible with BeagleBone AI-64,                     |
     |                            |   Raspberry Pi Zero / CM4 (22-pin)                                        |
     |                            | - DSI connector                                                           |
