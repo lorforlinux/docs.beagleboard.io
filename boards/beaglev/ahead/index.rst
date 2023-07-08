@@ -73,7 +73,7 @@ BeagleV-Ahead
 
         +++
 
-        Hardware and mechanical design and specifications of the BeagleV Ahead board 
+        Hardware and mechanical design and specifications of BeagleV Ahead board 
         for those who want to know their board inside and out.
 
     .. grid-item-card:: 
@@ -105,7 +105,7 @@ BeagleV-Ahead
 
         +++
 
-        Demos and tutorials to quickly learn about the BeagleV Ahead capabilities.
+        Demos and tutorials to quickly learn about BeagleV Ahead capabilities.
 
     .. grid-item-card:: 
         :link: beaglev-ahead-support

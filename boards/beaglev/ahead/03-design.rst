@@ -3,7 +3,7 @@
 Design & specifications
 #######################
 
-If you want to know how the BeagleV Ahead board is designed and what are it's 
+If you want to know how BeagleV Ahead board is designed and what are it's 
 high-level specifications then this chapter is for you. We are going to discuss 
 each hardware design element in detail and provide high-level device 
 specifications in  a short and crisp form as well.

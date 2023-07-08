@@ -29,7 +29,7 @@ Antenna guide
    .. group-tab:: Connecting antenna
 
       To use WiFi you are **required** to connect the 2.4GHz/5GHz antenna provided 
-      in the BeagleV Ahead box. Below is a guide to connect the antenna to your 
+      in BeagleV Ahead box. Below is a guide to connect the antenna to your 
       BeagleV Ahead board.
 
       .. figure:: media/antenna-guide/connect.*
