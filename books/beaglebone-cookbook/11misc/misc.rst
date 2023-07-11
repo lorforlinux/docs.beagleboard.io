@@ -685,3 +685,8 @@ Button Pressed:
 +---+-------------+-------------------+------------------------+
 |3, |Backup Boot  |B[13:10] = 0b0001  |  : USB DFU Boot        |
 +---+-------------+-------------------+------------------------+
+
+Boot Flow
+---------
+ 
+https://github.com/u-boot/u-boot/blob/master/doc/board/ti/am62x_sk.rst#boot-flow
