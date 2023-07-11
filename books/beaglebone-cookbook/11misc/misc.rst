@@ -640,7 +640,7 @@ the Initialization Process.
     Initialization Process
 
 We are interested in what happens in the **ROM code**.
-Page 2457 shows the different ROM Bode Boot Modes.
+Page 2457 shows the different ROM Code Boot Modes.
 
 .. figure:: figures/boot-modes.png
     :align: center
@@ -664,3 +664,24 @@ shows how the BOOTMODE pins are set during boot.
     :alt: bootstrap
 
     Bootstrap    
+
+Button Not-pressed:
+
+
++---+-------------+--------------------+------------------------+
+|1, | PLL Config  | B[2:0] = 0b011     |    : Ref Clcok -> 25MHz|
++---+-------------+--------------------+------------------------+
+|2, | Primary Boot| B[9:3] = 0b1001001 |  : eMMC Boot           |
++---+-------------+--------------------+------------------------+
+|3, |Backup Boot  | B[13:10] = 0b1011  |  : UART Boot           |
++---+-------------+--------------------+------------------------+
+
+Button Pressed:
+
++---+-------------+-------------------+------------------------+
+|1, |PLL Config   | B[2:0] = 0b011    |   : Ref Clcok -> 25MHz |
++---+-------------+-------------------+------------------------+
+|2, |Primary Boot |B[9:3] = 0b1001000 | : SDCard FS Boot       |
++---+-------------+-------------------+------------------------+
+|3, |Backup Boot  |B[13:10] = 0b0001  |  : USB DFU Boot        |
++---+-------------+-------------------+------------------------+
