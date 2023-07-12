@@ -75,6 +75,48 @@ Antenna guide
 Tethering to PC
 ****************
 
+To connect the board to PC via USB 3.0 port you can use either a standard microUSB cable 
+or a USB 3.0 microB cable. Connection guide for both are shown below:
+
+.. warning:: microUSB will support only USB 2.0 speeds but microB cable will support USB 3.0 super speed connection.
+
+.. tabs::
+
+   .. group-tab:: microB connection (USB 3.0 super speed)
+
+      For super speed USB 3.0 connection it's recommended to use microB USB cable.  
+      To get a microB cable you can checkout links below:
+
+      1. `USB 3.0 Micro-B Cable - 1m (sparkfun) <https://www.sparkfun.com/products/14724>`_
+      2. `Stewart Connector microB (DigiKey) <https://www.digikey.com/en/products/detail/stewart-connector/SC-3ATK003F/8544565>`_
+      3. `CNC Tech microB (DigiKey) <https://www.digikey.com/en/products/detail/cnc-tech/103-1092-BL-00100/5023751>`_
+      4. `Assmann WSW Components microB (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/A-USB30AM-30MBM-200/10408379>`_
+
+      .. note:: if you only have a microUSB cable you can checkout microUSB connection guide.
+
+      .. figure:: media/usb-guide/microB-connection.*
+          :align: center
+          :alt: microB (USB 3.0) connection guide for BeagleV Ahead.
+          
+          microB (USB 3.0) connection guide for BeagleV Ahead.
+
+   .. group-tab:: microUSB connection (USB 2.0)
+
+
+      For USB 2.0 connection it's recommended to use microUSB USB cable.  
+      To get a microUSB cable you can checkout links below:
+
+      1. `USB micro-B Cable - 6 Foot (sparkfun) <https://www.sparkfun.com/products/10215>`_
+      2. `Stewart Connector microUSB (DigiKey) <https://www.digikey.com/en/products/detail/stewart-connector/SC-2AMK003F/8544577>`_
+      3. `Assmann WSW Components microUSB  (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/AK67421-0-3-VM/5428793>`_
+      4. `Cvilux USA microUSB (DigiKey) <https://www.digikey.com/en/products/detail/cvilux-usa/DH-20M50055/13175849>`_
+
+      .. figure:: media/usb-guide/microUSB-connection.*
+          :align: center
+          :alt: microUSB (USB 2.0) connection guide BeagleV Ahead.
+
+          microUSB (USB 2.0) connection guide BeagleV Ahead.
+
 Demos and Tutorials
 *******************
 
