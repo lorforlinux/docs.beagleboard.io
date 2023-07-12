@@ -229,20 +229,27 @@ How do I manage and edit my files?
 Solution
 ------------
 
-The image you downloaded includes `Visual Studio Code <https://aws.amazon.com/cloud9/>`_,
+The image you downloaded includes `Visual Studio Code <https://github.com/coder/code-server>`_,
 a web-based integrated development environment (IDE) as shown in 
-:ref:`start_c9`.
+:ref:`start_bb-code-server`.
 
-.. _start_c9:
+.. _start_bb-code-server:
 
-.. figure:: figures/c9.png
+.. figure:: figures/bb-code-server.png
     :align: center
     :alt: The Visual Studio Code IDE
 
     Visual Studio Code IDE
 
-Just point the browser on your host computer to http://192.168.7.2 
-and start exploring.  If you want the files in your home directory to appear
+Just point the browser on your host computer to http://192.168.7.2:3000 
+and start exploring. You may also want to upgrade bb-code-server to pull in the latest updates.
+Another route to take is to apply this command to boot the service called bb-code-server.
+
+.. code_block::
+
+    bone$ sudo systemctl start bb-code-server.service
+
+If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
 as shown in :ref:`start_c9_show_home`.
 
