@@ -18,6 +18,25 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
     :align: center
     :alt: BeaglePlay box contents
 
+.. only:: latex
+    
+   .. image:: https://img.youtube.com/vi/SVC9peUUzE0/maxresdefault.jpg
+      :alt: BeagleV Ahead Unboxing YouTube video
+      :width: 1280
+      :target: https://www.youtube.com/watch?v=SVC9peUUzE0
+
+.. only:: html
+
+    .. raw:: html
+
+        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
+        src="https://www.youtube.com/embed/SVC9peUUzE0" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+        </iframe>
+
 
 Antenna guide
 *************
