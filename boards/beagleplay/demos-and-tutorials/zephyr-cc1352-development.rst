@@ -84,7 +84,7 @@ does not have a USB device, so the application was modified to communicate over 
 For the :ref:`beagleconnect_freedom_home`, a USB-to-UART bridge device was used and the USB endpoints
 were made compatible with the `WPANUSB linux driver <https://github.com/finikorg/wpanusb>`_ which we
 `augmented <https://git.beagleboard.org/beagleconnect/linux/wpanusb/>`_ to support this board. To utilize
-the existing `WPANUSB` Zephyr application and this Linxu driver, we chose to encode our UART traffic with
+the existing `WPANUSB` Zephyr application and this Linux driver, we chose to encode our UART traffic with
 `HDLC <https://en.wikipedia.org/wiki/High-Level_Data_Link_Control>`_. This has the advantage of enabing a
 serial console interface to the Zephyr shell while WPANUSB-specific traffic is directed to other
 `USB endpoints <https://simple.wikipedia.org/wiki/USB#How_USB_works>`_.
