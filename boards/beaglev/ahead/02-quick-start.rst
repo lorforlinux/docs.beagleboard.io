@@ -44,7 +44,7 @@ Antenna guide
       If for some reason you want to disconnect the antenna from your BeagleV Ahead board 
       you can follow the guide below to remove the antenna without beaking the uFL antenna connector.
 
-      .. figure:: media/antenna-guide/remove.*
+      .. figure:: media/antenna-guide/disconnect.*
           :align: center
           :alt: Removing 2.4GHz/5GHz antenna to BeagleV Ahead.
 
