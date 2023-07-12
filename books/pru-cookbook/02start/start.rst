@@ -247,7 +247,7 @@ Another route to take is to apply this command to boot the service called bb-cod
 
 .. code_block:: shell-session
 
-    bone$ sudo systemctl start bb-code-server.service
+    sudo systemctl start bb-code-server.service
 
 If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
