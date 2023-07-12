@@ -18,6 +18,9 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
     :align: center
     :alt: BeaglePlay box contents
 
+Unboxing
+*********
+
 .. only:: latex
     
    .. image:: https://img.youtube.com/vi/SVC9peUUzE0/maxresdefault.jpg
