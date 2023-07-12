@@ -92,7 +92,7 @@ or a USB 3.0 microB cable. Connection guide for both are shown below:
       3. `CNC Tech microB (DigiKey) <https://www.digikey.com/en/products/detail/cnc-tech/103-1092-BL-00100/5023751>`_
       4. `Assmann WSW Components microB (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/A-USB30AM-30MBM-200/10408379>`_
 
-      .. note:: if you only have a microUSB cable you can checkout microUSB connection guide.
+      .. note:: If you only have a microUSB cable you can checkout microUSB connection guide.
 
       .. figure:: media/usb-guide/microB-connection.*
           :align: center
@@ -111,11 +111,40 @@ or a USB 3.0 microB cable. Connection guide for both are shown below:
       3. `Assmann WSW Components microUSB  (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/AK67421-0-3-VM/5428793>`_
       4. `Cvilux USA microUSB (DigiKey) <https://www.digikey.com/en/products/detail/cvilux-usa/DH-20M50055/13175849>`_
 
+      .. note:: Make sure the microUSB cable you have is a data cable as some microUSB cables are power only.        
+
       .. figure:: media/usb-guide/microUSB-connection.*
           :align: center
           :alt: microUSB (USB 2.0) connection guide BeagleV Ahead.
 
           microUSB (USB 2.0) connection guide BeagleV Ahead.
+
+Flashing eMMC
+**************
+
+To flash your BeagleV Ahead you need either a microB or microUSB cable as shown in section above.
+
+.. note:: Only microB is shown in graphic below but you can use 
+    a microUSB cable. Only difference will be lower flash speeds.
+
+To put your BeagleV Ahead board into eMMC flash mode you can follow the steps below:
+
+1. Press and hold USB button.
+2. Connect to PC with microB or microUSB cable.
+3. Release USB button.
+
+.. figure:: media/usb-guide/Flash-eMMC.*
+    :align: center
+    :alt: Connecting BeagleV Ahead to flash eMMC
+
+    Connecting BeagleV Ahead to flash eMMC
+
+.. important:: If you want to put the board into eMMC flashing while it is already 
+    connected to a PC you can follow these steps:
+
+    1. Press and hold USB button.
+    2. Press reset button once.
+    3. Release USB button.
 
 Demos and Tutorials
 *******************
