@@ -245,9 +245,7 @@ Just point the browser on your host computer to http://192.168.7.2:3000
 and start exploring. You may also want to upgrade bb-code-server to pull in the latest updates.
 Another route to take is to apply this command to boot the service called bb-code-server.
 
-.. code_block::
-
-    sudo systemctl start bb-code-server.service
+`sudo systemctl start bb-code-server.service`
 
 If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
