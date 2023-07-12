@@ -10,7 +10,7 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
 
 1. BeagleV Ahead board
 2. One (1) 2.4GHz/5GHz antenna
-3. microUSB OTG cable
+3. super-speed micro-B OTG cable
 4. Quick-start card
 
 .. image:: media/BeagleV-Ahead-all.*
@@ -75,62 +75,62 @@ Antenna guide
 Tethering to PC
 ****************
 
-To connect the board to PC via USB 3.0 port you can use either a standard microUSB cable 
-or a USB 3.0 microB cable. Connection guide for both are shown below:
+To connect the board to PC via USB 3.0 port you can use either a standard high-speed micro-B cable 
+or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown below:
 
-.. important:: microUSB will support only USB 2.0 speeds but microB cable will support USB 3.0 super speed connection.
+.. important:: high-speed micro-B will support only USB 2.0 speed but super-speed micro-B cable will support USB 3.0 speed.
 
 .. tabs::
 
-   .. group-tab:: microB connection (USB 3.0 super speed)
+   .. group-tab:: super-speed micro-B connection (USB 3.0)
 
-      For super speed USB 3.0 connection it's recommended to use microB USB cable.  
-      To get a microB cable you can checkout links below:
+      For super speed USB 3.0 connection it's recommended to use super-speed micro-B USB cable.  
+      To get a super-speed micro-B cable you can checkout links below:
 
       1. `USB 3.0 Micro-B Cable - 1m (sparkfun) <https://www.sparkfun.com/products/14724>`_
-      2. `Stewart Connector microB (DigiKey) <https://www.digikey.com/en/products/detail/stewart-connector/SC-3ATK003F/8544565>`_
-      3. `CNC Tech microB (DigiKey) <https://www.digikey.com/en/products/detail/cnc-tech/103-1092-BL-00100/5023751>`_
-      4. `Assmann WSW Components microB (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/A-USB30AM-30MBM-200/10408379>`_
+      2. `Stewart Connector super-speed micro-B (DigiKey) <https://www.digikey.com/en/products/detail/stewart-connector/SC-3ATK003F/8544565>`_
+      3. `CNC Tech super-speed micro-B (DigiKey) <https://www.digikey.com/en/products/detail/cnc-tech/103-1092-BL-00100/5023751>`_
+      4. `Assmann WSW Components super-speed micro-B (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/A-USB30AM-30MBM-200/10408379>`_
 
-      .. note:: If you only have a microUSB cable you can checkout microUSB connection guide.
+      .. note:: If you only have a high-speed micro-B cable you can checkout high-speed micro-B connection guide.
 
-      .. figure:: media/usb-guide/microB-connection.*
+      .. figure:: media/usb-guide/super-speed-micro-B-connection.*
           :align: center
-          :alt: microB (USB 3.0) connection guide for BeagleV Ahead.
+          :alt: super-speed micro-B (USB 3.0) connection guide for BeagleV Ahead.
           
-          microB (USB 3.0) connection guide for BeagleV Ahead.
+          super-speed micro-B (USB 3.0) connection guide for BeagleV Ahead.
 
-   .. group-tab:: microUSB connection (USB 2.0)
+   .. group-tab:: high-speed micro-B connection (USB 2.0)
 
 
-      For USB 2.0 connection it's recommended to use microUSB USB cable.  
-      To get a microUSB cable you can checkout links below:
+      For USB 2.0 connection it's recommended to use high-speed micro-B USB cable.  
+      To get a high-speed micro-B cable you can checkout links below:
 
       1. `USB micro-B Cable - 6 Foot (sparkfun) <https://www.sparkfun.com/products/10215>`_
-      2. `Stewart Connector microUSB (DigiKey) <https://www.digikey.com/en/products/detail/stewart-connector/SC-2AMK003F/8544577>`_
-      3. `Assmann WSW Components microUSB  (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/AK67421-0-3-VM/5428793>`_
-      4. `Cvilux USA microUSB (DigiKey) <https://www.digikey.com/en/products/detail/cvilux-usa/DH-20M50055/13175849>`_
+      2. `Stewart Connector high-speed micro-B (DigiKey) <https://www.digikey.com/en/products/detail/stewart-connector/SC-2AMK003F/8544577>`_
+      3. `Assmann WSW Components high-speed micro-B  (DigiKey) <https://www.digikey.com/en/products/detail/assmann-wsw-components/AK67421-0-3-VM/5428793>`_
+      4. `Cvilux USA high-speed micro-B (DigiKey) <https://www.digikey.com/en/products/detail/cvilux-usa/DH-20M50055/13175849>`_
 
-      .. note:: Make sure the microUSB cable you have is a data cable as some microUSB cables are power only.        
+      .. note:: Make sure the high-speed micro-B cable you have is a data cable as some high-speed micro-B cables are power only.        
 
-      .. figure:: media/usb-guide/microUSB-connection.*
+      .. figure:: media/usb-guide/high-speed-micro-B-connection.*
           :align: center
-          :alt: microUSB (USB 2.0) connection guide BeagleV Ahead.
+          :alt: high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
 
-          microUSB (USB 2.0) connection guide BeagleV Ahead.
+          high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
 
 Flashing eMMC
 **************
 
-To flash your BeagleV Ahead you need either a microB or microUSB cable as shown in section above.
+To flash your BeagleV Ahead you need either a super-speed micro-B or high-speed micro-B cable as shown in section above.
 
-.. note:: Only microB is shown in graphic below but you can use 
-    a microUSB cable. Only difference will be lower flash speeds.
+.. note:: Only super-speed micro-B is shown in graphic below but you can use 
+    a high-speed micro-B cable. Only difference will be lower flash speeds.
 
 To put your BeagleV Ahead board into eMMC flash mode you can follow the steps below:
 
 1. Press and hold USB button.
-2. Connect to PC with microB or microUSB cable.
+2. Connect to PC with super-speed micro-B or high-speed micro-B cable.
 3. Release USB button.
 
 .. figure:: media/usb-guide/Flash-eMMC.*
@@ -149,7 +149,7 @@ To put your BeagleV Ahead board into eMMC flash mode you can follow the steps be
 Connect USB gadgets
 ********************
 
-A microB (male) to USB A (female) OTG cable included in the box 
+A super-speed micro-B (male) to USB A (female) OTG cable included in the box 
 can be used to connect USB gadgets to your BeagleV Ahead board. 
 When you do this, you'll be required to power the board via Barrel jack. 
 
