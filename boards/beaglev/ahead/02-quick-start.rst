@@ -78,7 +78,7 @@ Tethering to PC
 To connect the board to PC via USB 3.0 port you can use either a standard microUSB cable 
 or a USB 3.0 microB cable. Connection guide for both are shown below:
 
-.. warning:: microUSB will support only USB 2.0 speeds but microB cable will support USB 3.0 super speed connection.
+.. important:: microUSB will support only USB 2.0 speeds but microB cable will support USB 3.0 super speed connection.
 
 .. tabs::
 
@@ -145,6 +145,22 @@ To put your BeagleV Ahead board into eMMC flash mode you can follow the steps be
     1. Press and hold USB button.
     2. Press reset button once.
     3. Release USB button.
+
+Connect USB gadgets
+********************
+
+A microB (male) to USB A (female) OTG cable included in the box 
+can be used to connect USB gadgets to your BeagleV Ahead board. 
+When you do this, you'll be required to power the board via Barrel jack. 
+
+.. important:: To properly power the board and USB gadgets you must power 
+    the board with 5V @ 2A power supply.
+
+.. figure:: media/usb-guide/OTG-usage.*
+    :align: center
+    :alt: USB OTG to connect USB gadgets to BeagleV Ahead board
+
+    USB OTG to connect USB gadgets to BeagleV Ahead board
 
 Demos and Tutorials
 *******************
