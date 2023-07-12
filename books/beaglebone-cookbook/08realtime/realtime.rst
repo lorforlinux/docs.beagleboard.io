@@ -57,25 +57,55 @@ Wire up the pushbutton and LED as shown in :ref:`realtime_pushLED_fig`.
 
     Diagram for wiring a pushbutton and LED with the LED attached to P9_14
 
-The code in :ref:`realtime_pushLED_code` reads GPIO port *P9_42*, which is attached to the 
+The code in :ref:`py_pushLED_code` reads GPIO port *P9_42*, which is attached to the 
 pushbutton, and turns on the LED attached to *P9_12* when the button is pushed.
 
-.. _py_pushLED_code:
+.. tabs::
 
-.. literalinclude:: ../code/08realtime/pushLED.py
-   :caption: Monitoring a pushbutton (pushLED.py)
-   :linenos:
+    .. group-tab:: Python
 
-:download:`pushLED.py <../code/08realtime/pushLED.py>`
+        .. _py_pushLED_code:
 
-.. _realtime_pushLED_code:
+        .. literalinclude:: ../code/08realtime/pushLED.py
+            :caption: Monitoring a pushbutton (pushLED.py)
+            :language: Python
+            :linenos:
 
-.. literalinclude:: ../code/08realtime/pushLED.js
-   :caption: Monitoring a pushbutton (pushLED.js)
-   :linenos:
+        :download:`pushLED.py <../code/08realtime/pushLED.py>`
+    
+    .. group-tab:: c
 
-:download:`pushLED.js <../code/08realtime/pushLED.js>`
+        .. _realtime_pushLED_c_code:
 
+        .. literalinclude:: ../code/08realtime/pushLED.c
+            :language: c
+            :caption: Code for reading a switch and blinking an LED (pushLED.c)
+            :linenos:
+
+        .. code-block:: bash
+
+            bone$ gcc -o pushLED pushLED.c -lgpiod
+            bone$ ./pushLED
+            1
+            1
+            0
+            0
+            0
+            1
+            ^C
+
+        :download:`pushLED.c <../code/08realtime/pushLED.c>`
+
+    .. group-tab:: JavaScript
+
+        .. _realtime_pushLED_code:
+
+        .. literalinclude:: ../code/08realtime/pushLED.js
+            :caption: Monitoring a pushbutton (pushLED.js)
+            :language: JavaScript
+            :linenos:
+
+        :download:`pushLED.js <../code/08realtime/pushLED.js>`
 
 Add the code to a file named ``pushLED.py`` and run it by using the following commands:
 
@@ -83,59 +113,14 @@ Add the code to a file named ``pushLED.py`` and run it by using the following co
 
     bone$ chmod *x pushLED.py
     bone$ ./pushLED.py
-    data = 0
-    data = 0
-    data = 1
-    data = 1
+    Hit ^C to stop
+    0
+    0
+    1
+    1
     ^C
 
 Press ^C (Ctrl-C) to stop the code.
-
-.. _realtime_c:
-
-I/O with C
-===========
-
-Problem
---------
-
-You want to use the C language to process inputs in real time, or Python/JavaScript isn't fast enough.
-
-Solution
----------
-
-:ref:`realtime_JavaScript` shows how to control an LED with a pushbutton using Python and JavaScript. 
-This recipe accomplishes the same thing using C. 
-It does it in the same way, opening the correct /sys/class/gpio files and reading an writing them.
-
-Wire up the pushbutton and LED as shown in :ref:`realtime_pushLED_fig`. 
-Then add the code in :ref:`realtime_pushLED_c_code` to a file named ``pushLED.c``.
-
-.. _realtime_pushLED_c_code:
-
-.. literalinclude:: ../code/08realtime/pushLED.c
-   :caption: Code for reading a switch and blinking an LED (pushLED.c)
-   :linenos:
-
-:download:`pushLED.c <../code/08realtime/pushLED.c>`
-
-Compile and run the code:
-
-.. code-block:: bash
-
-    bone$ gcc -o pushLED pushLED.c
-    bone$ ./pushLED
-    state: 1
-    state: 1
-    state: 0
-    state: 0
-    state: 0
-    state: 1
-    ^C
-
-The code responds quickly to the pushbutton. If you need more speed, 
-comment-out the *printf()* and the *sleep()*.
-
 
 .. _realtime_devmem2:
 
@@ -283,6 +268,7 @@ Add the code in :ref:`realtime_pushLEDmmap_h` to a file named ``pushLEDmmap.h``.
 
 .. literalinclude:: ../code/08realtime/pushLEDmmap.h
    :caption: Memory address definitions (pushLEDmmap.h)
+   :language: c
    :linenos:
 
 :download:`pushLEDmmap.h <../code/08realtime/pushLEDmmap.h>`
@@ -294,6 +280,7 @@ Add the code in :ref:`realtime_pushLEDmmap_c` to a file named ``pushLEDmmap.c``.
 
 .. literalinclude:: ../code/08realtime/pushLEDmmap.c
    :caption: Code for directly reading memory addresses (pushLEDmmap.c)
+   :language: c
    :linenos:
 
 :download:`pushLEDmmap.c <../code/08realtime/pushLEDmmap.c>`

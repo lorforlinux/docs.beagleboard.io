@@ -624,3 +624,69 @@ By default, *P9_14* is set as an input. Switch it to an output and turn it on:
 
 The LED turns on when a *1* is written to *value* and turns off when a *0* is written.
 
+
+Notes on the boot sequence
+==========================
+
+Here are some notes on what the BeagleBoard Play does when it boots up.  Many of the booting
+details come from the AM62x Technical Reference Manual
+(https://www.ti.com/product/AM625, https://www.ti.com/lit/pdf/spruiv7).  Page 2456 shows
+the Initialization Process.
+
+.. figure:: figures/init-process.png
+    :align: center
+    :alt: Initialization Process
+
+    Initialization Process
+
+We are interested in what happens in the **ROM code**.
+Page 2457 shows the different ROM Code Boot Modes.
+
+.. figure:: figures/boot-modes.png
+    :align: center
+    :alt: ROM Code Boot Modes
+
+    ROM Code Boot Modes
+
+Page 2465 shows the BOOTMODE pins.
+
+.. figure:: figures/pin-mapping.png
+    :align: center
+    :alt: BOOTMODE Pin Mapping
+
+    BOOTMODE Pin Mapping 
+
+Page 14 of https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf
+shows how the BOOTMODE pins are set during boot.
+
+.. figure:: figures/bootstrap.png
+    :align: center
+    :alt: bootstrap
+
+    Bootstrap    
+
+Button Not-pressed:
+
+
++---+-------------+--------------------+------------------------+
+|1, | PLL Config  | B[2:0] = 0b011     |    : Ref Clcok -> 25MHz|
++---+-------------+--------------------+------------------------+
+|2, | Primary Boot| B[9:3] = 0b1001001 |  : eMMC Boot           |
++---+-------------+--------------------+------------------------+
+|3, |Backup Boot  | B[13:10] = 0b1011  |  : UART Boot           |
++---+-------------+--------------------+------------------------+
+
+Button Pressed:
+
++---+-------------+-------------------+------------------------+
+|1, |PLL Config   | B[2:0] = 0b011    |   : Ref Clcok -> 25MHz |
++---+-------------+-------------------+------------------------+
+|2, |Primary Boot |B[9:3] = 0b1001000 | : SDCard FS Boot       |
++---+-------------+-------------------+------------------------+
+|3, |Backup Boot  |B[13:10] = 0b0001  |  : USB DFU Boot        |
++---+-------------+-------------------+------------------------+
+
+Boot Flow
+---------
+ 
+https://github.com/u-boot/u-boot/blob/master/doc/board/ti/am62x_sk.rst#boot-flow
