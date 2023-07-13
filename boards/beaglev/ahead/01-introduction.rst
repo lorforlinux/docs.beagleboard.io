@@ -116,7 +116,7 @@ Front components location
     | GigaBit Ethernet           | 1Gb/s Wired internet connectivity                                         |
     +----------------------------+---------------------------------------------------------------------------+
     | User LEDs                  | Five user LEDs, :ref:`board-power-and-boot` section provides more details.|
-    |                            | These LEDs are connect to the AM6254 SoC                                  |
+    |                            | These LEDs are connect to the TH1520 SoC                                  |
     +----------------------------+---------------------------------------------------------------------------+
     | Reset button               | Press to reset BeagleV Ahead board (TH1520 SoC)                           |
     +----------------------------+---------------------------------------------------------------------------+
