@@ -690,3 +690,8 @@ Boot Flow
 ---------
  
 https://github.com/u-boot/u-boot/blob/master/doc/board/ti/am62x_sk.rst#boot-flow
+
+More Help
+---------
+
+https://git.beagleboard.org/beagleboard/repos-arm64/-/blob/main/bb-u-boot-beagleplay/suite/bookworm/debian/rules#L29
