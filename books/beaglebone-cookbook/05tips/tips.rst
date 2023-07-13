@@ -930,6 +930,7 @@ This will look up what Domain Name System (DNS) servers your host is using and c
 them to the right place on the Bone.  The *ping* command is a quick way to verify your connection.
 
 Letting the world see your bone: setting up port forwarding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now your Bone can access the world via the USB port and your host computer, but
 what if you have a web server on your Bone that you want to access from the world?
