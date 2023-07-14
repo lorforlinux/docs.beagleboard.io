@@ -171,27 +171,28 @@ Flash the latest image on eMMC
 
        First you need to install android platform tools which includes `adb` and `fastboot`.
 
-       - Debian/Ubuntu-based Linux users can type the following command to install ADB:
+       - Debian/Ubuntu-based Linux users can type the following command:
 
        .. code-block:: bash
 
            sudo apt-get install android-sdk-platform-tools
         
 
-       - Fedora/SUSE-based Linux users can type the following command to install ADB:
+       - Fedora/SUSE-based Linux users can type the following command:
 
        .. code-block:: bash 
 
            sudo dnf install android-tools
 
-       Now unzip the latest software image zip file you have downloaded from `https://www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_. 
-       The zip file has four files shown below:
+       Now unzip the latest software image zip file you have downloaded from 
+       `https://www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_ 
+       which contains four files shown below:
 
        .. code-block:: bash
 
          [lorforlinux@fedora deploy] $ ls 
          boot.ext4  fastboot_emmc.sh  root.ext4  u-boot-with-spl.bin
-         
+
        .. important:: Make sure your board is in flash mode, you can follow the guide above to do that.
 
        To flash the board you just have to exexute the script `fastboot_emmc.sh` as root and provide your passoword:
@@ -205,7 +206,11 @@ Flash the latest image on eMMC
      
     .. group-tab:: Windows
 
+        .. todo:: add instructions for flashing in windows.
+            
     .. group-tab:: Mac
+
+        .. todo:: add instructions for flashing in Mac.
 
 Connect USB gadgets
 ********************
