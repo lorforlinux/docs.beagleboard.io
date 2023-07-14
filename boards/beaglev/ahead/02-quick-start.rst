@@ -122,7 +122,22 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
 Flashing eMMC
 **************
 
-To flash your BeagleV Ahead you need either a super-speed micro-B or high-speed micro-B cable as shown in section above.
+.. note:: To flash your BeagleV Ahead you need either a super-speed micro-B or high-speed micro-B cable as shown in section above.
+
+Download latest software image
+===============================
+
+To download the latest software image visit `https://www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_ and 
+search for BeagleV Ahead as shown below.
+
+.. figure:: media/Software-Image.png
+    :align: center
+    :alt: Download latest software image for BeagleV Ahead board
+
+    Download latest software image for BeagleV Ahead board
+
+Put BeagleV Ahead in USB flash mode
+====================================
 
 .. note:: Only super-speed micro-B is shown in graphic below but you can use 
     a high-speed micro-B cable. Only difference will be lower flash speeds.
@@ -145,6 +160,52 @@ To put your BeagleV Ahead board into eMMC flash mode you can follow the steps be
     1. Press and hold USB button.
     2. Press reset button once.
     3. Release USB button.
+
+
+Flash the latest image on eMMC
+===============================
+
+.. tabs:: 
+
+    .. group-tab:: Linux
+
+       First you need to install android platform tools which includes `adb` and `fastboot`.
+
+       - Debian/Ubuntu-based Linux users can type the following command to install ADB:
+
+       .. code-block:: bash
+
+           sudo apt-get install android-sdk-platform-tools
+        
+
+       - Fedora/SUSE-based Linux users can type the following command to install ADB:
+
+       .. code-block:: bash 
+
+           sudo dnf install android-tools
+
+       Now unzip the latest software image zip file you have downloaded from `https://www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_. 
+       The zip file has four files shown below:
+
+       .. code-block:: bash
+
+         [lorforlinux@fedora deploy] $ ls 
+         boot.ext4  fastboot_emmc.sh  root.ext4  u-boot-with-spl.bin
+         
+       .. important:: Make sure your board is in flash mode, you can follow the guide above to do that.
+
+       To flash the board you just have to exexute the script `fastboot_emmc.sh` as root and provide your passoword:
+       
+       .. code-block:: bash
+
+         [lorforlinux@fedora deploy] $ sudo ./fastboot_emmc.sh 
+         [sudo] password for lorforlinux:
+
+
+     
+    .. group-tab:: Windows
+
+    .. group-tab:: Mac
 
 Connect USB gadgets
 ********************
