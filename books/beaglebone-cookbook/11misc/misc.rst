@@ -625,13 +625,41 @@ By default, *P9_14* is set as an input. Switch it to an output and turn it on:
 The LED turns on when a *1* is written to *value* and turns off when a *0* is written.
 
 
-Notes on the boot sequence
+The Play's Boot Sequence
 ==========================
 
+The BeagleBoard Play is based on the Texas Instrument's AM625 Sitara
+processor which supports many boot modes.  Here we'll look at
+booting from the user's view and from the developer's view.
+
+Booting for the User
+--------------------
+
+The most common way for the Play to boot is the power up the board,
+if the micro SD card is present, it will boot from it, if it isn't 
+present it will boot from the bultin eMMC.
+
+You can override the boot sequence by using the **USR** button 
+(located near the micro SD cage). If the **USR** button is pressed 
+the Play will boot from the micro SD card.
+
+.. note:: 
+    If the eMMC fails to boot, it will attempt to boot from 
+    the UART. If the SD card fails to boot, it will try booting via 
+    the USB. 
+
+Booting for the Developer
+-------------------------
+
+If you are developing firmware for the Play you may need to have
+access to the processor early in the booting sequence. Much can 
+happen before the Linux kernel starts its boot process.
 Here are some notes on what the BeagleBoard Play does when it boots up.  Many of the booting
-details come from the AM62x Technical Reference Manual
-(https://www.ti.com/product/AM625, https://www.ti.com/lit/pdf/spruiv7).  Page 2456 shows
-the Initialization Process.
+details come from Chapter 5 (Initialization) of the 
+AM62x Technical Reference Manual (TRM)
+(https://www.ti.com/product/AM625, https://www.ti.com/lit/pdf/spruiv7).
+The following figure, taken from page 2456 shows the 
+Initialization Process.
 
 .. figure:: figures/init-process.png
     :align: center
@@ -640,7 +668,7 @@ the Initialization Process.
     Initialization Process
 
 We are interested in what happens in the **ROM code**.
-Page 2457 shows the different ROM Code Boot Modes.
+Page 2457, of the TRM, shows the different ROM Code Boot Modes.
 
 .. figure:: figures/boot-modes.png
     :align: center
@@ -648,6 +676,7 @@ Page 2457 shows the different ROM Code Boot Modes.
 
     ROM Code Boot Modes
 
+These are selected at boot time based on the state of the BOOTMODE pins.
 Page 2465 shows the BOOTMODE pins.
 
 .. figure:: figures/pin-mapping.png
@@ -656,7 +685,9 @@ Page 2465 shows the BOOTMODE pins.
 
     BOOTMODE Pin Mapping 
 
-Page 14 of https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf
+
+Page 14 of of the Plays schematic 
+(https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf)
 shows how the BOOTMODE pins are set during boot.
 
 .. figure:: figures/bootstrap.png
@@ -665,8 +696,7 @@ shows how the BOOTMODE pins are set during boot.
 
     Bootstrap    
 
-Button Not-pressed:
-
+Therefore the following modes are selected if the **Button Not-pressed**
 
 +---+-------------+--------------------+------------------------+
 |1, | PLL Config  | B[2:0] = 0b011     |    : Ref Clcok -> 25MHz|
@@ -676,15 +706,20 @@ Button Not-pressed:
 |3, |Backup Boot  | B[13:10] = 0b1011  |  : UART Boot           |
 +---+-------------+--------------------+------------------------+
 
-Button Pressed:
+That is, you boot off the eMMC and if that fails you boot off the UART.
+
+If the **Button is Pressed**
 
 +---+-------------+-------------------+------------------------+
 |1, |PLL Config   | B[2:0] = 0b011    |   : Ref Clcok -> 25MHz |
 +---+-------------+-------------------+------------------------+
-|2, |Primary Boot |B[9:3] = 0b1001000 | : SDCard FS Boot       |
+|2, |Primary Boot |B[9:3] = 0b1001000 | : SD Card FS Boot      |
 +---+-------------+-------------------+------------------------+
 |3, |Backup Boot  |B[13:10] = 0b0001  |  : USB DFU Boot        |
 +---+-------------+-------------------+------------------------+
+
+Here you are booting off the SD card (in filesystem mode), or the USB if 
+that fails.
 
 Boot Flow
 ---------
