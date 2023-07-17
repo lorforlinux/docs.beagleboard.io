@@ -658,7 +658,7 @@ Here are some notes on what the BeagleBoard Play does when it boots up.  Many of
 details come from Chapter 5 (Initialization) of the 
 AM62x Technical Reference Manual (TRM)
 (https://www.ti.com/product/AM625, https://www.ti.com/lit/pdf/spruiv7).
-The following figure, taken from page 2456 shows the 
+The following figure, taken from page 2456, shows the 
 Initialization Process.
 
 .. figure:: figures/init-process.png
@@ -677,7 +677,7 @@ Page 2457, of the TRM, shows the different ROM Code Boot Modes.
     ROM Code Boot Modes
 
 These are selected at boot time based on the state of the BOOTMODE pins.
-Page 2465 shows the BOOTMODE pins.
+The table on page 2465 shows the BOOTMODE pins.
 
 .. figure:: figures/pin-mapping.png
     :align: center
@@ -696,7 +696,7 @@ shows how the BOOTMODE pins are set during boot.
 
     Bootstrap    
 
-Therefore the following modes are selected if the **Button Not-pressed**
+Therefore the following modes are selected if **Button Not-pressed**
 
 +---+-------------+--------------------+------------------------+
 |1, | PLL Config  | B[2:0] = 0b011     |    : Ref Clcok -> 25MHz|
@@ -708,7 +708,7 @@ Therefore the following modes are selected if the **Button Not-pressed**
 
 That is, you boot off the eMMC and if that fails you boot off the UART.
 
-If the **Button is Pressed**
+If **Button is Pressed**
 
 +---+-------------+-------------------+------------------------+
 |1, |PLL Config   | B[2:0] = 0b011    |   : Ref Clcok -> 25MHz |
@@ -723,10 +723,29 @@ that fails.
 
 Boot Flow
 ---------
- 
-https://github.com/u-boot/u-boot/blob/master/doc/board/ti/am62x_sk.rst#boot-flow
 
-More Help
----------
+There are many steps that occur after the BOOTMODE is selected 
+and before the Linux Kernel boots.  
+`Boot Flow <https://github.com/u-boot/u-boot/blob/master/doc/board/ti/am62x_sk.rst#boot-flow>`_ 
+shows those steps for the **R5** processor and the arm (**A53**) processor. The key parts
+are **tiboot3.bin** and **tispl.bin** runnng on the *R5* and **u-boot.img** running 
+on the *A53*.  These binary files are found on the Play in ``/boot/firmware``.
 
+.. note:: 
+    The files on the CD card and the eMMC are in ``ext4`` format.  The files used for booting 
+    must be in ``vfat`` format.  There for ``/boot/firmware`` is mounted in ``vfat`` as 
+    seen in ``/etc/fstab``. 
+
+    .. code-block:: 
+
+        # /etc/fstab: static file system information.
+        #
+        /dev/mmcblk0p2  /  ext4  noatime,errors=remount-ro  0  1
+        /dev/mmcblk0p1  /boot/firmware vfat defaults 0 0
+        debugfs  /sys/kernel/debug  debugfs  mode=755,uid=root,gid=gpio,defaults  0  0
+
+Source Code
+-----------
+
+The source code and examples of how to compile the source is found in: 
 https://git.beagleboard.org/beagleboard/repos-arm64/-/blob/main/bb-u-boot-beagleplay/suite/bookworm/debian/rules#L29
