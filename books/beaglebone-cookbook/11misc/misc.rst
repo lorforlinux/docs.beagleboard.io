@@ -754,8 +754,8 @@ https://git.beagleboard.org/beagleboard/repos-arm64/-/blob/main/bb-u-boot-beagle
 Home Assistant
 ==============
 
-Get an image here.  
-https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-13/ 
+Get an image here:
+https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-18/
 I chose the boot from SD image.
 
 Boot from it and then go to https://www.home-assistant.io/getting-started/onboarding
