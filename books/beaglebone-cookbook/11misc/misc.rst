@@ -754,9 +754,27 @@ https://git.beagleboard.org/beagleboard/repos-arm64/-/blob/main/bb-u-boot-beagle
 Home Assistant
 ==============
 
-Get an image here:
-https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-18/
-I chose the boot from SD image.
+#. Get an image here:
+    https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-18/
+    I chose the boot from SD image.
+#. Boot the Play from the SD card 
+#. Log into the Play
+#. Find the Play's IP address by running
+    .. code-block:: 
 
-Boot from it and then go to https://www.home-assistant.io/getting-started/onboarding
+        bone$ ip a show eth0
+        2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+            link/ether 34:08:e1:85:1b:a6 brd ff:ff:ff:ff:ff:ff
+            inet 10.0.5.24/24 brd 10.0.5.255 scope global dynamic noprefixroute eth0
+
+    The address is after ``inet``, in my case it's 10.0.5.24.
+#. Wait 5 or 10 minutes and then open a browser at ``10.0.5.24:8123`` 
+   using your IP address.
+
+.. tip:: 
+    If you get a "This site can’t be reached" error message, try running 
+    ``journalctl -f`` to see the log messages.
+    
+#. Open another browser and follow the instructions at:  
+    https://www.home-assistant.io/getting-started/onboarding
 
