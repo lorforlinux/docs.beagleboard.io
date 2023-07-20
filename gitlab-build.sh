@@ -121,13 +121,13 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export GITLAB_USER=docs
 	export GITLAB_HOST=$CI_SERVER_HOST
 	export PROJECT_REPO=docs.beagleboard.io
-	if [ "$PROJECT_BRANCH" ]; then
-		export VER_DIR=$PROJECT_BRANCH
-		export PAGES_SLUG=$PROJECT_BRANCH
-	else
-		export PROJECT_BRANCH=latest
+	export PROJECT_BRANCH=$GIT_BRANCH
+	if [ "$GIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 		export VER_DIR=latest
 		export PAGES_SLUG=latest
+	else
+		export VER_DIR=$GIT_BRANCH
+		export PAGES_SLUG=$GIT_BRANCH
 	fi
 	do_build
 else
