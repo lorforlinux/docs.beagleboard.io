@@ -121,6 +121,7 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export GITLAB_USER=docs
 	export GITLAB_HOST=$CI_SERVER_HOST
 	export PROJECT_REPO=docs.beagleboard.io
+	git fetch --all -v
 	git checkout main
 	echo "git branch output check"
 	git branch
