@@ -774,7 +774,13 @@ Home Assistant
 .. tip:: 
     If you get a "This site can’t be reached" error message, try running 
     ``journalctl -f`` to see the log messages.
-    
+
 #. Open another browser and follow the instructions at:  
     https://www.home-assistant.io/getting-started/onboarding
 
+
+mqtt
+----
+
+Here are Jason's addons. 
+https://git.beagleboard.org/jkridner/home-assistant-addons
