@@ -122,6 +122,7 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export GITLAB_HOST=$CI_SERVER_HOST
 	export PROJECT_REPO=docs.beagleboard.io
 	export GIT_BRANCH=$(git branch -a --contains tags/$CI_COMMIT_TAG | grep origin | tr -d '* ' | sed 's/.*origin\///' | head -n 1)
+	echo "**** $GIT_BRANCH contains tags/$CI_COMMIT_TAG ****"
 	export PROJECT_BRANCH=$GIT_BRANCH
 	if [ "$GIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 		export VER_DIR=latest
