@@ -449,6 +449,11 @@ Next, cd up a level to the Qwiic_I2C_Py directory and reinstall
 Finally, run one of the Joystick examples. If it isn't using 
 bus 5, try reinstalling setup.py again.
 
+Qwiic Alphanumeric display
+--------------------------
+
+Here's the repo I used for this display.
+https://github.com/thess/qwiic_alphanumeric_py
 
 .. _kernel_LEDs:
 
@@ -774,7 +779,13 @@ Home Assistant
 .. tip:: 
     If you get a "This site can’t be reached" error message, try running 
     ``journalctl -f`` to see the log messages.
-    
+
 #. Open another browser and follow the instructions at:  
     https://www.home-assistant.io/getting-started/onboarding
 
+
+mqtt
+----
+
+Here are Jason's addons. 
+https://git.beagleboard.org/jkridner/home-assistant-addons
