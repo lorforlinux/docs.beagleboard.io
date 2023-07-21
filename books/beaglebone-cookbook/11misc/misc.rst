@@ -7,6 +7,207 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
+.. _misc_shortcuts:
+
+Setting up shortcuts to make life easier
+========================================
+
+We'll be ssh'ing from the host to the bone often, 
+here are some shortcuts I use so instead of typing ssh debian@192.168.7.2 
+and a password every time. I can enter `ssh bone` and no password.
+
+First edit `/etc/hosts` and add a couple of lines.
+
+    host$ sudo nano /etc/hosts
+
+You may use whatever editor you want. I suggest nano since it's easy to figure 
+out. Add the following to the end of `/etc/hosts` and quit the editor.
+
+    192.168.7.2     bone
+
+Now you can connect with
+
+    host$ ssh debian@bone
+
+Let's make it so you don't have to enter `debian`. On your host computer, 
+put the following in `~/.ssh/config` (Note: ~ is a shortcut for your home directory.)
+
+.. code-block:: 
+
+    Host bone
+    User debian
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+
+These say that whenever you login to bone, login as `debian`. Now you can enter.
+
+    host$ ssh bone
+
+One last thing, let's make it so you don't have to add a password. 
+Back to your host.
+
+    host$ ssh-keygen
+
+Accept all the defaults and then
+
+    host$ ssh-copy-id bone
+
+Now all you have to enter is
+
+    host$ ssh bone
+
+and no password is required. 
+If you, especially virtual machine users, get an error says "sign_and_send_pubkey: signing failed: agent refused operation", you can solve this by entering
+
+    host$ ssh-add
+
+which adds the private key identities to the authentication agent. 
+Then you should be able to `ssh bone`  without problems.
+
+.. _root_login:
+
+Setting up a root login
+=======================
+
+By default the image we are running doesn't allow a root login. 
+You can always sudo from debian, but sometimes it's nice to login as root. 
+Here's how to setup root so you can login from your host without a password.
+
+.. code-block:: bash
+    
+    host$ ssh bone
+
+    bone$ sudo -i
+    
+    root@bone# nano /etc/ssh/sshd_config
+
+Search for the line
+
+    #PermitRootLogin prohibit-password
+
+and change it to
+
+    PermitRootLogin yes
+
+(The # symbol indicates a comment and must be removed in order for the setting to take effect.)
+
+Save the file and quit the editor. Restart ssh so it will reread the file.
+
+    root@bone# systemctl restart sshd
+
+And assign a password to root.
+
+    root@bone# passwd
+
+Now open another window on your host computer and enter:
+
+    host$ ssh-copy-id root@bone
+
+and enter the root password. Test it with:
+
+    host$ ssh root@bone
+
+You should be connected without a password. 
+Now go back to the Bone and turn off the root password access.
+
+    root@bone# nano /etc/ssh/sshd_config
+
+Restore the line:
+
+    #PermitRootLogin prohibit-password
+
+and restart sshd.
+
+.. code-block:: 
+
+    root@bone# systemctl restart sshd
+    root@bone# exit
+    bone$ exit
+
+You should now be able to go back to your host computer and login as root on the bone without a password.
+
+    host$ ssh root@bone
+
+You have access to your bone without passwords only from you host computer. Try it from another computer and see what happens
+
+Wireshark
+=========
+
+`Wireshark <https://wireshark.org>`_ is a network protocol analyzer that can be 
+run on the Beagle or the host computer to see what's happening on the network.
+
+Running Wireshark on the Beagle 
+-------------------------------
+
+If you have X11 installed on the Beagle (todo:  how do you tell) and you are 
+running Linux on your host you can run Wireshark on the Beagle and have
+it display on the host.  
+
+#.  First ssh to the Beagle using the `-X` flag.
+
+.. code-block:: 
+
+    host$ ssh -X debian@10.0.5.10
+
+    bone$ sudo apt update
+    bone$ sudo apt install wireshark
+    bone$ sudo usermod -a -G wireshark debian
+    bone$ exit
+
+    host$ ssh -X debian@10.0.5.10
+    host$ wireshark
+
+The `-X` flag sets the `DISPLAY` variable on the Beagle so it knows 
+where to display the Beagle's graphical data on the host.  We then 
+install wireshark and add debian to the wireshark group.
+We then log out and log back in again to be sure we are in the 
+wireshark group. Finally we start wireshark.
+
+You should see something like :ref:`wireshark_start_screen`.
+
+.. _wireshark_start_screen:
+
+.. figure:: figures/wireshark.png
+    :align: center
+    :alt: Wireshark start screen
+
+    Wireshark start screen
+
+Running Wireshark on the host
+----------------------------- 
+
+If you don't have X11 installed on the Beagle, you can run wireshark 
+on your host computer and capture the packets on the Beagle. 
+These instructions come from:
+https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-machine-with-wireshark
+
+First login to the Beagle and install tcpdump. Use your Beagle's 
+IP address.  
+
+.. code-block:: 
+
+    host$ ssh 192.168.7.2
+    bone$ sudo apt update
+    bone$ sudo apt install tcpdump
+    bone$ exit
+
+Next, create a named pipe and have wireshark read from it.
+
+.. code-block:: 
+
+    host$ mkfifo /tmp/remote
+    host$ wireshark -k -i /tmp/remote
+
+Then, run tcpdump over ssh on your remote machine and redirect the 
+packets to the named pipe:
+
+.. code-block:: 
+
+    host$ ssh root@bone "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
+
+.. tip:: 
+    For this to work you will need to follow in instructions in :ref:`root_login`.
+
 Converting a tmp117 to a tmp114
 ================================
 
@@ -789,3 +990,4 @@ mqtt
 
 Here are Jason's addons. 
 https://git.beagleboard.org/jkridner/home-assistant-addons
+
