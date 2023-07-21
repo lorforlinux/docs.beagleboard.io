@@ -7,6 +7,105 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
+Setting up shortcuts to make life easier
+========================================
+
+We'll be ssh'ing from the host to the bone often, 
+here are some shortcuts I use so instead of typing ssh debian@192.168.7.2 
+and a password every time. I can enter `ssh bone` and no password.
+
+First edit `/etc/hosts` and add a couple of lines.
+
+    host$ sudo nano /etc/hosts
+
+You may use whatever editor you want. I suggest nano since it's easy to figure 
+out. Add the following to the end of `/etc/hosts` and quit the editor.
+
+    192.168.7.2     bone
+
+Now you can connect with
+
+    host$ ssh debian@bone
+
+Let's make it so you don't have to enter `debian`. On your host computer, 
+put the following in `~/.ssh/config` (Note: ~ is a shortcut for your home directory.)
+
+.. code-block:: 
+
+    Host bone
+    User debian
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+
+These say that whenever you login to bone, login as `debian`. Now you can enter.
+
+    host$ ssh bone
+
+One last thing, let's make it so you don't have to add a password. 
+Back to your host.
+
+    host$ ssh-keygen
+
+Accept all the defaults and then
+
+    host$ ssh-copy-id bone
+
+Now all you have to enter is
+
+    host$ ssh bone
+
+and no password is required. 
+If you, especially virtual machine users, get an error says "sign_and_send_pubkey: signing failed: agent refused operation", you can solve this by entering
+
+    host$ ssh-add
+
+which adds the private key identities to the authentication agent. 
+Then you should be able to `ssh bone`  without problems.
+
+Setting up a root login
+=======================
+
+By default the image we are running doesn't allow a root login. You can always sudo from debian, but sometimes it's nice to login as root. Here's how to setup root so you can login from your host without a password.
+
+host$ ssh bone
+bone$ sudo bash
+root@bone# nano /etc/ssh/sshd_config
+Search for the line
+
+#PermitRootLogin prohibit-password
+and change it to
+
+PermitRootLogin yes
+(The # symbol indicates a comment and must be removed in order for the setting to take effect.)
+
+Save the file and quit the editor. Restart ssh so it will reread the file.
+
+root@bone# systemctl restart sshd
+And assign a password to root.
+
+root@bone# passwd
+Now open another window on your host computer and enter:
+
+host$ ssh-copy-id root@bone
+and enter the root password. Test it with:
+
+host$ ssh root@bone
+You should be connected without a password. Now go back to the Bone and turn off the root password access.
+
+root@bone# nano /etc/ssh/sshd_config
+Restore the line:
+
+#PermitRootLogin prohibit-password
+and restart sshd.
+
+root@bone# systemctl restart sshd
+root@bone# exit
+bone$ exit
+You should now be able to got back to your host computer and login as root on the bone without a password.
+
+host$ ssh root@bone
+You have access to your bone without passwords only from you host computer. Try it from another computer and see what happens
+
 Wireshark
 =========
 
@@ -49,6 +148,41 @@ You should see something like :ref:`wireshark_start_screen`.
     :alt: Wireshark start screen
 
     Wireshark start screen
+
+Running Wireshark on the host
+----------------------------- 
+
+If you don't have X11 installed on the Beagle, you can run wireshark 
+on your host computer and capture the packets on the Beagle. 
+These instructions come from:
+https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-machine-with-wireshark
+
+First login to the Beagle and install tcpdump. Use your Beagle's 
+IP address.  
+
+.. code-block:: 
+
+    host$ ssh 192.168.7.2
+    bone$ sudo apt update
+    bone$ sudo apt install tcpdump
+    bone$ exit
+
+Next, create a named pipe and have wireshark read from it.
+
+.. code-block:: 
+
+    host$ mkfifo /tmp/remote
+    host$ wireshark -k -i /tmp/remote
+
+Then, run tcpdump over ssh on your remote machine and redirect the 
+packets to the named pipe:
+
+.. code-block:: 
+
+    host$ ssh root@bone "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
+
+
+
 
 Converting a tmp117 to a tmp114
 ================================
