@@ -7,6 +7,49 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
+Wireshark
+=========
+
+`Wireshark <https://wireshark.org>`_ is a network protocol analyzer that can be 
+run on the Beagle or the host computer to see what's happening on the network.
+
+Running Wireshark on the Beagle 
+-------------------------------
+
+If you have X11 installed on the Beagle (todo:  how do you tell) and you are 
+running Linux on your host you can run Wireshark on the Beagle and have
+it display on the host.  
+
+#.  First ssh to the Beagle using the `-X` flag.
+
+.. code-block:: 
+
+    host$ ssh -X debian@10.0.5.10
+
+    bone$ sudo apt update
+    bone$ sudo apt install wireshark
+    bone$ sudo usermod -a -G wireshark debian
+    bone$ exit
+
+    host$ ssh -X debian@10.0.5.10
+    host$ wireshark
+
+The `-X` flag sets the `DISPLAY` variable on the Beagle so it knows 
+where to display the Beagle's graphical data on the host.  We then 
+install wireshark and add debian to the wireshark group.
+We then log out and log back in again to be sure we are in the 
+wireshark group. Finally we start wireshark.
+
+You should see something like :ref:`wireshark_start_screen`.
+
+.. _wireshark_start_screen:
+
+.. figure:: figures/wireshark.png
+    :align: center
+    :alt: Wireshark start screen
+
+    Wireshark start screen
+
 Converting a tmp117 to a tmp114
 ================================
 
@@ -789,3 +832,4 @@ mqtt
 
 Here are Jason's addons. 
 https://git.beagleboard.org/jkridner/home-assistant-addons
+
