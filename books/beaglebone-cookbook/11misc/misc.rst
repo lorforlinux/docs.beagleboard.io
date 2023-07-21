@@ -139,9 +139,14 @@ run on the Beagle or the host computer to see what's happening on the network.
 Running Wireshark on the Beagle 
 -------------------------------
 
-If you have X11 installed on the Beagle (todo:  how do you tell) and you are 
+If you have X11 installed on the Beagle and you are 
 running Linux on your host you can run Wireshark on the Beagle and have
 it display on the host.  
+
+.. tip:: 
+    A quick way to see if you have X windows installed is to ssh to your 
+    Beagle.  At the prompt enter ``xfce`` then enter <TAB><TAB>.  If you 
+    see a list of completions, you have X installed.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
