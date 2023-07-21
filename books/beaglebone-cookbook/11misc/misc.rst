@@ -7,6 +7,8 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
+.. _misc_shortcuts:
+
 Setting up shortcuts to make life easier
 ========================================
 
@@ -62,48 +64,70 @@ If you, especially virtual machine users, get an error says "sign_and_send_pubke
 which adds the private key identities to the authentication agent. 
 Then you should be able to `ssh bone`  without problems.
 
+.. _root_login:
+
 Setting up a root login
 =======================
 
-By default the image we are running doesn't allow a root login. You can always sudo from debian, but sometimes it's nice to login as root. Here's how to setup root so you can login from your host without a password.
+By default the image we are running doesn't allow a root login. 
+You can always sudo from debian, but sometimes it's nice to login as root. 
+Here's how to setup root so you can login from your host without a password.
 
-host$ ssh bone
-bone$ sudo bash
-root@bone# nano /etc/ssh/sshd_config
+.. code-block:: bash
+    
+    host$ ssh bone
+
+    bone$ sudo -i
+    
+    root@bone# nano /etc/ssh/sshd_config
+
 Search for the line
 
-#PermitRootLogin prohibit-password
+    #PermitRootLogin prohibit-password
+
 and change it to
 
-PermitRootLogin yes
+    PermitRootLogin yes
+
 (The # symbol indicates a comment and must be removed in order for the setting to take effect.)
 
 Save the file and quit the editor. Restart ssh so it will reread the file.
 
-root@bone# systemctl restart sshd
+    root@bone# systemctl restart sshd
+
 And assign a password to root.
 
-root@bone# passwd
+    root@bone# passwd
+
 Now open another window on your host computer and enter:
 
-host$ ssh-copy-id root@bone
+    host$ ssh-copy-id root@bone
+
 and enter the root password. Test it with:
 
-host$ ssh root@bone
-You should be connected without a password. Now go back to the Bone and turn off the root password access.
+    host$ ssh root@bone
 
-root@bone# nano /etc/ssh/sshd_config
+You should be connected without a password. 
+Now go back to the Bone and turn off the root password access.
+
+    root@bone# nano /etc/ssh/sshd_config
+
 Restore the line:
 
-#PermitRootLogin prohibit-password
+    #PermitRootLogin prohibit-password
+
 and restart sshd.
 
-root@bone# systemctl restart sshd
-root@bone# exit
-bone$ exit
-You should now be able to got back to your host computer and login as root on the bone without a password.
+.. code-block:: 
 
-host$ ssh root@bone
+    root@bone# systemctl restart sshd
+    root@bone# exit
+    bone$ exit
+
+You should now be able to go back to your host computer and login as root on the bone without a password.
+
+    host$ ssh root@bone
+
 You have access to your bone without passwords only from you host computer. Try it from another computer and see what happens
 
 Wireshark
@@ -181,8 +205,8 @@ packets to the named pipe:
 
     host$ ssh root@bone "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
 
-
-
+.. tip:: 
+    For this to work you will need to follow in instructions in :ref:`root_login`.
 
 Converting a tmp117 to a tmp114
 ================================
