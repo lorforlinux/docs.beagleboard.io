@@ -16,7 +16,7 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
 .. image:: media/BeagleV-Ahead-all.*
     :width: 724
     :align: center
-    :alt: BeaglePlay box contents
+    :alt: BeagleV Ahead box contents
 
 Unboxing
 *********
