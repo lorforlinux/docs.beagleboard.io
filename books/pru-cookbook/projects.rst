@@ -86,7 +86,7 @@ documentation visit the PRU-ICSS wiki.
     **Type:** Code Library
 
     **References:**
-        http://hipstercircuits.com/pypruss-a-simple-pru-python-binding-for-beaglebone/
+        https://github.com/MuneebMohammed/pypruss
 
 .. dropdown:: **Geiger**
     :open:

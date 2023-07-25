@@ -76,7 +76,7 @@ access camera, display and other hardware accelerators the SoC has to offer.
 
     After building and running the docker container, one needs to run 
     ``setup_script.sh`` before running any of the demo applications.
-    Please refer to :ref:`pub_edgeai_install_dependencies` for more details.
+    Please refer to :ref:`ai_64_edgeai_install_dependencies` for more details.
 
 .. _ai_64_edgeai_docker_additional_commands:
 

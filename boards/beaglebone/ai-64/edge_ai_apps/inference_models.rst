@@ -69,10 +69,10 @@ Each DNN must have the following 3 components:
 
 #. **model**: This directory contains the DNN being targeted to infer
 #. **artifacts**: This directory contains the artifacts generated after the
-   compilation of DNN for SDK, and described in :ref:`pub_edgeai_compile_artifacts`
+   compilation of DNN for SDK, and described in :ref:`ai_64_edgeai_compile_artifacts`
 #. **param.yaml**: A configuration file in yaml format to provide basic
    information about DNN, and associated pre and post processing parameters.
-   More details can be find :ref:`pub_edgeai_params`
+   More details can be find :ref:`ai_64_edgeai_params`
 
 .. _ai_64_edgeai_params:
 

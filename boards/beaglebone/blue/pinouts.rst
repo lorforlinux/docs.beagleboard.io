@@ -4,17 +4,17 @@
 BeagleBone Blue Pinouts 
 #########################
 
-.. image:: media/BeagleBone_Blue_pinouts.png 
+.. image:: media/BeagleBone_Blue_pinouts.*
    :align: center
 
 .. image:: media/pinout.jpg
    :align: center
 
 -  Connector pinout
-   `details <https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_sch.pdf>`__
+   `details <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/blob/master/BeagleBone_Blue_sch.pdf>`__
    from schematic(s)
 -  `Pin
-   Table <https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_Pin_Table.csv>`__
+   Table <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/blob/master/BeagleBone_Blue_Pin_Table.csv>`__
    with some Blue : Black corelation.
 
 UT1

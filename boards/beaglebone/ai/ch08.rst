@@ -170,9 +170,8 @@ TODO
 Expansion Connector Headers
 ******************************
 
-TODO: discuss header options for working with the expansion connectors
-per
-https://github.com/beagleboard/beaglebone-black/wiki/System-Reference-Manual#84-expansion-connectors
+TODO: discuss header options for working with the expansion connectors per 
+https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
 
 Signal Usage
 ****************

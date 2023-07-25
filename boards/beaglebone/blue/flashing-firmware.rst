@@ -37,7 +37,7 @@ Windows PCs
 =============
 
 1.  Download the `BeagleBone
-    OS <https://beagleboard.org/latest-images>`__ image you want to use.
+    OS <https://www.beagleboard.org/distros>`__ image you want to use.
 2.  Use the `Etcher utility <https://etcher.io/>`__ to burn the
     BeagleBone image you want to use on the micro sd card you plan on
     using.
@@ -71,7 +71,7 @@ Windows PCs
 13. Restart (RST button) or power up (while still pushing SD button).
 
 Flashing can take some minutes. ## Linux/Mac PCs 1. Download the
-`BeagleBone OS <https://beagleboard.org/latest-images>`__ image you want
+`BeagleBone OS <https://www.beagleboard.org/distros>`__ image you want
 to use. 1. Use the `Etcher utility <https://etcher.io/>`__ to burn the
 BeagleBone image you want to use on the micro sd card you plan on using.
 1. On the SD card edit the file ``/boot/uEnv.txt`` in order for the SD

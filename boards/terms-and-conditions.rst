@@ -3,7 +3,7 @@
 Terms & Conditions
 ##################
 
-DESIGN
+Design
 *******
 
 These design materials referred to in this document are NOT SUPPORTED and DO NOT constitute a reference design.
@@ -27,11 +27,12 @@ See the LICENSE file regarding the copyright of these materials.
 
 This LICENSE does not apply to BeagleBoard.org Foundation trademarks. Express written permission is required
 for use of BeagleBoard.org Foundation trademarks, including, but not limited to BeagleBoard.org, BeagleBone,
-BeagleBoard, PocketBeagle, BeagleBoard Compatible, BeagleBoard Embedded, and BeagleBoard Approved. Please visit
-https://www.beagleboard.org/brand-use and https://www.beagleboard.org/partner-programs for additional details.
+BeagleBoard, PocketBeagle, BeagleV, BeaglePlay, BeagleConnect, BeagleBoard Compatible, BeagleBoard Embedded,
+and BeagleBoard Approved. Please visit https://www.beagleboard.org/brand-use and
+https://www.beagleboard.org/partner-programs for additional details.
 
 
-ADDITIONAL TERMS
+Additional terms
 *****************
 
 BeagleBoard.org Foundation and logo-licensed manufacturers provide the
@@ -70,7 +71,7 @@ product design, software performance, or infringement of patents or
 services described herein.
 
 
-UNITED STATES FCC AND CANADA IC REGULATORY COMPLIANCE INFORMATION
+United States FCC and Canada IC regulatory compliance information
 ******************************************************************
 
 **The board is annotated to comply with Part 15 of the FCC Rules.**
@@ -87,7 +88,7 @@ Changes or modifications not expressly approved by the party responsible
 for compliance could void the user’s authority to operate the equipment.
 
 
-BOARD WARNINGS, RESTRICTIONS AND DISCLAIMERS
+Board warnings, restrictions and disclaimers
 **********************************************
 
 For Feasibility Evaluation Only, in Laboratory/Development

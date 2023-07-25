@@ -3,9 +3,9 @@
 Accessories 
 ###############
 
-.. note::
+.. todo::
 
-   #TODO#: We are going to work on a unified accessories page for all the boards and it should replace this.
+   We are going to work on a unified accessories page for all the boards and it should replace this.
 
 .. _chassis_and_kits:
 
@@ -246,17 +246,15 @@ SPI devices
 SPI TFT displays
 ------------------
 
--  `Adafruit 2.4" LCD
-   breakout <https://www.adafruit.com/products/2478>`__
+-  `Adafruit 2.4" LCD breakout <https://www.adafruit.com/products/2478>`__
 
 .. _i2c_devices:
 
 I2C devices
 ==============
 
--  See
-   :ref:`One-Liner-Module-Tests#i2c <beaglebone-blue-one-liner-tests>`__
--  See :ref:`bone101_i2c`.
+-  See :ref:`One Liner Module Tests <beaglebone-blue-one-liner-tests-i2c>`
+-  See :ref:`beagle101_i2c`
 
 .. _uart_devices:
 
@@ -279,4 +277,4 @@ Bluetooth devices
 =====================
 
 -  `WowWee Groove Cube
-   Speaker <https://github.com/beagleboard/beaglebone-blue/wiki/One-Liner-Module-Tests#Grove_I2C_modules>`__
+   Speaker <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/One-Liner-Module-Tests#grove-i2c-modules>`__

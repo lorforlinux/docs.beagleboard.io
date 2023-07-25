@@ -3,7 +3,7 @@
 BeagleBone AI Overview
 ########################
 
-.. image:: images/BB_AI_overview_image.png
+.. image:: images/BB_AI_overview_image.*
    :align: center
    :alt: BeagleBone AI Overview
 

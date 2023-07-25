@@ -106,7 +106,7 @@ Connect the Cable to the Board
 
 2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the :ref:`usb-a-connect-figure` below.
 
-.. _usb-a-connect-figure,USB Connection to the PC/Laptop figure:
+.. _usb-a-connect-figure:
 
 .. figure:: images/ch03/usb-a-connection.jpg
    :width: 400px
@@ -128,7 +128,7 @@ Connect the Cable to the Board
 
 4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in :ref:`boot-status-figure` below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
 
-.. _boot-status-figure,Board Boot Status figure:
+.. _boot-status-figure:
 
 .. figure:: images/ch03/led-pattern.jpg
    :width: 400px
@@ -157,7 +157,7 @@ Standalone w/Display and Keyboard/Mouse
 
 In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in :ref:`desktop-config-figure`. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
 
-.. _desktop-config-figure,Desktop Configuration figure:
+.. _desktop-config-figure:
 
 .. figure:: images/ch03/desktop-configuration.jpg
    :width: 400px
@@ -240,7 +240,7 @@ If you decide you want to connect to your local area network, an Ethernet cable 
 
 5. The final step is to plug in the DC power supply to the DC power jack as shown in :ref:`barrel-jack-figure` below.
 
-.. _barrel-jack-figure,External DC Power figure:
+.. _barrel-jack-figure:
 
 .. figure:: images/ch03/barrel-jack.jpg
    :width: 400px
@@ -251,7 +251,7 @@ If you decide you want to connect to your local area network, an Ethernet cable 
 
 6. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in :ref:`miniDP-figure` below.
 
-.. _miniDP-figure,miniDP to DP or active miniDP to HDMI connection figure:
+.. _miniDP-figure:
 
 .. figure:: images/ch03/miniDP-connector.jpg
    :width: 400px

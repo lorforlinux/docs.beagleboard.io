@@ -118,13 +118,20 @@ Document Change History
 Board Changes
 -----------------
 
+Rev C3a
+********
+
+PCB revision C.
+
+* New USB Type-A connector.
+
 Rev C3
 ********
 
 PCB revision C.
 
-* Updated microSD card cage due to availability. See https://github.com/beagleboard/beaglebone-black/issues/6. Added series resistors and depopulated C5.
-* Added reset option (GPIO1_8) for Ethernet PHY to avoid possible start-up issue. See https://github.com/beagleboard/beaglebone-black/issues/4.
+* Updated microSD card cage due to availability. See https://git.beagleboard.org/beagleboard/beaglebone-black/-/issues/6. Added series resistors and depopulated C5.
+* Added reset option (GPIO1_8) for Ethernet PHY to avoid possible start-up issue. See https://git.beagleboard.org/beagleboard/beaglebone-black/-/issues/4.
 * Added series resistors to MMC1 lines and depopulated C24.
 * Connected pin A6 of J5 on U13 (eMMC IC) to DGND.
 * Changed USB1_VBUS series resistor to 0 ohm.

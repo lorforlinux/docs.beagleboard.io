@@ -213,11 +213,11 @@ The setup file also contains instructions to figure out which Beagle you are run
 and then configure the pins accordingly.
 
 
-.. literalinclude:: ../code/06io/gpio_setup.sh
-   :caption: gpio_setup.sh
+.. literalinclude:: ../code/06io/setup.sh
+   :caption: setup.sh
    :linenos:
 
-:download:`gpio_setup.sh <../code/06io/gpio_setup.sh>`
+:download:`setup.sh <../code/06io/setup.sh>`
 
 .. table::
 
@@ -333,11 +333,11 @@ The ``am57xx_pru.cmd`` does the same for the AI.
 Both files can be found in ``/var/lib/cloud9/common``.
 
 
-.. literalinclude:: ../code/06io/am335x_pru.cmd
+.. literalinclude:: ../code/03details/am335x_pru.cmd
    :caption: am335x_pru.cmd
    :linenos:
 
-:download:`am335x_pru.cmd <../code/06io/am335x_pru.cmd>`
+:download:`am335x_pru.cmd <../code/03details/am335x_pru.cmd>`
 
 .. TODO does  this need updating?
 
@@ -462,11 +462,11 @@ everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
 
-.. literalinclude:: ../code/06io/servos_setup.sh
+.. literalinclude:: ../code/03details/servos_setup.sh
    :caption: servos_setup.sh
    :linenos:
 
-:download:`servos_setup.sh <../code/06io/servos_setup.sh>`
+:download:`servos_setup.sh <../code/03details/servos_setup.sh>`
 
 Discussion
 -----------
@@ -492,11 +492,11 @@ It depends on which Beagle you are running on.  If you are on the AI or Blue,
 everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
-.. literalinclude:: ../code/06io/encoder_setup.sh
+.. literalinclude:: ../code/03details/encoder_setup.sh
    :caption: encoder_setup.sh
    :linenos:
 
-:download:`encoder_setup.sh <../code/06io/encoder_setup.sh>`
+:download:`encoder_setup.sh <../code/03details/encoder_setup.sh>`
 
 Discussion
 -----------

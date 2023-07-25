@@ -30,12 +30,6 @@ as well as libraries for communicating over various networks, BeagleConnect
 simply eliminates the need for these libraries by shifting the burden into the 
 most massive and collaborative software project of all time, the `Linux kernel <https://en.wikipedia.org/wiki/Linux_kernel>`_.
 
-.. image:: freedom/media/bcf-c5-boards.jpg
-   :width: 600
-   :align: center
-   :height: 400
-   :alt: BeagleConnect Freedom C5 Boards
-
 These are the tools used to automate things in 
 `scientific data collection <https://en.wikipedia.org/wiki/Data_collection_system>`_, 
 `data science <https://en.wikipedia.org/wiki/Data_science>`_, 
@@ -44,14 +38,11 @@ and `IoT <https://en.wikipedia.org/wiki/Internet_of_things>`_.
 
 BeagleConnect™ technology solves:
 
-* The need to write software to add a large set of diverse devices to your 
-  system,
+* The need to write software to add a large set of diverse devices to your system,
 * The need to maintain the software with security updates,
-* The need to rapidly prototype using off-the-shelf software and hardware 
-  without wiring,
+* The need to rapidly prototype using off-the-shelf software and hardware without wiring,
 * The need to connect to devices using long-range, low-power wireless, and
-* The need to produce high-volume custom hardware cost-optimized for your 
-  requirements.
+* The need to produce high-volume custom hardware cost-optimized for your requirements.
 
 .. toctree::
    :maxdepth: 2
@@ -62,16 +53,16 @@ BeagleConnect™ technology solves:
 BeagleConnect Experience
 *************************
 
-BeagleConnect™ provides a scalable experience for interacting with the physical
-world.
+BeagleConnect™ provides a scalable experience for interacting with the physical world.
 
-Note: The term BeagleConnect™ refers to a technology comprising of a family of 
-boards, a collection of Linux kernel drivers, microcontroller firmware, a 
-communication protocol, and system-level integration to automation software 
-tools. More specific terms will be applied in the architecture details. The 
-term is also used here to represent the experience introduced to users through 
-the initial BeagleConnect™ Freedom product consisting of a board and case which
-ships programmed and ready to be used. 
+.. note:: 
+   The term BeagleConnect™ refers to a technology comprising of a family of 
+   boards, a collection of Linux kernel drivers, microcontroller firmware, a 
+   communication protocol, and system-level integration to automation software 
+   tools. More specific terms will be applied in the architecture details. The 
+   term is also used here to represent the experience introduced to users through 
+   the initial BeagleConnect™ Freedom product consisting of a board and case which
+   ships programmed and ready to be used. 
 
 For scientists, we are integrating `Jupyter Notebook <https://jupyter.org/>`_ 
 with the data streams from any of hundreds of sensor options, including 
@@ -82,7 +73,9 @@ with the data streams from any of hundreds of sensor options, including
 stored in simple `data files <https://en.wikipedia.org/wiki/Comma-separated_values>` 
 or processed and visualized.
 
-#TODO: provide images demonstrating Jupyter Notebook visualization
+.. todo::
+
+   provide images demonstrating Jupyter Notebook visualization
 
 For embedded systems developers, data is easily extracted using the standard IIO
 interface provided by the Linux kernel running on the gateway using any of 
@@ -93,29 +86,24 @@ in Docker containers.
 
 #TODO: provide image illustrating remote management
 
-The hardware and software are fully open source, providing for scalability and 
-a lack of vendor lock-in.
+The hardware and software are fully open source, providing for scalability and a lack of vendor lock-in.
 
 For DevOps…
 
 For home automaters, integration into WebThings…
 
-#TODO: think a bit more about this section with some feedback from Cathy.
+.. todo::
 
-.. image:: freedom/media/image1.jpg
+   think a bit more about this section with some feedback from Cathy.
+
+.. image:: freedom/media/BeagleConnect-Boards-Angled.*
    :width: 598
    :align: center
-   :height: 400
-   :alt: BeagleConnect
+   :alt: BeagleConnect Freedom
 
 
-BeagleConnect Boards
+BeagleConnect boards
 ********************
 
-Get started using your BeagleConnect.
-
-.. toctree::
-   :maxdepth: 2
-
-   /boards/beagleconnect/freedom/index.rst
+* :ref:`beagleconnect_freedom_home`
 

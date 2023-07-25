@@ -195,7 +195,7 @@ Solution
 ---------
 
 You can modify ``rc_test_servos.c``.  You'll find it on the bone online at
-https://github.com/beagleboard/librobotcontrol/blob/master/examples/src/rc_test_servos.c.
+https://git.beagleboard.org/beagleboard/librobotcontrol/-/blob/master/examples/src/rc_test_servos.c
 
 Just past line 250 you'll find a ``while`` loop that has calls to ``rc_servo_send_pulse_normalized(ch,servo_pos)`` and
 ``rc_servo_send_pulse_us(ch, width_us)``.  The first call sets the pulse width relative to the pulse period; the other
@@ -583,11 +583,11 @@ explaining how the PRUs get this type of performance.
 
   .. _case_e1.31_example:
 
-  .. literalinclude:: ../code/01start/e1.31-test.py
+  .. literalinclude:: ../code/02start/e1.31-test.py
      :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
      :linenos:
 
-  :download:`e1.31-test.py <../code/01start/e1.31-test.py>` 
+  :download:`e1.31-test.py <../code/02start/e1.31-test.py>`
 
   .. TODO document the code
 
@@ -647,7 +647,7 @@ to full white at the same time you will need at least a 4A supply.
 
 .. _case_pocket:
 
-.. figure:: figures/pocketscroller.jpg
+.. figure:: figures/pocketscroller.*
    :align: center
    :alt: PocketBeagle Driving a P5 RGB LED Matrix via the PocketScroller Cape
 
@@ -888,7 +888,7 @@ select **Twinkle 50%**.  You matrix should have a colorful twinkle pattern
 
 .. _case_xlights_twinkle:
 
-.. figure:: figures/xlights_twinkle.jpg
+.. figure:: figures/xlights_twinkle.*
    :align: center
    :alt: xLights Twinkle test pattern
 
@@ -996,11 +996,11 @@ Now, suppose you wanted to run the
 `LED blink <https://simppru.readthedocs.io/en/latest/examples/led_blink/>`_
 example which is reproduced here.
 
-.. literalinclude:: ../code/01start/blink.sim
+.. literalinclude:: ../code/01case/blink.sim
    :caption: LED Blink (blink.sim)
    :linenos:
 
-:download:`blink.sim <../code/01start/blink.sim>`
+:download:`blink.sim <../code/01case/blink.sim>`
 
 Just run simppru
 

@@ -31,7 +31,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
    :caption: Introduction
 
    /intro/support/index
-   /intro/bone101/index
+   /intro/beagle101/index
    /intro/contribution/index
 
 
@@ -45,8 +45,9 @@ design, including the
 `materials <https://git.beagleboard.org/explore/projects/topics/boards>`__ to modify the designs
 from source using appropriate design tools.
 
+* Check out our latest board at: :ref:`beagleplay-home`
 * Check out our most popular board at: :ref:`beagleboneblack-home`
-* Check out our latest board at: :ref:`bbai64-home`
+* Check out our highest performance board at: :ref:`bbai64-home`
 * Find all of our on: :ref:`boards`
 
 .. grid:: 1 1 2 3
@@ -65,13 +66,51 @@ from source using appropriate design tools.
 
 
    .. grid-item-card::
+      :link: beaglev-fire-home
+      :link-type: ref
+
+      **BeagleV® Fire**
+      ^^^
+
+      Awesome board with RISC-V and FPGA in a BeagleBone form-factor
+      with PCIe over M.2 and SYZYGY high-speed connector!
+
+
+   .. grid-item-card::
+      :link: beagleplay-home
+      :link-type: ref
+
+      **BeaglePlay®**
+      ^^^
+
+      .. image:: boards/beagleplay/images/product-pictures/45front.*
+         :align: center
+      +++
+
+      A 64-bit ARM computer designed to simplify physical world interactions
+      to the connected world.
+
+   .. grid-item-card::
+      :link: beaglev-ahead-home
+      :link-type: ref
+
+      **BeagleV® Ahead**
+      ^^^
+
+      .. image:: boards/beaglev/ahead/media/product-pictures/45front.*
+         :align: center
+      +++
+
+      Quad core RISC-V SBC in the form factor of BeagleBone Black.
+
+   .. grid-item-card::
       :link: bbai64-home
       :link-type: ref
 
       **BeagleBone® AI-64**
       ^^^
 
-      .. image:: boards/images/beaglebone-ai-64-400x.webp
+      .. image:: boards/images/beaglebone-ai-64-400x.*
          :align: center
       +++
 
@@ -95,6 +134,20 @@ from source using appropriate design tools.
       microcontrollers and tons of features like Ethernet and HDMI – 
       credit card sized with over a decade of support, software and 
       materials behind it making it ready for any application.
+
+   .. grid-item-card::
+      :link: beagleconnect_freedom_home
+      :link-type: ref
+
+      **BeagleConnect™ Freedom**
+      ^^^
+
+      .. image:: boards/beagleconnect/freedom/media/product-pictures/front1.*
+         :align: center
+      +++
+
+      BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
+      and is the first available BeagleConnect™ solution.
 
    .. grid-item-card:: 
       :link: beagleboneblack-home
@@ -326,17 +379,19 @@ Capes
    :hidden:
    :caption: Boards
    
+   /boards/beagleplay/index
    /boards/beaglev/fire/index
    /boards/beaglebone/ai-64/index
    /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
    /boards/beaglebone/blue/index
    /boards/beaglebone/index
+   /boards/beaglev/ahead/index
    /boards/capes/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
-   /boards/terms-and-conditions.rst
+   /boards/terms-and-conditions
 
 
 Projects
@@ -382,6 +437,7 @@ page for more information.
    :hidden:
    :caption: Accessories
 
+   /boards/capes/index
    /accessories/index
 
 Indices and tables

@@ -47,7 +47,7 @@ the Bone, as shown in :ref:`basics_pluggingIn_fig`.
 
 .. _basics_pluggingIn_fig:
 
-.. figure:: figures/pluggingIn.jpg
+.. figure:: figures/pluggingIn.*
    :align: center
    :alt: Plugging BeagleBone Black into a USB port
    
@@ -69,7 +69,13 @@ The Bone acting like a USB drive and the files you see are located on the Bone.
 .. _basics_open_vsc:
 
 Browse to http://192.168.7.2:3000 from your 
-host computer (:ref:`basics_05gettingStarted_fig`).
+host computer (:ref:`basics_05gettingStarted_fig`). If the page is not found, run the following:
+
+.. code-block::
+
+    bone$ sudo systemctl start bb-code-server.service
+
+Wait a minute and try the URL again.
 
 .. _basics_05gettingStarted_fig:
 
@@ -119,16 +125,16 @@ Solution
    update version
 
 This book uses `Debian <https://www.debian.org>`_, the Linux distribution that currently ships on the Bone. 
-However this book is based on a newer version (BeagleBoard.org Debian Bullseye IoT Image 2022-07-01) 
+However this book is based on a newer version (BeagleBoard.org Debian Bullseye IoT Image 2023-06-03) 
 than what is shipping at the time of this writing. You can see which version your Bone is running by 
 following the instructions in :ref:`basics_out_of_the_box` to log into the Bone.  Then run:
 
 .. code-block:: bash
 
-    bone$ cat /ID.txt
-    BeagleBoard.org Debian Bullseye IoT Image 2022-07-01
+    bone$ cat /etc/dogtag
+    BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
 
-I'm running the 2022-07-01 version.
+I'm running the 2023-06-03 version.
 
 Running the Python and JavaScript Examples
 ===========================================
@@ -136,7 +142,7 @@ Running the Python and JavaScript Examples
 Problem
 --------
 
-You'd like to learn Python and JavaScript interact with the Bone to 
+You'd like to learn Python or JavaScript interact with the Bone to 
 perform physical computing tasks without first learning Linux.
 
 Solution
@@ -145,7 +151,7 @@ Solution
 Plug your board into the USB of your host computer and browse to 
 http://192.168.7.2:3000 using Google Chrome or Firefox (as shown in 
 :ref:`basics_out_of_the_box`). In the left 
-column, click on *EXAMPLES*, then *BeagleBone* and then *Black*. 
+column, click on *examples*, then *BeagleBone* and then *Black*. 
 Several sample scripts will appear.  Go and explore them.
 
 .. tip::
@@ -209,7 +215,7 @@ negative rail and 3.3 V (*P9_3*) is wired to the positive rail.
 Breadboard wired to BeagleBone Black
 -------------------------------------
 
-.. figure::figures/template_bb.png
+.. figure:: figures/template_bb.png
    :align: center
    :alt: Breadboard
    
@@ -234,7 +240,7 @@ Plug your Bone into a host computer via the USB cable. Open a browser
 browse to http://192.168.7.2:3000 on your host. You will see something 
 like :ref:`basics_05gettingStarted_fig`.
 
-Click the *EXAMPLES* folder on the left and then click *BeagleBoard* and then *Black*, 
+Click the *examples* folder on the left and then click *BeagleBoard* and then *Black*, 
 finally double-click ``seqLEDs.py``. You can now edit the file. 
 
 .. note:: 
@@ -281,7 +287,7 @@ Change to the directory that contains your file, make it executable, and then ru
 .. code-block:: bash
 
     bone$ cd ~/examples/BeagleBone/Black/
-    bone$ <strong>./seqLEDs.py
+    bone$ ./seqLEDs.py
 
 
 The *cd* is the change directory command. After you *cd*, 
@@ -303,6 +309,9 @@ Solution
 
 On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
 This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
+
+.. todo 
+   Update for 2023-06-03
 
 .. _basics_deb1:
 
@@ -331,7 +340,6 @@ with *am335x-debian-11.3-iot-* is used for the non-AI boards. The one beginning
 with *am57xx-debian-* is for programming the Beagle AI's.
 
 .. note::
-
    The onboard flash is often called the *eMMC* memory. We just call it *onboard flash*, but you'll 
    often see *eMMC* appearing in filenames of images used to update the onboard flash.
 

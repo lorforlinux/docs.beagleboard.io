@@ -27,82 +27,81 @@ chart and provides a high level description of the major components and
 interfaces that make up the board.
 
 .. table:: PocketBeagle Features
-                              
-
-    +-----------------------+---------------------------------------------+
-    | **Feature**           | ''''''                                      |
-    +=======================+=============================================+
-    | System-In-Package     | Octavo Systems OSD335x-SM in 256 Ball BGA   |
-    |                       | (21mm x 21mm)                               |
-    +-----------------------+---------------------------------------------+
-    | SiP Incorporates      |                                             |
-    +-----------------------+---------------------------------------------+
-    | Processor             | Texas Instruments 1GHz Sitara™ AM3358 ARM®  |
-    |                       | Cortex®-A8 with NEON floating-point         |
-    |                       | accelerator                                 |
-    +-----------------------+---------------------------------------------+
-    | Graphics Engine       | Imagination Technologies PowerVR SGX530     |
-    |                       | Graphics Accelerator                        |
-    +-----------------------+---------------------------------------------+
-    | Real-Time Units       | 2x programmable real-time unit (PRU) 32-bit |
-    |                       | 200MHz microcontrollers with single-cycle   |
-    |                       | I/O latency                                 |
-    +-----------------------+---------------------------------------------+
-    | Coprocessor           | ARM® Cortex®-M3 for power management        |
-    |                       | functions                                   |
-    +-----------------------+---------------------------------------------+
-    | SDRAM Memory          | 512MB DDR3 800MHz RAM                       |
-    +-----------------------+---------------------------------------------+
-    | Non-Volatile Memory   | 4KB I2C EEPROM for board configuration      |
-    |                       | information                                 |
-    +-----------------------+---------------------------------------------+
-    | Power Management      | TPS65217C PMIC along with TL5209 LDO to     |
-    |                       | provide power to the system with integrated |
-    |                       | 1-cell LiPo battery support                 |
-    +-----------------------+---------------------------------------------+
-    | Connectivity          |                                             |
-    +-----------------------+---------------------------------------------+
-    | SD/MMC                | Bootable microSD card slot                  |
-    +-----------------------+---------------------------------------------+
-    | USB                   | High speed USB 2.0 OTG (host/client)        |
-    |                       | micro-B connector                           |
-    +-----------------------+---------------------------------------------+
-    | Debug Support         | JTAG test points and gdb/other monitor-mode |
-    |                       | debug possible                              |
-    +-----------------------+---------------------------------------------+
-    | Power Source          | microUSB connector, also expansion header   |
-    |                       | options (battery, VIN or USB-VIN)           |
-    +-----------------------+---------------------------------------------+
-    | User I/O              | Power Button with press detection interrupt |
-    |                       | via TPS65217C PMIC                          |
-    +-----------------------+---------------------------------------------+
-    | Expansion Header      |                                             |
-    +-----------------------+---------------------------------------------+
-    | USB                   | High speed USB 2.0 OTG (host/client)        |
-    |                       | control signals                             |
-    +-----------------------+---------------------------------------------+
-    | Analog Inputs         | 8 analog inputs with 6 @ 1.8V and 2 @ 3.3V  |
-    |                       | along with 1.8V references                  |
-    +-----------------------+---------------------------------------------+
-    | Digital I/O           | 44 digital GPIOs accessible with 18 enabled |
-    |                       | by default including 2 shared with the 3.3V |
-    |                       | analog input pins                           |
-    +-----------------------+---------------------------------------------+
-    | UART                  | 3 UARTs accessible with 2 enabled by        |
-    |                       | default                                     |
-    +-----------------------+---------------------------------------------+
-    | I2C                   | 2 I2C buses enabled by default              |
-    +-----------------------+---------------------------------------------+
-    | SPI                   | 2 SPI buses with single chip selects        |
-    |                       | enabled by default                          |
-    +-----------------------+---------------------------------------------+
-    | PWM                   | 4 Pulse Width Modulation outputs accessible |
-    |                       | with 2 enabled by default                   |
-    +-----------------------+---------------------------------------------+
-    | QEP                   | 2 Quadrature encoder inputs accessible      |
-    +-----------------------+---------------------------------------------+
-    | CAN                   | 2 CAN bus controllers accessible            |
-    +-----------------------+---------------------------------------------+
+                           
+   +-----------------------+---------------------------------------------+
+   | **Feature**           |                                             |
+   +=======================+=============================================+
+   | System-In-Package     | Octavo Systems OSD335x-SM in 256 Ball BGA   |
+   |                       | (21mm x 21mm)                               |
+   +-----------------------+---------------------------------------------+
+   | SiP Incorporates      |                                             |
+   +-----------------------+---------------------------------------------+
+   | Processor             | Texas Instruments 1GHz Sitara™ AM3358 ARM®  |
+   |                       | Cortex®-A8 with NEON floating-point         |
+   |                       | accelerator                                 |
+   +-----------------------+---------------------------------------------+
+   | Graphics Engine       | Imagination Technologies PowerVR SGX530     |
+   |                       | Graphics Accelerator                        |
+   +-----------------------+---------------------------------------------+
+   | Real-Time Units       | 2x programmable real-time unit (PRU) 32-bit |
+   |                       | 200MHz microcontrollers with single-cycle   |
+   |                       | I/O latency                                 |
+   +-----------------------+---------------------------------------------+
+   | Coprocessor           | ARM® Cortex®-M3 for power management        |
+   |                       | functions                                   |
+   +-----------------------+---------------------------------------------+
+   | SDRAM Memory          | 512MB DDR3 800MHz RAM                       |
+   +-----------------------+---------------------------------------------+
+   | Non-Volatile Memory   | 4KB I2C EEPROM for board configuration      |
+   |                       | information                                 |
+   +-----------------------+---------------------------------------------+
+   | Power Management      | TPS65217C PMIC along with TL5209 LDO to     |
+   |                       | provide power to the system with integrated |
+   |                       | 1-cell LiPo battery support                 |
+   +-----------------------+---------------------------------------------+
+   | Connectivity          |                                             |
+   +-----------------------+---------------------------------------------+
+   | SD/MMC                | Bootable microSD card slot                  |
+   +-----------------------+---------------------------------------------+
+   | USB                   | High speed USB 2.0 OTG (host/client)        |
+   |                       | micro-B connector                           |
+   +-----------------------+---------------------------------------------+
+   | Debug Support         | JTAG test points and gdb/other monitor-mode |
+   |                       | debug possible                              |
+   +-----------------------+---------------------------------------------+
+   | Power Source          | microUSB connector, also expansion header   |
+   |                       | options (battery, VIN or USB-VIN)           |
+   +-----------------------+---------------------------------------------+
+   | User I/O              | Power Button with press detection interrupt |
+   |                       | via TPS65217C PMIC                          |
+   +-----------------------+---------------------------------------------+
+   | Expansion Header      |                                             |
+   +-----------------------+---------------------------------------------+
+   | USB                   | High speed USB 2.0 OTG (host/client)        |
+   |                       | control signals                             |
+   +-----------------------+---------------------------------------------+
+   | Analog Inputs         | 8 analog inputs with 6 @ 1.8V and 2 @ 3.3V  |
+   |                       | along with 1.8V references                  |
+   +-----------------------+---------------------------------------------+
+   | Digital I/O           | 44 digital GPIOs accessible with 18 enabled |
+   |                       | by default including 2 shared with the 3.3V |
+   |                       | analog input pins                           |
+   +-----------------------+---------------------------------------------+
+   | UART                  | 3 UARTs accessible with 2 enabled by        |
+   |                       | default                                     |
+   +-----------------------+---------------------------------------------+
+   | I2C                   | 2 I2C buses enabled by default              |
+   +-----------------------+---------------------------------------------+
+   | SPI                   | 2 SPI buses with single chip selects        |
+   |                       | enabled by default                          |
+   +-----------------------+---------------------------------------------+
+   | PWM                   | 4 Pulse Width Modulation outputs accessible |
+   |                       | with 2 enabled by default                   |
+   +-----------------------+---------------------------------------------+
+   | QEP                   | 2 Quadrature encoder inputs accessible      |
+   +-----------------------+---------------------------------------------+
+   | CAN                   | 2 CAN bus controllers accessible            |
+   +-----------------------+---------------------------------------------+
 
 .. _osd3358_512m_bsm_system_in_package:
 
@@ -138,7 +137,7 @@ and function.
 Figure below shows the locations of the devices, connectors, LEDs,
 and switches on the PCB layout of the board.
 
-.. figure:: images/21fig-PB-walkaround.png
+.. figure:: images/21fig-PB-walkaround.*
    :align: center
    :alt: Key Board Component Locations
 
