@@ -27,8 +27,8 @@ https://youtu.be/ZT9GEs3_ZYU?t=2195
 
     beagleconnect-start-gateway
 
-.. code-block:: 
-    
+.. code-block:: shell-session
+
     bone$ sudo beagleconnect-start-gateway
     setting up wpanusb gateway for IEEE 802154 CHANNEL 1(906 Mhz)
     RTNETLINK answers: File exists
