@@ -7,6 +7,43 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
+BeagleConnect Freedom
+=====================
+
+Here are some notes on how to setup and use the Connect.
+
+First get teh flasher image from:
+https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-20/
+
+Flash the eMMC (which also loads the cc1352 with 
+the correct firmware)
+
+Here's Jason's demo at the 2023 EOSS:
+https://youtu.be/ZT9GEs3_ZYU?t=2195
+
+.. figure:: figures/gateway-start.png
+    :align: center
+    :alt: beagleconnect-start-gateway
+
+    beagleconnect-start-gateway
+
+.. code-block:: 
+    
+    bone$ sudo beagleconnect-start-gateway
+    setting up wpanusb gateway for IEEE 802154 CHANNEL 1(906 Mhz)
+    RTNETLINK answers: File exists
+    RTNETLINK answers: Device or resource busy
+    PING 2001:db8::1(2001:db8::1) from fe80::212:4b00:29b9:9884%lowpan0 lowpan0: 56 data bytes
+    64 bytes from 2001:db8::1: icmp_seq=1 ttl=64 time=70.0 ms
+    64 bytes from 2001:db8::1: icmp_seq=2 ttl=64 time=66.6 ms
+    64 bytes from 2001:db8::1: icmp_seq=3 ttl=64 time=37.6 ms
+    64 bytes from 2001:db8::1: icmp_seq=4 ttl=64 time=37.6 ms
+    64 bytes from 2001:db8::1: icmp_seq=5 ttl=64 time=37.6 ms
+
+    --- 2001:db8::1 ping statistics ---
+    5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+    rtt min/avg/max/mdev = 37.559/49.868/70.035/15.084 ms
+
 .. _misc_shortcuts:
 
 Setting up shortcuts to make life easier
