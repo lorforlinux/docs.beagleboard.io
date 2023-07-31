@@ -12,7 +12,7 @@ BeagleConnect Freedom
 
 Here are some notes on how to setup and use the Connect.
 
-First get teh flasher image from:
+First get the flasher image from:
 https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-20/
 
 Flash the eMMC (which also loads the cc1352 with 
@@ -43,6 +43,14 @@ https://youtu.be/ZT9GEs3_ZYU?t=2195
     --- 2001:db8::1 ping statistics ---
     5 packets transmitted, 5 received, 0% packet loss, time 4005ms
     rtt min/avg/max/mdev = 37.559/49.868/70.035/15.084 ms
+
+Useful Links
+------------
+
+https://docs.micropython.org/en/latest/zephyr/quickref.html
+
+https://docs.zephyrproject.org/latest/boards/arm/beagle_bcf/doc/index.html
+
 
 
 micropython Examples
