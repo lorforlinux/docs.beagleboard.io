@@ -353,10 +353,40 @@ packets to the named pipe:
 
 .. code-block:: 
 
-    host$ ssh root@bone "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
+    host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
 .. tip:: 
     For this to work you will need to follow in instructions in :ref:`root_login`.
+
+Sharking the wpan radio
+-----------------------
+
+Now that you have Wireshark set up, you can view traffice from the Play's 
+wpan radio. First, set up the network by running:
+
+.. code-block:: shell-session
+
+    bone:~$ beagleconnect-start-gateway
+
+Go to Wireshark and in the field that says `Apply a display filter...` enter, 
+``wpan || 6lowpan || ipv6``.  This will dispaly three types of packets.  
+Be sure to hit Enter.
+
+Now generate some traffic:
+
+.. code-block:: shell-session
+
+    bone:~$ ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+.. _wireshark_ping:
+
+.. figure:: figures/wireshark_ping.png
+    :align: center
+    :alt: Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+    Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+You can see the pattern ``ca11ab1ebeef`` appears in the packets.
 
 Converting a tmp117 to a tmp114
 ================================
