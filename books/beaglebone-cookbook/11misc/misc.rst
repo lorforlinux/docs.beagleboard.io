@@ -1007,6 +1007,11 @@ the Play will boot from the micro SD card.
 Booting for the Developer
 -------------------------
 
+.. tip:: 
+
+    These diagrams might help: 
+    https://github.com/u-boot/u-boot/blob/6e8fa0611f19824e200fe4725f18bce7e2000071/doc/board/ti/k3.rst
+
 If you are developing firmware for the Play you may need to have
 access to the processor early in the booting sequence. Much can 
 happen before the Linux kernel starts its boot process.
