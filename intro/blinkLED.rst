@@ -65,7 +65,7 @@ Use password ``temppwd``.
 Blink an LED
 ------------
 
-One logged in the rest is easy.  First:
+Once logged in the rest is easy.  First:
 
 .. code-block:: shell-session
 
