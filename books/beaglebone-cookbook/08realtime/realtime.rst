@@ -28,8 +28,8 @@ JavaScript and moving up with increasing speed (and effort) to using the PRUs.
 
 .. _realtime_JavaScript:
 
-I/O with JavaScript
-====================
+I/O with Python and JavaScript
+==============================
 
 Problem
 --------
@@ -57,84 +57,70 @@ Wire up the pushbutton and LED as shown in :ref:`realtime_pushLED_fig`.
 
     Diagram for wiring a pushbutton and LED with the LED attached to P9_14
 
-The code in :ref:`realtime_pushLED_code` reads GPIO port *P9_42*, which is attached to the 
+The code in :ref:`py_pushLED_code` reads GPIO port *P9_42*, which is attached to the 
 pushbutton, and turns on the LED attached to *P9_12* when the button is pushed.
 
-.. _py_pushLED_code:
+.. tabs::
 
-.. literalinclude:: ../code/08realtime/pushLED.py
-   :caption: Monitoring a pushbutton (pushLED.py)
-   :linenos:
+    .. group-tab:: Python
 
-:download:`pushLED.py <../code/08realtime/pushLED.py>`
+        .. _py_pushLED_code:
 
-.. _realtime_pushLED_code:
+        .. literalinclude:: ../code/08realtime/pushLED.py
+            :caption: Monitoring a pushbutton (pushLED.py)
+            :language: Python
+            :linenos:
 
-.. literalinclude:: ../code/08realtime/pushLED.js
-   :caption: Monitoring a pushbutton (pushLED.js)
-   :linenos:
+        :download:`pushLED.py <../code/08realtime/pushLED.py>`
+    
+    .. group-tab:: c
 
-:download:`pushLED.js <../code/08realtime/pushLED.js>`
+        .. _realtime_pushLED_c_code:
 
+        .. literalinclude:: ../code/08realtime/pushLED.c
+            :language: c
+            :caption: Code for reading a switch and blinking an LED (pushLED.c)
+            :linenos:
 
-Add the code to a file named ``pushLED.js`` and run it by using the following commands:
+        .. code-block:: bash
+
+            bone$ gcc -o pushLED pushLED.c -lgpiod
+            bone$ ./pushLED
+            1
+            1
+            0
+            0
+            0
+            1
+            ^C
+
+        :download:`pushLED.c <../code/08realtime/pushLED.c>`
+
+    .. group-tab:: JavaScript
+
+        .. _realtime_pushLED_code:
+
+        .. literalinclude:: ../code/08realtime/pushLED.js
+            :caption: Monitoring a pushbutton (pushLED.js)
+            :language: JavaScript
+            :linenos:
+
+        :download:`pushLED.js <../code/08realtime/pushLED.js>`
+
+Add the code to a file named ``pushLED.py`` and run it by using the following commands:
 
 .. code-block:: bash
 
-    bone$ chmod *x pushLED.js
-    bone$ ./pushLED.js
-    data = 0
-    data = 0
-    data = 1
-    data = 1
+    bone$ chmod *x pushLED.py
+    bone$ ./pushLED.py
+    Hit ^C to stop
+    0
+    0
+    1
+    1
     ^C
 
 Press ^C (Ctrl-C) to stop the code.
-
-.. _realtime_c:
-
-I/O with C
-===========
-
-Problem
---------
-
-You want to use the C language to process inputs in real time, or Python/JavaScript isn't fast enough.
-
-Solution
----------
-
-:ref:`realtime_JavaScript` shows how to control an LED with a pushbutton using JavaScript. This recipe accomplishes 
-the same thing using C. It does it in the same way, opening the correct /sys/class/gpio files and reading an writing them.
-
-Wire up the pushbutton and LED as shown in :ref:`realtime_pushLED_fig`. 
-Then add the code in :ref:`realtime_pushLED_c_code` to a file named ``pushLED.c``.
-
-.. _realtime_pushLED_c_code:
-
-.. literalinclude:: ../code/08realtime/pushLED.c
-   :caption: Code for reading a switch and blinking an LED (pushLED.c)
-   :linenos:
-
-:download:`pushLED.c <../code/08realtime/pushLED.c>`
-
-Compile and run the code:
-
-.. code-block:: bash
-
-    bone$ gcc -o pushLED pushLED.c
-    bone$ ./pushLED
-    state: 1
-    state: 1
-    state: 0
-    state: 0
-    state: 0
-    state: 1
-    ^C
-
-The code responds quickly to the pushbutton. If you need more speed, 
-comment-out the *printf()* and the *sleep()*.
-
 
 .. _realtime_devmem2:
 
@@ -162,7 +148,7 @@ First, download and install *devmem2*:
 
 .. code-block:: bash
 
-    bone$ wget http://free-electrons.com/pub/mirror/devmem2.c
+    bone$ wget http://bootlin.com/pub/mirror/devmem2.c
     bone$ gcc -o devmem2 devmem2.c
     bone$ sudo mv devmem2 /usr/bin
 
@@ -199,7 +185,7 @@ Memory Map chapter (sensors). Table 2-2 indicates that *GPIO0* starts at address
 go to Section 25.4.1, "GPIO Registers." This shows that *GPIO_DATAIN* has an offset of *0x138*, *GPIO_CLEARDATAOUT* 
 has an offset of *0x190*, and *GPIO_SETDATAOUT* has an offset of *0x194*.  
 
-This means you read from address *0x44E0_7000* * *0x138* = *0x44E0_7138* to see the status of the LED:
+This means you read from address *0x44E0_7000* + *0x138* = *0x44E0_7138* to see the status of the LED:
 
 .. code-block:: bash
 
@@ -211,7 +197,7 @@ This means you read from address *0x44E0_7000* * *0x138* = *0x44E0_7138* to see 
 
 The returned value *0xC000C404* (*1100 0000 0000 0000 1100 0100 0000 0100* in binary) has bit 31 set to *1*, 
 which means the LED is on. Turn the LED off by writing *0x80000000* (*1000 0000 0000 0000 0000 0000 0000 0000* binary) 
-to the *GPIO_CLEARDATA* register at *0x44E0_7000* * *0x190* = *0x44E0_7190*:
+to the *GPIO_CLEARDATA* register at *0x44E0_7000* + *0x190* = *0x44E0_7190*:
 
 .. code-block:: bash
 
@@ -282,6 +268,7 @@ Add the code in :ref:`realtime_pushLEDmmap_h` to a file named ``pushLEDmmap.h``.
 
 .. literalinclude:: ../code/08realtime/pushLEDmmap.h
    :caption: Memory address definitions (pushLEDmmap.h)
+   :language: c
    :linenos:
 
 :download:`pushLEDmmap.h <../code/08realtime/pushLEDmmap.h>`
@@ -293,6 +280,7 @@ Add the code in :ref:`realtime_pushLEDmmap_c` to a file named ``pushLEDmmap.c``.
 
 .. literalinclude:: ../code/08realtime/pushLEDmmap.c
    :caption: Code for directly reading memory addresses (pushLEDmmap.c)
+   :language: c
    :linenos:
 
 :download:`pushLEDmmap.c <../code/08realtime/pushLEDmmap.c>`
@@ -495,12 +483,15 @@ This will generate the file *cyclictest.png* which contains your plot.  It shoul
 Notice the NON-RT data have much longer latenices. They may not happen often (fewer than 10 times in each bin), 
 but they are occurring and may be enough to miss a real-time deadline.
 
-The PREEMPT-RT times are all under a 150s. 
+The PREEMPT-RT times are all under a 150 us. 
 
 .. _realtime_simpPRU:
 
 I/O with simpPRU
 =================
+
+.. todo
+    This should be checked.
 
 Problem
 --------

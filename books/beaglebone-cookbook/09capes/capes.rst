@@ -11,8 +11,8 @@ because you need to move the Bone and you don't want wires coming loose, or beca
 you want to share your hardware with the masses. 
 
 You can easily expand the functionality of the Bone by adding a  `cape <http://bit.ly/1wucweC>`_. 
-A cape is simply a board--often a printed circuit board (PCB) that connects to the +P8+ 
-and +P9+ headers and follows a few standard pin usages. You can stack up to four capes onto the 
+A cape is simply a board--often a printed circuit board (PCB) that connects to the **P8** 
+and **P9** headers and follows a few standard pin usages. You can stack up to four capes onto the 
 Bone. Capes can range in size covering a few pins to much larger than the Bone.
 
 .. todo:: Add cape examples of various sizes
@@ -274,7 +274,8 @@ LCD Backside
     :align: center
     :alt: 
 
-Next, take a note of each pin utilized by each cape. The `BeagleBone Capes catalog <http://beaglebonecapes.com>`_ 
+Next, take a note of each pin utilized by each cape. 
+The `BeagleBone Capes catalog <https://beagleboard.org/capes>`_ 
 provides a graphical representation for the pin usage of most capes, as shown in :ref:`Audio_cape_pins_fig` for the Circuitco Audio Cape.
 
 .. note:: #TODO# Bela would make a better example for an audio cape. The CircuitCo cape is no longer available.
@@ -299,9 +300,15 @@ In most cases, the same pin should never be used on two different capes, though 
 - VDD_3V3
     - The 3.3 V power supply (*VDD_3V3*) pins can be shared by all capes to supply power, but the total combined consumption of all the capes should be less than 500 mA (250 mA per *VDD_3V3* pin).
 - VDD_5V
-    - The 5.0 V power supply (*VDD_5V*) pins can be shared by all capes to supply power, but the total combined consumption of all the capes should be less than 2 A (1 A per +VD*_5V+ p*n). It is possible for one, and only one, of the capes to _provide_ power to this pin rather than consume it, and it should provide at least 3 A to ensure proper system function. Note that when no voltage is applied to the DC connector, nor from a cape, these pins will not be powered, even if power is provided via USB.
+    The 5.0 V power supply (*VDD_5V*) pins can be shared by all capes to supply power, 
+    but the total combined consumption of all the capes should be less than 2 A (1 A per +VDD_5V+ pin). 
+    It is possible for one, and only one, of the capes to *provide* power to this pin rather than consume it, 
+    and it should provide at least 3 A to ensure proper system function. 
+    Note that when no voltage is applied to the DC connector, nor from a cape, 
+    these pins will not be powered, even if power is provided via USB.
 - SYS_5V
-    - The regulated 5.0 V power supply (*SYS_5V*) pins can be shared by all capes to supply power, but the total combined consumption of all the capes should be less than 500 mA (250 mA per *SYS_5V* pin).
+    The regulated 5.0 V power supply (*SYS_5V*) pins can be shared by all capes to supply power, 
+    but the total combined consumption of all the capes should be less than 500 mA (250 mA per *SYS_5V* pin).
 - VADC and AGND
     - The ADC reference voltage pins can be shared by all capes.
 - I2C2_SCL and I2C2_SDA
@@ -639,7 +646,7 @@ of all your traces and cleaning up any questionable routing created by the autor
 The PCB in :ref:`capes_quickRobo_pcb` is a two-sided board. One color (or shade of gray in the printed book) 
 represents traces on one side of the board, and the other color (or shade of gray) is the other side. Sometimes, 
 you'll see a trace come to a small circle and then change colors. This is where it is switching sides of the board 
-through what's called a _via_. One of the goals of PCB design is to minimize the number of vias.
+through what's called a *via*. One of the goals of PCB design is to minimize the number of vias.
 
 :ref:`capes_quickRobo_pcb` wasn't my first try or my last. My approach was to see what was needed to hook where and 
 move the components around to make it easier for the autorouter to carry out its job.
@@ -772,11 +779,8 @@ PCB Design Alternatives
 
 There are other free PCB design programs. Here are a few.
 
-TO PROD: The headings I've marked as bold lines really should be subheadings of "PCB Design Alternatives," 
-but AsciiDoc won't let me go that deep (to the level). Is what I've done the best solution, 
-or is there a way to create another heading level?
-
-*EAGLE*
+EAGLE
+-----
 
 `Eagle PCB <https://en.wikipedia.org/wiki/EAGLE_(program)>`_ and `DesignSpark PCB <https://en.wikipedia.org/wiki/DesignSpark_PCB>`_ are two popular 
 design programs. Many capes (and other PCBs) are designed with Eagle PCB, and the files are available. 
@@ -803,7 +807,7 @@ and PCB shown in :ref:`capes_miniDisplay_pcb`.
    #TODO#: The MiniDisplay cape is not currently available, so this example should be updated.
 
 A good starting point is to take the PCB layout for the MiniDisplay and edit it for your project. 
-The connectors for +P8+ and +P9+ are already in place and ready to go.
+The connectors for **P8** and **P9** are already in place and ready to go.
 
 Eagle PCB is a powerful system with many good tutorials online. The free version runs on 
 Windows, Mac, and Linux, but it has three `limitations <https://en.wikipedia.org/wiki/EAGLE_(program)#License_model>`_:
@@ -883,14 +887,16 @@ Ensure that the correct version number appears.
 If you are moving a design from Fritzing to Eagle, see :ref:`capes_schematic_migration` 
 for tips on converting from one to the other.
 
-*DesignSpark PCB*
+DesignSpark PCB
+---------------
 
 The free `DesignSpark <http://bit.ly/19cbwS0>`_ doesn't have the same limitations as Eagle PCB, 
 but it runs only on Windows. Also, it doesn't seem to have the following of Eagle at this time.
 
 .. _capes_upverter:
 
-*Upverter*
+Upverter
+--------
 
 In addition to free solutions you run on your desktop, you can also work with a browser-based 
 tool called `Upverter <https://upverter.com/>`_. With Upverter, you can collaborate easily, editing 
@@ -903,9 +909,9 @@ your designs from anywhere on the Internet. It also provides many conversion opt
 .. _capes_kicad:
 
 Kicad
-=======
+-----
 
-Unlike the previously mentioned free (no-cost) solutions, `Kicad <http://bit.ly/1b2bnBg>`_
+Unlike the previously mentioned free (no-cost) solutions, `Kicad <https://www.kicad.org/>`_
 is open source and provides some features beyond those of Fritzing. Notably, `CircuitHub site <http://circuithub.com/>`_ 
 (discussed in :ref:`capes_production`) provides support for uploading Kicad designs.
 
@@ -920,11 +926,16 @@ Problem
 You created your schematic in Fritzing, but it doesn't integrate with everything you need. 
 How can you move the schematic to another tool?
 
+.. todo
+    Is this up to date?
+
 Solution
 ---------
 
-Use the `Upverter schematic-file-converter <https://github.com/ljmljz/schematic-file-converter>`_ Python script. For example, suppose that you want 
-to convert the Fritzing file for the diagram shown in :ref:`capes_quickRobo_fig`. First, install Upverter.
+Use the `Upverter schematic-file-converter <https://github.com/ljmljz/schematic-file-converter>`_ Python script. 
+For example, suppose that you want 
+to convert the Fritzing file for the diagram shown in :ref:`capes_quickRobo_fig`. 
+First, install Upverter.
 
 I found it necessary to install +libfreetype6+ and +freetype-py+ onto my system, but you might not need this first step:
 
@@ -948,7 +959,7 @@ I found it necessary to install +libfreetype6+ and +freetype-py+ onto my system,
 
 
 .. note:: 
-    All these commands are being run on the Linux-based host computer, as shown by the +host$+ prompt. 
+    All these commands are being run on the Linux-based host computer, as shown by the **host$** prompt. 
     Log in as a normal user, not +root+.
 
 Now, install the ``schematic-file-converter`` tool:
@@ -1057,7 +1068,7 @@ After Upverter is installed, run the file (``quickBot.fzz``) that generated :ref
 
 No one said it would be pretty!
 
-I found that Eagle was more generous at reading in the +eaglexml+ format than the +eagle+ format. 
+I found that Eagle was more generous at reading in the **eaglexml** format than the **eagle** format. 
 This also made it easier to hand-edit any translation issues.
 
 .. _capes_prototype:
@@ -1081,7 +1092,7 @@ To make this recipe, you will need:
 * Multimeter
 * Your other components
 
-Upload your design to `OSH Park <http://oshpark.com>` and order a few boards. :ref:`capes_oshpark_share` shows a resulting 
+Upload your design to `OSH Park <http://oshpark.com>`_ and order a few boards. :ref:`capes_oshpark_share` shows a resulting 
 `shared project page for the quickBot cape <http://bit.ly/1MtlzAp>`_ created in :ref:`capes_layout`. We'll proceed to 
 break down how this design was uploaded and shared to enable ordering fabricated PCBs.
 
@@ -1108,7 +1119,7 @@ The `WikiHow article on creating Zip files <http://bit.ly/1B4GqRU>`_ might be he
 Things on the `OSH Park website <http://oshpark.com>`_ are reasonably self-explanatory. You'll need to create an account and 
 upload the Zip file containing the `Gerber files <https://en.wikipedia.org/wiki/Gerber_format>`_ you created. If you are a cautious person, 
 you might choose to examine the Gerber files with a Gerber file viewer first. The `Fritzing fabrication FAQ <https://aisler.net/partners/fritzing>`_ 
-offers several suggestions, including `gerbv <http://gerbv.sourceforge.net/>`_ for Windows and Linux users.
+offers several suggestions, including `gerbv <http://gerbv.geda-project.org/>`_ for Windows and Linux users.
 
 When your upload is complete, you'll be given a quote, shown images for review, and presented with options for accepting 
 and ordering. After you have accepted the design, your `list of accepted designs <https://oshpark.com/project_history>`_ 
@@ -1126,7 +1137,10 @@ looking to make some money on your design, you'll want to go another route, like
 
 Now is a good time to ensure that you have all of your components and a soldering station set up as in :ref:`capes_soldering`, as well as an oscilloscope, as used in :ref:`capes_verify`.
 
-When you get your board, it is often informative to "buzz out" a few connections by using a multimeter. If you've never used a multimeter before, the `SparkFun <http://bit.ly/18bUgeA>`_ or `Adafruit <http://bit.ly/1Br5Xtv>`_ tutorials might be helpful. Set your meter to continuity testing mode and probe between points where the headers are and where they should be connecting to your components. This would be more difficult and less accurate after you solder down your components, so it is a good idea to keep a bare board around just for this purpose.
+When you get your board, it is often informative to "buzz out" a few connections by using a multimeter. 
+If you've never used a multimeter before, the `SparkFun <https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter/all>`_ 
+or `Adafruit <http://bit.ly/1Br5Xtv>`_ tutorials might be helpful. 
+Set your meter to continuity testing mode and probe between points where the headers are and where they should be connecting to your components. This would be more difficult and less accurate after you solder down your components, so it is a good idea to keep a bare board around just for this purpose.
 
 You'll also want to examine your board mechanically before soldering parts down. You don't want to waste components on a PCB that might need to be altered or replaced.
 
@@ -1164,6 +1178,9 @@ series on creating a cape, including how to wire and program the EEPROM.
 .. note::
 
    The current effort to document how to enable software for a cape is ongoing at https://docs.beagleboard.org/latest/boards/capes.
+
+.. todo
+    This needs updating.
 
 .. _capes_production:
 
