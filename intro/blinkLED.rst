@@ -163,3 +163,9 @@ The first command sets chip 1, line 22 (the usr1 led) to 1 (on) for
 
 Try it for the other LEDs.
 
+.. note:: 
+
+    This may not work on all Beagles since it depends on which 
+    version of Debian you are running.
+
+
