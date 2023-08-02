@@ -56,8 +56,8 @@ If you are running a Linux host, open a terminal widow and run
 
 Use password ``temppwd``.
 
-Blink the LED
--------------
+Blink an LED
+------------
 
 One logged in the rest is easy.  First:
 
@@ -81,5 +81,38 @@ You can blink any of them.  Let's try usr1.
     bone:~$ echo 0 > brightness
 
 When you echo 1 into ``brightness`` the LED turns on. 
-Echoing a 0 turns it off.  Congratulations! you've blinked 
-your first LED.
+Echoing a 0 turns it off.  Congratulations, you've blinked 
+your first LED!
+
+Blinking other LEDs
+-------------------
+
+You can blink the other LEDs by changing in to thier 
+directories and doing the same.
+
+.. code-block:: shell-session
+    
+    bone:~$ cd ../beaglebone\:green\:usr0/
+    bone:~$ echo 1 > brightness
+    bone:~$ echo 0 > brightness
+
+Did you notice that LED usr0 blinks on it's own in a 
+heartbeat pattern? You can set an LED trigger.  Here's 
+what you can set:
+
+.. code-block:: shell-session
+
+    bone:~$ cat trigger 
+    none usb-gadget usb-host rfkill-any rfkill-none 
+    kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock 
+    kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock 
+    kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock 
+    timer oneshot disk-activity disk-read disk-write i
+    de-disk mtd nand-disk [heartbeat] backlight gpio c
+    pu cpu0 cpu1 cpu2 cpu3 activity default-on panic 
+    netdev mmc0 mmc1 mmc2 phy0rx phy0tx phy0assoc phy0radio 
+    rfkill0 gpio-0:00:link gpio-0:00:1Gbps gpio-0:00:100Mbps 
+    gpio-0:00:10Mbps gpio-0:01:link gpio-0:01:10Mbps
+    bone:~$ echo none > trigger
+
+
