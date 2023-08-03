@@ -7,6 +7,151 @@ Misc
 
 Here are bits and pieces of ideas that are being developed.
 
+BeagleConnect Freedom
+=====================
+
+Here are some notes on how to setup and use the Connect.
+
+First get the flasher image from:
+https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-20/
+
+Flash the eMMC (which also loads the cc1352 with 
+the correct firmware)
+
+Here's Jason's demo at the 2023 EOSS:
+https://youtu.be/ZT9GEs3_ZYU?t=2195
+
+.. figure:: figures/gateway-start.png
+    :align: center
+    :alt: beagleconnect-start-gateway
+
+    beagleconnect-start-gateway
+
+.. code-block:: shell-session
+
+    bone$ sudo beagleconnect-start-gateway
+    setting up wpanusb gateway for IEEE 802154 CHANNEL 1(906 Mhz)
+    RTNETLINK answers: File exists
+    RTNETLINK answers: Device or resource busy
+    PING 2001:db8::1(2001:db8::1) from fe80::212:4b00:29b9:9884%lowpan0 lowpan0: 56 data bytes
+    64 bytes from 2001:db8::1: icmp_seq=1 ttl=64 time=70.0 ms
+    64 bytes from 2001:db8::1: icmp_seq=2 ttl=64 time=66.6 ms
+    64 bytes from 2001:db8::1: icmp_seq=3 ttl=64 time=37.6 ms
+    64 bytes from 2001:db8::1: icmp_seq=4 ttl=64 time=37.6 ms
+    64 bytes from 2001:db8::1: icmp_seq=5 ttl=64 time=37.6 ms
+
+    --- 2001:db8::1 ping statistics ---
+    5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+    rtt min/avg/max/mdev = 37.559/49.868/70.035/15.084 ms
+
+Useful Links
+------------
+
+https://docs.micropython.org/en/latest/zephyr/quickref.html
+
+https://docs.zephyrproject.org/latest/boards/arm/beagle_bcf/doc/index.html
+
+
+
+micropython Examples
+--------------------
+
+Here is the output from running the examples from here:
+https://docs.beagleboard.org/latest/boards/beagleconnect/freedom/demos-and-tutorials/using-micropython.html
+
+Plug the BeagleConnect Freedom into the USB on the Play.
+
+.. code-block:: shell-session
+
+    bone:~$ sudo systemd-resolve --set-mdns=yes --interface=lowpan0
+    bone:~$ avahi-browse -r -t _zephyr._tcp
+    + lowpan0 IPv6 zephyr                                        _zephyr._tcp         local
+    = lowpan0 IPv6 zephyr                                        _zephyr._tcp         local
+    hostname = [zephyr.local]
+    address = [2001:db8::1]
+    port = [12345]
+    txt = []
+    bone:~$ avahi-resolve -6 -n zephyr.local
+    zephyr.local    2001:db8::1
+    bone:~$ mcumgr conn add bcf0 type="udp" connstring="[2001:db8::1%lowpan0]:1337"
+    Connection profile bcf0 successfully added
+    bone:~$ mcumgr -c bcf0 image list
+    Images:
+    image=0 slot=0
+        version: hu.hu.hu
+        bootable: true
+        flags: active confirmed
+        hash: 16a97391d2570eae80667cfd8c475cb051d4a4a600430b64cb52b59f5db4ce22
+    Split status: N/A (0)
+    bone:~$ mcumgr -c bcf0 shell exec "device list"
+    status=0
+
+    devices:
+    - GPIO_0 (READY)
+    - random@40028000 (READY)
+    - UART_1 (READY)
+    - UART_0 (READY)
+    - i2c@40002000 (READY)
+    - I2C_0S (READY)
+    requires: GPIO_0
+    requires: i2c@40002000
+    - flash-controller@40030000 (READY)
+    - spi@40000000 (READY)
+    requires: GPIO_0
+    - ieee802154g (READY)
+    - gd25q16c@0 (READY)
+    requires: spi@40000000
+    - leds (READY)
+    - HDC2010-HUMIDITY (READY)
+    requires: I2C_0S
+    -
+    bone:~$ mcumgr -c bcf0 shell exec "net iface"
+    status=0
+
+    Hostname: zephyr
+
+
+    Interface 0x20002de4 (IEEE 802.15.4) [1]
+    ========================================
+    Link addr : 3D:9A:B9:29:00:4B:12:00
+    MTU       : 125
+    Flags     : AUTO_START,IPv6
+    IPv6 unicast addresses (max 3):
+            fe80::3f9a:b929:4b:1200 autoconf preferred infinite
+            2001:db8::1 manual preferred infinite
+    IPv6 multicast addresses (max 4):
+            ff02::1
+            ff02::1:ff4b:1200
+            ff02::1:ff00:1
+    bone:~$ tio /dev/ttyACM0
+
+Press the ``RST`` button on the Connect.
+
+.. code-block:: shell-session
+
+    I: gd25q16c@0: SFDP v 1.6 AP ff with 2 PH
+    I: PH0: ff00 rev 1.6: 16 DW @ 30
+    I: gd25q16c@0: 2 MiBy flash
+    I: PH1: ffc8 rev 1.0: 3 DW @ 90
+    *** Booting Zephyr OS build zephyr-v3.2.0-3470-g14e193081b1f ***
+    I: Starting bootloader
+    I: Primary image: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+    I: Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+    I: Boot source: primary slot
+    I: Swap type: none
+    I: Bootloader chainload address offset: 0x20000
+    I: Jumping to the first image slot
+
+
+    [00:00:00.001,464] <inf> spi_nor: gd25q16c@0: SFDP v 1.6 AP ff with 2 PH
+    [00:00:00.001,464] <inf> spi_nor: PH0: ff00 rev 1.6: 16 DW @ 30
+    [00:00:00.001,983] <inf> spi_nor: gd25q16c@0: 2 MiBy flash
+    [00:00:00.002,014] <inf> spi_nor: PH1: ffc8 rev 1.0: 3 DW @ 90
+    uart:~$ build time: Feb 22 2023 08:09:25MicroPython v1.19.1 on 2023-02-22; zephyr-beagleconnect_freedom with unknown-cpu
+    Type "help()" for more information.
+    >>>
+
+
 .. _misc_shortcuts:
 
 Setting up shortcuts to make life easier
@@ -208,10 +353,40 @@ packets to the named pipe:
 
 .. code-block:: 
 
-    host$ ssh root@bone "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
+    host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
 .. tip:: 
     For this to work you will need to follow in instructions in :ref:`root_login`.
+
+Sharking the wpan radio
+-----------------------
+
+Now that you have Wireshark set up, you can view traffice from the Play's 
+wpan radio. First, set up the network by running:
+
+.. code-block:: shell-session
+
+    bone:~$ beagleconnect-start-gateway
+
+Go to Wireshark and in the field that says `Apply a display filter...` enter, 
+``wpan || 6lowpan || ipv6``.  This will dispaly three types of packets.  
+Be sure to hit Enter.
+
+Now generate some traffic:
+
+.. code-block:: shell-session
+
+    bone:~$ ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+.. _wireshark_ping:
+
+.. figure:: figures/wireshark_ping.png
+    :align: center
+    :alt: Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+    Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+You can see the pattern ``ca11ab1ebeef`` appears in the packets.
 
 Converting a tmp117 to a tmp114
 ================================
@@ -861,6 +1036,11 @@ the Play will boot from the micro SD card.
 
 Booting for the Developer
 -------------------------
+
+.. tip:: 
+
+    These diagrams might help: 
+    https://github.com/u-boot/u-boot/blob/6e8fa0611f19824e200fe4725f18bce7e2000071/doc/board/ti/k3.rst
 
 If you are developing firmware for the Play you may need to have
 access to the processor early in the booting sequence. Much can 

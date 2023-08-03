@@ -69,6 +69,8 @@ into the Visual Studio Code IDE environment.
     A big part of what is missing here is to put your BeaglePlay on the Internet such
     that we can download things in later steps. That has been initially brushed over.
 
+.. _zephyr_flash_radio :
+
 Flash existing IEEE 802.15.4 radio bridge (WPANUSB) firmware
 ************************************************************
 
@@ -111,12 +113,22 @@ Steps
 
 #. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases>`_ or `distros on www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_.
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
         cd
         wget https://files.beagle.cc/file/beagleboard-public-2021/images/download
         unzip download
         build/play/cc2538-bsl.py build/play/wpanusb
+
+    .. note:: 
+        I got a `File Not Found` error on the ``wget`` command above. If it doesn't 
+        work for you try: 
+
+    .. code-block:: shell-session
+
+            bone:~$ wget https://files.beagle.cc/file/beagleboard-public-2021/images/zephyr-beagle-cc1352-0.2.2.zip
+            bone:~$ unzip zephyr-beagle-cc1352-0.2.2.zip  
+            bone:~$ build/play/cc2538-bsl.py build/play/wpanusb
 
 #. Ensure the `bcfserial` driver is set to load.
 
