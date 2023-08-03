@@ -119,6 +119,8 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
 
           high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
 
+.. _beaglev-ahead-flashing-emmc:
+
 Flashing eMMC
 **************
 
