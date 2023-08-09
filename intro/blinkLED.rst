@@ -131,12 +131,12 @@ Another way to Blink an LED
 ---------------------------
 
 An interesting thing about Linux is there are often many ways 
-to do the same thing.  FOr example, I can think of at least six ways to blink 
+to do the same thing.  For example, I can think of at least five ways to blink 
 an LED.  Here's another way using the ``gpiod`` system.
 
 .. code-block:: shell-session
 
-    bone:~$ gpioinfo | grep -e chip -ie  led
+    bone:~$ gpioinfo | grep -e chip -ie  usr
     gpiochip0 - 32 lines:
     gpiochip1 - 32 lines:
         line  21: "[usr0 led]" "beaglebone:green:usr0" output active-high [used]
