@@ -117,7 +117,7 @@ in the
 .. figure:: board-booting.png
     :width: 740
     :align: center
-    :alt: BeagleV Ahead booting prompt
+    :alt: BeagleV Fire booting HSS with progress bar
 
 Once you see that progress bar on your screem you can start pressing any 
 button (0-9/a-z) which whill stop the board from fully botting and you'll be 
@@ -128,12 +128,17 @@ HSS ``usbdmsc`` command exposes the eMMC as a USB mass storage device USB type C
 .. figure:: boot-message.png
     :width: 1240
     :align: center
-    :alt: BeagleV Ahead booting prompt
+    :alt: BeagleV Fire boot messages with HSS prompt access 
 
 Once you see ``>>`` you can execute the commands below:
 
 1. ``>> mmc``
 2. ``>> usbdmsc``
+
+.. figure:: HSS-eMMC-mass-storage.png
+    :width: 1240
+    :align: center
+    :alt: HSS commands to show eMMC as mass storage
 
 After executing the commands above your BeagleV Fire's eMMC will be 
 exposed as a mass storage device like shown in the image below:
@@ -141,7 +146,7 @@ exposed as a mass storage device like shown in the image below:
 .. figure:: mass-storage-eMMC.png
     :width: 740
     :align: center
-    :alt: BeagleV Ahead booting prompt
+    :alt: BeagleV Fire eMMC as mass storage
 
 Once your board is exposed as a mass storage device you can use 
 `Balena Etcher <https://etcher.balena.io/#download-etcher>`_ to 
@@ -157,26 +162,26 @@ flash the ``sdcard.img`` on your BeagleV Fire's eMMC.
       .. figure:: eMMC-flashing-1.png
           :width: 740
           :align: center
-          :alt: BeagleV Ahead booting prompt
+          :alt: Balena Etcher selecting image
 
     .. group-tab:: Select Target
 
-        3. Select ``MCC PolarFireSoC_msd`` as target.
-        4. Click ``Select(1)`` to proceed.
+        1. Select ``MCC PolarFireSoC_msd`` as target.
+        2. Click ``Select(1)`` to proceed.
 
       .. figure:: eMMC-flashing-2.png
           :width: 740
           :align: center
-          :alt: BeagleV Ahead booting prompt
+          :alt: Balena Etcher selecting target
 
     .. group-tab:: Flash image
 
-        5. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV Fire eMMC storage.
+        1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV Fire eMMC storage.
 
       .. figure:: eMMC-flashing-3.png
           :width: 740
           :align: center
-          :alt: BeagleV Ahead booting prompt
+          :alt: Balena Etcher flashing image
 
 Congratulations! with that done you have fully updated BeagleV Fire board 
 with up to date gateware image on it's PolarFire SoC's FPGA 
