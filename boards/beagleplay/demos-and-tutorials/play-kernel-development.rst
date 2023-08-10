@@ -1,10 +1,5 @@
 .. _play-kernel-development:
 
-.. toctree::
- :numbered:
-
-   Introduction
-
 Introduction
 #############
 

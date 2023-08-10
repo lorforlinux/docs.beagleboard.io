@@ -16,7 +16,7 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
 .. image:: media/BeagleV-Ahead-all.*
     :width: 724
     :align: center
-    :alt: BeaglePlay box contents
+    :alt: BeagleV Ahead box contents
 
 Unboxing
 *********
@@ -118,6 +118,8 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
           :alt: high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
 
           high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
+
+.. _beaglev-ahead-flashing-emmc:
 
 Flashing eMMC
 **************

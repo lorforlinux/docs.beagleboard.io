@@ -30,6 +30,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
    :hidden:
    :caption: Introduction
 
+   /intro/blinkLED
    /intro/support/index
    /intro/beagle101/index
    /intro/contribution/index
