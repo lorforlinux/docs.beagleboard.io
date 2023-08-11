@@ -173,6 +173,22 @@ Headers for the version of the kernel you're running:
 This took a little more than three minutes on my Bone. The ``uname -r`` part of the command 
 looks up what version of the kernel you are running and loads the headers for it. 
 
+.. note:: 
+    If you don't have a network connection you can get the headers from the running kernel with 
+    the following.
+
+    .. code-block:: 
+
+        sudo modprobe kheaders
+        rm -rf $HOME/headers
+        mkdir -p $HOME/headers
+        tar -xvf /sys/kernel/kheaders.tar.xz -C $HOME/headers > /dev/null
+        cd my-kernel-module
+        make -C $HOME/headers M=$(pwd) modules
+        sudo rmmod kheaders
+
+    The ``modprobe kheaders`` makes the ``/sys/kernel/kheaders.tar.xz`` appear.
+
 Next, add the code in :ref:`kernel_Makefle` to a file called ``Makefile``.
 
 .. _kernel_Makefle:
