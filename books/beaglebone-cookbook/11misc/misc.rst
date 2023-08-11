@@ -1015,15 +1015,27 @@ The Play's Boot Sequence
 ==========================
 
 The BeagleBoard Play is based on the Texas Instrument's AM625 Sitara
-processor which supports many boot modes.  Here we'll look at
-booting from the user's view and from the developer's view.
+processor which supports many boot modes.  
+
+.. note:: 
+    bootlin (https://bootlin.com/) has many great Linux
+    training materials for free on their site. Their embedded Linux workshop
+    (https://bootlin.com/training/embedded-linux/) 
+    gives a detailed presentation of the Play's boot sequence 
+    (https://bootlin.com/doc/training/embedded-linux-beagleplay/embedded-linux-beagleplay-labs.pdf,
+    starting at page 9).
+    Check it out for details on building the boot sequence 
+    from scratch.
+
+Here we'll take a high-level look at
+booting from both the user's view and the developer's view.
 
 Booting for the User
 --------------------
 
 The most common way for the Play to boot is the power up the board,
 if the micro SD card is present, it will boot from it, if it isn't 
-present it will boot from the bultin eMMC.
+present it will boot from the built in eMMC.
 
 You can override the boot sequence by using the **USR** button 
 (located near the micro SD cage). If the **USR** button is pressed 
@@ -1077,7 +1089,7 @@ The table on page 2465 shows the BOOTMODE pins.
     BOOTMODE Pin Mapping 
 
 
-Page 14 of of the Plays schematic 
+Page 14 of of the Play's schematic 
 (https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf)
 shows how the BOOTMODE pins are set during boot.
 
@@ -1123,8 +1135,8 @@ are **tiboot3.bin** and **tispl.bin** runnng on the *R5* and **u-boot.img** runn
 on the *A53*.  These binary files are found on the Play in ``/boot/firmware``.
 
 .. note:: 
-    The files on the CD card and the eMMC are in ``ext4`` format.  The files used for booting 
-    must be in ``vfat`` format.  There for ``/boot/firmware`` is mounted in ``vfat`` as 
+    The files on the SD card and the eMMC are in ``ext4`` format.  The files used for booting 
+    must be in ``vfat`` format.  Therefore ``/boot/firmware`` is mounted in ``vfat`` as 
     seen in ``/etc/fstab``. 
 
     .. code-block:: 
