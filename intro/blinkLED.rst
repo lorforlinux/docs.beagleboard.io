@@ -52,7 +52,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
         .. figure::  figures/vscode1.png
 
-        Usw the file navigator on the left to naviagte to 
+        Use the file navigator on the left to naviagte to 
         ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
         and you will see:
 
