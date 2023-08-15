@@ -287,12 +287,12 @@ Connect to WiFi
             root@BeagleV:~# nano /etc/wpa_supplicant.conf
 
         In the ``wpa_supplicant.conf`` file you have to provide ``ssid`` and ``psk``. 
-        Here ``ssid`` id your WiFi access point name and ``psk`` is the passoword. It 
+        Here ``ssid`` is your WiFi access point name and ``psk`` is the passoword. It 
         should look as shown below:
 
         .. callout:: 
-
-           .. code-block:: bash
+            
+            .. code-block:: bash
 
                ctrl_interface=/var/run/wpa_supplicant
                ctrl_interface_group=0
@@ -308,14 +308,15 @@ Connect to WiFi
             .. annotations:: 
 
                 <1> WiFi access point name
+
                 <2> WiFi passoword
 
-        Once you are done with editing the file you can save it with 
-        ``CTRL+O`` and exit nano editor it with ``CTRL+X``. Now you can 
-        reconfigure the ``wlan0`` wireless interface which will trigger 
-        it to connect to the access point with the credentials you have 
-        added to ``wpa_supplicant.conf``. Execute the command below to 
-        reconfigure ``wlan0``
+        Once you are done with editing the file you can save the file with 
+        ``CTRL+O`` and exit the nano editor with ``CTRL+X``. Once you are 
+        back to terminal reconfigure the ``wlan0`` wireless interface which 
+        will trigger it to connect to the access point with the credentials 
+        you have added to ``wpa_supplicant.conf``. Execute the command below to 
+        reconfigure ``wlan0`` wireless interface.
 
         .. code-block:: bash
 
@@ -340,23 +341,22 @@ Connect to WiFi
             round-trip min/avg/max = 13.676/15.841/19.320 ms
 
 
-        .. important:: Due to some software issue wlan0 might not take 
-            any ip address thus even if you are connect to the access point 
-            you will not be able to connect to the internet. In that case 
-            you'll have to perform the steps below.
+        .. important:: 
 
-        
-           If you are not getting any pings back when you execute 
-           ``ping 8.8.8.8`` you have to execurte the steps below:
+            Due to a software issue Yocto might now assign any ip address to wlan0 wireless interface 
+            thus even if you are connected successfully to the access point of your choice you will still not 
+            be able to connect to the internet. Particularly If you are not getting any pings back when you execute 
+            ``ping 8.8.8.8`` you must execute the commands below:
 
-           1. ``root@BeagleV:~# cp /lib/systemd/network/80-wifi-station.network.example /lib/systemd/network/80-wifi-station.network``
-           2. ``root@BeagleV:~# networkctl reload``
+            1. ``root@BeagleV:~# cp /lib/systemd/network/80-wifi-station.network.example /lib/systemd/network/80-wifi-station.network``
+            2. ``root@BeagleV:~# networkctl reload``
 
-           this should fix the no internet issue on your BeagleV Ahead board.
+            this should fix the no internet issue on your BeagleV Ahead board!
 
 
 
 Demos and Tutorials
 *******************
 
+* :ref:`beaglev-ahead-csi`
 
