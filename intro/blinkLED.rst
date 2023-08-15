@@ -26,7 +26,7 @@ heart beat.
 
 The Beagle is now up and running, but you didn't have to 
 load up Linux.  This is because all Beagles 
-(except the PocketBeagle, see :ref:`flash-latest-image` 
+(except PocketBeagle, see :ref:`flash-latest-image` 
 to install an image on the Pocket) have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
 
@@ -34,33 +34,67 @@ Login
 -----
 
 Next you login to the Beagle from your host computer. 
-This is slightly different if you host is running Windows.
+Here you have a choice.  If you want a graphical approach, 
+choose the ``VS Code`` tab.  If you want a command line 
+and are running Linux on your host, 
+take the ``ssh (Linux/Mac)`` tab.  Finally take the 
+``Windown (Putty)`` tab for command line from windows.
 
-Login from Windows
-^^^^^^^^^^^^^^^^^^
+.. tabs::
 
-If you are running Window you need to run an ``ssh`` client 
-to connect to the Beagle. I suggest you use ``putty``. 
-You can download it here: https://www.putty.org/. 
-Once installed, launch it and connect to your Beagle 
-by sshing to ``192.168.7.2``. 
+    .. group-tab:: VS Code
 
-.. figure::  putty.png
+        Recent Beagles come with the IDE Visual Studio Code 
+        (https://code.visualstudio.com/) installed and 
+        running. To access it, open a web browse on 
+        your host computer and browse to: ``192.168.7.2:3000`` 
+        and you will see something like:
 
+        .. figure::  figures/vscode1.png
 
-Login with user ``debian`` 
-and password ``temppwd``.  
+        Usw the file navigator on the left to naviagte to 
+        ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
+        and you will see:
 
-Login from Linux
-^^^^^^^^^^^^^^^^
+        .. figure:: figures/vscode2.png
 
-If you are running a Linux host, open a terminal widow and run 
+        This code blinks one of the USR LEDs built into the board. 
+        Click on the ``RUN Code`` triangle on the upper right of 
+        the screen to run the code.  (You could also enter ``Ctrl+Alt+N``) 
+        The USR3 LED should now be blinking.  
 
-.. code-block:: shell-session
+        Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
+        ``Run Code`` button.
 
-    host:~$ ssh debian@192.168.7.2
+        Time to play!  Try changing the LED number (on line 10) from 
+        3 to something else.  Click the ``Run Code`` button (no 
+        need to save the file, autosave is on by default).
 
-Use password ``temppwd``.
+        Try running ``seqLEDs.py``.
+
+    .. group-tab:: ssh (Linux/Mac)
+
+        If you are running a Linux host, open a terminal widow and run 
+
+        .. code-block:: shell-session
+
+            host:~$ ssh debian@192.168.7.2
+
+        Use password ``temppwd``.
+
+    .. group-tab:: Windows (Putty)
+
+        If you are running Window you need to run an ``ssh`` client 
+        to connect to the Beagle. I suggest you use ``putty``. 
+        You can download it here: https://www.putty.org/. 
+        Once installed, launch it and connect to your Beagle 
+        by sshing to ``192.168.7.2``. 
+
+        .. figure::  figures/putty.png
+
+        Login with user ``debian`` 
+        and password ``temppwd``.  
+
 
 Blink an LED
 ------------
@@ -69,7 +103,7 @@ Once logged in the rest is easy.  First:
 
 .. code-block:: shell-session
 
-    bone:~$ cd /sys/class/LEDs
+    bone:~$ cd /sys/class/leds
     bone:~$ ls
     beaglebone:green:usr0  beaglebone:green:usr2  mmc0::
     beaglebone:green:usr1  beaglebone:green:usr3  mmc1::
