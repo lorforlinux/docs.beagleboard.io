@@ -3,16 +3,29 @@
 ReStructuredText Cheat Sheet
 ############################
 
-BeagleBoard.org docs site uses ReStructuredText (rst) which is a file format [#]_ for textual data used primarily 
-in the Python programming language community for technical documentation. It is part of the Docutils 
-project of the Python Doc-SIG, aimed at creating a set of tools for Python similar to Javadoc for Java 
-or Plain Old Documentation for Perl. If you are new with rst you may go through this rst cheat sheet [#]_ [#]_ [#]_
-chapter to gain enough skills to edit and update any page on the BeagleBoard.org docs site. some things 
+`BeagleBoard.org docs site <https://docs.beagleboard.org>`_ uses ReStructuredText (rst) which is a 
+file format [#]_ for textual data used primarily in the Python programming language community 
+for technical documentation. It is part of the Docutils project of the Python Doc-SIG, aimed at 
+creating a set of tools for Python similar to Javadoc for Java or Plain Old Documentation for 
+Perl. If you are new with rst you may go through this rst cheat sheet [#]_ [#]_ [#]_ chapter 
+to gain enough skills to edit and update any page on the BeagleBoard.org docs site. some things 
 you should keep in mind while working with rst,
-
 
 1. like Python, RST syntax is sensitive to indentation !
 2. RST requires blank lines between paragraphs
+
+.. tip:: 
+
+    Why not use Markdown for documentation? because reST stands out against Markdown as,
+    
+    1. It's more fully-featured.
+    2. It's much more standardized and uniform.
+    3. It has built-in support for extensions.
+
+    For more detailed comparison you can checkout `this article on 
+    reStructuredText vs. Markdown for technical documentation 
+    <https://eli.thegreenplace.net/2017/restructuredtext-vs-markdown-for-technical-documentation/>`_ 
+
 
 Text formatting
 ****************

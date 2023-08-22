@@ -13,7 +13,7 @@ BeagleConnect Freedom
 Here are some notes on how to setup and use the Connect.
 
 First get the flasher image from:
-https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-20/
+https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image
 
 Flash the eMMC (which also loads the cc1352 with 
 the correct firmware)
@@ -353,10 +353,40 @@ packets to the named pipe:
 
 .. code-block:: 
 
-    host$ ssh root@bone "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
+    host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
 .. tip:: 
     For this to work you will need to follow in instructions in :ref:`root_login`.
+
+Sharking the wpan radio
+-----------------------
+
+Now that you have Wireshark set up, you can view traffice from the Play's 
+wpan radio. First, set up the network by running:
+
+.. code-block:: shell-session
+
+    bone:~$ beagleconnect-start-gateway
+
+Go to Wireshark and in the field that says `Apply a display filter...` enter, 
+``wpan || 6lowpan || ipv6``.  This will dispaly three types of packets.  
+Be sure to hit Enter.
+
+Now generate some traffic:
+
+.. code-block:: shell-session
+
+    bone:~$ ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+.. _wireshark_ping:
+
+.. figure:: figures/wireshark_ping.png
+    :align: center
+    :alt: Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+    Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
+
+You can see the pattern ``ca11ab1ebeef`` appears in the packets.
 
 Converting a tmp117 to a tmp114
 ================================
@@ -985,15 +1015,27 @@ The Play's Boot Sequence
 ==========================
 
 The BeagleBoard Play is based on the Texas Instrument's AM625 Sitara
-processor which supports many boot modes.  Here we'll look at
-booting from the user's view and from the developer's view.
+processor which supports many boot modes.  
+
+.. note:: 
+    bootlin (https://bootlin.com/) has many great Linux
+    training materials for free on their site. Their embedded Linux workshop
+    (https://bootlin.com/training/embedded-linux/) 
+    gives a detailed presentation of the Play's boot sequence 
+    (https://bootlin.com/doc/training/embedded-linux-beagleplay/embedded-linux-beagleplay-labs.pdf,
+    starting at page 9).
+    Check it out for details on building the boot sequence 
+    from scratch.
+
+Here we'll take a high-level look at
+booting from both the user's view and the developer's view.
 
 Booting for the User
 --------------------
 
 The most common way for the Play to boot is the power up the board,
 if the micro SD card is present, it will boot from it, if it isn't 
-present it will boot from the bultin eMMC.
+present it will boot from the built in eMMC.
 
 You can override the boot sequence by using the **USR** button 
 (located near the micro SD cage). If the **USR** button is pressed 
@@ -1006,6 +1048,11 @@ the Play will boot from the micro SD card.
 
 Booting for the Developer
 -------------------------
+
+.. tip:: 
+
+    These diagrams might help: 
+    https://github.com/u-boot/u-boot/blob/6e8fa0611f19824e200fe4725f18bce7e2000071/doc/board/ti/k3.rst
 
 If you are developing firmware for the Play you may need to have
 access to the processor early in the booting sequence. Much can 
@@ -1042,7 +1089,7 @@ The table on page 2465 shows the BOOTMODE pins.
     BOOTMODE Pin Mapping 
 
 
-Page 14 of of the Plays schematic 
+Page 14 of of the Play's schematic 
 (https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf)
 shows how the BOOTMODE pins are set during boot.
 
@@ -1088,8 +1135,8 @@ are **tiboot3.bin** and **tispl.bin** runnng on the *R5* and **u-boot.img** runn
 on the *A53*.  These binary files are found on the Play in ``/boot/firmware``.
 
 .. note:: 
-    The files on the CD card and the eMMC are in ``ext4`` format.  The files used for booting 
-    must be in ``vfat`` format.  There for ``/boot/firmware`` is mounted in ``vfat`` as 
+    The files on the SD card and the eMMC are in ``ext4`` format.  The files used for booting 
+    must be in ``vfat`` format.  Therefore ``/boot/firmware`` is mounted in ``vfat`` as 
     seen in ``/etc/fstab``. 
 
     .. code-block:: 
@@ -1111,7 +1158,7 @@ Home Assistant
 ==============
 
 #. Get an image here:
-    https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-18/
+    https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image
     I chose the boot from SD image.
 #. Boot the Play from the SD card 
 #. Log into the Play

@@ -10,6 +10,7 @@ BeagleBoard Docs
 
 .. toctree::
 
+   intro/blinkLED
    intro/index.rst
    boards/beagleplay/index
    boards/beaglebone/ai-64/index

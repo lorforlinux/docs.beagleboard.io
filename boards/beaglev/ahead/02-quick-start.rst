@@ -119,6 +119,8 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
 
           high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
 
+.. _beaglev-ahead-flashing-emmc:
+
 Flashing eMMC
 **************
 
@@ -261,7 +263,100 @@ When you do this, you'll be required to power the board via Barrel jack.
 
     USB OTG to connect USB gadgets to BeagleV Ahead board
 
+Connect to WiFi
+****************
+
+.. tabs:: 
+
+    .. group-tab:: Yocto
+
+        After getting access to the UART debug console you will be prompted with,
+
+        .. code-block:: bash
+
+            THEAD C910 Release Distro 1.1.2 BeagleV ttyS0
+
+            BeagleV login:
+
+        Here you have to simply type ``root`` and press enter to start uisng your 
+        BeagleV Head board. Once you are in, to connect to any WiFi access point 
+        you have to edit the ``/etc/wpa_supplicant.conf``
+        
+        .. code-block:: bash
+
+            root@BeagleV:~# nano /etc/wpa_supplicant.conf
+
+        In the ``wpa_supplicant.conf`` file you have to provide ``ssid`` and ``psk``. 
+        Here ``ssid`` is your WiFi access point name and ``psk`` is the passoword. It 
+        should look as shown below:
+
+        .. callout:: 
+            
+            .. code-block:: bash
+
+               ctrl_interface=/var/run/wpa_supplicant
+               ctrl_interface_group=0
+               ap_scan=1
+               update_config=1
+
+               network={
+                       ssid="My WiFi" <1>
+                       psk="passoword" <2>
+                       key_mgmt=WPA-PSK
+               }
+        
+            .. annotations:: 
+
+                <1> WiFi access point name
+
+                <2> WiFi passoword
+
+        Once you are done with editing the file you can save the file with 
+        ``CTRL+O`` and exit the nano editor with ``CTRL+X``. Once you are 
+        back to terminal reconfigure the ``wlan0`` wireless interface which 
+        will trigger it to connect to the access point with the credentials 
+        you have added to ``wpa_supplicant.conf``. Execute the command below to 
+        reconfigure ``wlan0`` wireless interface.
+
+        .. code-block:: bash
+
+            root@BeagleV:~# wpa_cli -i wlan0 reconfigure
+            OK
+
+        After executing this you can check if internet is working by 
+        executing ``ping 8.8.8.8`` as shown below:
+
+        .. code-block:: bash
+
+            root@BeagleV:~# ping 8.8.8.8
+            PING 8.8.8.8 (8.8.8.8): 56 data bytes
+            64 bytes from 8.8.8.8: seq=0 ttl=118 time=13.676 ms
+            64 bytes from 8.8.8.8: seq=1 ttl=118 time=17.050 ms
+            64 bytes from 8.8.8.8: seq=2 ttl=118 time=14.367 ms
+            64 bytes from 8.8.8.8: seq=3 ttl=118 time=19.320 ms
+            64 bytes from 8.8.8.8: seq=4 ttl=118 time=14.796 ms
+            ^C
+            --- 8.8.8.8 ping statistics ---
+            5 packets transmitted, 5 packets received, 0% packet loss
+            round-trip min/avg/max = 13.676/15.841/19.320 ms
+
+
+        .. important:: 
+
+            Due to a software issue Yocto might now assign any ip address to wlan0 wireless interface 
+            thus even if you are connected successfully to the access point of your choice you will still not 
+            be able to connect to the internet. Particularly If you are not getting any pings back when you execute 
+            ``ping 8.8.8.8`` you must execute the commands below:
+
+            1. ``root@BeagleV:~# cp /lib/systemd/network/80-wifi-station.network.example /lib/systemd/network/80-wifi-station.network``
+            2. ``root@BeagleV:~# networkctl reload``
+
+            this should fix the no internet issue on your BeagleV Ahead board!
+
+
+
 Demos and Tutorials
 *******************
 
+* :ref:`beaglev-ahead-csi`
 
