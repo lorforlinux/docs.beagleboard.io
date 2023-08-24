@@ -38,7 +38,7 @@ Here you have a choice.  If you want a graphical approach,
 choose the ``VS Code`` tab.  If you want a command line 
 and are running Linux on your host, 
 take the ``ssh (Linux/Mac)`` tab.  Finally take the 
-``Windown (Putty)`` tab for command line from windows.
+``putty (Windows)`` tab for command line from windows.
 
 .. tabs::
 
@@ -48,6 +48,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
         (https://code.visualstudio.com/) installed and 
         running. To access it, open a web browse on 
         your host computer and browse to: ``192.168.7.2:3000`` 
+        (use ``192.168.6.2:3000`` for the Mac)
         and you will see something like:
 
         .. figure::  figures/vscode1.png
@@ -109,7 +110,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
         Either way, use the password ``temppwd``.
 
-    .. group-tab:: Windows (Putty)
+    .. group-tab:: putty (Windows)
 
         If you are running Window you need to run an ``ssh`` client 
         to connect to the Beagle. I suggest you use ``putty``. 
@@ -123,6 +124,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
         and password ``temppwd``.  
 
 Blink an LED
+------------
 
 Once logged in the rest is easy.  First:
 
@@ -158,9 +160,10 @@ internal LEDs.
     ^c
 
 Here you see a simple bash script that turns an LED 
-on and off.  Enter control-c to stop the script.
+on and off.  Enter Ctrl+c to stop the script.
 
 Blinking via Python
+-------------------
 
 Here's a script that sequences the LEDs on and off.
 
@@ -191,9 +194,12 @@ Here's a script that sequences the LEDs on and off.
     bone:~$ ./seqLEDs.py       
     ^c
     
-Again, hit control-C to stop the script.
+Again, hit Ctrl+c to stop the script.
 
 Blinking from Command Line
+--------------------------
+
+You can control the LEDs from the command line.
 
 .. code-block:: shell-session
 
@@ -215,13 +221,13 @@ You can blink any of them.  Let's try ``usr1``.
     bone:~$ echo 0 > brightness
 
 When you echo 1 into ``brightness`` the LED turns on. 
-Echoing a 0 turns it off.  Congratulations, you've blinked 
-your first LED!
+Echoing a 0 turns it off. 
 
 Blinking other LEDs
+-------------------
 
 You can blink the other LEDs by changing in to thier 
-directories and doing the same.
+directories and doing the same. Let's blink the USR0 LED.
 
 .. code-block:: shell-session
     
@@ -255,10 +261,13 @@ Try experimenting with some of the other triggers and see if you
 can figure them out.
 
 Another way to Blink an LED
+---------------------------
 
 An interesting thing about Linux is there are often many ways 
 to do the same thing.  For example, I can think of at least five ways to blink 
 an LED.  Here's another way using the ``gpiod`` system.
+
+First see where the LEDs are attached.
 
 .. code-block:: shell-session
 
@@ -284,7 +293,7 @@ the ``gpioset`` command.
     bone:~$ gpioset --mode=time --sec=2 1 22=1
     bone:~$ gpioset --mode=time --sec=2 1 22=0
 
-The first command sets chip 1, line 22 (the usr1 led) to 1 (on) for 
+The first command sets chip 1, line 22 (the usr1 LED) to 1 (on) for 
 2 seconds.  The second command turns it off for 2 seconds.
 
 Try it for the other LEDs.
