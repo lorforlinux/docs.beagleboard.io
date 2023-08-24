@@ -56,40 +56,42 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
         line within VS Code, or run them by clicking the
         ``RUN Code`` button.
 
-        Running via the command line.
+        .. tabs::
 
-        Open a terminal window in VS Code by dropping down the 
-        ``Terminal`` menu and selecting ``New Terminal`` (or entering 
-        ``Ctrl+Shift+```).  The terminal window appears at the 
-        bottom of the screen as shown below.
+            .. group-tab:: Running via the command line
 
-        .. figure:: figures/vscode3.png
+                Open a terminal window in VS Code by dropping down the 
+                ``Terminal`` menu and selecting ``New Terminal`` (or entering 
+                ``Ctrl+Shift+```).  The terminal window appears at the 
+                bottom of the screen as shown below.
 
-        You can now enter commands and see them run as shown below.
+                .. figure:: figures/vscode3.png
 
-        .. figure:: figures/vscode4.png
+                You can now enter commands and see them run as shown below.
 
-        Running Using the ``RUN`` button
+                .. figure:: figures/vscode4.png
 
-        Use the file navigator on the left to navigate to 
-        ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
-        and you will see:
+            .. group-tab:: Running via the ``RUN`` button
 
-        .. figure:: figures/vscode2.png
+                Use the file navigator on the left to navigate to 
+                ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
+                and you will see:
 
-        This code blinks one of the USR LEDs built into the board. 
-        Click on the ``RUN Code`` triangle on the upper right of 
-        the screen to run the code.  (You could also enter ``Ctrl+Alt+N``) 
-        The USR3 LED should now be blinking.  
+                .. figure:: figures/vscode2.png
 
-        Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
-        ``Run Code`` button.
+                This code blinks one of the USR LEDs built into the board. 
+                Click on the ``RUN Code`` triangle on the upper right of 
+                the screen to run the code.  (You could also enter ``Ctrl+Alt+N``) 
+                The USR3 LED should now be blinking.  
 
-        Time to play!  Try changing the LED number (on line 10) from 
-        3 to something else.  Click the ``Run Code`` button (no 
-        need to save the file, autosave is on by default).
+                Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
+                ``Run Code`` button.
 
-        Try running ``seqLEDs.py``.
+                Time to play!  Try changing the LED number (on line 10) from 
+                3 to something else.  Click the ``Run Code`` button (no 
+                need to save the file, autosave is on by default).
+
+                Try running ``seqLEDs.py``.
 
     .. group-tab:: ssh (Linux/Mac)
 
