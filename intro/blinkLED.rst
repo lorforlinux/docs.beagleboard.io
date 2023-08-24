@@ -52,7 +52,26 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
         .. figure::  figures/vscode1.png
 
-        Use the file navigator on the left to naviagte to 
+        At this point you can either run the scripts via a command 
+        line within VS Code, or run them by clicking the
+        ``RUN Code`` button.
+
+        Running via the command line.
+
+        Open a terminal window in VS Code by dropping down the 
+        ``Terminal`` menu and selecting ``New Terminal`` (or entering 
+        ``Ctrl+Shift+```).  The terminal window appears at the 
+        bottom of the screen as shown below.
+
+        .. figure:: figures/vscode3.png
+
+        You can now enter commands and see them run as shown below.
+
+        .. figure:: figures/vscode4.png
+
+        Running Using the ``RUN`` button
+
+        Use the file navigator on the left to navigate to 
         ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
         and you will see:
 
@@ -72,205 +91,205 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
         Try running ``seqLEDs.py``.
 
-    .. group-tab:: Command line
+    .. group-tab:: ssh (Linux/Mac)
 
-        This is command line.
-
-        .. tabs::
-
-            .. group-tab:: ssh (Linux/Mac)
-
-                If you are running a Linux host, open a terminal widow and run 
-
-                .. code-block:: shell-session
-
-                    host:~$ ssh debian@192.168.7.2
-
-                Use password ``temppwd``.
-
-            .. group-tab:: Windows (Putty)
-
-                If you are running Window you need to run an ``ssh`` client 
-                to connect to the Beagle. I suggest you use ``putty``. 
-                You can download it here: https://www.putty.org/. 
-                Once installed, launch it and connect to your Beagle 
-                by sshing to ``192.168.7.2``. 
-
-                .. figure::  figures/putty.png
-
-                Login with user ``debian`` 
-                and password ``temppwd``.  
-
-        Blink an LED
-
-        Once logged in the rest is easy.  First:
+        If you are running a Linux host, open a terminal widow and run 
 
         .. code-block:: shell-session
 
-            bone:~$ cd ~/examples/BeagleBone/Black
-            bone:~$ ls        
-            README.md              blinkInternalLED.sh  blinkLED2.py    input2.js
-            analogIn.py            blinkLED.bs.js       blinkLEDold.py  seqLEDs.py
-            analogInCallback.js    blinkLED.c           fadeLED.js      swipeLED.js
-            analogInContinuous.py  blinkLED.js          fadeLED.py
-            analogInOut.js         blinkLED.py          gpiod
-            analogInSync.js        blinkLED.sh          input.js
-
-        Here you see a list of many scripts that demo simple 
-        input/output on the Beagle. Try one that works on the 
-        internal LEDs.
+            host:~$ ssh debian@192.168.7.2
+                
+        If you are running a Mac host, open a terminal widow and run 
 
         .. code-block:: shell-session
 
-            bone:~$ cat blinkInternalLED.py
-            LED="3"
-            
-            LEDPATH='/sys/class/leds/beaglebone:green:usr'
-            
-            while true ; do
-                echo "1" > ${LEDPATH}${LED}/brightness
-                sleep 0.5
-                echo "0" > ${LEDPATH}${LED}/brightness
-                sleep 0.5
-            done
-            bone:~$ ./blinkInternalLED.py
-            ^c
+            host:~$ ssh debian@192.168.6.2
 
-        Here you see a simple bash script that turns an LED 
-        on and off.  Enter control-c to stop the script.
+        Either way, use the password ``temppwd``.
 
-        Blinking via Python
+    .. group-tab:: Windows (Putty)
 
-        Here's a script that sequences the LEDs on and off.
+        If you are running Window you need to run an ``ssh`` client 
+        to connect to the Beagle. I suggest you use ``putty``. 
+        You can download it here: https://www.putty.org/. 
+        Once installed, launch it and connect to your Beagle 
+        by sshing to ``192.168.7.2``. 
 
-        .. code-block:: shell-session
+        .. figure::  figures/putty.png
 
-            bone:~$ cat seqLEDs.py
-            import time
-            import os
+        Login with user ``debian`` 
+        and password ``temppwd``.  
 
-            LEDs=4
-            LEDPATH='/sys/class/leds/beaglebone:green:usr'
+Blink an LED
 
-            # Open a file for each LED
-            f = []
-            for i in range(LEDs):
-                f.append(open(LEDPATH+str(i)+"/brightness", "w"))
+Once logged in the rest is easy.  First:
 
-            # Sequence
-            while True:
-                for i in range(LEDs):
-                    f[i].seek(0)
-                    f[i].write("1")
-                    time.sleep(0.25)
-                for i in range(LEDs):
-                    f[i].seek(0)
-                    f[i].write("0")
-                    time.sleep(0.25)
-            bone:~$ ./seqLEDs.py       
-            ^c
-            
-        Again, hit control-C to stop the script.
+.. code-block:: shell-session
 
-        Blinking from Command Line
+    bone:~$ cd ~/examples/BeagleBone/Black
+    bone:~$ ls        
+    README.md              blinkInternalLED.sh  blinkLED2.py    input2.js
+    analogIn.py            blinkLED.bs.js       blinkLEDold.py  seqLEDs.py
+    analogInCallback.js    blinkLED.c           fadeLED.js      swipeLED.js
+    analogInContinuous.py  blinkLED.js          fadeLED.py
+    analogInOut.js         blinkLED.py          gpiod
+    analogInSync.js        blinkLED.sh          input.js
 
-        .. code-block:: shell-session
+Here you see a list of many scripts that demo simple 
+input/output on the Beagle. Try one that works on the 
+internal LEDs.
 
-            bone:~$ cd /sys/class/leds
-            bone:~$ ls
-            beaglebone:green:usr0  beaglebone:green:usr2  mmc0::
-            beaglebone:green:usr1  beaglebone:green:usr3  mmc1::
-        
-        Here you see a list of LEDs. Your list may be slightly 
-        different depending on which Beagle you are running. 
-        You can blink any of them.  Let's try ``usr1``.
+.. code-block:: shell-session
 
-        .. code-block:: shell-session
-            
-            bone:~$ cd beaglebone\:green\:usr1/
-            bone:~$ ls
-            brightness  device  max_brightness  power  subsystem  trigger  uevent
-            bone:~$ echo 1 > brightness
-            bone:~$ echo 0 > brightness
+    bone:~$ cat blinkInternalLED.py
+    LED="3"
+    
+    LEDPATH='/sys/class/leds/beaglebone:green:usr'
+    
+    while true ; do
+        echo "1" > ${LEDPATH}${LED}/brightness
+        sleep 0.5
+        echo "0" > ${LEDPATH}${LED}/brightness
+        sleep 0.5
+    done
+    bone:~$ ./blinkInternalLED.py
+    ^c
 
-        When you echo 1 into ``brightness`` the LED turns on. 
-        Echoing a 0 turns it off.  Congratulations, you've blinked 
-        your first LED!
+Here you see a simple bash script that turns an LED 
+on and off.  Enter control-c to stop the script.
 
-        Blinking other LEDs
+Blinking via Python
 
-        You can blink the other LEDs by changing in to thier 
-        directories and doing the same.
+Here's a script that sequences the LEDs on and off.
 
-        .. code-block:: shell-session
-            
-            bone:~$ cd ../beaglebone\:green\:usr0/
-            bone:~$ echo 1 > brightness
-            bone:~$ echo 0 > brightness
+.. code-block:: shell-session
 
-        Did you notice that LED ``usr0`` blinks on it's own in a 
-        heartbeat pattern? You can set an LED trigger.  Here's 
-        what triggers you can set:
+    bone:~$ cat seqLEDs.py
+    import time
+    import os
 
-        .. code-block:: shell-session
+    LEDs=4
+    LEDPATH='/sys/class/leds/beaglebone:green:usr'
 
-            bone:~$ cat trigger 
-            none usb-gadget usb-host rfkill-any rfkill-none 
-            kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock 
-            kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock 
-            kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock 
-            timer oneshot disk-activity disk-read disk-write i
-            de-disk mtd nand-disk [heartbeat] backlight gpio c
-            pu cpu0 cpu1 cpu2 cpu3 activity default-on panic 
-            netdev mmc0 mmc1 mmc2 phy0rx phy0tx phy0assoc phy0radio 
-            rfkill0 gpio-0:00:link gpio-0:00:1Gbps gpio-0:00:100Mbps 
-            gpio-0:00:10Mbps gpio-0:01:link gpio-0:01:10Mbps
-            bone:~$ echo none > trigger
+    # Open a file for each LED
+    f = []
+    for i in range(LEDs):
+        f.append(open(LEDPATH+str(i)+"/brightness", "w"))
 
-        Notice ``[heartbeat]`` is in brackets.  This shows it's the 
-        current trigger.  The echo changes the trigger to ``none``.
+    # Sequence
+    while True:
+        for i in range(LEDs):
+            f[i].seek(0)
+            f[i].write("1")
+            time.sleep(0.25)
+        for i in range(LEDs):
+            f[i].seek(0)
+            f[i].write("0")
+            time.sleep(0.25)
+    bone:~$ ./seqLEDs.py       
+    ^c
+    
+Again, hit control-C to stop the script.
 
-        Try experimenting with some of the other triggers and see if you 
-        can figure them out.
+Blinking from Command Line
 
-        Another way to Blink an LED
+.. code-block:: shell-session
 
-        An interesting thing about Linux is there are often many ways 
-        to do the same thing.  For example, I can think of at least five ways to blink 
-        an LED.  Here's another way using the ``gpiod`` system.
+    bone:~$ cd /sys/class/leds
+    bone:~$ ls
+    beaglebone:green:usr0  beaglebone:green:usr2  mmc0::
+    beaglebone:green:usr1  beaglebone:green:usr3  mmc1::
 
-        .. code-block:: shell-session
+Here you see a list of LEDs. Your list may be slightly 
+different depending on which Beagle you are running. 
+You can blink any of them.  Let's try ``usr1``.
 
-            bone:~$ gpioinfo | grep -e chip -ie  usr
-            gpiochip0 - 32 lines:
-            gpiochip1 - 32 lines:
-                line  21: "[usr0 led]" "beaglebone:green:usr0" output active-high [used]
-                line  22: "[usr1 led]" "beaglebone:green:usr1" output active-high [used]
-                line  23: "[usr2 led]" "beaglebone:green:usr2" output active-high [used]
-                line  24: "[usr3 led]" "beaglebone:green:usr3" output active-high [used]
-            gpiochip2 - 32 lines:
-            gpiochip3 - 32 lines:
+.. code-block:: shell-session
+    
+    bone:~$ cd beaglebone\:green\:usr1/
+    bone:~$ ls
+    brightness  device  max_brightness  power  subsystem  trigger  uevent
+    bone:~$ echo 1 > brightness
+    bone:~$ echo 0 > brightness
 
-        Here we asked how the LEDs are attached to the General Purpose 
-        IO (gpio) system.  The answer is, (yours will be different for a 
-        different Beagle)
-        there are four interface chips and the LEDs are attached to 
-        chip 1.  You can control the gpios (and thus the LEDs) using
-        the ``gpioset`` command.
+When you echo 1 into ``brightness`` the LED turns on. 
+Echoing a 0 turns it off.  Congratulations, you've blinked 
+your first LED!
 
-        .. code-block:: shell-session
+Blinking other LEDs
 
-            bone:~$ gpioset --mode=time --sec=2 1 22=1
-            bone:~$ gpioset --mode=time --sec=2 1 22=0
+You can blink the other LEDs by changing in to thier 
+directories and doing the same.
 
-        The first command sets chip 1, line 22 (the usr1 led) to 1 (on) for 
-        2 seconds.  The second command turns it off for 2 seconds.
+.. code-block:: shell-session
+    
+    bone:~$ cd ../beaglebone\:green\:usr0/
+    bone:~$ echo 1 > brightness
+    bone:~$ echo 0 > brightness
 
-        Try it for the other LEDs.
+Did you notice that LED ``usr0`` blinks on it's own in a 
+heartbeat pattern? You can set an LED trigger.  Here's 
+what triggers you can set:
 
-        .. note:: 
+.. code-block:: shell-session
 
-            This may not work on all Beagles since it depends on which 
-            version of Debian you are running.
+    bone:~$ cat trigger 
+    none usb-gadget usb-host rfkill-any rfkill-none 
+    kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock 
+    kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock 
+    kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock 
+    timer oneshot disk-activity disk-read disk-write i
+    de-disk mtd nand-disk [heartbeat] backlight gpio c
+    pu cpu0 cpu1 cpu2 cpu3 activity default-on panic 
+    netdev mmc0 mmc1 mmc2 phy0rx phy0tx phy0assoc phy0radio 
+    rfkill0 gpio-0:00:link gpio-0:00:1Gbps gpio-0:00:100Mbps 
+    gpio-0:00:10Mbps gpio-0:01:link gpio-0:01:10Mbps
+    bone:~$ echo none > trigger
+
+Notice ``[heartbeat]`` is in brackets.  This shows it's the 
+current trigger.  The echo changes the trigger to ``none``.
+
+Try experimenting with some of the other triggers and see if you 
+can figure them out.
+
+Another way to Blink an LED
+
+An interesting thing about Linux is there are often many ways 
+to do the same thing.  For example, I can think of at least five ways to blink 
+an LED.  Here's another way using the ``gpiod`` system.
+
+.. code-block:: shell-session
+
+    bone:~$ gpioinfo | grep -e chip -ie  usr
+    gpiochip0 - 32 lines:
+    gpiochip1 - 32 lines:
+        line  21: "[usr0 led]" "beaglebone:green:usr0" output active-high [used]
+        line  22: "[usr1 led]" "beaglebone:green:usr1" output active-high [used]
+        line  23: "[usr2 led]" "beaglebone:green:usr2" output active-high [used]
+        line  24: "[usr3 led]" "beaglebone:green:usr3" output active-high [used]
+    gpiochip2 - 32 lines:
+    gpiochip3 - 32 lines:
+
+Here we asked how the LEDs are attached to the General Purpose 
+IO (gpio) system.  The answer is, (yours will be different for a 
+different Beagle)
+there are four interface chips and the LEDs are attached to 
+chip 1.  You can control the gpios (and thus the LEDs) using
+the ``gpioset`` command.
+
+.. code-block:: shell-session
+
+    bone:~$ gpioset --mode=time --sec=2 1 22=1
+    bone:~$ gpioset --mode=time --sec=2 1 22=0
+
+The first command sets chip 1, line 22 (the usr1 led) to 1 (on) for 
+2 seconds.  The second command turns it off for 2 seconds.
+
+Try it for the other LEDs.
+
+.. note:: 
+
+    This may not work on all Beagles since it depends on which 
+    version of Debian you are running.
 
 
