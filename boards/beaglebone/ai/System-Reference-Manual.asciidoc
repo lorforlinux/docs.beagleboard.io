@@ -192,10 +192,8 @@ image:images/BB_AI_asadrive_500px.jpg[BeagleBone AI Overview]
 image:images/BB_AI_starthtm_500px.png[BeagleBone AI Overview]
 8. Follow the instructions in the browser window.
 image:images/BB_AI_connectedscreen_500px.jpg[BeagleBone AI Overview]
-9. Go to Cloud9 IDE
-image:images/BB_AI_ss_cloud9_500px.jpg[BeagleBone AI Overview]
-10. Open the directories in the left navigation of Cloud9
-image:images/BB_AI_ss_cloud9_dir_500px.jpg[BeagleBone AI Overview]
+9. Go to Visual Studio Code IDE
+image:images/vscode.png[BeagleBone AI Overview]
 
 [[standalone-wdisplay-and-keyboardmouse]]
 ==== 3.2.2 Standalone w/Display and Keyboard/Mouse
@@ -654,7 +652,7 @@ where:
 
 Example:
 ----
-debian@beaglebone:/var/lib/cloud9$ sudo hexdump -C /dev/mmcblk1boot1
+debian@beaglebone:~$ sudo hexdump -C /dev/mmcblk1boot1
 00000000  aa 55 33 ee 42 42 4f 4e  45 2d 41 49 30 30 41 31  |.U3.BBONE-AI00A1|
 00000010  31 39 33 33 45 4d 41 49  30 30 30 38 30 33 ff ff  |1933EMAI000803..|
 00000020  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |................|
