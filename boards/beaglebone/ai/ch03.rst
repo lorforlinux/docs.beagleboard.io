@@ -1,10 +1,10 @@
 .. _beaglebone-ai-connecting:
 
 Connecting Up Your BeagleBone AI
-####################################
+################################
 
 What’s In the Box
-******************
+*****************
 
 BeagleBone® AI comes in the box with the heat sink and antenna already
 attached. Developers can get up and running in five minutes with no
@@ -126,17 +126,12 @@ loaded on your BeagleBone® AI.
 
 8.  Follow the instructions in the browser window.
 
-.. image:: images/BB_AI_ss_cloud9_500px.jpg
+.. image:: images/vscode.png
    :align: center
    :alt: BeagleBone instructions
 
-9.  Go to Cloud9 IDE.
+9.  Go to Visual Studio Code IDE.
 
-10. Open the directories in the left navigation of Cloud9.
-
-.. image:: images/BB_AI_ss_cloud9_dir_500px.jpg
-   :align: center
-   :alt: Cloud9 navigation
 
 Standalone w/Display and Keyboard/Mouse
 ****************************************
@@ -165,7 +160,7 @@ this configuration. We re working on a better solution.
 7. Follow the instructions at https://beagleboard.org/upgrade
 
 Wireless Connection
-********************
+*******************
 
 NOTE:Start with this image "am57xx-eMMC-flasher-debian-10.3-iot-tidl-armhf-2020-04-06-6gb.img.xz"
 loaded on your BeagleBone® AI.
@@ -178,7 +173,7 @@ loaded on your BeagleBone® AI.
 6. Follow the instructions in the browser window.
 
 Connecting a 3 PIN Serial Debug Cable
-**************************************
+*************************************
 
 A 3 PIN serial debug cable can be helpful to debug when you need to view
 the boot messages through a terminal program such as putty on your host
