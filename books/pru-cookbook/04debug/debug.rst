@@ -13,15 +13,15 @@ Finally, using one of the UARTS to send debugging information out a serial port
 is shown. 
 
 Debugging via an LED
-**********************
+********************
 
 Problem
----------
+-------
 
 I need a simple way to see if my program is running without slowing the real-time execution.
 
 Solution
----------
+--------
 
 One of the simplest ways to do this is to attach an LED to the output pin and watch it 
 flash. :ref:`debug_LED` shows an LED attached to pin P9_29 of the BeagleBone Black.
@@ -403,9 +403,9 @@ Set the following variables so ``make`` will know what to compile.
   :caption: make
 
   bone$ *make TARGET=uart1.pru0*
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=uart1.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=uart1.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/uart1.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/uart1.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black
@@ -474,9 +474,9 @@ If you want to try ``uart2.pru0.c``, run the following:
   :caption: make
 
   bone$ *make TARGET=uart2.pru0*
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=uart2.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=uart2.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/uart2.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/uart2.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black
