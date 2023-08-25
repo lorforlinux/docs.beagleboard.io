@@ -306,4 +306,69 @@ Try it for the other LEDs.
     This may not work on all Beagles since it depends on which 
     version of Debian you are running.
 
+Blinking in response  to a button
+---------------------------------
 
+Some Beagles have a USR button that can be used  to control the LEDs. 
+You can test the USR button with ``evtest`` 
+
+.. code-block:: shell-session
+
+    bone:~$ evtest
+    No device specified, trying to scan all of /dev/input/event*
+    Not running as root, no devices may be available.
+    Available devices:
+    /dev/input/event0:	tps65219-pwrbutton
+    /dev/input/event1:	gpio-keys
+    Select the device event number [0-1]: 1
+
+We want to use ``gpio-keys``, so enter ``1``. Press and release 
+the USR button and you'll see:
+
+ .. code-block:: shell-session
+
+    Input driver version is 1.0.1
+    Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
+    Input device name: "gpio-keys"
+    Supported events:
+    Event type 0 (EV_SYN)
+    Event type 1 (EV_KEY)
+        Event code 256 (BTN_0)
+    Key repeat handling:
+    Repeat type 20 (EV_REP)
+        Repeat code 0 (REP_DELAY)
+        Value    250
+        Repeat code 1 (REP_PERIOD)
+        Value     33
+    Properties:
+    Testing ... (interrupt to exit)
+    Event: time 1692994988.305846, type 1 (EV_KEY), code 256 (BTN_0), value 1
+    Event: time 1692994988.305846, -------------- SYN_REPORT ------------
+    Event: time 1692994988.561786, type 1 (EV_KEY), code 256 (BTN_0), value 2
+    Event: time 1692994988.561786, -------------- SYN_REPORT ------------
+    Event: time 1692994988.601883, type 1 (EV_KEY), code 256 (BTN_0), value 2
+    Event: time 1692994988.601883, -------------- SYN_REPORT ------------
+    Event: time 1692994988.641754, type 1 (EV_KEY), code 256 (BTN_0), value 2
+    Event: time 1692994988.641754, -------------- SYN_REPORT ------------
+    Event: time 1692994988.641754, type 1 (EV_KEY), code 256 (BTN_0), value 0
+    Event: time 1692994988.641754, -------------- SYN_REPORT ------------
+    Ctrl+c 
+
+The following script uses evtesst to wait for the USR button to be pressed and 
+then turns on the LED.
+
+.. literalinclude:: buttonEvent.sh
+    :caption: buttonEvent.sh
+    :linenos:
+
+:download:`buttonEvent.sh<buttonEvent.sh>`
+
+Try running it and pressing the USR button. 
+
+The next script polls the USR button and toggles the LED.
+
+.. literalinclude:: buttonLED.sh
+    :caption: buttonLED.sh
+    :linenos:
+
+:download:`buttonLED.sh<buttonLED.sh>`
