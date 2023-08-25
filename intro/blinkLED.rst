@@ -93,13 +93,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
             Try running ``seqLEDs.py``.
 
-    .. group-tab:: ssh (Linux/Mac)
-
-        If you are running a Linux host, open a terminal widow and run 
-
-        .. code-block:: shell-session
-
-            host:~$ ssh debian@192.168.7.2
+    .. group-tab:: ssh (Mac)
                 
         If you are running a Mac host, open a terminal widow and run 
 
@@ -107,7 +101,17 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
             host:~$ ssh debian@192.168.6.2
 
-        Either way, use the password ``temppwd``.
+        Use the password ``temppwd``.
+  
+    .. group-tab:: ssh (Linux)
+
+        If you are running a Linux host, open a terminal widow and run 
+
+        .. code-block:: shell-session
+
+            host:~$ ssh debian@192.168.7.2
+        
+        Use the password ``temppwd``.
 
     .. group-tab:: putty (Windows)
 
