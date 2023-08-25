@@ -338,7 +338,7 @@ to run it right now do the following.
 .. _start_running_code:
 
 Running Code on the Black or Pocket
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell-session
 
@@ -370,22 +370,18 @@ Running Code on the Black or Pocket
 
         bone:~$ sudo chown debian:debian /lib/firmware/am335x-pru*
 
-
-
-
-
 Running Code on the AI
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell-session
 
     bone:~$ make TARGET=hello.pru1_1
-    /var/lib/cloud9/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
+    /opt/source/pru-cookbook-code/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
     CC	hello.pru1_1.c
-    "/var/lib/cloud9/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
-    LD	/tmp/cloud9-examples/hello.pru1_1.o
-    -	copying firmware file /tmp/cloud9-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
+    "/opt/source/pru-cookbook-code/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
+    LD	/tmp/vsx-examples/hello.pru1_1.o
+    -	copying firmware file /tmp/vsx-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
     -    Starting PRU 1_1
@@ -393,7 +389,7 @@ Running Code on the AI
     PROC    = pru
     PRUN    = 1_1
     PRU_DIR = /dev/remoteproc/pruss1-core1
-    rm /tmp/cloud9-examples/hello.pru1_1.o
+    rm /tmp/vsx-examples/hello.pru1_1.o
 
 Look quickly and you will see the ``USR3`` LED blinking.  
 
