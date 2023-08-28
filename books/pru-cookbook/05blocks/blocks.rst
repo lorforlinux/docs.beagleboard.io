@@ -122,9 +122,9 @@ Compile and run the program.
   Current mode for P9_28 is:     pruout
   Current mode for P9_28 is:     pruout
   bone$ *make*
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=shared.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=shared.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/shared.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/shared.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black
@@ -136,7 +136,7 @@ Now check the **symbol table** to see where things are allocated.
 
 .. code-block:: bash
 
-  bone $ *grep shared /tmp/cloud9-examples/shared.pru0.map* 
+  bone $ *grep shared /tmp/vsx-examples/shared.pru0.map* 
   ....
   1     0000011c  shared_0                     
   2     00010000  shared_1                     
@@ -401,9 +401,9 @@ Now you are ready to compile
 .. code-block:: bash
 
   bone$ make
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=pwm1.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=pwm1.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/pwm1.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/pwm1.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black
@@ -878,18 +878,18 @@ Compile and run the two files with:
 .. code-block:: bash
 
   bone$ *make TARGET=pwm7.pru0; make TARGET=pwm7.pru1*
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=pwm7.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=pwm7.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/pwm7.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/pwm7.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black
   PROC    = pru
   PRUN    = 0
   PRU_DIR = /sys/class/remoteproc/remoteproc1
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=pwm7.pru1
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=pwm7.pru1
   -    Stopping PRU 1
-  -	copying firmware file /tmp/cloud9-examples/pwm7.pru1.out to /lib/firmware/am335x-pru1-fw
+  -	copying firmware file /tmp/vsx-examples/pwm7.pru1.out to /lib/firmware/am335x-pru1-fw
   write_init_pins.sh
   -    Starting PRU 1
   MODEL   = TI_AM335x_BeagleBone_Black
@@ -1288,13 +1288,13 @@ And also the sine wave as shown in :ref:`blocks_sine`.
 Notice on the bottom plot the harmonics are much more suppressed.
 
 Generating the sine waveform uses **floats**. This requires much more code.
-You can look in `/tmp/cloud9-examples/sine.pru0.map` to see how much memory is being used.
+You can look in `/tmp/vsx-examples/sine.pru0.map` to see how much memory is being used.
 :ref:`blocks_sine_map` shows the first few lines for the sine wave.
 
 .. _blocks_sine_map:
 
 .. literalinclude:: ../code/05blocks/sine.map
-   :caption: /tmp/cloud9-examples/sine.pru0.map for Sine Wave
+   :caption: /tmp/vsx-examples/sine.pru0.map for Sine Wave
    :linenos:
 
 :download:`lines=1..22 <../code/05blocks/sine.map>`
@@ -1562,9 +1562,9 @@ Run the code as usual.
 .. code-block:: bash
 
   bone$ make TARGET=neo4.pru0
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=neo4.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=neo4.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/neo4.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/neo4.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black

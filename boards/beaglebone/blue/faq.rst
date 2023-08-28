@@ -1,12 +1,12 @@
 .. _beaglebone-blue-faq:
 
 Frequently Asked Questions (FAQs)
-###################################
+#################################
 
 .. _are_there_any_books_to_help_me_get_started:
 
 Are there any books to help me get started?
-==================================================
+===========================================
 
 The book `BeagleBone Robotic Projects, Second
 Edition <https://github.com/jadonk/BeagleBone-Robotic-Projects-Second-Edition>`__
@@ -19,7 +19,7 @@ see https://beagleboard.org/books.
 .. _what_system_firmware_should_i_use_for_starting_to_explore_my_beaglebone_blue:
 
 What system firmware should I use for starting to explore my BeagleBone Blue?
-===================================================================================
+=============================================================================
 
 Download the latest 'IoT' image from
 https://www.beagleboard.org/distros. As of this writing, that image is
@@ -34,7 +34,7 @@ this firmware image.
 .. _what_is_the_name_of_the_access_point_ssid_and_password_default_on_beaglebone_blue:
 
 What is the name of the access point SSID and password default on BeagleBone Blue?
-===================================================================================
+==================================================================================
 
 | SSID: BeagleBone-XXXX where XXXX is based upon the board's assigned
   unique hardware address
@@ -43,9 +43,9 @@ What is the name of the access point SSID and password default on BeagleBone Blu
 .. _ive_connected_to_beaglebone_blues_access_point._how_do_i_get_logged_into_the_board:
 
 I've connected to BeagleBone Blue's access point. How do I get logged into the board?
-=======================================================================================
+=====================================================================================
 
-Browse to http://192.168.8.1:3000 to open the Cloud9 IDE and get access
+Browse to http://192.168.8.1:3000 to open the Visual Studio Code IDE and get access
 to the Linux command prompt.
 
 If you've connected via USB instead, the address will be either
@@ -55,7 +55,7 @@ networking drivers provided by your operating system.
 .. _how_do_i_connect_beaglebone_blue_to_my_own_wifi_network:
 
 How do I connect BeagleBone Blue to my own WiFi network?
-==========================================================
+========================================================
 
 From the bash command prompt in Linux:
 
@@ -76,7 +76,7 @@ From the bash command prompt in Linux:
 .. _where_can_i_find_examples_and_apis_for_programming_beaglebone_blue:
 
 Where can I find examples and APIs for programming BeagleBone Blue?
-========================================================================
+===================================================================
 
 Programming in C: http://www.strawsondesign.com/#!manual-install
 
@@ -88,7 +88,7 @@ https://www.mathworks.com/hardware-support/beaglebone-blue.html
 .. _my_beaglebone_blue_fails_to_run_successful_tests:
 
 My BeagleBone Blue fails to run successful tests
-======================================================
+================================================
 
 You've tried to run rc_test_drivers to ensure your board is working for
 DOA warranty tests, but it errors. You should first look to fixing your
@@ -98,7 +98,7 @@ http://strawsondesign.com/docs/librobotcontrol/installation.html#installation_s5
 .. _im_running_an_image_off_of_a_microsd_card._how_do_i_write_it_to_the_on_board_emmc_flash:
 
 I'm running an image off of a microSD card. How do I write it to the on-board eMMC flash?
-==========================================================================================
+=========================================================================================
 
 Refer to the "Flashing Firmware" page:
 https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/Flashing-firmware
@@ -111,7 +111,7 @@ partition on the on-board eMMC.
 .. _ive_written_the_latest_image_to_a_usd_card_but_some_features_arent_working._how_do_i_make_it_run_properly:
 
 I’ve written the latest image to a uSD card, but some features aren’t working. How do I make it run properly?
-==============================================================================================================
+=============================================================================================================
 
 It is possible you are running an old bootloader off of the eMMC. While
 power is completely off, hold the SD button (near the servo headers)
@@ -142,7 +142,7 @@ on flashing firmware.
 .. _ive_got_my_on_board_emmc_flash_configured_in_a_nice_way._how_do_i_copy_that_to_other_beaglebone_blue_boards:
 
 I've got my on-board eMMC flash configured in a nice way. How do I copy that to other BeagleBone Blue boards?
-=================================================================================================================
+=============================================================================================================
 
 As root, run the
 `/opt/scripts/tools/eMMC/beaglebone-black-make-microSD-flasher-from-eMMC.sh <https://github.com/RobertCNelson/boot-scripts/blob/master/tools/eMMC/beaglebone-black-make-microSD-flasher-from-eMMC.sh>`__
@@ -163,7 +163,7 @@ Reboot your newly flashed board.
 .. _i_have_some_low_latency_io_tasks._how_do_i_get_started_programming_the_beaglebone_prus:
 
 I have some low-latency I/O tasks. How do I get started programming the BeagleBone PRUs?
-==========================================================================================
+========================================================================================
 
 There is a "Hello, World" app at
 https://gist.github.com/jadonk/2ecf864e1b3f250bad82c0eae12b7b64 that
@@ -182,7 +182,7 @@ You can find some more at https://beagleboard.org/pru
 .. _are_there_available_mechanical_models:
 
 Are there available mechanical models?
-=============================================
+======================================
 
 A community contributed model is available at
 https://grabcad.com/library/beaglebone-blue-1
@@ -190,14 +190,14 @@ https://grabcad.com/library/beaglebone-blue-1
 .. _what_is_the_operating_temperature_range:
 
 What is the operating temperature range?
-=============================================
+========================================
 
 \`0..70\` due to processor, else \`-20..70\`
 
 .. _what_is_the_dc_motor_drive_strength:
 
 What is the DC motor drive strength?
-============================================
+====================================
 
 This is dictated by the 2 cell LiPo battery input, the `TB6612FNG motor
 drivers <http://www.pololu.com/file/0J86/TB6612FNG.pdf>`__ and the

@@ -5,8 +5,8 @@ Getting Started
 
 We assume you have some experience with the Beagle and are here to learn about 
 the PRU.  This chapter discusses what Beagles are out there, how to load the 
-latest software image on your beagle, how to run the Cloud9 IDE and how to 
-blink an LED.
+latest software image on your beagle, how to run the Visual Studio Code 
+(VS Code) IDE and how to blink an LED.
 
 If you already have your Beagle and know your way around it, you can find the
 code at https://git.beagleboard.org/beagleboard/pru-cookbook-code and book
@@ -159,15 +159,15 @@ The AI has:
 
 
 Installing the Latest OS on Your Bone
-****************************************
+*************************************
 
 Problem
----------
+-------
 
 You want to find the latest version of Debian that is available for your Bone.
 
 Solution
----------
+--------
 
 On your host computer open a browser and go to
 http://www.beagleboard.org/distros.
@@ -218,66 +218,55 @@ button and wait for it to finish.
 
 Once the SD is flashed, insert it in the Beagle and power it up.
 
-Cloud9 IDE
-***********
+Visual Studio Code IDE
+**********************
 
 Problem
-------------
+-------
 
 How do I manage and edit my files?
 
 Solution
-------------
+--------
 
-The image you downloaded includes `Cloud9 <https://aws.amazon.com/cloud9/>`_,
+The image you downloaded includes `Visual Studio Code <https://code.visualstudio.com/>`_,
 a web-based integrated development environment (IDE) as shown in 
-:ref:`start_c9`.
+:ref:`start_vsc`.
 
-.. _start_c9:
+.. _start_vsc:
 
-.. figure:: figures/c9.png
+.. figure:: figures/vsc.png
     :align: center
-    :alt: The Cloud9 IDE
+    :alt: The Visual Studio Code IDE
 
-    Cloud9 IDE
+    The Visual Studio Code IDE
 
-Just point the browser on your host computer to http://192.168.7.2 
-and start exploring.  If you want the files in your home directory to appear
-in the tree structure click the settings gear and select *Show Home in Favorites* 
-as shown in :ref:`start_c9_show_home`.
-
-.. _start_c9_show_home:
-
-.. figure:: figures/c9ShowHome.png
-    :align: center
-    :alt: Cloud9 showing home files
-
-    Cloud9 Showing Home files
-
+Just point the browser on your host computer to http://192.168.7.2:3000 
+and start exploring.  
 
 If you want to edit files beyond your home directory you can link to the root file system by:
 
 .. code-block:: shell-session
 
-    bone$ cd
-    bone$ ln -s / root
-    bone$ cd root
-    bone$ ls
+    bone:~$ cd
+    bone:~$ ln -s / root
+    bone:~$ cd root
+    bone:~$ ls
     bbb-uEnv.txt  boot  etc   ID.txt  lost+found  mnt           opt   root  sbin  sys  usr
     bin           dev   home  lib     media       nfs-uEnv.txt  proc  run   srv   tmp  var
 
-Now you can reach all the files from Cloud9.
+Now you can reach all the files from VS Code.
 
 Getting Example Code
-**********************
+********************
 
 Problem
----------
+-------
 
 You are ready to start playing with the examples and need to find the code.
 
 Solution
----------
+--------
 
 You can find the code on the PRU Cookbook Code project on git.beagleboard.org: 
 https://git.beagleboard.org/beagleboard/pru-cookbook-code. Just clone 
@@ -285,11 +274,11 @@ it on your Beagle.
 
 .. code-block:: shell-session
 
-    bone$ cd /opt/source
-    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
-    bone$ cd pru-cookbook-code
-    bone$ sudo ./install.sh
-    bone$ ls -F
+    bone:~$ cd /opt/source
+    bone:~$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
+    bone:~$ cd pru-cookbook-code
+    bone:~$ sudo ./install.sh
+    bone:~$ ls -F
     01case/   03details/  05blocks/  07more/  README.md
     02start/  04details/  06io/      08ai/
 
@@ -297,8 +286,8 @@ Each chapter has its own directory that has all of the code.
 
 .. code-block:: shell-session
 
-    bone$ cd 02start/
-    bone$ ls
+    bone:~$ cd 02start/
+    bone:~$ ls
     hello.pru0.c  hello.pru1_1.c  Makefile  setup.sh
     ai.notes         hello2.pru1_1.c  hello2.pru2_1.c  Makefile
     hello2.pru0.c    hello2.pru1.c    hello.pru0.c     setup2.sh*
@@ -307,15 +296,15 @@ Each chapter has its own directory that has all of the code.
 Go and explore.
 
 Blinking an LED
-*****************
+***************
 
 Problem
----------
+-------
 
 You want to make sure everything is set up by blinking an LED.
 
 Solution
-----------
+--------
 
 The 'hello, world' of the embedded world is to flash an LED. :ref:`start_hello` 
 is some code that blinks the ``USR3`` LED ten times using the PRU.
@@ -335,10 +324,10 @@ to run it right now do the following.
 
 .. code-block:: shell-session
 
-    bone$ cd /opt/source
-    bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
-    bone$ cd pru-cookbook-code/02start
-    bone$ sudo ../install.sh
+    bone:~$ cd /opt/source
+    bone:~$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
+    bone:~$ cd pru-cookbook-code/02start
+    bone:~$ sudo ../install.sh
 
 .. tip::
 
@@ -349,11 +338,11 @@ to run it right now do the following.
 .. _start_running_code:
 
 Running Code on the Black or Pocket
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell-session
 
-    bone$ make TARGET=hello.pru0
+    bone:~$ make TARGET=hello.pru0
     /opt/source/pru-cookbook-code/common/Makefile:27: MODEL=TI_AM335x_BeagleBone_Green_Wireless,TARGET=hello.pru0,COMMON=/opt/source/pru-cookbook-code/common
     -    Stopping PRU 0
     CC	hello.pru0.c
@@ -368,19 +357,31 @@ Running Code on the Black or Pocket
     PRUN    = 0
     PRU_DIR = /sys/class/remoteproc/remoteproc1
 
+.. tip:: 
+    If you get the following error:
+
+    .. code-block:: shell-session
+
+        cp: cannot create regular file '/lib/firmware/am335x-pru0-fw': Permission denied
+
+    Run the following command to set the permissions.
+
+    .. code-block:: shell-session
+
+        bone:~$ sudo chown debian:debian /lib/firmware/am335x-pru*
 
 Running Code on the AI
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell-session
 
-    bone$ make TARGET=hello.pru1_1
-    /var/lib/cloud9/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
+    bone:~$ make TARGET=hello.pru1_1
+    /opt/source/pru-cookbook-code/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
     CC	hello.pru1_1.c
-    "/var/lib/cloud9/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
-    LD	/tmp/cloud9-examples/hello.pru1_1.o
-    -	copying firmware file /tmp/cloud9-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
+    "/opt/source/pru-cookbook-code/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
+    LD	/tmp/vsx-examples/hello.pru1_1.o
+    -	copying firmware file /tmp/vsx-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
     -    Starting PRU 1_1
@@ -388,7 +389,7 @@ Running Code on the AI
     PROC    = pru
     PRUN    = 1_1
     PRU_DIR = /dev/remoteproc/pruss1-core1
-    rm /tmp/cloud9-examples/hello.pru1_1.o
+    rm /tmp/vsx-examples/hello.pru1_1.o
 
 Look quickly and you will see the ``USR3`` LED blinking.  
 
