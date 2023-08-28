@@ -236,8 +236,8 @@ server that is running on PocketBeagle). Copy the appropriate IP Address
 from the chart (according to your PC operating system type) and paste
 into your browser then add a **:3000** to the end of it. See example in
 Figure 16 below. This will launch from PocketBeagle one of it's favorite
-Web Based Development Environments, Cloud9 IDE, (Figure 17) so that you
-can teach your beagle new tricks!
+Web Based Development Environments, Visual Studio Code, (Figure 17) 
+so that you can teach your beagle new tricks!
 
 .. figure:: images/16fig-PB-enablenetwork.png
    :align: center
@@ -245,53 +245,76 @@ can teach your beagle new tricks!
 
    Enable a Network Connection
 
-.. figure:: images/17fig-PB-cloud9.png
+.. figure:: images/vscode1.png
    :align: center
-   :alt: Launch Cloud9 IDE
+   :alt: Launch Visual Studio Code IDE
 
-   Launch Cloud9 IDE
+   Launch Visual Studio Code IDE
 
-1. Get Started Coding with Cloud9 IDE - blinking USR3 LED in JavaScript
-using the BoneScript library example
+#. Get Started Coding with Visual Studio Code IDE - blinking USR LEDs in Python.
 
-#. Create a new text file
+#. Navigate to the code.  Select ``examples/BeagleBone/Black/seqLEDs.py``.
 
-.. image:: images/SRM1_cloud9blinkPB.png
-
-
-Copy and paste the below code into the editor
-
-.. code-block:: 
-
-   var b = require('bonescript');
-   var state = b.LOW;
-   b.pinMode("USR3", b.OUTPUT);
-   setInterval(toggle, 250);  // toggle 4 times a second, every 250ms
-   function toggle() {
-       if(state == b.LOW) state = b.HIGH;
-       else state = b.LOW;
-       b.digitalWrite("USR3", state);
-   }
+.. image:: images/vscode2.png
 
 
-.. image:: images/SRM2_cloud9blinkPB.png
+The code should match the code below, if you can't find it, copy and paste the below code into the editor
 
-.. image:: images/SRM3_cloud9blinkPB.png
+.. code-block:: python
 
-Save the new text file as *blinkusr3.js* within the default directory
+   #!/usr/bin/env python3
+   # ////////////////////////////////////////
+   # //	seqLED.py
+   # //	Blinks the USR LEDs in sequence.
+   # //	Wiring:
+   # //	Setup:
+   # //	See:
+   # ////////////////////////////////////////
+   # //	Tested: may: 2022.06.29 - BBB - 5.10.109-ti-r45
+   import time
+   import os
 
-Execute
-.. code-block:: 
+   LEDs=4
+   LEDPATH='/sys/class/leds/beaglebone:green:usr'
 
-   node blinkusr3.js
+   # Turn off triggers
+   for i in range(LEDs):
+      # print(LEDPATH+str(i)+"/trigger")
+      f = open(LEDPATH+str(i)+"/trigger", "w")
+      f.write("none")
+      f.close()
 
-within the default (/var/lib/cloud9) directory
+   # Open a file for each LED
+   f = []
+   for i in range(LEDs):
+      f.append(open(LEDPATH+str(i)+"/brightness", "w"))
 
+   # Sequence
+   while True:
+      for i in range(LEDs):
+         f[i].seek(0)
+         f[i].write("1")
+         time.sleep(0.25)
+      for i in range(LEDs):
+         f[i].seek(0)
+         f[i].write("0")
+         time.sleep(0.25)
 
-.. image:: images/SRM4_cloud9blinkPB.png
+Open a terminal by selecting ``Terminal/New Terminal`` 
+(or pressing ``Ctrl+Shift+```) and execute the code: 
 
+.. image:: images/vscode3.png
 
-Type CTRL+C to stop the program running
+.. code-block:: shell-session
+
+   bone:~$ cd ~/examples/BeagleBone/Black
+   bone:~$ ./seqLEDs.py
+
+You will see the four USR LEDs flashing.
+
+.. image:: images/vscode4.png
+
+Type CTRL+C to stop the program running.
 
 
 .. _powering_down:

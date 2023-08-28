@@ -148,9 +148,6 @@ Standalone w/Display and Keyboard/Mouse
 Load "am57xx-eMMC-flasher-debian-9.13-lxqt-tidl-armhf-2020-08-25-6gb.img.xz"
 image on the BeagleBone® AI
 
-Presently, the "Cloud 9" application is broken in debian 10 only for
-this configuration. We re working on a better solution.
-
 1. Connect a combo keyboard and mouse to BeagleBone® AI’s USB host port.
 2. Connect a microHDMI-to-HDMI cable to BeagleBone® AI’s microHDMI port.
 3. Connect the microHDMI-to-HDMI cable to an HDMI monitor.
