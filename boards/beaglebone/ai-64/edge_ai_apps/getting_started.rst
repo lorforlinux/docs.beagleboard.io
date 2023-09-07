@@ -134,8 +134,8 @@ flash it to SD card using `Balena etcher <https://www.balena.io/etcher/>`_ tool.
 
 .. todo: Images should be on https://files.debian.cc and linked from https://www.beagleboard.org/distros
 
-- To use via SD card: `bbai64-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz <https://rcn-ee.net/rootfs/bb.org/testing/2022-08-02/bullseye-xfce-edgeai-arm64/bbai64-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz>`_
-- To flash on eMMC: `bbai64-emmc-flasher-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz <https://rcn-ee.net/rootfs/bb.org/testing/2022-08-02/bullseye-xfce-edgeai-arm64/bbai64-emmc-flasher-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz>`_
+- To use via SD card: `bbai64-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz <https://rcn-ee.com/rootfs/release/2023-08-05/bullseye-xfce-edgeai-arm64/bbai64-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz>`_
+- To flash on eMMC: `bbai64-emmc-flasher-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz <https://rcn-ee.com/rootfs/release/2023-08-05/bullseye-xfce-edgeai-arm64/bbai64-emmc-flasher-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz>`_
 
 
 The Balena etcher tool can be installed either on Windows/Linux. Just download the

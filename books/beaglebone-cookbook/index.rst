@@ -6,7 +6,7 @@ BeagleBone Cookbook
 .. admonition:: Contributors
    
    - Author: `Mark A. Yoder <Mark.A.Yoder@Rose-Hulman.edu>`_
-   - Book revision: v2.0 beta
+   - Book revision: v2.1 beta
 
 A cookbook for programming Beagles
 
@@ -23,3 +23,4 @@ A cookbook for programming Beagles
    08realtime/realtime.rst
    09capes/capes.rst
    10parts/parts.rst
+   11misc/misc.rst

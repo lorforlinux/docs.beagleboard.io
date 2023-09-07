@@ -10,6 +10,7 @@ BeagleBoard Docs
 
 .. toctree::
 
+   intro/blinkLED
    intro/index.rst
    boards/beagleplay/index
    boards/beaglebone/ai-64/index
@@ -17,6 +18,7 @@ BeagleBoard Docs
    boards/beaglebone/black/index
    boards/beaglebone/blue/index
    boards/beaglebone/index
+   /boards/beaglev/ahead/index
    boards/capes/index
    boards/pocketbeagle/original/index
    boards/beagleconnect/freedom/index

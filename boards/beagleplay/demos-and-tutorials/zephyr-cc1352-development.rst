@@ -26,9 +26,14 @@ Install the latest software image for BeaglePlay
     specifics of which image was used to test these instructions need be included
     here moving forward and the detailed instructions can be referenced elsewhere.
 
-Download and install the Debian Linux operating system image for BeaglePlay.
+You may want to download and install the latest Debian Linux operating system
+image for BeaglePlay.
 
-#. These instructions were validated with the BeagleBoard.org Debian image `am625x-emmc-flasher-debian-11.5-xfce-arm64-2023-01-04-10gb.img.xz <https://rcn-ee.net/rootfs/debian-arm64-xfce/2023-01-04/am625x-debian-11.6-xfce-arm64-2023-01-04-10gb.img.xz>`_.
+.. note::
+
+    These instructions were validated with the BeagleBoard.org Debian image
+    `BeaglePlay Debian 11.6 Flasher 2023-03-10
+    <https://www.beagleboard.org/distros/beagleplay-debian-11-6-flasher-2023-03-10>`_.
 
 #. Load this image to a microSD card using a tool like Etcher.
 
@@ -36,9 +41,21 @@ Download and install the Debian Linux operating system image for BeaglePlay.
 
 #. Power BeaglePlay via the USB-C connector.
 
+#. Wait for the LEDs to start blinking, then turn off.
+
+#. Remove power from BeaglePlay.
+
+#. *IMPORTANT* Remove microSD card from BeaglePlay.
+
+#. Apply power to BeaglePlay.
+
+.. note::
+
+   This will flash the CC1352 as well as the eMMC flash on BeaglePlay.
+
 .. todo::
 
-   describe how to know it is working
+   Describe how to know it is working
 
 Log into BeaglePlay
 *********************************
@@ -51,6 +68,8 @@ into the Visual Studio Code IDE environment.
 
     A big part of what is missing here is to put your BeaglePlay on the Internet such
     that we can download things in later steps. That has been initially brushed over.
+
+.. _zephyr_flash_radio :
 
 Flash existing IEEE 802.15.4 radio bridge (WPANUSB) firmware
 ************************************************************
@@ -67,7 +86,7 @@ does not have a USB device, so the application was modified to communicate over 
 For the :ref:`beagleconnect_freedom_home`, a USB-to-UART bridge device was used and the USB endpoints
 were made compatible with the `WPANUSB linux driver <https://github.com/finikorg/wpanusb>`_ which we
 `augmented <https://git.beagleboard.org/beagleconnect/linux/wpanusb/>`_ to support this board. To utilize
-the existing `WPANUSB` Zephyr application and this Linxu driver, we chose to encode our UART traffic with
+the existing `WPANUSB` Zephyr application and this Linux driver, we chose to encode our UART traffic with
 `HDLC <https://en.wikipedia.org/wiki/High-Level_Data_Link_Control>`_. This has the advantage of enabing a
 serial console interface to the Zephyr shell while WPANUSB-specific traffic is directed to other
 `USB endpoints <https://simple.wikipedia.org/wiki/USB#How_USB_works>`_.
@@ -92,14 +111,24 @@ Steps
 
         The default password is `temppwd`.
 
-#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases>`_.
+#. Download and flash the `WPANUSB` Zephyr application firmware onto the CC1352P7 on BeaglePlay from the `releases on git.beagleboard.org <https://git.beagleboard.org/beagleconnect/zephyr/zephyr/-/releases>`_ or `distros on www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_.
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
         cd
         wget https://files.beagle.cc/file/beagleboard-public-2021/images/download
         unzip download
         build/play/cc2538-bsl.py build/play/wpanusb
+
+    .. note:: 
+        I got a `File Not Found` error on the ``wget`` command above. If it doesn't 
+        work for you try: 
+
+    .. code-block:: shell-session
+
+            bone:~$ wget https://files.beagle.cc/file/beagleboard-public-2021/images/zephyr-beagle-cc1352-0.2.2.zip
+            bone:~$ unzip zephyr-beagle-cc1352-0.2.2.zip  
+            bone:~$ build/play/cc2538-bsl.py build/play/wpanusb
 
 #. Ensure the `bcfserial` driver is set to load.
 

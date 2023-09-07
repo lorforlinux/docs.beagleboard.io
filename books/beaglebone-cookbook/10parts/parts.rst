@@ -1,5 +1,9 @@
 .. _beaglebone-cookbook-parts:
 
+.. |I2C| replace:: I\ :sup:`2`\ C
+.. |kohm| replace:: kΩ
+.. |ohm| replace:: Ω
+
 Parts and Suppliers
 ####################
 
@@ -8,23 +12,21 @@ We have listed only one or two sources here, but you can often find a given part
 
 .. table:: United States suppliers
 
-    +-------------+------------------------------------+------------------------------------+
-    | Supplier    | Website                            | Notes                              |
-    +=============+====================================+====================================+
-    | Adafruit    | http://www.adafruit.com            | Good for modules and parts         |
-    +-------------+------------------------------------+------------------------------------+
-    | Amazon      | http://www.amazon.com/             | Carries everything                 |
-    +-------------+------------------------------------+------------------------------------+
-    | Digikey     | http://www.digikey.com/            | Wide range of components           |
-    +-------------+------------------------------------+------------------------------------+
-    | MakerShed   | http://www.makershed.com/          | Good for modules, kits, and tools  |
-    +-------------+------------------------------------+------------------------------------+
-    | RadioShack  | http://www.radioshack.com/         | Walk-in stores                     |
-    +-------------+------------------------------------+------------------------------------+
-    | SeeedStudio | http://www.seeedstudio.com/depot/  | Low-cost modules                   |
-    +-------------+------------------------------------+------------------------------------+
-    | SparkFun    | http://www.sparkfun.com            | Good for modules and parts         |
-    +-------------+------------------------------------+------------------------------------+
+    +-------------+------------------------------------------------------------------+------------------------------------+
+    | Supplier    | Website                                                          | Notes                              |
+    +=============+==================================================================+====================================+
+    | Adafruit    | http://www.adafruit.com                                          | Good for modules and parts         |
+    +-------------+------------------------------------------------------------------+------------------------------------+
+    | Amazon      | http://www.amazon.com/                                           | Carries everything                 |
+    +-------------+------------------------------------------------------------------+------------------------------------+
+    | Digikey     | http://www.digikey.com/                                          | Wide range of components           |
+    +-------------+------------------------------------------------------------------+------------------------------------+
+    | MakerShed   | http://www.makershed.com/                                        | Good for modules, kits, and tools  |
+    +-------------+------------------------------------------------------------------+------------------------------------+
+    | SeeedStudio | https://www.seeedstudio.com/SBC-Beaglebone-Original-c-2031.html? | Low-cost modules                   |
+    +-------------+------------------------------------------------------------------+------------------------------------+
+    | SparkFun    | http://www.sparkfun.com                                          | Good for modules and parts         |
+    +-------------+------------------------------------------------------------------+------------------------------------+
 
 .. table:: Other suppliers
 
@@ -38,8 +40,8 @@ Prototyping Equipment
 ======================
 
 Many of the hardware projects in this book use jumper wires and a breadboard. 
-We prefer the preformed wires that lie flat on the board. <<parts_jumper>> lists places 
-with jumper wires, and <<parts_breadboard>> shows where you can get breadboards.
+We prefer the preformed wires that lie flat on the board. :ref:`parts_jumper` lists places 
+with jumper wires, and :ref:`parts_breadboard` shows where you can get breadboards.
 
 .. _parts_jumper:
 
@@ -65,34 +67,32 @@ with jumper wires, and <<parts_breadboard>> shows where you can get breadboards.
     +=============+=============================================================================================================================================+
     | Amazon      | http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Dtoys-and-games&field-keywords=breadboards&sprefix=breadboards%2Ctoys-and-games  |
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-    | Digikey     | http://www.digikey.com/product-search/en/prototyping-products/solderless-breadboards/2359510?k=breadboard                                   |
-    +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-    | RadioShack  | http://www.radioshack.com/search?q=breadboard                                                                                               |
+    | Digikey     | https://www.digikey.com/en/products/filter/solderless-breadboards/638                                                                       |
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
     | SparkFun    | https://www.sparkfun.com/search/results?term=breadboard                                                                                     |
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
     | CircuitCo   | https://elinux.org/BeagleBoneBreadboard (no longer manufactured, but design available)                                                      |
     +-------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
-If you want something more permanent, try `Adafruit's Perma-Proto Breadboard <https://www.adafruit.com/product/1609>`_, laid out like a breadboard.
+If you want something more permanent, try `Adafruit's Perma-Proto Breadboard <https://www.adafruit.com/product/1609>`_, 
+laid out like a breadboard.
 
 .. _app_resistor:
 
 Resistors
 ==========
 
-We use 220 , 1k, 4.7k, 10k, 20k, and 22k resistors in this book. 
-All are 0.25 W.  The easiest way to get all these, and many more, is to order `SparkFun's Resistor Kit <http://bit.ly/1EXREh8>`_.  
+We use 220 , 1k, 4.7k, 10k, 20k, and 22 |kohm| resistors in this book. 
+All are 0.25 W.  The easiest way to get all these, and many more, is to order 
+`SparkFun's Resistor Kit <http://bit.ly/1EXREh8>`_.  
 It's a great way to be ready for future projects, because it has 500 resistors. 
-`RadioShack's 500-piece Resistor Assortment <http://shack.net/1B4Io4V>`_ is a bit more 
-expensive, but it has a wider variety of resistors.
 
 If you don't need an entire kit of resistors, you can order a la carte from a number of places. 
-`RadioShack has 5-packs <http://shack.net/1E5NoIC>`_, and DigiKey has more than a quarter million 
+DigiKey has more than a quarter million 
 `through-hole resistors <http://bit.ly/1C6WQjZ>`_ at good prices, but make sure you are ordering the right one.
 
-You can find the 10 k trimpot (or variable resistor) at `SparkFun 10k POT <http://bit.ly/18ACvpm>`_,  
-`Adafruit 10k POT <http://bit.ly/1NKg1Tv>`_, or `RadioShack 10k POT <http://shack.net/1Ag286e>`_.
+You can find the 10 |kohm| trimpot (or variable resistor) at `SparkFun 10k POT <http://bit.ly/18ACvpm>`_ or 
+`Adafruit 10k POT <http://bit.ly/1NKg1Tv>`_.
 
 Flex resistors (sometimes called *flex sensors* or *bend sensors*) are available at 
 `SparkFun flex resistors <http://bit.ly/1Br7HD2>`_ and `Adafruit flex resistors <http://bit.ly/1HCGoql>`_.
@@ -106,8 +106,8 @@ Even `Amazon NPN transitor <http://amzn.to/1AjvcsD>`_ has it. `Adafruit NPN tran
 will gladly sell you 100,000.
 
 The `1N4001 <http://bit.ly/1EbRzF6>`_ is a popular 1A diode. Buy one at `SparkFun diode <http://bit.ly/1Ajw54G>`_, 
-10 at `Adafruit diode <http://bit.ly/1Gs05zP>`_, 25 at `RadioShack diode <http://shack.net/1E5OTXi>`_, 
-or 40,000 at `DigiKey diode <http://bit.ly/18ADlT2>`_.
+10 at `Adafruit diode <http://bit.ly/1Gs05zP>`_, 
+or 10,000 at `DigiKey diode <https://www.digikey.com/en/products/detail/mdd/1N4001/15517721>`_.
 
 Integrated Circuits
 =====================
@@ -117,15 +117,18 @@ cheaply in large quantities from `DigiKey PCA9306 <http://bit.ly/1Fb8REd>`_, but
 package. Instead, you can get it from `SparkFun PCA9306 on a Breakout board <http://bit.ly/19ceTsd>`_, which plugs into a breadboard.
 
 The L293D is an `H-bridge IC <http://bit.ly/1wujQqk>`_ with which you can control large loads (such as motors) in 
-both directions.  `SparkFun L393D <http://bit.ly/18bXChR>`_, `Adafruit L393D <http://bit.ly/1xd43Yh>`_, and 
-`DigiKey L393D <http://bit.ly/18bXKOk>`_ all have it in a DIP package that easily plugs into a breadboard.
+both directions.  `SparkFun L293D <http://bit.ly/18bXChR>`_, `Adafruit L293D <http://bit.ly/1xd43Yh>`_, and 
+`DigiKey L293D <https://www.digikey.com/en/products/detail/stmicroelectronics/L293D/634700>`_ 
+all have it in a DIP package that easily plugs into a breadboard.
 
 The ULN2003 is a 7 darlington NPN transistor IC array used to drive motors one way. You can get it from  
-`DigiKey ULN2003 <http://bit.ly/1D5UQIB>`_. A possible substitution is ULN2803 available from 
+`DigiKey ULN2003 <https://www.digikey.com/en/products/detail/texas-instruments/ULN2003AN/277624>`_. 
+A possible substitution is ULN2803 available from 
 `SparkFun ULN2003 <http://bit.ly/1xd4oKy>`_ and `Adafruit ULN2003 <http://bit.ly/1EXWhaU>`_.
 
-The TMP102 is an I^2^C-based digital temperature sensor. You can buy them in bulk from 
-`DigiKey TMP102 <http://bit.ly/1EA02Vx>`_, but it's too small for a breadboard. `SparkFun TMP102 <http://bit.ly/1GFafAE>`_
+The TMP102 is an |I2C|-based digital temperature sensor. You can buy them in bulk from 
+`DigiKey TMP102 <https://www.digikey.com/en/products/filter/temperature-sensors/analog-and-digital-output/518?s=N4IgTCBcDaIC4FsAOBGADBAugXyA>`_, 
+but it's too small for a breadboard. `SparkFun TMP102 <http://bit.ly/1GFafAE>`_
 sells it on a breakout board that works well with a breadboard.
 
 The DS18B20 is a one-wire digital temperature sensor that looks like a three-terminal transistor. 
@@ -137,16 +140,16 @@ Opto-Electronics
 
 `LEDs <http://bit.ly/1BwZvQj>`_ are *light-emitting diodes*. LEDs come in a wide range of colors, 
 brightnesses, and styles. You can get a basic red LED at `SparkFun red LED <http://bit.ly/1GFaHPi>`_, 
-`Adafuit red LED <http://bit.ly/1GFaH1M>`_, `RadioShack red LED <http://shack.net/1KWVVGE>`_, and `DigiKey red LED <http://bit.ly/1b2f2PD>`_.
+`Adafuit red LED <http://bit.ly/1GFaH1M>`_, and `DigiKey red LED <http://bit.ly/1b2f2PD>`_.
 
-Many places carry bicolor LED matrices, but be sure to get one with an I^2^C interface. 
+Many places carry bicolor LED matrices, but be sure to get one with an |I2C| interface. 
 `Adafruit LED matrix <http://bit.ly/18AENVn>`_ is where I got mine.
 
 Capes
 ======
 
 There are a number of sources for capes for BeagleBone Black. 
-`eLinux.org BeagleBoard.org capes page <http://bit.ly/1AjlXJ9>`_ keeps a current list.
+`BeagleBoard.org capes page <http://docs.beagleboard.org/>`_ keeps a current list.
 
 Miscellaneous
 ==============
@@ -161,8 +164,6 @@ Here are some things that don't fit in the other categories.
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | USB WiFi adapter                                    | `Adafruit WiFi adapter <http://www.adafruit.com/products/814>`_                       |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
-    | Female HDMI to male microHDMI adapter               | `Amazon HDMI to microHDMI adapter <http://amzn.to/1C5BcLp>`_                          |
-    +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | HDMI cable                                          | `SparkFun HDMI cable <https://www.sparkfun.com/products/11572>`_                      |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | Micro HDMI to HDMI cable                            | `Adafruit HDMI to microHDMI cable <http://www.adafruit.com/products/1322>`_           |
@@ -173,8 +174,6 @@ Here are some things that don't fit in the other categories.
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | Powered USB hub                                     | `Amazon power USB hub <http://amzn.to/1NKm2zB>`_,                                     |
     |                                                     | `Adafruit power USB hub <http://www.adafruit.com/products/961>`_                      |
-    +-----------------------------------------------------+---------------------------------------------------------------------------------------+
-    | Keyboard with USB hub                               | `Amazon keyboard with USB hub <http://amzn.to/1FbblSX>`_                              |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | Soldering iron                                      | `SparkFun soldering iron <http://bit.ly/1FMfUkP>`_,                                   |
     |                                                     | `Adafruit soldering iron <http://bit.ly/1EXZ6J1>`_                                    |
@@ -219,16 +218,9 @@ Here are some things that don't fit in the other categories.
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | BLE USB dongle                                      | `Adafruit BLE USB dongle <http://www.adafruit.com/products/1327>`_                    |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
-    | SensorTag                                           | `DigiKey SensorTag <http://bit.ly/18AGPVt>`_,                                         |
-    |                                                     | `Amazon SensorTag <http://amzn.to/1EA2B9U>`_,                                         |
-    |                                                     | `TI SensorTag <https://store.ti.com/CC2541-SensorTag-Development-Kit-P3192.aspx>`_    |
-    +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | Syba SD-CM-UAUD USB Stereo Audio Adapter            | `Amazon USB audio adapter <http://amzn.to/1EA2GdI>`_                                  |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | Sabrent External Sound Box USB-SBCV                 | `Amazon USB audio adapter (alt) <http://amzn.to/1C74kTU>`_                            |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+
     | Vantec USB External 7.1 Channel Audio Adapter       | `Amazon USB audio adapter (alt2) <http://amzn.to/19cinev>`_                           |
-    +-----------------------------------------------------+---------------------------------------------------------------------------------------+
-    | Nokia 5110 LCD                                      | `Adafruit 5110 LCD <http://bit.ly/1Ag6LgG>`_,                                         |
-    |                                                     | `SparkFun 5110 LCD <http://bit.ly/19cizdu>`_                                          |
     +-----------------------------------------------------+---------------------------------------------------------------------------------------+

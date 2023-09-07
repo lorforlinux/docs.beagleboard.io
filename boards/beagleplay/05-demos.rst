@@ -13,7 +13,7 @@ Demos and tutorials
 
     **Using serial console**
     ^^^
-    Learn ho to use any USB-UART converter to get access to BeaglePlay via serial console .
+    Learn how to use any USB-UART converter to get access to BeaglePlay via serial console.
     +++
     .. admonition:: Complexity level
         
@@ -59,9 +59,9 @@ Demos and tutorials
     :link: beagleplay-qwiic
     :link-type: ref
 
-    **Using QWIIC**
+    **Using Qwiic**
     ^^^
-    Learn to expand your BeaglePlay capabilities via quiic I2C boards.
+    Learn to expand your BeaglePlay capabilities via Qwiic I2C boards.
     +++
     .. admonition:: Complexity level
         
@@ -103,6 +103,18 @@ Demos and tutorials
         
         intermediate
 
+.. card::
+    :link: play-kernel-development
+    :link-type: ref
+
+    **Linux Kernel development**
+    ^^^
+    Compile and install Linux Kernel to your beagleplay.
+    +++
+    .. admonition:: Complexity level
+
+        intermediate
+
 .. raw:: latex
 
    \end{comment}
@@ -119,3 +131,4 @@ Demos and tutorials
    demos-and-tutorials/using-oldi
    demos-and-tutorials/using-csi
    demos-and-tutorials/zephyr-cc1352-development
+   demos-and-tutorials/play-kernel-development

@@ -30,6 +30,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
    :hidden:
    :caption: Introduction
 
+   /intro/blinkLED
    /intro/support/index
    /intro/beagle101/index
    /intro/contribution/index
@@ -68,6 +69,18 @@ from source using appropriate design tools.
       A 64-bit ARM computer designed to simplify physical world interactions
       to the connected world.
 
+   .. grid-item-card::
+      :link: beaglev-ahead-home
+      :link-type: ref
+
+      **BeagleV® Ahead**
+      ^^^
+
+      .. image:: boards/beaglev/ahead/media/product-pictures/45front.*
+         :align: center
+      +++
+
+      Quad core RISC-V SBC in the form factor of BeagleBone Black.
 
    .. grid-item-card::
       :link: bbai64-home
@@ -351,6 +364,7 @@ Capes
    /boards/beaglebone/black/index
    /boards/beaglebone/blue/index
    /boards/beaglebone/index
+   /boards/beaglev/ahead/index
    /boards/capes/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
@@ -401,6 +415,7 @@ page for more information.
    :hidden:
    :caption: Accessories
 
+   /boards/capes/index
    /accessories/index
 
 Indices and tables
