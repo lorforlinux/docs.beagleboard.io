@@ -154,7 +154,7 @@ your board to WiFi (if password is correct).
 wpa_cli (shell)
 ****************
 
-Swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network SSID and password, respectively.
+Swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network BSSID and password, respectively.
 
 .. code-block:: shell-session
 
