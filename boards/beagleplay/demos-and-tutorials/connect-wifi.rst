@@ -154,7 +154,7 @@ your board to WiFi (if password is correct).
 wpa_cli (shell)
 ****************
 
-Swap out "mywifi" and "mypassword" with your network SSID and password, respectively.
+Swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network SSID and password, respectively.
 
 .. code-block:: shell-session
 
@@ -168,7 +168,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    debian@BeaglePlay:~$ wpa_cli add_network
    Selected interface 'wlan0'
    1
-   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mywifi"'
+   debian@BeaglePlay:~$ wpa_cli set_network 1 bssid 68:ff:7b:03:0a:8a
    Selected interface 'wlan0'
    OK
    debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
