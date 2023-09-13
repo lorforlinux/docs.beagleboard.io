@@ -115,7 +115,7 @@ TPS65219 - PMIC
 
     TPS65219 Power Management Integrated Circuit (PMIC) schematic
 
-This is the primary powre management integrated circuit (PMIC) for the design. It coordinates the power
+This is the primary power management integrated circuit (PMIC) for the design. It coordinates the power
 sequencing and provides numerous power rails required for the core of the system, including dynamic voltages
 for the processor core and microSD card. The TPS6521903 variant is used for this DDR4-based system. The 03
 at the end indicates the sequencing programmed into the device and is covered in the TPS6521903 Technical
