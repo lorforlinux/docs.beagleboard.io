@@ -38,8 +38,10 @@ Board Changes
     |         | mikroBUS Click reset                                                                    |                      |        |
     |         | pins (made GPIO).                                                                       |                      |        |
     +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
-    | A2B     | Because there are 2 TI parts which have long LT,                                        | *June 15, 2021*      | JK     |
-    |         | we propose to have the following changes:                                               |                      |        |
+    | A2a     | Fixed label on P2_24. Was labeled GPIO48, should be GPIO44.                             | *November 7, 2017*   | JK     |
+    +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
+    | A2b     | Because there are 2 TI parts which have long lead-time,                                 | *June 15, 2021*      | JK     |
+    |         | we made the following changes:                                                          |                      |        |
     |         |                                                                                         |                      |        |
     |         | 1. Use ESD discrete devices instead of integrated TVS TI: TPD4S012DRYR.                 |                      |        |
     |         | 2. Change Logic IC TI SN74LVC1G07DCKR to Nexperia 74LVC1G07GV                           |                      |        |
