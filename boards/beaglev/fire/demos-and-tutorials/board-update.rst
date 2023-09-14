@@ -3,11 +3,13 @@
 Board update
 ############
 
-In this tutorial we are going to learn to flash the gateware image 
+In this tutorial we are going to learn to flash the gateware image
 to FPGA and ``sdcard.image`` to eMMC storage.
 
-.. important:: 
-    Additional hardware required: 
+.. important::
+
+    Additional hardware required:
+
     1. FlashPro5/6 programmer
     2. `Tag connect TC2050-IDC-NL 10-Pin No-Legs Cable with Ribbon connector <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
     3. `TC2050-CLIP-3PACK Retaining CLIP board for TC2050-NL cables <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
@@ -15,10 +17,10 @@ to FPGA and ``sdcard.image`` to eMMC storage.
 Programming & Debug tools installation
 ***************************************
 
-To flash a gateware image to your BeagleV Fire board you will require a 
-FlashPro5/6 and FlashPro Express (FPExpress) tool which comes pre-installed as part of 
+To flash a gateware image to your BeagleV-Fire board you will require a
+FlashPro5/6 and FlashPro Express (FPExpress) tool which comes pre-installed as part of
 `Libero SoC Design Suite <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions>`_.
-A standalone FlashPro Express tool is also available with MicroChip's 
+A standalone FlashPro Express tool is also available with MicroChip's
 `Programming and Debug Tools <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug>`_ package,
 which we are going to use for this tutorial. Below are the steps to install the software:
 
@@ -27,8 +29,8 @@ which we are going to use for this tutorial. Below are the steps to install the 
 3. Execute the ``launch_installer.sh`` script to start the installation procedure.
 
 .. code-block:: bash
-    
-    [lorforlinux@fedora Program_Debug_v2023.1_lin] $ ./launch_installer.sh 
+
+    [lorforlinux@fedora Program_Debug_v2023.1_lin] $ ./launch_installer.sh
 
     No additional packages to install for installer usage
 
@@ -43,7 +45,7 @@ which we are going to use for this tutorial. Below are the steps to install the 
 
 .. note:: It's recommended to install under `home/user/microchip` for linux users.
 
-Enabling non-root user to access FlashPro  
+Enabling non-root user to access FlashPro
 ==========================================
 
 1. Download :download:`60-openocd.rules <60-openocd.rules>`
@@ -95,40 +97,40 @@ Following the annotation in the image above:
 2. Click on ``RUN`` button
 3. Shows the progress
 
-If you see a lot of green color and progess bar says 
-`PASSED`` then well done you have successfully flashed 
-the gateware image on your BeagleV Fire board.
+If you see a lot of green color and progess bar says
+`PASSED`` then well done you have successfully flashed
+the gateware image on your BeagleV-Fire board.
 
 Flashing eMMC
 **************
 
-Connect to BeagleV Fire UART debug port using a 3.3v USB to UART bridge.
+Connect to BeagleV-Fire UART debug port using a 3.3v USB to UART bridge.
 
 .. figure:: ../media/uart-debug-connection.jpg
     :width: 1240
     :align: center
     :alt: UART debug connection
 
-Now you can run ``tio <port>`` in a terminal window to access 
-the UART debug port connection. Once you are connected properly you can 
-press the Reset button which will show you a progress bar like 
+Now you can run ``tio <port>`` in a terminal window to access
+the UART debug port connection. Once you are connected properly you can
+press the Reset button which will show you a progress bar like
 in the
 
 .. figure:: board-booting.png
     :width: 740
     :align: center
-    :alt: BeagleV Fire booting HSS with progress bar
+    :alt: BeagleV-Fire booting HSS with progress bar
 
-Once you see that progress bar on your screem you can start pressing any 
-button (0-9/a-z) which whill stop the board from fully botting and you'll be 
-able to access Hart Software Services (HSS) prompt. BeagleV Fire's eMMC content is 
-written by the Hart Software Services (HSS) using the ``usbdmsc`` command. The 
+Once you see that progress bar on your screem you can start pressing any
+button (0-9/a-z) which whill stop the board from fully botting and you'll be
+able to access Hart Software Services (HSS) prompt. BeagleV-Fire's eMMC content is
+written by the Hart Software Services (HSS) using the ``usbdmsc`` command. The
 HSS ``usbdmsc`` command exposes the eMMC as a USB mass storage device USB type C connector.
 
 .. figure:: boot-message.png
     :width: 1240
     :align: center
-    :alt: BeagleV Fire boot messages with HSS prompt access 
+    :alt: BeagleV-Fire boot messages with HSS prompt access
 
 Once you see ``>>`` you can execute the commands below:
 
@@ -140,17 +142,17 @@ Once you see ``>>`` you can execute the commands below:
     :align: center
     :alt: HSS commands to show eMMC as mass storage
 
-After executing the commands above your BeagleV Fire's eMMC will be 
+After executing the commands above your BeagleV-Fire's eMMC will be
 exposed as a mass storage device like shown in the image below:
 
 .. figure:: mass-storage-eMMC.png
     :width: 740
     :align: center
-    :alt: BeagleV Fire eMMC as mass storage
+    :alt: BeagleV-Fire eMMC as mass storage
 
-Once your board is exposed as a mass storage device you can use 
-`Balena Etcher <https://etcher.balena.io/#download-etcher>`_ to 
-flash the ``sdcard.img`` on your BeagleV Fire's eMMC.
+Once your board is exposed as a mass storage device you can use
+`Balena Etcher <https://etcher.balena.io/#download-etcher>`_ to
+flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
 
 .. tabs::
 
@@ -176,15 +178,15 @@ flash the ``sdcard.img`` on your BeagleV Fire's eMMC.
 
     .. group-tab:: Flash image
 
-        1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV Fire eMMC storage.
+        1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV-Fire eMMC storage.
 
       .. figure:: eMMC-flashing-3.png
           :width: 740
           :align: center
           :alt: Balena Etcher flashing image
 
-Congratulations! with that done you have fully updated BeagleV Fire board 
-with up to date gateware image on it's PolarFire SoC's FPGA 
+Congratulations! with that done you have fully updated BeagleV-Fire board
+with up to date gateware image on it's PolarFire SoC's FPGA
 Fabric and linux image on it's eMMC storage.
 
 
