@@ -3,6 +3,11 @@
 Connect WiFi
 #############
 
+.. note::
+    A common issue experienced by users when connecting to Wireless networks are network names that include special characters such as spaces, apostrophes etc, this may make connecting to your network more difficult. It is thus recommended to rename your Wireless AP to something simpler. For Example - renaming "Boris's Wireless Network" to "BorisNet". This avoids having to add special "escape" characters in the name. This shows up especially if you try connecting to iPhone/iOS HotSpots, where the network name is the device name, which by default is something like "Dan's iPhone". Also see `this potential solution. 
+<https://unix.stackexchange.com/questions/679862/wpa-supplicant-conf-escaping-characters/>`_.
+
+
 If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`.
 
 Alternatively, you can use ``wpa_cli`` over a shell connection through:
@@ -149,7 +154,7 @@ your board to WiFi (if password is correct).
 wpa_cli (shell)
 ****************
 
-Swap out "mywifi" and "mypassword" with your network SSID and password, respectively.
+Swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network BSSID and password, respectively.
 
 .. code-block:: shell-session
 
@@ -163,7 +168,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    debian@BeaglePlay:~$ wpa_cli add_network
    Selected interface 'wlan0'
    1
-   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mywifi"'
+   debian@BeaglePlay:~$ wpa_cli set_network 1 bssid 68:ff:7b:03:0a:8a
    Selected interface 'wlan0'
    OK
    debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
@@ -296,3 +301,41 @@ after you add the credentials to ``wpa_supplicant-wlan0.conf``.
     :alt: To check connection try running $ ping 8.8.8.8
 
     To check connection try running $ ping 8.8.8.8 
+
+    
+Disabling the WIFI Access Point
+*******************************
+
+In certain situations, such as running HomeAssistant, you may chose to connect your BeaglePlay to the internet via Ethernet. In this case, it may be desireable to disable it's Wifi access point so that users outside the local network aren't able to connect to it.  
+
+The Wifi Access Point that BeaglePlay provides is started using `uDev rules <https://en.wikipedia.org/wiki/Udev>`_. created by the `bb-wlan0-defaults` package
+
+You can simply remove the `bb-wlan0-defaults` package:
+
+.. code-block:: shell
+
+    sudo apt remove bb-wlan0-defaults
+
+Now just reboot and the Wifi Access point should no longer start. 
+
+You can also disable it by removing the two following udev rule files:
+
+.. code-block:: shell
+
+    rm /etc/udev/rules.d/81-add-SoftAp0-interface.rules 
+    rm /etc/udev/rules.d/82-SoftAp0-start-hostpad.rules
+
+The issue with doing this latter option is that if you later update your OS, the bb-wlan0-defaults may get updated as well and re-add the rules.  
+
+Re-Enabling the WIFI Access Point
+*********************************
+
+Conversely, you can re-enable the access point by re-installing the `bb-wlan0-default` package.
+
+.. code-block:: shell
+
+    sudo apt install bb-wlan0-defaults --reinstall
+
+Now just reboot.
+
+--TODO Add notes on changing SSID/Password

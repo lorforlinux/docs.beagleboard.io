@@ -70,8 +70,8 @@ and :ref:`more_delay`. If you look in the local ``Makefile`` you'll see:
 
 :download:`Makefile <../code/07more/Makefile>`
 
-This Makefle includes a common Makefile at  ``/var/lib/cloud9/common/Makefile``, this the Makefile 
-you need to edit. Edit ``/var/lib/cloud9/common/Makefile`` and go to line 195.
+This Makefle includes a common Makefile at  ``/opt/source/pru-cookbook-code/common/Makefile``, this the Makefile 
+you need to edit. Edit ``/opt/source/pru-cookbook-code/common/Makefile`` and go to line 195.
 
 .. code-block:: shell-session
 
@@ -91,9 +91,9 @@ The following will compile and run everything.
 
   bone$ config-pin P9_31 pruout
   bone$ make TARGET=delay-test.pru0 TARGETasm=delay.pru0
-  /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=delay-test.pru0
+  /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=delay-test.pru0
   -    Stopping PRU 0
-  -	copying firmware file /tmp/cloud9-examples/delay-test.pru0.out to /lib/firmware/am335x-pru0-fw
+  -	copying firmware file /tmp/vsx-examples/delay-test.pru0.out to /lib/firmware/am335x-pru0-fw
   write_init_pins.sh
   -    Starting PRU 0
   MODEL   = TI_AM335x_BeagleBone_Black
@@ -245,7 +245,7 @@ You can see where ``cycle`` and ``stall`` are stored by looking into :ref:`more_
 .. _more_cycle_list0:
 
 .. literalinclude:: ../code/07more/cycle.pru0.lst
-   :caption: /tmp/cloud9-examples/cycle.pru0.lst Lines 113..119
+   :caption: /tmp/vsx-examples/cycle.pru0.lst Lines 113..119
    :lines: 113-119
    :lineno-start: 113
    :linenos:
@@ -258,7 +258,7 @@ the ``CTRL`` registers. Later in the file we see :ref:`more_cycle_list1`.
 .. _more_cycle_list1:
 
 .. literalinclude:: ../code/07more/cycle.pru0.lst
-   :caption: /tmp/cloud9-examples/cycle.pru0.lst Lines 146..152
+   :caption: /tmp/vsx-examples/cycle.pru0.lst Lines 146..152
    :lines: 146-152
    :lineno-start: 146
    :linenos:

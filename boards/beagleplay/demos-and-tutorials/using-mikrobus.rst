@@ -3,16 +3,18 @@
 Using mikroBUS
 ##############
 
-Using boards with ClickID
-*************************
-
 Steps:
 
-1. Identify if mikroBUS add-on includes an ID. If not, ID must be supplied.
+1. Identify if mikroBUS add-on includes a ClickID with ``manifest``. If not, ``manifest`` must be supplied.
 2. Identify if mikroBUS add-on is supported by the kernel. If not, kernel module must be added.
 3. Identify how driver exposes the data: IIO, net, etc.
 4. Connect and power
 5. Verify and utilize
+
+.. _beagleplay-mikrobus-clickid:
+
+Using boards with ClickID
+*************************
 
 What is mikroBUS?
 =================
@@ -33,7 +35,6 @@ ClickID enables mikroBUS add-on boards to be identified along with the configura
    Learn more at https://github.com/MikroElektronika/click_id
 
 BeaglePlay's Linux kernel is patched with a mikrobus driver that automatically reads the ClickID and loads a driver, greatly simplifying usage.
-
 
 Does my add-on have ClickID?
 ============================
@@ -57,21 +58,70 @@ Example of examining boot log to see a ClickID was detected.
     [    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices
     [    2.663783] mikrobus mikrobus-0: registering device : opt3001
 
+To use the add-on, see :ref:`beagleplay-mikrobus-using`.
 
-To use the add-on, see TBD below.
+.. note::
 
+   Not all Click boards with ClickID have valid ``manifest`` entries.
+
+.. _beagleplay-mikrobus-clickid:
 
 What if my add-on doesn't have ClickID?
 ***************************************
 
 It is still possible a ``manifest`` has been created for your add-on as we have created over 100 of them. You can install the existing manifest files onto your BeaglePlay.
 
+First, make sure you have the latest manifests installed in your system.
 
-.. code::
+.. code:: bash
 
    sudo apt update
    sudo apt install bbb.io-clickid-manifests
-   cat /lib/firmware/mikrobus/amibient-light-click.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
+
+
+Take a look at the list of ``manifest`` files to see if the Click or other mikrobus add-on board ``manifest`` is installed.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ ls /lib/firmware/mikrobus/
+   10DOF-CLICK.mnfb          COMPASS-2-CLICK.mnfb       I2C-2-SPI-CLICK.mnfb        PWM-CLICK.mnfb
+   13DOF-2-CLICK.mnfb        COMPASS-CLICK.mnfb         I2C-MUX-CLICK.mnfb          RFID-CLICK.mnfb
+   3D-HALL-3-CLICK.mnfb      CURRENT-CLICK.mnfb         ILLUMINANCE-CLICK.mnfb      RF-METER-CLICK.mnfb
+   3D-HALL-6-CLICK.mnfb      DAC-7-CLICK.mnfb           IR-GESTURE-CLICK.mnfb       RMS-TO-DC-CLICK.mnfb
+   6DOF-IMU-2-CLICK.mnfb     DAC-CLICK.mnfb             IR-THERMO-2-CLICK.mnfb      RTC-6-CLICK.mnfb
+   6DOF-IMU-4-CLICK.mnfb     DIGIPOT-3-CLICK.mnfb       LED-DRIVER-7-CLICK.mnfb     SHT1x-CLICK.mnfb
+   6DOF-IMU-6-CLICK.mnfb     DIGIPOT-CLICK.mnfb         LIGHTRANGER-2-CLICK.mnfb    SHT-CLICK.mnfb
+   6DOF-IMU-8-CLICK.mnfb     EEPROM-2-CLICK.mnfb        LIGHTRANGER-3-CLICK.mnfb    SMOKE-CLICK.mnfb
+   9DOF-CLICK.mnfb           EEPROM-3-CLICK.mnfb        LIGHTRANGER-CLICK.mnfb      TEMP-HUM-11-CLICK.mnfb
+   ACCEL-3-CLICK.mnfb        EEPROM-CLICK.mnfb          LPS22HB-CLICK.mnfb          TEMP-HUM-12-CLICK.mnfb
+   ACCEL-5-CLICK.mnfb        ENVIRONMENT-CLICK.mnfb     LSM303AGR-CLICK.mnfb        TEMP-HUM-3-CLICK.mnfb
+   ACCEL-6-CLICK.mnfb        ETH-CLICK.mnfb             LSM6DSL-CLICK.mnfb          TEMP-HUM-4-CLICK.mnfb
+   ACCEL-8-CLICK.mnfb        ETH-WIZ-CLICK.mnfb         MAGNETIC-LINEAR-CLICK.mnfb  TEMP-HUM-7-CLICK.mnfb
+   ACCEL-CLICK.mnfb          FLASH-2-CLICK.mnfb         MAGNETIC-ROTARY-CLICK.mnfb  TEMP-HUM-9-CLICK.mnfb
+   ADC-2-CLICK.mnfb          FLASH-CLICK.mnfb           MICROSD-CLICK.mnfb          TEMP-HUM-CLICK.mnfb
+   ADC-3-CLICK.mnfb          GENERIC-SPI-CLICK.mnfb     MPU-9DOF-CLICK.mnfb         TEMP-LOG-3-CLICK.mnfb
+   ADC-5-CLICK.mnfb          GEOMAGNETIC-CLICK.mnfb     MPU-IMU-CLICK.mnfb          TEMP-LOG-4-CLICK.mnfb
+   ADC-8-CLICK.mnfb          GNSS-4-CLICK.mnfb          NO2-2-CLICK.mnfb            TEMP-LOG-6-CLICK.mnfb
+   ADC-CLICK.mnfb            GNSS-7-CLICK.mnfb          NO2-CLICK.mnfb              THERMO-12-CLICK.mnfb
+   AIR-QUALITY-2-CLICK.mnfb  GNSS-ZOE-CLICK.mnfb        OLEDB-CLICK.mnfb            THERMO-15-CLICK.mnfb
+   AIR-QUALITY-3-CLICK.mnfb  GSR-CLICK.mnfb             OLEDC-CLICK.mnfb            THERMO-17-CLICK.mnfb
+   AIR-QUALITY-5-CLICK.mnfb  GYRO-2-CLICK.mnfb          OLEDW-CLICK.mnfb            THERMO-3-CLICK.mnfb
+   ALCOHOL-2-CLICK.mnfb      GYRO-CLICK.mnfb            OZONE-2-CLICK.mnfb          THERMO-4-CLICK.mnfb
+   ALCOHOL-3-CLICK.mnfb      HALL-CURRENT-2-CLICK.mnfb  PRESSURE-11-CLICK.mnfb      THERMO-7-CLICK.mnfb
+   ALTITUDE-3-CLICK.mnfb     HALL-CURRENT-3-CLICK.mnfb  PRESSURE-3-CLICK.mnfb       THERMO-8-CLICK.mnfb
+   ALTITUDE-CLICK.mnfb       HALL-CURRENT-4-CLICK.mnfb  PRESSURE-4-CLICK.mnfb       THERMO-CLICK.mnfb
+   AMBIENT-2-CLICK.mnfb      HDC1000-CLICK.mnfb         PRESSURE-CLICK.mnfb         THERMOSTAT-3-CLICK.mnfb
+   AMBIENT-4-CLICK.mnfb      HEART-RATE-3-CLICK.mnfb    PROXIMITY-10-CLICK.mnfb     UV-3-CLICK.mnfb
+   AMBIENT-5-CLICK.mnfb      HEART-RATE-4-CLICK.mnfb    PROXIMITY-2-CLICK.mnfb      VACUUM-CLICK.mnfb
+   AMMETER-CLICK.mnfb        HEART-RATE-5-CLICK.mnfb    PROXIMITY-5-CLICK.mnfb      VOLTMETER-CLICK.mnfb
+   COLOR-2-CLICK.mnfb        HEART-RATE-7-CLICK.mnfb    PROXIMITY-9-CLICK.mnfb      WAVEFORM-CLICK.mnfb
+   COLOR-7-CLICK.mnfb        HEART-RATE-CLICK.mnfb      PROXIMITY-CLICK.mnfb        WEATHER-CLICK.mnfb
+
+Then, load the appropriate ``manifest`` using the ``mikrobus`` bus driver. For example, with the Ambient 2 Click, you can write that ``manifest`` to the ``mikrobus-0`` ``new_device`` entry.
+
+.. code:: bash
+
+   cat /lib/firmware/mikrobus/AMBIENT-2-CLICK.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
 
 
 .. note::
@@ -94,13 +144,44 @@ It is still possible a ``manifest`` has been created for your add-on as we have 
    To make it stick, ...
 
 
+To use the add-on, see :ref:`beagleplay-mikrobus-using`.
+
+
+.. _beagleplay-mikrobus-using:
+
 Using boards with Linux drivers
 *******************************
+
+Depending on the type of mikrobus add-on board, the Linux driver could be of various different types. For sensors, the most common is :ref:`beagleplay-mikrobus-using-iio`.
+
+
+.. _beagleplay-mikrobus-using-iio:
 
 IIO driver
 ==========
 
-https://docs.kernel.org/driver-api/iio/intro.html
+Per https://docs.kernel.org/driver-api/iio/intro.html,
+
+    The main purpose of the Industrial I/O subsystem (IIO) is to provide support for devices that in some sense perform either analog-to-digital conversion (ADC) or digital-to-analog conversion (DAC) or both. The aim is to fill the gap between the somewhat similar hwmon and input subsystems. Hwmon is directed at low sample rate sensors used to monitor and control the system itself, like fan speed control or temperature measurement. Input is, as its name suggests, focused on human interaction input devices (keyboard, mouse, touchscreen). In some cases there is considerable overlap between these and IIO.
+
+    Devices that fall into this category include:
+
+    * analog to digital converters (ADCs)
+    * accelerometers
+    * capacitance to digital converters (CDCs)
+    * digital to analog converters (DACs)
+    * gyroscopes
+    * inertial measurement units (IMUs)
+    * color and light sensors
+    * magnetometers
+    * pressure sensors
+    * proximity sensors
+    * temperature sensors
+
+
+See also https://wiki.analog.com/software/linux/docs/iio/iio.
+
+To discover IIO driver enabled devices, use the ``iio_info`` command.
 
 .. code-block:: shell-session
 
@@ -122,7 +203,6 @@ https://docs.kernel.org/driver-api/iio/intro.html
     				    attr  1: integration_time value: 0.800000
     		    2 device-specific attributes found:
     				    attr  0: current_timestamp_clock value: realtime
-        
     				    attr  1: integration_time_available value: 0.1 0.8
     		    No trigger on this device
     	    iio:device1: adc102s051
@@ -138,17 +218,27 @@ https://docs.kernel.org/driver-api/iio/intro.html
     		    No trigger on this device
 
 
+Note that the units are standardized for the IIO interface based on the device type. If raw values are provided, a scale must be applied to get to the standardized units.
+
+.. _beagleplay-mikrobus-using-storage:
+
 Storage driver
 ==============
 
+
+.. _beagleplay-mikrobus-using-net:
 
 Network driver
 ==============
 
 
+.. _beagleplay-mikrobus-how:
+
 How does ClickID work?
 **********************
 
+
+.. _beagleplay-mikrobus-disable:
 
 Disabling the mikroBUS driver
 *****************************

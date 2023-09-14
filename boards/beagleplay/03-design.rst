@@ -62,6 +62,11 @@ all the chips on BeaglePlay we have Low Drop Out (LDO) voltage regulators for fi
 and Power Management Integrated Circuit (PMIC) that interface with SoC to generate software programable voltages. 
 2 x LDOs and 1 x PMIC used on BeaglePlay are shown below.
 
+.. figure:: images/block-diagrams/Power-Block-Diagram.svg
+   :width: 1247
+   :align: center
+   :alt: BeaglePlay power block diagram
+
 TLV75801 - LDO
 ===============
 
@@ -72,15 +77,33 @@ TLV75801 - LDO
 
     TLV75801PDBVR LDO schematic for 1V0 output
 
-TLV62595 - LDO
-==============
+This provides 1.0V required by the single-pair Ethernet PHY (U13 - DP83TD510ERHBR). It was decided this was less
+likely to be needed than the other rails coming off of the primary PMIC and therefore was given its own regulator
+when running low on power rails.
+
+.. note::
+
+  The voltage drop from 1.8V to 1.0V is rated up to 0.3A (240mW), but the typical current from the
+  DP83TD51E data sheet (SNLS656C) is stated at 3.5mA (2.8mW) and the maximum is 7.5mA (6mW). This isn't overly
+  significant on a board typically consuming 400mA at 5V (2W). However, this is an area where some power
+  optimization could be performed if concerned about sleep modes.
+
+TLV62595 - DC/DC regulator
+==========================
 
 .. figure:: images/hardware-design/TLV62595DMQR.svg
     :width: 1247
     :align: center
-    :alt: TLV62595DMQR LDO schematic for 3V3 output
+    :alt: TLV62595DMQR DC/DC regulator schematic for 3V3 output
 
     TLV62595DMQR LDO schematic for 3V3 output
+
+This provides 3.3V for the vast majority of 3.3V I/Os on the board, off-board 3.3V power to microSD, mikroBUS,
+QWIIC and Grove connectors, as well as to the PMIC LDO to provide power for the 1.8V on-board I/Os, DDR4, and
+gigabit Ethernet PHY. Due to the relatively high current rating (3A), a highly efficient (up to 97%) was chosen.
+
+The primary TPS65219 PMIC firmware uses GPO2 to provide the enable signal (VDD_3V3_EN). The power-good signal
+(VDD_3V3_PG) is available at TP19 and is unused on the rest of the board.
 
 TPS65219 - PMIC
 ================
@@ -92,6 +115,15 @@ TPS65219 - PMIC
 
     TPS65219 Power Management Integrated Circuit (PMIC) schematic
 
+This is the primary power management integrated circuit (PMIC) for the design. It coordinates the power
+sequencing and provides numerous power rails required for the core of the system, including dynamic voltages
+for the processor core and microSD card. The TPS6521903 variant is used for this DDR4-based system. The 03
+at the end indicates the sequencing programmed into the device and is covered in the TPS6521903 Technical
+Reference Manual `SLVUCJ2 <https://www.ti.com/lit/pdf/slvucj2>`_.
+
+.. todo::
+
+   Add specific power-up/down sequence notes here as well a highlight any limitations and known issues.
 
 General Connectivity and Expansion
 ***********************************
@@ -147,7 +179,7 @@ Grove
 
     Grove connector schematic
 
-Qwiic
+QWIIC
 =====
 
 .. figure:: images/hardware-design/qwiic.svg

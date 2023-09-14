@@ -23,7 +23,7 @@ PRU_SUPPORT:=/usr/lib/ti/pru-software-support-package
 PRU_STARTERWARE:=/usr/share/ti/starterware
 C6X_CGT:=/usr/share/ti/cgt-c6x
 TIDL_API_DIR:=/usr/share/ti/tidl/tidl_api
-GEN_DIR:=/tmp/cloud9-examples
+GEN_DIR:=/tmp/vsx-examples
 MODEL:=$(shell cat /proc/device-tree/model | sed 's/ /_/g' | tr -d '\000')
 # $(warning MODEL=$(MODEL),TARGET=$(TARGET),COMMON=$(COMMON))
 $(warning MODEL=$(MODEL),TARGET=$(TARGET))

@@ -1,7 +1,7 @@
 .. _pru-cookbook-details:
 
 Running a Program; Configuring Pins
-####################################
+###################################
 
 There are a lot of details in compiling and running PRU code.
 Fortunately those details are captured in a common `Makefile` that is
@@ -20,15 +20,15 @@ compile code and also start and stop the PRUs.
 
 
 Getting Example Code
-**********************
+********************
 
 Problem
----------
+-------
 
 I want to get the files used in this book.
 
 Solution
----------
+--------
 
 It's all on a GitHub repository.
 
@@ -330,7 +330,7 @@ Solution
 ``am335x_pru.cmd`` is the standard linker command file that tells the linker
 where to put what for the BeagleBone Black and Blue, and the Pocket. 
 The ``am57xx_pru.cmd`` does the same for the AI.
-Both files can be found in ``/var/lib/cloud9/common``.
+Both files can be found in ``/opt/source/pru-cookbook-code/common``.
 
 
 .. literalinclude:: ../code/03details/am335x_pru.cmd

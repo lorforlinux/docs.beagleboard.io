@@ -29,15 +29,23 @@ Board Changes
 
 .. table:: Board History  
 
-    +---------+-----------------------+----------------------+--------+
-    | **Rev** | **Changes**           | **Date**             | **By** |
-    +=========+=======================+======================+========+
-    | A1      | Preliminary           | *February 14, 2017*  | JK     |
-    +---------+-----------------------+----------------------+--------+
-    | A2      | Production. Fixed     | *September 22, 2017* | JK     |
-    |         | mikroBUS Click reset  |                      |        |
-    |         | pins (made GPIO).     |                      |        |
-    +---------+-----------------------+----------------------+--------+
+    +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
+    | **Rev** | **Changes**                                                                             | **Date**             | **By** |
+    +=========+=========================================================================================+======================+========+
+    | A1      | Preliminary                                                                             | *February 14, 2017*  | JK     |
+    +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
+    | A2      | Production. Fixed                                                                       | *September 22, 2017* | JK     |
+    |         | mikroBUS Click reset                                                                    |                      |        |
+    |         | pins (made GPIO).                                                                       |                      |        |
+    +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
+    | A2a     | Fixed label on P2_24. Was labeled GPIO48, should be GPIO44.                             | *November 7, 2017*   | JK     |
+    +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
+    | A2b     | Because there are 2 TI parts which have long lead-time,                                 | *June 15, 2021*      | JK     |
+    |         | we made the following changes:                                                          |                      |        |
+    |         |                                                                                         |                      |        |
+    |         | 1. Use ESD discrete devices instead of integrated TVS TI: TPD4S012DRYR.                 |                      |        |
+    |         | 2. Change Logic IC TI SN74LVC1G07DCKR to Nexperia 74LVC1G07GV                           |                      |        |
+    +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
 
 PocketBone
 ^^^^^^^^^^^^^^^^
@@ -80,3 +88,18 @@ Known issues in rev A2:
 |                                  | sues/4 <https://github.com/beagl |
 |                                  | eboard/pocketbeagle/issues/4>`__ |
 +----------------------------------+----------------------------------+
+
+Rev A2B
+^^^^^^^^^^^^
+
+Because there are 2 TI parts which have long LT, we propose to have the following changes:
+
+    Use ESD discrete devices instead of integrated TVS TI: TPD4S012DRYR.
+    Change Logic IC TI: SN74LVC1G07DCKR to Nexperia: 74LVC1G07GV,125.
+
+Related documents put on google drive：
+
+https://drive.google.com/drive/folders/14UVNA0i3mATkLZFYGYaGFKt3y6VxfSd-?usp=sharing
+
+
+

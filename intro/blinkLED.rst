@@ -26,7 +26,7 @@ heart beat.
 
 The Beagle is now up and running, but you didn't have to 
 load up Linux.  This is because all Beagles 
-(except the PocketBeagle, see :ref:`flash-latest-image` 
+(except PocketBeagle, see :ref:`flash-latest-image` 
 to install an image on the Pocket) have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
 
@@ -34,33 +34,97 @@ Login
 -----
 
 Next you login to the Beagle from your host computer. 
-This is slightly different if you host is running Windows.
+Here you have a choice.  If you want a graphical approach, 
+choose the ``VS Code`` tab.  If you want a command line 
+and are running Linux on your host, 
+take the ``ssh (Linux/Mac)`` tab.  Finally take the 
+``putty (Windows)`` tab for command line from windows.
 
-Login from Windows
-^^^^^^^^^^^^^^^^^^
+.. tabs::
 
-If you are running Window you need to run an ``ssh`` client 
-to connect to the Beagle. I suggest you use ``putty``. 
-You can download it here: https://www.putty.org/. 
-Once installed, launch it and connect to your Beagle 
-by sshing to ``192.168.7.2``. 
+    .. group-tab:: VS Code
 
-.. figure::  putty.png
+        Recent Beagles come with the IDE Visual Studio Code 
+        (https://code.visualstudio.com/) installed and 
+        running. To access it, open a web browse on 
+        your host computer and browse to: ``192.168.7.2:3000`` 
+        (use ``192.168.6.2:3000`` for the Mac)
+        and you will see something like:
+
+        .. figure::  figures/vscode1.png
+
+        At this point you can either run the scripts via a command 
+        line within VS Code, or run them by clicking the
+        ``RUN Code`` button.
 
 
-Login with user ``debian`` 
-and password ``temppwd``.  
+        Running via the command line
 
-Login from Linux
-^^^^^^^^^^^^^^^^
+            Open a terminal window in VS Code by dropping down the 
+            ``Terminal`` menu and selecting ``New Terminal`` (or entering 
+            ``Ctrl+Shift+```).  The terminal window appears at the 
+            bottom of the screen as shown below.
 
-If you are running a Linux host, open a terminal widow and run 
+            .. figure:: figures/vscode3.png
 
-.. code-block:: shell-session
+            You can now enter commands and see them run as shown below.
 
-    host:~$ ssh debian@192.168.7.2
+            .. figure:: figures/vscode4.png
 
-Use password ``temppwd``.
+        Running via the ``RUN`` button
+
+            Use the file navigator on the left to navigate to 
+            ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
+            and you will see:
+
+            .. figure:: figures/vscode2.png
+
+            This code blinks one of the USR LEDs built into the board. 
+            Click on the ``RUN Code`` triangle on the upper right of 
+            the screen to run the code.  (You could also enter ``Ctrl+Alt+N``) 
+            The USR3 LED should now be blinking.  
+
+            Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
+            ``Run Code`` button.
+
+            Time to play!  Try changing the LED number (on line 10) from 
+            3 to something else.  Click the ``Run Code`` button (no 
+            need to save the file, autosave is on by default).
+
+            Try running ``seqLEDs.py``.
+
+    .. group-tab:: ssh (Mac)
+                
+        If you are running a Mac host, open a terminal widow and run 
+
+        .. code-block:: shell-session
+
+            host:~$ ssh debian@192.168.6.2
+
+        Use the password ``temppwd``.
+  
+    .. group-tab:: ssh (Linux)
+
+        If you are running a Linux host, open a terminal widow and run 
+
+        .. code-block:: shell-session
+
+            host:~$ ssh debian@192.168.7.2
+        
+        Use the password ``temppwd``.
+
+    .. group-tab:: putty (Windows)
+
+        If you are running Window you need to run an ``ssh`` client 
+        to connect to the Beagle. I suggest you use ``putty``. 
+        You can download it here: https://www.putty.org/. 
+        Once installed, launch it and connect to your Beagle 
+        by sshing to ``192.168.7.2``. 
+
+        .. figure::  figures/putty.png
+
+        Login with user ``debian`` 
+        and password ``temppwd``.  
 
 Blink an LED
 ------------
@@ -69,11 +133,84 @@ Once logged in the rest is easy.  First:
 
 .. code-block:: shell-session
 
-    bone:~$ cd /sys/class/LEDs
+    bone:~$ cd ~/examples/BeagleBone/Black
+    bone:~$ ls        
+    README.md              blinkInternalLED.sh  blinkLED2.py    input2.js
+    analogIn.py            blinkLED.bs.js       blinkLEDold.py  seqLEDs.py
+    analogInCallback.js    blinkLED.c           fadeLED.js      swipeLED.js
+    analogInContinuous.py  blinkLED.js          fadeLED.py
+    analogInOut.js         blinkLED.py          gpiod
+    analogInSync.js        blinkLED.sh          input.js
+
+Here you see a list of many scripts that demo simple 
+input/output on the Beagle. Try one that works on the 
+internal LEDs.
+
+.. code-block:: shell-session
+
+    bone:~$ cat blinkInternalLED.py
+    LED="3"
+    
+    LEDPATH='/sys/class/leds/beaglebone:green:usr'
+    
+    while true ; do
+        echo "1" > ${LEDPATH}${LED}/brightness
+        sleep 0.5
+        echo "0" > ${LEDPATH}${LED}/brightness
+        sleep 0.5
+    done
+    bone:~$ ./blinkInternalLED.py
+    ^c
+
+Here you see a simple bash script that turns an LED 
+on and off.  Enter Ctrl+c to stop the script.
+
+Blinking via Python
+-------------------
+
+Here's a script that sequences the LEDs on and off.
+
+.. code-block:: shell-session
+
+    bone:~$ cat seqLEDs.py
+    import time
+    import os
+
+    LEDs=4
+    LEDPATH='/sys/class/leds/beaglebone:green:usr'
+
+    # Open a file for each LED
+    f = []
+    for i in range(LEDs):
+        f.append(open(LEDPATH+str(i)+"/brightness", "w"))
+
+    # Sequence
+    while True:
+        for i in range(LEDs):
+            f[i].seek(0)
+            f[i].write("1")
+            time.sleep(0.25)
+        for i in range(LEDs):
+            f[i].seek(0)
+            f[i].write("0")
+            time.sleep(0.25)
+    bone:~$ ./seqLEDs.py       
+    ^c
+    
+Again, hit Ctrl+c to stop the script.
+
+Blinking from Command Line
+--------------------------
+
+You can control the LEDs from the command line.
+
+.. code-block:: shell-session
+
+    bone:~$ cd /sys/class/leds
     bone:~$ ls
     beaglebone:green:usr0  beaglebone:green:usr2  mmc0::
     beaglebone:green:usr1  beaglebone:green:usr3  mmc1::
-   
+
 Here you see a list of LEDs. Your list may be slightly 
 different depending on which Beagle you are running. 
 You can blink any of them.  Let's try ``usr1``.
@@ -87,14 +224,13 @@ You can blink any of them.  Let's try ``usr1``.
     bone:~$ echo 0 > brightness
 
 When you echo 1 into ``brightness`` the LED turns on. 
-Echoing a 0 turns it off.  Congratulations, you've blinked 
-your first LED!
+Echoing a 0 turns it off. 
 
 Blinking other LEDs
 -------------------
 
 You can blink the other LEDs by changing in to thier 
-directories and doing the same.
+directories and doing the same. Let's blink the USR0 LED.
 
 .. code-block:: shell-session
     
@@ -131,12 +267,14 @@ Another way to Blink an LED
 ---------------------------
 
 An interesting thing about Linux is there are often many ways 
-to do the same thing.  FOr example, I can think of at least six ways to blink 
+to do the same thing.  For example, I can think of at least five ways to blink 
 an LED.  Here's another way using the ``gpiod`` system.
+
+First see where the LEDs are attached.
 
 .. code-block:: shell-session
 
-    bone:~$ gpioinfo | grep -e chip -ie  led
+    bone:~$ gpioinfo | grep -e chip -ie  usr
     gpiochip0 - 32 lines:
     gpiochip1 - 32 lines:
         line  21: "[usr0 led]" "beaglebone:green:usr0" output active-high [used]
@@ -158,7 +296,7 @@ the ``gpioset`` command.
     bone:~$ gpioset --mode=time --sec=2 1 22=1
     bone:~$ gpioset --mode=time --sec=2 1 22=0
 
-The first command sets chip 1, line 22 (the usr1 led) to 1 (on) for 
+The first command sets chip 1, line 22 (the usr1 LED) to 1 (on) for 
 2 seconds.  The second command turns it off for 2 seconds.
 
 Try it for the other LEDs.
@@ -168,4 +306,69 @@ Try it for the other LEDs.
     This may not work on all Beagles since it depends on which 
     version of Debian you are running.
 
+Blinking in response  to a button
+---------------------------------
 
+Some Beagles have a USR button that can be used  to control the LEDs. 
+You can test the USR button with ``evtest`` 
+
+.. code-block:: shell-session
+
+    bone:~$ evtest
+    No device specified, trying to scan all of /dev/input/event*
+    Not running as root, no devices may be available.
+    Available devices:
+    /dev/input/event0:	tps65219-pwrbutton
+    /dev/input/event1:	gpio-keys
+    Select the device event number [0-1]: 1
+
+We want to use ``gpio-keys``, so enter ``1``. Press and release 
+the USR button and you'll see:
+
+ .. code-block:: shell-session
+
+    Input driver version is 1.0.1
+    Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
+    Input device name: "gpio-keys"
+    Supported events:
+    Event type 0 (EV_SYN)
+    Event type 1 (EV_KEY)
+        Event code 256 (BTN_0)
+    Key repeat handling:
+    Repeat type 20 (EV_REP)
+        Repeat code 0 (REP_DELAY)
+        Value    250
+        Repeat code 1 (REP_PERIOD)
+        Value     33
+    Properties:
+    Testing ... (interrupt to exit)
+    Event: time 1692994988.305846, type 1 (EV_KEY), code 256 (BTN_0), value 1
+    Event: time 1692994988.305846, -------------- SYN_REPORT ------------
+    Event: time 1692994988.561786, type 1 (EV_KEY), code 256 (BTN_0), value 2
+    Event: time 1692994988.561786, -------------- SYN_REPORT ------------
+    Event: time 1692994988.601883, type 1 (EV_KEY), code 256 (BTN_0), value 2
+    Event: time 1692994988.601883, -------------- SYN_REPORT ------------
+    Event: time 1692994988.641754, type 1 (EV_KEY), code 256 (BTN_0), value 2
+    Event: time 1692994988.641754, -------------- SYN_REPORT ------------
+    Event: time 1692994988.641754, type 1 (EV_KEY), code 256 (BTN_0), value 0
+    Event: time 1692994988.641754, -------------- SYN_REPORT ------------
+    Ctrl+c 
+
+The following script uses evtesst to wait for the USR button to be pressed and 
+then turns on the LED.
+
+.. literalinclude:: buttonEvent.sh
+    :caption: buttonEvent.sh
+    :linenos:
+
+:download:`buttonEvent.sh<buttonEvent.sh>`
+
+Try running it and pressing the USR button. 
+
+The next script polls the USR button and toggles the LED.
+
+.. literalinclude:: buttonLED.sh
+    :caption: buttonLED.sh
+    :linenos:
+
+:download:`buttonLED.sh<buttonLED.sh>`

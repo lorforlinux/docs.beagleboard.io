@@ -1,7 +1,7 @@
 .. _pru-cookbook-io:
 
 Accessing More I/O
-####################
+##################
 
 So far the examples have shown how to access the GPIO pins on the BeagleBone Black's ``P9`` header and 
 through the ``pass:[__]R30`` register.  Below shows how more GPIO pins can be accessed.
@@ -115,9 +115,9 @@ Set your exports and make.
     TARGET=gpio.pru0
     ...
     bone$ *make*
-    /var/lib/cloud9/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=gpio.pru0
+    /opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=gpio.pru0
     -    Stopping PRU 0
-    -	copying firmware file /tmp/cloud9-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw
+    -	copying firmware file /tmp/vsx-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw
     write_init_pins.sh
     -    Starting PRU 0
     MODEL   = TI_AM335x_BeagleBone_Black
