@@ -75,8 +75,7 @@ Rev A2
 ^^^^^^^^^^^^
 
 The Rev A2 of PocketBeagle was released to production and
-[https://www.prnewswire.com/news-releases/small-in-size--cost-meet-pocketbeagle-the-25-development-board-for-hobbyists-educators-and-professionals-300519950.html\ *launched
-at World MakerFaire 2017*].
+`launched at World MakerFaire 2017 <https://www.prnewswire.com/news-releases/small-in-size--cost-meet-pocketbeagle-the-25-development-board-for-hobbyists-educators-and-professionals-300519950.html>`__.
 
 Known issues in rev A2:
 
@@ -90,10 +89,7 @@ Known issues in rev A2:
 Rev A2B
 ^^^^^^^^^^^^
 
-Because there are 2 TI parts which have long LT, we propose to have the following changes:
-
-    Use ESD discrete devices instead of integrated TVS TI: TPD4S012DRYR.
-    Change Logic IC TI: SN74LVC1G07DCKR to Nexperia: 74LVC1G07GV,125.
+Because 2 TI parts had a long lead time, we made the following changes:
 
 +---------------+-------------------------------------------------+-----------------------+--------------+-----------------+-----------------------------+
 | Change # | Modification                                         | Reference Designators | Part Type    | Before（value ）| After（value)               |
