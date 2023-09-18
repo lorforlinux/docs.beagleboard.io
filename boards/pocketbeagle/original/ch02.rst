@@ -97,9 +97,4 @@ Because there are 2 TI parts which have long LT, we propose to have the followin
     Use ESD discrete devices instead of integrated TVS TI: TPD4S012DRYR.
     Change Logic IC TI: SN74LVC1G07DCKR to Nexperia: 74LVC1G07GV,125.
 
-Related documents put on google drive：
-
-https://drive.google.com/drive/folders/14UVNA0i3mATkLZFYGYaGFKt3y6VxfSd-?usp=sharing
-
-
 
