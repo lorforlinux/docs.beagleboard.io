@@ -3,7 +3,11 @@
 Introduction
 #############
 
-.. todo:: BeagleV Fire introduction.
+BeagleV®-Fire is a revolutionary SBC powered by the Microchip's PolarFire® MPFS025T FCVG484E 5x core RISC-V System on Chip 
+(SoC) with FPGA fabric. BeagleV®-Fire opens up new horizons for developers, tinkerers, and the open-source community to explore the vast potential 
+of RISC-V architecture and FPGA technology. It has the same P8 & P9 cape header pins as BeagleBone Black allowing you to stack your favourite BeagleBone 
+cape on top to expand it's capability. Built around the powerful and energy-efficient RISC-V instruction set architecture (ISA) along with its versatile FPGA fabric, 
+BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, and researchers to explore and experiment with RISC-V technology.
 
 .. table::
    :align: center
@@ -50,28 +54,24 @@ Detailed overview
     +----------------------------+---------------------------------------------------------------------------+
     | Feature                    | Description                                                               |
     +============================+===========================================================================+
-    | Processor                  |                                                                           |
+    | Processor                  | MPFS025T-FCVG484E                                                         |
     +----------------------------+---------------------------------------------------------------------------+
-    | PMIC                       |                                                                           |
+    | Memory                     | 2GB (1Gb x 16)- 1866MHz 3733Mbps, LPDDR4                                  |
     +----------------------------+---------------------------------------------------------------------------+
-    | Memory                     |                                                                           |
+    | Storage                    | Kingston 16GB eMMC                                                        |
     +----------------------------+---------------------------------------------------------------------------+
-    | Storage                    |                                                                           |
+    | Wireless                   | 1x M.2 Key E, support 2.4GHz/5GHz WiFi module                             |
     +----------------------------+---------------------------------------------------------------------------+
-    | WiFi/Bluetooth             | - PHY:                                                                    |
-    |                            | - Antennas:                                                               |
+    | Ethernet                   | - PHY: Realtek RTL8211F-VD-CG Gigabit Ethernet phy                        |
+    |                            | - Connector: integrated magnetics RJ-45                                   |
     +----------------------------+---------------------------------------------------------------------------+
-    | Ethernet                   | - PHY:                                                                    |
-    |                            | - Connector:                                                              |
+    | USB C                      | - Connectivity: Flash/programming support                                 |
+    |                            | - Power: Input: 5V @ <To-Do>                                              |
     +----------------------------+---------------------------------------------------------------------------+
-    | microUSB 3.0               | - Connectivity:                                                           |
-    |                            | - Power: Input: 5V @ <To-Do>, Output: 5V @ <To-Do>                        |
-    +----------------------------+---------------------------------------------------------------------------+
-    | HDMI                       | - Transmitter:                                                            |
-    |                            | - Connector:                                                              |
-    +----------------------------+---------------------------------------------------------------------------+
-    | Other connectors           | -                                                                         |
-    |                            | -                                                                         |
+    | Other connectors           | - 1x SYZYGY High speed connector                                          |
+    |                            | - microSD card slot                                                       |
+    |                            | - CSI connector compatible with BeagleBone AI-64, BeagleV-Ahead Raspberry |
+    |                            |   Pi Zero / CM4 (22-pin)                                                  |
     +----------------------------+---------------------------------------------------------------------------+
 
 Board components location
