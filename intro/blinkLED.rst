@@ -20,6 +20,75 @@ Plug in the Beagle
 
 For this step you need to get a USB cable and attach your Beagle 
 to your host computer with it.
+
+.. tabs::
+
+    .. group-tab:: Black
+
+        .. figure:: figures/image8.jpg
+            :width: 632px
+            :height: 166px
+            :align: center
+            :alt: Tethered Configuration
+
+        .. figure:: figures/image9.jpg
+            :width: 451px
+            :height: 206px
+            :align: center
+            :alt: USB Connection to the Board
+                    
+    .. group-tab:: Blue
+
+        .. figure:: figures/blueconnect.jpg
+
+        Figure from https://wiki.seeedstudio.com/BeagleBone_Blue/
+            
+    .. group-tab:: AI-64
+
+        .. figure:: figures/usb-tethering.jpg
+            :width: 400px
+            :align: center 
+            :alt: Tethered Configuration
+
+        Fig: Tethered Configuration  
+
+        .. figure:: figures/usb-c-connection.jpg
+            :width: 400px
+            :align: center 
+            :alt: USB Connection to the Board
+
+            Fig: USB Connection to the Board
+        .. figure:: figures/usb-a-connection.jpg
+            :width: 400px
+            :align: center 
+            :alt: USB Connection to the PC/Laptop
+
+            Fig: USB Connection to the PC/Laptop
+
+        .. figure:: figures/power-led.jpg
+            :width: 400px
+            :align: center 
+            :alt: Board Power LED
+
+            Fig: Board Power LED
+
+    .. group-tab:: Play
+
+        .. figure:: figures/tethered-connection.jpg
+            :width: 1400
+            :align: center
+            :alt: Tethering BeaglePlay to PC
+
+            Tethering BeaglePlay to PC
+            
+    .. group-tab:: Pocket
+
+        .. figure:: figures/11fig-PB-microUSBattach1.jpg
+            :align: center
+            :alt: Tethered Configuration
+
+            Tethered Configuration            
+            
 Once attached you will see some LEDs blinking.
 Wait a bit and the blinking will settle down to a steady
 heart beat.
@@ -354,7 +423,7 @@ the USR button and you'll see:
     Event: time 1692994988.641754, -------------- SYN_REPORT ------------
     Ctrl+c 
 
-The following script uses evtesst to wait for the USR button to be pressed and 
+The following script uses evtest to wait for the USR button to be pressed and 
 then turns on the LED.
 
 .. literalinclude:: buttonEvent.sh
