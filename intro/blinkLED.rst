@@ -19,7 +19,8 @@ Plug in the Beagle
 ------------------
 
 For this step you need to get a USB cable and attach your Beagle 
-to your host computer with it.
+to your host computer with it.  Where you attached the cable 
+depends on which Beagle you have.  Click on the tab for your board.
 
 .. tabs::
 
@@ -31,18 +32,25 @@ to your host computer with it.
             :align: center
             :alt: Tethered Configuration
 
+        Tethered Configuration
+
         .. figure:: figures/image9.jpg
             :width: 451px
             :height: 206px
             :align: center
             :alt: USB Connection to the Board
-                    
+        
+        Mini USB Connection to the Board as seen from the bottom.
+
     .. group-tab:: Blue
 
         .. figure:: figures/blueconnect.jpg
+            :width: 451px
+            :align: center
+            :alt: USB Connection to the Blue
 
-        Figure from https://wiki.seeedstudio.com/BeagleBone_Blue/
-            
+        Micro USB Connection to the Blue
+
     .. group-tab:: AI-64
 
         .. figure:: figures/usb-tethering.jpg
@@ -50,27 +58,28 @@ to your host computer with it.
             :align: center 
             :alt: Tethered Configuration
 
-        Fig: Tethered Configuration  
+        Tethered Configuration  
 
         .. figure:: figures/usb-c-connection.jpg
             :width: 400px
             :align: center 
             :alt: USB Connection to the Board
 
-            Fig: USB Connection to the Board
+        USB-c Connection to the Board
+            
         .. figure:: figures/usb-a-connection.jpg
             :width: 400px
             :align: center 
             :alt: USB Connection to the PC/Laptop
 
-            Fig: USB Connection to the PC/Laptop
+        USB Connection to the PC/Laptop
 
         .. figure:: figures/power-led.jpg
             :width: 400px
             :align: center 
             :alt: Board Power LED
 
-            Fig: Board Power LED
+        Board Power LED
 
     .. group-tab:: Play
 
@@ -79,7 +88,7 @@ to your host computer with it.
             :align: center
             :alt: Tethering BeaglePlay to PC
 
-            Tethering BeaglePlay to PC
+        Tethering BeaglePlay to PC
             
     .. group-tab:: Pocket
 
@@ -87,7 +96,7 @@ to your host computer with it.
             :align: center
             :alt: Tethered Configuration
 
-            Tethered Configuration            
+        Micro USB Connection            
             
 Once attached you will see some LEDs blinking.
 Wait a bit and the blinking will settle down to a steady
@@ -105,9 +114,10 @@ Login
 Next you login to the Beagle from your host computer. 
 Here you have a choice.  If you want a graphical approach, 
 choose the ``VS Code`` tab.  If you want a command line 
-and are running Linux on your host, 
-take the ``ssh (Linux/Mac)`` tab.  Finally take the 
-``putty (Windows)`` tab for command line from windows.
+and your host is a Mac, take the ``ssh (Mac)`` tab. If you
+are running Linux on your host, 
+take the ``ssh (Linux)`` tab.  Finally take the 
+``putty (Windows)`` tab for command line from Windows.
 
 .. tabs::
 
@@ -115,7 +125,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
         Recent Beagles come with the IDE Visual Studio Code 
         (https://code.visualstudio.com/) installed and 
-        running. To access it, open a web browse on 
+        running. To access it, open a web browser on 
         your host computer and browse to: ``192.168.7.2:3000`` 
         (use ``192.168.6.2:3000`` for the Mac)
         and you will see something like:
@@ -150,7 +160,7 @@ take the ``ssh (Linux/Mac)`` tab.  Finally take the
 
             This code blinks one of the USR LEDs built into the board. 
             Click on the ``RUN Code`` triangle on the upper right of 
-            the screen to run the code.  (You could also enter ``Ctrl+Alt+N``) 
+            the screen (see red arrow) to run the code.  (You could also enter ``Ctrl+Alt+N``) 
             The USR3 LED should now be blinking.  
 
             Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
