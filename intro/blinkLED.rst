@@ -42,6 +42,8 @@ depends on which Beagle you have.  Click on the tab for your board.
         
         Mini USB Connection to the Board as seen from the bottom.
 
+        For more details see: :ref:`beagleboneblack-connectivity`
+
     .. group-tab:: Blue
 
         .. figure:: figures/blueconnect.jpg
@@ -81,6 +83,8 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         Board Power LED
 
+        For more details see: :ref:`connecting-up-your-beaglebone-ai-64`
+
     .. group-tab:: Play
 
         .. figure:: figures/tethered-connection.jpg
@@ -89,6 +93,8 @@ depends on which Beagle you have.  Click on the tab for your board.
             :alt: Tethering BeaglePlay to PC
 
         Tethering BeaglePlay to PC
+
+        For more details see: :ref:`beagleplay-quick-start`
             
     .. group-tab:: Pocket
 
@@ -96,7 +102,9 @@ depends on which Beagle you have.  Click on the tab for your board.
             :align: center
             :alt: Tethered Configuration
 
-        Micro USB Connection            
+        Micro USB Connection
+
+        For more details see: :REF:`connecting_up_pocketbeagle`
             
 Once attached you will see some LEDs blinking.
 Wait a bit and the blinking will settle down to a steady
