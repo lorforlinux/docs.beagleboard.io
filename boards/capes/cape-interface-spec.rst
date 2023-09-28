@@ -206,7 +206,7 @@ and other properties defined in the
 .. table:: Bone GPIO LEDs interface
 
 	+------------------------+-------------+----------+-----------+-----------+
-	| LED SYSFS              | Header pin  | Black    | AI        | AI-64     |
+	| SYSFS link             | Header pin  | Black    | AI        | AI-64     |
 	+========================+=============+==========+===========+===========+
 	| /sys/class/leds/P8_03  | P8_03       | gpio1_6  | gpio1_24  | gpio0_20  |
 	+------------------------+-------------+----------+-----------+-----------+
@@ -393,7 +393,7 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 .. table:: I2C port mapping
 
 	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
-	| SYSFS           | DT symbol    | Black | AI    | AI-64     | SCL   | SDA    | Overlay   |
+	| SYSFS link      | DT symbol    | Black | AI    | AI-64     | SCL   | SDA    | Overlay   |
 	+=================+==============+=======+=======+===========+=======+========+===========+
 	| /dev/bone/i2c/0 | bone_i2c_0   | I2C0  | I2C1  | TBD       | On-board                   |
 	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
@@ -829,15 +829,15 @@ PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. F
 
 .. table:: Bone bus PWM
 
-	+------------------+--------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| Bone bus         | Black  | AI    | AI-64  | A      | B      | Overlay                                                                                                |
-	+==================+========+=======+========+========+========+========================================================================================================+
-	| /dev/bone/pwm/0  | PWM0   | -     | PWM1   | P9.22  | P9.21  | `BONE-PWM0.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_pwm/src/arm/BONE-PWM0.dts>`_  |
-	+------------------+--------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| /dev/bone/pwm/1  | PWM1   | PWM3  | PWM2   | P9.14  | P9.16  | `BONE-PWM1.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_pwm/src/arm/BONE-PWM1.dts>`_  |
-	+------------------+--------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
-	| /dev/bone/pwm/2  | PWM2   | PWM2  | PWM0   | P8.19  | P8.13  | `BONE-PWM2.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_pwm/src/arm/BONE-PWM2.dts>`_  |
-	+------------------+--------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
+	+------------------+------------+-------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
+	| SYSFS link       | DT symbol  | Black | AI    | AI-64  | A      | B      | Overlay                                                                                                |
+	+==================+============+=======+=======+========+========+========+========================================================================================================+
+	| /dev/bone/pwm/0  | bone_pwm_0 | PWM0  | -     | PWM1   | P9.22  | P9.21  | `BONE-PWM0.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_pwm/src/arm/BONE-PWM0.dts>`_  |
+	+------------------+------------+-------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
+	| /dev/bone/pwm/1  | bone_pwm_0 | PWM1  | PWM3  | PWM2   | P9.14  | P9.16  | `BONE-PWM1.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_pwm/src/arm/BONE-PWM1.dts>`_  |
+	+------------------+------------+-------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
+	| /dev/bone/pwm/2  | bone_pwm_0 | PWM2  | PWM2  | PWM0   | P8.19  | P8.13  | `BONE-PWM2.dts <https://github.com/lorforlinux/bb.org-overlays/blob/bone_pwm/src/arm/BONE-PWM2.dts>`_  |
+	+------------------+------------+-------+-------+--------+--------+--------+--------------------------------------------------------------------------------------------------------+
 
 TIMER PWM
 *********
@@ -1349,6 +1349,8 @@ Device Trees
 ============
 
 .. todo:: Describe how the Device Trees expose symbols for reuse across boards
+
+For every resource exposed on the cape headers, an indexed symbol should be provided in the base device tree.
 
 udev rules
 ==========
