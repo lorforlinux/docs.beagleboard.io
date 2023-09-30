@@ -5,7 +5,7 @@ Getting Started
 
 We assume you have some experience with the Beagle and are here to learn about 
 the PRU.  This chapter discusses what Beagles are out there, how to load the 
-latest software image on your beagle, how to run the Visual Studio Code IDE and how to 
+latest software image on your Beagle, how to run the Visual Studio Code IDE and how to 
 blink an LED.
 
 If you already have your Beagle and know your way around it, you can find the
