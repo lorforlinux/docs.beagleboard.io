@@ -70,7 +70,7 @@ Detailed overview
     +----------------------------+---------------------------------------------------------------------------+
     | Other connectors           | - 1x SYZYGY High speed connector                                          |
     |                            | - microSD card slot                                                       |
-    |                            | - CSI connector compatible with BeagleBone AI-64, BeagleV-Ahead Raspberry |
+    |                            | - CSI connector compatible with BeagleBone AI-64, BeagleV-Ahead, Raspberry|
     |                            |   Pi Zero / CM4 (22-pin)                                                  |
     +----------------------------+---------------------------------------------------------------------------+
 
