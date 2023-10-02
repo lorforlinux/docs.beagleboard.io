@@ -44,6 +44,34 @@ Flash the latest image on eMMC
 Access UART debug console
 **************************
 
+.. note:: 
+    
+    Some tested devices that are working good includes:
+
+    1. `Adafruit CP2102N Friend - USB to Serial Converter <https://www.adafruit.com/product/5335>`_
+    2. `Raspberry Pi Debug Probe Kit for Pico and RP2040 <https://www.adafruit.com/product/5699>`_
+
+To access a BeagleV-Fire serial debug console you can connected a USB to UART 
+to your board as shown below:
+
+.. figure:: media/debug/BeagleV-Fire-UART-Debug.*
+    :align: center
+    :alt: BeagleV-Fire UART debug port connection
+
+    BeagleV-Fire UART debug port connection
+
+To see the board boot log and access your BeagleV-Fire's console you can use application like ``tio`` 
+to access the conole. If you are using Linux your USB to UART converter may appear as ``/dev/ttyUSB``. 
+It will be different for Mac and Windows operatig systems. To find serial port for your system you can checkout 
+`this guide <https://www.mathworks.com/help/supportpkg/arduinoio/ug/find-arduino-port-on-windows-mac-and-linux.html>`_.
+
+.. code-block:: shell
+
+    [lorforlinux@fedora ~] $ tio /dev/ttyUSB0 
+    tio v2.5
+    Press ctrl-t q to quit
+    Connected
+
 Demos and Tutorials
 *******************
 
