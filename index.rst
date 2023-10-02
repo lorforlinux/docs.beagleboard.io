@@ -56,6 +56,19 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
+      :link: beaglev-fire-home
+      :link-type: ref
+
+      **BeagleV®-Fire**
+      ^^^
+
+      .. image:: boards/beaglev/fire/media/product-pictures/45front.*
+         :align: center
+      +++
+
+      Quad core RISC-V SBC with FPGA.
+
+   .. grid-item-card::
       :link: beagleplay-home
       :link-type: ref
 

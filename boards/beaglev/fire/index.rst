@@ -3,7 +3,13 @@
 BeagleV-Fire
 ###################
 
-BeagleV-Fire is awesome!
+.. image:: media/BeagleV-Fire-hero.*
+    :align: center
+    :alt: BeagleV Fire hero image
+
+.. important::
+    This is a work in progress, for latest documentation please 
+    visit https://docs.beagleboard.org/latest/
 
 .. admonition:: Contributors
 
