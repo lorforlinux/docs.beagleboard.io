@@ -14,4 +14,4 @@ Demos
 .. toctree:: 
     :maxdepth: 1
     
-    demos-and-tutorials/board-update
+    demos-and-tutorials/flashing-board

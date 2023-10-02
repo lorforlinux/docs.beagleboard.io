@@ -1,7 +1,7 @@
-.. _beaglev-fire-board-update:
+.. _beaglev-fire-flashing-board:
 
-Board update
-############
+Flashing gateware and Linux image
+##################################
 
 In this tutorial we are going to learn to flash the gateware image
 to FPGA and ``sdcard.image`` to eMMC storage.
@@ -188,27 +188,3 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
 Congratulations! with that done you have fully updated BeagleV-Fire board
 with up to date gateware image on it's PolarFire SoC's FPGA
 Fabric and linux image on it's eMMC storage.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
