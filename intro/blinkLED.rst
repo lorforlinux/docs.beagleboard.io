@@ -3,7 +3,7 @@
 
 .. _blinkLED:
 
-Blink an ED
+Blink an LED
 ###########
 
 The "Hello World!" of the embedded world is to blink an LED. 
