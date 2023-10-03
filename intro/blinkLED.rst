@@ -3,8 +3,8 @@
 
 .. _blinkLED:
 
-Blink LED
-#########
+Blink an ED
+###########
 
 The "Hello World!" of the embedded world is to blink an LED. 
 Here we'll show you how to do just that in three simple steps. 
