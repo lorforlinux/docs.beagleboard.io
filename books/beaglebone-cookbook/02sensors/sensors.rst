@@ -230,7 +230,7 @@ Mapping Header Numbers to gpio Numbers
 Problem
 --------
 
-You have a sensor attached to the P8 or P9 header and need to know which gpio pin it's using.
+You have a sensor attached to the P8 or P9 header and need to know which gpio pin it is using.
 
 Solution
 ---------
@@ -508,9 +508,9 @@ the Bone's eQEP ports, as shown in :ref:`digital_rotaryEncoder_fig`.
 .. table:: On the BeagleBone and PocketBeage the three encoders are:
 
   +-------------+------------------------------------+
-  | eQEP0       | P9.27 and P9.42 OR P1_33 and P2_34 |
+  |eQEP0        | P9.27 and P9.42 OR P1_33 and P2_34 |
   +-------------+------------------------------------+
-  |eQEP         | P9.33 and P9.35                    |
+  |eQEP1        | P9.33 and P9.35                    |
   +-------------+------------------------------------+
   |eQEP2        | P8.11 and P8.12 OR P2_24 and P2_33 |
   +-------------+------------------------------------+
@@ -729,7 +729,7 @@ shows that you have wired your device to |I2C| bus *2*.
 Once the |I2C| device is wired up, you can use a couple handy |I2C| 
 tools to test the device. Because these are Linux command-line tools, 
 you have to use *2* as the bus number. *i2cdetect*, shown in :ref:`js_i2cTools`, 
-shows which |I2C|  devices are on the bus. The *-r* flag indicates which bus to use. 
+shows which |I2C| devices are on the bus. The *-r* flag indicates which bus to use. 
 Our TMP101 is appearing at address *0x49*. You can use the *i2cget* command to read 
 the value. It returns the temperature in hexadecimal and degrees C. 
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
@@ -763,7 +763,7 @@ Try warming up the TMP101 with your finger and running *i2cget* again.
 Reading the temperature via the kernel driver
 ==============================================
 
-The cleanest way to read the temperature from at TMP101 sensor is to use the kernel drive.
+The cleanest way to read the temperature from at TMP101 sensor is to use the kernel driver.
 
 Assuming the TMP101 is on bus 2 (the last digit is the bus number)
 
@@ -867,13 +867,13 @@ Run the code by using the following command:
   ^C
 
 
-Notice using the  kernel interface gets you more digits of accuracy.
+Notice using the kernel interface gets you more digits of accuracy.
 
 Reading i2c device directly
 ===========================
 
 The TMP102 sensor can be read directly with i2c commands rather than 
-using the kernel driver.  First you need to install the i2c module.
+using the kernel driver. First you need to install the i2c module.
 
 .. code-block:: bash
 
@@ -890,7 +890,7 @@ using the kernel driver.  First you need to install the i2c module.
 
 This gets only 8 bits for the temperature. See the TMP101 datasheet 
 (https://www.ti.com/product/TMP101)
-for details on how  to get up to 12 bits.
+for details on how to get up to 12 bits.
 
 Reading Temperature via a Dallas 1-Wire Device
 ===============================================
