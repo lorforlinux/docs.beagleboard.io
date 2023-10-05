@@ -23,7 +23,7 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
     .. figure:: images/OSHW_mark_US000011.*
         :width: 200
         :target: https://certification.oshwa.org/us000011.html
-        :alt: BeagleBone Black OSHW Mark
+        :alt: BeagleBone Black Wireless OSHW Mark
 
 
 .. note::
