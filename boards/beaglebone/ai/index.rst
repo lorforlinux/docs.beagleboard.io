@@ -11,6 +11,13 @@ BeagleBone AI
     All derivative works are to be attributed to `Jason Kridner of
     BeagleBoard.org <https://beagleboard.org/about/jkridner>`__.
 
+.. admonition:: OSHWA Certification mark
+
+    .. figure:: images/OSHW_mark_US000169.*
+        :width: 200
+        :target: https://certification.oshwa.org/us000169.html
+        :alt: BeagleBone AI OSHW Mark
+
 .. note::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
