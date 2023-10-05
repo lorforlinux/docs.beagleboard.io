@@ -11,6 +11,13 @@ PocketBeagle
    - Maintaining author: `Jason Kridner <jkridner@beagleboard.org>`_
    - Contributing Editor: `Cathy Wicks  <cathy@beagleboard.org>`_
 
+.. admonition:: OSHWA Certification mark
+
+    .. figure:: images/OSHW_mark_US000083.*
+        :width: 200
+        :target: https://certification.oshwa.org/us000083.html
+        :alt: PocketBeagle OSHW mark
+
 .. note::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
@@ -21,17 +28,12 @@ PocketBeagle is an ultra-tiny-yet-complete open-source USB-key-fob computer.
 PocketBeagle features an incredible low cost, slick design and simple usage, 
 making PocketBeagle the ideal development board for beginners and professionals alike. 
 
-.. table::
-   :align: center
-   :widths: auto
 
-   +----------------------------------------------------------+--------------------------------------------------------------+
-   | .. image:: images/PocketBeagle-size-compare-small.*      | .. image:: images/OSHW_mark_US000083.*                       |
-   |    :width: 598                                           |       :width: 200                                            |
-   |    :align: center                                        |       :align: center                                         |
-   |    :alt: PocketBeagle                                    |       :alt: PocketBeagle OSHW mark                           |
-   |                                                          |       :target: https://certification.oshwa.org/us000083.html |
-   +----------------------------------------------------------+--------------------------------------------------------------+
+.. image:: images/PocketBeagle-size-compare-small.*
+   :width: 598                                     
+   :align: center                                   
+   :alt: PocketBeagle                                 
+
 
 .. toctree::
    :maxdepth: 1
