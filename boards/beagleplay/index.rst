@@ -7,6 +7,18 @@ BeaglePlay
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
 
+.. admonition:: Contributors
+
+    This work is licensed under a `Creative Commons Attribution-ShareAlike
+    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+
+.. admonition:: OSHWA Certification mark
+
+    .. figure:: images/OSHW-mark-US002174.*
+        :width: 200
+        :target: https://certification.oshwa.org/us002174.html
+        :alt: BeaglePlay OSHW Mark
+
 
 .. table::
    :align: center
@@ -18,6 +30,12 @@ BeaglePlay
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeaglePlay                                |       :alt: BeaglePlay                                  |
    +----------------------------------------------------+---------------------------------------------------------+
+
+.. note::
+    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
+    
+    Use of either the boards or the design materials constitutes agreement to the T&C including any 
+    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
 .. raw:: latex
    
