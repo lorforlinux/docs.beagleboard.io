@@ -27,7 +27,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
 
 .. admonition:: OSHWA Certification mark
 
-    .. figure:: media/OSHW-mark-US002175.png
+    .. figure:: media/OSHW_mark_US002175.*
         :width: 200
         :target: https://certification.oshwa.org/us002175.html
         :alt: BeagleConnect™ Freedom OSHW Mark
