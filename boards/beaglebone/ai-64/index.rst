@@ -16,6 +16,13 @@ hardware examples and dozens of readily available embedded expansion options ava
     This work is licensed under a `Creative Commons Attribution-ShareAlike
     4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
+.. admonition:: OSHWA Certification mark
+
+    .. figure:: images/OSHW_mark_US002120.*
+        :width: 200
+        :target: https://certification.oshwa.org/us002120.html
+        :alt: BeagleBone AI-64 OSHW Mark
+
 .. note::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
