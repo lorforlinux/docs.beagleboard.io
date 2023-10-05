@@ -14,7 +14,7 @@ BeaglePlay
 
 .. admonition:: OSHWA Certification mark
 
-    .. figure:: images/OSHW-mark-US002174.*
+    .. figure:: images/OSHW_mark_US002174.*
         :width: 200
         :target: https://certification.oshwa.org/us002174.html
         :alt: BeaglePlay OSHW Mark
