@@ -11,11 +11,18 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
     This work is licensed under a `Creative Commons Attribution-ShareAlike
     4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
-.. admonition:: OSHWA Certification mark
+.. admonition:: OSHWA Certification mark (BeagleBone Black)
 
     .. figure:: images/OSHW_mark_US000236.*
         :width: 200
         :target: https://certification.oshwa.org/us000236.html
+        :alt: BeagleBone Black OSHW Mark
+
+.. admonition:: OSHWA Certification mark (BeagleBone Black Wireless)
+
+    .. figure:: images/OSHW_mark_US000011.*
+        :width: 200
+        :target: https://certification.oshwa.org/us000011.html
         :alt: BeagleBone Black OSHW Mark
 
 
