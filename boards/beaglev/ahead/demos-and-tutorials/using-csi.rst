@@ -1,7 +1,7 @@
-.. _beaglev-ahead-csi:
-
 .. important:: 
     This document is a work on progress.
+
+.. _beaglev-ahead-csi:
 
 Using CSI Cameras
 #################

@@ -20,6 +20,13 @@ and of course the `BeagleBoard.org Foundation <https://beagleboard.org/about>`_.
     This work is licensed under a `Creative Commons Attribution-ShareAlike
     4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
+.. admonition:: OSHWA Certification mark
+
+    .. figure:: media/OSHW_mark_US000064.*
+        :width: 200
+        :target: https://certification.oshwa.org/us000064.html
+        :alt: BeagleBone Blue OSHW Mark
+
 .. note::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
@@ -30,12 +37,12 @@ and of course the `BeagleBoard.org Foundation <https://beagleboard.org/about>`_.
 .. toctree::
    :maxdepth: 1
    
-   /boards/beaglebone/blue/pinouts.rst
-   /boards/beaglebone/blue/ssh.rst
-   /boards/beaglebone/blue/wifi.rst
-   /boards/beaglebone/blue/ip-settings.rst
-   /boards/beaglebone/blue/flashing-firmware.rst
-   /boards/beaglebone/blue/code.rst
-   /boards/beaglebone/blue/tests.rst
-   /boards/beaglebone/blue/accessories.rst
-   /boards/beaglebone/blue/faq.rst
+   pinouts
+   ssh
+   wifi
+   ip-settings
+   flashing-firmware
+   code
+   tests
+   accessories
+   faq

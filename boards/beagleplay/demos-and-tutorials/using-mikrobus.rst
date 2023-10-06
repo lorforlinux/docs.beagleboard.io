@@ -64,7 +64,7 @@ To use the add-on, see :ref:`beagleplay-mikrobus-using`.
 
    Not all Click boards with ClickID have valid ``manifest`` entries.
 
-.. _beagleplay-mikrobus-clickid:
+.. _beagleplay-mikrobus-without-clickid:
 
 What if my add-on doesn't have ClickID?
 ***************************************
