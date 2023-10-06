@@ -384,11 +384,11 @@ Compatibility layer provides simple I2C bone bus nodes for creating compatible o
 	|                   | 25  | 26   | 3 SDA [3]_       |
 	+-------------------+-----+------+------------------+
 
-.. [3] Mutually exclusive with port 1 on Black
+.. [3] Port 3 is mutually exclusive with port 1 on Black
 
-.. [4] Mutually exclusive with port 2 on Black
+.. [4] Port 4 is mutually exclusive with port 2 on Black
 
-.. [5] On Black and AI-64 only
+.. [5] On Black and AI-64 only, not AI
 
 .. table:: I2C port mapping
 
@@ -476,7 +476,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	+-------------------+-----+------+------------------+
 	|                   | 39  | 40   |                  |
 	+-------------------+-----+------+------------------+
-	|                   | 41  | 42   | 1 CS1 [2]_       |
+	|                   | 41  | 42   | 1 CS1            |
 	+-------------------+-----+------+------------------+
 
 .. table:: SPI port mapping
@@ -486,14 +486,12 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 	+====================+============+=======+======+===========+=======+=======+=======+==================+=============+
 	| /dev/bone/spi/0.0  | bone_spi_0 | SPI0  | SPI2 | MAIN_SPI6 | P9.18 | P9.21 | P9.22 | P9.17 (CS0)      | BONE-SPI0_0 |
 	+--------------------+            +       +      +           +       +       +       +------------------+-------------+
-	| /dev/bone/spi/0.1  |            |       |      |           |       |       |       | P9.23 (CS1) [2]_ | BONE-SPI0_1 |
+	| /dev/bone/spi/0.1  |            |       |      |           |       |       |       | P9.23 (CS1)      | BONE-SPI0_1 |
 	+--------------------+------------+-------+------+-----------+-------+-------+-------+------------------+-------------+
 	| /dev/bone/spi/1.0  | bone_spi_1 | SPI1  | SPI3 | MAIN_SPI7 | P9.30 | P9.29 | P9.31 | P9.28 (CS0)      | BONE-SPI1_0 |
 	+--------------------+            +       +      +           +       +       +       +------------------+-------------+
 	| /dev/bone/spi/1.1  |            |       |      |           |       |       |       | P9.42 (CS1)      | BONE-SPI1_1 |
 	+--------------------+------------+-------+------+-----------+-------+-------+-------+------------------+-------------+
-
-.. [2] Only available on AI and AI-64
 
 .. note::
 
@@ -502,6 +500,10 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
    more background. A custom overlay is required to overload the compatible string to load a non-spidev driver.
 
 .. todo:: figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time
+
+.. note::
+
+   Some boards may implement CS using a GPIO.
 
 .. code-block::
    :linenos:
