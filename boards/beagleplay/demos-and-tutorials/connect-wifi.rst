@@ -4,8 +4,12 @@ Connect WiFi
 #############
 
 .. note::
-    A common issue experienced by users when connecting to Wireless networks are network names that include special characters such as spaces, apostrophes etc, this may make connecting to your network more difficult. It is thus recommended to rename your Wireless AP to something simpler. For Example - renaming "Boris's Wireless Network" to "BorisNet". This avoids having to add special "escape" characters in the name. This shows up especially if you try connecting to iPhone/iOS HotSpots, where the network name is the device name, which by default is something like "Dan's iPhone". Also see `this potential solution. 
-<https://unix.stackexchange.com/questions/679862/wpa-supplicant-conf-escaping-characters/>`_.
+    A common issue experienced by users when connecting to Wireless networks are network names that include special characters 
+    such as spaces, apostrophes etc, this may make connecting to your network more difficult. It is thus recommended to 
+    rename your Wireless AP to something simpler. For Example - renaming "Boris's Wireless Network" to "BorisNet". 
+    This avoids having to add special "escape" characters in the name. This shows up especially if you try connecting to 
+    iPhone/iOS HotSpots, where the network name is the device name, which by default is something like "Dan's iPhone". 
+    Also see `this potential solution. <https://unix.stackexchange.com/questions/679862/wpa-supplicant-conf-escaping-characters/>`_.
 
 
 If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`.

@@ -3,7 +3,6 @@
 BeagleConnect Freedom
 #####################
 
-
 BeagleConnect™ Freedom is an open-hardware wireless hardware platform developed by BeagleBoard.org and built around the TI CC1352P7 microcontroller, which supports both 
 2.4-GHz and long-range, low-power Sub-1 GHz wireless protocols. Rapidly prototyping of IoT applications is accelerated by hardware compatibility with over 1,000 mikroBUS add-on sensors,
 acutators, indicators and additional connectivity and storage options, and backed with software support utilizing the Zephyr scalable and modular real-time operating system, allowing developers
@@ -13,13 +12,33 @@ battery charger, buzzer, LEDs, and JTAG connections to make it a comprehensive s
 The TI CC1352P7 microcontroller (MCU) includes a 48-MHz Arm Cortex-M4F processor, 704KB Flash memory, 256KB ROM, 8KB Cache SRAM, 144KB of ultra-low leakage SRAM, and
 over-the-air upgrades (OTA) capability. This MCU provides flexible support for many different protocols and bands making it suitable for many different communication requirements.
 
-.. important::
-
-   This is a work in progress, for latest documentation please visit https://docs.beagleboard.org/latest/
-
 .. image:: media/BeagleConnect-Freedom-Hand.*
   :align: center
   :alt: BeagleConnect™ Freedom board
+
+.. important::
+    This is a work in progress, for latest documentation please 
+    visit https://docs.beagleboard.org/latest/
+
+.. admonition:: Contributors
+
+    This work is licensed under a `Creative Commons Attribution-ShareAlike
+    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+
+.. admonition:: OSHWA Certification mark
+
+    .. figure:: media/OSHW_mark_US002175.*
+        :width: 200
+        :target: https://certification.oshwa.org/us002175.html
+        :alt: BeagleConnect™ Freedom OSHW Mark
+        
+.. note::
+    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
+    
+    Use of either the boards or the design materials constitutes agreement to the T&C including any 
+    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
+
+
 
 .. raw:: latex
    
