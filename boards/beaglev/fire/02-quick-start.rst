@@ -6,7 +6,7 @@ Quick Start
 What's included in the box?
 ****************************
 
-When you purchase a brand new BeagleV Fire, In the box you'll get:
+When you purchase a brand new BeagleV-Fire, In the box you'll get:
 
 .. todo:: add image & information about box content.
 

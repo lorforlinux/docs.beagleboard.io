@@ -37,13 +37,13 @@ Hardware docs
 
 For any hardware document like schematic diagram PDF, 
 EDA files, issue tracker, and more you can checkout the 
-`BeagleV Fire design repository <https://git.beagleboard.org/beaglev-fire/beaglev-fire/>`_.
+`BeagleV-Fire design repository <https://git.beagleboard.org/beaglev-fire/beaglev-fire/>`_.
 
 Software docs
 ==============
 
-For BeagleV Fire specific software projects you can checkout all the 
-`BeagleV Fire project repositories group <https://git.beagleboard.org/beaglev-fire>`_.
+For BeagleV-Fire specific software projects you can checkout all the 
+`BeagleV-Fire project repositories group <https://git.beagleboard.org/beaglev-fire>`_.
 
 Support forum
 =============
@@ -72,7 +72,7 @@ Document Changes
 For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
 specific hardware and software revisions are noted below.
 
-.. table:: BeagleV Fire document change history
+.. table:: BeagleV-Fire document change history
 
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |
@@ -88,7 +88,7 @@ Board Changes
 For all changes, see https://git.beagleboard.org/beaglev-fire/beaglev-fire/. Versions released into production
 are noted below.
 
-.. table:: BeagleV Fire board change history
+.. table:: BeagleV-Fire board change history
 
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |

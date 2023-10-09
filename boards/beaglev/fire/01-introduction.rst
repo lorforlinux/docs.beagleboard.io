@@ -17,7 +17,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
    | .. image:: media/product-pictures/front.*          | .. image:: media/product-pictures/back.*                |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
-   |    :alt: BeagleV Fire front                        |       :alt: BeagleV Fire back                           |
+   |    :alt: BeagleV-Fire front                        |       :alt: BeagleV-Fire back                           |
    +----------------------------------------------------+---------------------------------------------------------+
 
 Pinout Diagrams
@@ -31,25 +31,25 @@ Choose the cape header to see respective pinout diagram.
 
         .. figure:: media/pinout/BeagleV-Fire-P8.*
             :align: center
-            :alt: BeagleV Fire P8 cape header pinout
+            :alt: BeagleV-Fire P8 cape header pinout
 
-            BeagleV Fire P8 cape header pinout
+            BeagleV-Fire P8 cape header pinout
 
 
    .. group-tab:: P9 cape header
 
         .. figure:: media/pinout/BeagleV-Fire-P9.*
             :align: center
-            :alt: BeagleV Fire P9 cape header pinout
+            :alt: BeagleV-Fire P9 cape header pinout
 
-            BeagleV Fire P9 cape header pinout
+            BeagleV-Fire P9 cape header pinout
 
 .. _beaglev-fire-detaild-overview:
 
 Detailed overview
 ******************
 
-.. table:: BeagleV Fire features
+.. table:: BeagleV-Fire features
         
     +----------------------------+---------------------------------------------------------------------------+
     | Feature                    | Description                                                               |
@@ -85,9 +85,9 @@ Front components location
 .. figure:: media/BeagleV-Fire-Front-Annotated.*
     :width: 1400
     :align: center
-    :alt: BeagleV Fire board front components location
+    :alt: BeagleV-Fire board front components location
     
-    BeagleV Fire board front components location
+    BeagleV-Fire board front components location
 
 
 .. table:: BeagleV-Fire board front components location
@@ -133,9 +133,9 @@ Back components location
 .. figure:: media/BeagleV-Fire-Back-Annotated.*
     :width: 1400
     :align: center
-    :alt: BeagleV Fire board back components location
+    :alt: BeagleV-Fire board back components location
 
-    BeagleV Fire board back components location
+    BeagleV-Fire board back components location
 
 
 .. table:: BeagleV-Fire board back components location

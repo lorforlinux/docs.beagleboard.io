@@ -8,7 +8,7 @@ Cape Headers
 
 .. important:: This page is a work in progress, don't use if for debugging.
 
-.. todo:: update the tables with BeagleV Fire pinout.
+.. todo:: update the tables with BeagleV-Fire pinout.
 
 The expansion interface on the board is comprised of two headers P8 (46 pin) & P9 (46 pin).
 All signals on the expansion headers are **3.3V** unless otherwise indicated.
