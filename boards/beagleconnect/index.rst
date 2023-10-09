@@ -49,6 +49,7 @@ BeagleConnect™ technology solves:
 
    /boards/beagleconnect/technology/index.rst
    /boards/beagleconnect/technology/story.rst
+   /boards/beagleconnect/technology/beagleplay_demo.rst
 
 BeagleConnect Experience
 *************************
