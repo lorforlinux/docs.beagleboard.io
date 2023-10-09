@@ -5,7 +5,7 @@ BeagleV-Fire
 
 .. image:: media/BeagleV-Fire-hero.*
     :align: center
-    :alt: BeagleV Fire hero image
+    :alt: BeagleV-Fire hero image
 
 .. important::
     This is a work in progress, for latest documentation please 
@@ -37,11 +37,11 @@ BeagleV-Fire
 
         .. image:: media/chapter-thumbnails/01-introduction.*
             :align: center
-            :alt: BeagleV Ahead Chapter01 thumbnail
+            :alt: BeagleV-Fire Chapter01 thumbnail
         
         +++
 
-        Introduction to BeagleV Ahead board with information on each component 
+        Introduction to BeagleV-Fire board with information on each component 
         location on both front and back of the board.
 
     .. grid-item-card:: 
@@ -53,7 +53,7 @@ BeagleV-Fire
 
         .. image:: media/chapter-thumbnails/02-quick-start.*
             :align: center
-            :alt: BeagleV Ahead Chapter02 thumbnail
+            :alt: BeagleV-Fire Chapter02 thumbnail
 
         +++
 
@@ -69,11 +69,11 @@ BeagleV-Fire
 
         .. image:: media/chapter-thumbnails/03-design-and-specifications.*
             :align: center
-            :alt: BeagleV Ahead Chapter03 thumbnail
+            :alt: BeagleV-Fire Chapter03 thumbnail
 
         +++
 
-        Hardware and mechanical design and specifications of BeagleV Ahead board 
+        Hardware and mechanical design and specifications of BeagleV-Fire board 
         for those who want to know their board inside and out.
 
     .. grid-item-card:: 
@@ -85,7 +85,7 @@ BeagleV-Fire
 
         .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
             :align: center
-            :alt: BeagleV Ahead Chapter04 thumbnail
+            :alt: BeagleV-Fire Chapter04 thumbnail
 
         +++
 
@@ -101,11 +101,11 @@ BeagleV-Fire
 
         .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
             :align: center
-            :alt: BeagleV Ahead Chapter5 thumbnail
+            :alt: BeagleV-Fire Chapter5 thumbnail
 
         +++
 
-        Demos and tutorials to quickly learn about BeagleV Ahead capabilities.
+        Demos and tutorials to quickly learn about BeagleV-Fire capabilities.
 
     .. grid-item-card:: 
         :link: beaglev-fire-support
@@ -116,7 +116,7 @@ BeagleV-Fire
 
         .. image:: media/chapter-thumbnails/06-support-documents.*
             :align: center
-            :alt: BeagleV Ahead Chapter6 thumbnail
+            :alt: BeagleV-Fire Chapter6 thumbnail
 
         +++
 
