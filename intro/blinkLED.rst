@@ -4,7 +4,7 @@
 .. _blinkLED:
 
 Blink an LED
-###########
+############
 
 The "Hello World!" of the embedded world is to blink an LED. 
 Here we'll show you how to do just that in three simple steps. 
@@ -174,6 +174,8 @@ take the ``ssh (Linux)`` tab.  Finally take the
             Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
             ``Run Code`` button.
 
+            
+            
             Time to play!  Try changing the LED number (on line 10) from 
             3 to something else.  Click the ``Run Code`` button (no 
             need to save the file, autosave is on by default).
@@ -251,6 +253,16 @@ internal LEDs.
 
 Here you see a simple bash script that turns an LED 
 on and off.  Enter Ctrl+c to stop the script.
+
+Congratulations, you've blinked an LED.
+
+.. tabs:: 
+
+        .. group-tab:: LinkedIn
+
+            Time to update your LinkedIn skills.
+
+            .. figure:: figures/linkedin.png
 
 Blinking via Python
 -------------------
