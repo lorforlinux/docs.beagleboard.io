@@ -431,6 +431,8 @@ Cape interface specification provides |I2C| controller device links for userspac
 |I2C| pins
 ==========
 
+
+
 .. table:: I2C pins
 
 	+---------------------------------------------------+
@@ -463,7 +465,7 @@ Cape interface specification provides |I2C| controller device links for userspac
 	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
 	| Links           | DT symbol    | Black | AI    | AI-64     | SCL   | SDA    | Overlay   |
 	+=================+==============+=======+=======+===========+=======+========+===========+
-	| /dev/bone/i2c/0 | bone_i2c_0   | I2C0  | I2C1  | TBD       | On-board                   |
+	| /dev/bone/i2c/0 | bone_i2c_0   | I2C0  | I2C1  | WKUP_I2C0 | On-board                   |
 	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
 	| /dev/bone/i2c/1 | bone_i2c_1   | I2C1  | I2C5  | MAIN_I2C6 | P9.17 | P9.18  | BONE-I2C1 |
 	+-----------------+--------------+-------+-------+-----------+-------+--------+-----------+
