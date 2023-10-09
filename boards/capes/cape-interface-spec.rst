@@ -963,7 +963,7 @@ On BeagleBone's without an eQEP on specific pins, consider using the PRU to perf
 
 	+----------------------+----------------+-------+-------+-------+-------+-------+----------------------+----------------------+---------------+
 	| SYSFS link           | DT symbol      | Black | AI    | AI-64 | A     | B     | STRB                 | INDX                 | Overlay       |
-	+======================+================+=======+=======+=======+=======+==============================+======================+===============+
+	+======================+================+=======+=======+=======+=======+=======+======================+======================+===============+
 	| /dev/bone/counter/0  | bone_counter_0 | eQEP0 | eQEP2 | eQEP0 | P9.42 | P9.27 | - Black/AI-64: P9.25 | - Black/AI-64: P9.41 | BONE-COUNTER0 |
 	|                      |                |       |       |       |       |       | - AI: P8.06          | - AI: P8.05          |               |
 	+----------------------+----------------+-------+-------+-------+-------+-------+----------------------+----------------------+---------------+
@@ -1372,6 +1372,12 @@ GPIO
 
 .. todo:: For each of the pins with a GPIO, there should be a symlink that comes from the names 
 
+.. _bone-dynamic-overlays:
+
+Dynamic overlays
+****************
+
+.. todo:: Document dynamic DT overlays
 
 .. _bone-methodology:
 
