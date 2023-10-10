@@ -1269,7 +1269,7 @@ LCD
 PRU
 ***
 
-The overlay situation for PRUs is a bit more complex than with other peripherals. The mechanism for loading, starting and stopping the PRUs can go through either [https://www.kernel.org/doc/html/latest/driver-api/uio-howto.html UIO] or [https://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/PRU-ICSS/Linux_Drivers/RemoteProc_and_RPMsg.html RemoteProc].
+The overlay situation for PRUs is a bit more complex than with other peripherals. The mechanism for loading, starting and stopping the PRUs can go through either `UIO <https://www.kernel.org/doc/html/latest/driver-api/uio-howto.html>`_ or `RemoteProc <https://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/PRU-ICSS/Linux_Drivers/RemoteProc_and_RPMsg.html RemoteProc>`_.
 
 * /dev/remoteproc/prussX-coreY (AM3358 X = "", other x = "1|2")
 
