@@ -428,8 +428,8 @@ try modifying the earler *bash* script to use `gpiod` instead of `echo`.
     The following may not work on all Beagles since it depends on which 
     version of Debian you are running.
 
-Blinking in response to a button
----------------------------------
+Blinking in response to a button event
+--------------------------------------
 
 Some Beagles have a **USR** button that can be used  to control the LEDs. 
 You can test the **USR** button with ``evtest`` 
@@ -503,6 +503,9 @@ Your turn
 Try modifying the code to turn on a different LED.  Try blinking 2 or 3 
 LEDs when the button is pressed.  Can you toggle an LED each time the 
 button is pressed?
+
+Blinking in response to a button poll
+-------------------------------------
 
 The next script polls the USR button and toggles the LED rather that waiting 
 for an event.
