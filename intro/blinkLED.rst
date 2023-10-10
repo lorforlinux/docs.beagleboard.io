@@ -241,7 +241,7 @@ internal LEDs.
 
 .. code-block:: shell-session
 
-    bone:~$ cat blinkInternalLED.py
+    bone:~$ cat blinkInternalLED.sh
     LED="3"
     
     LEDPATH='/sys/class/leds/beaglebone:green:usr'
@@ -252,7 +252,7 @@ internal LEDs.
         echo "0" > ${LEDPATH}${LED}/brightness
         sleep 0.5
     done
-    bone:~$ ./blinkInternalLED.py
+    bone:~$ ./blinkInternalLED.sh
     ^c
 
 Here you see a simple bash script that turns an LED 
@@ -290,16 +290,30 @@ Here's a script that sequences the LEDs on and off.
     while True:
         for i in range(LEDs):
             f[i].seek(0)
-            f[i].write("1")
+            f[i].write("1")     # 1 turns the LED on
             time.sleep(0.25)
         for i in range(LEDs):
             f[i].seek(0)
-            f[i].write("0")
+            f[i].write("0")     # 0 turns the LED off
             time.sleep(0.25)
     bone:~$ ./seqLEDs.py       
     ^c
     
 Again, hit Ctrl+c to stop the script.
+
+This python script is a bit more complicated that the previous bash 
+script.  Note that *LEDPATH* is the same in both scripts.  They use the 
+same interface to control the built-in LEDs.  The python script opens a 
+file for each of the LEDs and then writes a **1** to the file to turn on 
+the LED.  A **0** is writen to turn it off.  The *for* loop allows it to turn 
+on (or off) all four LEDs in sequence.
+
+Your turn
+^^^^^^^^^
+
+Try speeding up, or slowing down the sequencing by changing the *sleep* times. 
+If you have programming experience, make a single LED sequence back and forth.
+
 
 Blinking from Command Line
 --------------------------
@@ -325,8 +339,8 @@ You can blink any of them.  Let's try ``usr1``.
     bone:~$ echo 1 > brightness
     bone:~$ echo 0 > brightness
 
-When you echo 1 into ``brightness`` the LED turns on. 
-Echoing a 0 turns it off. 
+When you echo **1** into ``brightness`` the LED turns on. 
+Echoing a **0** turns it off. 
 
 Blinking other LEDs
 -------------------
@@ -336,7 +350,7 @@ directories and doing the same. Let's blink the USR0 LED.
 
 .. code-block:: shell-session
     
-    bone:~$ cd ../beaglebone\:green\:usr0/
+    bone:~$ cd ./sys/class/leds/beaglebone\:green\:usr0/
     bone:~$ echo 1 > brightness
     bone:~$ echo 0 > brightness
 
@@ -362,8 +376,10 @@ what triggers you can set:
 Notice ``[heartbeat]`` is in brackets.  This shows it's the 
 current trigger.  The echo changes the trigger to ``none``.
 
+Your turn 
+^^^^^^^^^
 Try experimenting with some of the other triggers and see if you 
-can figure them out.
+can figure them out. Try changing the trigger on the other LEDs. 
 
 Another way to Blink an LED
 ---------------------------
@@ -401,21 +417,26 @@ the ``gpioset`` command.
 The first command sets chip 1, line 22 (the usr1 LED) to 1 (on) for 
 2 seconds.  The second command turns it off for 2 seconds.
 
-Try it for the other LEDs.
+Your turn 
+^^^^^^^^^
+
+Try turning on and off the other LEDs. If you have programming experience, 
+try modifying the earler *bash* script to use `gpiod` instead of `echo`.
 
 .. note:: 
 
-    This may not work on all Beagles since it depends on which 
+    The following may not work on all Beagles since it depends on which 
     version of Debian you are running.
 
-Blinking in response  to a button
+Blinking in response to a button
 ---------------------------------
 
-Some Beagles have a USR button that can be used  to control the LEDs. 
-You can test the USR button with ``evtest`` 
+Some Beagles have a **USR** button that can be used  to control the LEDs. 
+You can test the **USR** button with ``evtest`` 
 
 .. code-block:: shell-session
 
+    bone:~$ sudo apt install evtest
     bone:~$ evtest
     No device specified, trying to scan all of /dev/input/event*
     Not running as root, no devices may be available.
@@ -456,8 +477,11 @@ the USR button and you'll see:
     Event: time 1692994988.641754, -------------- SYN_REPORT ------------
     Ctrl+c 
 
-The following script uses evtest to wait for the USR button to be pressed and 
-then turns on the LED.
+The value **1** means the **USR** button was pressed, the **0** means it 
+was released.  The value **2** means the button is being held.
+
+The following script uses ``evtest`` to wait for the **USR** button to be 
+pressed and then turns on the LED.
 
 .. literalinclude:: buttonEvent.sh
     :caption: buttonEvent.sh
@@ -465,9 +489,23 @@ then turns on the LED.
 
 :download:`buttonEvent.sh<buttonEvent.sh>`
 
-Try running it and pressing the USR button. 
+Try running it and pressing the **USR** button. 
 
-The next script polls the USR button and toggles the LED.
+.. code-block:: shell-session
+
+    bone:~$ ./buttonEvent.sh
+    ^c
+
+The **USR3** LED should turn on when the **USR** button is pressed.
+
+Your turn
+^^^^^^^^^
+Try modifying the code to turn on a different LED.  Try blinking 2 or 3 
+LEDs when the button is pressed.  Can you toggle an LED each time the 
+button is pressed?
+
+The next script polls the USR button and toggles the LED rather that waiting 
+for an event.
 
 .. literalinclude:: buttonLED.sh
     :caption: buttonLED.sh
