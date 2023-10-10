@@ -1075,7 +1075,11 @@ MMC/SDIO
 
 SDIO is popular to connect various WiFi modules. The interface can also be used to connect MMC cards.
 
-.. table:: Bone eMMC
+.. important::
+
+   On Black, the SDIO pins are consumed by default by the on-board eMMC which must be disabled to utilize the SDIO capability. On AI and AI-64, the on-board eMMC does not consume these pins.
+
+.. table:: Bone MMC/SD/SDIO/eMMC
 
 	+-------------+--------------+
 	| Header pin  | Description  |
@@ -1100,6 +1104,8 @@ SDIO is popular to connect various WiFi modules. The interface can also be used 
 	+-------------+--------------+
 	| P8.25       | DAT0         |
 	+-------------+--------------+
+
+.. [9] 8-bit eMMC support only on Black. AI and AI-64 provide 4-bit support only.
 
 .. table:: Bone SDIO Overlay
 
