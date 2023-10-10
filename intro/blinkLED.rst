@@ -260,6 +260,12 @@ on and off.  Enter Ctrl+c to stop the script.
 
 Congratulations, you've blinked an LED.
 
+Your turn
+^^^^^^^^^
+
+Now that you have an LED blinking, try blinking a different LED. 
+Or, blink more than one LED at a time. Try slowing down, or speeding up 
+the blink rate.
 
 Blinking via Python
 -------------------
