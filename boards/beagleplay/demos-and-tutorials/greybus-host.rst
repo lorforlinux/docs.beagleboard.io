@@ -21,9 +21,9 @@ Build
             libxml2-dev libxslt1-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
             libtool-bin autoconf automake libusb-1.0-0-dev \
             python3-tk python3-virtualenv
-        wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.gz
-        tar xf zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.gz
-        rm zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.gz
+        wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
+        tar xf zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
+        rm zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         ./zephyr-sdk-0.16.3/setup.sh -t arm-zephyr-eabi -c
         west init -m https://git.beagleboard.org/beagleconnect/zephyr/zephyr --mr sdk-next zephyr-beagle-cc1352-sdk
         cd $HOME/zephyr-beagle-cc1352-sdk
