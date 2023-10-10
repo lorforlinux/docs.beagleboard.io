@@ -112,9 +112,13 @@ heart beat.
 
 The Beagle is now up and running, but you didn't have to 
 load up Linux.  This is because all Beagles 
-(except PocketBeagle, see :ref:`flash-latest-image` 
-to install an image on the Pocket) have built-in flash memory 
+have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
+
+.. note:: 
+    The one exception is the PocketBeagle which has no built-in 
+    flash memory.  See :ref:`flash-latest-image` 
+    to install an image on the Pocket
 
 Login
 -----
@@ -256,13 +260,6 @@ on and off.  Enter Ctrl+c to stop the script.
 
 Congratulations, you've blinked an LED.
 
-.. tabs:: 
-
-        .. group-tab:: LinkedIn
-
-            Time to update your LinkedIn skills.
-
-            .. figure:: figures/linkedin.png
 
 Blinking via Python
 -------------------
