@@ -40,11 +40,114 @@ Block diagram
 System on Chip (SoC)
 *********************
 
+.. figure:: media/hardware-design/soc-bank0.*
+    :width: 720
+    :align: center
+    :alt: SoC bank0
+
+    SoC bank0
+
+.. figure:: media/hardware-design/soc-bank1.*
+    :width: 720
+    :align: center
+    :alt: SoC bank1
+
+    SoC bank1
+
+.. figure:: media/hardware-design/soc-bank2.*
+    :width: 720
+    :align: center
+    :alt: SoC bank2
+
+    SoC bank2
+
+.. figure:: media/hardware-design/soc-bank3.*
+    :width: 720
+    :align: center
+    :alt: SoC bank3
+
+    SoC bank3
+
+.. figure:: media/hardware-design/soc-bank4.*
+    :width: 720
+    :align: center
+    :alt: SoC bank4
+
+    SoC bank4
+
+.. figure:: media/hardware-design/soc-power.*
+    :width: 1240
+    :align: center
+    :alt: SoC power
+
+    SoC power
+
+
 Power management
 *****************
 
-PMIC
-====
+.. figure:: media/hardware-design/dc-5v-input.*
+    :width: 720
+    :align: center
+    :alt: DC 5V input
+
+    DC 5V input
+
+.. figure:: media/hardware-design/ideal-diode.*
+    :width: 720
+    :align: center
+    :alt: Ideal diode
+
+    Ideal diode
+
+.. figure:: media/hardware-design/vcc-1v0.*
+    :width: 720
+    :align: center
+    :alt: VCC 1V0
+
+    VCC 1V0
+
+.. figure:: media/hardware-design/vcc-1v1.*
+    :width: 720
+    :align: center
+    :alt: VCC 1V1
+
+    VCC 1V1
+
+.. figure:: media/hardware-design/vcc-1v8.*
+    :width: 720
+    :align: center
+    :alt: VCC 1V8
+
+    VCC 1V8
+
+.. figure:: media/hardware-design/vcc-2v5.*
+    :width: 720
+    :align: center
+    :alt: VCC 2V5
+
+    VCC 2V5
+
+.. figure:: media/hardware-design/vcc-3v3.*
+    :width: 720
+    :align: center
+    :alt: VCC 3V3
+
+    VCC 3V3
+
+.. figure:: media/hardware-design/vcca-1v0.*
+    :width: 720
+    :align: center
+    :alt: VCCA 1V0
+
+    VCCA 1V0
+
+.. figure:: media/hardware-design/vio-enable.*
+    :width: 720
+    :align: center
+    :alt: VIO enable
+
+    VIO enable
 
 General Connectivity and Expansion
 **********************************
