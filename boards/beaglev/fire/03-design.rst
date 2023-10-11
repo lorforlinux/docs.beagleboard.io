@@ -31,7 +31,7 @@ Block diagram
     Power tree diagram
 
 .. figure:: media/hardware-design/iic-tree-diagram.*
-    :width: 720
+    :width: 420
     :align: center
     :alt: I2C tree diagram
 
@@ -55,7 +55,7 @@ System on Chip (SoC)
     SoC bank1
 
 .. figure:: media/hardware-design/soc-bank2.*
-    :width: 720
+    :width: 540
     :align: center
     :alt: SoC bank2
 
@@ -69,14 +69,14 @@ System on Chip (SoC)
     SoC bank3
 
 .. figure:: media/hardware-design/soc-bank4.*
-    :width: 720
+    :width: 420
     :align: center
     :alt: SoC bank4
 
     SoC bank4
 
 .. figure:: media/hardware-design/soc-power.*
-    :width: 1240
+    :width: 970
     :align: center
     :alt: SoC power
 
@@ -94,7 +94,7 @@ Power management
     DC 5V input
 
 .. figure:: media/hardware-design/ideal-diode.*
-    :width: 720
+    :width: 420
     :align: center
     :alt: Ideal diode
 
@@ -122,7 +122,7 @@ Power management
     VCC 1V8
 
 .. figure:: media/hardware-design/vcc-2v5.*
-    :width: 720
+    :width: 270
     :align: center
     :alt: VCC 2V5
 
@@ -136,7 +136,7 @@ Power management
     VCC 3V3
 
 .. figure:: media/hardware-design/vcca-1v0.*
-    :width: 720
+    :width: 540
     :align: center
     :alt: VCCA 1V0
 
@@ -156,7 +156,7 @@ USB-C port
 ============
 
 .. figure:: media/hardware-design/usb-c.*
-    :width: 720
+    :width: 970
     :align: center
     :alt: USB C
 
@@ -166,21 +166,21 @@ P8 & P9 cape header pins
 =========================
 
 .. figure:: media/hardware-design/p8-header.*
-    :width: 720
+    :width: 570
     :align: center
     :alt: P8 cape header
 
     P8 cape header
 
 .. figure:: media/hardware-design/p8-header.*
-    :width: 720
+    :width: 570
     :align: center
     :alt: P9 cape header
 
     P9 cape header
 
 .. figure:: media/hardware-design/level-translator.*
-    :width: 720
+    :width: 1070
     :align: center
     :alt: Cape header voltage level translator
 
@@ -197,7 +197,7 @@ ADC
     16bit Delta-Sigma ADC
 
 .. figure:: media/hardware-design/adc-ldo.*
-    :width: 720
+    :width: 270
     :align: center
     :alt: ADC LDO power supply
 
@@ -220,14 +220,14 @@ User and reset button
 =======================
 
 .. figure:: media/hardware-design/user-button.*
-    :width: 720
+    :width: 420
     :align: center
     :alt: User button
 
     User button
 
 .. figure:: media/hardware-design/reset-button.*
-    :width: 720
+    :width: 420
     :align: center
     :alt: Reset button
 
@@ -240,7 +240,7 @@ Ethernet
 ========
 
 .. figure:: media/hardware-design/gigabit-ethernet.*
-    :width: 720
+    :width: 970
     :align: center
     :alt: Gigabit ethernet
 
@@ -253,7 +253,7 @@ DDR memory
 ==========
 
 .. figure:: media/hardware-design/lpdd4.*
-    :width: 720
+    :width: 970
     :align: center
     :alt: LPDDR memory
 
@@ -263,7 +263,7 @@ eMMC
 =====
 
 .. figure:: media/hardware-design/emmc.*
-    :width: 720
+    :width: 970
     :align: center
     :alt: EMMC flash storage
 
@@ -273,7 +273,7 @@ microSD
 =======
 
 .. figure:: media/hardware-design/sdcard.*
-    :width: 720
+    :width: 970
     :align: center
     :alt: SD Card socket
 
@@ -283,7 +283,7 @@ EEPROM
 ======
 
 .. figure:: media/hardware-design/eeprom.*
-    :width: 720
+    :width: 420
     :align: center
     :alt: EEPROM
 
@@ -293,7 +293,7 @@ SPI flash
 ==========
 
 .. figure:: media/hardware-design/spi-flash.*
-    :width: 720
+    :width: 470
     :align: center
     :alt: SPI Flash
 
@@ -306,7 +306,7 @@ CSI
 ====
 
 .. figure:: media/hardware-design/csi.*
-    :width: 720
+    :width: 470
     :align: center
     :alt: CSI
 
@@ -319,7 +319,7 @@ UART debug port
 ===============
 
 .. figure:: media/hardware-design/uart-debug-header.*
-    :width: 720
+    :width: 470
     :align: center
     :alt: UART debug header
 
@@ -329,7 +329,7 @@ JTAG debug port
 ===============
 
 .. figure:: media/hardware-design/jtag.*
-    :width: 720
+    :width: 470
     :align: center
     :alt: JTAG debug header
 
