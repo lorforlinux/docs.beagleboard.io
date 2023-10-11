@@ -222,6 +222,12 @@ Connectivity
 Ethernet
 ========
 
+.. figure:: media/hardware-design/gigabit-ethernet.*
+    :width: 720
+    :align: center
+    :alt: Gigabit ethernet
+
+    Gigabit ethernet
 
 Memory, Media and Data storage
 ********************************
@@ -229,18 +235,52 @@ Memory, Media and Data storage
 DDR memory
 ==========
 
+.. figure:: media/hardware-design/lpdd4.*
+    :width: 720
+    :align: center
+    :alt: LPDDR memory
+
+    LPDDR memory
 
 eMMC
 =====
 
+.. figure:: media/hardware-design/emmc.*
+    :width: 720
+    :align: center
+    :alt: EMMC flash storage
+
+    EMMC flash storage
 
 microSD
 =======
 
+.. figure:: media/hardware-design/sdcard.*
+    :width: 720
+    :align: center
+    :alt: SD Card socket
+
+    SD Card socket
 
 EEPROM
 ======
 
+.. figure:: media/hardware-design/eeprom.*
+    :width: 720
+    :align: center
+    :alt: EEPROM
+
+    EEPROM
+
+SPI flash
+==========
+
+.. figure:: media/hardware-design/spi-flash.*
+    :width: 720
+    :align: center
+    :alt: SPI Flash
+
+    SPI Flash
 
 Multimedia I/O
 ***************
