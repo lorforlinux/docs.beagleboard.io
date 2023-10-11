@@ -910,7 +910,7 @@ In :ref:`bone_cape_spec_pwm_example`, you can specify what driver you want to lo
 PWM userspace example
 =======================
 
-See :ref:`beaglebone-cookbook-motors` for examples on using the userspace links to use the PWMs.
+See :ref:`displays_PWMdiscussion` and  :ref:`beaglebone-cookbook-motors` for examples on using the userspace links to use the PWMs.
 
 .. _bone-spi:
 
