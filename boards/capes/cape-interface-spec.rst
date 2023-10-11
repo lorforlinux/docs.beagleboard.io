@@ -1224,7 +1224,7 @@ LCD
 
 .. important::
 
-   |I2S| 0 is used by HDMI on Black.
+   |I2S| 0 is used by HDMI audio on Black.
 
 
 |I2S| port mapping
@@ -1253,6 +1253,8 @@ LCD
 	+---------+-------------+-------------------+---------------+-------------------+
 	| SDI1    | P8.33       | mcasp0_axr3       |               |                   |
 	+---------+-------------+-------------------+---------------+-------------------+
+
+.. table:: |I2S| port mapping link and overlay
 
 	+------------------+-----------+
 	| Link             | Overlays  |
