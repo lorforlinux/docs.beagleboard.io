@@ -850,6 +850,9 @@ PWM
 
 PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. For the definitions, you can see `bbai-bone-buses.dtsi#L415 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbai-bone-buses.dtsi#L415>`_ & `bbb-bone-buses.dtsi#L432 <https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbb-bone-buses.dtsi#L432>`_
 
+PWM pins
+==========
+
 .. table:: PWM pins
 
 	+---------------------------------------------------+-----+--------------------------------------+
@@ -868,6 +871,9 @@ PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. F
 	| 0 B               | 21  | 22   | 0 A              |     |            | 21  | 22   |            |
 	+-------------------+-----+------+------------------+-----+------------+-----+------+------------+
 
+PWM port mapping
+================
+
 .. table:: Bone bus PWM
 
 	+------------------+------------+-------+-------+--------+--------+--------+-----------+
@@ -879,6 +885,34 @@ PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. F
 	+------------------+------------+-------+-------+--------+--------+--------+-----------+
 	| /dev/bone/pwm/2  | bone_pwm_0 | PWM2  | PWM2  | PWM0   | P8.19  | P8.13  | BONE-PWM2 |
 	+------------------+------------+-------+-------+--------+--------+--------+-----------+
+
+
+PWM overlay example
+=====================
+
+.. code-block::
+   :linenos:
+   :caption: Example device tree overlay to enable PWM driver
+   :name: bone_cape_spec_pwm_example
+
+   /dts-v1/;
+   /plugin/;
+
+   &bone_pwm_0 {
+       status = "okay";
+   }
+
+In :ref:`bone_cape_spec_pwm_example`, you can specify what driver you want to load and provide any properties it might need.
+
+* https://www.kernel.org/doc/html/v5.10/driver-api/pwm.html
+* https://www.kernel.org/doc/Documentation/devicetree/bindings/pwm/
+
+PWM userspace example
+=======================
+
+See :ref:`beaglebone-cookbook-motors` for examples on using the userspace links to use the PWMs.
+
+.. _bone-spi:
 
 TIMER PWM
 *********
