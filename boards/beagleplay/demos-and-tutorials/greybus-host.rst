@@ -84,7 +84,7 @@ Flash
 =====
 #. Ensure the `gb-beagleplay` driver isn't blocking the serial port.
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
         debian@BeaglePlay:~$ echo "    fdtoverlays /overlays/k3-am625-beagleplay-bcfserial-no-firmware.dtbo" | sudo tee -a /boot/firmware/extlinux/extlinux.conf
         debian@BeaglePlay:~$ sudo shutdown -r now
@@ -106,25 +106,58 @@ Flash
         sudo sed -e '/bcfserial-no-firmware/ s/^#*/#/' -i /boot/firmware/extlinux/extlinux.conf
         sudo shutdown -r now
 
-Installing Kernel
-*****************
-.. note::
-    Check if it possible to use bbb.io-kernel-6.6-k3.
+Building gb-beagleplay Kernel Module
+**************************************
+`gb-beagleplay` is still not merged upstream and thus needs to be built seperately. This should not be required in the future.
+
+#. Disable bcfserial driver. Add `module_blacklist=bcfserial` to kernel parameters at `/boot/firmware/extlinux/extlinux.conf` (line 3).
+
+#. Reboot
+
+    .. code-block:: shell-session
+
+       debian@BeaglePlay:~$ sudo shutdown -r now
+
+#. Download the upstream module
+
+    .. code-block:: shell-session
+
+        debian@BeaglePlay:~$ git clone https://git.beagleboard.org/gsoc/greybus/beagleplay-greybus-driver.git
+        debian@BeaglePlay:~$ cd beagleplay-greybus-driver
+
+#. Install dependencies
+
+    .. code-block:: shell-session
+
+        debian@BeaglePlay:~$ sudo apt install linux-headers-$(uname -r)
+
+#. Build Kernel moudle
+
+    .. code-block:: shell-session
+
+        debian@BeaglePlay:~/beagleplay-greybus-driver$ make
+        make -C /lib/modules/5.10.168-ti-arm64-r111/build M=/home/debian/beagleplay-greybus-driver modules
+        make[1]: Entering directory '/usr/src/linux-headers-5.10.168-ti-arm64-r111'
+          CC [M]  /home/debian/beagleplay-greybus-driver/gb-beagleplay.o
+          MODPOST /home/debian/beagleplay-greybus-driver/Module.symvers
+          CC [M]  /home/debian/beagleplay-greybus-driver/gb-beagleplay.mod.o
+          LD [M]  /home/debian/beagleplay-greybus-driver/gb-beagleplay.ko
+        make[1]: Leaving directory '/usr/src/linux-headers-5.10.168-ti-arm64-r111'
 
 Flashing BeagleConnect Freedom Greybus Firmware
 ***********************************************
 #. Connect beagleconnect freedom to beagleplay
 #. Build beagleconnect freedom firmware
 
-.. code-block:: bash
-
-    west build -b beagleconnect_freedom modules/greybus/samples/subsys/greybus/net/ -p -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
+    .. code-block:: bash
+    
+        west build -b beagleconnect_freedom modules/greybus/samples/subsys/greybus/net/ -p -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
 
 #. Flash bcf
 
-.. code-block:: bash
-
-    west flash
+    .. code-block:: bash
+    
+        west flash
 
 Run Demo
 *********
@@ -139,7 +172,7 @@ Run Demo
 
 #. Verify that greybus is working by checking the `tio` output. It should look as follows:
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
         [00:00:00.000,976] <dbg> greybus_platform_bus: greybus_init: probed greybus: 0 major: 0 minor: 1
         [00:00:00.001,068] <dbg> greybus_platform_string: greybus_string_init: probed greybus string 4: hdc2010
@@ -173,15 +206,53 @@ Run Demo
         [00:00:00.015,777] <inf> greybus_service: Greybus is active
         uart:~$
 
-#. Check if `gb-beagleplay` is loaded:
+#. Load gb-beagleplay
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
-        debian@BeaglePlay:~$ lsmod | grep gb-beagleplay
+        debian@BeaglePlay:~$ sudo insmod $HOME/beagleplay-greybus-driver/gb-beagleplay.ko
 
 #. Check `iio_device` to verify that greybus node has been detected:
 
-    .. code-block:: bash
+    .. code-block:: shell-session
 
-        debian@BeaglePlay:~$ iio_device
+        debian@BeaglePlay:~$ iio_info
+        Library version: 0.24 (git tag: v0.24)
+        Compiled with backends: local xml ip usb
+        IIO context created with local backend.
+        Backend version: 0.24 (git tag: v0.24)
+        Backend description string: Linux BeaglePlay 5.10.168-ti-arm64-r111 #1bullseye SMP Tue Sep 26 14:22:20 UTC 2023 aarch64
+        IIO context has 2 attributes:
+                local,kernel: 5.10.168-ti-arm64-r111
+                uri: local:
+        IIO context has 2 devices:
+                iio:device0: adc102s051
+                        2 channels found:
+                                voltage1:  (input)
+                                2 channel-specific attributes found:
+                                        attr  0: raw value: 4068
+                                        attr  1: scale value: 0.805664062
+                                voltage0:  (input)
+                                2 channel-specific attributes found:
+                                        attr  0: raw value: 0
+                                        attr  1: scale value: 0.805664062
+                        No trigger on this device
+                iio:device1: hdc2010
+                        3 channels found:
+                                temp:  (input)
+                                4 channel-specific attributes found:
+                                        attr  0: offset value: -15887.515151
+                                        attr  1: peak_raw value: 28928
+                                        attr  2: raw value: 28990
+                                        attr  3: scale value: 2.517700195
+                                humidityrelative:  (input)
+                                3 channel-specific attributes found:
+                                        attr  0: peak_raw value: 43264
+                                        attr  1: raw value: 41892
+                                        attr  2: scale value: 1.525878906
+                                current:  (output)
+                                2 channel-specific attributes found:
+                                        attr  0: heater_raw value: 0
+                                        attr  1: heater_raw_available value: 0 1
+                        No trigger on this device
 
