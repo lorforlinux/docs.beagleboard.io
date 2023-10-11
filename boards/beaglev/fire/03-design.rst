@@ -155,23 +155,69 @@ General Connectivity and Expansion
 USB-C port
 ============
 
+.. figure:: media/hardware-design/usb-c.*
+    :width: 720
+    :align: center
+    :alt: USB C
+
+    USB C
+
 P8 & P9 cape header pins
 =========================
+
+.. figure:: media/hardware-design/p8-header.*
+    :width: 720
+    :align: center
+    :alt: P8 cape header
+
+    P8 cape header
+
+.. figure:: media/hardware-design/p8-header.*
+    :width: 720
+    :align: center
+    :alt: P9 cape header
+
+    P9 cape header
+
+.. figure:: media/hardware-design/level-translator.*
+    :width: 720
+    :align: center
+    :alt: Cape header voltage level translator
+
+    Cape header voltage level translator
 
 Buttons and LEDs
 ******************
 
-Boot select buttons
-====================
-
 User LEDs and Power LED
 ========================
 
-Power and reset button
+.. figure:: media/hardware-design/leds.*
+    :width: 720
+    :align: center
+    :alt: User LEDs and power LED
+
+    User LEDs and power LED
+
+User and reset button
 =======================
 
-Wired and wireless connectivity
-********************************
+.. figure:: media/hardware-design/user-button.*
+    :width: 720
+    :align: center
+    :alt: User button
+
+    User button
+
+.. figure:: media/hardware-design/reset-button.*
+    :width: 720
+    :align: center
+    :alt: Reset button
+
+    Reset button
+
+Connectivity
+**************
 
 Ethernet
 ========
