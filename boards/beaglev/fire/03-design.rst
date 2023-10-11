@@ -186,6 +186,23 @@ P8 & P9 cape header pins
 
     Cape header voltage level translator
 
+ADC
+===
+
+.. figure:: media/hardware-design/adc.*
+    :width: 720
+    :align: center
+    :alt: 16bit Delta-Sigma ADC
+
+    16bit Delta-Sigma ADC
+
+.. figure:: media/hardware-design/adc-ldo.*
+    :width: 720
+    :align: center
+    :alt: ADC LDO power supply
+
+    ADC LDO power supply
+
 Buttons and LEDs
 ******************
 
@@ -288,14 +305,35 @@ Multimedia I/O
 CSI
 ====
 
+.. figure:: media/hardware-design/csi.*
+    :width: 720
+    :align: center
+    :alt: CSI
+
+    CSI
+
 Debug
 ******
 
 UART debug port 
 ===============
 
+.. figure:: media/hardware-design/uart-debug-header.*
+    :width: 720
+    :align: center
+    :alt: UART debug header
+
+    UART debug header
+
 JTAG debug port
 ===============
+
+.. figure:: media/hardware-design/jtag.*
+    :width: 720
+    :align: center
+    :alt: JTAG debug header
+
+    JTAG debug header
 
 
 Mechanical Specifications 
