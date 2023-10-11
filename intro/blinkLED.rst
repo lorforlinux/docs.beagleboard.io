@@ -255,6 +255,8 @@ internal LEDs.
     bone:~$ ./blinkInternalLED.sh
     ^c
 
+:download:`blinkInternalLED.sh<code/blinkInternalLED.sh>`
+
 Here you see a simple bash script that turns an LED 
 on and off.  Enter Ctrl+c to stop the script.
 
@@ -298,7 +300,9 @@ Here's a script that sequences the LEDs on and off.
             time.sleep(0.25)
     bone:~$ ./seqLEDs.py       
     ^c
-    
+
+:download:`seqLEDs.py<code/seqLEDs.py>`
+
 Again, hit Ctrl+c to stop the script.
 
 This python script is a bit more complicated that the previous bash 
@@ -350,7 +354,7 @@ directories and doing the same. Let's blink the USR0 LED.
 
 .. code-block:: shell-session
     
-    bone:~$ cd ./sys/class/leds/beaglebone\:green\:usr0/
+    bone:~$ cd /sys/class/leds/beaglebone\:green\:usr0/
     bone:~$ echo 1 > brightness
     bone:~$ echo 0 > brightness
 
@@ -374,12 +378,17 @@ what triggers you can set:
     bone:~$ echo none > trigger
 
 Notice ``[heartbeat]`` is in brackets.  This shows it's the 
-current trigger.  The echo changes the trigger to ``none``.
+current trigger.  The ``echo`` changes the trigger to ``none``.
 
 Your turn 
 ^^^^^^^^^
 Try experimenting with some of the other triggers and see if you 
 can figure them out. Try changing the trigger on the other LEDs. 
+
+.. note:: 
+
+    The following may not work on all Beagles since it depends on which 
+    version of Debian you are running.
 
 Another way to Blink an LED
 ---------------------------
@@ -483,11 +492,11 @@ was released.  The value **2** means the button is being held.
 The following script uses ``evtest`` to wait for the **USR** button to be 
 pressed and then turns on the LED.
 
-.. literalinclude:: buttonEvent.sh
+.. literalinclude:: code/buttonEvent.sh
     :caption: buttonEvent.sh
     :linenos:
 
-:download:`buttonEvent.sh<buttonEvent.sh>`
+:download:`buttonEvent.sh<code/buttonEvent.sh>`
 
 Try running it and pressing the **USR** button. 
 
@@ -510,8 +519,8 @@ Blinking in response to a button poll
 The next script polls the USR button and toggles the LED rather that waiting 
 for an event.
 
-.. literalinclude:: buttonLED.sh
+.. literalinclude:: code/buttonLED.sh
     :caption: buttonLED.sh
     :linenos:
 
-:download:`buttonLED.sh<buttonLED.sh>`
+:download:`buttonLED.sh<code/buttonLED.sh>`
