@@ -17,13 +17,9 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
   :alt: BeagleConnect™ Freedom board
 
 .. important::
+   
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
-
-.. admonition:: Contributors
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
 .. admonition:: OSHWA Certification mark
 
@@ -31,8 +27,16 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
         :width: 200
         :target: https://certification.oshwa.org/us002175.html
         :alt: BeagleConnect™ Freedom OSHW Mark
-        
+
 .. note::
+
+    This work is licensed under a `Creative Commons Attribution-ShareAlike
+    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+
+    Hardware design files can be found at https://git.beagleboard.org/beagleconnect/freedom
+
+.. tip::
+
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
