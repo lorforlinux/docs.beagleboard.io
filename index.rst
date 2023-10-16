@@ -34,6 +34,7 @@ Get started engaging the BeagleBoard.org developer community by reading our :ref
    /intro/support/index
    /intro/beagle101/index
    /intro/contribution/index
+   CONTRIB
 
 
 Boards
