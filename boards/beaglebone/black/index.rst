@@ -25,7 +25,10 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
     This work is licensed under a `Creative Commons Attribution-ShareAlike
     4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
-    Hardware design files can be found at https://git.beagleboard.org/beagleboard/beaglebone-black
+    Hardware design files can be found at,
+
+    - BeagleBone Black: https://git.beagleboard.org/beagleboard/beaglebone-black
+    - BeagleBone Black Wireless: https://git.beagleboard.org/beagleboard/beaglebone-black-wireless
 
 .. tip::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
