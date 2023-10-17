@@ -15,3 +15,4 @@ Demos
     :maxdepth: 1
     
     demos-and-tutorials/flashing-board
+    demos-and-tutorials/mchp-fpga-tools-installation-guide
