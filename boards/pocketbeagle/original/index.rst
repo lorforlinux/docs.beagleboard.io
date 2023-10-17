@@ -3,14 +3,6 @@
 PocketBeagle
 ###################
 
-.. admonition:: Contributors
-
-   This work is licensed under a `Creative Commons Attribution-ShareAlike
-   4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-   
-   - Maintaining author: `Jason Kridner <jkridner@beagleboard.org>`_
-   - Contributing Editor: `Cathy Wicks  <cathy@beagleboard.org>`_
-
 .. admonition:: OSHWA Certification mark
 
     .. figure:: images/OSHW_mark_US000083.*
@@ -19,6 +11,13 @@ PocketBeagle
         :alt: PocketBeagle OSHW mark
 
 .. note::
+
+   This work is licensed under a `Creative Commons Attribution-ShareAlike
+   4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+
+   Hardware design files can be found at https://git.beagleboard.org/beagleboard/pocketbeagle
+
+.. tip::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
