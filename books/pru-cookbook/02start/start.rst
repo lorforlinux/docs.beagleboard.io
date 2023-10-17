@@ -5,17 +5,11 @@ Getting Started
 
 We assume you have some experience with the Beagle and are here to learn about 
 the PRU.  This chapter discusses what Beagles are out there, how to load the 
-<<<<<<< HEAD
-<<<<<<< HEAD
 latest software image on your Beagle, how to run the Visual Studio Code IDE and how to 
-=======
-latest software image on your Beagle, how to run the Visual Studio Code IDE and how to 
->>>>>>> d2f51ee3a125e07c469b23df15cd4949c09832de
 blink an LED.
 =======
 latest software image on your Beagle, how to run the Visual Studio Code 
 (VS Code) IDE and how to blink an LED.
->>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
 
 If you already have your Beagle and know your way around it, you can find the
 code at https://git.beagleboard.org/beagleboard/pru-cookbook-code and book
@@ -238,7 +232,6 @@ How do I manage and edit my files?
 Solution
 --------
 
-<<<<<<< HEAD
 The image you downloaded includes `Visual Studio Code <https://github.com/coder/code-server>`_,
 a web-based integrated development environment (IDE) as shown in 
 :ref:`start_bb-code-server`.
@@ -260,25 +253,14 @@ Another route to take is to apply this command to boot the service called bb-cod
 If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
 as shown in :ref:`start_c9_show_home`.
-=======
-The image you downloaded includes `Visual Studio Code <https://code.visualstudio.com/>`_,
-a web-based integrated development environment (IDE) as shown in 
-:ref:`start_vsc`.
->>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
 
 .. _start_vsc:
 
 .. figure:: figures/vsc.png
     :align: center
-<<<<<<< HEAD
     :alt: Vidual Studio Code showing home files
 
     Visual Studio Code Showing Home files
-=======
-    :alt: The Visual Studio Code IDE
-
-    The Visual Studio Code IDE
->>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
 
 Just point the browser on your host computer to http://192.168.7.2:3000 
 and start exploring.  
@@ -414,7 +396,6 @@ Running Code on the AI
 
 .. code-block:: shell-session
 
-<<<<<<< HEAD
     bone$ make TARGET=hello.pru1_1
     /var/lib/code-server/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
@@ -422,15 +403,6 @@ Running Code on the AI
     "/var/lib/code-server/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
     LD	/tmp/code-server-examples/hello.pru1_1.o
     -	copying firmware file /tmp/code-server-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
-=======
-    bone:~$ make TARGET=hello.pru1_1
-    /opt/source/pru-cookbook-code/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
-    -    Stopping PRU 1_1
-    CC	hello.pru1_1.c
-    "/opt/source/pru-cookbook-code/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
-    LD	/tmp/vsx-examples/hello.pru1_1.o
-    -	copying firmware file /tmp/vsx-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
->>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
     -    Starting PRU 1_1
@@ -438,11 +410,7 @@ Running Code on the AI
     PROC    = pru
     PRUN    = 1_1
     PRU_DIR = /dev/remoteproc/pruss1-core1
-<<<<<<< HEAD
     rm /tmp/code-server-examples/hello.pru1_1.o
-=======
-    rm /tmp/vsx-examples/hello.pru1_1.o
->>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
 
 Look quickly and you will see the ``USR3`` LED blinking.  
 
