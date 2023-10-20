@@ -6,11 +6,6 @@ BeagleBone Black
 BeagleBone Black is a low-cost, community-supported development platform for developers and hobbyists. 
 Boot Linux in under 10 seconds and get started on development in less than 5 minutes with just a single USB cable.
 
-.. admonition:: Contributors
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
 .. admonition:: OSHWA Certification mark (BeagleBone Black)
 
     .. figure:: images/OSHW_mark_US000236.*
@@ -25,8 +20,17 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
         :target: https://certification.oshwa.org/us000011.html
         :alt: BeagleBone Black Wireless OSHW Mark
 
+.. note:: 
 
-.. note::
+    This work is licensed under a `Creative Commons Attribution-ShareAlike
+    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+
+    Hardware design files can be found at,
+
+    - BeagleBone Black: https://git.beagleboard.org/beagleboard/beaglebone-black
+    - BeagleBone Black Wireless: https://git.beagleboard.org/beagleboard/beaglebone-black-wireless
+
+.. tip::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
