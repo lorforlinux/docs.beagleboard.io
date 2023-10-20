@@ -6,9 +6,9 @@ BeagleConnect™ Greybus demo using BeagleConnect™ Freedom and BeaglePlay
 BeaglePlay CC1352 Firmware
 **************************
 
-Build
+Build (Download and Setup Zephyr for BeaglePlay)
 =====
-#. Download and setup Zephyr for BeaglePlay
+#. Install prerequisites
 
     .. code-block:: bash
         
@@ -21,26 +21,62 @@ Build
             libxml2-dev libxslt1-dev libssl-dev libjpeg62-turbo-dev libmagic1 \
             libtool-bin autoconf automake libusb-1.0-0-dev \
             python3-tk python3-virtualenv
-        wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
+
+    .. code-block:: bash
+
+#. Download the latest Zephyr Release, extract it and cleanup
+
+        sudo wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         tar xf zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         rm zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
+
+
+#. Run the Zephyr SDK Setup Script
+
+    .. code-block:: bash
+
         ./zephyr-sdk-0.16.3/setup.sh -t arm-zephyr-eabi -c
+
+#. Download and Initialize `West <https://docs.zephyrproject.org/latest/develop/west/index.html/>`_. (Zephyr's meta-tool)
+
+    Note - You may want to add `/home/debian/.local/bin` to your `.bashrc` file to make the West command available after a reboot
+
+    .. code-block:: bash
+        pip3 install --user -U west
+        export PATH="/home/debian/.local/bin:$PATH"
         west init -m https://git.beagleboard.org/beagleconnect/zephyr/zephyr --mr sdk-next zephyr-beagle-cc1352-sdk
         cd $HOME/zephyr-beagle-cc1352-sdk
-        python3 -m virtualenv zephyr-beagle-cc1352-env
+
+
+#. Setup a Python Virtual Environment and add our PATH Variables
+
+    .. code-block:: bash
+
+        virtualenv zephyr-beagle-cc1352-env
         echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.16.3" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo "export ZEPHYR_BASE=$HOME/zephyr-beagle-cc1352-sdk/zephyr" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo 'export PATH=$HOME/zephyr-beagle-cc1352-sdk/zephyr/scripts:$PATH' >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         echo "export BOARD=beagleplay_cc1352" >> $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
         source $HOME/zephyr-beagle-cc1352-sdk/zephyr-beagle-cc1352-env/bin/activate
+
+
+#. Update West
+
+    .. code-block:: bash
+
         west update
         west zephyr-export
+
+#. Install Python Prerequisites
+
+    .. code-block:: bash
+        
         pip3 install -r zephyr/scripts/requirements-base.txt
 
 #. Activate the Zephyr build environment
 
-    If you exit and come back, you'll need to reactivate your Zephyr build environment.
+    NOTE - If you exit and come back, you'll need to reactivate your Zephyr build environment.
 
     .. code-block:: bash
         
@@ -54,14 +90,19 @@ Build
         cmake version 3.22.1
 
         CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
         (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ python3 --version
         Python 3.9.2
+
         (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ dtc --version
         Version: DTC 1.6.0
+
         (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ west --version
         West version: v0.14.0
+
         (zephyr-beagle-cc1352-env) debian@BeaglePlay:~$ ./zephyr-sdk-0.16.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc --version
         arm-zephyr-eabi-gcc (Zephyr SDK 0.16.3) 12.1.0
+
         Copyright (C) 2022 Free Software Foundation, Inc.
         This is free software; see the source for copying conditions.  There is NO
         warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -69,7 +110,7 @@ Build
 #. Clone CC1352 Firmware at top level: https://git.beagleboard.org/gsoc/greybus/cc1352-firmware
 
     .. code-block:: bash
-
+        cd ~
         git clone https://git.beagleboard.org/gsoc/greybus/cc1352-firmware
 
 #. Build the Firmware
@@ -146,29 +187,29 @@ Building gb-beagleplay Kernel Module
 
 Flashing BeagleConnect Freedom Greybus Firmware
 ***********************************************
-#. Connect beagleconnect freedom to beagleplay
-#. Build beagleconnect freedom firmware
+#. Connect BeagleConnect Freedom to BeaglePlay
+#. Build the BeagleConnect Freedom firmware
 
     .. code-block:: bash
     
         west build -b beagleconnect_freedom modules/greybus/samples/subsys/greybus/net/ -p -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
 
-#. Flash bcf
+#. Flash the BeagleConnect Freedom
 
     .. code-block:: bash
     
         west flash
 
-Run Demo
+Run the Demo
 *********
-#. Connect beagleconnect.
+#. Connect BeagleConnect Freedom.
 #. See shell output using `tio`
 
     .. code-block:: bash
     
         tio /dev/ACM0
 
-#. Press reset button on beagleconnect freedom.
+#. Press the Reset button on BeagleConnect Freedom
 
 #. Verify that greybus is working by checking the `tio` output. It should look as follows:
 
@@ -204,7 +245,6 @@ Run Demo
         [00:00:00.015,625] <inf> greybus_manifest: Registering I2C greybus driver.
         [00:00:00.015,625] <dbg> greybus: _gb_register_driver: Registering Greybus driver on CP2
         [00:00:00.015,777] <inf> greybus_service: Greybus is active
-        uart:~$
 
 #. Load gb-beagleplay
 
