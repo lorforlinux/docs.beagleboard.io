@@ -7,7 +7,8 @@ BeaglePlay CC1352 Firmware
 **************************
 
 Build (Download and Setup Zephyr for BeaglePlay)
-=====
+================================================
+
 #. Install prerequisites
 
     .. code-block:: bash
@@ -42,6 +43,7 @@ Build (Download and Setup Zephyr for BeaglePlay)
     Note - You may want to add `/home/debian/.local/bin` to your `.bashrc` file to make the West command available after a reboot
 
     .. code-block:: bash
+
         pip3 install --user -U west
         export PATH="/home/debian/.local/bin:$PATH"
         west init -m https://git.beagleboard.org/beagleconnect/zephyr/zephyr --mr sdk-next zephyr-beagle-cc1352-sdk
@@ -110,6 +112,7 @@ Build (Download and Setup Zephyr for BeaglePlay)
 #. Clone CC1352 Firmware at top level: https://git.beagleboard.org/gsoc/greybus/cc1352-firmware
 
     .. code-block:: bash
+
         cd ~
         git clone https://git.beagleboard.org/gsoc/greybus/cc1352-firmware
 
@@ -201,7 +204,8 @@ Flashing BeagleConnect Freedom Greybus Firmware
         west flash
 
 Run the Demo
-*********
+*************
+
 #. Connect BeagleConnect Freedom.
 #. See shell output using `tio`
 

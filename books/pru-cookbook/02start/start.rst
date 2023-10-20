@@ -252,7 +252,7 @@ Another route to take is to apply this command to boot the service called bb-cod
 
 If you want the files in your home directory to appear
 in the tree structure click the settings gear and select *Show Home in Favorites* 
-as shown in :ref:`start_c9_show_home`.
+as shown in :ref:`start_vsc`.
 
 .. _start_vsc:
 
