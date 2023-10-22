@@ -25,6 +25,8 @@ Build (Download and Setup Zephyr for BeaglePlay)
 
 #. Download the latest Zephyr Release, extract it and cleanup
 
+    .. code-block:: bash
+        
         sudo wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         tar xf zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         rm zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
