@@ -12,7 +12,7 @@ Build (Download and Setup Zephyr for BeaglePlay)
 #. Install prerequisites
 
     .. code-block:: bash
-        
+
         cd
         sudo apt update
         sudo apt install --no-install-recommends -y \
@@ -137,11 +137,17 @@ Flash
 
         The default password is `temppwd`.
 
+#. Clone cc1352-flasher
+
+    .. code-block:: bash
+
+        git clone git@git.beagleboard.org:beagleconnect/cc1352-flasher.git
+
 #. Flash Firmware
 
     .. code-block:: bash
 
-        west flash -b beagleplay_cc1352
+        python $HOME/cc1352-flasher --beagleplay $HOME/zephyr-beagle-cc1352-sdk/build/zephyr/zephyr.bin
 
 #. Ensure the `gb-beagleplay` driver is set to load.
 
@@ -194,13 +200,13 @@ Flashing BeagleConnect Freedom Greybus Firmware
 #. Build the BeagleConnect Freedom firmware
 
     .. code-block:: bash
-    
+
         west build -b beagleconnect_freedom modules/greybus/samples/subsys/greybus/net/ -p -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
 
 #. Flash the BeagleConnect Freedom
 
     .. code-block:: bash
-    
+
         west flash
 
 Run the Demo
