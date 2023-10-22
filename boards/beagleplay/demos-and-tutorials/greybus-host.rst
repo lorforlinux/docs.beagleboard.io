@@ -23,8 +23,6 @@ Build (Download and Setup Zephyr for BeaglePlay)
             libtool-bin autoconf automake libusb-1.0-0-dev \
             python3-tk python3-virtualenv
 
-    .. code-block:: bash
-
 #. Download the latest Zephyr Release, extract it and cleanup
 
         sudo wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
