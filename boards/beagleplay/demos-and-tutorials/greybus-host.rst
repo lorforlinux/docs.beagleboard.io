@@ -26,7 +26,7 @@ Build (Download and Setup Zephyr for BeaglePlay)
 #. Download the latest Zephyr Release, extract it and cleanup
 
     .. code-block:: bash
-        
+
         sudo wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         tar xf zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         rm zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
@@ -40,7 +40,9 @@ Build (Download and Setup Zephyr for BeaglePlay)
 
 #. Download and Initialize `West <https://docs.zephyrproject.org/latest/develop/west/index.html/>`_. (Zephyr's meta-tool)
 
-    Note - You may want to add `/home/debian/.local/bin` to your `.bashrc` file to make the West command available after a reboot
+    .. note:: 
+        
+        You may want to add `/home/debian/.local/bin` to your `.bashrc` file to make the West command available after a reboot
 
     .. code-block:: bash
 
@@ -141,7 +143,8 @@ Flash
 
     .. code-block:: bash
 
-        git clone git@git.beagleboard.org:beagleconnect/cc1352-flasher.git
+        cd
+        git clone https://git.beagleboard.org/beagleconnect/cc1352-flasher.git
 
 #. Flash Firmware
 
@@ -158,7 +161,10 @@ Flash
 
 Building gb-beagleplay Kernel Module
 **************************************
-`gb-beagleplay` is still not merged upstream and thus needs to be built seperately. This should not be required in the future.
+
+.. note::
+
+    `gb-beagleplay` is still not merged upstream and thus needs to be built seperately. This should not be required in the future.
 
 #. Disable bcfserial driver. Add `module_blacklist=bcfserial` to kernel parameters at `/boot/firmware/extlinux/extlinux.conf` (line 3).
 
