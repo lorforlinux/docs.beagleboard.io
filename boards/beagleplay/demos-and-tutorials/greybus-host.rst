@@ -166,7 +166,24 @@ Building gb-beagleplay Kernel Module
 
     `gb-beagleplay` is still not merged upstream and thus needs to be built seperately. This should not be required in the future.
 
-#. Disable bcfserial driver. Add `module_blacklist=bcfserial` to kernel parameters at `/boot/firmware/extlinux/extlinux.conf` (line 3).
+#. Disable bcfserial driver. Add ``quiet module_blacklist=bcfserial`` to kernel parameters at ``/boot/firmware/extlinux/extlinux.conf`` (line 2) as shown below.
+
+  .. callout::
+
+    .. code-block:: shell-session
+
+        label Linux eMMC
+            kernel /Image
+            append root=/dev/mmcblk0p2 ro rootfstype=ext4 rootwait net.ifnames=0 quiet module_blacklist=bcfserial <1>
+            fdtdir /
+            #fdtoverlays /overlays/<file>.dtbo
+            #fdtoverlays /overlays/k3-am625-beagleplay-bcfserial-no-firmware.dtbo
+            fdtoverlays /overlays/k3-am625-beagleplay-release-mikrobus.dtbo
+            initrd /initrd.img
+        
+    .. annotations::
+
+        <1> ``quiet module_blacklist=bcfserial`` has been added to this line
 
 #. Reboot
 
