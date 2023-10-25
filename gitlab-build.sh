@@ -49,6 +49,7 @@ HERE
 	if [ -e projects/librobotcontrol/docx ] ; then
 		cd projects/librobotcontrol/docs
 		doxygen
+		cd ../../..
 	fi
 
 	echo "**** make html ****"

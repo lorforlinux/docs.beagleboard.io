@@ -33,8 +33,7 @@ extensions = [
     "sphinx.ext.imgconverter",
     "sphinx.ext.todo",
     "sphinx_tabs.tabs",
-    "breathe",
-    "exhale"
+    "breathe"
 ]
 
 breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
