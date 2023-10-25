@@ -32,8 +32,13 @@ extensions = [
     "sphinxcontrib.images",
     "sphinx.ext.imgconverter",
     "sphinx.ext.todo",
-    "sphinx_tabs.tabs"
+    "sphinx_tabs.tabs",
+    "breathe",
+    "exhale"
 ]
+
+breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
+breathe_default_project = "librobotcontrol"
 
 todo_include_todos = True
 
