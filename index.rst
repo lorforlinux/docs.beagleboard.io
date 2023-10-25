@@ -385,7 +385,7 @@ developers. Some developers choose to host documentation for their :ref:`project
 
    /projects/simppru/index
    /projects/bb-config/index
-   /projects/librobotcontrol/docs/xml/index
+   /projects/librobotcontrol/docs/index
    /boards/beagleconnect/index
 
 Books
