@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import sphinx_rtd_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
+import textwrap
 
 ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
@@ -33,11 +34,35 @@ extensions = [
     "sphinx.ext.imgconverter",
     "sphinx.ext.todo",
     "sphinx_tabs.tabs",
-    "breathe"
+    "breathe",
+    "exhale"
 ]
 
 breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
 breathe_default_project = "librobotcontrol"
+
+exhale_args = {
+    "containmentFolder": "./librobotcontrol",
+    "rootFileName": "index.rst",
+    "rootFileTitle": "Robot Control Library",
+    "createTreeView": True,
+    "exhaleExecutesDoxygen": False,
+    "doxygenStripFromPath": ".",
+    "exhaleDoxygenStdin": textwrap.dedent('''
+        INPUT = projects/librobotcontrol/docs/xml
+        PROJECT_NAME = "Robotics Control Library"
+        LAYOUT_FILE = projects/librobotcontrol/docs/src/DoxygenLayout.xml
+        EXCLUDE_PATTERNS = */include/rc/mavlink/*
+        EXAMPLE_PATH += projects/librobotcontrol/examples/src/ \
+                         projects/librobotcontrol/library/include/ \
+                         projects/librobotcontrol/rc_project_template/
+    '''),
+    "verboseBuild": False,
+}
+        #STRIP_FROM_INC_PATH = ./projects/librobotcontrol/library/include/
+
+primary_domain = 'cpp'
+highlight_language = 'cpp'
 
 todo_include_todos = True
 
@@ -59,7 +84,7 @@ navigation_with_keys = True
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env']
 
 html_theme = 'sphinx_rtd_theme'
 html_show_sphinx = False
