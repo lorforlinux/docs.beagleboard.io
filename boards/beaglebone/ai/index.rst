@@ -17,7 +17,7 @@ BeagleBone AI is based on the Texas Instruments AM5729 dual-core Cortex-A15 SoC 
     * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleboard/beaglebone-ai>`__
     * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
     * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai>`__
-
+    * For export, emissions and other compliance, see :ref:`beaglebone-ai-support`
 
 .. image:: images/BB_AI_handheld_500px.jpg
    :width: 500
@@ -30,15 +30,11 @@ BeagleBone AI is based on the Texas Instruments AM5729 dual-core Cortex-A15 SoC 
     :maxdepth: 1
 
     ch01.rst
-    ch02.rst
     ch03.rst
     ch04.rst
     ch05.rst
     ch06.rst
     ch07.rst
     ch08.rst
-    ch09.rst
-    ch10.rst
     ch11.rst
-    ch12.rst
 
