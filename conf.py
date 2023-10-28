@@ -42,24 +42,14 @@ breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
 breathe_default_project = "librobotcontrol"
 
 exhale_args = {
-    "containmentFolder": "./librobotcontrol",
+    "containmentFolder": "./projects/librobotcontrol",
     "rootFileName": "index.rst",
     "rootFileTitle": "Robot Control Library",
     "createTreeView": True,
     "exhaleExecutesDoxygen": False,
     "doxygenStripFromPath": ".",
-    "exhaleDoxygenStdin": textwrap.dedent('''
-        INPUT = projects/librobotcontrol/docs/xml
-        PROJECT_NAME = "Robotics Control Library"
-        LAYOUT_FILE = projects/librobotcontrol/docs/src/DoxygenLayout.xml
-        EXCLUDE_PATTERNS = */include/rc/mavlink/*
-        EXAMPLE_PATH += projects/librobotcontrol/examples/src/ \
-                         projects/librobotcontrol/library/include/ \
-                         projects/librobotcontrol/rc_project_template/
-    '''),
     "verboseBuild": False,
 }
-        #STRIP_FROM_INC_PATH = ./projects/librobotcontrol/library/include/
 
 primary_domain = 'cpp'
 highlight_language = 'cpp'
