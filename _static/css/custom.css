@@ -69,3 +69,9 @@
 span.strike {
     text-decoration: line-through;
 }
+
+.admonition-license-terms.admonition:after {
+  clear: both;
+  content: '';
+  display: block;
+}
