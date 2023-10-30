@@ -7,15 +7,21 @@ the BeagleBoard.org Foundation at https://git.beagleboard.org/docs/docs.beaglebo
 mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this
 document in a pull request.
 
-## Code of Conduct
+## Contribution
 
-This project and everyone participating in it is governed by
-the [BeagleBoard.org Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to
-uphold this code. Please report unacceptable behavior to [coc@bbb.io](mailto:coc@bbb.io) or
-contact one of the administrators on https://forum.beagleboard.org.
+Contributions in any form are appreciated. If you want to contribute to the docs but not sure 
+where to start then you can checkout our contribution documents to help you with your first pull request.
+
+### Code of Conduct
+
+This project and everyone participating in it is governed by the [BeagleBoard.org Code of Conduct](https://docs.beagleboard.org/latest/intro/contribution/index.html#code-of-conduct). By participating, you are expected to uphold this code. Please report unacceptable behavior to [coc@bbb.io](mailto:coc@bbb.io) or contact one of the administrators on https://forum.beagleboard.org.
+
+### Style and usage guidelines
+
+If you are new to Sphinx, RST, or git then you can checkout out our [Style and usage guidelines](https://docs.beagleboard.org/latest/intro/contribution/index.html#style-and-usage-guidelines).
+
+See more at https://docs.beagleboard.org/en/latest/intro/contribution/.
 
 ## FAQ
 
 * [Frequently Asked Questions category on the BeagleBoard.org Forum](https://forum.beagleboard.org/c/faq/19)
-
-See more at https://docs.beagleboard.org/en/latest/intro/contribution/.
