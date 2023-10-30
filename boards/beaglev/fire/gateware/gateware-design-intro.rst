@@ -1,10 +1,10 @@
 Gateware Design Introduction
 ############################
 
-The PolarFire SoC device used on the BeagleV-Fire is an SoC FPGA which includes a RISC-V processors
+The PolarFire SoC device used on BeagleV-Fire is an SoC FPGA which includes a RISC-V processors
 subsystem and a PolarFire FPGA on the same die. The gateware configures the Microcprosessor
 subsystem's hardware and programs the FPGA with digital logic allowing customization of the use of
-the BeagleV-Fire connectors.
+BeagleV-Fire connectors.
 
 Gateware Architecture
 =====================
@@ -19,7 +19,7 @@ The diagram below is a simplified overview of the gateware's structure.
 The overall gateware is made-up of several blocks, some of them interchangeable. These blocks are
 all clocked and reset by another "Clock and Resets" block not showed in the diagram for clarity.
 
-Each gateware block is associated with a BeagleV-Fire connector.
+Each gateware block is associated with one of BeagleV-Fire's connectors.
 
 All gateware blocks have an AMBA APB target interface for software to access control and status registers
 defined by the gateware to operate digital logic defined by the gateware block. This is the
@@ -71,7 +71,7 @@ RISC-V Processors subsystem
 ---------------------------
 The RISC-V Processors Subsystem also includes some gateware mostly dealing with exposing AMBA bus interfaces
 for the other gateware blocks to attach to. It also handles immutable aspects of the gateware related to how
-some PolarFire-SoC signals are used to connect to BeagleV-Fire boards peripherals such as the ADC and EEPROM.
+some PolarFire-SoC signals are used to connect BeagleV-Fire peripherals such as the ADC and EEPROM.
 As such the RISC-V Processors Subsystem gateware is not intended to be customized.
 
 

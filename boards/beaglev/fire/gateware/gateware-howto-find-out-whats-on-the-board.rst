@@ -1,5 +1,5 @@
-How to find out what gateware is programmed on a BeagleV-Fire
-#############################################################
+How to retrieve BeagleV-Fire's gateware version
+###############################################
 
 There are two methods to find out what gateware is programmed on a board.
 
