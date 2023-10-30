@@ -161,13 +161,9 @@ One thing to note: `sudo apt install cmake`
 
 .. code-block::
 
-    /*
-
-    Simple gpiod example of toggling a LED connected to a gpio line from
-    the BeagleBone Black Wireless and Relay Cape.
-    Exits with or without CTRL-C.
-
-    */
+    // Simple gpiod example of toggling a LED connected to a gpio line from
+    // the BeagleBone Black Wireless and Relay Cape.
+    // Exits with or without CTRL-C.
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
     // It has been changed by me, Seth, to handle the RelayCape and BBBW Linux based SiP SBC.
@@ -180,6 +176,7 @@ One thing to note: `sudo apt install cmake`
     // We will also need to locate which chipname is being utilized. For instance: gpiochip0 - 32 lines:
 
     // #include <linux/gpio.h>
+
     #include <gpiod.h>
     #include <stdio.h>
     #include <unistd.h>
