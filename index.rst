@@ -57,19 +57,6 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
-      :link: beaglev-fire-home
-      :link-type: ref
-
-      **BeagleV®-Fire**
-      ^^^
-
-      .. image:: boards/beaglev/fire/media/product-pictures/45front.*
-         :align: center
-      +++
-
-      Quad core RISC-V SBC with FPGA.
-
-   .. grid-item-card::
       :link: beagleplay-home
       :link-type: ref
 
@@ -111,6 +98,19 @@ from source using appropriate design tools.
       A complete 64-bit AI and Machine Learning System with the convenience
       and expandability of the BeagleBone® platform with the peripherals on
       board to get started right away learning and building applications.
+
+   .. grid-item-card::
+      :link: beaglev-fire-home
+      :link-type: ref
+
+      **BeagleV®-Fire**
+      ^^^
+
+      .. image:: boards/beaglev/fire/media/product-pictures/45front.*
+         :align: center
+      +++
+
+      Quad core RISC-V SBC with FPGA.
 
    .. grid-item-card::
       :link: beaglev-ahead-home
