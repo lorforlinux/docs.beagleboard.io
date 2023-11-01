@@ -330,7 +330,11 @@ Solution
 ``am335x_pru.cmd`` is the standard linker command file that tells the linker
 where to put what for the BeagleBone Black and Blue, and the Pocket. 
 The ``am57xx_pru.cmd`` does the same for the AI.
+<<<<<<< HEAD
+Both files can be found in ``/var/lib/code-server/common``.
+=======
 Both files can be found in ``/opt/source/pru-cookbook-code/common``.
+>>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
 
 
 .. literalinclude:: ../code/03details/am335x_pru.cmd
