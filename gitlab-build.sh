@@ -57,9 +57,6 @@ HERE
 	make html BUILDDIR=public/$VER_DIR
 	mv public/$VER_DIR/html/* public/$VER_DIR/
 
-	echo "**** exit for now for faster debug ****"
-	exit 0
-
 	echo "**** make latexpdf ****"
 	# Build, optimize, and serve PDF
 	make latexpdf BUILDDIR=public/$VER_DIR
