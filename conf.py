@@ -58,8 +58,8 @@ todo_include_todos = True
 
 # Update (HTML) supported_image_types selection priority order
 from sphinx.builders.html import StandaloneHTMLBuilder
-StandaloneHTMLBuilder.supported_image_types = ['image/svg+xml', 'image/webp', 'image/jpg', 
-                                       'image/jpeg', 'image/gif', 'image/png']
+StandaloneHTMLBuilder.supported_image_types = ['image/webp', 'image/jpg', 
+                                       'image/jpeg', 'image/svg+xml', 'image/png', 'image/gif']
 
 # Update (PDF) supported_image_types selection priority order
 from sphinx.builders.latex import LaTeXBuilder
