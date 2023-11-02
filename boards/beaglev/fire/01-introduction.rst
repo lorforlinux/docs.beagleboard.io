@@ -20,31 +20,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
    |    :alt: BeagleV-Fire front                        |       :alt: BeagleV-Fire back                           |
    +----------------------------------------------------+---------------------------------------------------------+
 
-Pinout Diagrams
-***************
-
-Choose the cape header to see respective pinout diagram.
-
-.. tabs::
-
-   .. group-tab:: P8 cape header
-
-        .. figure:: media/pinout/BeagleV-Fire-P8.*
-            :align: center
-            :alt: BeagleV-Fire P8 cape header pinout
-
-            BeagleV-Fire P8 cape header pinout
-
-
-   .. group-tab:: P9 cape header
-
-        .. figure:: media/pinout/BeagleV-Fire-P9.*
-            :align: center
-            :alt: BeagleV-Fire P9 cape header pinout
-
-            BeagleV-Fire P9 cape header pinout
-
-.. _beaglev-fire-detaild-overview:
+.. _beaglev-fire-detailed-overview:
 
 Detailed overview
 ******************
@@ -66,7 +42,7 @@ Detailed overview
     |                            | - Connector: integrated magnetics RJ-45                                   |
     +----------------------------+---------------------------------------------------------------------------+
     | USB C                      | - Connectivity: Flash/programming support                                 |
-    |                            | - Power: Input: 5V @ <To-Do>                                              |
+    |                            | - Power: Input: 5V @ 3A                                                   |
     +----------------------------+---------------------------------------------------------------------------+
     | Other connectors           | - 1x SYZYGY High speed connector                                          |
     |                            | - microSD card slot                                                       |
