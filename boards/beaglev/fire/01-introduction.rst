@@ -14,7 +14,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: media/product-pictures/front.*          | .. image:: media/product-pictures/back.*                |
+   | .. image:: media/product-pictures/bvf-front.*      | .. image:: media/product-pictures/bvf-back.*            |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeagleV-Fire front                        |       :alt: BeagleV-Fire back                           |
