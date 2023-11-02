@@ -77,7 +77,7 @@ from source using appropriate design tools.
       **BeagleConnect™ Freedom**
       ^^^
 
-      .. image:: boards/beagleconnect/freedom/media/product-pictures/front1.*
+      .. image:: boards/beagleconnect/freedom/media/product-pictures/bcf-front1.*
          :align: center
       +++
 
@@ -106,7 +106,7 @@ from source using appropriate design tools.
       **BeagleV®-Fire**
       ^^^
 
-      .. image:: boards/beaglev/fire/media/product-pictures/45front.*
+      .. image:: boards/beaglev/fire/media/product-pictures/bvf-45front.*
          :align: center
       +++
 
@@ -119,7 +119,7 @@ from source using appropriate design tools.
       **BeagleV®-Ahead**
       ^^^
 
-      .. image:: boards/beaglev/ahead/media/product-pictures/45front.*
+      .. image:: boards/beaglev/ahead/media/product-pictures/bva-45front.*
          :align: center
       +++
 
