@@ -45,6 +45,13 @@ HERE
 	# Clean build directory
 	make clean BUILDDIR=public/$VER_DIR
 
+	echo "**** make librobotcontrol xml ****"
+	if [ -e projects/librobotcontrol/docs ] ; then
+		cd projects/librobotcontrol/docs
+		doxygen
+		cd ../../..
+	fi
+
 	echo "**** make html ****"
 	# Build and serve HTML
 	make html BUILDDIR=public/$VER_DIR
