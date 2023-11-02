@@ -110,7 +110,8 @@ from source using appropriate design tools.
          :align: center
       +++
 
-      Quad core RISC-V SBC with FPGA.
+      Awesome quad-core RISC-V and *FPGA* SBC with BeagleBone cape headers,
+      PCIe over M.2 and SYZYGY high-speed connector!
 
    .. grid-item-card::
       :link: beaglev-ahead-home
@@ -123,17 +124,8 @@ from source using appropriate design tools.
          :align: center
       +++
 
-      Quad core RISC-V SBC in the form factor of BeagleBone Black.
-
-   .. grid-item-card::
-      :link: beaglev-fire-home
-      :link-type: ref
-
-      **BeagleV® Fire**
-      ^^^
-
-      Awesome board with RISC-V and FPGA in a BeagleBone form-factor
-      with PCIe over M.2 and SYZYGY high-speed connector!
+      High-performance quad-core RISC-V SBC with neural network and media accelerators
+      with BeagleBone cape headers, mikroBUS shuttle connector, 2x CSI and DSI expansion.
 
    .. grid-item-card::
       :link: beagleboneblack-home
