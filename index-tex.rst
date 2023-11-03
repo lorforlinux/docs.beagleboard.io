@@ -18,7 +18,8 @@ BeagleBoard Docs
    boards/beaglebone/black/index
    boards/beaglebone/blue/index
    boards/beaglebone/index
-   /boards/beaglev/ahead/index
+   boards/beaglev/ahead/index
+   boards/beaglev/fire/index
    boards/capes/index
    boards/pocketbeagle/original/index
    boards/beagleconnect/freedom/index

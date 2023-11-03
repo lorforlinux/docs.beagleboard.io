@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import sphinx_rtd_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
+import textwrap
 
 ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
@@ -32,15 +33,33 @@ extensions = [
     "sphinxcontrib.images",
     "sphinx.ext.imgconverter",
     "sphinx.ext.todo",
-    "sphinx_tabs.tabs"
+    "sphinx_tabs.tabs",
+    "breathe",
+    "exhale"
 ]
+
+breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
+breathe_default_project = "librobotcontrol"
+
+exhale_args = {
+    "containmentFolder": "./projects/librobotcontrol",
+    "rootFileName": "index.rst",
+    "rootFileTitle": "Robot Control Library",
+    "createTreeView": True,
+    "exhaleExecutesDoxygen": False,
+    "doxygenStripFromPath": ".",
+    "verboseBuild": False,
+}
+
+primary_domain = 'cpp'
+highlight_language = 'cpp'
 
 todo_include_todos = True
 
 # Update (HTML) supported_image_types selection priority order
 from sphinx.builders.html import StandaloneHTMLBuilder
-StandaloneHTMLBuilder.supported_image_types = ['image/svg+xml', 'image/webp', 'image/jpg', 
-                                       'image/jpeg', 'image/gif', 'image/png']
+StandaloneHTMLBuilder.supported_image_types = ['image/webp', 'image/jpg', 
+                                       'image/jpeg', 'image/svg+xml', 'image/png', 'image/gif']
 
 # Update (PDF) supported_image_types selection priority order
 from sphinx.builders.latex import LaTeXBuilder
@@ -55,7 +74,7 @@ navigation_with_keys = True
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env']
 
 html_theme = 'sphinx_rtd_theme'
 html_show_sphinx = False

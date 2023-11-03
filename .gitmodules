@@ -4,3 +4,6 @@
 [submodule "books/pru-cookbook/code"]
 	path = books/pru-cookbook/code
 	url = https://git.beagleboard.org/beagleboard/pru-cookbook-code
+[submodule "projects/librobotcontrol"]
+	path = projects/librobotcontrol
+	url = https://git.beagleboard.org/beagleboard/librobotcontrol

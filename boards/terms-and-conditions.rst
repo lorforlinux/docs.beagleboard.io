@@ -207,6 +207,7 @@ back to a distributor without contacting rma/support.
     and reach out to `Jason <https://beagleboard.org/about/jkridner>`_ for possible solutions.
     
     Additional terms:
+
     - Your repaired/replacement boards will not be sent by priority shipment, please be patient. 
     - You are responsible for all the expenses if there isn't really an issue with the board.
     - If no issue is found or express return is needed, the customer will pay all shipping costs.
