@@ -3,7 +3,7 @@
 Introduction
 #############
 
-BeagleV®-Fire is a revolutionary SBC powered by the Microchip's PolarFire® MPFS025T FCVG484E System on Chip (SoC) with 4x RV64GC Application cores, 
+BeagleV®-Fire is a revolutionary SBC powered by the Microchip's PolarFire® MPFS025T System on Chip (SoC) with 4x RV64GC Application cores, 
 1x RV64IMAC monitor/boot core, and FPGA fabric. BeagleV®-Fire opens up new horizons for developers, tinkerers, and the open-source community to explore the vast potential 
 of RISC-V architecture and FPGA technology. It has the same P8 & P9 cape header pins as BeagleBone Black allowing you to stack your favourite BeagleBone 
 cape on top to expand it's capability. Built around the powerful and energy-efficient RISC-V instruction set architecture (ISA) along with its versatile FPGA fabric, 
@@ -19,6 +19,31 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeagleV-Fire front                        |       :alt: BeagleV-Fire back                           |
    +----------------------------------------------------+---------------------------------------------------------+
+
+Pinout Diagrams
+***************
+
+Choose the cape header to see respective pinout diagram.
+
+.. tabs::
+
+   .. group-tab:: P8 cape header
+
+        .. figure:: media/pinout/BeagleV-Fire-P8.*
+            :align: center
+            :alt: BeagleV-Fire P8 cape header pinout
+
+            BeagleV-Fire P8 cape header pinout
+
+
+   .. group-tab:: P9 cape header
+
+        .. figure:: media/pinout/BeagleV-Fire-P9.*
+            :align: center
+            :alt: BeagleV-Fire P9 cape header pinout
+
+            BeagleV-Fire P9 cape header pinout
+
 
 .. _beaglev-fire-detailed-overview:
 
