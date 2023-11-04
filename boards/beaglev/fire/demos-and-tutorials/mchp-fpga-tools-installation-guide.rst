@@ -5,6 +5,15 @@ Microchip FPGA Tools Installation Guide
 
 Instructions for installing the Microchip FPGA tools on a Ubuntu 20.04 desktop.
 
+.. important::
+
+   We will be providing instances of Libero that you can run from git.beagleboard.org's gitlab-runners such that you do not need to install the tools on
+   your local machine.
+
+.. todo::
+
+   Make sure people know about the alternative and we provide links to details on that before we send them down this process.
+
 Install Libero 2022.3
 ************************
 

@@ -3,6 +3,12 @@
 Flashing gateware and Linux image
 ##################################
 
+.. todo::
+
+   This is the *hard* way! Special cables and FlashPros are not required when using the firmware we initially ship on the board. This tutorial should be
+   rescripted as how to _unbrick_ your board. Also, we have other work-arounds using software and GPIOs rather than FlashPros. Let's not put this in user's
+   face as *the* experience when it is far more painful than using the `change-gateware.sh` script and "hold BOOT button when applying power" solutions we've created!
+
 In this tutorial we are going to learn to flash the gateware image
 to FPGA and ``sdcard.image`` to eMMC storage.
 
