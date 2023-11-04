@@ -1,3 +1,5 @@
+.. _beaglev-fire-gateware-version:
+
 How to retrieve BeagleV-Fire's gateware version
 ###############################################
 

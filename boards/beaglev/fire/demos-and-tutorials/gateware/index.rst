@@ -1,3 +1,5 @@
+.. _beaglev-fire-gateware-design:
+
 Gateware Design Introduction
 ############################
 

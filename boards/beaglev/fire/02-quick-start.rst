@@ -75,5 +75,7 @@ It will be different for Mac and Windows operatig systems. To find serial port f
 Demos and Tutorials
 *******************
 
-:ref:`beaglev-fire-flashing-board`
+* :ref:`beaglev-fire-flashing-board`
+* :ref:`beaglev-fire-gateware-version`
+* :ref:`beaglev-fire-gateware-design`
 
