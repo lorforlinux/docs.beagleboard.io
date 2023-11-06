@@ -69,3 +69,7 @@
 span.strike {
     text-decoration: line-through;
 }
+
+.admonition-license-terms.admonition {
+    overflow: auto;
+}

@@ -12,7 +12,7 @@ Build (Download and Setup Zephyr for BeaglePlay)
 #. Install prerequisites
 
     .. code-block:: bash
-        
+
         cd
         sudo apt update
         sudo apt install --no-install-recommends -y \
@@ -23,9 +23,9 @@ Build (Download and Setup Zephyr for BeaglePlay)
             libtool-bin autoconf automake libusb-1.0-0-dev \
             python3-tk python3-virtualenv
 
-    .. code-block:: bash
-
 #. Download the latest Zephyr Release, extract it and cleanup
+
+    .. code-block:: bash
 
         sudo wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
         tar xf zephyr-sdk-0.16.3_linux-aarch64_minimal.tar.xz
@@ -40,7 +40,9 @@ Build (Download and Setup Zephyr for BeaglePlay)
 
 #. Download and Initialize `West <https://docs.zephyrproject.org/latest/develop/west/index.html/>`_. (Zephyr's meta-tool)
 
-    Note - You may want to add `/home/debian/.local/bin` to your `.bashrc` file to make the West command available after a reboot
+    .. note:: 
+        
+        You may want to add `/home/debian/.local/bin` to your `.bashrc` file to make the West command available after a reboot
 
     .. code-block:: bash
 
@@ -137,11 +139,18 @@ Flash
 
         The default password is `temppwd`.
 
+#. Clone cc1352-flasher
+
+    .. code-block:: bash
+
+        cd
+        git clone https://git.beagleboard.org/beagleconnect/cc1352-flasher.git
+
 #. Flash Firmware
 
     .. code-block:: bash
 
-        west flash -b beagleplay_cc1352
+        python $HOME/cc1352-flasher --beagleplay $HOME/zephyr-beagle-cc1352-sdk/build/zephyr/zephyr.bin
 
 #. Ensure the `gb-beagleplay` driver is set to load.
 
@@ -152,9 +161,29 @@ Flash
 
 Building gb-beagleplay Kernel Module
 **************************************
-`gb-beagleplay` is still not merged upstream and thus needs to be built seperately. This should not be required in the future.
 
-#. Disable bcfserial driver. Add `module_blacklist=bcfserial` to kernel parameters at `/boot/firmware/extlinux/extlinux.conf` (line 3).
+.. note::
+
+    `gb-beagleplay` is still not merged upstream and thus needs to be built seperately. This should not be required in the future.
+
+#. Disable bcfserial driver. Add ``quiet module_blacklist=bcfserial`` to kernel parameters at ``/boot/firmware/extlinux/extlinux.conf`` (line 2) as shown below.
+
+  .. callout::
+
+    .. code-block:: shell-session
+
+        label Linux eMMC
+            kernel /Image
+            append root=/dev/mmcblk0p2 ro rootfstype=ext4 rootwait net.ifnames=0 quiet module_blacklist=bcfserial <1>
+            fdtdir /
+            #fdtoverlays /overlays/<file>.dtbo
+            #fdtoverlays /overlays/k3-am625-beagleplay-bcfserial-no-firmware.dtbo
+            fdtoverlays /overlays/k3-am625-beagleplay-release-mikrobus.dtbo
+            initrd /initrd.img
+        
+    .. annotations::
+
+        <1> ``quiet module_blacklist=bcfserial`` has been added to this line
 
 #. Reboot
 
@@ -194,13 +223,13 @@ Flashing BeagleConnect Freedom Greybus Firmware
 #. Build the BeagleConnect Freedom firmware
 
     .. code-block:: bash
-    
+
         west build -b beagleconnect_freedom modules/greybus/samples/subsys/greybus/net/ -p -- -DOVERLAY_CONFIG=overlay-802154-subg.conf
 
 #. Flash the BeagleConnect Freedom
 
     .. code-block:: bash
-    
+
         west flash
 
 Run the Demo

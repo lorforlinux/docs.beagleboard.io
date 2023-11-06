@@ -71,17 +71,18 @@ from source using appropriate design tools.
       to the connected world.
 
    .. grid-item-card::
-      :link: beaglev-ahead-home
+      :link: beagleconnect_freedom_home
       :link-type: ref
 
-      **BeagleV® Ahead**
+      **BeagleConnect™ Freedom**
       ^^^
 
-      .. image:: boards/beaglev/ahead/media/product-pictures/45front.*
+      .. image:: boards/beagleconnect/freedom/media/product-pictures/bcf-front1.*
          :align: center
       +++
 
-      Quad core RISC-V SBC in the form factor of BeagleBone Black.
+      BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
+      and is the first available BeagleConnect™ solution.
 
    .. grid-item-card::
       :link: bbai64-home
@@ -98,6 +99,33 @@ from source using appropriate design tools.
       and expandability of the BeagleBone® platform with the peripherals on
       board to get started right away learning and building applications.
 
+   .. grid-item-card::
+      :link: beaglev-fire-home
+      :link-type: ref
+
+      **BeagleV®-Fire**
+      ^^^
+
+      .. image:: boards/beaglev/fire/media/product-pictures/bvf-45front.*
+         :align: center
+      +++
+
+      Awesome quad-core RISC-V and *FPGA* SBC with BeagleBone cape headers,
+      PCIe over M.2 and SYZYGY high-speed connector!
+
+   .. grid-item-card::
+      :link: beaglev-ahead-home
+      :link-type: ref
+
+      **BeagleV®-Ahead**
+      ^^^
+
+      .. image:: boards/beaglev/ahead/media/product-pictures/bva-45front.*
+         :align: center
+      +++
+
+      High-performance quad-core RISC-V SBC with neural network and media accelerators
+      with BeagleBone cape headers, mikroBUS shuttle connector, 2x CSI and DSI expansion.
 
    .. grid-item-card::
       :link: beagleboneblack-home
@@ -114,20 +142,6 @@ from source using appropriate design tools.
       microcontrollers and tons of features like Ethernet and HDMI – 
       credit card sized with over a decade of support, software and 
       materials behind it making it ready for any application.
-
-   .. grid-item-card::
-      :link: beagleconnect_freedom_home
-      :link-type: ref
-
-      **BeagleConnect™ Freedom**
-      ^^^
-
-      .. image:: boards/beagleconnect/freedom/media/product-pictures/front1.*
-         :align: center
-      +++
-
-      BeagleConnect™ Freedom is based on a `TI Arm Cortex-M4 wireless-enabled microcontroller <https://www.ti.com/product/CC1352P7>`_ 
-      and is the first available BeagleConnect™ solution.
 
    .. grid-item-card:: 
       :link: beagleboneblack-home
@@ -192,7 +206,7 @@ from source using appropriate design tools.
       :link: beaglebone-blue-home
       :link-type: ref
 
-      BeagleBone® Blue
+      **BeagleBone® Blue**
       ^^^
 
       .. image:: boards/images/beaglebone-blue-400x279.png
@@ -366,6 +380,7 @@ Capes
    /boards/beaglebone/blue/index
    /boards/beaglebone/index
    /boards/beaglev/ahead/index
+   /boards/beaglev/fire/index
    /boards/capes/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
@@ -386,6 +401,7 @@ developers. Some developers choose to host documentation for their :ref:`project
 
    /projects/simppru/index
    /projects/bb-config/index
+   /projects/librobotcontrol/index
    /boards/beagleconnect/index
 
 Books
