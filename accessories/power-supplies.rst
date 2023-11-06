@@ -50,4 +50,5 @@ If you plan to use capes or add your own circuitry, a power supply capable of hi
 
 .. note::
     USB-C supplies will auto-negotiate the highest power mode that both power supply and BeagleBoard support. In most cases, this will be 
-    5V @ 3A. It is OK to use a higher Wattage USB-C PD supply with a board. 
+    5V @ 3A. It is OK to use a higher Wattage USB-C PD supply with a board, but it is recommended to use supplies from well-known manufacturers to 
+    avoid supplies that may break the USB-C PD specification.

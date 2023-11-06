@@ -6,7 +6,7 @@ Cables
 USB Cables
 ***********
 
-A microUSB cable will normally be supplied with the BeagleBone Black. For other boards like PocketBeagle, BeagleBone AI & BeagleBone AI-64 you'll have to procure your own USB cable.
+A miniUSB cable will normally be supplied with the BeagleBone Black. For other boards like PocketBeagle, BeagleBone AI & BeagleBone AI-64 you'll have to procure your own USB cable.
 
 .. table:: USB ports on BeagleBone hardware
 
@@ -41,7 +41,7 @@ A microUSB cable will normally be supplied with the BeagleBone Black. For other 
 Serial Debug Cables
 ********************
 
-The default serial port settings for BeagleBoards are:
+The default serial port settings for Beagles are:
 
 .. table:: UART settings
 
@@ -63,7 +63,7 @@ JST-SH serial cables
 ====================
 
 These cables are not active (only wries and connector) and provide an interface 
-between USB to Serial converter cables such as the ones listed below and serial debug ports on BeagleBoards such as the BeagleBone AI 
+between USB to Serial converter cables such as the ones listed below and serial debug ports on Beagles such as the BeagleBone AI 
 and AI-64. You can purchase these cables from different sources including:
 
 1. `Farnell <https://www.newark.com/element14/1103004000156/serial-cable-ai-board/dp/50AH3702>`_
@@ -92,9 +92,7 @@ Pin 1 on the cable is the black wire and connects to pin 1 on the board. (the pi
 Adafruit 4 Pin Cable (CP2102)
 ==============================
 
-`Adafruit 4-pin serial cable <http://www.adafruit.com/products/954>`_ (Originally 
-this was a Prolific chipset based cable, as of Dec. 21, 2016 Adafruit will be 
-shipping cables with SiLabs CP2012 chipset instead of Prolific.)
+`Adafruit 4-pin serial cable <http://www.adafruit.com/products/954>`_ (SiLabs CP2102 based, boards older than 2017 use a Prolific chipset instead)
 
 .. image:: images/RPI_Serial.png
     :align: center
@@ -157,7 +155,7 @@ miniDP to HDMI
 ****************
 
 Working miniDP to HDMI Adapters
-=======================
+================================
 
 .. note::
     BeagleBone-AI64 requires an **ACTIVE** Mini DisplayPort to HDMI cable or adaptor to work, 
