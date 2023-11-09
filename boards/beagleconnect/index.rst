@@ -45,11 +45,10 @@ BeagleConnect™ technology solves:
 * The need to connect to devices using long-range, low-power wireless, and
 * The need to produce high-volume custom hardware cost-optimized for your requirements.
 
-.. toctree::
-   :maxdepth: 2
+See:
 
-   /boards/beagleconnect/technology/index.rst
-   /boards/beagleconnect/technology/story.rst
+* :ref:`beagleconnect-overview`
+* :ref:`beagleconnect-story`
 
 BeagleConnect Experience
 *************************

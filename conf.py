@@ -32,11 +32,14 @@ extensions = [
     "sphinx_design",
     "sphinxcontrib.images",
     "sphinx.ext.imgconverter",
+    "sphinx.ext.graphviz",
     "sphinx.ext.todo",
     "sphinx_tabs.tabs",
     "breathe",
     "exhale"
 ]
+
+#graphviz_output_format = 'svg'
 
 breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
 breathe_default_project = "librobotcontrol"
