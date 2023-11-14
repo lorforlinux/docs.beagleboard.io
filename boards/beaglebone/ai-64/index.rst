@@ -11,25 +11,26 @@ are all that need to be added to start building performance-optimized embedded a
 expansion possibilities are enabled through familiar BeagleBone® cape headers, with hundreds of open-source 
 hardware examples and dozens of readily available embedded expansion options available off-the-shelf.
 
-.. admonition:: OSHWA Certification mark
+.. grid:: 2
 
-    .. figure:: images/OSHW_mark_US002120.*
-        :width: 200
-        :target: https://certification.oshwa.org/us002120.html
-        :alt: BeagleBone AI-64 OSHW Mark
+    .. grid-item::
+        :columns: 12 12 12 4
 
-.. note::
+        .. figure:: images/OSHW_mark_US002120.*
+            :width: 200
+            :target: https://certification.oshwa.org/us002120.html
+            :alt: BeagleBone AI-64 OSHW Mark
 
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+    .. grid-item::
+        :columns: 12 12 12 8
 
-    Hardware design files can be found at https://git.beagleboard.org/beagleboard/beaglebone-ai-64
+        .. admonition:: License Terms
 
-.. tip::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
+            * This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`__
+            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
+            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai-64>`__
+            * For export, emissions and other compliance, see :ref:`beaglebone-ai-64-support-information`
 
 .. toctree::
    :maxdepth: 1
