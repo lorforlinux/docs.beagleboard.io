@@ -11,19 +11,34 @@ BeagleV-Ahead
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
 
-.. admonition:: OSHWA Certification mark
+.. grid:: 2
 
-    .. figure:: media/OSHW_mark_US002535.*
-        :width: 200
-        :target: https://certification.oshwa.org/us002535.html
-        :alt: BeagleV-Ahead OSHW Mark
+    .. grid-item::
+        :columns: 12 12 12 4
+
+        .. figure:: media/OSHW_mark_US002535.*
+            :width: 200
+            :target: https://certification.oshwa.org/us002535.html
+            :alt: BeagleV-Ahead OSHW Mark
+
+    .. grid-item::
+        :columns: 12 12 12 8
+
+        .. admonition:: License Terms
+
+            * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beaglev-ahead/beaglev-ahead>`__
+            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
+            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-ahead>`__
+            * For export, emissions and other compliance, see :ref:`beaglev-ahead-support`
+
 
 .. note:: 
 
     This work is licensed under a `Creative Commons Attribution-ShareAlike
     4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
-    Hardware design files can be found at https://git.beagleboard.org/beaglev-ahead/beaglev-ahead
+    Hardware design files can be found at 
 
 .. tip::
 

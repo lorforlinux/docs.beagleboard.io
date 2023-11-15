@@ -21,28 +21,26 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
 
-.. admonition:: OSHWA Certification mark
+.. grid:: 2
 
-    .. figure:: media/OSHW_mark_US002175.*
-        :width: 200
-        :target: https://certification.oshwa.org/us002175.html
-        :alt: BeagleConnect™ Freedom OSHW Mark
+    .. grid-item::
+        :columns: 12 12 12 4
 
-.. note::
+         .. figure:: media/OSHW_mark_US002175.*
+            :width: 200
+            :target: https://certification.oshwa.org/us002175.html
+            :alt: BeagleConnect™ Freedom OSHW Mark
 
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+    .. grid-item::
+        :columns: 12 12 12 8
 
-    Hardware design files can be found at https://git.beagleboard.org/beagleconnect/freedom
+        .. admonition:: License Terms
 
-.. tip::
-
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
-
-
+            * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleconnect/freedom>`__
+            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
+            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beagleconnect-freedom>`__
+            * For export, emissions and other compliance, see :ref:`beagleconnect-freedom-support`
 
 .. raw:: latex
    
