@@ -3,6 +3,12 @@
 Support
 #########
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   getting-started
+
 First, read the manual
 **********************
 
