@@ -8,6 +8,7 @@ This is a collection of reasonably well-supported projects useful to Beagle deve
 .. toctree::
    :maxdepth: 1
 
-   /projects/simppru/index.rst
-   /projects/bb-config/index.rst
-   /boards/beagleconnect/index.rst
+   /projects/simppru/index
+   /projects/bb-config/index
+   /projects/librobotcontrol/index
+   /projects/beagleconnect/index
