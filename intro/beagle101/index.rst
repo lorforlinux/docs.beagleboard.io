@@ -3,6 +3,14 @@
 An Introduction to Beagles
 ##########################
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   blinkLED
+   linux
+   qwiic-stemma-grove-addons
+
 Linux-enabled boards
 ********************
 
@@ -29,14 +37,6 @@ Greybus host enabled system.
 * See :ref:`beagleconnect-freedom-using-micropython` to get started quickly.
 * See :ref:`beagleconnect-freedom-using-zephyr` to learn to setup the Zephyr SDK.
 * See :ref:`beagleconnect-overview` to learn about BeagleConnect Greybus.
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   blinkLED
-   linux
-   qwiic-stemma-grove-addons
 
 .. todo::
 
