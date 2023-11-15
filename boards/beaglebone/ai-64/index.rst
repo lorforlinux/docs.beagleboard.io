@@ -3,12 +3,12 @@
 BeagleBone AI-64
 ###################
 
-BeagleBone® AI-64 brings a complete system for developing artificial intelligence (AI) and machine learning 
-solutions with the convenience and expandability of the BeagleBone® platform and the peripherals on board to 
-get started right away learning and building applications. With locally hosted, ready-to-use, open-source 
-focused tool chains and development environment, a simple web browser, power source and network connection 
-are all that need to be added to start building performance-optimized embedded applications. Industry-leading 
-expansion possibilities are enabled through familiar BeagleBone® cape headers, with hundreds of open-source 
+BeagleBone® AI-64 brings a complete system for developing artificial intelligence (AI) and machine learning
+solutions with the convenience and expandability of the BeagleBone® platform and the peripherals on board to
+get started right away learning and building applications. With locally hosted, ready-to-use, open-source
+focused tool chains and development environment, a simple web browser, power source and network connection
+are all that need to be added to start building performance-optimized embedded applications. Industry-leading
+expansion possibilities are enabled through familiar BeagleBone® cape headers, with hundreds of open-source
 hardware examples and dozens of readily available embedded expansion options available off-the-shelf.
 
 .. grid:: 2
@@ -32,17 +32,22 @@ hardware examples and dozens of readily available embedded expansion options ava
             * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai-64>`__
             * For export, emissions and other compliance, see :ref:`beaglebone-ai-64-support-information`
 
+.. image:: images/bbai64-45-front.jpg
+   :width: 400px
+   :align: center
+   :alt: Fig: BeagleBone AI-64 front at 45° angle
+
 .. toctree::
    :maxdepth: 1
 
-   /boards/beaglebone/ai-64/ch01.rst
-   /boards/beaglebone/ai-64/ch02.rst
-   /boards/beaglebone/ai-64/ch03.rst
-   /boards/beaglebone/ai-64/ch04.rst
-   /boards/beaglebone/ai-64/ch05.rst
-   /boards/beaglebone/ai-64/ch07.rst
-   /boards/beaglebone/ai-64/ch09.rst
-   /boards/beaglebone/ai-64/ch10.rst
-   /boards/beaglebone/ai-64/ch11.rst
-   /boards/beaglebone/ai-64/update.rst
-   /boards/beaglebone/ai-64/edge_ai_apps/index.rst
+   ch01
+   ch02
+   ch03
+   ch04
+   ch05
+   ch07
+   ch09
+   ch10
+   ch11
+   update
+   edge_ai_apps/index
