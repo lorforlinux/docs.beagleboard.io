@@ -28,7 +28,7 @@ projects ongoing on our :ref:`contribution` page.
 * Go a bit deaper at :ref:`intro_beagle-101`.
 * Read the book at :ref:`bone-cook-book-home`.
 * Get help from the community at :ref:`support`.
-* Learn how to contribute to the project at :ref:`contribution`..
+* Learn how to contribute to the project at :ref:`contribution`.
 
 .. toctree::
    :maxdepth: 2
