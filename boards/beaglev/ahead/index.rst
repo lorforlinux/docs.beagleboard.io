@@ -3,10 +3,11 @@
 BeagleV-Ahead
 ###################
 
-.. image:: media/BeagleV-Ahead-with-hand.*
-    :align: center
-    :alt: BeagleV Ahead with hand
- 
+BeagleV Ahead is an open-source RISC-V Single Board Computer (SBC). It has the same P8 & P9 cape header pins as  
+BeagleBone Black allowing you to stack your favourite BeagleBone cape on top to expand it's capability. 
+Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable 
+RISC-V enabled pocket-size computer for anybody who want's to dive deep into the new RISC-V ISA.
+
 .. important::
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
@@ -32,20 +33,9 @@ BeagleV-Ahead
             * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-ahead>`__
             * For export, emissions and other compliance, see :ref:`beaglev-ahead-support`
 
-
-.. note:: 
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
-    Hardware design files can be found at 
-
-.. tip::
-
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
+.. image:: media/BeagleV-Ahead-with-hand.*
+    :align: center
+    :alt: BeagleV Ahead with hand
 
 .. only:: html
 
