@@ -7,9 +7,7 @@ BeagleBoard Documentation
 ############################
 
 Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`__.
-
-Official documentation releases are provided at https://docs.beagle.cc (cached with local proxies) and
-https://docs.beagleboard.org (non-cached, without proxies).
+If you are looking for help with your Beagle open-hardware development platform, you've found the right place!
 
 .. note:: 
    The BeagleBoard.org Foundation is a US-based 501(c)3 non-profit organization providing open hardware
@@ -20,21 +18,26 @@ https://docs.beagleboard.org (non-cached, without proxies).
 Introduction
 ************
 
-Get started engaging the BeagleBoard.org developer community by reading our :ref:`introduction` page.
+Get started quickly on our Linux-enabled boards with :ref:`blinkLED`, follow-up with articles in :ref:`intro_beagle-101`, and reach out
+via resources on our :ref:`support` page as needed to resolve issues
+and engage with the developer community. Don't forget that this is an open-source project! Your contributions are welcome. 
+Learn about how to contribute to the BeagleBoard documentation project and any of the many open-source Beagle
+projects ongoing on our :ref:`contribution` page.
 
-* Read about how to get started and get help on our :ref:`support` page.
-* Learn how to contribute to the project on our :ref:`contribution` page.
+* Get started quickly at :ref:`blinkLED`.
+* Go a bit deaper at :ref:`intro_beagle-101`.
+* Read the book at :ref:`bone-cook-book-home`.
+* Get help from the community at :ref:`support`.
+* Learn how to contribute to the project at :ref:`contribution`..
 
 .. toctree::
    :maxdepth: 2
    :hidden:
    :caption: Introduction
 
-   /intro/blinkLED
-   /intro/support/index
    /intro/beagle101/index
+   /intro/support/index
    /intro/contribution/index
-   CONTRIB
 
 
 Boards

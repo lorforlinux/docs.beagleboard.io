@@ -1,23 +1,43 @@
 .. _intro_beagle-101:
 
-Beagle 101
-###########
+An Introduction to Beagles
+##########################
 
-.. note::
-   This page is under construction. Most of the information here is drastically out of date.
+Linux-enabled boards
+********************
 
-This is a collection of articles to aide in quickly understanding how to make use of Beagles running Linux.
-Most of the useful information has moved to :ref:`bone-cook-book-home`, but some articles
-are being built here from a different perspective.
+Most Beagles have on-board flash preconfigured to run Linux. These resources will get you started quickly.
 
-Articles under construction or to be imported and updated:
+* Get started at :ref:`blinkLED`.
+* Learn to reset a board back to factory defaults and dive a bit deeper into the IDE at :ref:`beagleboard-getting-started`.
+* Learn a bit about Linux at :ref:`intro-linux`.
+* Learn about accessories at :ref:`accessories-home`
+* Learn about using 3rd party I2C add-on boards at :ref:`qwiic_stemma_grove_addons`.
+* Learn about using mikroBUS add-on boards at :ref:`beagleplay-mikrobus`.
+* Learn about using Cape add-on boards at :ref:`capes`.
+* Read :ref:`bone-cook-book-home`.
+* Read :ref:`pru-cookbook-home`.
+* Find more books at https://www.beagleboard.org/books.
 
-* :ref:`qwiic_stemma_grove_addons`
-* https://beagleboard.github.io/bone101/Support/bone101/
+Zephyr-enabled boards
+*********************
+
+Our Zephyr-enabled boards ship with a build of Micropython and, in the future, will also
+ship with a BeagleConnect Greybus node service for quick, transparent access from any BeagleConnect
+Greybus host enabled system.
+
+* See :ref:`beagleconnect-freedom-using-micropython` to get started quickly.
+* See :ref:`beagleconnect-freedom-using-zephyr` to learn to setup the Zephyr SDK.
+* See :ref:`beagleconnect-overview` to learn about BeagleConnect Greybus.
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   /intro/beagle101/qwiic-stemma-grove-addons.rst
+   blinkLED
+   linux
+   qwiic-stemma-grove-addons
 
+.. todo::
+
+   Make sure we have everything critical from https://beagleboard.github.io/bone101/Support/bone101/
