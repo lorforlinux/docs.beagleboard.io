@@ -36,6 +36,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_tabs.tabs",
     "breathe",
+    "sphinx_copybutton",
 ]
 
 #    "exhale"
