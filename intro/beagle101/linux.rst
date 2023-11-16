@@ -1,4 +1,4 @@
-.. _intro_linux:
+.. _intro-linux:
 
 An Introduction to Linux
 ########################
