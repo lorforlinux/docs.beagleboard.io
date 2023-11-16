@@ -56,203 +56,70 @@ Software architecture
 
 .. graphviz:: BeagleConnect Software Architecture
 
-    digraph S {
-	graph [bb="0,0,480,772.5"];
-	node [color=white,
-		label="\N",
-		shape=box
-	];
-	subgraph cluster_0 {
-		graph [bb="8,310,237,764.5",
-			color=black,
-			label="Linux PC",
-			lheight=0.23,
-			lp="122.5,752.25",
-			lwidth=0.73
-		];
-		subgraph cluster_1 {
-			graph [bb="16,655.5,229,732",
-				color=lightgrey,
-				label="Linux userspace",
-				lheight=0.23,
-				lp="122.5,719.75",
-				lwidth=1.23,
-				style=filled
-			];
-			node [color=green,
-				style=filled
-			];
-			A	[height=0.5,
-				label="User Application",
-				pos="78,681.5",
-				tooltip="Primary developer entry point",
-				width=1.5035];
-			g	[height=0.5,
-				label="gbridge**",
-				pos="186,681.5",
-				tooltip="Bridge Greybus to networked devices",
-				width=0.98264];
+	// Software architecture
+	digraph S {
+		node [color=white shape=box]
+		subgraph cluster_0 {
+			color=black label="Linux PC"
+			subgraph cluster_1 {
+				node [color=green style=filled]
+				color=lightgrey label="Linux userspace" style=filled
+				A [label="User Application" tooltip="Primary developer entry point"]
+				g [label="gbridge**" tooltip="Bridge Greybus to networked devices"]
+			}
+			subgraph cluster_2 {
+				node [color=green style=filled]
+				color=lightgrey label="Linux kernel" style=filled
+				I [label="IIO Drivers" tooltip="Hundreds of drivers for sensors and acutators"]
+				r [label=greybus tooltip="Dynamic RPC-like bus interface for I2C, SPI, UART, etc."]
+				n [label="gb-netlink**" tooltip="Extend Greybus over netlink to userspace"]
+				m [label="mikrobus**" tooltip="Board-level abstraction to identify sensor connections"]
+				w [label="wpanusb**" tooltip="USB-interface to IEEE802.15.4 radio"]
+				i [label=ieee802154 tooltip="Standards-based radio interface"]
+				6 [label=lowpan tooltip="IPv6 for low-power wireless networks"]
+			}
 		}
-		subgraph cluster_2 {
-			graph [bb="35,318,229,647.5",
-				color=lightgrey,
-				label="Linux kernel",
-				lheight=0.23,
-				lp="132,635.25",
-				lwidth=0.97,
-				style=filled
-			];
-			node [color=green,
-				style=filled
-			];
-			I	[height=0.5,
-				label="IIO Drivers",
-				pos="83,597",
-				tooltip="Hundreds of drivers for sensors and acutators",
-				width=1.0972];
-			m	[height=0.5,
-				label="mikrobus**",
-				pos="84,525",
-				tooltip="Board-level abstraction to identify sensor connections",
-				width=1.1285];
-			I -> m	[pos="e,83.756,543.1 83.247,578.7 83.351,571.41 83.475,562.73 83.592,554.54"];
-			r	[height=0.5,
-				label=greybus,
-				pos="85,453",
-				tooltip="Dynamic RPC-like bus interface for I2C, SPI, UART, etc.",
-				width=0.81597];
-			n	[height=0.5,
-				label="gb-netlink**",
-				pos="86,344",
-				tooltip="Extend Greybus over netlink to userspace",
-				width=1.1806];
-			r -> n	[pos="e,85.84,362.15 85.161,434.81 85.315,418.27 85.552,392.98 85.734,373.44"];
-			m -> r	[pos="e,84.756,471.1 84.247,506.7 84.351,499.41 84.475,490.73 84.592,482.54"];
-			w	[height=0.5,
-				label="wpanusb**",
-				pos="182,453",
-				tooltip="USB-interface to IEEE802.15.4 radio",
-				width=1.0764];
-			i	[height=0.5,
-				label=ieee802154,
-				pos="182,525",
-				tooltip="Standards-based radio interface",
-				width=1.0868];
-			i -> w	[pos="e,182,471.1 182,506.7 182,499.41 182,490.73 182,482.54"];
-			6	[height=0.5,
-				label=lowpan,
-				pos="184,597",
-				tooltip="IPv6 for low-power wireless networks",
-				width=0.77431];
-			6 -> i	[pos="e,182.49,543.1 183.51,578.7 183.3,571.41 183.05,562.73 182.82,554.54"];
+		subgraph cluster_3 {
+			color=black label="BCF gateway"
+			subgraph cluster_4 {
+				node [color=green style=filled]
+				color=lightgrey label=CC1352 style=filled
+				z [label="gateway**" tooltip="Zephyr-based IEEE802.15.4 radio accepting HDLC over UART transactions"]
+			}
+			subgraph cluster_5 {
+				node [color=green style=filled]
+				color=lightgrey label=MSP430 style=filled
+				b [label="usb_uart_bridge**" tooltip="USB interace to access CC1352 UART that encapulates WPANUSB in HDLC"]
+			}
 		}
-		A -> I	[pos="e,81.941,615.47 79.06,663 79.697,652.5 80.522,638.89 81.253,626.83"];
-		g -> 6	[pos="e,184.42,615.47 185.58,663 185.32,652.5 184.99,638.89 184.7,626.83"];
-		n -> g	[pos="e,159.23,663.18 74.425,362.48 42.035,413.75 -42.302,565.28 34,647.5 42.11,656.24 129.58,652.08 141,655.5 143.6,656.28 146.22,657.22 \
-148.81,658.29"];
+		subgraph cluster_6 {
+			color=black label="BCF node"
+			subgraph cluster_7 {
+				node [color=green style=filled]
+				color=lightgrey label=CC1352 style=filled
+				k [label="greybus-mikrobus**" tooltip="Zephyr-based applies Greybus transactions from IPv6/IEEE802154 to physical I2C, SPI, UART, etc."]
+			}
+			subgraph cluster_8 {
+				node [color=green style=filled]
+				color=lightgrey label="mikroBUS add-on board" style=filled
+				e [label="manifest 1-wire EEPROM**" tooltip="Manifest for mikroBUS driver"]
+				s [label=sensor tooltip="Over 1,000 different sensor, actuator and indicator options"]
+			}
+		}
+		A -> I
+		I -> m
+		m -> r
+		r -> n
+		n -> g
+		g -> 6
+		6 -> i
+		i -> w
+		w -> b
+		b -> z
+		z -> k
+		k -> s
+		k -> e
 	}
-	subgraph cluster_3 {
-		graph [bb="245,217.5,395,427",
-			color=black,
-			label="BCF gateway",
-			lheight=0.23,
-			lp="320,414.75",
-			lwidth=1.03
-		];
-		subgraph cluster_4 {
-			graph [bb="275,225.5,365,302",
-				color=lightgrey,
-				label=CC1352,
-				lheight=0.23,
-				lp="320,289.75",
-				lwidth=0.62,
-				style=filled
-			];
-			node [color=green,
-				style=filled
-			];
-			z	[height=0.5,
-				label="gateway**",
-				pos="320,251.5",
-				tooltip="Zephyr-based IEEE802.15.4 radio accepting HDLC over UART transactions",
-				width=1.0347];
-		}
-		subgraph cluster_5 {
-			graph [bb="253,318,387,394.5",
-				color=lightgrey,
-				label=MSP430,
-				lheight=0.23,
-				lp="320,382.25",
-				lwidth=0.67,
-				style=filled
-			];
-			node [color=green,
-				style=filled
-			];
-			b	[height=0.5,
-				label="usb_uart_bridge**",
-				pos="320,344",
-				tooltip="USB interace to access CC1352 UART that encapulates WPANUSB in HDLC",
-				width=1.6285];
-		}
-		b -> z	[pos="e,320,269.9 320,325.55 320,313.03 320,295.87 320,281.33"];
-	}
-	subgraph cluster_6 {
-		graph [bb="192,8,472,209.5",
-			color=black,
-			label="BCF node",
-			lheight=0.23,
-			lp="332,197.25",
-			lwidth=0.77
-		];
-		subgraph cluster_7 {
-			graph [bb="248,100.5,392,177",
-				color=lightgrey,
-				label=CC1352,
-				lheight=0.23,
-				lp="320,164.75",
-				lwidth=0.62,
-				style=filled
-			];
-			node [color=green,
-				style=filled
-			];
-			k	[height=0.5,
-				label="greybus-mikrobus**",
-				pos="320,126.5",
-				tooltip="Zephyr-based applies Greybus transactions from IPv6/IEEE802154 to physical I2C, SPI, UART, etc.",
-				width=1.7847];
-		}
-		subgraph cluster_8 {
-			graph [bb="200,16,464,92.5",
-				color=lightgrey,
-				label="mikroBUS add-on board",
-				lheight=0.23,
-				lp="332,80.25",
-				lwidth=1.88,
-				style=filled
-			];
-			node [color=green,
-				style=filled
-			];
-			e	[height=0.5,
-				label="manifest 1-wire EEPROM**",
-				pos="368,42",
-				tooltip="Manifest for mikroBUS driver",
-				width=2.4306];
-			s	[height=0.5,
-				label=sensor,
-				pos="235,42",
-				tooltip="Over 1,000 different sensor, actuator and indicator options",
-				width=0.75];
-		}
-		k -> e	[pos="e,357.84,60.471 330.18,108 336.54,97.066 344.87,82.748 352.1,70.334"];
-		k -> s	[pos="e,245.76,60.146 291.4,108.1 284.71,103.43 277.83,98.106 272,92.5 264.85,85.628 258.04,77.267 252.26,69.386"];
-	}
-	w -> b	[pos="e,304.6,362.3 220.59,434.64 224.88,432.26 229.11,429.7 233,427 256.75,410.55 280.4,387.74 297.03,370.35"];
-	z -> k	[pos="e,320,144.77 320,233.14 320,213.18 320,180.1 320,156.27"];
-    }
-
 
 TODO items
 **********
