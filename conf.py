@@ -36,8 +36,9 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_tabs.tabs",
     "breathe",
-    "exhale"
 ]
+
+#    "exhale"
 
 #graphviz_output_format = 'svg'
 
@@ -70,7 +71,7 @@ LaTeXBuilder.supported_image_types = ['application/pdf', 'image/jpg', 'image/jpe
 
 templates_path = ['_templates']
 
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
 numfig = True
 navigation_with_keys = True
 
