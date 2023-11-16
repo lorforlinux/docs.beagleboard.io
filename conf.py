@@ -16,6 +16,12 @@ ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
+rst_epilog =""
+
+# Add latest images to rst_epilog
+with open('latest.images') as f:
+     rst_epilog += f.read()    
+                       
 # -- Project information -----------------------------------------------------
 
 project = 'BeagleBoard Docs'

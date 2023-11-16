@@ -23,6 +23,9 @@ The "IoT" images provide more free disk space if you don't need to use a graphic
 .. NOTE::
 	Due to sizing necessities, this download may take 30 minutes or more.
 
+1. `BeaglePlay latest image (xfce)`_
+2. `BeaglePlay latest image (home-assistant)`_
+
 The Debian/Ubuntu distribution is provided for the boards. The file you download will have an .img.xz extension.
 This is a compressed sector-by-sector image of the SD card.
 
@@ -221,20 +224,25 @@ Books
 
 For a complete list of books on BeagleBone, see `beagleboard.org/books <https://beagleboard.org/books>`_.
 
-`Bad to the Bone <https://bbb.io/bad-to-the-bone>`_
+|image8|
 
 Perfect for high-school seniors or freshman univerisity level text, consider using "Bad to the Bone"
 
-`BeagleBone Cookbook <https://bbb.io/cookbook>`_
+|image9|
 
 A lighter treatment suitable for a bit broader audience without the backgrounders on programming and
 electronics, consider "BeagleBone Cookbook"
 
-`Exploring BeagleBone <https://bbb.io/ebb>`_ and `Embedded Linux Primer <https://bbb.io/elp>`_
+|image10|
 
 To take things to the next level of detail, consider "Exploring BeagleBone" which can be considered
-the missing software manual and utilize "Embedded Linux Primer" as a companion textbook to provide
+the missing software manual.
+
+|image11|
+
+utilize "Embedded Linux Primer" as a companion textbook to provide
 a strong base on embedded Linux suitable for working with any hardware that will run Linux.
+
 
 .. |image0| image:: images/distros.png
    :width: 75.0%
