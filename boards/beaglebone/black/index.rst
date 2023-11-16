@@ -36,15 +36,15 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
 .. toctree::
    :maxdepth: 1
 
-   /boards/beaglebone/black/ch01.rst
-   /boards/beaglebone/black/ch02.rst
-   /boards/beaglebone/black/ch03.rst
-   /boards/beaglebone/black/ch04.rst
-   /boards/beaglebone/black/ch05.rst
-   /boards/beaglebone/black/ch06.rst
-   /boards/beaglebone/black/ch07.rst
-   /boards/beaglebone/black/ch08.rst
-   /boards/beaglebone/black/ch09.rst
-   /boards/beaglebone/black/ch10.rst
-   /boards/beaglebone/black/ch11.rst
+   ch01
+   ch02
+   ch03
+   ch04
+   ch05
+   ch06
+   ch07
+   ch08
+   ch09
+   ch10
+   ch11
 

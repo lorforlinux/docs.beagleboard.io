@@ -24,7 +24,7 @@ Pictures
 
    Fig: BeagleBone AI-64 back with heatsink
 
-.. figure:: images/ch10/45-front.jpg
+.. figure:: images/bbai64-45-front.jpg
    :width: 400px
    :align: center 
    :alt: Fig: BeagleBone AI-64 front at 45° angle

@@ -7,18 +7,6 @@ BeagleConnect
 
    Currently under development
 
-.. note::
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
-.. tip::
-
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
-
 BeagleConnect™ is a revolutionary technology virtually eliminating low-level 
 software development for `IoT <https://en.wikipedia.org/wiki/Internet_of_things>`_ 
 and `IIoT <https://en.wikipedia.org/wiki/Industrial_internet_of_things>`_ 
@@ -45,11 +33,10 @@ BeagleConnect™ technology solves:
 * The need to connect to devices using long-range, low-power wireless, and
 * The need to produce high-volume custom hardware cost-optimized for your requirements.
 
-.. toctree::
-   :maxdepth: 2
+See:
 
-   /boards/beagleconnect/technology/index.rst
-   /boards/beagleconnect/technology/story.rst
+* :ref:`beagleconnect-overview`
+* :ref:`beagleconnect-story`
 
 BeagleConnect Experience
 *************************
