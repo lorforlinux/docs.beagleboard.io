@@ -3,6 +3,10 @@
 PocketBeagle
 ###################
 
+PocketBeagle is an ultra-tiny-yet-complete open-source USB-key-fob computer. 
+PocketBeagle features an incredible low cost, slick design and simple usage, 
+making PocketBeagle the ideal development board for beginners and professionals alike. 
+
 .. grid:: 2
 
     .. grid-item::
@@ -23,11 +27,6 @@ PocketBeagle
             * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
             * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/pocketbeagle-original>`__
             * For export, emissions and other compliance, see :ref:`pocketbeagle_support_information`
-
-PocketBeagle is an ultra-tiny-yet-complete open-source USB-key-fob computer. 
-PocketBeagle features an incredible low cost, slick design and simple usage, 
-making PocketBeagle the ideal development board for beginners and professionals alike. 
-
 
 .. image:: images/PocketBeagle-size-compare-small.*
    :width: 598                                     

@@ -6,6 +6,10 @@ Capes
 .. note::
    This page is under development.
 
+.. todo::
+
+   Get OSHWA certification for all of our capes and update the documentation to reflect that
+
 .. admonition:: Contributors
 
     This work is licensed under a `Creative Commons Attribution-ShareAlike
