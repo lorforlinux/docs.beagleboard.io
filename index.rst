@@ -50,10 +50,10 @@ design, including the
 `materials <https://git.beagleboard.org/explore/projects/topics/boards>`__ to modify the designs
 from source using appropriate design tools.
 
-* Check out our latest board at: :ref:`beagleplay-home`
-* Check out our most popular board at: :ref:`beagleboneblack-home`
-* Check out our highest performance board at: :ref:`bbai64-home`
-* Find all of our on: :ref:`boards`
+* Check out our easy-to-use Linux-based board at: :ref:`beagleplay-home`
+* Check out our highest performance (8 TOPs) board at: :ref:`bbai64-home`
+* Check out our first Zephyr-based board at: :ref:`beagleconnect_freedom_home`
+* Find all of our boards at: :ref:`boards`
 
 .. grid:: 1 1 2 3
    :margin: 4 4 0 0
