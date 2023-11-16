@@ -56,70 +56,71 @@ Software architecture
 
 .. graphviz:: BeagleConnect Software Architecture
 
-	// Software architecture
-	digraph S {
-		node [color=white shape=box]
-		subgraph cluster_0 {
-			color=black label="Linux PC"
-			subgraph cluster_1 {
-				node [color=green style=filled]
-				color=lightgrey label="Linux userspace" style=filled
-				A [label="User Application" tooltip="Primary developer entry point"]
-				g [label="gbridge**" tooltip="Bridge Greybus to networked devices"]
-			}
-			subgraph cluster_2 {
-				node [color=green style=filled]
-				color=lightgrey label="Linux kernel" style=filled
-				I [label="IIO Drivers" tooltip="Hundreds of drivers for sensors and acutators"]
-				r [label=greybus tooltip="Dynamic RPC-like bus interface for I2C, SPI, UART, etc."]
-				n [label="gb-netlink**" tooltip="Extend Greybus over netlink to userspace"]
-				m [label="mikrobus**" tooltip="Board-level abstraction to identify sensor connections"]
-				w [label="wpanusb**" tooltip="USB-interface to IEEE802.15.4 radio"]
-				i [label=ieee802154 tooltip="Standards-based radio interface"]
-				6 [label=lowpan tooltip="IPv6 for low-power wireless networks"]
-			}
-		}
-		subgraph cluster_3 {
-			color=black label="BCF gateway"
-			subgraph cluster_4 {
-				node [color=green style=filled]
-				color=lightgrey label=CC1352 style=filled
-				z [label="gateway**" tooltip="Zephyr-based IEEE802.15.4 radio accepting HDLC over UART transactions"]
-			}
-			subgraph cluster_5 {
-				node [color=green style=filled]
-				color=lightgrey label=MSP430 style=filled
-				b [label="usb_uart_bridge**" tooltip="USB interace to access CC1352 UART that encapulates WPANUSB in HDLC"]
-			}
-		}
-		subgraph cluster_6 {
-			color=black label="BCF node"
-			subgraph cluster_7 {
-				node [color=green style=filled]
-				color=lightgrey label=CC1352 style=filled
-				k [label="greybus-mikrobus**" tooltip="Zephyr-based applies Greybus transactions from IPv6/IEEE802154 to physical I2C, SPI, UART, etc."]
-			}
-			subgraph cluster_8 {
-				node [color=green style=filled]
-				color=lightgrey label="mikroBUS add-on board" style=filled
-				e [label="manifest 1-wire EEPROM**" tooltip="Manifest for mikroBUS driver"]
-				s [label=sensor tooltip="Over 1,000 different sensor, actuator and indicator options"]
-			}
-		}
-		A -> I
-		I -> m
-		m -> r
-		r -> n
-		n -> g
-		g -> 6
-		6 -> i
-		i -> w
-		w -> b
-		b -> z
-		z -> k
-		k -> s
-		k -> e
-	}
+    	// Software architecture
+    	digraph S {
+    		node [color=white shape=box]
+    		subgraph cluster_0 {
+    			color=black label="Linux PC"
+    			subgraph cluster_1 {
+    				node [color=green style=filled]
+    				color=lightgrey label="Linux userspace" style=filled
+    				A [label="User Application" tooltip="Primary developer entry point"]
+    				g [label="gbridge**" tooltip="Bridge Greybus to networked devices"]
+    			}
+    			subgraph cluster_2 {
+    				node [color=green style=filled]
+    				color=lightgrey label="Linux kernel" style=filled
+    				I [label="IIO Drivers" tooltip="Hundreds of drivers for sensors and acutators"]
+    				r [label=greybus tooltip="Dynamic RPC-like bus interface for I2C, SPI, UART, etc."]
+    				n [label="gb-netlink**" tooltip="Extend Greybus over netlink to userspace"]
+    				m [label="mikrobus**" tooltip="Board-level abstraction to identify sensor connections"]
+    				w [label="wpanusb**" tooltip="USB-interface to IEEE802.15.4 radio"]
+    				i [label=ieee802154 tooltip="Standards-based radio interface"]
+    				6 [label=lowpan tooltip="IPv6 for low-power wireless networks"]
+    			}
+    		}
+    		subgraph cluster_3 {
+    			color=black label="BCF gateway"
+    			subgraph cluster_4 {
+    				node [color=green style=filled]
+    				color=lightgrey label=CC1352 style=filled
+    				z [label="gateway**" tooltip="Zephyr-based IEEE802.15.4 radio accepting HDLC over UART transactions"]
+    			}
+    			subgraph cluster_5 {
+    				node [color=green style=filled]
+    				color=lightgrey label=MSP430 style=filled
+    				b [label="usb_uart_bridge**" tooltip="USB interace to access CC1352 UART that encapulates WPANUSB in HDLC"]
+    			}
+    		}
+    		subgraph cluster_6 {
+    			color=black label="BCF node"
+    			subgraph cluster_7 {
+    				node [color=green style=filled]
+    				color=lightgrey label=CC1352 style=filled
+    				k [label="greybus-mikrobus**" tooltip="Zephyr-based applies Greybus transactions from IPv6/IEEE802154 to physical I2C, SPI, UART, etc."]
+    			}
+    			subgraph cluster_8 {
+    				node [color=green style=filled]
+    				color=lightgrey label="mikroBUS add-on board" style=filled
+    				e [label="manifest 1-wire EEPROM**" tooltip="Manifest for mikroBUS driver"]
+    				s [label=sensor tooltip="Over 1,000 different sensor, actuator and indicator options"]
+    			}
+    		}
+    		A -> I
+    		I -> m
+    		m -> r
+    		r -> n
+    		n -> g
+    		g -> 6
+    		6 -> i
+    		i -> w
+    		w -> b
+    		b -> z
+    		z -> k
+    		k -> s
+    		k -> e
+    	}
+
 
 TODO items
 **********
