@@ -384,10 +384,10 @@ Capes
    /boards/beaglebone/index
    /boards/beaglev/ahead/index
    /boards/beaglev/fire/index
-   /boards/capes/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
+   /boards/capes/index
    /boards/terms-and-conditions
 
 
@@ -435,7 +435,6 @@ page for more information.
    :hidden:
    :caption: Accessories
 
-   /boards/capes/index
    /accessories/index
 
 Indices and tables
