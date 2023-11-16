@@ -412,7 +412,7 @@ You can test the USR button with ``evtest``
 We want to use ``gpio-keys``, so enter ``1``. Press and release 
 the USR button and you'll see:
 
- .. code-block:: shell-session
+.. code-block:: shell-session
 
     Input driver version is 1.0.1
     Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
