@@ -12,7 +12,7 @@ architecture.
 .. note:: 
     This documentation and the associated software are each a work-in-progress.
 
-.. image:: ../freedom/media/BeagleConnect-Freedom-Front.*
+.. image:: media/BeagleConnect-Freedom-Front.*
    :width: 598
    :align: center
    :alt: BeagleConnect Freedom
@@ -24,7 +24,7 @@ built, this section helps describe the development currently in progress and
 the principles of operation.
 
 Background
-----------
+**********
 .. image:: media/SoftwareProp.jpg
    :width: 600
    :align: center
@@ -36,7 +36,7 @@ eliminate the need to add and manually configure devices added onto the Linux
 system.
 
 High-level
-----------
+**********
 * For Linux nerds: Think of BeagleConnect™ as 6LoWPAN over 802.15.4-based 
   Greybus (instead of Unipro as used by Project Ara), where every 
   BeagleConnect™ board shows up as new SPI, I2C, UART, PWM, ADC, and GPIO 
@@ -52,7 +52,7 @@ High-level
   driver. Further, the Greybus protocol is spoken over 6LoWPAN on 802.15.4.
 
 Software architecture
----------------------
+*********************
 
 .. graphviz:: BeagleConnect Software Architecture
 
@@ -255,7 +255,7 @@ Software architecture
 
 
 TODO items
-----------
+**********
 
 * :strike:`Linux kernel driver` (wpanusb and bcfserial still need to be upstreamed)
 
@@ -276,7 +276,7 @@ TODO items
 
 
 Associated pre-work
--------------------
+*******************
 
 * Click Board support for Node-RED can be executed with native connections on 
   PocketBeagle+TechLab and BeagleBone Black with mikroBUS Cape
@@ -291,7 +291,7 @@ Associated pre-work
   eliminate any need to edit /boot/uEnv.txt.
 
 User experience concerns
-------------------------
+************************
 
 * Make sure no reboots are required
 
@@ -304,7 +304,7 @@ User experience concerns
   provisioning is completed
 
 BeagleConnect™ Greybus demo using BeagleConnect™ Freedom
-########################################################
+********************************************************
 BeagleConnect™ Freedom runs a subGHz IEEE 802.15.4 network. This BeagleConnect™
 Greybus demo shows how to interact with GPIO, I2C and mikroBUS add-on boards 
 remotely connected over a BeagleConnect™ Freedom.

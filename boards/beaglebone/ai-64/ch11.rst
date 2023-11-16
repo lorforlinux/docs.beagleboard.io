@@ -1,4 +1,4 @@
-.. _support-information:
+.. _beaglebone-ai-64-support-information:
 
 Support Information
 ####################

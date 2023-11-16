@@ -6,35 +6,26 @@ BeagleBone Black
 BeagleBone Black is a low-cost, community-supported development platform for developers and hobbyists. 
 Boot Linux in under 10 seconds and get started on development in less than 5 minutes with just a single USB cable.
 
-.. admonition:: OSHWA Certification mark (BeagleBone Black)
+.. grid:: 2
 
-    .. figure:: images/OSHW_mark_US000236.*
-        :width: 200
-        :target: https://certification.oshwa.org/us000236.html
-        :alt: BeagleBone Black OSHW Mark
+    .. grid-item::
+        :columns: 12 12 12 4
 
-.. admonition:: OSHWA Certification mark (BeagleBone Black Wireless)
+        .. figure:: images/OSHW_mark_US000236.*
+            :width: 200
+            :target: https://certification.oshwa.org/us000236.html
+            :alt: BeagleBone Black OSHW Mark
 
-    .. figure:: images/OSHW_mark_US000011.*
-        :width: 200
-        :target: https://certification.oshwa.org/us000011.html
-        :alt: BeagleBone Black Wireless OSHW Mark
+    .. grid-item::
+        :columns: 12 12 12 8
 
-.. note:: 
+        .. admonition:: License Terms
 
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
-    Hardware design files can be found at,
-
-    - BeagleBone Black: https://git.beagleboard.org/beagleboard/beaglebone-black
-    - BeagleBone Black Wireless: https://git.beagleboard.org/beagleboard/beaglebone-black-wireless
-
-.. tip::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
+            * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleboard/beaglebone-black>`__
+            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
+            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-black>`__
+            * For export, emissions and other compliance, see :ref:`beagleboneblack-support`
 
 .. image:: media/image1.jpg
    :width: 598
@@ -45,15 +36,15 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
 .. toctree::
    :maxdepth: 1
 
-   /boards/beaglebone/black/ch01.rst
-   /boards/beaglebone/black/ch02.rst
-   /boards/beaglebone/black/ch03.rst
-   /boards/beaglebone/black/ch04.rst
-   /boards/beaglebone/black/ch05.rst
-   /boards/beaglebone/black/ch06.rst
-   /boards/beaglebone/black/ch07.rst
-   /boards/beaglebone/black/ch08.rst
-   /boards/beaglebone/black/ch09.rst
-   /boards/beaglebone/black/ch10.rst
-   /boards/beaglebone/black/ch11.rst
+   ch01
+   ch02
+   ch03
+   ch04
+   ch05
+   ch06
+   ch07
+   ch08
+   ch09
+   ch10
+   ch11
 
