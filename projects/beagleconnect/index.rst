@@ -12,10 +12,9 @@ architecture.
 .. note:: 
     This documentation and the associated software are each a work-in-progress.
 
-.. image:: ../freedom/media/BeagleConnect-Freedom-Front.*
+.. image:: media/BeagleConnect-Freedom-Front.*
    :width: 598
    :align: center
-   :height: 400
    :alt: BeagleConnect Freedom
 
 BeagleConnect™ is built using `Greybus <https://kernel-recipes.org/en/2015/talks/an-introduction-to-greybus/>`__
@@ -25,7 +24,7 @@ built, this section helps describe the development currently in progress and
 the principles of operation.
 
 Background
-----------
+**********
 .. image:: media/SoftwareProp.jpg
    :width: 600
    :align: center
@@ -37,7 +36,7 @@ eliminate the need to add and manually configure devices added onto the Linux
 system.
 
 High-level
-----------
+**********
 * For Linux nerds: Think of BeagleConnect™ as 6LoWPAN over 802.15.4-based 
   Greybus (instead of Unipro as used by Project Ara), where every 
   BeagleConnect™ board shows up as new SPI, I2C, UART, PWM, ADC, and GPIO 
@@ -53,16 +52,78 @@ High-level
   driver. Further, the Greybus protocol is spoken over 6LoWPAN on 802.15.4.
 
 Software architecture
----------------------
+*********************
 
-.. image:: media/bcf_block_diagram.png
-   :width: 600
-   :align: center
-   :height: 400
-   :alt: BeagleConnect Block Diagram
+.. graphviz:: BeagleConnect Software Architecture
+
+    	// Software architecture
+    	digraph S {
+    		node [color=white shape=box]
+    		subgraph cluster_0 {
+    			color=black label="Linux PC"
+    			subgraph cluster_1 {
+    				node [color=green style=filled]
+    				color=lightgrey label="Linux userspace" style=filled
+    				A [label="User Application" tooltip="Primary developer entry point"]
+    				g [label="gbridge**" tooltip="Bridge Greybus to networked devices"]
+    			}
+    			subgraph cluster_2 {
+    				node [color=green style=filled]
+    				color=lightgrey label="Linux kernel" style=filled
+    				I [label="IIO Drivers" tooltip="Hundreds of drivers for sensors and acutators"]
+    				r [label=greybus tooltip="Dynamic RPC-like bus interface for I2C, SPI, UART, etc."]
+    				n [label="gb-netlink**" tooltip="Extend Greybus over netlink to userspace"]
+    				m [label="mikrobus**" tooltip="Board-level abstraction to identify sensor connections"]
+    				w [label="wpanusb**" tooltip="USB-interface to IEEE802.15.4 radio"]
+    				i [label=ieee802154 tooltip="Standards-based radio interface"]
+    				6 [label=lowpan tooltip="IPv6 for low-power wireless networks"]
+    			}
+    		}
+    		subgraph cluster_3 {
+    			color=black label="BCF gateway"
+    			subgraph cluster_4 {
+    				node [color=green style=filled]
+    				color=lightgrey label=CC1352 style=filled
+    				z [label="gateway**" tooltip="Zephyr-based IEEE802.15.4 radio accepting HDLC over UART transactions"]
+    			}
+    			subgraph cluster_5 {
+    				node [color=green style=filled]
+    				color=lightgrey label=MSP430 style=filled
+    				b [label="usb_uart_bridge**" tooltip="USB interace to access CC1352 UART that encapulates WPANUSB in HDLC"]
+    			}
+    		}
+    		subgraph cluster_6 {
+    			color=black label="BCF node"
+    			subgraph cluster_7 {
+    				node [color=green style=filled]
+    				color=lightgrey label=CC1352 style=filled
+    				k [label="greybus-mikrobus**" tooltip="Zephyr-based applies Greybus transactions from IPv6/IEEE802154 to physical I2C, SPI, UART, etc."]
+    			}
+    			subgraph cluster_8 {
+    				node [color=green style=filled]
+    				color=lightgrey label="mikroBUS add-on board" style=filled
+    				e [label="manifest 1-wire EEPROM**" tooltip="Manifest for mikroBUS driver"]
+    				s [label=sensor tooltip="Over 1,000 different sensor, actuator and indicator options"]
+    			}
+    		}
+    		A -> I
+    		I -> m
+    		m -> r
+    		r -> n
+    		n -> g
+    		g -> 6
+    		6 -> i
+    		i -> w
+    		w -> b
+    		b -> z
+    		z -> k
+    		k -> s
+    		k -> e
+    	}
+
 
 TODO items
-----------
+**********
 
 * :strike:`Linux kernel driver` (wpanusb and bcfserial still need to be upstreamed)
 
@@ -83,7 +144,7 @@ TODO items
 
 
 Associated pre-work
--------------------
+*******************
 
 * Click Board support for Node-RED can be executed with native connections on 
   PocketBeagle+TechLab and BeagleBone Black with mikroBUS Cape
@@ -98,7 +159,7 @@ Associated pre-work
   eliminate any need to edit /boot/uEnv.txt.
 
 User experience concerns
-------------------------
+************************
 
 * Make sure no reboots are required
 
@@ -111,7 +172,7 @@ User experience concerns
   provisioning is completed
 
 BeagleConnect™ Greybus demo using BeagleConnect™ Freedom
-########################################################
+********************************************************
 BeagleConnect™ Freedom runs a subGHz IEEE 802.15.4 network. This BeagleConnect™
 Greybus demo shows how to interact with GPIO, I2C and mikroBUS add-on boards 
 remotely connected over a BeagleConnect™ Freedom.

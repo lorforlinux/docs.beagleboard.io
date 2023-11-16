@@ -3,14 +3,10 @@
 BeagleV-Ahead
 ###################
 
-BeagleV Ahead is an open-source RISC-V Single Board Computer (SBC). It has the same P8 & P9 cape header pins as  
-BeagleBone Black allowing you to stack your favourite BeagleBone cape on top to expand it's capability. 
-Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable 
+BeagleV-Ahead is a high-performance open-source RISC-V single board computer (SBC) built around the Alibaba TH1520 SoC. It has the same P8 & P9 cape header pins as
+BeagleBone Black allowing you to stack your favourite BeagleBone cape on top to expand it's capability.
+Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable
 RISC-V enabled pocket-size computer for anybody who want's to dive deep into the new RISC-V ISA.
-
-.. important::
-    This is a work in progress, for latest documentation please 
-    visit https://docs.beagleboard.org/latest/
 
 .. grid:: 2
 
@@ -37,6 +33,10 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
     :align: center
     :alt: BeagleV Ahead with hand
 
+.. important::
+    This is a work in progress, for latest documentation please
+    visit https://docs.beagleboard.org/latest/
+
 .. only:: html
 
   .. grid:: 1 1 2 3
@@ -53,13 +53,13 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
         .. image:: media/chapter-thumbnails/01-introduction.*
             :align: center
             :alt: BeagleV Ahead Chapter01 thumbnail
-        
+
         +++
 
-        Introduction to BeagleV Ahead board with information on each component 
+        Introduction to BeagleV Ahead board with information on each component
         location on both front and back of the board.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-quick-start
         :link-type: ref
 
@@ -72,10 +72,10 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
 
         +++
 
-        Getting started guide to enable you to start building your projects 
+        Getting started guide to enable you to start building your projects
         in no time.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-design
         :link-type: ref
 
@@ -88,10 +88,10 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
 
         +++
 
-        Hardware and mechanical design and specifications of BeagleV Ahead board 
+        Hardware and mechanical design and specifications of BeagleV Ahead board
         for those who want to know their board inside and out.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-expansion
         :link-type: ref
 
@@ -104,10 +104,10 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
 
         +++
 
-        Connector pinout diagrams with expansion details so that you can 
+        Connector pinout diagrams with expansion details so that you can
         easily debug your connections and create custom expansion hardware.
-        
-    .. grid-item-card:: 
+
+    .. grid-item-card::
         :link: beaglev-ahead-demos
         :link-type: ref
 
@@ -122,7 +122,7 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
 
         Demos and tutorials to quickly learn about BeagleV Ahead capabilities.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-support
         :link-type: ref
 

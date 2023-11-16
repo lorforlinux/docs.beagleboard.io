@@ -14,10 +14,10 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
     .. grid-item::
         :columns: 12 12 12 4
 
-        .. figure:: media/OSHW_mark_US002120.*
+        .. figure:: media/certification-mark-US002572-stacked.*
             :width: 200
-            :target: https://certification.oshwa.org/us002120.html
-            :alt: BeagleBone AI OSHW Mark
+            :target: https://certification.oshwa.org/us002572.html
+            :alt: BeagleV-Fire OSHW Mark
 
     .. grid-item::
         :columns: 12 12 12 8

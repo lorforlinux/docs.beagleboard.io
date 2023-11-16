@@ -49,7 +49,7 @@ Support forum
 =============
 
 For any additional support you can submit your queries on our forum,
-https://forum.beagleboard.org/c/beaglev
+https://forum.beagleboard.org/tags/c/beaglev/15/fire
 
 Pictures
 ========
