@@ -25,6 +25,17 @@ The "IoT" images provide more free disk space if you don't need to use a graphic
 
 1. `BeaglePlay latest image (xfce)`_
 2. `BeaglePlay latest image (home-assistant)`_
+3. `AM57xx latest image (IoT)`_ for BeagleBone AI and BeagleBone-X15
+4. `AM57xx latest image (Xfce)`_ for BeagleBone AI and BeagleBone-X15
+5. `BeagleBone AI-64 latest image (Minimal)`_
+6. `BeagleBone AI-64 latest image (TI EDGEAI)`_
+7. `BeagleBone AI-64 latest image (Xfce)`_
+8. `AM335x latest image`_ for BeagleBone Black, PocketBeagle, BeagleBone Blue, etc.
+9. `AM335x latest image (Xfce)`_ for BeagleBone Black, PocketBeagle, BeagleBone Blue, etc.
+10. `AM335x latest image (IoT)`_ for BeagleBone Black, PocketBeagle, BeagleBone Blue, etc.
+11. `BeagleConnect Freedom latest image (micropython)`_
+12. `BeagleV-Ahead latest image (Ubuntu)`_
+13. `BeagleV-Ahead latest image (Yocto)`_
 
 The Debian/Ubuntu distribution is provided for the boards. The file you download will have an .img.xz extension.
 This is a compressed sector-by-sector image of the SD card.
