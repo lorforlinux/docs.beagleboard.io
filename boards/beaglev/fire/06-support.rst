@@ -13,19 +13,19 @@ Export designations
 
 .. todo:: update details
 
-* HS: 
-* US HS: 
-* EU HS: 
+* HS: 8471504090
+* US HS: 8543708800
+* EU HS: 8471707000
 
 Size and weight
 ===============
 
 .. todo:: update details
 
-* Bare board dimensions: 
-* Bare board weight: 
-* Full package dimensions: 
-* Full package weight: 
+* Bare board dimensions: 86.38*54.61*18.8mm
+* Bare board weight: 45.8g
+* Full package dimensions: 140 x 100 x 40 mm
+* Full package weight: 106g
 
 .. _beaglev-fire-support-documentation:
 
@@ -49,7 +49,7 @@ Support forum
 =============
 
 For any additional support you can submit your queries on our forum,
-https://forum.beagleboard.org/c/beaglev
+https://forum.beagleboard.org/tags/c/beaglev/15/fire
 
 Pictures
 ========
@@ -93,6 +93,6 @@ are noted below.
     +---------+------------------------------------------------------------+----------------------+-------+
     | Rev     |   Changes                                                  | Date                 |    By |
     +=========+============================================================+======================+=======+
-    |         |                                                            | 2023-03-08           |       |
+    | A       |  Initial production version                                | 2023-11-02           | JK    |
     +---------+------------------------------------------------------------+----------------------+-------+
 
