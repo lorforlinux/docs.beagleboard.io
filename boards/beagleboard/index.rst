@@ -3,8 +3,9 @@
 BeagleBoard (all)
 ###################
 
-BeagleBoard boards are low-cost, ARM-based development boards suitable for rapid prototyping and 
-open-hardware to enable professionals to develop production systems.
+BeagleBoard.org Single Board Computers (SBCs) and microcontroller development boards are fully OpenSource, low-cost, RISC-V & ARM 
+based boards. Which makes them suitable for students to learn about embedded electronics & embedded linux. The BeagleBoard development 
+platforms also enables rapid prototyping for professionals to develop industrial & production systems.
 
 .. note::
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
@@ -12,7 +13,11 @@ open-hardware to enable professionals to develop production systems.
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
-The latest PDF-formatted System Reference Manual for each BeagleBoard board is linked below.
+The latest unified docs PDF is linked below.
+
+* `BeagleBoard.org unified docs PDF <https://docs.beagleboard.org/latest/beagleboard-docs.pdf>`_
+
+The latest System Reference Manual (PDF) for some older boards is linked below.
 
 * `BeagleBoard <https://git.beagleboard.org/beagleboard/beagleboard/-/blob/master/BeagleBoard_revC5_SRM.pdf>`_
 * `BeagleBoard-xM <https://git.beagleboard.org/beagleboard/beagleboard-xm/-/blob/master/BeagleBoard-xM_SRM.pdf>`_
