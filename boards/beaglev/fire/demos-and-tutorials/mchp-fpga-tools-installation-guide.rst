@@ -63,7 +63,7 @@ Perform the post installation steps as described in the html file opened when yo
 Install the Libero licensing daemon
 ************************************
 
-Download the 64 bit Licensing Daemons from the `Microchip's daemons section <http://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz>`_
+Download the 64 bit Licensing Daemons from the `Microchip's daemons section <https://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz>`_
 
 
 Copy the downloaded file to the Microchip directory within your home directory and untar it.
@@ -104,7 +104,7 @@ Download tool setup script
 
 .. code-block:: 
 
-  git clone https://github.com/vauban353/Microchip-FPGA-Tools-Setup.git
+  git clone https://git.beagleboard.org/beaglev-fire/Microchip-FPGA-Tools-Setup
 
 
 Source the script:
