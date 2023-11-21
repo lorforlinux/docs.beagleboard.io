@@ -3,20 +3,20 @@
 Accessories
 #############
 
-This section will include all the tested accessories for BeagleBoard.org hardware and kits.
+This section includes tested accessories for BeagleBoard.org hardware and kits.
 
 .. note::
 
-    This documentation is not complete and we are actively looking for volunteers to test 
-    and add new hardware accessories that they have already with them. General feedback and contribution 
-    is also appreciated. You can checkout these pages to contribuite to BeagleBoard.org docs project,\
+    This documentation is actively evolving and we are always looking for volunteers to test 
+    and add new hardware accessories that they have tested. General feedback and contribution 
+    is also appreciated. You can checkout these pages to contribuite to the BeagleBoard.org docs project,\
     
     1. `Docs contribution guide <https://docs.beagleboard.io/latest/intro/contribution/index.html>`_
     2. `Docs project issue tracker. <https://git.beagleboard.org/docs/docs.beagleboard.io/-/issues>`_
 
 .. danger::
 
-    Accessories section contains only 3rd party products that have been manually used by community members with BeagleBoard.org products. 
+    The accessories section only contains a subset of 3rd party products that have been manually used by community members with BeagleBoard.org products. 
     BeagleBoard.org should not be held liable for the functionality of BeagleBoard.org products in association with these 3rd party 
     products in any way possible. This is just a place for people to report their experiences and not a statement of compatibility. 
     BeagleBoard.org approve that these items have at least some aspect of testing by foundation members, though only specific 
