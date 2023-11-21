@@ -63,7 +63,10 @@ Perform the post installation steps as described in the html file opened when yo
 Install the Libero licensing daemon
 ************************************
 
-Download the 64 bit Licensing Daemons from the `Microchip's daemons section <http://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz>`_
+Download the 64 bit Licensing Daemons from the `Microchip's daemons section <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/licensing>`_
+
+* `Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz <https://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz>`_
+* `Windows_Licensing_Daemon_11.16.1_64-bit.zip <https://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Windows_Licensing_Daemon_11.16.1_64-bit.zip>`_
 
 
 Copy the downloaded file to the Microchip directory within your home directory and untar it.
