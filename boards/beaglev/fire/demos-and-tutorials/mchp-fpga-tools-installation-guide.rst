@@ -107,7 +107,7 @@ Download tool setup script
 
 .. code-block:: 
 
-  git clone https://github.com/vauban353/Microchip-FPGA-Tools-Setup.git
+  git clone https://git.beagleboard.org/beaglev-fire/Microchip-FPGA-Tools-Setup 
 
 
 Source the script:
