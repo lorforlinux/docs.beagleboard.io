@@ -16,6 +16,7 @@ Keyboard & Mouse combos.
 
 - `Adafruit keyboard & Mouse w/batteries <https://www.mouser.com/ProductDetail/Adafruit/1738?qs=GURawfaeGuBoaqdx8E%2Fl7w%3D%3D>`_
 - `Logitech K400 Plus Keyboard/Touchpad Combo <https://www.amazon.com/Logitech-Wireless-Keyboard-Touchpad-PC-connected/dp/B014EUQOGK/>`_
+- `Portronics Key2-A Combo of Multimedia Wireless Keyboard & Mouse <https://www.amazon.in/Portronics-Combo-Multimedia-Wireless-Light-Weight/dp/B07X1KRPDZ/>`_
 
 Keyboards
 ************
