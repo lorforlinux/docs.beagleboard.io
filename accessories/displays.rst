@@ -6,7 +6,9 @@ Displays
 Monitors and Resolutions
 =========================
 
-Supported Monitors
+
+
+Verified Desktop Monitors
 -------------------
 
 The following monitors and resolutions have been tested for operation with the BeagleBone Black. 
@@ -39,7 +41,7 @@ Unsupported Monitors
 
 LG 37LH30 - did not seem to work, the display didn't even recognize that anything was plugged in at all.
 
-Supported Televisions
+Verified Televisions
 -----------------------
 
 The following TVs and resolutions have been tested for operation with the BeagleBone Black. Check here often as we will update the list as we confirm the operation.
