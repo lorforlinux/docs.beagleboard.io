@@ -3,40 +3,65 @@
 Cables
 #######
 
-USB Cables
-***********
+USB Data/Power Cables
+***********************
 
-A USB (Type Mini B) cable will normally be supplied with the BeagleBone Black. For other boards 
-like PocketBeagle, BeagleBone AI & BeagleBone AI-64 you'll have to procure your own USB cable. The 
-type of cable you have to procure is listed in the table below:
+For all Beagles, there is a USB client, also called gadget, capable connection that will enable you to
+create network, serial and data storage connections from a host computer.
 
-.. table:: USB ports on BeagleBone hardware
+In most cases, you can also provide power over this same cable.
 
-    +----------------------------+----------------------+
-    | Board                      | USB                  |
-    +============================+======================+
-    | BeaglePlay                 | Type C               |
-    +----------------------------+----------------------+
-    | BeagleV-Fire               | Type C               |
-    +----------------------------+----------------------+
-    | BeagleBone AI              | Type C               |
-    +----------------------------+----------------------+
-    | BeagleBone AI-64           | Type C               |
-    +----------------------------+----------------------+
-    | BeagleV-Ahead              | Type Micro B USB 3.0 |
-    +----------------------------+----------------------+
-    | BeagleBone Black           | Type Mini-B          |
-    +----------------------------+----------------------+
-    | PocketBeagle               | Type Micro B         |
-    +----------------------------+----------------------+
-    | BeagleBone Blue            | Type Micro B         |
-    +----------------------------+----------------------+
-    | BeagleBone Black Wireless  | Type Micro B         |
-    +----------------------------+----------------------+
-    | BeagleBone xM              | Type Mini B          |
-    +----------------------------+----------------------+
-    | BeagleBone X15             | Type Micro B         |
-    +----------------------------+----------------------+
+In most cases, you can also use the port in a host mode, also sometimes called on-the-go to refer
+to when a device that is typically a client can also act as a host.
+
+Cable included?
+===============
+
+A USB (High-speed A to Mini-B) cable will normally be supplied with BeagleBone Black. For other boards,
+you'll have to procure your own USB cable.
+
+What cable is needed?
+=====================
+
+The type of cable you have to procure is listed in the table below:
+
+.. table:: USB client-capable data/power ports on Beagles
+
+    +----------------------------+---------------------------+---------------+--------------------+
+    | Board                      | USB                       | Host-capable? | Power required [2] |
+    +============================+===========================+===============+====================+
+    | BeaglePlay                 | High-speed USB-C          | Yes [1]       | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleV-Fire               | High-speed USB-C          | Yes [1]       | 750mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleV-Ahead              | Super-speed Micro-AB      | Yes           | 900mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBone AI-64           | Super-speed USB-C         | Yes [1]       | 3000mA             |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBone AI              | Super-speed USB-C         | Yes [1]       | 900mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBone Black           | High-speed Mini-AB        | Yes           | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBone Blue            | High-speed Micro-AB       | Yes           | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBone Black Wireless  | High-speed Micro-AB       | Yes           | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBone (original)      | High-speed Mini-B         | No            | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBoard-xM             | High-speed Micro-AB       | Yes           | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | BeagleBoard-X15            | High-speed Micro-B        | No            | N/A                |
+    +----------------------------+---------------------------+---------------+--------------------+
+    | PocketBeagle               | High-speed Micro-AB       | Yes           | 500mA              |
+    +----------------------------+---------------------------+---------------+--------------------+
+
+.. [1] Requires USB client device that does not require specification dictated type-C PD handshake.
+
+.. [2] Power requirement is for the base board in typical operation. Peripherals will add to the power requirement.
+
+.. important::
+
+   BeagleBoard-X15 cannot be powered over the USB port.
 
 .. _serial-debug-cables:
 
