@@ -102,13 +102,16 @@ Request a Libero Silver license
 
 You will get an email with a license.dat file. Copy it into the ~/Microchip/license directory. Edit the License.dat file to replace the <put.hostname.here> string with... localhost.
 
-Download tool setup script
+Execute tool setup script
 ***************************
 
-.. code-block:: 
+Download the script:
 
-  git clone https://git.beagleboard.org/beaglev-fire/Microchip-FPGA-Tools-Setup 
+.. literalinclude:: ./setup-microchip-tools.sh
+    :caption: Libero environment and license setup script
+    :language: bash
 
+:download:`setup-microchip-tools.sh <./setup-microchip-tools.sh>`
 
 Source the script:
 
