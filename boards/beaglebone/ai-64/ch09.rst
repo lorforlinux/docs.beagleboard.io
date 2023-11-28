@@ -1,4 +1,4 @@
-.. _section-9,Section 9.0 BeagleBone AI-64 Mechanical:
+.. _BeagleBone-AI-64-Mechanical:
 
 BeagleBone AI-64 Mechanical
 #############################
@@ -25,23 +25,17 @@ Weight: 192gm
 Silkscreen and Component Locations
 ------------------------------------
 
-.. figure:: images/ch09/board-dimensions.jpg
+.. figure:: media/ch09/board-dimensions.*
    :width: 400px
    :align: center 
-   :alt: Fig: Board Dimensions
+   :caption: Board Dimensions
 
-   Fig: Board Dimensions
-
-.. figure:: images/ch09/top-silkscreen.png
+.. figure:: media/ch09/top-silkscreen.*
    :width: 400px
    :align: center 
-   :alt: Fig: Top silkscreen
+   :caption: Top silkscreen
 
-   Fig: Top silkscreen
-
-.. figure:: images/ch09/bottom-silkscreen.png
+.. figure:: media/ch09/bottom-silkscreen.*
    :width: 400px
    :align: center 
-   :alt: Fig: Bottom silkscreen
-
-   Fig: Bottom silkscreen
+   :caption: Bottom silkscreen

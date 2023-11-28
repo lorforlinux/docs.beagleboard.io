@@ -1,11 +1,11 @@
-.. _Change-history:
+.. _bbai64-Change-history:
 
 Change History
 ###################
 
 This section describes the change history of this document and board. Document changes are not always a result of a board change. A board change will always result in a document change.
 
-.. _document-change-history:
+.. _bbai64-document-change-history:
 
 Document Change History
 -----------------------------------------

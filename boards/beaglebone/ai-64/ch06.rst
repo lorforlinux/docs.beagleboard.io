@@ -1,6 +1,6 @@
 :orphan:
 
-.. _detailed-hardware-design:
+.. _bbai64-detailed-hardware-design:
 
 Detailed Hardware Design
 #########################
@@ -13,7 +13,7 @@ modify specifics of your own design.
 
 .. _bbai-64-block-diagram-ch06:
 
-.. figure:: images/ch05/board-block-diagram.*
+.. figure:: media/ch05/board-block-diagram.*
    :width: 400px
    :align: center 
    :alt: Fig: BeagleBone AI-64 Key Components
@@ -118,7 +118,7 @@ DC Input
 
 .. _figure-23,Figure 23:
 
-.. figure:: media/image38.png
+.. figure:: media/image38.*
    :width: 400px
    :align: center 
    :alt: Fig: TPS65217 DC Connection
@@ -148,10 +148,10 @@ is not provided to the expansion headers, so capes that require the 5V
 rail to supply the cape direct, bypassing the *TPS65941213 and TPS65941111*, will not have
 that rail available for use. The 5VDC supply from the USB port is
 provided on the SYS_5V, the one that comes from the **TPS65941213 and TPS65941111**, rail
-of the expansion header for use by a cape. :ref:`figure-24.-usb-power-connections` is the connection
+of the expansion header for use by a cape. :ref:`bbai64-usb-power-connections` is the connection
 of the USB power input on the PMIC.
 
-.. _figure-24.-usb-power-connections:
+.. _bbai64-usb-power-connections:
 
 .. figure:: media/USB-Connection.*
    :width: 400px
@@ -408,12 +408,10 @@ Instruments.
 
 .. _figure-26,Figure 26:
 
-.. figure:: media/image40.png
+.. figure:: media/image40.*
    :width: 400px
    :align: center 
-   :alt:  Fig-26: Power Rail Power Up Sequencing
-
-   Fig-26: Power Rail Power Up Sequencing
+   :caption: Power Rail Power Up Sequencing
 
 :ref:`figure-27` the voltage rail sequencing for the**TPS65941213 and TPS65941111** as it
 powers up and the voltages on each rail. The power sequencing starts at
@@ -422,12 +420,10 @@ You can refer to the TPS65941213 and TPS65941111 datasheet for more information.
 
 .. _figure-27,Figure 27:
 
-.. figure:: media/image41.png
+.. figure:: media/image41.*
    :width: 400px
    :align: center 
-   :alt: Fig-27: TPS65941213 and TPS65941111 Power Sequencing Timing
-
-   Fig-27: TPS65941213 and TPS65941111 Power Sequencing Timing
+   :caption: TPS65941213 and TPS65941111 Power Sequencing Timing
 
 .. _power-led:
 
@@ -454,7 +450,7 @@ what is on the schematic.
 .. figure:: media/image42.jpg
    :width: 400px
    :align: center 
-   :alt: Fig-28: Power Processor Interfaces
+   :caption: Power Processor Interfaces
 
 When voltage is applied, DC or USB, the *TPS65941213 and TPS65941111* connects the power
 to the SYS output pin which drives the switchers and LDOs in
@@ -558,12 +554,10 @@ Description
 
 .. _figure-29,Figure 29:
 
-.. figure:: media/image43.png
+.. figure:: media/image43.*
    :width: 400px
    :align: center 
-   :alt: Fig-29: Jacinto TDA4VMBZCZ Block Diagram
-
-   Fig-29: Jacinto TDA4VMBZCZ Block Diagram
+   :caption: Jacinto TDA4VMBZCZ Block Diagram
 
 
 .. _high-level-features:
@@ -653,12 +647,10 @@ Crystal Circuitry
 
 .. _figure-30,Figure 30:
 
-.. figure:: media/image44.png
+.. figure:: media/image44.*
    :width: 400px
    :align: center 
-   :alt: Fig-30: Processor Crystals
-
-   Fig-30: Processor Crystals
+   :caption: Processor Crystals
 
 .. _reset-circuitry:
 
@@ -686,9 +678,7 @@ momentarily go high on power up.
 .. figure:: media/image45.png
    :width: 400px
    :align: center 
-   :alt: Fig-31: Board Reset Circuitry
-
-   Fig-31: Board Reset Circuitry
+   :caption: Board Reset Circuitry
 
 This change is also in all revisions after A5D.
 
@@ -753,12 +743,10 @@ are disabled during SELF REFRESH. CKE is referenced to VREFCA.
 
 .. _figure-32,Figure 32:
 
-.. figure:: media/image46.png
+.. figure:: media/image46.*
    :width: 400px
    :align: center 
-   :alt: Fig-32: LPDDR4 Memory Design
-
-   Fig-32: LPDDR4 Memory Design
+   :caption: LPDDR4 Memory Design
 
 *Chip Select Line:* CS# enables (registered LOW) and disables
 (registered HIGH) the command decoder. All commands are masked when CS#
@@ -800,13 +788,10 @@ connection to the LPDDR4 memory device and the processor.
 
 .. _figure-33,Figure 33:
 
-.. figure:: media/image47.jpg
+.. figure:: media/image47.*
    :width: 400px
    :align: center 
-   :alt: Fig-33: LPDDR4 VREF Design
-
-   Fig-33: LPDDR4 VREF Design
-
+   :caption: LPDDR4 VREF Design
 
 
 .. _gb-emmc-memory:
@@ -866,26 +851,20 @@ compensate for any capacitance on the board.
 
 .. _figure-34,Figure 34:
 
-.. figure:: media/image48.png
+.. figure:: media/image48.*
    :width: 400px
    :align: center 
-   :alt: Fig-34: eMMC Memory Design
-
-   Fig-34: eMMC Memory Design
-
+   :caption: eMMC Memory Design
 
 
 The pins used by the eMMC1 in the boot mode are listed below in *Table 6*.
 
 .. _table-6,Table 6:
 
-.. figure:: media/image49.png
+.. figure:: media/image49.*
    :width: 400px
    :align: center 
-   :alt: Table 6: eMMC Boot Pins
-
-   Table 6: eMMC Boot Pins
-
+   :caption: eMMC Boot Pins
 
 For eMMC devices the ROM will only support raw mode. The ROM Code reads
 out raw sectors from image or the booting file within the file system
@@ -956,14 +935,10 @@ the contents of the EEPROM.
 
 .. _figure-35,Figure 35:
 
-.. figure:: media/image50.png
+.. figure:: media/image50.*
    :width: 400px
    :align: center 
-   :alt: Figure 35. EEPROM Design Rev A5
-
-   Fig-35: EEPROM Design Rev A5
-
-
+   :caption: EEPROM Design Rev A5
 
 The EEPROM is accessed by the processor using the I2C 0 bus. The *WP*
 pin is enabled by default. By grounding the test point, the write
@@ -991,14 +966,10 @@ microSD Design
 
 .. _figure-36,Figure 36:
 
-.. figure:: media/image51.png
+.. figure:: media/image51.*
    :width: 400px
    :align: center 
-   :alt: Figure 36. microSD Design
-
-   Fig-36: microSD Design
-
-
+   :caption: microSD Design
 
 The signals *MMC0-3* are the data lines for the transfer of data between
 the processor and the microSD connector.
@@ -1032,12 +1003,10 @@ user LEDs.
 
 .. _figure-37,Figure 37:
 
-.. figure:: media/image52.png
+.. figure:: media/image52.*
    :width: 400px
    :align: center 
-   :alt: Figure 37. User LEDs
-
-   Fig-37: User LEDs
+   :caption: User LEDs
 
 Resistors R71-R74 were changed to 4.75K on the revision A5B and later
 boards.
@@ -1104,12 +1073,10 @@ from HI to LO which changes the boot order.
 
 .. _figure-38,Figure 38:
 
-.. figure:: media/image53.png
+.. figure:: media/image53.*
    :width: 400px
    :align: center 
-   :alt: Figure 38. Processor Boot Configuration Design
-
-   Fig-38: Processor Boot Configuration Design
+   :caption: Processor Boot Configuration Design
 
 It is possible to override these setting via the expansion headers. But
 be careful not to add too much load such that it could interfere with
@@ -1128,12 +1095,10 @@ boot sequences for each of the two settings is shown.
 
 .. _figure-39,Figure 39:
 
-.. figure:: media/image54.jpg
+.. figure:: media/image54.*
    :width: 400px
    :align: center 
-   :alt: Figure 39. Processor Boot Configuration
-
-   Fig-39: Processor Boot Configuration
+   :caption: Processor Boot Configuration
 
 The first row in :ref:`figure-39` is the default setting. On boot, the
 processor will look for the eMMC on the MMC1 port first, followed by the
@@ -1149,11 +1114,11 @@ could be used as the board source.
 
 .. _ethernet:
 
-10/100 Ethernet
+10/100/1000 Ethernet
 -----------------------------------
 
-BeagleBone AI-64 is equipped with a 10/100 Ethernet interface. It
-uses the same PHY as is used on the BeagleBone Black. The design is
+BeagleBone AI-64 is equipped with a 10/100/1000 Ethernet interface.
+The design is
 described in the following sections.
 
 .. _ethernet-processor-interface:
@@ -1166,13 +1131,10 @@ interface is in the MII mode of operation.
 
 .. _figure-40,Figure 40:
 
-.. figure:: media/image55.png
+.. figure:: media/image55.*
    :width: 400px
    :align: center 
-   :alt: Figure 40. Ethernet Processor Interface
-
-   Fig-40: Ethernet Processor Interface
-
+   :caption: Ethernet Processor Interface
 
 
 This is the same interface as is used on BeagleBone. No changes were
@@ -1188,12 +1150,10 @@ below.
 
 .. _figure-41,Figure 41:
 
-.. figure:: media/image56.png
+.. figure:: media/image56.*
    :width: 400px
    :align: center 
-   :alt: Figure 41. Ethernet Connector Interface
-
-   Fig-41: Ethernet Connector Interface
+   :caption: Ethernet Connector Interface
 
 This is the same interface as is used on BeagleBone. No changes were
 made in this design for the board.
@@ -1209,13 +1169,10 @@ the following sections.
 
 .. _figure-42,Figure 42:
 
-.. figure:: media/image57.png
+.. figure:: media/image57.*
    :width: 400px
    :align: center 
-   :alt: .Figure 42. Ethernet PHY, Power, Reset, and Clocks
-
-   Fig-42: Ethernet PHY, Power, Reset, and Clocks
-
+   :caption: Ethernet PHY, Power, Reset, and Clocks
 
 
 VDD_3V3B Rail
@@ -1270,12 +1227,10 @@ pin resistors.
 
 .. _figure-43,Figure 43:
 
-.. figure:: media/image97.png
+.. figure:: media/image97.*
    :width: 400px
    :align: center 
-   :alt: Figure 43. Ethernet PHY Mode Pins
-
-   Fig-43: Ethernet PHY Mode Pins
+   :caption: Ethernet PHY Mode Pins
 
 This will set the mode to be 111, which enables all modes and enables
 auto-negotiation.
@@ -1412,12 +1367,10 @@ Host circuitry.
 
 .. _figure-48,Figure 48:
 
-.. figure:: media/image66.png
+.. figure:: media/image66.*
    :width: 400px
    :align: center 
-   :alt: Figure 48. USB Host circuit
-
-   Fig-48: USB Host circuit
+   :caption: USB Host circuit
 
 .. _power-switch:
 
@@ -1442,7 +1395,7 @@ ESD Protection
 Filter Options
 *********************************************
 
-*FB7* and **FB8** were added to assist in passing the FCC emissions test.
+*FB7* and *FB8* were added to assist in passing the FCC emissions test.
 The *USB1_VBUS* signal is used by the processor to detect that the 5V is
 present on the connector. *FB7* is populated and *FB8* is replaced with
 a .1 ohm resistor.
@@ -1492,12 +1445,10 @@ PRU-ICSS Block Diagram
 
 .. _figure-49,Figure 49:
 
-.. figure:: media/image67.png
+.. figure:: media/image67.*
    :width: 400px
    :align: center 
-   :alt: PRU-ICSS Block Diagram
-
-   PRU-ICSS Block Diagram
+   :caption: PRU-ICSS Block Diagram
 
 .. _pru-icss-pin-access:
 
@@ -1518,7 +1469,7 @@ from. Some signals are accessible on the same pins.
 
 .. _table-11,Table 11:
 
-.. list-table:: Table 11: PRU0 and PRU1 Access
+.. list-table:: PRU0 and PRU1 Access
    :header-rows: 1
 
    * - 

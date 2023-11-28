@@ -14,12 +14,10 @@ All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter ar
 
 .. _BeagleBone AI-64 connections ports:
 
-.. figure:: images/ch03/ports.jpg
+.. figure:: media/ch03/ports.*
    :width: 400px
    :align: center 
-   :alt: BeagleBone AI-64 connections ports
-
-   Fig 3.1 BeagleBone AI-64 connections ports
+   :caption: BeagleBone AI-64 connections ports
 
 Methods of operation
 ----------------------
@@ -41,13 +39,10 @@ A USB-C to USB-C cable is not included bot recommended for the tethered scenario
 
 .. _bbai-64-pacakage:
 
-.. figure:: images/ch03/bbai64-in-box.jpg
+.. figure:: media/ch03/bbai64-in-box.*
    :width: 400px
    :align: center 
-   :alt: BeagleBone AI-64 box content
-
-   Fig: BeagleBone AI-64 box content
- 
+   :caption: BeagleBone AI-64 box content
 
 .. _main-connection-scenarios:
 
@@ -79,12 +74,10 @@ In this configuration, the board is powered by the PC via a single USB cable. Th
 
 .. _tethered-figure:
 
-.. figure:: images/ch03/usb-tethering.jpg
+.. figure:: media/ch03/usb-tethering.*
    :width: 400px
    :align: center 
-   :alt: Tethered Configuration
-
-   Fig: Tethered Configuration
+   :caption: Tethered Configuration
 
 At least 5V @ 3A is required to power the board, In most cases the PC may not be able to supply sufficient power for the board unless the connection is made over a Type-C to Type-C cable. You should always use an external 5V > 3A DC power supply connected to the barrel jack if you are unsure that the system can provide the required power or are otherwise using a USB-A to Type-C cable which will always require power from the DC barrel jack.
 
@@ -97,46 +90,37 @@ Connect the Cable to the Board
 
 .. _usb-c-connect-figure:
 
-.. figure:: images/ch03/usb-c-connection.jpg
+.. figure:: media/ch03/usb-c-connection.*
    :width: 400px
    :align: center 
-   :alt: USB Connection to the Board
-
-   Fig: USB Connection to the Board
+   :caption: USB Connection to the Board
 
 2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the :ref:`usb-a-connect-figure` below.
 
 .. _usb-a-connect-figure:
 
-.. figure:: images/ch03/usb-a-connection.jpg
+.. figure:: media/ch03/usb-a-connection.*
    :width: 400px
    :align: center 
-   :alt: USB Connection to the PC/Laptop
-
-   Fig: USB Connection to the PC/Laptop
+   :caption: USB Connection to the PC/Laptop
 
 3.  The board will power on and the power LED will be on as shown in :ref:`power-led-figure` below.
 
 .. _power-led-figure:
 
-.. figure:: images/ch03/power-led.jpg
+.. figure:: media/ch03/power-led.*
    :width: 400px
    :align: center 
-   :alt: Board Power LED
-
-   Fig: Board Power LED
+   :caption: Board Power LED
 
 4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in :ref:`boot-status-figure` below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
 
 .. _boot-status-figure:
 
-.. figure:: images/ch03/led-pattern.jpg
+.. figure:: media/ch03/led-pattern.*
    :width: 400px
    :align: center 
-   :alt: Board Boot Status
-
-   Fig: Board Boot Status
-
+   :caption: Board Boot Status
 
 .. _accessing-the-board-as-a-storage-drive:
 
@@ -159,13 +143,10 @@ In this configuration, the board works more like a PC, totally free from any con
 
 .. _desktop-config-figure:
 
-.. figure:: images/ch03/desktop-configuration.jpg
+.. figure:: media/ch03/desktop-configuration.*
    :width: 400px
    :align: center 
-   :alt: Desktop Configuration
-
-   Fig: Desktop Configuration
-
+   :caption: Desktop Configuration
 
 Ethernet cable and M.2 WiFi + Bluetooth card are optional. They can be used if network access required.
 
@@ -192,23 +173,19 @@ Connecting Up the Board
 
 .. _display-cable-figure,miniDP-DP or active miniDP-HDMI cable connection figure:
 
-.. figure:: images/ch03/monitor-cable.jpg
+.. figure:: media/ch03/monitor-cable.*
    :width: 400px
    :align: center 
-   :alt: Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
-
-   Fig: Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
+   :caption: Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
 
 2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in. :ref:`display-adapters-figure`.
 
 .. _display-adapters-figure:
 
-.. figure:: images/ch03/display-adapters.jpg
+.. figure:: media/ch03/display-adapters.*
    :width: 400px
    :align: center 
-   :alt: Display adapters
-
-   Fig: Display adapters
+   :caption: Display adapters
 
 3. If you have wired/wireless USB keyboard and mouse such as 
    
@@ -217,12 +194,10 @@ Connecting Up the Board
 
 .. _keyboard-mouse-figure:
 
-.. figure:: images/ch03/mouse-keyboard.jpg
+.. figure:: media/ch03/mouse-keyboard.*
    :width: 400px
    :align: center 
-   :alt: Keyboard and Mouse
-
-   FigKeyboard and Mouse
+   :caption: Keyboard and Mouse
 
 4. Connect the Ethernet Cable
 
@@ -230,35 +205,29 @@ If you decide you want to connect to your local area network, an Ethernet cable 
 
 .. _ethernet-cable-figure:
 
-.. figure:: images/ch03/ethernet-cable.jpg
+.. figure:: media/ch03/ethernet-cable.*
    :width: 400px
    :align: center 
-   :alt: Ethernet Cable Connection
-
-   Fig: Ethernet Cable Connection
+   :caption: Ethernet Cable Connection
 
 
 5. The final step is to plug in the DC power supply to the DC power jack as shown in :ref:`barrel-jack-figure` below.
 
 .. _barrel-jack-figure:
 
-.. figure:: images/ch03/barrel-jack.jpg
+.. figure:: media/ch03/barrel-jack.*
    :width: 400px
    :align: center 
-   :alt: External DC Power
-
-   Fig: External DC Power
+   :caption: External DC Power
 
 6. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in :ref:`miniDP-figure` below.
 
 .. _miniDP-figure:
 
-.. figure:: images/ch03/miniDP-connector.jpg
+.. figure:: media/ch03/miniDP-connector.*
    :width: 400px
    :align: center 
-   :alt: Connect miniDP to DP or active miniDP to HDMI Cable to the Board
-
-   Fig: Connect miniDP to DP or active miniDP to HDMI Cable to the Board
+   :caption: Connect miniDP to DP or active miniDP to HDMI Cable to the Board
 
 The connector is fairly robust, but we suggest that you not use the cable as a leash for your Beagle. Take proper care not to put too much stress on the connector or cable.
 
@@ -268,12 +237,10 @@ As soon as the power is applied to the board, it will start the booting up proce
 
 .. _LEDs-figure,BeagleBone AI-64 LEDs figure:
 
-.. figure:: images/ch03/leds.jpg
+.. figure:: media/ch03/leds.*
    :width: 400px
    :align: center 
-   :alt: BeagleBone AI-64 LEDs
-
-   Fig: BeagleBone AI-64 LEDs
+   :caption: BeagleBone AI-64 LEDs
 
 While the four user LEDS can be over written and used as desired, they do have specific meanings in the image that is shipped with the board once the Linux kernel has booted.
 
@@ -292,10 +259,8 @@ While the four user LEDS can be over written and used as desired, they do have s
 
 .. _figure-16:
 
-.. figure:: images/ch03/xfce-desktop.jpg
+.. figure:: media/ch03/xfce-desktop.*
    :width: 400px
    :align: center 
-   :alt: BeagleBone XFCE Desktop Screen
-
-   Fig: BeagleBone XFCE Desktop Screen
+   :caption: BeagleBone XFCE Desktop Screen
 

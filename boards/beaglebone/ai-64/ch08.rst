@@ -1,6 +1,6 @@
 :orphan:
 
-.. _cape-board-support-1:
+.. _bbai64-cape-board-support-1:
 
 Cape Board Support
 #######################
@@ -12,16 +12,14 @@ expansion board for BeagleBone boards as it is fitted around the
 Ethernet connector on the main board. For BeagleBone this notch acts as a 
 key to ensure proper orientation of the cape. On AI-64 you can see a clear
 silkscreen marking for the cape orientation. Most of BeagleBone capes
-can be used with your BeagleBone AI-64 also like shown in :ref:`bbai-cape-placement-figure` below.
+can be used with your BeagleBone AI-64 also like shown in :ref:`bbai64-cape-placement-figure` below.
 
-.. _bbai-cape-placement-figure:
+.. _bbai64-cape-placement-figure:
 
-.. figure:: images/ch08/cape-placement.jpg
+.. figure:: media/ch08/cape-placement.*
    :width: 400px
    :align: center 
-   :alt: Fig-BeagleBone cape placement
-
-   Fig-BeagleBone cape placement
+   :caption: BeagleBone AI-64 cape placement
 
 This section describes the rules & guidelines for creating capes to ensure proper
 operation with BeagleBone AI-64 and proper interoperability with
@@ -89,13 +87,10 @@ below is the design of the EEPROM circuit.
 
 .. _expansion-board-eeprom-without-write-protect-figure:
 
-.. figure:: images/ch08/eeprom.png
+.. figure:: media/ch08/eeprom.*
    :width: 400px
    :align: center 
-   :alt: Fig-Expansion board EEPROM without write protect
-
-   Fig-Expansion board EEPROM without write protect
-
+   :caption: Expansion board EEPROM without write protect
 
 The addressing of this device requires two bytes for the address which
 is not used on smaller size EEPROMs, which only require only one byte.
@@ -176,13 +171,10 @@ VSYS_IO_3V3
 
 .. _expansion-board-eeprom-with-write-protect-figure:
 
-.. figure:: images/ch08/eeprom-write-protect.png
+.. figure:: media/ch08/eeprom-write-protect.*
    :width: 400px
    :align: center 
-   :alt: Fig: Expansion board EEPROM with write protect
-
-   Fig: Expansion board EEPROM with write protect
-
+   :caption: Expansion board EEPROM with write protect
 
 .. _eeprom-data-format:
 
@@ -1483,12 +1475,10 @@ the connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
 .. _single-expansion-connector-figure:
 
-.. figure:: images/ch08/single-expansion-connector.jpg
+.. figure:: media/ch08/single-expansion-connector.*
    :width: 400px
    :align: center 
-   :alt: Fig-Single expansion connector
-
-   Fig-Single expansion connector
+   :caption: Single expansion connector
 
 The connector is typically mounted on the bottom side of the board as 
 shown in :ref:`single-cape-expansion-connector-figure` . These are very 
@@ -1497,12 +1487,10 @@ single row 23 pin headers for each of the dual row headers.
 
 .. _single-cape-expansion-connector-figure:
 
-.. figure:: images/ch08/proto.jpg
+.. figure:: media/ch08/proto.*
    :width: 400px
    :align: center 
-   :alt: Fig-Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
-
-   Fig-Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
+   :caption: Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
 
 It is allowed to only populate the pins you need. As this is a
 non-stacking configuration, there is no need for all headers to be
@@ -1561,12 +1549,10 @@ connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
 .. _expansion-connector-figure:
 
-.. figure:: images/ch08/expansion-connector.jpg
+.. figure:: media/ch08/expansion-connector.*
    :width: 400px
    :align: center 
-   :alt: Fig-Expansion Connector
-
-   Fig-Expansion Connector
+   :caption: Expansion Connector
 
 The connector is mounted on the top side of the board with longer tails
 to allow insertion into BeagleBone AI-64. 
@@ -1575,14 +1561,10 @@ connector configuration for the connector.
 
 .. _stacked-cape-expansion-connector-figure:
 
-.. figure:: images/ch08/can-cape.jpg
+.. figure:: media/ch08/can-cape.*
    :width: 250px
    :align: center 
-   :alt: Fig-Stacked cape expansion connector
-
-   Fig-Stacked cape expansion connector
-
-
+   :caption: Stacked cape expansion connector
 
 For convenience listed in *Table 18* are some possible choices for part
 numbers on this connector. They have varying pin lengths and some may be
@@ -1644,12 +1626,10 @@ nonstacking style connectors.
 
 .. _stacked-with-signal-stealing-expansion-connector-figure:
 
-.. figure:: images/ch08/stealing-expansion-connector.jpg
+.. figure:: media/ch08/stealing-expansion-connector.*
    :width: 400px
    :align: center 
-   :alt: Fig-Stacked with signal stealing expansion connector figure
-
-   Stacked with signal stealing expansion connector figure
+   :caption: Stacked with signal stealing expansion connector figure
 
 .. _retention-force:
 
@@ -1680,12 +1660,10 @@ overhang.
 
 .. _connector-pin-insertion-depth:
 
-.. figure:: images/ch08/berg-stip-insertion.jpg
+.. figure:: media/ch08/berg-stip-insertion.*
    :width: 400px
    :align: center 
-   :alt: Fig:Connector Pin Insertion Depth
-
-   Connector Pin Insertion Depth
+   :caption: Connector Pin Insertion Depth
 
 To calculate the amount of the pin that extends past the Point of
 Contact, use the following formula:
@@ -1829,12 +1807,10 @@ Standard Cape Size
 
 .. _cape-board-dimensions-figure:
 
-.. figure:: images/ch08/cape-dimension.jpg
+.. figure:: media/ch08/cape-dimension.*
    :width: 400px
    :align: center 
-   :alt: Fig: Cape board dimensions
-
-   Fig: Cape board dimensions
+   :caption: Cape board dimensions
 
 A notch is provided for BeagleBone Ethernet connector to stick up higher than
 the cape when mounted. This also acts as a key function to ensure that

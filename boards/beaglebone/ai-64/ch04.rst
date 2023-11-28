@@ -1,4 +1,4 @@
-.. _beaglebone-ai-64-overviewd:
+.. _beaglebone-ai-64-overview:
 
 BeagleBone AI-64 Overview
 ###############################
@@ -176,12 +176,10 @@ Board components
 
 .. _board-components-figure:
 
-.. figure:: images/ch04/components.*
+.. figure:: media/ch04/components.*
    :width: 400px
    :align: center 
-   :alt: BeagleBone AI-64 board components
-
-   Fig: BeagleBone AI-64 board components
+   :caption: BeagleBone AI-64 board components
 
 * **DC Power** is the main DC input that accepts 5V power.
 * **Power Button** alerts the processor to initiate the power down sequence and is used to power down the board.

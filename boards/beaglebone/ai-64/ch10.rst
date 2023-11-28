@@ -1,55 +1,40 @@
-.. _pictures:
+.. _bbai64-pictures:
 
 Pictures
 ##########
 
-.. figure:: images/ch10/front.jpg
+.. figure:: media/ch10/front.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 front
+   :caption: BeagleBone AI-64 front
 
-   Fig: BeagleBone AI-64 front
-
-.. figure:: images/ch10/back.jpg
+.. figure:: media/ch10/back.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 back
+   :caption: BeagleBone AI-64 back
 
-   Fig: BeagleBone AI-64 back
-
-.. figure:: images/ch10/back-heatsink.jpg
+.. figure:: media/ch10/back-heatsink.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 back with heatsink
+   :caption: BeagleBone AI-64 back with heatsink
 
-   Fig: BeagleBone AI-64 back with heatsink
-
-.. figure:: images/bbai64-45-front.jpg
+.. figure:: media/bbai64-45-front.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 front at 45° angle
+   :caption: BeagleBone AI-64 front at 45° angle
 
-   Fig: BeagleBone AI-64 front at 45° angle
-
-.. figure:: images/ch10/45-back.jpg
+.. figure:: media/ch10/45-back.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 back at 45° angle
+   :caption: BeagleBone AI-64 back at 45° angle
 
-   Fig: BeagleBone AI-64 back at 45° angle
-
-.. figure:: images/ch10/45-back-heatsink.jpg
+.. figure:: media/ch10/45-back-heatsink.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 back with heatsink at 45° angle
+   :caption: BeagleBone AI-64 back with heatsink at 45° angle
 
-   Fig: BeagleBone AI-64 back with heatsink at 45° angle
-
-.. figure:: images/ch10/feature.jpg
+.. figure:: media/ch10/feature.*
    :width: 400px
    :align: center 
-   :alt: Fig: BeagleBone AI-64 ports
-
-   Fig: BeagleBone AI-64 ports
-
+   :caption: BeagleBone AI-64 ports
 
