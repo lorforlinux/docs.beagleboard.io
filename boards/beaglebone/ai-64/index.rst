@@ -16,7 +16,7 @@ hardware examples and dozens of readily available embedded expansion options ava
     .. grid-item::
         :columns: 12 12 12 4
 
-        .. figure:: images/OSHW_mark_US002120.*
+        .. figure:: media/OSHW_mark_US002120.*
             :width: 200
             :target: https://certification.oshwa.org/us002120.html
             :alt: BeagleBone AI-64 OSHW Mark
@@ -32,7 +32,7 @@ hardware examples and dozens of readily available embedded expansion options ava
             * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai-64>`__
             * For export, emissions and other compliance, see :ref:`beaglebone-ai-64-support-information`
 
-.. image:: images/bbai64-45-front.jpg
+.. image:: media/bbai64-45-front.jpg
    :width: 400px
    :align: center
    :alt: Fig: BeagleBone AI-64 front at 45° angle
