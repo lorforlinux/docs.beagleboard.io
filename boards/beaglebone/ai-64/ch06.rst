@@ -13,7 +13,7 @@ modify specifics of your own design.
 
 .. _bbai-64-block-diagram-ch06:
 
-.. figure:: images/ch05/board-block-diagram.svg
+.. figure:: images/ch05/board-block-diagram.*
    :width: 400px
    :align: center 
    :alt: Fig: BeagleBone AI-64 Key Components
@@ -29,7 +29,7 @@ Power Section
 
 .. _power-flow-diagram,High level power block diagram:
 
-.. figure:: images/ch06/power.svg
+.. figure:: media/ch06/power.*
    :width: 400px
    :align: center 
    :alt: Fig: High level power block diagram
@@ -38,6 +38,10 @@ Power Section
 
 This section describes the power section of the design and all the
 functions performed by the *TPS65941213 and TPS65941111*.
+
+.. todo::
+
+   The above image does not represent this board. It has a Pi Header.
 
 .. _TPS65941213-and-TPS65941111-pmic:
 
@@ -138,25 +142,21 @@ the 5VDC jack on the board.
 USB Power
 *************
 
-The board can also be powered from the USB port. A typical USB port is
-limited to 500mA max. When powering from the USB port, the VDD_5V rail
+The board can also be powered from the USB port. A typical USB 3.0 port is
+limited to 900mA. When powering from the USB port, the VDD_5V rail
 is not provided to the expansion headers, so capes that require the 5V
 rail to supply the cape direct, bypassing the *TPS65941213 and TPS65941111*, will not have
 that rail available for use. The 5VDC supply from the USB port is
-provided on the SYS_5V, the one that comes from the**TPS65941213 and TPS65941111**, rail
-of the expansion header for use by a cape. *Figure 24* is the connection
+provided on the SYS_5V, the one that comes from the **TPS65941213 and TPS65941111**, rail
+of the expansion header for use by a cape. :ref:`figure-24.-usb-power-connections` is the connection
 of the USB power input on the PMIC.
 
 .. _figure-24.-usb-power-connections:
 
-.. figure:: media/image96.png
+.. figure:: media/USB-Connection.*
    :width: 400px
    :align: center 
-   :alt: Fig: USB Power Connections
-
-   Fig: USB Power Connections
-
-
+   :caption: USB Power Connection
 
 .. _power-selection:
 
@@ -167,7 +167,7 @@ The selection of either the 5VDC or the USB as the power source is
 handled internally to the *TPS65941213 and TPS65941111* and automatically switches to 5VDC
 power if both are connected. SW can change the power configuration via
 the I2C interface from the processor. In addition, the SW can read
-the**TPS65941213 and TPS65941111** and determine if the board is running on the 5VDC input
+the *TPS65941213 and TPS65941111* and determine if the board is running on the 5VDC input
 or the USB input. This can be beneficial to know the capability of the
 board to supply current for things like operating frequency and
 expansion cards.
@@ -186,7 +186,7 @@ momentary switch, the same type of switch used for reset and boot
 selection on the board.
 
 If you push the button the *TPS65941213 and TPS65941111* will send an interrupt to the
-processor. It is up to the processor to then pull the**PMIC_POWER_EN**
+processor. It is up to the processor to then pull the **PMIC_POWER_EN**
 pin low at the correct time to power down the board. At this point, the
 PMIC is still active, assuming that the power input was not removed.
 Pressing the power button will cause the board to power up again if the
@@ -223,7 +223,7 @@ following configuration:
 
 .. _table-4,Table 4:
 
-.. list-table:: Table 2: BeagleBone AI-64 Features and Specification
+.. list-table:: BeagleBone AI-64 Features and Specification
    :header-rows: 1
 
    * - MODE 
@@ -266,13 +266,13 @@ Processor Interfaces
 The processor interacts with the *TPS65941213 and TPS65941111* via several different
 signals. Each of these signals is described below.
 
-.. _i2c0:
+.. _bbai64-i2c0:
 
 I2C0
 ************
 
 I2C0 is the control interface between the processor and the *TPS65941213 and TPS65941111*.
-It allows the processor to control the registers inside the**TPS65941213 and TPS65941111**
+It allows the processor to control the registers inside the *TPS65941213 and TPS65941111*
 for such things as voltage scaling and switching of the input rails.
 
 .. _pmc_powr_en:
@@ -281,7 +281,7 @@ PMIC_POWR_EN
 ******************
 
 On power up the *VDD_RTC* rail activates first. After the RTC circuitry
-in the processor has activated it instructs the**TPS65941213 and TPS65941111** to initiate
+in the processor has activated it instructs the *TPS65941213 and TPS65941111* to initiate
 a full power up cycle by activating the *PMIC_POWR_EN* signal by taking
 it HI. When powering down, the processor can take this pin low to start
 the power down process.
@@ -312,7 +312,7 @@ processor reset.
 WAKEUP
 **************
 
-The WAKEUP signal from the *TPS65941213 and TPS65941111* is connected to the**EXT_WAKEUP**
+The WAKEUP signal from the *TPS65941213 and TPS65941111* is connected to the **EXT_WAKEUP**
 signal on the processor. This is used to wake up the processor when it
 is in a sleep mode. When an event is detected by the *TPS65941213 and TPS65941111*, such
 as the power button being pressed, it generates this signal.
@@ -330,7 +330,7 @@ support.
 
 .. _power-rails:
 
-6.1.9 Power Rails
+Power Rails
 ***********************
 
 :ref:`figure-25` shows the connections of each of the rails from the **TPS65941213 and TPS65941111**.
@@ -340,9 +340,7 @@ support.
 .. figure:: media/image39.jpg
    :width: 400px
    :align: center 
-   :alt: fig-25: Power Rails
-
-   Fig-25: Power Rails
+   :caption: Power Rails
 
 VRTC Rail
 ************
