@@ -51,10 +51,15 @@ High-level
   the MCU and exposes the device generically to users using a Linux kernel 
   driver. Further, the Greybus protocol is spoken over 6LoWPAN on 802.15.4.
 
+.. _beagleconnect-software-architecture:
+
 Software architecture
 *********************
 
-.. graphviz:: BeagleConnect Software Architecture
+.. _beagleconnect-software-architecture-diagram:
+
+.. graphviz::
+        :caption: BeagleConnect Software Architecture Diagram
 
     	// Software architecture
     	digraph S {
