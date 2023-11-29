@@ -1,7 +1,7 @@
 .. _beaglebone-ai-64-design:
 
-BeagleBone AI-64 Design and Specifications
-##############################################
+Design and Specifications
+##########################
 
 If you want to know how BeagleBone AI-64 is designed and the detailed specifications, then
 this chapter is for you. We are going to attept to provide you a short and crisp overview

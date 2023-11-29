@@ -45,4 +45,4 @@ hardware examples and dozens of readily available embedded expansion options ava
    03-design-and-specifications
    04-connectors-and-pinouts
    05-demos-and-tutorials
-   edge_ai_apps/index
+   06-support

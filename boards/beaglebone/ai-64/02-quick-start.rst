@@ -1,7 +1,7 @@
 .. _connecting-up-your-beaglebone-ai-64:
 
-Connecting up your BeagleBone AI-64
-#####################################
+Quick Start Guide
+##################
 
 This section provides instructions on how to hook up your board. This beagle requires a 5V > 3A 
 power supply to work properly via either USB Type-C power adapter or a barrel jack power adapter. 
@@ -21,24 +21,18 @@ All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter ar
    
    BeagleBone AI-64 connections ports
 
-Methods of operation
----------------------
-
-1.  Tethered to a PC
-2.  Standalone development platform in a PC configuration using external peripherals
-
 .. _whats-in-the-box:
 
 What’s In the Box
--------------------
+*******************
 
-In the box you will find three main items as shown in :ref:`bbai-64-pacakage`.
+In the box you will find two main items as shown in :ref:`bbai-64-pacakage`.
 
-* BeagleBone AI-64.
-* Instruction card.
+* BeagleBone AI-64
+* Instruction card
 
-A USB-C to USB-C cable is not included bot recommended for the tethered scenario and creates 
-an out of box experience where the board can be used immediately with no other equipment needed.
+A USB-C to USB-C cable is not included, but recommended for the tethered scenario and creates 
+a developer experience where the board can be used immediately with no other equipment needed.
 
 .. _bbai-64-pacakage:
 
@@ -48,10 +42,16 @@ an out of box experience where the board can be used immediately with no other e
    
    BeagleBone AI-64 box content
 
+Methods of operation
+*********************
+
+1.  Tethered to a PC
+2.  Standalone development platform in a PC configuration using external peripherals
+
 .. _main-connection-scenarios:
 
 Main Connection Scenarios
---------------------------
+============================
 
 This section describes how to connect and power the board and serves as a slightly more detailed 
 description of the Quick Start Guide included in the box. The board can be configured in several 
@@ -93,7 +93,7 @@ cable which will always require power from the DC barrel jack.
 .. _connect-the-cable-to-the-board:
 
 Connect the Cable to the Board
-*******************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Connect the type C USB cable to the board as shown in :ref:`usb-c-connect-figure`. The connector is on the top side of the board near barrel jack.
 
@@ -138,7 +138,7 @@ Connect the Cable to the Board
 .. _accessing-the-board-as-a-storage-drive:
 
 Accessing the Board as a Storage Drive
-****************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The board will appear around a USB Storage drive on your PC after thekernel has booted, which will take a round 10 seconds. The kernel on the board needs to boot before the port gets enumerated. Once the board appears as a storage drive, do the following:
 
@@ -167,7 +167,7 @@ Ethernet cable and M.2 WiFi + Bluetooth card are optional. They can be used if n
 .. _required-accessories:
 
 Required Accessories
-*********************
+~~~~~~~~~~~~~~~~~~~~~
 
 In order to use the board in this configuration, you will need the following accessories:
 
@@ -181,7 +181,7 @@ In order to use the board in this configuration, you will need the following acc
 .. _connecting-up-the-board:
 
 Connecting Up the Board
-*************************
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Connect the miniDP to DP or active miniDP to HDMI cable from your BeagleBone AI-64 to your monitor.
 
@@ -289,8 +289,8 @@ meanings in the image that is shipped with the board once the Linux kernel has b
 
 .. _bbai64-update:
 
-Update software on BeagleBone AI-64
-###################################
+Update software
+****************
 
 Production boards currently ship with the factory-installed 2022-01-14-8GB image. To upgrade 
 from the software image on your BeagleBone AI-64 to the latest, you don't need to completely 
@@ -348,3 +348,7 @@ Cleanup:
 
    sudo apt autoremove --purge
 
+Next steps
+**********
+
+* :ref:`_ai_64_edgeai_home`
