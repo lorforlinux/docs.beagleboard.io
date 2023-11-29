@@ -40,14 +40,9 @@ hardware examples and dozens of readily available embedded expansion options ava
 .. toctree::
    :maxdepth: 1
 
-   ch01
-   ch02
-   ch03
-   ch04
-   ch05
-   ch07
-   ch09
-   ch10
-   ch11
-   update
+   01-introduction
+   02-quick-start
+   03-design-and-specifications
+   04-connectors-and-pinouts
+   05-demos-and-tutorials
    edge_ai_apps/index
