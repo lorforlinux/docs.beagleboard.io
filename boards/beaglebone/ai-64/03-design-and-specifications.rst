@@ -424,7 +424,7 @@ for *TPS65941213 and TPS65941111*, for more information on the, refer to https:/
 
 .. _TPS6594-Q1-block-diagram:
 
-.. figure:: images/ch06/TPS6594-Q1.*
+.. figure:: media/ch06/TPS6594-Q1.*
    :width: 400px
    :align: center 
    :alt: TPS6594-Q1 block diagram
@@ -433,7 +433,7 @@ for *TPS65941213 and TPS65941111*, for more information on the, refer to https:/
 
 .. _pmic-a-diagram,PMIC-A TPS65941213 circuit:
 
-.. figure:: images/ch06/pmic-a.*
+.. figure:: media/ch06/pmic-a.*
    :width: 400px
    :align: center 
    :alt: PMIC-B TPS65941213 circuit
@@ -442,7 +442,7 @@ for *TPS65941213 and TPS65941111*, for more information on the, refer to https:/
 
 .. _pmic-b-diagram,PMIC-B TPS65941111 circuit:
 
-.. figure:: images/ch06/pmic-b.*
+.. figure:: media/ch06/pmic-b.*
    :width: 400px
    :align: center 
    :alt: PMIC-B TPS65941111 circuit
