@@ -3,4 +3,4 @@
 Demos and Tutorials
 ###################
 
-* :ref:`_ai_64_edgeai_home`
+* :ref:`ai_64_edgeai_home`
