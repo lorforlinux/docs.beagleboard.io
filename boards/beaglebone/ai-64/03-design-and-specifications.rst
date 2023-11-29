@@ -1,7 +1,14 @@
-.. _beaglebone-ai-64-high-level-specification:
+.. _beaglebone-ai-64-design:
 
-BeagleBone AI-64 High Level Specification
+BeagleBone AI-64 Design and Specifications
 ##############################################
+
+If you want to know how BeagleBone AI-64 is designed and the detailed specifications, then
+this chapter is for you. We are going to attept to provide you a short and crisp overview
+followed by discussing each hardware design element in detail.
+
+Block Diagram and Overview
+**************************
 
 :ref:`BeagleBone_AI-64-block-diagram` below shows the high level block 
 diagram of BeagleBone AI-64 board surrounding TDA4VM SoC.
@@ -17,7 +24,7 @@ diagram of BeagleBone AI-64 board surrounding TDA4VM SoC.
 .. _processor:
 
 Processor
-----------
+==========
 
 BeagleBone AI-64 uses TI J721E-family `TDA4VM <https://www.ti.com/product/TDA4VM>`_ 
 system-on-chip (SoC) which is part of the K3 Multicore SoC architecture platform 
@@ -171,14 +178,14 @@ The device is partitioned into three functional domains as shown in :ref:`soc-bl
 .. _memory:
 
 Memory
--------
+=======
 
 Described in the following sections are the three memory devices found on the board.
 
 .. _mb-ddr4l:
 
 4GB LPDDR4
-************
+------------
 
 A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memory used is:
 
@@ -187,14 +194,14 @@ A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memo
 .. _kb-eeprom:
 
 4Kb EEPROM
-*************
+-------------
 
 A single 4Kb EEPROM (24FC04HT-I/OT) is provided on I2C0 that holds the board information. This information includes board name, serial number, and revision information.
 
 .. _gb-embedded-mmc:
 
 16GB Embedded MMC
-*******************
+-------------------
 
 A single 16GB embedded MMC (eMMC) device is on the board. The device
 connects to the MMC1 port of the processor, allowing for 8bit wide
@@ -210,7 +217,7 @@ operation but it does make it unsuitable for use as an eMMC port if the
 .. _microsd-connector:
 
 MicroSD Connector
-*******************
+-------------------
 
 The board is equipped with a single microSD connector to act as the
 secondary boot source for the board and, if selected as such, can be the
@@ -222,7 +229,7 @@ be used by the user to update the SW as needed.
 .. _boot-modes:
 
 Boot Modes
-***********
+===========
 
 As mentioned earlier, there are two boot modes:
 
@@ -248,21 +255,21 @@ A switch is provided to allow switching between the modes.
 .. _power-management:
 
 Power Management
--------------------
+===================
 
 The *TPS65941213 and TPS65941111* power management device is used along with a separate LDO to provide power to the system.
 
 .. _pc-usb-interface:
 
 PC USB Interface
----------------------
+=====================
 
 The board has a USB type-C connector that connects to USB0 port of the processor.
 
 .. _serial-debug-ports:
 
 Serial Debug Ports
-------------------------------------
+====================================
 
 Two serial debug ports are provided on board via 3pin micro headers,
 
@@ -272,27 +279,26 @@ Two serial debug ports are provided on board via 3pin micro headers,
 
 In order to use the interfaces a `3pin micro to 6pin dupont adaptor header <https://uk.farnell.com/element14/1103004000156/beaglebone-ai-serials-cable/dp/3291081>`_ is required with a 6 pin USB to TTL adapter. The header is compatible with the one provided by FTDI and can be purchased for about $$12 to $$20 from various sources. Signals supported are TX and RX. None of the handshake signals are supported.
 
-.. _usb1-host-port:
+.. _bbai64-usb-host-ports:
 
-USB1 Host Port
-------------------
+USB Host Ports
+==================
 
-On the board is a single USB Type A female connector with full LS/FS/HS
-Host support that connects to USB1 on the processor. The port can
+On the board is a stacked dual USB 3.0 Type A female connector with full LS/FS/HS/SS
+host support. The ports can
 provide power on/off control and up to 1.5A of current at 5V. Under USB
-power, the board will not be able to supply the full 1.5A, but should
-be sufficient to supply enough current for a lower power USB device
-supplying power between 50 to 100mA.
+power, the board will not be able to supply the full 1.5A.
 
 .. _power-sources:
 
 Power Sources
-------------------------------------
+====================================
 
-The board can be powered from two different sources:
+The board can be powered from three different sources:
 
-* A 5V > 3A power supply plugged into the barrel jack.
-* A wall adaptor with 5V > 3A output power.
+* 5V > 3A power supply plugged into the barrel jack
+* 5V > 3A capable device plugged into the USB Type-C connector
+* The cape header pins
 
 The power supply is not provided with the board but can be easily
 obtained from numerous sources. A 5V > 3A supply is mandatory to have with
@@ -303,14 +309,14 @@ needed from the DC supply.
 .. _reset-button:
 
 Reset Button
-------------------------------------
+====================
 
 When pressed and released, causes a reset of the board.
 
 .. _power-button:
 
 Power Button
-------------------------------------
+==============
 
 This button takes advantage of the input to the PMIC for
 power down features.
@@ -318,23 +324,30 @@ power down features.
 .. _indicators:
 
 Indicators
-------------------------------------
+==============
 
 There are a total of six green LEDs on the board.
 
 * One green power LED indicates that power is applied and the power management IC is up.
 * Five blue LEDs that can be controlled via the SW by setting GPIO pins.
 
-:orphan:
-
 .. _bbai64-detailed-hardware-design:
 
 Detailed Hardware Design
-#########################
+*************************
 
-This section provides a detailed description of the Hardware design.
+.. important::
+
+   This section is highly inaccurate. Do not read. Please refer to the schematics.
+
+This section provides a detailed description of the hardware design.
 This can be useful for interfacing, writing drivers, or using it to help
 modify specifics of your own design.
+
+.. todo::
+
+   An extensive amount of the documentation below was taken from BeagleBone Black and presented here as BeagleBone AI-64. It must be gone over in detail
+   to determine what is valid and replaced with accurate information.
 
 :ref:`bbai-64-block-diagram-ch06` below is the high level block diagram of the board. For those who may be concerned, It is the same figure as shown in :ref:`beaglebone-ai-64-high-level-specification`. It is placed here again for convenience so it is closer to the topics to follow.
 
@@ -350,7 +363,7 @@ modify specifics of your own design.
 .. _power-section:
 
 Power Section
---------------
+================
 
 :ref:`power-flow-diagram` shows the high level block diagram of the power section of the board.
 
@@ -359,9 +372,9 @@ Power Section
 .. figure:: media/ch06/power.*
    :width: 400px
    :align: center 
-   :alt: Fig: High level power block diagram
+   :alt: High level power block diagram
 
-   Fig: High level power block diagram
+   High level power block diagram
 
 This section describes the power section of the design and all the
 functions performed by the *TPS65941213 and TPS65941111*.
@@ -373,15 +386,15 @@ functions performed by the *TPS65941213 and TPS65941111*.
 .. _TPS65941213-and-TPS65941111-pmic:
 
 TPS65941213 and TPS65941111 PMIC
-**********************************
+---------------------------------
 
-The main Power Management IC (PMIC) in the system is the *TPS65941213 and TPS65941111* which is a 
-single chip power management IC consisting of a linear dual-input power path, three step-down 
-converters, and four LDOs. LDO stands for Low Drop Out. If you want to know more about an LDO, you can
+The main Power Management IC (PMIC) in the system is the *TPS65941213 and TPS65941111*
+which is a single chip power management IC consisting of a linear
+dual-input power path, three step-down converters, and four LDOs. LDO
+stands for Low Drop Out. If you want to know more about an LDO, you can
 go to `http://en.wikipedia.org/wiki/Low-dropout_regulator <http://en.wikipedia.org/wiki/Low-dropout_regulator>`_ .
 
-If you want to learn more about step-down converters, you can go to 
-`_http://en.wikipedia.org/wiki/DC-to-DC_converter <http://en.wikipedia.org/wiki/DC-to-DC_converter>`_.
+If you want to learn more about step-down converters, you can go to `_http://en.wikipedia.org/wiki/DC-to-DC_converter <http://en.wikipedia.org/wiki/DC-to-DC_converter>`_ .
 
 The system is supplied by a USB port or DC adapter. Three
 high-efficiency 2.25MHz step-down converters are targeted at providing
@@ -439,7 +452,7 @@ for *TPS65941213 and TPS65941111*, for more information on the, refer to https:/
 .. _dc-input:
 
 DC Input
-***********
+---------------------------------
 
 :ref:`figure-23` below shows how the DC input is connected to the **TPS65941213 and TPS65941111**.
 
@@ -448,9 +461,9 @@ DC Input
 .. figure:: media/image38.*
    :width: 400px
    :align: center 
-   :alt: TPS65217 DC Connection
+   :alt: Fig: TPS65217 DC Connection
 
-   TPS65217 DC Connection
+   Fig: TPS65217 DC Connection
 
 A 5VDC supply can be used to provide power to the board. The power
 supply current depends on how many and what type of add-on boards are
@@ -467,7 +480,7 @@ the 5VDC jack on the board.
 .. _usb-power:
 
 USB Power
-*************
+---------------------------------
 
 The board can also be powered from the USB port. A typical USB 3.0 port is
 limited to 900mA. When powering from the USB port, the VDD_5V rail
@@ -483,13 +496,14 @@ of the USB power input on the PMIC.
 .. figure:: media/USB-Connection.*
    :width: 400px
    :align: center 
-   
+   :alt: USB Power Connection
+
    USB Power Connection
 
 .. _power-selection:
 
 Power Selection
-*****************
+---------------------------------
 
 The selection of either the 5VDC or the USB as the power source is
 handled internally to the *TPS65941213 and TPS65941111* and automatically switches to 5VDC
@@ -507,7 +521,7 @@ input.
 .. _power-button-1:
 
 Power Button
-**************
+---------------------------------
 
 A power button is connected to the input of the *TPS65941213 and TPS65941111*. This is a
 momentary switch, the same type of switch used for reset and boot
@@ -534,7 +548,7 @@ power cycle.
 .. _section-6-1-7,Section 6.1.7 Power Consumption:
 
 Power Consumption
-*******************
+---------------------------------
 
 The power consumption of the board varies based on power scenarios and
 the board boot processes. Measurements were taken with the board in the
@@ -589,7 +603,7 @@ on and microSD/eMMC accesses.
 .. _processor-interfaces:
 
 Processor Interfaces
-**********************
+----------------------
 
 The processor interacts with the *TPS65941213 and TPS65941111* via several different
 signals. Each of these signals is described below.
@@ -597,7 +611,7 @@ signals. Each of these signals is described below.
 .. _bbai64-i2c0:
 
 I2C0
-*****
+~~~~~~~~~~~~~~~
 
 I2C0 is the control interface between the processor and the *TPS65941213 and TPS65941111*.
 It allows the processor to control the registers inside the *TPS65941213 and TPS65941111*
@@ -606,7 +620,7 @@ for such things as voltage scaling and switching of the input rails.
 .. _pmc_powr_en:
 
 PMIC_POWR_EN
-***************
+~~~~~~~~~~~~~~~
 
 On power up the *VDD_RTC* rail activates first. After the RTC circuitry
 in the processor has activated it instructs the *TPS65941213 and TPS65941111* to initiate
@@ -617,7 +631,7 @@ the power down process.
 .. _ldo_good:
 
 LDO_GOOD
-*********
+~~~~~~~~~~~~~~~
 
 This signal connects to the *RTC_PORZn* signal, RTC power on reset. The
 small “*n*” indicates that the signal is an active low signal. Word
@@ -629,7 +643,7 @@ This starts the power up process.
 .. _pmic_pgood:
 
 PMIC_PGOOD
-***********
+~~~~~~~~~~~~~~~
 
 Once all the rails are up, the *PMIC_PGOOD* signal goes high. This
 releases the**PORZn** signal on the processor which was holding the
@@ -638,7 +652,7 @@ processor reset.
 .. _wakeup:
 
 WAKEUP
-*******
+~~~~~~~~~~~~~~~
 
 The WAKEUP signal from the *TPS65941213 and TPS65941111* is connected to the **EXT_WAKEUP**
 signal on the processor. This is used to wake up the processor when it
@@ -648,7 +662,7 @@ as the power button being pressed, it generates this signal.
 .. _pmic_int:
 
 PMIC_INT
-**********
+~~~~~~~~~~~~~~~
 
 The *PMIC_INT* signal is an interrupt signal to the processor. Pressing
 the power button will send an interrupt to the processor allowing it to
@@ -659,33 +673,35 @@ support.
 .. _power-rails:
 
 Power Rails
-*************
+-------------
 
 :ref:`figure-25` shows the connections of each of the rails from the **TPS65941213 and TPS65941111**.
 
 .. _figure-25,Figure 25:
 
-.. figure:: media/image39.jpg
+.. figure:: media/image39.*
    :width: 400px
    :align: center 
-   
+   :alt: Power Rails
+
    Power Rails
 
 VRTC Rail
-***********
+~~~~~~~~~~
 
-The *VRTC* rail is a 1.8V rail that is the first rail to come up in the power sequencing. 
-It provides power to the RTC domain on the processor and the I/O rail of the **TPS65941213 
-and TPS65941111**. It can deliver up to 250mA maximum.
+The *VRTC* rail is a 1.8V rail that is the first rail to come up in the
+power sequencing. It provides power to the RTC domain on the processor
+and the I/O rail of the **TPS65941213 and TPS65941111**. It can deliver up to 250mA
+maximum.
 
 VDD_3V3A Rail
-**************
+~~~~~~~~~~~~~
 
 The *VDD_3V3A* rail is supplied by the **TPS65941213 and TPS65941111** and provides the
 3.3V for the processor rails and can provide up to 400mA.
 
 VDD_3V3B Rail
-**************
+~~~~~~~~~~~~~
 
 The current supplied by the *VDD_3V3A* rail is not sufficient to power
 all of the 3.3V rails on the board. So a second LDO is supplied, U4,
@@ -693,14 +709,14 @@ a **TL5209A**, which sources the *VDD_3V3B* rail. It is powered up just
 after the *VDD_3V3A* rail.
 
 VDD_1V8 Rail
-**************
+~~~~~~~~~~~~~
 
 The *VDD_1V8* rail can deliver up to 400mA and provides the power
 required for the 1.8V rails on the processor and the display framer. This
 rail is not accessible for use anywhere else on the board.
 
 VDD_CORE Rail
-***************
+~~~~~~~~~~~~~~
 
 The *VDD_CORE* rail can deliver up to 1.2A at 1.1V. This rail is not
 accessible for use anywhere else on the board and connects only to the
@@ -708,7 +724,7 @@ processor. This rail is fixed at 1.1V and should not be adjusted by SW
 using the PMIC. If you do, then the processor will no longer work.
 
 VDD_MPU Rail
-**************
+~~~~~~~~~~~~
 
 The *VDD_MPU* rail can deliver up to 1.2A. This rail is not accessible
 for use anywhere else on the board and connects only to the processor.
@@ -717,7 +733,7 @@ frequency operation. Changing of the voltage is set via the I2C
 interface from the processor.
 
 VDDS_DDR Rail
-****************
+~~~~~~~~~~~~~~
 
 The *VDDS_DDR* rail defaults to**1.5V** to support the LPDDR4 rails and
 can deliver up to 1.2A. It is possible to adjust this voltage rail down
@@ -725,19 +741,22 @@ to *1.35V* for lower power operation of the LPDDR4 device. Only LPDDR4
 devices can support this voltage setting of 1.35V.
 
 Power Sequencing
-******************
+-----------------
 
-The power up process is consists of several stages and events. :ref:`figure-26` describes the 
-events that make up the power up process for the processer from the PMIC. This diagram is used 
-elsewhere to convey additional information. I saw no need to bust it up into smaller diagrams. 
-It is from the processor datasheet supplied by Texas Instruments.
+The power up process is consists of several stages and events. :ref:`figure-26`
+describes the events that make up the power up process for the
+processer from the PMIC. This diagram is used elsewhere to convey
+additional information. I saw no need to bust it up into smaller
+diagrams. It is from the processor datasheet supplied by Texas
+Instruments.
 
 .. _figure-26,Figure 26:
 
 .. figure:: media/image40.*
    :width: 400px
    :align: center 
-   
+   :alt: Power Rail Power Up Sequencing
+
    Power Rail Power Up Sequencing
 
 :ref:`figure-27` the voltage rail sequencing for the**TPS65941213 and TPS65941111** as it
@@ -750,38 +769,42 @@ You can refer to the TPS65941213 and TPS65941111 datasheet for more information.
 .. figure:: media/image41.*
    :width: 400px
    :align: center 
-   
+   :alt: TPS65941213 and TPS65941111 Power Sequencing Timing
+
    TPS65941213 and TPS65941111 Power Sequencing Timing
 
 .. _power-led:
 
 Power LED
-***********
+----------
 
 The power LED is a blue LED that will turn on once the *TPS65941213 and TPS65941111* has
 finished the power up procedure. If you ever see the LED flash once,
-that means that the**TPS65941213 and TPS65941111** started the process and encountered an
+that means that the *TPS65941213 and TPS65941111* started the process and encountered an
 issue that caused it to shut down. The connection of the LED is shown in
 :ref:`figure-25`.
 
 .. _TPS65941213-and-TPS65941111-power-up-process:
 
 TPS65941213 and TPS65941111 Power Up Process
-*********************************************
+---------------------------------------------
 
-:ref:`figure-28` shows the interface between the **TPS65941213 and TPS65941111** and the processor. 
-It is a cut from the PDF form of the schematic and reflects what is on the schematic.
+:ref:`figure-28` shows the interface between the **TPS65941213 and TPS65941111** and the
+processor. It is a cut from the PDF form of the schematic and reflects
+what is on the schematic.
 
 .. _figure-28,Figure 28:
 
-.. figure:: media/image42.jpg
+.. figure:: media/image42.*
    :width: 400px
    :align: center 
-   
+   :alt: Power Processor Interfaces
+
    Power Processor Interfaces
 
-When voltage is applied, DC or USB, the *TPS65941213 and TPS65941111* connects the power to the 
-SYS output pin which drives the switchers and LDOs in the **TPS65941213 and TPS65941111**.
+When voltage is applied, DC or USB, the *TPS65941213 and TPS65941111* connects the power
+to the SYS output pin which drives the switchers and LDOs in
+the *TPS65941213 and TPS65941111*.
 
 At power up all switchers and LDOs are off except for the *VRTC LDO*
 (1.8V), which provides power to the VRTC rail and controls
@@ -807,7 +830,7 @@ rail on the processor.
 .. _processor-control-interface:
 
 Processor Control Interface
-*****************************
+----------------------------
 
 :ref:`figure-28` above shows two interfaces between the processor and
 the **TPS65941213 and TPS65941111** used for control after the power up sequence has
@@ -825,14 +848,14 @@ interface to 3.3V of the processor.
 .. _low-power-mode-support:
 
 Low Power Mode Support
-**************************
+-----------------------
 
 This section covers three general power down modes that are available.
 These modes are only described from a Hardware perspective as it relates
 to the HW design.
 
 RTC Only
-***********
+~~~~~~~~~
 
 In this mode all rails are turned off except the *VDD_RTC*. The
 processor will need to turn off all the rails to enter this mode.
@@ -840,7 +863,7 @@ The **VDD_RTC** staying on will keep the RTC active and provide for the
 wakeup interfaces to be active to respond to a wake up event.
 
 RTC Plus DDR
-****************
+~~~~~~~~~~~~
 
 In this mode all rails are turned off except the *VDD_RTC* and
 the **VDDS_DDR**, which powers the LPDDR4 memory. The processor will need
@@ -857,7 +880,7 @@ Currently, this feature is not included in the standard software
 release. The plan is to include it in future releases.
 
 Voltage Scaling
-****************
+~~~~~~~~~~~~~~~~
 
 For a mode where the lowest power is possible without going to sleep,
 this mode allows the voltage on the ARM processor to be lowered along
@@ -867,7 +890,7 @@ control the voltage scaling function in the *TPS65941213 and TPS65941111*.
 .. _sitara-am3358bzcz100-processor:
 
 TI J721E DRA829/TDA4VM/AM752x Processor
------------------------------------------
+=========================================
 
 The board is designed to use the TI J721E DRA829/TDA4VM/AM752x processor in the
 15 x 15 package. 
@@ -875,7 +898,7 @@ The board is designed to use the TI J721E DRA829/TDA4VM/AM752x processor in the
 .. _description:
 
 Description
-*********************************************
+-------------
 
 :ref:`figure-29` is a high level block diagram of the processor. For more information on the processor, go to `https://www.ti.com/product/TDA4VM <https://www.ti.com/product/TDA4VM>`_
 
@@ -884,18 +907,21 @@ Description
 .. figure:: media/image43.*
    :width: 400px
    :align: center 
-   
+   :alt: Jacinto TDA4VMBZCZ Block Diagram
+
    Jacinto TDA4VMBZCZ Block Diagram
 
 
 .. _high-level-features:
 
 High Level Features
-*********************
+-------------------
 
-:ref:`table-5` below shows a few of the high level features of the Jacinto processor.
+:ref:`table-5` below shows a few of the high level features of the Jacinto
+processor.
 
 .. _table-5,Table 5:
+
 
 .. list-table:: Table 5: Processor Features
    :header-rows: 1
@@ -960,14 +986,14 @@ High Level Features
 .. _documentation:
 
 Documentation
-***************
+--------------
 
 Full documentation for the processor can be found on the TI website at `https://www.ti.com/product/TDA4VM <https://www.ti.com/product/TDA4VM>`_ for the current processor used on the board. Make sure that you always use the latest datasheets and Technical Reference Manuals (TRM).
 
 .. _crystal-circuitry:
 
 Crystal Circuitry
-******************
+------------------
 
 :ref:`figure-30` is the crystal circuitry for the TDA4VM processor.
 
@@ -976,16 +1002,16 @@ Crystal Circuitry
 .. figure:: media/image44.*
    :width: 400px
    :align: center 
-
-   Processor Crystals
+   :caption: Processor Crystals
 
 .. _reset-circuitry:
 
 Reset Circuitry
-*****************
+----------------
 
-:ref:`figure-31` is the board reset circuitry. The initial power on reset is generated by the 
-**TPS65941213 and TPS65941111** power management IC. It also handles the reset for the Real Time Clock.
+:ref:`figure-31` is the board reset circuitry. The initial power on reset is
+generated by the **TPS65941213 and TPS65941111** power management IC. It also handles the
+reset for the Real Time Clock.
 
 The board reset is the SYS_RESETn signal. This is connected to the
 NRESET_INOUT pin of the processor. This pin can act as an input or an
@@ -1001,15 +1027,17 @@ momentarily go high on power up.
 
 .. _figure-31,Figure 31:
 
-.. figure:: media/image45.png
+.. figure:: media/image45.*
    :width: 400px
    :align: center 
-   
+   :alt: Board Reset Circuitry
+
    Board Reset Circuitry
 
 This change is also in all revisions after A5D.
 
 LPDDR4 Memory
+=============
 
 BeagleBone AI-64 uses a single MT41K256M16HA-125 512MB LPDDR4 device
 from Micron that interfaces to the processor over 16 data lines, 16
@@ -1021,7 +1049,7 @@ The following sections provide more details on the design.
 .. _memory-device:
 
 Memory Device
-***************
+---------------
 
 The design supports the standard DDR3 and LPDDR4 x16 devices and is built
 using the LPDDR4. A single x16 device is used on the board and there is
@@ -1035,7 +1063,7 @@ at on the board is 400MHZ.
 .. _ddr3l-memory-design:
 
 LPDDR4 Memory Design
-**********************
+---------------------
 
 :ref:`figure-32` is the schematic for the LPDDR4 memory device. Each of the
 groups of signals is described in the following lines.
@@ -1073,7 +1101,8 @@ are disabled during SELF REFRESH. CKE is referenced to VREFCA.
 .. figure:: media/image46.*
    :width: 400px
    :align: center 
-   
+   :alt: LPDDR4 Memory Design
+
    LPDDR4 Memory Design
 
 *Chip Select Line:* CS# enables (registered LOW) and disables
@@ -1098,7 +1127,7 @@ LOAD MODE command. ODT is referenced to VREFCA.
 .. _power-rails-1:
 
 Power Rails
-******************
+-----------
 
 The *LPDDR4* memory device and the DDR3 rails on the processor are
 supplied by the**TPS65941213 and TPS65941111**. Default voltage is 1.5V but can be scaled
@@ -1107,7 +1136,7 @@ down to 1.35V if desired.
 .. _vref:
 
 VREF
-***************
+~~~~~
 
 The *VREF* signal is generated from a voltage divider on the **VDDS_DDR**
 rail that powers the processor DDR rail and the LPDDR4 device itself.
@@ -1119,14 +1148,15 @@ connection to the LPDDR4 memory device and the processor.
 .. figure:: media/image47.*
    :width: 400px
    :align: center 
-   
+   :alt: LPDDR4 VREF Design
+
    LPDDR4 VREF Design
 
 
 .. _gb-emmc-memory:
 
 4GB eMMC Memory
------------------
+===============
 
 The eMMC is a communication and mass data storage device that includes a
 Multi-MediaCard (MMC) interface, a NAND Flash component, and a
@@ -1151,7 +1181,7 @@ the board to implement this interface.
 .. _emmc-device:
 
 eMMC Device
-*************
+------------
 
 The device used is one of two different devices:
 
@@ -1163,7 +1193,7 @@ The package is a 153 ball WFBGA device on both devices.
 .. _emmc-circuit-design:
 
 eMMC Circuit Design
-*********************
+-------------------
 
 :ref:`figure-34` is the design of the eMMC circuitry. The eMMC device is
 connected to the MMC1 port on the processor. MMC0 is still used for the
@@ -1183,7 +1213,8 @@ compensate for any capacitance on the board.
 .. figure:: media/image48.*
    :width: 400px
    :align: center 
-   
+   :alt: eMMC Memory Design
+
    eMMC Memory Design
 
 
@@ -1194,7 +1225,8 @@ The pins used by the eMMC1 in the boot mode are listed below in *Table 6*.
 .. figure:: media/image49.*
    :width: 400px
    :align: center 
-   
+   :alt: eMMC Boot Pins
+
    eMMC Boot Pins
 
 For eMMC devices the ROM will only support raw mode. The ROM Code reads
@@ -1209,7 +1241,7 @@ image size. The only drawback is that the image will cross the
 subsequent image boundary. The raw mode is detected by reading sectors
 #0, #256, #512, #768. The content of these sectors is then verified for
 presence of a TOC structure. In the case of a *GP Device*, a
-Configuration Header (CH)*must* be located in the first sector followed
+Configuration Header (CH) *must* be located in the first sector followed
 by a *GP header*. The CH might be void (only containing a CHSETTINGS
 item for which the Valid field is zero).
 
@@ -1217,18 +1249,18 @@ The ROM only supports the 4-bit mode. After the initial boot, the switch
 can be made to 8-bit mode for increasing the overall performance of the
 eMMC interface.
 
-.. _board-id-eeprom:
+.. _bbai64-board-id-eeprom:
 
 Board ID EEPROM
------------------
+================
 
-BeagleBone is equipped with a single 32Kbit(4KB) 24LC32AT-I/OT
-EEPROM to allow the SW to identify the board. *Table 7* below defined
+BeagleBone AI-64 is equipped with a single 32Kbit(4KB) 24LC32AT-I/OT
+EEPROM to allow the SW to identify the board. :ref:`table-7` below defined
 the contents of the EEPROM.
 
 .. _table-7,Table 7:
 
-.. list-table:: Table 7: EEPROM Contents
+.. list-table:: EEPROM Contents
    :header-rows: 1
 
    * - Name    
@@ -1269,8 +1301,9 @@ the contents of the EEPROM.
 .. figure:: media/image50.*
    :width: 400px
    :align: center 
-   
-   EEPROM Design Rev A5
+   :alt: EEPROM Design
+
+   EEPROM Design
 
 The EEPROM is accessed by the processor using the I2C 0 bus. The *WP*
 pin is enabled by default. By grounding the test point, the write
@@ -1284,7 +1317,7 @@ information to determine how to set up the board.
 .. _micro-secure-digital:
 
 Micro Secure Digital
-----------------------
+=====================
 
 The microSD connector on the board will support a microSD card that can
 be used for booting or file storage on BeagleBone AI-64.
@@ -1292,7 +1325,7 @@ be used for booting or file storage on BeagleBone AI-64.
 .. _microsd-design:
 
 microSD Design
-****************
+-----------------
 
 :ref:`figure-36` below is the design of the microSD interface on the board.
 
@@ -1301,7 +1334,8 @@ microSD Design
 .. figure:: media/image51.*
    :width: 400px
    :align: center 
-   
+   :alt: microSD Design
+
    microSD Design
 
 The signals *MMC0-3* are the data lines for the transfer of data between
@@ -1328,9 +1362,9 @@ provided for filtering.
 .. _user-leds:
 
 User LEDs
------------
+==========
 
-There are four user LEDs on BeagleBone AI-64. These are connected to
+There are five user LEDs on BeagleBone AI-64. These are connected to
 GPIO pins on the processor. *Figure 37* shows the interfaces for the
 user LEDs.
 
@@ -1339,13 +1373,15 @@ user LEDs.
 .. figure:: media/image52.*
    :width: 400px
    :align: center 
-   
+   :alt: User LEDs
+
    User LEDs
 
 Resistors R71-R74 were changed to 4.75K on the revision A5B and later
 boards.
 
-:ref:`table-8` shows the signals used to control the four LEDs from the processor.
+:ref:`table-8` shows the signals used to control the four LEDs from the
+processor.
 
 .. _table-8,Table 8:
 
@@ -1375,7 +1411,7 @@ A logic level of “1” will cause the LEDs to turn on.
 .. _boot-configuration:
 
 Boot Configuration
---------------------
+===================
 
 The design supports two groups of boot options on the board. The user
 can switch between these modes via the Boot button. The primary boot
@@ -1385,8 +1421,7 @@ to be overwritten when needed or to just boot an alternate image. The
 following sections describe how the boot configuration works.
 
 In most applications, including those that use the provided demo
-distributions available from `beagleboard.org <http://beagleboard.org/>`_ 
-the processor-external boot code is composed of two stages. After the
+distributions available from `beagleboard.org <http://beagleboard.org/>`_ the processor-external boot code is composed of two stages. After the
 primary boot code in the processor ROM passes control, a secondary stage
 (secondary program loader -- "SPL" or "MLO") takes over. The SPL stage
 initializes only the required devices to continue the boot process, and
@@ -1398,7 +1433,7 @@ microSD based on the position of the boot switch.
 .. _boot-configuration-design:
 
 Boot Configuration Design
-****************************
+---------------------------
 
 :ref:`figure-38` shows the circuitry that is involved in the boot
 configuration process. On power up, these pins are read by the processor
@@ -1410,7 +1445,8 @@ from HI to LO which changes the boot order.
 .. figure:: media/image53.*
    :width: 400px
    :align: center 
-   
+   :alt: Processor Boot Configuration Design
+
    Processor Boot Configuration Design
 
 It is possible to override these setting via the expansion headers. But
@@ -1423,7 +1459,7 @@ of reset these signals are removed from the expansion pins.
 .. _default-boot-options:
 
 Default Boot Options
-----------------------
+---------------------
 
 Based on the selected option found in :ref:`figure-39` below, each of the
 boot sequences for each of the two settings is shown.
@@ -1433,7 +1469,8 @@ boot sequences for each of the two settings is shown.
 .. figure:: media/image54.*
    :width: 400px
    :align: center 
-   
+   :alt: Processor Boot Configuration
+
    Processor Boot Configuration
 
 The first row in :ref:`figure-39` is the default setting. On boot, the
@@ -1451,7 +1488,7 @@ could be used as the board source.
 .. _ethernet:
 
 10/100/1000 Ethernet
-----------------------
+====================
 
 BeagleBone AI-64 is equipped with a 10/100/1000 Ethernet interface.
 The design is
@@ -1460,7 +1497,7 @@ described in the following sections.
 .. _ethernet-processor-interface:
 
 Ethernet Processor Interface
-*******************************
+-----------------------------
 
 :ref:`figure-40` shows the connections between the processor and the PHY. The
 interface is in the MII mode of operation.
@@ -1470,7 +1507,8 @@ interface is in the MII mode of operation.
 .. figure:: media/image55.*
    :width: 400px
    :align: center 
-   
+   :alt: Ethernet Processor Interface
+
    Ethernet Processor Interface
 
 
@@ -1480,7 +1518,7 @@ made in this design for the board.
 .. _ethernet-connector-interface:
 
 Ethernet Connector Interface
-*********************************************
+------------------------------
 
 The off board side of the PHY connections are shown in *Figure 41*
 below.
@@ -1490,7 +1528,8 @@ below.
 .. figure:: media/image56.*
    :width: 400px
    :align: center 
-  
+   :alt: Ethernet Connector Interface
+
    Ethernet Connector Interface
 
 This is the same interface as is used on BeagleBone. No changes were
@@ -1499,7 +1538,7 @@ made in this design for the board.
 .. _ethernet-phy-power-reset-and-clocks:
 
 Ethernet PHY Power, Reset, and Clocks
-*********************************************
+---------------------------------------
 
 :ref:`figure-42` shows the power, reset, and lock connections to
 the **LAN8710A** PHY. Each of these areas is discussed in more detail in
@@ -1510,12 +1549,13 @@ the following sections.
 .. figure:: media/image57.*
    :width: 400px
    :align: center 
-  
+   :alt: Ethernet PHY, Power, Reset, and Clocks
+
    Ethernet PHY, Power, Reset, and Clocks
 
 
 VDD_3V3B Rail
-*****************
+~~~~~~~~~~~~~~~~~~~~~
 
 The VDD_3V3B rail is the main power rail for the *LAN8710A*. It
 originates at the VD_3V3B regulator and is the primary rail that
@@ -1524,7 +1564,7 @@ the VDDIO rails which set the voltage levels for all of the I/O signals
 between the processor and the **LAN8710A**.
 
 VDD_PHYA Rail
-*******************
+~~~~~~~~~~~~~~~~~~~~~
 
 A filtered version of VDD_3V3B rail is connected to the VDD rails of the
 LAN8710 and the termination resistors on the Ethernet signals. It is
@@ -1532,20 +1572,20 @@ labeled as *VDD_PHYA*. The filtering inductor helps block transients
 that may be seen on the VDD_3V3B rail.
 
 PHY_VDDCR Rail
-*********************
+~~~~~~~~~~~~~~~~~~~~~
 
 The *PHY_VDDCR* rail originates inside the LAN8710A. Filter and bypass
 capacitors are used to filter the rail. Only circuitry inside the
 LAN8710A uses this rail.
 
 SYS_RESET
-******************
+~~~~~~~~~~~~~~~~~~~~~
 
 The reset of the LAN8710A is controlled via the *SYS_RESETn* signal, the
 main board reset line.
 
 Clock Signals
-*********************
+~~~~~~~~~~~~~~~~~~~~~
 
 A crystal is used to create the clock for the LAN8710A. The processor
 uses the *RMII_RXCLK* signal to provide the clocking for the data
@@ -1554,7 +1594,7 @@ between the processor and the LAN8710A.
 .. _lan8710a-mode-pins:
 
 LAN8710A Mode Pins
-*********************
+---------------------
 
 There are mode pins on the LAN8710A that sets the operational mode for
 the PHY when coming out of reset. These signals are also used to
@@ -1569,16 +1609,17 @@ pin resistors.
 .. figure:: media/image97.*
    :width: 400px
    :align: center 
-   
+   :alt: Ethernet PHY Mode Pins
+
    Ethernet PHY Mode Pins
 
 This will set the mode to be 111, which enables all modes and enables
 auto-negotiation.
 
-.. _hdmi-interface-1:
+.. _bbai64-displayport-interface:
 
 Display Port Interface
------------------------------------
+========================
 
 BeagleBone AI-64 has an onboard Display Port framer that converts the LCD
 signals and audio signals to drive a Display Port monitor. The design uses the on chip
@@ -1590,7 +1631,7 @@ interface.
 .. _supported-resolutions:
 
 Supported Resolutions
-****************************
+------------------------------
 
 The maximum resolution supported by BeagleBone AI-64 is 1280x1024 @
 60Hz. *Table 9* below shows the supported resolutions. Not all
@@ -1647,62 +1688,26 @@ the audio in CEA modes. This is a function of the specification and is
 not something that can be fixed on the board via a hardware change or a
 software change.
 
-.. _hdmi-framer:
-
-Display Port Framer
-*********************************************
-
-insert processor  Display Port framer doc here
-
-.. _hdmi-video-processor-interface:
-
-Display Port Video Processor Interface
-*********************************************
-
-insert processor  Display Port V-interface doc here
-
-.. _hdmi-control-processor-interface:
-
-Display Port Control Processor Interface
-*********************************************
-
-insert processor  Display Port C-interface doc here
-
-.. _interrupt-signal:
-
-Interrupt Signal
-*********************************************
-
-insert processor  Display Port interrupt doc here
-
-.. _audio-interface:
-
-Audio Interface
-*********************************************
-
-insert processor  Display Port audio doc here
+Connectors and buttons
+======================
 
 .. _power-connections:
 
 Power Connections
-*********************************************
-
-guesing this doesn’t exist on this device
+------------------
 
 .. _hdmi-connector-interface:
 
 miniDP Connector Interface
-*********************************************
-
-insert processor  Mini Display Port connector  doc here
+----------------------------------
 
 .. _usb-host:
 
 USB Host
 -----------------------------------
 
-The board is equipped with a single USB host interface accessible from a
-single USB Type A female connector. :ref:`figure-48` is the design of the USB
+The board is equipped with a dual USB host interface accessible from a
+dual stacked USB Type A female connector. :ref:`figure-48` is the design of the USB
 Host circuitry.
 
 .. _figure-48,Figure 48:
@@ -1710,2184 +1715,18 @@ Host circuitry.
 .. figure:: media/image66.*
    :width: 400px
    :align: center 
-   
+   :alt: USB Host circuit
+
    USB Host circuit
 
 .. _power-switch:
 
 Power Switch
-*********************************************
+-------------------------
 
 *U8* is a switch that allows the power to the connector to be turned on
 or off by the processor. It also has an over current detection that can
 alert the processor if the current gets too high via the**USB1_OC**
 signal. The power is controlled by the *USB1_DRVBUS* signal from the
 processor.
-
-.. _esd-protection:
-
-ESD Protection
-*********************************************
-
-*U9* is the ESD protection for the signals that go to the connector.
-
-.. _filter-options:
-
-Filter Options
-*********************************************
-
-*FB7* and *FB8* were added to assist in passing the FCC emissions test.
-The *USB1_VBUS* signal is used by the processor to detect that the 5V is
-present on the connector. *FB7* is populated and *FB8* is replaced with
-a .1 ohm resistor.
-
-.. _pru-icss:
-
-PRU-ICSS
------------------------------------
-
-The PRU-ICSS module is located inside the TDA4VM processor. Access to
-these pins is provided by the expansion headers and is multiplexed with
-other functions on the board. Access is not provided to all of the
-available pins.
-
-All documentation is located at http://git.beagleboard.org/beagleboard/am335x_pru_package
-
-This feature is not supported by Texas Instruments.
-
-.. _pru-icss-features:
-
-PRU-ICSS Features
-*********************************************
-
-The features of the PRU-ICSS include:
-
-Two independent programmable real-time (PRU) cores:
-
-* 32-Bit Load/Store RISC architecture
-* 8K Byte instruction RAM (2K instructions) per core
-* 8K Bytes data RAM per core
-* 12K Bytes shared RAM
-* Operating frequency of 200 MHz
-* PRU operation is little endian similar to ARM processor
-* All memories within PRU-ICSS support parity
-* Includes Interrupt Controller for system event handling
-* Fast I/O interface
-
-*16 input pins and 16 output pins per PRU core. (Not all of these are
-accessible on BeagleBone AI-64).*
-
-.. _pru-icss-block-diagram:
-
-PRU-ICSS Block Diagram
-*****************************
-
-:ref:`figure-49` is a high level block diagram of the PRU-ICSS.
-
-.. _figure-49,Figure 49:
-
-.. figure:: media/image67.*
-   :width: 400px
-   :align: center 
-   
-   PRU-ICSS Block Diagram
-
-.. _pru-icss-pin-access:
-
-PRU-ICSS Pin Access
-*********************************************
-
-Both PRU 0 and PRU1 are accessible from the expansion headers. Some may
-not be useable without first disabling functions on the board like LCD
-for example. Listed below is what ports can be accessed on each PRU.
-
-* 8 outputs or 9 inputs PRU1
-* 13 outputs or 14 inputs
-* UART0_TXD, UART0_RXD, UART0_CTS, UART0_RTS
-
-:ref:`table-11` below shows which PRU-ICSS signals can be accessed on the
-BeagleBone AI-64 and on which connector and pins they are accessible
-from. Some signals are accessible on the same pins.
-
-.. _table-11,Table 11:
-
-.. list-table:: PRU0 and PRU1 Access
-   :header-rows: 1
-
-   * - 
-     - PIN 
-     - PROC 
-     - NAME 
-     - 
-     -
-     -
-   * - P8 
-     - 11 
-     - R12 
-     - GPIO1_13 
-     - 
-     - pr1_pru0_pru_r30_15 (Output)  
-     - 
-   * - 
-     - 12 
-     - T12 
-     - GPIO1_12 
-     - 
-     - pr1_pru0_pru_r30_14 (Output) 
-     - 
-   * - 
-     - 15 
-     - U13 
-     - GPIO1_15 
-     - 
-     - pr1_pru0_pru_r31_15 (Input) 
-     - 
-   * - 
-     - 16 
-     - V13 
-     - GPIO1_14 
-     - 
-     - pr1_pru0_pru_r31_14 (Input) 
-     - 
-   * - 
-     - 20 
-     - V9 
-     - GPIO1_31 
-     - pr1_pru1_pru_r30_13 (Output) 
-     - pr1_pru1_pru_r31_13 (INPUT) 
-     - 
-   * -
-     - 21 
-     - U9 
-     - GPIO1_30 
-     - pr1_pru1_pru_r30_12 (Output) 
-     - pr1_pru1_pru_r31_12 (INPUT) 
-     - 
-   * - 
-     - 27 
-     - U5 
-     - GPIO2_22 
-     - pr1_pru1_pru_r30_8 (Output) 
-     - pr1_pru1_pru_r31_8 (INPUT) 
-     - 
-   * - 
-     - 28 
-     - V5 
-     - GPIO2_24 
-     - pr1_pru1_pru_r30_10 (Output) 
-     - pr1_pru1_pru_r31_10 (INPUT) 
-     - 
-   * -
-     - 29 
-     - R5 
-     - GPIO2_23 
-     - pr1_pru1_pru_r30_9 (Output) 
-     - pr1_pru1_pru_r31_9 (INPUT) 
-     - 
-   * - 
-     - 39 
-     - T3 
-     - GPIO2_12 
-     - pr1_pru1_pru_r30_6 (Output) 
-     - pr1_pru1_pru_r31_6 (INPUT) 
-     - 
-   * -
-     - 40 
-     - T4 
-     - GPIO2_13 
-     - pr1_pru1_pru_r30_7 (Output) 
-     - pr1_pru1_pru_r31_7 (INPUT) 
-     -
-   * - 
-     - 41 
-     - T1 
-     - GPIO2_10 
-     - pr1_pru1_pru_r30_4 (Output) 
-     - pr1_pru1_pru_r31_4 (INPUT) 
-     - 
-   * -
-     - 42 
-     - T2 
-     - GPIO2_11 
-     - pr1_pru1_pru_r30_5 (Output) 
-     - pr1_pru1_pru_r31_5 (INPUT) 
-     - 
-   * - 
-     - 43 
-     - R3 
-     - GPIO2_8 
-     - pr1_pru1_pru_r30_2 (Output) 
-     - pr1_pru1_pru_r31_2 (INPUT) 
-     - 
-   * -
-     - 44 
-     - R4 
-     - GPIO2_9 
-     - pr1_pru1_pru_r30_3 (Output) 
-     - pr1_pru1_pru_r31_3 (INPUT) 
-     - 
-   * -
-     - 45 
-     - R1 
-     - GPIO2_6 
-     - pr1_pru1_pru_r30_0 (Output) 
-     - pr1_pru1_pru_r31_0 (INPUT) 
-     - 
-   * -
-     - 46 
-     - R2 
-     - GPIO2_7 
-     - pr1_pru1_pru_r30_1 (Output) 
-     - pr1_pru1_pru_r31_1 (INPUT) 
-     - 
-   * -
-     -
-     -
-     -
-     -
-     -
-     -
-   * - P9 
-     - 17 
-     - A16 
-     - I2C1_SCL 
-     - pr1_uart0_txd 
-     - 
-     -
-   * -
-     - 18 
-     - B16 
-     - I2C1_SDA 
-     - pr1_uart0_rxd 
-     - 
-     -
-   * -
-     - 19 
-     - D17 
-     - I2C2_SCL 
-     - pr1_uart0_rts_n 
-     - 
-     -
-   * -
-     - 20 
-     - D18 
-     - I2C2_SDA 
-     - pr1_uart0_cts_n 
-     - 
-     - 
-   * -
-     - 21 
-     - B17 
-     - UART2_TXD 
-     - pr1_uart0_rts_n 
-     - 
-     -
-   * -
-     - 22 
-     - A17 
-     - UART2_RXD 
-     - pr1_uart0_cts_n 
-     - 
-     -
-   * -
-     - 24 
-     - D15 
-     - UART1_TXD 
-     - pr1_uart0_txd 
-     - pr1_pru0_pru_r31_16 (Input) 
-     - 
-   * -
-     - 25 
-     - A14 
-     - GPIO3_21footnote:[GPIO3_21 is also the 24.576MHZ clock input to the processor to enable HDMI audio. To use this pin the oscillator must be disabled.] 
-     - pr1_pru0_pru_r30_5 (Output) 
-     - pr1_pru0_pru_r31_5 (Input) 
-     - 
-   * -
-     - 26 
-     - D16 
-     - UART1_RXD 
-     - pr1_uart0_rxd 
-     - pr1_pru1_pru_r31_16 
-     -
-   * -
-     - 27 
-     - C13 
-     - GPIO3_19 
-     - pr1_pru0_pru_r30_7 (Output) 
-     - pr1_pru0_pru_r31_7 (Input) 
-     - 
-   * - 
-     - 28 
-     - C12 
-     - SPI1_CS0 
-     - eCAP2_in_PWM2_out 
-     - pr1_pru0_pru_r30_3 (Output) 
-     - pr1_pru0_pru_r31_3 (Input)
-   * -
-     - 29 
-     - B13 
-     - SPI1_D0 
-     - pr1_pru0_pru_r30_1 (Output) 
-     - pr1_pru0_pru_r31_1 (Input) 
-     - 
-   * -
-     - 30 
-     - D12 
-     - SPI1_D1 
-     - pr1_pru0_pru_r30_2 (Output) 
-     - pr1_pru0_pru_r31_2 (Input) 
-     -
-   * -
-     - 31 
-     - A13 
-     - SPI1_SCLK 
-     - pr1_pru0_pru_r30_0 (Output) 
-     - pr1_pru0_pru_r31_0 (Input) 
-     - 
-
-:orphan:
-
-.. _bbai64-cape-board-support-1:
-
-Cape Board Support
-#######################
-
-*BeagleBone AI-64* has the ability to accept up to 
-four EEPROM addressable expansion boards or capes stacked onto 
-the expansion headers. The word cape comes from the shape of the
-expansion board for BeagleBone boards as it is fitted around the
-Ethernet connector on the main board. For BeagleBone this notch acts as a 
-key to ensure proper orientation of the cape. On AI-64 you can see a clear
-silkscreen marking for the cape orientation. Most of BeagleBone capes
-can be used with your BeagleBone AI-64 also like shown in :ref:`bbai64-cape-placement-figure` below.
-
-.. _bbai64-cape-placement-figure:
-
-.. figure:: media/ch08/cape-placement.*
-   :width: 400px
-   :align: center 
-   
-   BeagleBone AI-64 cape placement
-
-This section describes the rules & guidelines for creating capes to ensure proper
-operation with BeagleBone AI-64 and proper interoperability with
-other capes that are intended to coexist with each other. Co-existence
-is not a requirement and is in itself, something that is impossible to
-control or administer. But, people will be able to create capes that
-operate with other capes that are already available based on public
-information as it pertains to what pins and features each cape uses.
-This information will be able to be read from the EEPROM on each cape.
-
-For those wanting to create their own capes this should not put limits on the creation of
-capes and what they can do, but may set a few basic rules that will allow
-the software to administer their operation with BeagleBone AI-64. For this
-reason there is a lot of flexibility in the specification that we hope
-most people will find it liberating in the spirit of Open Source
-Hardware. On the other hand we are sure that there are others who would like to see tighter
-control, more details, more rules and much more order to the way capes
-are handled.
-
-Over time, this specification will change and be updated, so please
-refer to the `latest version of this manual <https://git.beagleboard.org/beagleboard/beaglebone-ai-64/>`_
-prior to designing your own capes to get the latest information.
-
-.. warning:: 
-
-   Do not apply voltage to any I/O pin when power is not supplied to the board.
-   It will damage the processor and void the warranty. 
-
-.. _beaglebone-ai-64-cape-compatibility:
-
-BeagleBone AI-64 Cape Compatibility
--------------------------------------------
-
-The expansion headers on BeagleBone Black and BeagleBone AI-64 provides
-similar pin configuration options on P8 and P9 expansion header pins thus provide 
-cape compatibility to a certain extent. Which means most BeagleBone Black capes
-will also be compatible with BeeagleBone AI-64.
-
-.. important:: 
-
-   This section is still being worked on, please make sure you have the latest system reference manual (SRM).
-
-
-.. todo
-
-   Add BeagleBone AI-64 LCD pins information.
-   Add BeagleBone AI-64 eMMC pins information.
-
-
-.. _eeprom:
-
-EEPROM
--------------------------------------------
-
-Each cape must have its own EEPROM containing information that will
-allow the software to identify the board and to configure the expansion
-headers pins during boot as needed. The one exception is proto boards intended for
-prototyping. They may or may not have an EEPROM on them. An EEPROM is
-required for all capes sold in order for them operate correctly when
-plugged into BeagleBone AI-64.
-
-The address of the EEPROM will be set via either jumpers or a dipswitch
-on each expansion board. :ref:`expansion-board-eeprom-without-write-protect-figure` 
-below is the design of the EEPROM circuit.
-
-.. _expansion-board-eeprom-without-write-protect-figure:
-
-.. figure:: media/ch08/eeprom.*
-   :width: 400px
-   :align: center 
-   
-   Expansion board EEPROM without write protect
-
-The addressing of this device requires two bytes for the address which
-is not used on smaller size EEPROMs, which only require only one byte.
-Other compatible devices may be used as well. Make sure the device you
-select supports 16 bit addressing. The part package used is at the
-discretion of the cape designer.
-
-.. _eeprom-address:
-
-EEPROM Address
-***************************
-
-In order for each cape to have a unique address, a board ID scheme is
-used that sets the address to be different depending on the setting of
-the dipswitch or jumpers on the capes. A two position dipswitch or
-jumpers is used to set the address pins of the EEPROM.
-
-It is the responsibility of the user to set the proper address for each
-board and the position in the stack that the board occupies has nothing
-to do with which board gets first choice on the usage of the expansion
-bus signals. The process for making that determination and resolving
-conflicts is left up to the SW and, as of this moment in time, this
-method is a something of a mystery due to the new Device Tree
-methodology introduced in the 3.8 kernel.
-
-Address line A2 is always tied high. This sets the allowable address
-range for the expansion cards to *0x54* to**0x57**. All other I2C
-addresses can be used by the user in the design of their capes. But,
-these addresses must not be used other than for the board EEPROM
-information. This also allows for the inclusion of EEPROM devices on the
-cape if needed without interfering with this EEPROM. It requires that A2
-be grounded on the EEPROM not used for cape identification.
-
-.. _i2c-bus:
-
-I2C Bus
-***************************
-
-The EEPROMs on each expansion board are connected to I2C2 on connector
-P9 pins 19 and 20. For this reason I2C2 must always be left connected
-and should not be changed by SW to remove it from the expansion header
-pin mux settings. If this is done, the system will be unable to detect
-the capes.
-
-The I2C signals require pullup resistors. Each board must have a 5.6K
-resistor on these signals. With four capes installed this will result in
-an effective resistance of 1.4K if all capes were installed and all the
-resistors used were exactly 5.6K. As more capes are added the resistance
-is reduced to overcome capacitance added to the signals. When no capes
-are installed the internal pullup resistors must be activated inside the
-processor to prevent I2C timeouts on the I2C bus.
-
-The I2C2 bus may also be used by capes for other functions such as I/O
-expansion or other I2C compatible devices that do not share the same
-address as the cape EEPROM.
-
-.. _eeprom-write-protect:
-
-EEPROM Write Protect
-***************************
-
-The design in :ref:`expansion-board-eeprom-with-write-protect-figure`
-has the write protect disabled. If the write
-protect is not enabled, this does expose the EEPROM to being corrupted
-if the I2C2 bus is used on the cape and the wrong address written to. It
-is recommended that a write protection function be implemented and a
-Test Point be added that when grounded, will allow the EEPROM to be
-written to. To enable write operation, Pin 7 of the EEPROM must be tied
-to ground.
-
-When not grounded, the pin is HI via pullup resistor R210 and therefore
-write protected. Whether or not Write Protect is provided is at the
-discretion of the cape designer.
-
-*Variable & MAC Memory*
-
-VSYS_IO_3V3
-
-.. _expansion-board-eeprom-with-write-protect-figure:
-
-.. figure:: media/ch08/eeprom-write-protect.*
-   :width: 400px
-   :align: center 
-   
-   Expansion board EEPROM with write protect
-
-.. _eeprom-data-format:
-
-EEPROM Data Format
-===================
-
-:ref:`expansion-board-eeprom-table`
-shows the format of the contents of the expansion board
-EEPROM. Data is stored in Big Endian with the least significant value on
-the right. All addresses read as a single byte data from the EEPROM, but
-two byte addressing is used. ASCII values are intended to be easily read
-by the user when the EEPROM contents are dumped.
-
-*Clean/Update table*
-
-.. _expansion-board-eeprom-table:
-
-.. list-table:: Expansion Board EEPROM
-   :header-rows: 1
-
-   * - Name
-     - Offset
-     - Size (bytes)
-     - Contents
-   * - Header
-     - 0
-     - 4
-     - 0xAA, 0x55, 0x33, 0xEE
-   * - EEPROM Revision
-     - 4
-     - 2
-     - Revision number of the overall format of this EEPROM in ASCII =A1
-   * - Board Name
-     - 6 
-     - 32
-     - Name of board in ASCII so user can read it when the EEPROM is dumped. Up to developer of the board as to what they call the board..
-   * - Version
-     - 38
-     - 4
-     - Hardware version code for board in ASCII.Version format is up to the developer.i.e. 02.1…00A1....10A0
-   * - Manufacturer
-     - 42
-     - 16
-     - ASCII name of the manufacturer. Company or individual’s name.
-   * - Part Number
-     - 58
-     - 16
-     - ASCII Characters for the part number. Up to maker of the board.
-   * - Number of Pins
-     - 74
-     - 2
-     - Number of pins used by the daughter board including the power pins used. Decimal value of total pins 92 max, stored in HEX.
-   * - Serial Number
-     - 76
-     - 12
-     - Serial number of the board. This is a 12 character string which is: **WWYY&&&&nnnn** where, WW = 2 digit week of the year of production, YY = 2 digit year of production , &&&&=Assembly code to let the manufacturer document the assembly number or product. A way to quickly tell from reading the serial number what the board is. Up to the developer to determine. nnnn = incrementing board number for that week of production
-   * - Pin Usage
-     - 88
-     - 148
-     - Two bytes for each configurable pins of the 74 pins on the expansion connectors, MSB LSB Bit order: 15..14 ..... 1..0 Bit 15....Pin is used or not...0=Unused by cape 1=Used by cape Bit 14-13...Pin Direction.....1 0=Output 01=Input 11=BDIR   Bits 12-7...Reserved........should be all zeros Bit 6....Slew Rate .......0=Fast 1=Slow Bit 5....Rx Enable.......0=Disabled 1=Enabled Bit 4....Pull Up/Dn Select....0=Pulldown 1=PullUp Bit 3....Pull Up/DN enabled...0=Enabled 1=Disabled Bits 2-0 ...Mux Mode Selection...Mode 0-7
-   * - VDD_3V3B Current
-     - 236
-     - 2
-     - Maximum current in milliamps. This is HEX value of the current in decimal 1500mA=0x05 0xDC 325mA=0x01 0x45
-   * - VDD_5V Current
-     - 238
-     - 2
-     - Maximum current in milliamps. This is HEX value of the current in decimal 1500mA=0x05 0xDC 325mA=0x01 0x45
-   * - SYS_5V Current
-     - 240
-     - 2
-     - Maximum current in milliamps. This is HEX value of the current in decimal 1500mA=0x05 0xDC 325mA=0x01 0x45
-   * - DC Supplied
-     - 242
-     - 2
-     - Indicates whether or not the board is supplying voltage on the VDD_5V rail and the current rating 000=No 1-0xFFFF is the current supplied storing the decimal quivalent in HEX format
-   * - Available
-     - 244
-     - 32543
-     - Available space for other non-volatile codes/data to be used as needed by the manufacturer or SW driver. Could also store presets for use by SW.
-
-.. _pin-usage:
-
-Pin Usage
-==========
-
-:ref:`eeprom-pin-usage-table` shows the locations in the EEPROM to set the I/O pin usage for
-the cape. It contains the value to be written to the Pad Control
-Registers. Details on this can be found in section *9.2.2* of the
-*TDA4VM Technical Reference Manual*, The table is left blank as a
-convenience and can be printed out and used as a template for creating a
-custom setting for each cape. The 16 bit integers and all 16 bit fields
-are to be stored in Big Endian format.
-
-**Bit 15 PIN USAGE** is an indicator and should be a 1 if the pin is used or 0 if it is unused.
-
-**Bits 14-7 RESERVED** is not to be used and left as 0.
-
-**Bit 6 SLEW CONTROL** 0=Fast 1=Slow
-
-**Bit 5 RX Enabled** 0=Disabled 1=Enabled
-
-**Bit 4 PU/PD** 0=Pulldown 1=Pullup.
-
-**Bit 3 PULLUP/DN** 0=Pullup/pulldown enabled 1= Pullup/pulldown disabled
-
-**Bit 2-0 MUX MODE SELECT** Mode 0-7. (refer to TRM)
-
-Refer to the TRM for proper settings of the pin MUX mode based on the
-signal selection to be used.
-
-The *AIN0-6* pins do not have a pin mux setting, but they need to be set
-to indicate if each of the pins is used on the cape. Only bit 15 is used
-for the AIN signals.
-
-
-
-.. _eeprom-pin-usage-table:
-
-.. list-table:: EEPROM Pin Usage
-   :header-rows: 1
-
-
-   * - `+` 
-     - `+` 
-     - `+` 
-     - **15**
-     - **14** 
-     - **13**
-     - **12**
-     - **11** 
-     - **10** 
-     - **9** 
-     - **8** 
-     - **7** 
-     - **6** 
-     - **5**
-   * - **Off set** 
-     - **Conn** 
-     - **Name** 
-     - **Pin Usage** 
-     - **Type** 
-     - `+` 
-     - **Reserved** 
-     - `+` 
-     - `+` 
-     - **S L E W** 
-     - **R X** 
-     - **P U - P D** 
-     - **P U / D E N** 
-     - **Mux Mode**
-   * - **88** 
-     - **P9-22** 
-     - **UART2_RXD** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **90** 
-     - **P9-21** 
-     - **UART2_TXD** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **92** 
-     - **P9-18** 
-     - **I2C1_SDA** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **94** 
-     - **P9-17** 
-     - **I2C1_SCL** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **96** 
-     - **P9-42** 
-     - **GPIO0_7** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **98** 
-     - **P8-35** 
-     - **UART4_CTSN** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **100** 
-     - **P8-33** 
-     - **UART4_RTSN** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-     - `+`
-   * - **102** 
-     - **P8-31** 
-     - **UART5_CTSN** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-     - `+`
-   * - **104** 
-     - **P8-32** 
-     - **UART5_RTSN** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-     - `+`
-   * - **106** 
-     - **P9-19** 
-     - **I2C2_SCL** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **108** 
-     - **P9-20** 
-     - **I2C2_SDA** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **110** 
-     - **P9-26**
-     - **UAR*T1_RXD** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **112** 
-     - **P9-24** 
-     - **UART1_TXD** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **114** 
-     - **P9-41** 
-     - **CLKOUT2** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **116** 
-     - **P8-19** 
-     - **EHRPWM2A** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **118** 
-     - **P8-13** 
-     - **EHRPWM2B** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **120** 
-     - **P8-14** 
-     - **GPIO0_26** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **122** 
-     - **P8-17** 
-     - **GPIO0_27** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **124** 
-     - **P9-11** 
-     - **UART4_RXD** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **126** 
-     - **P9-13**  
-     - **UART4_TXD**
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **128** 
-     - **P8-25** 
-     - **GPIO1_0** 
-     - `+`
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **130** 
-     - **P8-24** 
-     - **GPIO1_1** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **132** 
-     - **P8-5** 
-     - **GPIO1_2** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **134** 
-     - **P8-6** 
-     - **GPIO1_3** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **136** 
-     - **P8-23** 
-     - **GPIO1_4** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **138** 
-     - **P8-22** 
-     - **GPIO1_5** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **140** 
-     - **P8-3** 
-     - **GPIO1_6** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **142** 
-     - **P8-4** 
-     - **GPIO1_7** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **144** 
-     - **P8-12** 
-     - **GPIO1_12**
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **146** 
-     - **P8-11** 
-     - **GPIO1_13** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **148** 
-     - **P8-16** 
-     - **GPIO1_14** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **150** 
-     - **P8-15** 
-     - **GPIO1_15** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - **152** 
-     - **P9-15** 
-     - **GPIO1_16** 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-
-
-.. list-table::
-   :header-rows: 1
-
-   * - 
-     -
-     -
-     - 15     
-     - 14     
-     - 13     
-     - 12     
-     - 11    
-     - 10     
-     - 9    
-     - 8     
-     - 7    
-     - 6     
-     - 5    
-   * - Off set     
-     - Conn     
-     - Name     
-     - Pin Usage     
-     - Type 
-     - `+`    
-     - Reserve
-     - `+`
-     - `+`
-     - S L E W    
-     - R X     
-     - P U - P D
-     - P U / DE N    
-     - Mux Mode    
-   * - 154     
-     - P9-23     
-     - GPIO1_17     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 156     
-     - P9-14     
-     - EHRPWM1A     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 158     
-     - P9-16     
-     - EHRPWM1B     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 160     
-     - P9-12     
-     - GPIO1_28     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 162     
-     - P8-26     
-     - GPIO1_29     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 164     
-     - P8-21     
-     - GPIO1_30     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 166     
-     - P8-20     
-     - GPIO1_31     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 168     
-     - P8-18     
-     - GPIO2_1     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     -
-   * - 170     
-     - P8-7     
-     - TIMER4     
-     - 
-     -
-     -
-     -
-     -
-     - 
-     -
-     -
-     -
-     -
-     - 
-   * - 172     
-     - P8-9     
-     - TIMER5     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 174     
-     - P8-10     
-     - TIMER6     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 176     
-     - P8-8     
-     - TIMER7     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 178     
-     - P8-45     
-     - GPIO2_6     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 180     
-     - P8-46     
-     - GPIO2_7     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 182     
-     - P8-43     
-     - GPIO2_8     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 184     
-     - P8-44     
-     - GPIO2_9     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 186     
-     - P8-41     
-     - GPIO2_10     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 188     
-     - P8-42     
-     - GPIO2_11     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 190     
-     - P8-39     
-     - GPIO2_12     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 192     
-     - P8-40     
-     - GPIO2_13     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 194     
-     - P8-37     
-     - UART5_TX`+`     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 196     
-     - P8-38     
-     - UART5_RX`+`     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 198     
-     - P8-36     
-     - UART3_CTSN     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-     - `+`
-   * - 200     
-     - P8-34     
-     - UART3_RTSN     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-     - `+`
-   * - 202     
-     - P8-27     
-     - GPIO2_22     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 204     
-     - P8-29     
-     - GPIO2_23     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 206     
-     - P8-28     
-     - GPIO2_24     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 208     
-     - P8-30     
-     - GPIO2_25     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 210     
-     - P9-29     
-     - SPI1_D0     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 212     
-     - P9-30     
-     - SPI1_D1     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 214     
-     - P9-28     
-     - SPI1_CS0     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 216     
-     - P9-27     
-     - GPIO3_19     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 218     
-     - P9-31     
-     - SPI1_SCLK     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 220     
-     - P9-25     
-     - GPIO3_21     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - `+`
-     - `+`
-     - `+`
-     - 15     
-     - 14     
-     - 13     
-     - 12     
-     - 11     
-     - 10     
-     - 9     
-     - 8     
-     - 7     
-     - 6     
-     - 5    
-   * - Off set     
-     - Conn     
-     - Name     
-     - Pin Usage     
-     - Type     
-     - 
-     - Reserve 
-     - 
-     -
-     - S L E W     
-     - R X     
-     - P U - P D     
-     - P U / DE N     
-     - Mux Mode    
-   * - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - 0     
-     - 0     
-     - 0     
-     - 0     
-     - 0     
-     - 0     
-     - 0     
-     - 0     
-     - 0     
-     - 0    
-   * - 222     
-     - P9-39     
-     - AIN0     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 224     
-     - P9-40     
-     - AIN1     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 226     
-     - P9-37     
-     - AIN2     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 228     
-     - P9-38     
-     - AIN3     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 230     
-     - P9-33     
-     - AIN4     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 232     
-     - P9-36     
-     - AIN5     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-   * - 234     
-     - P9-35     
-     - AIN6     
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+` 
-     - `+`
-
-
-.. _pin-usage-consideration:
-
-Pin Usage Consideration
-========================
-
-This section covers things to watch for when hooking up to certain pins
-on the expansion headers.
-
-.. _expansion-connectors-1:
-
-Expansion Connectors
-====================
-
-A combination of male and female headers is used for access to the
-expansion headers on the main board. There are three possible mounting
-configurations for the expansion headers:
-
-* **Single** -no board stacking but can be used on the top of the stack.
-* **Stacking-up** to four boards can be stacked on top of each other.
-* **Stacking with signal stealing-up** to three boards can be stacked on top of each other, but certain boards will not pass on the signals they are using to prevent signal loading or use by other cards in the stack.
-
-The following sections describe how the connectors are to be implemented
-and used for each of the different configurations.
-
-.. _non-stacking-headers-single-cape:
-
-Non-Stacking Headers-Single Cape
-=================================
-
-For non-stacking capes single configurations or where the cape can be
-the last board on the stack, the two 46 pin expansion headers use the
-same connectors. :ref:`single-expansion-connector-figure` is a picture of 
-the connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
-
-.. _single-expansion-connector-figure:
-
-.. figure:: media/ch08/single-expansion-connector.*
-   :width: 400px
-   :align: center 
-   
-   Single expansion connector
-
-The connector is typically mounted on the bottom side of the board as 
-shown in :ref:`single-cape-expansion-connector-figure` . These are very 
-common connectors and should be easily located. You can also use two 
-single row 23 pin headers for each of the dual row headers.
-
-.. _single-cape-expansion-connector-figure:
-
-.. figure:: media/ch08/proto.*
-   :width: 400px
-   :align: center 
-   
-   Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
-
-It is allowed to only populate the pins you need. As this is a
-non-stacking configuration, there is no need for all headers to be
-populated. This can also reduce the overall cost of the cape. This
-decision is up to the cape designer.
-
-For convenience listed in :ref:`single-cape-connectors-figure` are some possible 
-choices for part numbers on this connector. They have varying pin lengths and 
-some may be more suitable than others for your use. It should be noted, that the
-longer the pin and the further it is inserted into BeagleBone AI-64
-connector, the harder it will be to remove due to the tension on 92
-pins. This can be minimized by using shorter pins or removing those pins
-that are not used by your particular design. The first item in**Table
-18** is on the edge and may not be the best solution. Overhang is the
-amount of the pin that goes past the contact point of the connector on
-BeagleBone AI-64
-
-
-.. _single-cape-connectors-figure:
-
-.. list-table:: Single Cape Connectors
-   :header-rows: 1
-
-
-   * - SUPPLIER 
-     - PARTNUMBER
-     - LENGTH(in) 
-     - OVERHANG(in)
-   * - `Major League <http://www.mlelectronics.com/>`_
-     - TSHC-123-D-03-145-G-LF
-     - .145
-     - .004
-   * - `Major League <http://www.mlelectronics.com/>`_
-     - TSHC-123-D-03-240-G-LF
-     - .240
-     - .099
-   * - `Major League <http://www.mlelectronics.com/>`_ 
-     - TSHC-123-D-03-255-G-LF
-     - .255
-     - .114
-
-
-The G in the part number is a plating option. Other options may be used
-as well as long as the contact area is gold. Other possible sources are
-Sullins and Samtec for these connectors. You will need to ensure the
-depth into the connector is sufficient
-
-.. _main-expansion-headers-stacking:
-
-Main Expansion Headers-Stacking
-================================
-
-For stacking configuration, the two 46 pin expansion headers use the
-same connectors. :ref:`expansion-connector-figure` is a picture of the 
-connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
-
-.. _expansion-connector-figure:
-
-.. figure:: media/ch08/expansion-connector.*
-   :width: 400px
-   :align: center 
-   
-   Expansion Connector
-
-The connector is mounted on the top side of the board with longer tails
-to allow insertion into BeagleBone AI-64. 
-:ref:`stacked-cape-expansion-connector-figure` is the
-connector configuration for the connector.
-
-.. _stacked-cape-expansion-connector-figure:
-
-.. figure:: media/ch08/can-cape.*
-   :width: 250px
-   :align: center 
-   
-   Stacked cape expansion connector
-
-For convenience listed in *Table 18* are some possible choices for part
-numbers on this connector. They have varying pin lengths and some may be
-more suitable than others for your use. It should be noted, that the
-longer the pin and the further it is inserted into BeagleBone AI-64
-connector, the harder it will be to remove due to the tension on 92
-pins. This can be minimized by using shorter pins. There are most likely
-other suppliers out there that will work for this connector as well. If
-anyone finds other suppliers of compatible connectors that work, let us
-know and they will be added to this document. The first item in **Table
-19** is on the edge and may not be the best solution. Overhang is the
-amount of the pin that goes past the contact point of the connector on
-BeagleBone AI-64.
-
-The third part listed in :ref:`stacked-cape-connectors-figure` will have 
-insertion force issues.
-
-.. _stacked-cape-connectors-figure:
-
-.. list-table:: Stacked Cape Connectors
-   :header-rows: 1
-
-   * - SUPPLIER    
-     - PARTNUMBER      
-     - TAIL LENGTH(in)     
-     - OVERHANG(in)     
-   * - `Major League <http://www.mlelectronics.com/>`_ 
-     - SSHQ-123-D-06-G-LF
-     - .190
-     - 0.049
-   * - `Major League <http://www.mlelectronics.com/>`_ 
-     - SSHQ-123-D-08-G-LF 
-     - .390
-     - 0.249
-   * - `Major League <http://www.mlelectronics.com/>`_ 
-     - SSHQ-123-D-10-G-LF 
-     - .560
-     - 0.419
-
-There are also different plating options on each of the connectors
-above. Gold plating on the contacts is the minimum requirement. If you
-choose to use a different part number for plating or availability
-purposes, make sure you do not select the “LT” option.
-
-Other possible sources are Sullins and Samtec but make sure you select
-one that has the correct mating depth.
-
-.. _stacked-capes-wsignal-stealing:
-
-Stacked Capes w/Signal Stealing
-================================
-
-:ref:`stacked-with-signal-stealing-expansion-connector-figure` is the connector configuration for stackable capes that does
-not provide all of the signals upwards for use by other boards. This is
-useful if there is an expectation that other boards could interfere with
-the operation of your board by exposing those signals for expansion.
-This configuration consists of a combination of the stacking and
-nonstacking style connectors.
-
-.. _stacked-with-signal-stealing-expansion-connector-figure:
-
-.. figure:: media/ch08/stealing-expansion-connector.*
-   :width: 400px
-   :align: center 
-   
-   Stacked with signal stealing expansion connector figure
-
-.. _retention-force:
-
-Retention Force
-================
-
-The length of the pins on the expansion header has a direct relationship
-to the amount of force that is used to remove a cape from BeagleBone
-AI-64. The longer the pins extend into the connector the harder it is to
-remove. There is no rule that says that if longer pins are used, that
-the connector pins have to extend all the way into the mating connector
-on BeagleBone AI-64, but this is controlled by the user and
-therefore is hard to control. We have also found that if you use gold
-pins, while more expensive, it makes for a smoother finish which reduces
-the friction.
-
-This section will attempt to describe the tradeoffs and things to
-consider when selecting a connector and its pin length.
-
-.. _beaglebone-ai-64-female-connectors:
-
-BeagleBone AI-64 Female Connectors
-===================================
-
-:ref:`connector-pin-insertion-depth` shows the key measurements used in calculating how much the
-pin extends past the contact point on the connector, what we call
-overhang.
-
-.. _connector-pin-insertion-depth:
-
-.. figure:: media/ch08/berg-stip-insertion.*
-   :width: 400px
-   :align: center 
-   
-   Connector Pin Insertion Depth
-
-To calculate the amount of the pin that extends past the Point of
-Contact, use the following formula:
-
-Overhang=Total Pin Length- PCB thickness (.062) - contact point (.079)
-
-The longer the pin extends past the contact point, the more force it
-will take to insert and remove the board. Removal is a greater issue
-than the insertion.
-
-.. _signal-usage:
-
-Signal Usage
-=============
-
-Based on the pin muxing capabilities of the processor, each expansion
-pin can be configured for different functions. When in the stacking
-mode, it will be up to the user to ensure that any conflicts are
-resolved between multiple stacked cards. When stacked, the first card
-detected will be used to set the pin muxing of each pin. This will
-prevent other modes from being supported on stacked cards and may result
-in them being inoperative.
-
-In :ref:`beaglebone-ai-64-connectors` section of this document, the 
-functions of the pins are defined as well as the pin muxing options. 
-Refer to this section for more information on what each pin is. To 
-simplify things, if you use the default name as the function for each 
-pin and use those functions, it will simplify board design 
-and reduce conflicts with other boards.
-
-Interoperability is up to the board suppliers and the user. This
-specification does not specify a fixed function on any pin and any pin
-can be used to the full extent of the functionality of that pin as
-enabled by the processor.
-
-*DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE
-BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
-
-*NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.*
-
-.. _cape-power:
-
-Cape Power
-===========
-
-This section describes the power rails for the capes and their usage.
-
-.. _main-board-power:
-
-Main Board Power
-=================
-
-The :ref:`expansion-header-voltages-table` describes the voltages from the 
-main board that are available on the expansion connectors and their ratings. 
-All voltages are supplied by connector**P9**. The current ratings listed are per pin.
-
-.. _expansion-header-voltages-table:
-
-
-.. list-table:: Expansion Voltages
-   :header-rows: 1
-
-
-   * - Current 
-     - Name 
-     - P9
-     - P9 
-     - Name 
-     - Current
-   * - 250mA 
-     - VDD_3V3B 
-     - 3 
-     - 4 
-     - VDD_3V3B 
-     - 250mA
-   * - 1000mA 
-     - VDD_5V 
-     - 5 
-     - 6 
-     - VDD_5V 
-     - 1000mA
-   * - 250mA 
-     - SYS_5V 
-     - 7 
-     - 8 
-     - SYS_5V 
-     - 250mA
-  
-The *VSYS_IO_3V3* rail is supplied by the LDO on BeagleBone AI-64 and
-is the primary power rail for expansion boards. If the power requirement
-for the capes exceeds the current rating, then locally generated voltage
-rail can be used. It is recommended that this rail be used to power any
-buffers or level translators that may be used.
-
-*DC_VDD_5V* is the main power supply from the DC input jack. This voltage
-is not present when the board is powered via USB. The amount of current
-supplied by this rail is dependent upon the amount of current available.
-Based on the board design, this rail is limited to 1A per pin from the
-main board.
-
-The *VSYS_5V0* rail is the main rail for the regulators on the main board.
-When powered from a DC supply or USB, this rail will be 5V. The
-available current from this rail depends on the current available from
-the USB and DC external supplies.
-
-.. _expansion-board-external-power:
-
-Expansion Board External Power
-===============================
-
-A cape can have a jack or terminals to bring in whatever voltages may be
-needed by that board. Care should be taken not to let this voltage be
-fed back into any of the expansion header pins.
-
-It is possible to provide 5V to the main board from an expansion board.
-By supplying a 5V signal into the *DC_VDD_5V* rail, the main board can be
-supplied. This voltage must not exceed 5V. You should not supply any
-voltage into any other pin of the expansion connectors. Based on the
-board design, this rail is limited to 1A per pin to BeagleBone
-AI-64.
-
-*There are several precautions that need to be taken when working with
-the expansion headers to prevent damage to the board.*
-
-1.  *Do not apply any voltages to any I/O pins when the board is not powered on.*
-2.  *Do not drive any external signals into the I/O pins until after the VSYS_IO_3V3 rail is up.*
-3.  *Do not apply any voltages that are generated from external sources.*
-4.  *If voltages are generated from the DC_VDD_5V signal, those supplies must not become active until after the VSYS_IO_3V3 rail is up.*
-5.  *If you are applying signals from other boards into the expansion headers, make sure you power the board up after you power up the BeagleBone AI-64 or make the connections after power is applied on both boards.*
-
-*Powering the processor via its I/O pins can cause damage to the processor.*
-
-**TODO: Add BeagleBone AI-64 cape mechanical characteristics**
-
-.. _standard-cape-size:
-
-Standard Cape Size
-===================
-
-:ref:`cape-board-dimensions-figure` shows the outline of the standard cape. The dimensions are in inches.
-
-.. _cape-board-dimensions-figure:
-
-.. figure:: media/ch08/cape-dimension.*
-   :width: 400px
-   :align: center 
-   
-   Cape board dimensions
-
-A notch is provided for BeagleBone Ethernet connector to stick up higher than
-the cape when mounted. This also acts as a key function to ensure that
-the cape is oriented correctly. Space is also provided to allow access
-to the user LEDs and reset button on BeagleBone board. On BeagleBone AI-64 board
-align it with the notch on the board silkscreen.
-
-.. _extended-cape-size:
-
-Extended Cape Size
-===================
-
-Capes larger than the standard board size are also allowed. A good
-example would be the new BeagleBone AI-64 robotics cape. 
-There is no practical limit to the sizes of these types of boards.
-The notch is also optional, but it is up to the supplier to ensure that the
-cape is not plugged incorrectly on BeagleBone AI-64 such that damage would
-be cause to BeagleBone AI-64. Any such damage will be the responsibility of the
-supplier of such a cape to repair. As with all capes, the EEPROM is required and 
-compliance with the power requirements must be adhered to.
-
 

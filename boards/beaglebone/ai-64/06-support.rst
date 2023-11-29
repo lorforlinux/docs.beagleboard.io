@@ -26,7 +26,7 @@ Follow instructions below to download the latest image for your BeagleBone AI-64
 
 .. _filter-software-distribution-AI-64:
 
-.. figure:: images/ch11/distros.png
+.. figure:: media/ch11/distros.*
    :align: center
    :alt: Filter Software Distributions for BeagleBone AI-64 
 
