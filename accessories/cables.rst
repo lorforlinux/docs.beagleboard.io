@@ -3,38 +3,65 @@
 Cables
 #######
 
-USB Cables
-***********
+USB Data/Power Cables
+***********************
 
-A miniUSB cable will normally be supplied with the BeagleBone Black. For other boards like PocketBeagle, BeagleBone AI & BeagleBone AI-64 you'll have to procure your own USB cable.
+For all Beagles, there is a USB client, also called gadget, capable connection that will enable you to
+create network, serial and data storage connections from a host computer.
 
-.. table:: USB ports on BeagleBone hardware
+In most cases, you can also provide power over this same cable.
 
-    +----------------------------+--------------+
-    | Board                      | USB type     |
-    +============================+==============+
-    | BeaglePlay                 | USB-C        |
-    +----------------------------+--------------+
-    | BeagleV-Fire               | USB-C        |
-    +----------------------------+--------------+
-    | BeagleBone AI              | USB-C        |
-    +----------------------------+--------------+
-    | BeagleBone AI-64           | USB-C        |
-    +----------------------------+--------------+
-    | BeagleV-Ahead              | microUSB 3.0 |
-    +----------------------------+--------------+
-    | BeagleBone Black           | miniUSB      |
-    +----------------------------+--------------+
-    | PocketBeagle               | microUSB     |
-    +----------------------------+--------------+
-    | BeagleBone Blue            | microUSB     |
-    +----------------------------+--------------+
-    | BeagleBone Black Wireless  | microUSB     |
-    +----------------------------+--------------+
-    | BeagleBone xM              | miniUSB      |
-    +----------------------------+--------------+
-    | BeagleBone X15             | microUSB     |
-    +----------------------------+--------------+
+In most cases, you can also use the port in a host mode, also sometimes called on-the-go to refer
+to when a device that is typically a client can also act as a host.
+
+Cable included?
+===============
+
+A USB (High-speed A to Mini-B) cable will normally be supplied with BeagleBone Black. For other boards,
+you'll have to procure your own USB cable.
+
+What cable is needed?
+=====================
+
+The type of cable you have to procure is listed in the table below:
+
+.. table:: USB client capable data/power ports on Beagles
+
+    +----------------------------+---------------------------+---------------+---------------------+
+    | Board                      | USB                       | Host capable? | Power required [2]_ |
+    +============================+===========================+===============+=====================+
+    | BeaglePlay                 | High-speed USB-C          | Yes [1]_      | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleV-Fire               | High-speed USB-C          | Yes [1]_      | 750mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleV-Ahead              | Super-speed Micro-AB      | Yes           | 900mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBone AI-64           | Super-speed USB-C         | Yes [1]_      | 3000mA              |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBone AI              | Super-speed USB-C         | Yes [1]_      | 900mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBone Black           | High-speed Mini-AB        | Yes           | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBone Blue            | High-speed Micro-AB       | Yes           | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBone Black Wireless  | High-speed Micro-AB       | Yes           | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBone (original)      | High-speed Mini-B         | No            | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBoard-xM             | High-speed Micro-AB       | Yes           | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | BeagleBoard-X15            | High-speed Micro-B        | No            | N/A                 |
+    +----------------------------+---------------------------+---------------+---------------------+
+    | PocketBeagle               | High-speed Micro-AB       | Yes           | 500mA               |
+    +----------------------------+---------------------------+---------------+---------------------+
+
+.. [1] Requires USB client device that does not require specification dictated type-C PD handshake.
+
+.. [2] Power requirement is for the base board in typical operation. Peripherals will add to the power requirement.
+
+.. important::
+
+   BeagleBoard-X15 cannot be powered over the USB port.
 
 .. _serial-debug-cables:
 
@@ -63,8 +90,9 @@ JST-SH serial cables
 ====================
 
 These cables are not active (only wries and connector) and provide an interface 
-between USB to Serial converter cables such as the ones listed below and serial debug ports on Beagles such as the BeagleBone AI 
-and AI-64. You can purchase these cables from different sources including:
+between USB to Serial converter cables such as the ones listed below and serial 
+debug ports on Beagles such as BeagleBone AI and AI-64. You can purchase these 
+cables from different sources including:
 
 1. `Farnell <https://www.newark.com/element14/1103004000156/serial-cable-ai-board/dp/50AH3702>`_
 2. `DigiKey <https://www.digikey.com/en/products/detail/digi-key-electronics/BBCAI/10187731>`_
@@ -81,7 +109,8 @@ It can purchased from several different sources including but not limited to:
 - `FTDI serial cable at Sparkfun <https://www.sparkfun.com/products/9717>`_
 - `FTDI serial cable at Adafruit <https://www.adafruit.com/products/70>`_
 
-Other options with different USB to Serial ICs exist and will work as well, such as CP2102, CH340G etc but may require additional drivers depending on your operating system.
+Other options with different USB to Serial ICs exist and will work as well, such as CP2102, CH340G 
+etc but may require additional drivers depending on your operating system.
 
 .. image:: images/FTDI_Cable.jpg
     :align: center
@@ -165,7 +194,7 @@ Working miniDP to HDMI Adapters
 - `CableCreation Mini DP (Thunderbolt 2 Compatible) to HDMI <https://www.amazon.in/CD0257-Mini-DP-to-HDMI/dp/B01FM51O0W/>`_
 
 Examples of "Bad" MiniDP to HDMI Adapters
-=================================
+===========================================
 
 - `UGREEN Mini DP Male to HDMI <https://www.amazon.in/Mini-Male-Female-Converter-Cable/dp/B01CL1P6TA/>`_
 - `AGARO Mini Displayport (Mini Dp) To Hdmi <https://www.amazon.in/AGARO-Meters-Laptop-Computers-Mobile/dp/B09GW1NMNZ/>`_

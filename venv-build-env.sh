@@ -6,6 +6,6 @@ fi
 source ./sphinx-env/bin/activate
 python3 -m pip install --upgrade pip
 python3 -m pip install sphinx==5.3.0 sphinx-rtd-theme sphinx_design sphinx-tabs sphinxcontrib.svg2pdfconverter sphinx-reredirects
-python3 -m pip install sphinxcontrib-images
+python3 -m pip install sphinxcontrib-images sphinx-copybutton
 python3 -m pip install breathe exhale
 python3 -m pip install graphviz
