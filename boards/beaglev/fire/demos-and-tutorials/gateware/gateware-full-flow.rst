@@ -4,28 +4,33 @@ Gateware Full Build Flow
 Introduction
 ============
 
-The BeagleV-Fire gateware is made up of several components:
+BeagleV-Fire gateware is made up of several components:
 
-- Digital design for the FPGA fabric. This can a combination of:
-  
-  - HDL/Verilog source code 
-  - TCL scripts configuring IP blocks
-  - TCL scripts stiching IP blocks together
-  - Microprocessor Subsystem (MSS) configuration describing the MSS port list
-  - pin, placement and timing constraints
-- Microprocessor Subsystem (MSS) configuration containing MSS configuration register values
-- A zero stage bootloader (HSS) that will:
-  
-  - Provision the MSS configuration into chip configuration registers:
-  
-    - Setup clocks
-    - Configure memory controllers
-    - Configure IOs
-    - Configure transceivers
-  
-  - Retrieve the next boot stage from eMMc and hand-over to the next boot stage (e.g. u-boot)
-  - Make the board appear as a USB mass-storage for populating the eMMC with secondary boot-loader and operating system image.
+- Digital design for the FPGA fabric.
+- Microprocessor Subsystem (MSS) configuration containing MSS configuration register values.
+- A zero stage bootloader (HSS).
 - A set of device tree ovelays describing the content of the FPGA fabric.
+
+The FPGA's digital design is a combination of:
+
+- HDL/Verilog source code 
+- TCL scripts configuring IP blocks
+- TCL scripts stiching IP blocks together
+- Microprocessor Subsystem (MSS) configuration describing the MSS port list
+- Pin, placement and timing constraints
+
+The Hart Software Service (HSS) zero stage bootloader
+
+- Configures the PolarFire SoC chip. 
+- Retrieves the next boot stage from eMMC and hand-over to the next boot stage (e.g. u-boot)
+- Makes the board appear as a USB mass-storage for populating the eMMC with secondary boot-loader and operating system image.
+
+The chip configuration applied by the HSS icludes the configuration of:
+
+- Clocks
+- Memory controllers
+- IOs
+- Transceivers
 
 Of course all these components need to be in synch with each other for the system to work properly.
 This is the reason for using a gateware build system rather than building and tracking each component individually.
@@ -37,7 +42,7 @@ This is the reason for using a gateware build system rather than building and tr
 Programming artifacts
 =====================
 
-The BeagleV-Fire gateware builder produces two programming artifacts:
+The gateware builder for BeagleV-Fire produces two programming artifacts:
 
 - A bitstream containing the FPGA fabric and eNVM programming
 - A device tree overlay describing the FPGA content.
