@@ -19,7 +19,7 @@ The gateware project is made up of:
 
 All these files are found in the FPGA-design directory.
 
-.. figure:: media/gateware--source-dir.png
+.. figure:: media/gateware-source-dir.png
     :align: center
 
 
