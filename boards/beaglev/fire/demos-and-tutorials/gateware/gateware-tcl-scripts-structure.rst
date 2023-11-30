@@ -4,6 +4,8 @@ Gateware TCL Scripts Structure
 This document describes the structure of the gateware TCL scripts. It is of interest to understand
 how to extend or customize the gateware.
 
+The `Libero SoC TCL Command Reference Guide <https://coredocs.s3.amazonaws.com/Libero/2023_2/Tool/libero_soc_tcl_cmd_ref_ug.pdf>`_ describes the TCL command used in the gateware scripts.
+
 Gateware Project
 ================
 
