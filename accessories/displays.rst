@@ -4,12 +4,10 @@ Displays
 #########
 
 Monitors and Resolutions
-=========================
-
-
+*************************
 
 Verified Desktop Monitors
--------------------
+==========================
 
 The following monitors and resolutions have been tested for operation with the BeagleBone Black. 
 Check here often as we will update the list as we confirm the operation. Let 
@@ -37,12 +35,12 @@ Links are not provided as they change frequently. So, search on the model number
 - Sharp Aquos TV Dell S244OL 1920 x 1080 @60HZ
 
 Unsupported Monitors
----------------------
+=====================
 
 LG 37LH30 - did not seem to work, the display didn't even recognize that anything was plugged in at all.
 
 Verified Televisions
------------------------
+=====================
 
 The following TVs and resolutions have been tested for operation with the BeagleBone Black. Check here often as we will update the list as we confirm the operation.
 If you have a TV that works fine, let us know the model and resolution at which it works and we will add it to the list. Only the highest resolution is listed below.
@@ -54,7 +52,7 @@ Vizio E322VL 1920x1080 @24Hz.
 Panasonic TX-L19X10BW 1280x720 @60Hz.
 
 Unsupported Televisions
-------------------------
+========================
 
 .. tip::
     If you don't have a monitor/TV you can use a Video Captiure Card like 

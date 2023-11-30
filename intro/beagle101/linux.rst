@@ -63,7 +63,7 @@ Linux Standard Base
 
 See https://refspecs.linuxfoundation.org/lsb.shtml.
 
-.. shell-session::
+.. code-block:: shell-session
 
    $ lsb_release -a
 

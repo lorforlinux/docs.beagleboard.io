@@ -54,12 +54,12 @@ HERE
 
 	echo "**** make html ****"
 	# Build and serve HTML
-	make html BUILDDIR=public/$VER_DIR
+	make html BUILDDIR=public/$VER_DIR $1
 	mv public/$VER_DIR/html/* public/$VER_DIR/
 
 	echo "**** make latexpdf ****"
 	# Build, optimize, and serve PDF
-	make latexpdf BUILDDIR=public/$VER_DIR
+	make latexpdf BUILDDIR=public/$VER_DIR $1
 
 	echo "**** pdfcpu ****"
 	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
@@ -138,7 +138,7 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 		export VER_DIR=$GIT_BRANCH
 		export PAGES_SLUG=$GIT_BRANCH
 	fi
-	do_build
+	do_build -D todo_include_todos=False
 else
 	echo "***** Not on a branch or tag *****"
 fi
