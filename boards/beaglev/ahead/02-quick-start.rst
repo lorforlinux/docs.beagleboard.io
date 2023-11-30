@@ -10,7 +10,7 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
 
 1. BeagleV Ahead board
 2. One (1) 2.4GHz/5GHz antenna
-3. USB super-speed micro-A plug to type-A receptacle cable (for connecting common USB type-A peripherals)
+3. super-speed micro-B OTG cable
 4. Quick-start card
 
 .. image:: media/BeagleV-Ahead-all.*

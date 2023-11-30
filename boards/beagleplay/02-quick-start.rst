@@ -22,6 +22,14 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 Attaching antennas
 ******************
 
+.. note::
+   Attaching the antennas can be complicated. This is not the expected BeaglePlay
+   experience and we hope to fix it in the future. This is necessary if you
+   plan to use any of the wireless connectivity features.
+
+.. important::
+   Add documentation on attaching antennas here.
+
 You can watch this video to see how to attach the attennas.
 
 .. only:: latex

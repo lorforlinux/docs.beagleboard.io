@@ -30,6 +30,7 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
 .. image:: media/image1.jpg
    :width: 598
    :align: center
+   :height: 400
    :alt: BeagleBone Black
 
 .. toctree::

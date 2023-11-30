@@ -12,6 +12,11 @@ architecture.
 .. note:: 
     This documentation and the associated software are each a work-in-progress.
 
+.. image:: media/BeagleConnect-Freedom-Front.*
+   :width: 598
+   :align: center
+   :alt: BeagleConnect Freedom
+
 BeagleConnect™ is built using `Greybus <https://kernel-recipes.org/en/2015/talks/an-introduction-to-greybus/>`__
 code in the Linux kernel originally designed for mobile phones.
 To understand a bit more about how the BeagleConnect™ Greybus stack is being
@@ -26,7 +31,7 @@ Background
    :height: 400
    :alt: BeagleConnect Software Proposition
 
-BeagleConnect™ uses Greybus and mikroBUS add-on boards with ClickID and BeagleConnect™ mikroBUS manifests to 
+BeagleConnect™ uses Greybus and updated Click Boards with identifiers to 
 eliminate the need to add and manually configure devices added onto the Linux 
 system.
 
@@ -46,15 +51,10 @@ High-level
   the MCU and exposes the device generically to users using a Linux kernel 
   driver. Further, the Greybus protocol is spoken over 6LoWPAN on 802.15.4.
 
-.. _beagleconnect-software-architecture:
-
 Software architecture
 *********************
 
-.. _beagleconnect-software-architecture-diagram:
-
-.. graphviz::
-        :caption: BeagleConnect Software Architecture Diagram
+.. graphviz:: BeagleConnect Software Architecture
 
     	// Software architecture
     	digraph S {

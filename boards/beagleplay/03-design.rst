@@ -3,9 +3,10 @@
 Design and specifications
 #########################
 
-If you want to know how BeaglePlay is designed and the detailed specifications, then
-this chapter is for you. We are going to attept to provide you a short and crisp overview
-followed by discussing each hardware design element in detail.
+If you want to know how the BeaglePlay hardware is designed and what are it's 
+high-level specifications then this chapter is for you. We are going to discuss 
+each hardware design element in detail and provide high-level device 
+specifications in  a short and crisp form as well.
 
 .. tip:: 
     You can download BeaglePlay schematic to have clear view of 

@@ -63,10 +63,7 @@ Perform the post installation steps as described in the html file opened when yo
 Install the Libero licensing daemon
 ************************************
 
-Download the 64 bit Licensing Daemons from the `Microchip's daemons section <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/licensing>`_
-
-* `Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz <https://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz>`_
-* `Windows_Licensing_Daemon_11.16.1_64-bit.zip <https://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Windows_Licensing_Daemon_11.16.1_64-bit.zip>`_
+Download the 64 bit Licensing Daemons from the `Microchip's daemons section <http://ww1.microchip.com/downloads/aemdocuments/documents/fpga/media-content/FPGA/daemons/Linux_Licensing_Daemon_11.16.1_64-bit.tar.gz>`_
 
 
 Copy the downloaded file to the Microchip directory within your home directory and untar it.
@@ -102,16 +99,13 @@ Request a Libero Silver license
 
 You will get an email with a license.dat file. Copy it into the ~/Microchip/license directory. Edit the License.dat file to replace the <put.hostname.here> string with... localhost.
 
-Execute tool setup script
+Download tool setup script
 ***************************
 
-Download the script:
+.. code-block:: 
 
-.. literalinclude:: ./setup-microchip-tools.sh
-    :caption: Libero environment and license setup script
-    :language: bash
+  git clone https://github.com/vauban353/Microchip-FPGA-Tools-Setup.git
 
-:download:`setup-microchip-tools.sh <./setup-microchip-tools.sh>`
 
 Source the script:
 
