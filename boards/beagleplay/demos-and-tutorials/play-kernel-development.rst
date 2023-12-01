@@ -1,7 +1,7 @@
 .. _play-kernel-development:
 
-Introduction to BeaglePlay Kernel Development
-#############################################
+BeaglePlay Kernel Development
+#############################
 
 This guide is for all those who want to kick start their kernel development
 journey on the TI AM625x SoC Based BeaglePlay.
@@ -76,6 +76,17 @@ got an initial configuration, you can edit the configuration various ways includ
         zcat /proc/config.gz > .config
         make olddefconfig
 
+You can also take advantage of the running system to provide the WiFi regulatory database (regulatory.db). This
+is needed such that your kernel sets the WiFi signals appropriately for compliance with regional restrictions.
+
+For more information, see `Linux wireless regulatory documentation <https://www.kernel.org/doc/html/latest/networking/regulatory.html>`_ and
+the signed database images at https://git.kernel.org/pub/scm/linux/kernel/git/sforshee/wireless-regdb.git/tree/.
+
+.. code-block:: bash
+
+        mkdir -p firmware
+        cp /lib/firmware/regulatory.db* firmware/
+
 Building the Kernel
 *******************
 
@@ -83,12 +94,11 @@ Once you're set on your configuration, you'll want to build the kernel and build
 
 .. note::
 
-        Building the kernel on BeaglePlay might take a while.
+        Building the kernel on BeaglePlay might take a while. For me, it took about an hour.
 
 .. code-block:: bash
 
         make
-        make modules
 
 Installing and Booting the Kernel
 *********************************
