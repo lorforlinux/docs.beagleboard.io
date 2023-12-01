@@ -115,20 +115,9 @@ Steps
 
     .. code-block:: shell-session
 
-        cd
-        wget https://files.beagle.cc/file/beagleboard-public-2021/images/download
-        unzip download
-        build/play/cc2538-bsl.py build/play/wpanusb
-
-    .. note:: 
-        I got a `File Not Found` error on the ``wget`` command above. If it doesn't 
-        work for you try: 
-
-    .. code-block:: shell-session
-
-            bone:~$ wget https://files.beagle.cc/file/beagleboard-public-2021/images/zephyr-beagle-cc1352-0.2.2.zip
-            bone:~$ unzip zephyr-beagle-cc1352-0.2.2.zip  
-            bone:~$ build/play/cc2538-bsl.py build/play/wpanusb
+        debian@BeaglePlay:~$ wget https://files.beagle.cc/file/beagleboard-public-2021/images/zephyr-beagle-cc1352-0.2.2.zip
+        debian@BeaglePlay:~$ unzip zephyr-beagle-cc1352-0.2.2.zip  
+        debian@BeaglePlay:~$ build/play/cc2538-bsl.py build/play/wpanusb
 
 #. Ensure the `bcfserial` driver is set to load.
 
@@ -359,25 +348,22 @@ Build applications for BeagleConnect Freedom
 
     Nothing below here is tested
 
-#. TODO
+.. todo::
 
     .. code-block:: bash
 
         west build -d build/sensortest zephyr/samples/boards/beagle_bcf/sensortest -- -DOVERLAY_CONFIG=overlay-subghz.conf
 
-#. TODO
 
     .. code-block:: bash
 
         west build -d build/wpanusb modules/lib/wpanusb_bc -- -DOVERLAY_CONFIG=overlay-subghz.conf
 
-#. TODO
 
     .. code-block:: bash
 
         west build -d build/bcfserial modules/lib/wpanusb_bc -- -DOVERLAY_CONFIG=overlay-bcfserial.conf -DDTC_OVERLAY_FILE=bcfserial.overlay
 
-#. TODO
 
     .. code-block:: bash
 
