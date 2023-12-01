@@ -1,7 +1,33 @@
-.. _beaglebone-ai-64-expansion:
+.. _bbai64-expansion:
 
 Expansion
 ############
+
+Pinout Diagrams
+***************
+
+Choose the cape header to see respective pinout diagram.
+
+.. tabs::
+
+   .. group-tab:: P8 cape header
+
+        .. figure:: media/pinout/BeagleBone-AI-64-P8.*
+            :align: center
+            :alt: BeagleBone AI-64 P8 cape header pinout
+
+            BeagleBone AI-64 P8 cape header pinout
+
+
+   .. group-tab:: P9 cape header
+
+        .. figure:: media/pinout/BeagleBone-AI-64-P9.*
+            :align: center
+            :alt: BeagleBone AI-64 P9 cape header pinout
+
+            BeagleBone AI-64 P9 cape header pinout
+
+.. _beaglebone-ai-64-connectors:
 
 Cape Header Connectors
 **********************
