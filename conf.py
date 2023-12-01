@@ -78,7 +78,7 @@ LaTeXBuilder.supported_image_types = ['application/pdf', 'image/jpg', 'image/jpe
 
 templates_path = ['_templates']
 
-source_suffix = ['.rst', '.md']
+source_suffix = ['.rst']
 numfig = True
 navigation_with_keys = True
 
