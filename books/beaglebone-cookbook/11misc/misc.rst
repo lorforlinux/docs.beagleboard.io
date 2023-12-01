@@ -704,10 +704,50 @@ Now, sync changes with upstream:
     bone$ git fetch upstream
     bone$ git pull upstream main
 
+Using Docker (Podman)
+^^^^^^^^^^^^^^^^^^^^^
+It is probably easies to use docker (or podman) if you are already familiar with container workflow.
+The repository contains a helper script `docker-build-env.sh` which creates ephemeral container and drops you into bash inside. The project is mouted at `/build/docs.beagleboard.org`.
+
+
+.. note::
+
+    This section of docs assume that you are using rootless docker or podman. In case of rootful docker, you might run into permission issues
+
+.. code-block:: bash
+
+    ./docker-build-env.sh
+    cd /build/docs.beagleboard.org
+    make clean
+
+To generate HTML output of docs:
+
+.. code-block:: bash
+
+    make html
+
+To generate PDF output of docs:
+
+.. code-block:: bash
+
+    make latexpdf
+
+To preview docs on your local machine:
+
+.. code-block:: bash
+
+    python3 -m http.server -d _build/html/
+
+
 Downloading Sphinx
 ^^^^^^^^^^^^^^^^^^
-Run the following to download Sphinx. Note:  This will take a while, it loads
-some 6G bytes.
+Skip this section if you are using docker as shown above.
+
+Run the following to download and setup Sphinx locally.
+
+.. note::
+
+  This will take a while, it loads some 6G bytes.
 
 .. code-block:: bash
 
