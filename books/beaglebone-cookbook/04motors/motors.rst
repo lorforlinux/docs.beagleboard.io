@@ -143,6 +143,7 @@ Combine the code from :ref:`digital_rotaryEncoder_js` and :ref:`motors_servo`.
 .. _py_servoEncoder_code:
 
 .. literalinclude:: ../code/04motors/servoEncoder.py
+   :language: py
    :caption: Code for driving a servo motor with a rotary encorder(servoEncoder.py)
    :linenos:
 
@@ -263,6 +264,7 @@ motor with a transistor (:ref:`motors_dcMotor_code`). The additional code specif
 .. _motors_h-bridge_code:
 
 .. literalinclude:: ../code/04motors/h-bridgeMotor.js
+   :language: js
    :caption: Code for driving a DC motor with an H-bridge (h-bridgeMotor.js)
    :linenos:
 
@@ -303,6 +305,7 @@ Use the code in :ref:`motors_stepperMotor_code_py` to drive the motor.
 .. _motors_stepperMotor_code_py:
 
 .. literalinclude:: ../code/04motors/bipolarStepperMotor.py
+   :language: py
    :caption: Driving a bipolar stepper motor (bipolarStepperMotor.py)
    :linenos:
 

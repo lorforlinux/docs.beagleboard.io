@@ -39,7 +39,7 @@ Each row includes the gpiochipX and pinY in the format of
 `X Y`. You can use these values to directly control the GPIO pins with the 
 commands shown below.
 
-.. code::
+.. code:: bash
 
     # to set the GPIO pin state to HIGH
     debian@BeagleBone:~$ gpioset X Y=1
@@ -767,7 +767,7 @@ Each row includes the gpiochipX and pinY in the format of
 `X Y`. You can use these values to directly control the GPIO pins with the 
 commands shown below.
 
-.. code::
+.. code:: bash
 
     # to set the GPIO pin state to HIGH
     debian@BeagleBone:~$ gpioset X Y=1

@@ -67,7 +67,7 @@ driver loaded. Finally, `in_illuminance0_input` comes from the
 for this type of device, a light sensor. The
 `Linux kernel ABI documentation for sysfs-bus-iio <https://www.kernel.org/doc/html/v5.19/admin-guide/abi-testing.html#abi-sys-iio-devicex-in-illuminance-input>`__ provides the definition of available data often provided by light sensor drivers.
 
-.. code-block::
+.. code-block:: bash
 
   What:		/sys/.../iio:deviceX/in_illuminance_input
   What:		/sys/.../iio:deviceX/in_illuminance_raw

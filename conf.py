@@ -41,6 +41,7 @@ extensions = [
     "sphinx.ext.graphviz",
     "sphinx.ext.todo",
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx_tabs.tabs",
     "breathe",
     "sphinx_copybutton",
