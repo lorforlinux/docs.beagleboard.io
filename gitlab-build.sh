@@ -138,7 +138,7 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 		export VER_DIR=$GIT_BRANCH
 		export PAGES_SLUG=$GIT_BRANCH
 	fi
-	do_build SPHINXOPTS="-D todo_include_todos=False"
+	do_build SPHINXOPTS='-D todo_include_todos=False'
 else
 	echo "***** Not on a branch or tag *****"
 fi
