@@ -54,7 +54,7 @@ HERE
 
 	echo "**** make html ****"
 	# Build and serve HTML
-	make html BUILDDIR=public/$VER_DIR $1
+	make html BUILDDIR=public/$VER_DIR $@
 	mv public/$VER_DIR/html/* public/$VER_DIR/
 
 	echo "**** make latexpdf ****"
