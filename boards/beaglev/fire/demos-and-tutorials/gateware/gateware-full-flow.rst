@@ -1,3 +1,5 @@
+.. _beaglev-fire-gateware-full-build-flow:
+
 Gateware Full Build Flow
 ########################
 

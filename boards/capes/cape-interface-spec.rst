@@ -490,7 +490,7 @@ Cape interface specification provides |I2C| controller device links for userspac
 |I2C| overlay example
 =====================
 
-.. code-block::
+.. code-block:: devicetree
    :linenos:
    :caption: Example device tree overlay to enable I2C driver
    :name: bone_cape_spec_i2c_example

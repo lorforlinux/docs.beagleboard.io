@@ -1,4 +1,4 @@
-.. _beaglebone-ai-64-design:
+.. _bbai64-design:
 
 Design and Specifications
 ##########################
@@ -16,7 +16,7 @@ diagram of BeagleBone AI-64 board surrounding TDA4VM SoC.
 .. _BeagleBone_AI-64-block-diagram:
 
 .. figure:: media/ch05/board-block-diagram.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    BeagleBone AI-64 Key Components

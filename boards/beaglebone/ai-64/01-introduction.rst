@@ -18,9 +18,19 @@ their own board or add their own circuitry.
     foundation for experimentation and learning how to program the processor and to access the 
     peripherals by the creation of your own software and hardware.
 
+.. table::
+   :align: center
+   :widths: auto
+
+   +----------------------------------------------------+---------------------------------------------------------+
+   | .. image:: media/front.*                           | .. image:: media/back.*                                 |
+   |    :width: 700                                     |       :width: 700                                       |
+   |    :align: center                                  |       :align: center                                    |
+   |    :alt: BeagleBone AI-64 front                    |       :alt: BeagleBone AI-64 back                       |
+   +----------------------------------------------------+---------------------------------------------------------+
 
 
-.. _beaglebone-compatibility:
+.. _bbai64-beaglebone-compatibility:
 
 BeagleBone Compatibility
 -------------------------
@@ -67,7 +77,7 @@ much as possible. There are several significant differences between the three de
    add cape compatibility details
 
 
-.. _beaglebone-ai-64-features-and-specificationd:
+.. _bbai64-features-and-specificationd:
 
 BeagleBone AI-64 Features and Specification
 ---------------------------------------------
@@ -92,9 +102,10 @@ description of the major components and interfaces that make up the board.
     +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
     | **PMIC**                | TPS65941213 and TPS65941111 PMICs regulator and one additional LDO.                                                                     |
     +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-    | **Debug Support**       | 2x 3 pin 3.3V TTL header                                                                                                                |
-    |                         |     1. WKUP_UART0: Wake-up domain serial port                                                                                           |
-    |                         |     2. UART0: Main domain serial port                                                                                                   |
+    | **Debug Support**       | 2x 3 pin 3.3V TTL header:                                                                                                               |
+    |                         |    1. WKUP_UART0: Wake-up domain serial port                                                                                            |
+    |                         |    2. UART0: Main domain serial port                                                                                                    |
+    +                         +-----------------------------------------------------------------------------------------------------------------------------------------+
     |                         | 10-pin JTAG TAG-CONNECT footprint                                                                                                       |
     +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
     | **Power Source**        | USB C or DC Jack (5V @ >3A)                                                                                                             |
@@ -125,7 +136,7 @@ description of the major components and interfaces that make up the board.
     +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 
-.. _board-component-locations:
+.. _bbai64-component-locations:
 
 Board Component Locations
 ----------------------------
@@ -133,36 +144,94 @@ Board Component Locations
 This section describes the key components on the board. It provides information on their location 
 and function. Familiarize yourself with the various components on the board.
 
-.. _board-components:
+.. _bbai64-components:
 
 Board components
 -----------------
 
-:ref:`board-components-figure` below shows the locations of the connectors, LEDs, and switches on the PCB layout of the board.
+This section describes the key components on the board, their location and function.
 
-.. _board-components-figure:
+.. tabs::
 
-.. figure:: media/ch04/components.*
-   :width: 400px
-   :align: center 
-   
-   BeagleBone AI-64 board components
+   .. group-tab:: Front components location
 
-* **DC Power** is the main DC input that accepts 5V power.
-* **Power Button** alerts the processor to initiate the power down sequence and is used to power down the board.
-* **GigaBit Ethernet** is the connection to the LAN.
-* **Serial Debug ports** WKUP_UART0 for early boot from the management MCU and UART0 is for the main processor.
-* **USB Client** is a USB-C connection to a PC that can also power the board.
-* **BOOT switch** can be used to force a boot from the microSD card if the power is cycled on the board, removing power and reapplying the power to the board.
-* There are five green **LEDs** that can be used by the user.
-* **Reset Button** allows the user to reset the processor.
-* **microSD** slot is where a microSD card can be installed.
-* **miniDP** connector is where the display is connected to.
-* **USB Host** can be connected different USB interfaces such as Wi-Fi, Bluetooth, Keyboard, etc.
+    .. figure:: media/components/front.*
+        :width: 1240
+        :align: center
+        :alt: BeagleBone AI-64 board front components location
+        
+        BeagleBone AI-64 board front components location
 
-On bottom side we have,
 
-* **TI TDA4VM** processor.
-* **4GB LPDDR4** Dual Data Rate RAM memory.
-* **Ethernet PHY** physical interface to the network.
-* **eMMC** onboard MMC chip that holds up to 16GB of data.
+    .. table:: BeagleBone AI-64 board front components location
+        :align: center
+            
+        +----------------------------+---------------------------------------------------------------------------+
+        | Feature                    | Description                                                               |
+        +============================+===========================================================================+
+        | User & power LEDs          | USR0 - USR4 user LEDs & Power (Board ON) LED indicator                    |
+        +----------------------------+---------------------------------------------------------------------------+
+        | UART debug ports           | 3pin Wake-up domain and Main domain UART debug ports                      |
+        +----------------------------+---------------------------------------------------------------------------+
+        | USB C                      | Power, connectivity, and board flashing.                                  |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Barrel jack                | Power input (accepts 5V power)                                            |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Mini-Display port          | Output for Display/Monitor connection                                     |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Dual USB-A                 | 5Gbps USB-A ports for peripherals (Wi-Fi, Bluetooth, Keyboard, etc)       |
+        +----------------------------+---------------------------------------------------------------------------+
+        | GigaBit Ethernet           | 1Gb/s Wired internet connectivity                                         |
+        +----------------------------+---------------------------------------------------------------------------+
+        | mikroBUS Shuttle           | 16pin mikroBUS Shuttle connector for interfacing mikroE click boards      |
+        +----------------------------+---------------------------------------------------------------------------+
+        | P8 & P9 cape header        | Expansion headers for BeagleBone capes.                                   |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Reset button               | Press to reset BeagleBone AI-64 board (TDA4VM SoC)                        |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Power button               | Press to shut-down (OFF), hold down to boot (ON)                          |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Boot button                | Boot selection button (force to boot from microSD if power is cycled)     |
+        +----------------------------+---------------------------------------------------------------------------+
+        | M.2 Key E                  | PCIE M.2 Key E connector                                                  |
+        +----------------------------+---------------------------------------------------------------------------+
+
+   .. group-tab:: Back components location
+
+    .. figure:: media/components/back.*
+        :width: 1240
+        :align: center
+        :alt: BeagleBone AI-64 board back components location
+        
+        BeagleBone AI-64 board back components location
+
+
+    .. table:: BeagleBone AI-64 board back components location
+        :align: center
+            
+        +----------------------------+---------------------------------------------------------------------------+
+        | Feature                    | Description                                                               |
+        +============================+===========================================================================+
+        | microSD                    | Micro SD Card holder                                                      |
+        +----------------------------+---------------------------------------------------------------------------+
+        | JTAG debug port            | Tag-Connect JTAG (TDA4Vm) debug port                                      |
+        +----------------------------+---------------------------------------------------------------------------+
+        | Fan connector              | PWM controllable 4pin fan connector                                       |
+        +----------------------------+---------------------------------------------------------------------------+
+        | DP83867E                   | Ethernet PHY                                                              |
+        +----------------------------+---------------------------------------------------------------------------+
+        | TUSB8041                   | USB 3.0 hub IC                                                            |
+        +----------------------------+---------------------------------------------------------------------------+
+        | TDA4VM                     | Dual Arm® Cortex®-A72 SoC and C7x DSP with deep-learning, vision and MMA  |
+        +----------------------------+---------------------------------------------------------------------------+
+        | PMIC                       | Power management TPS65941213 (PMIC-A) & TPS65941111 (PMIC-B)              |
+        +----------------------------+---------------------------------------------------------------------------+
+        | 16GB eMMC                  | Flash storage                                                             |
+        +----------------------------+---------------------------------------------------------------------------+
+        | 4GB RAM                    | 4GB LPDDR4 RAM                                                            |
+        +----------------------------+---------------------------------------------------------------------------+
+        | DSI                        | MIPI Display connector                                                    |
+        +----------------------------+---------------------------------------------------------------------------+
+        | CSI0 & CSI1                | MIPI Camera connectors                                                    |
+        +----------------------------+---------------------------------------------------------------------------+
+ 

@@ -1,4 +1,4 @@
-.. _connecting-up-your-beaglebone-ai-64:
+.. _bbai64-quick-start:
 
 Quick Start Guide
 ##################
@@ -16,7 +16,7 @@ All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter ar
 .. _BeagleBone AI-64 connections ports:
 
 .. figure:: media/ch03/ports.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    BeagleBone AI-64 connections ports
@@ -37,7 +37,7 @@ a developer experience where the board can be used immediately with no other equ
 .. _bbai-64-pacakage:
 
 .. figure:: media/ch03/bbai64-in-box.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    BeagleBone AI-64 box content
@@ -79,7 +79,7 @@ In this configuration, the board is powered by the PC via a single USB cable. Th
 .. _tethered-figure:
 
 .. figure:: media/ch03/usb-tethering.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Tethered Configuration
@@ -100,7 +100,7 @@ Connect the Cable to the Board
 .. _usb-c-connect-figure:
 
 .. figure:: media/ch03/usb-c-connection.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    USB Connection to the Board
@@ -110,7 +110,7 @@ Connect the Cable to the Board
 .. _usb-a-connect-figure:
 
 .. figure:: media/ch03/usb-a-connection.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    USB Connection to the PC/Laptop
@@ -120,7 +120,7 @@ Connect the Cable to the Board
 .. _power-led-figure:
 
 .. figure:: media/ch03/power-led.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Board Power LED
@@ -130,7 +130,7 @@ Connect the Cable to the Board
 .. _boot-status-figure:
 
 .. figure:: media/ch03/led-pattern.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Board Boot Status
@@ -157,7 +157,7 @@ In this configuration, the board works more like a PC, totally free from any con
 .. _desktop-config-figure:
 
 .. figure:: media/ch03/desktop-configuration.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Desktop Configuration
@@ -188,7 +188,7 @@ Connecting Up the Board
 .. _display-cable-figure,miniDP-DP or active miniDP-HDMI cable connection figure:
 
 .. figure:: media/ch03/monitor-cable.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
@@ -198,7 +198,7 @@ Connecting Up the Board
 .. _display-adapters-figure:
 
 .. figure:: media/ch03/display-adapters.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Display adapters
@@ -209,7 +209,7 @@ Connecting Up the Board
 .. _keyboard-mouse-figure:
 
 .. figure:: media/ch03/mouse-keyboard.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Keyboard and Mouse
@@ -223,7 +223,7 @@ standard 100M Ethernet cable should work.
 .. _ethernet-cable-figure:
 
 .. figure:: media/ch03/ethernet-cable.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Ethernet Cable Connection
@@ -234,7 +234,7 @@ standard 100M Ethernet cable should work.
 .. _barrel-jack-figure:
 
 .. figure:: media/ch03/barrel-jack.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    External DC Power
@@ -244,7 +244,7 @@ standard 100M Ethernet cable should work.
 .. _miniDP-figure:
 
 .. figure:: media/ch03/miniDP-connector.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    Connect miniDP to DP or active miniDP to HDMI Cable to the Board
@@ -258,7 +258,7 @@ As soon as the power is applied to the board, it will start the booting up proce
 .. _LEDs-figure,BeagleBone AI-64 LEDs figure:
 
 .. figure:: media/ch03/leds.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    BeagleBone AI-64 LEDs
@@ -282,7 +282,7 @@ meanings in the image that is shipped with the board once the Linux kernel has b
 .. _figure-16:
 
 .. figure:: media/ch03/xfce-desktop.*
-   :width: 400px
+   :width: 740px
    :align: center 
    
    BeagleBone XFCE Desktop Screen

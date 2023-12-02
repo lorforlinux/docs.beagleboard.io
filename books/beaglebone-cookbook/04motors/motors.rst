@@ -143,6 +143,7 @@ Combine the code from :ref:`digital_rotaryEncoder_js` and :ref:`motors_servo`.
 .. _py_servoEncoder_code:
 
 .. literalinclude:: ../code/04motors/servoEncoder.py
+   :language: python
    :caption: Code for driving a servo motor with a rotary encorder(servoEncoder.py)
    :linenos:
 
