@@ -40,6 +40,7 @@ extensions = [
     "sphinx.ext.imgconverter",
     "sphinx.ext.graphviz",
     "sphinx.ext.todo",
+    "sphinx.ext.autodoc",
     "sphinx_tabs.tabs",
     "breathe",
     "sphinx_copybutton",

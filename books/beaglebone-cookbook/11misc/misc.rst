@@ -735,9 +735,7 @@ some 6G bytes.
         imagemagick-6.q16 librsvg2-bin webp \
         texlive-full texlive-latex-extra texlive-fonts-extra \
         fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
-    bone$ python3 -m venv .venv
-    bone$ source .venv/bin/activate
-    bone$ pip install -r requirements.txt
+    bone$ ./venv-build-env.sh
 
 These instructions came from `lorforlinux
 <https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
