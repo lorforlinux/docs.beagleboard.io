@@ -737,9 +737,7 @@ some 6G bytes.
         fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
     bone$ ./venv-build-env.sh
 
-These instructions came from `lorforlinux
-<https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
-on the Beagleboard Slack channel.
+In case of any problems, checkout `Beagleboard Forum <https://forum.beagleboard.org/>`_.
 
 Now go to the cloned *docs.beagleboard.io* repository folder and do the following.
 To clean build directory:
