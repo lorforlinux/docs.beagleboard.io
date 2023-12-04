@@ -382,6 +382,7 @@ LED matrix display (matrixLEDi2c.py)
 =====================================
 
 .. literalinclude:: ../code/03displays/matrixLEDi2c.py
+   :language: Python
    :caption: LED matrix display (matrixLEDi2c.py)
    :linenos:
 

@@ -263,7 +263,7 @@ Restore the line:
 
 and restart sshd.
 
-.. code-block:: 
+.. code-block:: bash
 
     root@bone# systemctl restart sshd
     root@bone# exit
@@ -295,7 +295,7 @@ it display on the host.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh -X debian@10.0.5.10
 
@@ -351,7 +351,7 @@ Next, create a named pipe and have wireshark read from it.
 Then, run tcpdump over ssh on your remote machine and redirect the 
 packets to the named pipe:
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 

@@ -264,6 +264,7 @@ motor with a transistor (:ref:`motors_dcMotor_code`). The additional code specif
 .. _motors_h-bridge_code:
 
 .. literalinclude:: ../code/04motors/h-bridgeMotor.js
+   :language: JavaScript
    :caption: Code for driving a DC motor with an H-bridge (h-bridgeMotor.js)
    :linenos:
 
@@ -304,6 +305,7 @@ Use the code in :ref:`motors_stepperMotor_code_py` to drive the motor.
 .. _motors_stepperMotor_code_py:
 
 .. literalinclude:: ../code/04motors/bipolarStepperMotor.py
+   :language: Python
    :caption: Driving a bipolar stepper motor (bipolarStepperMotor.py)
    :linenos:
 
