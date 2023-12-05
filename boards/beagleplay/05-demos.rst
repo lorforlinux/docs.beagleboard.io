@@ -143,3 +143,4 @@ Demos and tutorials
    demos-and-tutorials/zephyr-cc1352-development
    demos-and-tutorials/play-kernel-development
    demos-and-tutorials/greybus-host
+   demos-and-tutorials/understanding-boot

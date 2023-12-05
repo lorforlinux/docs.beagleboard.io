@@ -49,7 +49,7 @@ These instructions should be valid on any Debian-based system, but were tested o
 .. code-block:: bash
 
         sudo apt update
-        sudo apt install fakeroot build-essential libncurses-dev xz-utils libssl-dev flex libelf-dev bison
+        sudo apt install -y fakeroot build-essential libncurses-dev xz-utils libssl-dev flex libelf-dev bison debhelper
 
 Configuring the Kernel
 **********************
@@ -73,6 +73,7 @@ got an initial configuration, you can edit the configuration various ways includ
 
 .. code-block:: bash
 
+        cd linux-6.6
         zcat /proc/config.gz > .config
         make olddefconfig
 
@@ -90,7 +91,8 @@ the signed database images at https://git.kernel.org/pub/scm/linux/kernel/git/sf
 Building the Kernel
 *******************
 
-Once you're set on your configuration, you'll want to build the kernel and build any external modules.
+Once you're set on your configuration, you'll want to build the kernel and build any external modules. To
+make things simpler to install, we'll create a Debian package of the kernel.
 
 .. note::
 
@@ -98,7 +100,8 @@ Once you're set on your configuration, you'll want to build the kernel and build
 
 .. code-block:: bash
 
-        make
+        cd ..
+        make -C ./linux-6.6 -j4 KDEB_PKGVERSION=1xross bindeb-pkg
 
 Installing and Booting the Kernel
 *********************************
@@ -113,10 +116,39 @@ Installing and Booting the Kernel
 
 .. code-block:: bash
 
-        sudo make install modules_install
+        sudo dpkg -i linux-image-6.6.0_1xross_arm64.deb linux-libc-dev_1xross_arm64.deb
+        sudo shutdown -r now
+
+As long as the kernel you built has no significant issues, you'll boot back into a
+running system.
+
+If there was a boot or connectivity failure, you can try an alternate connectivity method, such as
+the :ref:`beagleplay-serial-console` or Ethernet, or you can reflash the board and try again from
+a known good kernel source.
+
+For me, the linux-6.6 kernel booted fine, but the beagleplay.local (mDNS/Avahi broadcast) address
+did not show up right away. I was able to find the BeaglePlay hosted WiFi access point, the
+connection to my local WiFi network, connect over Ethernet and connect over USB network. The `/dev/play` directory
+did not exist, but the `/dev/bone` directory did, so this gives me a good starting point for
+generating some patches to update the mainline kernel. :-D
+
+See :ref:`beagleboard-linux-upstream` for more next steps by providing updates you make to the kernel
+to the upstream repository for everyone to benefit and for you to benefit from on future kernel
+versions.
+
+Kernel Debug
+************
+
+Consider reading the kernel documentation
+on `debugging via gdb <https://www.kernel.org/doc/html/latest/dev-tools/gdb-kernel-debugging.html>`_.
+
+Also, consider the the TI Linux Board Porting Series, specifically the module
+on `debugging with JTAG in CCS <https://www.ti.com/video/3874392631001?keyMatch=LINUX%20KERNEL%20DEBUG>`_.
 
 References
 **********
+
+To understand more about booting code on BeaglePlay, see :ref:`play-understanding-boot`.
 
 For more details on the Linux kernel build system, see `The kernel build system <https://www.kernel.org/doc/html/latest/kbuild/index.html>`_ on kernel.org.
 
