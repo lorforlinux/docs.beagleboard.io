@@ -1,3 +1,5 @@
+.. _beaglev-fire-gateware-tcl-scripts-structure:
+
 Gateware TCL Scripts Structure
 ##############################
 

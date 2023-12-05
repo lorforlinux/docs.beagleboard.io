@@ -124,7 +124,7 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 - Press ^S (Ctrl-S) to save the file. (You can also go to the File menu in VSC and select Save to save the file, but Ctrl-S is easier.) Even easier, VSC can be configured to autosave every so many seconds.
 - In the *bash* tab, enter the following commands:
 
-.. code-block::
+.. code-block:: bash
 
   debian@beaglebone:beaglebone-cookbook/code/02sensors$ ./pushbutton.py
   data= 0

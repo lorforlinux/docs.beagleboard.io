@@ -172,7 +172,7 @@ P8 & P9 cape header pins
 
     P8 cape header
 
-.. figure:: media/hardware-design/p8-header.*
+.. figure:: media/hardware-design/p9-header.*
     :width: 570
     :align: center
     :alt: P9 cape header

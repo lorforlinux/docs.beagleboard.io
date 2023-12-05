@@ -1,7 +1,33 @@
-.. _beaglebone-ai-64-expansion:
+.. _bbai64-expansion:
 
 Expansion
 ############
+
+Pinout Diagrams
+***************
+
+Choose the cape header to see respective pinout diagram.
+
+.. tabs::
+
+   .. group-tab:: P8 cape header
+
+        .. figure:: media/pinout/BeagleBone-AI-64-P8.*
+            :align: center
+            :alt: BeagleBone AI-64 P8 cape header pinout
+
+            BeagleBone AI-64 P8 cape header pinout
+
+
+   .. group-tab:: P9 cape header
+
+        .. figure:: media/pinout/BeagleBone-AI-64-P9.*
+            :align: center
+            :alt: BeagleBone AI-64 P9 cape header pinout
+
+            BeagleBone AI-64 P9 cape header pinout
+
+.. _beaglebone-ai-64-connectors:
 
 Cape Header Connectors
 **********************
@@ -39,7 +65,7 @@ Each row includes the gpiochipX and pinY in the format of
 `X Y`. You can use these values to directly control the GPIO pins with the 
 commands shown below.
 
-.. code::
+.. code:: bash
 
     # to set the GPIO pin state to HIGH
     debian@BeagleBone:~$ gpioset X Y=1
@@ -767,7 +793,7 @@ Each row includes the gpiochipX and pinY in the format of
 `X Y`. You can use these values to directly control the GPIO pins with the 
 commands shown below.
 
-.. code::
+.. code:: bash
 
     # to set the GPIO pin state to HIGH
     debian@BeagleBone:~$ gpioset X Y=1
@@ -2153,7 +2179,7 @@ RANDOM PRU STUFF THAT MIGHT NEED A HOME
 BeagleBone AI-64 and on which connector and pins they are accessible
 from. Some signals are accessible on the same pins.
 
-.. _table-11,Table 11:
+.. _table-11:
 
 .. list-table:: PRU0 and PRU1 Access
    :header-rows: 1

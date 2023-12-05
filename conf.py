@@ -65,7 +65,7 @@ exhale_args = {
 primary_domain = 'cpp'
 highlight_language = 'cpp'
 
-todo_include_todos = True
+todo_include_todos = False
 
 # Update (HTML) supported_image_types selection priority order
 from sphinx.builders.html import StandaloneHTMLBuilder
@@ -78,7 +78,7 @@ LaTeXBuilder.supported_image_types = ['application/pdf', 'image/jpg', 'image/jpe
 
 templates_path = ['_templates']
 
-source_suffix = ['.rst', '.md']
+source_suffix = ['.rst']
 numfig = True
 navigation_with_keys = True
 

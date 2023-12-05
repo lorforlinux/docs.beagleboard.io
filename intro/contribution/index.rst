@@ -107,8 +107,7 @@ Articles on contribution
 
 .. toctree::
    :maxdepth: 1
-
-   /CONTRIBUTING
+   
    git-usage
    style
    rst-cheat-sheet
