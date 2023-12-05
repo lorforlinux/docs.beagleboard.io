@@ -96,3 +96,5 @@ Demos and Tutorials
 * :ref:`beagleplay-oldi`
 * :ref:`beagleplay-csi`
 * :ref:`beagleplay-zephyr-development`
+* :ref:`play-kernel-development`
+* :ref:`play-understanding-boot`

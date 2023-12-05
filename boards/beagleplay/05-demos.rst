@@ -113,13 +113,13 @@ Demos and tutorials
     +++
     .. admonition:: Complexity level
 
-        intermediate
+        advanced
 
 .. card::
     :link: greybus-host
     :link-type: ref
 
-    **Bealgplay Greybus Host**
+    **BeaglePlay Greybus Host**
     +++
     .. admonition:: Complexity level
         
