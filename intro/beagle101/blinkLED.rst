@@ -81,7 +81,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
             Board Power LED
 
-        For more details see: :ref:`connecting-up-your-beaglebone-ai-64`
+        For more details see: :ref:`bbai64-quick-start`
 
     .. group-tab:: Play
 
