@@ -219,18 +219,20 @@ You can always sudo from debian, but sometimes it's nice to login as root.
 Here's how to setup root so you can login from your host without a password.
 
 .. code-block:: bash
-    
-    host$ ssh bone
 
+    host$ ssh bone
     bone$ sudo -i
-    
     root@bone# nano /etc/ssh/sshd_config
 
 Search for the line
 
+.. code-block:: bash
+
     #PermitRootLogin prohibit-password
 
 and change it to
+
+.. code-block:: bash
 
     PermitRootLogin yes
 
@@ -238,32 +240,44 @@ and change it to
 
 Save the file and quit the editor. Restart ssh so it will reread the file.
 
+.. code-block:: bash
+
     root@bone# systemctl restart sshd
 
 And assign a password to root.
+
+.. code-block:: bash
 
     root@bone# passwd
 
 Now open another window on your host computer and enter:
 
+.. code-block:: bash
+
     host$ ssh-copy-id root@bone
 
 and enter the root password. Test it with:
+
+.. code-block:: bash
 
     host$ ssh root@bone
 
 You should be connected without a password. 
 Now go back to the Bone and turn off the root password access.
 
+.. code-block:: bash
+
     root@bone# nano /etc/ssh/sshd_config
 
 Restore the line:
+
+.. code-block:: bash
 
     #PermitRootLogin prohibit-password
 
 and restart sshd.
 
-.. code-block:: 
+.. code-block:: bash
 
     root@bone# systemctl restart sshd
     root@bone# exit
@@ -295,7 +309,7 @@ it display on the host.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh -X debian@10.0.5.10
 
@@ -334,7 +348,7 @@ https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-m
 First login to the Beagle and install tcpdump. Use your Beagle's 
 IP address.  
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh 192.168.7.2
     bone$ sudo apt update
@@ -343,7 +357,7 @@ IP address.
 
 Next, create a named pipe and have wireshark read from it.
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ mkfifo /tmp/remote
     host$ wireshark -k -i /tmp/remote
@@ -351,7 +365,7 @@ Next, create a named pipe and have wireshark read from it.
 Then, run tcpdump over ssh on your remote machine and redirect the 
 packets to the named pipe:
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
@@ -755,22 +769,15 @@ Run the following to download and setup Sphinx locally.
     bone$ sudo apt upgrade
     bone$ sudo apt install -y \
         make git wget \
-        doxygen graphviz librsvg2-bin\
+        doxygen librsvg2-bin\
         texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended \
         python3 python3-pip \
-        python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.svg2pdfconverter \
-        python3-pil \
         imagemagick-6.q16 librsvg2-bin webp \
         texlive-full texlive-latex-extra texlive-fonts-extra \
         fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
-    bone$ python3 -m pip install --upgrade pip
-    bone$ pip install -U sphinx_design 
-    bone$ pip install -U sphinxcontrib-images
-    bone$ pip install -U sphinx-serve
-       
-These instructions came from `lorforlinux 
-<https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
-on the Beagleboard Slack channel.
+    bone$ ./venv-build-env.sh
+
+In case of any problems, checkout `Beagleboard Forum <https://forum.beagleboard.org/>`_.
 
 Now go to the cloned *docs.beagleboard.io* repository folder and do the following.
 To clean build directory:

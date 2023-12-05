@@ -474,6 +474,7 @@ HC-SR04 to the Bone's 5 V power supply.
 .. _sensors_hc-sr04_code:
 
 .. literalinclude:: ../code/02sensors/hc-sr04-ultraSonic.js
+   :language: js
    :caption: Driving a HC-SR04 ultrasound sensor (hc-sr04-ultraSonic.js)
    :linenos:
 
@@ -656,6 +657,7 @@ will print the current location every time the GPS outputs it.
 .. _digital_GPS_code:
 
 .. literalinclude:: ../code/02sensors/GPS.js
+   :language: js
    :caption: Talking to a GPS with UART 4 (GPS.js)
    :linenos:
 
@@ -883,6 +885,7 @@ using the kernel driver. First you need to install the i2c module.
 .. _js_i2ctmp101_code:
 
 .. literalinclude:: ../code/02sensors/i2ctmp101.py
+   :language: py
    :caption: Reading an |I2C|  device (i2cTemp.py)
    :linenos:
 

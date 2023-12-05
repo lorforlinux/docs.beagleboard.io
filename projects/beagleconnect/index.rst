@@ -216,7 +216,7 @@ that is required is a reliable transport.
 
 Every 1-2 minutes, you should see something like:
 
-.. code-block::
+.. code-block:: bash
 
     ('fe80::3111:7a22:4b:1200%lowpan0', 52213, 0, 13)  '2l:7.79;'
     ('fe80::3111:7a22:4b:1200%lowpan0', 52213, 0, 13)  '4h:43.75;4t:23.11;'
@@ -912,7 +912,7 @@ Ping Linux
 
 Similarly, we can ping the Linux host from the Zephyr shell.
 
-.. code-block::
+.. code-block:: bash
 
     uart:~$ net ping --help
     ping - Ping a network host.

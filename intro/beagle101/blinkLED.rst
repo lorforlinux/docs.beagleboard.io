@@ -441,6 +441,7 @@ The following script uses evtest to wait for the USR button to be pressed and
 then turns on the LED.
 
 .. literalinclude:: buttonEvent.sh
+    :language: bash
     :caption: buttonEvent.sh
     :linenos:
 
@@ -451,6 +452,7 @@ Try running it and pressing the USR button.
 The next script polls the USR button and toggles the LED.
 
 .. literalinclude:: buttonLED.sh
+    :language: bash
     :caption: buttonLED.sh
     :linenos:
 
