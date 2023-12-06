@@ -775,9 +775,15 @@ Run the following to download and setup Sphinx locally.
         imagemagick-6.q16 librsvg2-bin webp \
         texlive-full texlive-latex-extra texlive-fonts-extra \
         fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
-    bone$ ./venv-build-env.sh
 
 In case of any problems, checkout `Beagleboard Forum <https://forum.beagleboard.org/>`_.
+
+Setup virtual environment for python using the `venv-build-env.sh` script at the project root.
+
+.. literalinclude:: ../../../venv-build-env.sh
+   :language: bash
+   :caption: Bash script for setting up virtual environment
+   :linenos:
 
 Now go to the cloned *docs.beagleboard.io* repository folder and do the following.
 To clean build directory:
