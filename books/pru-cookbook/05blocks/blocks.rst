@@ -856,6 +856,7 @@ will make the period half as long.
 Here's the code (``pwm7.pru0.c``)
 
 .. literalinclude:: ../code/05blocks/pwm7.pru0.c
+   :language: c
    :caption: pwm7.pru0.c Using Both PRUs
    :linenos:
 
@@ -1058,6 +1059,7 @@ Configure the pins with ``input_setup.sh``.
 The following code reads the input pin and writes its value to the output pin.
 
 .. literalinclude:: ../code/05blocks/input.pru0.c
+   :language: c
    :caption: input.pru0.c
    :linenos:
 

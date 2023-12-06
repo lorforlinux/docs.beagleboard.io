@@ -13,7 +13,7 @@ Gateware Architecture
 
 The diagram below is a simplified overview of the gateware's structure.
 
-.. figure:: media/Gateware-Flow-simplified-overview.png
+.. figure:: media/Gateware-Flow-simplified-overview.*
     :align: center
     :alt: BeagleV-Fire Simplified Gateware
 

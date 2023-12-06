@@ -452,7 +452,7 @@ If you later want to remove the reference to this particular branch:
 
 Or, to delete the references to all of Jason's branches:
 
-.. code-block::
+.. code-block:: bash
 
     git remote rm jkridner
     

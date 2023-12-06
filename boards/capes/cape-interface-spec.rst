@@ -490,7 +490,7 @@ Cape interface specification provides |I2C| controller device links for userspac
 |I2C| overlay example
 =====================
 
-.. code-block:: devicetree
+.. code-block:: dts
    :linenos:
    :caption: Example device tree overlay to enable I2C driver
    :name: bone_cape_spec_i2c_example
@@ -584,7 +584,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 
    Some boards may implement CS using a GPIO.
 
-.. code-block:: devicetree
+.. code-block:: dts
    :linenos:
    :caption: Example device tree overlay to enable SPI driver
    :name: bone_cape_spec_spi_example

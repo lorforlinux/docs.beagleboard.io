@@ -21,7 +21,7 @@ The gateware project is made up of:
 
 All these files are found in the FPGA-design directory.
 
-.. figure:: media/gateware-source-dir.png
+.. figure:: media/gateware-source-dir.*
     :align: center
 
 
@@ -37,7 +37,7 @@ The gateware is organized into 6 components:
 - MIPI camera interface
 - SYZYGY high speed interface
 
-.. figure:: media/gateware-components.png
+.. figure:: media/gateware-components.*
     :align: center
 
 Gateware Build Options
@@ -47,7 +47,7 @@ Each interface component may have a number of build options. For example, which 
 supported by the generated gateware.
 
 
-.. figure:: media/gateware-cape-options.png
+.. figure:: media/gateware-cape-options.*
     :align: center
 
 The name of the directories within the component's directory are the option names passed to the

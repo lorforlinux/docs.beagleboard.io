@@ -207,7 +207,7 @@ function. Now, let’s create a new Python script. We will name it app1.py:
 .. _flask_app1:
 
 .. literalinclude:: ../code/06iot/flask/app1.py
-   :language: Python
+   :language: py
    :caption: app1.py
    :linenos:
 
@@ -272,7 +272,7 @@ Let’s use a new Python script named *app2.py*.
 .. _flask_app2:
 
 .. literalinclude:: ../code/06iot/flask/app2.py
-   :language: Python
+   :language: py
    :caption: A simple Flask-based web server to read a GPIO (app2.py)
    :linenos:
 
@@ -335,7 +335,7 @@ Create a new Python script and name it *app3.py*.
 .. _flask_app3:
 
 .. literalinclude:: ../code/06iot/flask/app3.py
-   :language: Python
+   :language: py
    :caption: A simple Flask-based web server to read a GPIO (app3.py)
    :linenos:
 
@@ -480,7 +480,7 @@ plots the buffer is **analogInContinuous.py**.
 .. _analog_code:
 
 .. literalinclude:: ../code/06iot/analogInContinuous.py
-   :language: Python
+   :language: py
    :caption: Code to read and plot a continuous analog input(analogInContinuous.py)
    :linenos:
 
@@ -633,7 +633,7 @@ Then add the code in :ref:`networking_nodemailer_code` to a file named ``emailTe
 .. _networking_nodemailer_code:
 
 .. literalinclude:: ../code/06iot/emailTest.py
-   :language: Python
+   :language: py
    :caption: Sending email using nodemailer (emailtTest.py)
    :linenos:
 
@@ -748,7 +748,7 @@ Because your Bone is on the network, it's not hard to access the current weather
 .. _networking_weather_code:
 
 .. literalinclude:: ../code/06iot/weather.py
-   :language: Python
+   :language: py
    :caption: Code for getting current weather conditions (``weather.py``)
    :linenos:
 
@@ -871,7 +871,7 @@ The code in :ref:`networking_pushbutton_code` sends a tweet whenever a button is
 .. _networking_pushbutton_code:
 
 .. literalinclude:: ../code/06iot/twitterPushbutton.js
-   :language: JavaScript
+   :language: js
    :caption: Tweet when a button is pushed (twitterPushbutton.js)
    :linenos:
 
