@@ -313,7 +313,7 @@ the code work.  Fortunately the Makefile always runs it.
 .. _blocks_write_init_pins:
 
 .. literalinclude:: ../code/05blocks/write_init_pins.sh
-   :language bash
+   :language: bash
    :caption: write_init_pins.sh
    :linenos:
 
@@ -1725,7 +1725,7 @@ high-level view of how to drive the display.
 .. _blocks_rgb_python:
 
 .. literalinclude:: ../code/05blocks/rgb_python.py
-   :language bash
+   :language: bash
    :caption: rgb_python.py - Python code for driving RGB LED matrix
    :linenos:
 
@@ -1736,7 +1736,7 @@ Be sure to run the :ref:`blocks_rgb_setup` script before running the python code
 .. _blocks_rgb_setup:
 
 .. literalinclude:: ../code/05blocks/rgb_python_setup.sh
-   :language bash
+   :language: bash
    :caption: rgb_python_setup.sh
    :linenos:
 
