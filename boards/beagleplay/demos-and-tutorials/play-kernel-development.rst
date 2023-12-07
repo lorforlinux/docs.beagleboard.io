@@ -116,7 +116,7 @@ Installing and Booting the Kernel
 
 .. code-block:: bash
 
-        sudo dpkg -i linux-image-6.6.0_1xross_arm64.deb linux-libc-dev_1xross_arm64.deb
+        sudo dpkg -i linux-image-6.6.0_1xross_arm64.deb
         sudo shutdown -r now
 
 As long as the kernel you built has no significant issues, you'll boot back into a
