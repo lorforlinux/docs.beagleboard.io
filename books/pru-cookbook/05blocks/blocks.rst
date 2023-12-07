@@ -865,7 +865,7 @@ Here's the code (``pwm7.pru0.c``)
 Be sure to run ``pwm7_setup.sh`` to get the correct pins configured.
 
 .. literalinclude:: ../code/05blocks/pwm7_setup.sh
-   :language: bash
+   :language: Shell
    :caption: pwm7_setup.sh
    :linenos:
 
@@ -1050,7 +1050,7 @@ These values came from :ref:`blocks_mapping_bits`.
 Configure the pins with ``input_setup.sh``.
 
 .. literalinclude:: ../code/05blocks/input_setup.sh
-   :language: bash
+   :language: Shell
    :caption: input_setup.sh
    :linenos:
 
@@ -1725,7 +1725,7 @@ high-level view of how to drive the display.
 .. _blocks_rgb_python:
 
 .. literalinclude:: ../code/05blocks/rgb_python.py
-   :language: bash
+   :language: Python
    :caption: rgb_python.py - Python code for driving RGB LED matrix
    :linenos:
 
@@ -1736,7 +1736,7 @@ Be sure to run the :ref:`blocks_rgb_setup` script before running the python code
 .. _blocks_rgb_setup:
 
 .. literalinclude:: ../code/05blocks/rgb_python_setup.sh
-   :language: bash
+   :language: Shell
    :caption: rgb_python_setup.sh
    :linenos:
 

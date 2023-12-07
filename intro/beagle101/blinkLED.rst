@@ -82,6 +82,7 @@ depends on which Beagle you have.  Click on the tab for your board.
             Board Power LED
 
         For more details see: :ref:`bbai64-quick-start`
+        For more details see: :ref:`bbai64-quick-start`
 
     .. group-tab:: Play
 
@@ -441,7 +442,7 @@ The following script uses evtest to wait for the USR button to be pressed and
 then turns on the LED.
 
 .. literalinclude:: buttonEvent.sh
-    :language: bash
+    :language: Shell
     :caption: buttonEvent.sh
     :linenos:
 
@@ -452,7 +453,7 @@ Try running it and pressing the USR button.
 The next script polls the USR button and toggles the LED.
 
 .. literalinclude:: buttonLED.sh
-    :language: bash
+    :language: shell
     :caption: buttonLED.sh
     :linenos:
 

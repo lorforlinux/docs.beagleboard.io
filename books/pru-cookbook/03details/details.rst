@@ -214,7 +214,7 @@ and then configure the pins accordingly.
 
 
 .. literalinclude:: ../code/06io/setup.sh
-   :language: bash
+   :language: Shell
    :caption: setup.sh
    :linenos:
 
@@ -468,7 +468,7 @@ If you are on the Black or Pocket you'll need to run the following script.
 
 
 .. literalinclude:: ../code/03details/servos_setup.sh
-   :language: bash
+   :language: Shell
    :caption: servos_setup.sh
    :linenos:
 
@@ -499,7 +499,7 @@ everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
 .. literalinclude:: ../code/03details/encoder_setup.sh
-   :language: bash
+   :language: Shell
    :caption: encoder_setup.sh
    :linenos:
 
