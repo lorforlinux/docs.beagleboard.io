@@ -148,9 +148,8 @@ on `debugging with JTAG in CCS <https://www.ti.com/video/3874392631001?keyMatch=
 References
 **********
 
-To understand more about booting code on BeaglePlay, see :ref:`play-understanding-boot`.
+- To understand more about booting code on BeaglePlay, see :ref:`play-understanding-boot`.
 
-For more details on the Linux kernel build system, see `The kernel build system <https://www.kernel.org/doc/html/latest/kbuild/index.html>`_ on kernel.org.
+- For more details on the Linux kernel build system, see `The kernel build system <https://www.kernel.org/doc/html/latest/kbuild/index.html>`_ on kernel.org.
 
-For additional guidance, see the `official TI-SDK documentation for
-AM62X <https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/08_06_00_42/exports/docs/linux/Foundational_Components_Kernel_Users_Guide.html>`_
+- For additional guidance, see the `official TI-SDK documentation for AM62X <https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/latest/exports/docs/linux/Foundational_Components_Kernel_Users_Guide.html>`_
