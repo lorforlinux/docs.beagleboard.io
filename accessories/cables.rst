@@ -187,8 +187,8 @@ TC2050 retaining clip
 1. `TC2050 retaining clip (tag-connect.com) <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
 2. `TC2050 retaining clip (DigiKey) <https://www.digikey.com/en/products/detail/tag-connect-llc/TC2050-CLIP-3PACK/12318009>`_
 
-3D printable cap & clip
-------------------------
+3D printable cap & clip (Optional)
+-----------------------------------
 
 .. image:: images/TC2050-protective-cap.jpg
     :align: center
