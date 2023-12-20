@@ -8,10 +8,6 @@ the system is using :ref:`play-distro-boot`. It is simplest because it is very g
 not at all specific to BeaglePlay or AM62, and was included in the earliest BeagleBoard.org Debian
 images shipping pre-installed in the on-board flash.
 
-Over time, BeaglePlay images will include `SystemReady
-support <https://www.arm.com/architecture/system-architectures/systemready-certification-program>`_ to
-provide for the most generic boot support allowing execution of 
-
 .. _play-distro-boot:
 
 Distro Boot
@@ -76,33 +72,58 @@ The FAT32 partition in this setup is often referred to as the boot file system.
     /dev/mmcblk0p2      264192 30621695 30357504 14.5G 83 Linux
 
 
-To better understand BeaglePlay's U-Boot Distro Boot, let's install the kernel image
-we made in :ref:`play-kernel-development`. To do this, we need to have an uncompressed
-version of the kernel in the FAT32 file system and a ramdisk image we plan to use. The
-ramdisk image is utilized to make sure any kernel modules needed are available and to
-provide a bit of a recovery opportunity in case the root file system is corrupted. You
-can learn more about initrd on `the Debian Initrd Wiki page <https://wiki.debian.org/Initrd>`
-and `the Linux kernel documentation admin guide initrd
-entry <https://docs.kernel.org/admin-guide/initrd.html>`.
+To better understand BeaglePlay's U-Boot Distro Boot, let's install a Linux kernel and
+initramfs from the `Buildroot project <http://buildroot.org/>`_. There is a pre-built image
+release at https://git.beagleboard.org/beagleboard/buildroot/-/releases/2023.11-beagle1.
 
-In :ref:`play-copy-kernel`, we perform a copy of the kernel that was installed via
-:ref:`play-dpkg-install-kernel` and then reverted with ...
+Currently, the Linux kernel image needs to be uncompressed and stored in the FAT32 file
+system. An initramfs image is a simple way to provide a starting root file system. When
+running Linux, some kind of root file system is required.
 
-.. todo::
+An initramfs image is utilized on Debian systems to make sure any kernel modules needed are
+available and to provide a bit of a recovery opportunity in case the root file system is
+corrupted. You can learn more about initramfs and initrd on `the Debian Initrd Wiki
+page <https://wiki.debian.org/Initrd>` and `the Linux kernel documentation admin
+guide initrd entry <https://docs.kernel.org/admin-guide/initrd.html>`.
 
-   Put the step into play-kernel-development.rst to revert back to the Beagle kernel.
+In the case of utilizing Buildroot, the
+entire `Linux distribution <https://en.wikipedia.org/wiki/Linux_distribution>`_ is
+incorporated into the initramfs root file system image.
 
-The contents of the initrd can be read using ``lsinitramfs /boot/firmware/initrd.img-6.6.0``.
+The contents of the initrd can be read using ``lsinitramfs /boot/firmware/initrd.img``.
 
 .. _play-copy-kernel:
 
 .. code-block:: shell-session
     :caption: Copy kernel to FAT32 filesystem
 
-    debian@BeaglePlay:~$ sudo cp /boot/vmlinuz-6.6.0 /boot/firmware/Image-6.6.gz
-    [sudo] password for debian: 
-    debian@BeaglePlay:~$ sudo gunzip /boot/firmware/Image-6.6.gz 
-    debian@BeaglePlay:~$ sudo cp /boot/initrd.img-6.6.0 /boot/firmware/
+    debian@BeaglePlay:~$ wget https://git.beagleboard.org/beagleboard/buildroot/-/jobs/19194/artifacts/raw/public/beagleplay/images/Image
+    --2023-12-19 22:17:54--  https://git.beagleboard.org/beagleboard/buildroot/-/jobs/19194/artifacts/raw/public/beagleplay/images/Image
+    Resolving git.beagleboard.org (git.beagleboard.org)... 44.226.162.25
+    Connecting to git.beagleboard.org (git.beagleboard.org)|44.226.162.25|:443... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 32172544 (31M) [application/octet-stream]
+    Saving to: ‘Image’
+
+    Image               100%[===================>]  30.68M  1.78MB/s    in 18s     
+
+    2023-12-19 22:18:13 (1.74 MB/s) - ‘Image’ saved [32172544/32172544]
+
+    debian@BeaglePlay:~$ sudo cp Image /boot/firmware/Image-buildroot
+    [sudo] password for debian:
+    debian@BeaglePlay:~$ wget https://git.beagleboard.org/beagleboard/buildroot/-/jobs/19194/artifacts/raw/public/beagleplay/images/rootfs.cpio.gz
+    --2023-12-19 22:16:44--  https://git.beagleboard.org/beagleboard/buildroot/-/jobs/19194/artifacts/raw/public/beagleplay/images/rootfs.cpio.gz
+    Resolving git.beagleboard.org (git.beagleboard.org)... 44.226.162.25
+    Connecting to git.beagleboard.org (git.beagleboard.org)|44.226.162.25|:443... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 30111086 (29M) [application/octet-stream]
+    Saving to: ‘rootfs.cpio.gz’
+
+    rootfs.cpio.gz      100%[===================>]  28.72M  21.5MB/s    in 1.3s    
+
+    2023-12-19 22:16:46 (21.5 MB/s) - ‘rootfs.cpio.gz’ saved [30111086/30111086]
+
+    debian@BeaglePlay:~$ sudo cp rootfs.cpio.gz /boot/firmware/rootfs.cpio.gz-buildroot
 
 .. _play-modified-extlinux-conf:
 
@@ -111,48 +132,55 @@ The contents of the initrd can be read using ``lsinitramfs /boot/firmware/initrd
     :linenos:
 
     menu title Select image to boot
-    timeout 30
-    default Linux 6.6
+    timeout 10
+    default Buildroot
 
-    label Linux default
+    label Debian
         kernel /Image
         append root=/dev/mmcblk0p2 ro rootfstype=ext4 rootwait net.ifnames=0 quiet
         fdtdir /
         #fdtoverlays /overlays/<file>.dtbo
         initrd /initrd.img
 
-    label Linux 6.6
-        kernel /Image-6.6
-        append root=/dev/mmcblk0p2 ro rootfstype=ext4 rootwait net.ifnames=0 quiet
+    label Buildroot
+        kernel /Image-buildroot
+        append rootwait net.ifnames=0 quiet
         fdtdir /
-        initrd /initrd.img-6.6.0
+        initrd /rootfs.cpio.gz-buildroot
 
 .. _play-boot-modified-kernel:
 
 .. code-block:: shell-session
-    :caption: Reboot into modified kernel
+    :caption: Reboot into modified kernel and rootfs
 
     debian@BeaglePlay:~$ sudo shutdown -r now
     Connection to 192.168.0.117 closed by remote host.
     Connection to 192.168.0.117 closed.
-    jkridner@slotcar:~$ ssh -Y debian@192.168.0.117
-    Debian GNU/Linux 11
+    jkridner@slotcar:~$ sudo nmap -n -p 22 192.168.0.0/24
+    Starting Nmap 7.94SVN ( https://nmap.org ) at 2023-12-19 17:32 EST
+    ...
+    PORT   STATE SERVICE
+    22/tcp open  ssh
+    MAC Address: 50:3E:AA:AD:78:06 (TP-Link Technologies)
 
-    BeagleBoard.org Debian Bullseye Xfce Image 2023-05-18
-    Support: https://bbb.io/debian
-    default username:password is [debian:temppwd]
-
-    debian@192.168.0.117's password: 
-
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/\*/copyright.
-
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    Last login: Tue Dec 12 15:33:21 2023 from 192.168.0.171
-    debian@BeaglePlay:~$ uname -a
-    Linux BeaglePlay 6.6.0 #4 SMP Tue Dec  5 13:50:59 UTC 2023 aarch64 GNU/Linux
+    Nmap scan report for 192.168.0.112
+    Host is up (0.00020s latency).
+    ...
+    jkridner@slotcar:~$ ssh root@192.168.0.112
+    The authenticity of host '192.168.0.112 (192.168.0.112)' can't be established.
+    ED25519 key fingerprint is SHA256:EZdvLkCNMyhy4RhvseUSC5EwaJR5Kgpk8JZG9kF+pmk.
+    This key is not known by any other names.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added '192.168.0.112' (ED25519) to the list of known hosts.
+    root@192.168.0.112's password: 
+    # uname -a
+    Linux BeaglePlay 6.6.3 #1 SMP Tue Dec 19 21:32:06 UTC 2023 aarch64 GNU/Linux
+    # cat /etc/os-release 
+    NAME=Buildroot
+    VERSION=2023.11-beagle1
+    ID=buildroot
+    VERSION_ID=2023.11
+    PRETTY_NAME="Buildroot 2023.11"
 
 
 Booting U-Boot
