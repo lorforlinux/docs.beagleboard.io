@@ -1,4 +1,4 @@
-
+.. _beaglev-fire-customize-cape-gateware-verilog:
 
 Customize BeagleV-Fire Cape Gateware Using Verilog
 ###################################################
@@ -12,7 +12,6 @@ It will describe:
 - How to generate programming bitstreams without requiring the installation of the Libero FPGA toolchain on your development machine.
 - How to use the cape Verilog template
 - How to use the git.beagleboard.org CI infrastruture to generate programming bitstreams for your custom gateware
-
 
 
 Steps:
@@ -35,20 +34,30 @@ Click on the **Forks** button on the top-right corner.
 
 .. figure:: media/gateware-beaglev-fire-fork.png
     :align: center
+    :width: 1040
+    :alt: BeagleV-Fire gateware repo fork bytton
+
+    BeagleV-Fire gateware repo fork bytton
 
 
-On the Fork Project page, select your namespace
-and adjust the project name to help you manage multiple custom gateware (e.g. my-lovely-gateware).
-Click the **Fork project** button.
+On the Fork Project page, select your namespace and adjust the project name to help you manage multiple 
+custom gateware (e.g. my-lovely-gateware). Click the **Fork project** button.
 
 .. figure:: media/verilog-gateware-fork.png
     :align: center
+    :width: 1040
+    :alt: Create gateware fork
 
-Clone the forked repository::
+    Create gateware fork
+
+Clone the forked repository
+===========================
+
+.. code-block:: shell
 
     git clone git@git.beagleboard.org:<MY-NAMESPACE>>/my-lovely-gateware.git
 
-Where <MY-NAMESPACE> is your Gitlab user space/user name.
+Where **<MY-NAMESPACE>** is your Gitlab user space/user name.
 
 Create A Custom Gateware Build Option
 **************************************
@@ -62,9 +71,9 @@ Let's modify the **./custom-fpga-design/my_custom_fpga_design.yaml** build confi
 specify that your custom cape gateware should be included in the gateware bitstream. In this instance will 
 call our custom cape gateware MY_LOVELY_CAPE.
 
-..callout::
+.. callout::
 
-    .. code-block::
+    .. code-block:: yaml
 
         HSS:
             type: git
@@ -80,24 +89,33 @@ call our custom cape gateware MY_LOVELY_CAPE.
 
         <1> On the gateware build-args line, replace VERILOG_TUTORIAL with MY_LOVELY_CAPE.
 
-Note: The **custom-fpga-design** directory has a special meaning for the Beagleboard Gitlab CI system.
-Any build configuration found in this directory will be built by the CI system. This allows generating
-FPGA programming bitstreams without the requirement for having the Microchip FPGA toolchain installed
-on your computer.
+.. note:: The **custom-fpga-design** directory has a special meaning for the Beagleboard Gitlab CI system.
+        Any build configuration found in this directory will be built by the CI system. This allows generating
+        FPGA programming bitstreams without the requirement for having the Microchip FPGA toolchain installed
+        on your computer.
 
 
 Rename A Copy Of The Cape Gateware Verilog Template
 ****************************************************
 
-Move to the cape gateware source code::
+Move to the cape gateware source code
+=====================================
+
+.. code-block:: shell
 
     cd my-lovely-gateware/sources/FPGA-design/script_support/components/CAPE
 
-Create a directory that will contain your custom cape gateware source code::
+Create a directory that will contain your custom cape gateware source code
+===========================================================================
+
+.. code-block:: shell
 
     mkdir MY_LOVELY_CAPE
 
-Copy the cape Verilog template::
+Copy the cape Verilog template
+===============================
+
+.. code-block:: shell
 
     cp -r VERILOG_TEMPLATE/* ./MY_LOVELY_CAPE/
 
@@ -105,7 +123,10 @@ Copy the cape Verilog template::
 Customize The Cape's Verilog Source Code
 *****************************************
 
-Move to your custom gateware source directory:
+Move to your custom gateware source directory
+=============================================
+
+.. code-block:: shell
 
     cd MY_LOVELY_CAPE
 
@@ -118,7 +139,7 @@ Edit ADD_CAPE.tcl
 
 Replace VERILOG_TEMPLATE with MY_LOVELY_CAPE in file ADD_CAPE.tcl.
 
-.. code-block:: 
+.. code-block:: verilog
 
     #-------------------------------------------------------------------------------
     # Import HDL source files
@@ -132,9 +153,9 @@ Replace VERILOG_TEMPLATE with MY_LOVELY_CAPE in file ADD_CAPE.tcl.
 
 Add the path to your additional Verilog source code files.
 
-..callout::
+.. callout::
     
-    .. code-block:: 
+    .. code-block:: text
 
         #-------------------------------------------------------------------------------
         # Import HDL source files
@@ -160,7 +181,7 @@ Customize The Cape's Verilog source code
 
 We will add a simple Verilog source file, blinky.v, in the MY_LOVELY_CAPE directory. Code below:
 
-.. code-block::
+.. code-block:: verilog
 
     `timescale 1ns/100ps
     module blinky(
@@ -191,9 +212,9 @@ Let's connect the blinky Verilog module within the cape by editing the CAPE.v fi
 
 Add the instantiation of the blinky module:
 
-..callout::
+.. callout::
     
-    .. code-block::
+    .. code-block:: text
 
         //--------P9_41_42_IOPADS
         P9_41_42_IOPADS P9_41_42_IOPADS_0(
@@ -228,9 +249,9 @@ Add the instantiation of the blinky module:
 
 Add the BLINK wire:
 
-..callout::
+.. callout::
     
-    .. code-block::
+    .. code-block:: text
 
         wire           PCLK;
         wire           PRESETN;
@@ -252,19 +273,19 @@ The original code populates two 43 bits wide wires for controlling the output-en
 values of the P8 cape connector I/Os. The bottom 28 bits being controlled by the microprocessor
 subsystem's GPIO block.
 
-    .. code-block::
+ .. code-block:: verilog
 
-        //--------------------------------------------------------------------
-        // Concatenation assignments
-        //--------------------------------------------------------------------
-        assign GPIO_OE_net_0  = { 16'h0000 , GPIO_OE };
-        assign GPIO_OUT_net_0 = { 16'h0000 , GPIO_OUT };
+     //--------------------------------------------------------------------
+     // Concatenation assignments
+     //--------------------------------------------------------------------
+     assign GPIO_OE_net_0  = { 16'h0000 , GPIO_OE };
+     assign GPIO_OUT_net_0 = { 16'h0000 , GPIO_OUT };
 
 We are going to hijack the 6th I/O with our blinky's output:
 
-..callout::
+.. callout::
     
-    .. code-block::
+    .. code-block:: text
 
         //--------------------------------------------------------------------
         // Concatenation assignments
@@ -286,9 +307,9 @@ You should always have a device tree overlay associated with your gateware even 
 control from Linux. The device tree overlay is very useful to identify which gateware is currently
 programmed on your BeagleV-Fire.
 
-..callout::
+.. callout::
     
-    .. code-block::
+    .. code-block:: text
 
         /dts-v1/;
         /plugin/;
@@ -314,13 +335,19 @@ Move back up to the root directory of your gateware project. This is the my-love
 
 Add the my-lovely-gateware/sources/FPGA-design/script_support/components/CAPE/MY_LOVELY_CAPE directory content to your git repository.
 
+.. code:: shell
+
     git add sources/FPGA-design/script_support/components/CAPE/MY_LOVELY_CAPE/
 
 Commit changes to my-lovely-gateware/custom-fpga-design/my_custom_fpga_design.yaml
 
+.. code:: shell
+
     git commit -m "Add my lovely gateware."
 
 Push changes to your beagleboard Gitlab repository:
+
+.. code:: shell
 
     git push
 
@@ -334,20 +361,30 @@ being downloaded.
 
 .. figure:: media/gateware-pipeline.png
     :align: center
+    :width: 1040
+    :alt: gateware pipeline 
+
+    gateware pipeline
 
 Program BeagleV-Fire With Your Custom Bitstream 
 ************************************************
 
 Unzip the downloaded artifacts.zip file. Go to the gateware-builds-tester/artifacts/bitstreams directory:
 
+.. code:: shell
+
     cd gateware-builds-tester/artifacts/bitstreams
 
 On your Linux host development computer, use the scp command to copy the bitstream to BeagleV-Fire
 home directory, replacing <IP_ADDRESS> with the IP address of your BeagleV-Fire.
 
+.. code:: shell
+
     scp -r  ./my_custom_fpga_design beagle@<IP_ADDRESS>:/home/beagle/
 
 On BeagleV-Fire, initiate the reprogramming of the FPGA with your gateware bitstream:
+
+.. code:: shell
 
     sudo su
     /usr/share/beagleboard/gateware/changes-gateware.sh ./my_custom_fpga_design
@@ -360,8 +397,15 @@ blinking the LED.
 On BeagleV-Fire, You can check that your gateware was loaded using the following command to see the
 device tree overlays:
 
+.. code:: shell
+
     tree /proc/device-tree/chosen/overlays/
 
 .. figure:: media/gateware-lovely-overlay.png
     :align: center
+    :width: 740
+    :alt: gateware lovely overlay
+
+    gateware lovely overlay
+
 
