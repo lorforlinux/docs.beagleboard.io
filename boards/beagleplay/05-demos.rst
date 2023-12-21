@@ -125,6 +125,16 @@ Demos and tutorials
         
         intermediate
 
+.. card::
+    :link: play-understanding-boot
+    :link-type: ref
+
+    **Understanding Boot**
+    +++
+    .. admonition:: Complexity level
+        
+        intermediate
+
 .. raw:: latex
 
    \end{comment}
