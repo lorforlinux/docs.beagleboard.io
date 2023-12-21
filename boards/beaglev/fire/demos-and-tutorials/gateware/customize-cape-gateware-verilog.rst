@@ -57,7 +57,7 @@ Clone the forked repository
 
     git clone git@git.beagleboard.org:<MY-NAMESPACE>/my-lovely-gateware.git
 
-Where ``<MY-NAMESPACE>`` is your Gitlab username or userspace.
+Where ``<MY-NAMESPACE>`` is your Gitlab username or namespace.
 
 Create A Custom Gateware Build Option
 **************************************
