@@ -20,7 +20,7 @@ Background and overview
    * See `elinux.org Cape Expansion Headers for BeagleBone page <https://elinux.org/Beagleboard:Cape_Expansion_Headers>`_
    * See :ref:`BeagleBone Black System Reference Manual Connectors section <beagleboneblack-connectors>`
    * See :ref:`BeagleBone AI System Reference Manual Connectors section <beaglebone-ai-connectors>`
-   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <cape-board-support-1>`
+   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <bbai64-cape-board-support-1>`
 
 .. note:: Below, when mentioning "Black", this is true for all AM3358-based BeagleBone boards. "AI" is AM5729-based. "AI-64" is TDA4VM-based.
 
@@ -490,7 +490,7 @@ Cape interface specification provides |I2C| controller device links for userspac
 |I2C| overlay example
 =====================
 
-.. code-block::
+.. code-block:: dts
    :linenos:
    :caption: Example device tree overlay to enable I2C driver
    :name: bone_cape_spec_i2c_example
@@ -584,7 +584,7 @@ SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.
 
    Some boards may implement CS using a GPIO.
 
-.. code-block::
+.. code-block:: dts
    :linenos:
    :caption: Example device tree overlay to enable SPI driver
    :name: bone_cape_spec_spi_example

@@ -16,7 +16,7 @@ Here we'll show you how to do just that in three simple steps.
 These steps will work for any of the Beagles.
 
 Plug in the Beagle
-------------------
+*******************
 
 For this step you need to get a USB cable and attach your Beagle 
 to your host computer with it.  Where you attached the cable 
@@ -28,19 +28,17 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         .. figure:: figures/image8.jpg
             :width: 632px
-            :height: 166px
             :align: center
             :alt: Tethered Configuration
 
-        Tethered Configuration
+            Tethered Configuration
 
         .. figure:: figures/image9.jpg
             :width: 451px
-            :height: 206px
             :align: center
             :alt: USB Connection to the Board
         
-        Mini USB Connection to the Board as seen from the bottom.
+            Mini USB Connection to the Board as seen from the bottom.
 
         For more details see: :ref:`beagleboneblack-connectivity`
 
@@ -51,7 +49,7 @@ depends on which Beagle you have.  Click on the tab for your board.
             :align: center
             :alt: USB Connection to the Blue
 
-        Micro USB Connection to the Blue
+            Micro USB Connection to the Blue
 
     .. group-tab:: AI-64
 
@@ -60,30 +58,30 @@ depends on which Beagle you have.  Click on the tab for your board.
             :align: center 
             :alt: Tethered Configuration
 
-        Tethered Configuration  
+            Tethered Configuration  
 
         .. figure:: figures/usb-c-connection.jpg
             :width: 400px
             :align: center 
             :alt: USB Connection to the Board
 
-        USB-c Connection to the Board
+            USB-c Connection to the Board
             
         .. figure:: figures/usb-a-connection.jpg
             :width: 400px
             :align: center 
             :alt: USB Connection to the PC/Laptop
 
-        USB Connection to the PC/Laptop
+            USB Connection to the PC/Laptop
 
         .. figure:: figures/power-led.jpg
             :width: 400px
             :align: center 
             :alt: Board Power LED
 
-        Board Power LED
+            Board Power LED
 
-        For more details see: :ref:`connecting-up-your-beaglebone-ai-64`
+        For more details see: :ref:`bbai64-quick-start`
 
     .. group-tab:: Play
 
@@ -92,7 +90,7 @@ depends on which Beagle you have.  Click on the tab for your board.
             :align: center
             :alt: Tethering BeaglePlay to PC
 
-        Tethering BeaglePlay to PC
+            Tethering BeaglePlay to PC
 
         For more details see: :ref:`beagleplay-quick-start`
             
@@ -102,7 +100,7 @@ depends on which Beagle you have.  Click on the tab for your board.
             :align: center
             :alt: Tethered Configuration
 
-        Micro USB Connection
+            Micro USB Connection
 
         For more details see: :REF:`connecting_up_pocketbeagle`
             
@@ -116,69 +114,67 @@ load up Linux.  This is because all Beagles
 to install an image on the Pocket) have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
 
-Login
------
+Using VS Code
+**************
 
-Next you login to the Beagle from your host computer. 
-Here you have a choice.  If you want a graphical approach, 
-choose the ``VS Code`` tab.  If you want a command line 
-and your host is a Mac, take the ``ssh (Mac)`` tab. If you
-are running Linux on your host, 
-take the ``ssh (Linux)`` tab.  Finally take the 
+.. important:: If VS code is not installed on your board please skip this section and refer 
+               to next section on how to login and run the code via command line.
+
+Recent Beagles come with the IDE Visual Studio Code (https://code.visualstudio.com/) installed and 
+running. To access it, open a web browser on your host computer and browse to: ``192.168.7.2:3000`` 
+(use ``192.168.6.2:3000`` for the Mac) and you will see something like:
+
+.. figure::  figures/vscode1.png
+    :width: 740 
+    :align: center
+
+At this point you can either run the scripts via a command line within VS Code, or 
+run them by clicking the ``RUN Code`` button.
+
+
+Running via the command line
+============================
+
+Open a terminal window in VS Code by dropping down the ``Terminal`` menu and selecting ``New Terminal`` 
+(or entering ``Ctrl+```).  The terminal window appears at the bottom of the screen as shown below.
+
+.. figure:: figures/vscode3.png
+    :width: 740 
+    :align: center
+
+You can now enter commands and see them run as shown below.
+
+.. figure:: figures/vscode4.png
+    :width: 740 
+    :align: center
+    
+Running via the ``RUN`` button
+===============================
+
+Use the file navigator on the left to navigate to ``examples/BeagleBone/Black/blinkInternalLED.sh`` and you will see:
+
+.. figure:: figures/vscode2.png
+    :width: 740 
+    :align: center
+
+This code blinks one of the USR LEDs built into the board. Click on the ``RUN Code`` triangle on the upper right of the 
+screen (see red arrow) to run the code.  (You could also enter ``Ctrl+Alt+N``) The USR3 LED should now be blinking.  
+
+Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the ``Run Code`` button.
+
+Time to play!  Try changing the LED number (on line 10) from 3 to something else.  Click the ``Run Code`` 
+button (no need to save the file, autosave is on by default).
+
+Try running ``seqLEDs.py``.
+
+Using command line
+******************
+
+To access the command line and your host is a Mac, take the ``ssh (Mac)`` tab. If you
+are running Linux on your host, take the ``ssh (Linux)`` tab.  Finally take the 
 ``putty (Windows)`` tab for command line from Windows.
 
 .. tabs::
-
-    .. group-tab:: VS Code
-
-        Recent Beagles come with the IDE Visual Studio Code 
-        (https://code.visualstudio.com/) installed and 
-        running. To access it, open a web browser on 
-        your host computer and browse to: ``192.168.7.2:3000`` 
-        (use ``192.168.6.2:3000`` for the Mac)
-        and you will see something like:
-
-        .. figure::  figures/vscode1.png
-
-        At this point you can either run the scripts via a command 
-        line within VS Code, or run them by clicking the
-        ``RUN Code`` button.
-
-
-        Running via the command line
-
-            Open a terminal window in VS Code by dropping down the 
-            ``Terminal`` menu and selecting ``New Terminal`` (or entering 
-            ``Ctrl+Shift+```).  The terminal window appears at the 
-            bottom of the screen as shown below.
-
-            .. figure:: figures/vscode3.png
-
-            You can now enter commands and see them run as shown below.
-
-            .. figure:: figures/vscode4.png
-
-        Running via the ``RUN`` button
-
-            Use the file navigator on the left to navigate to 
-            ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
-            and you will see:
-
-            .. figure:: figures/vscode2.png
-
-            This code blinks one of the USR LEDs built into the board. 
-            Click on the ``RUN Code`` triangle on the upper right of 
-            the screen (see red arrow) to run the code.  (You could also enter ``Ctrl+Alt+N``) 
-            The USR3 LED should now be blinking.  
-
-            Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
-            ``Run Code`` button.
-
-            Time to play!  Try changing the LED number (on line 10) from 
-            3 to something else.  Click the ``Run Code`` button (no 
-            need to save the file, autosave is on by default).
-
-            Try running ``seqLEDs.py``.
 
     .. group-tab:: ssh (Mac)
                 
@@ -214,7 +210,7 @@ take the ``ssh (Linux)`` tab.  Finally take the
         and password ``temppwd``.  
 
 Blink an LED
-------------
+============
 
 Once logged in the rest is easy.  First:
 
@@ -253,7 +249,7 @@ Here you see a simple bash script that turns an LED
 on and off.  Enter Ctrl+c to stop the script.
 
 Blinking via Python
--------------------
+====================
 
 Here's a script that sequences the LEDs on and off.
 
@@ -287,7 +283,7 @@ Here's a script that sequences the LEDs on and off.
 Again, hit Ctrl+c to stop the script.
 
 Blinking from Command Line
---------------------------
+==========================
 
 You can control the LEDs from the command line.
 
@@ -314,7 +310,7 @@ When you echo 1 into ``brightness`` the LED turns on.
 Echoing a 0 turns it off. 
 
 Blinking other LEDs
--------------------
+===================
 
 You can blink the other LEDs by changing in to thier 
 directories and doing the same. Let's blink the USR0 LED.
@@ -351,7 +347,7 @@ Try experimenting with some of the other triggers and see if you
 can figure them out.
 
 Another way to Blink an LED
----------------------------
+===========================
 
 An interesting thing about Linux is there are often many ways 
 to do the same thing.  For example, I can think of at least five ways to blink 
@@ -394,7 +390,7 @@ Try it for the other LEDs.
     version of Debian you are running.
 
 Blinking in response  to a button
----------------------------------
+=================================
 
 Some Beagles have a USR button that can be used  to control the LEDs. 
 You can test the USR button with ``evtest`` 
@@ -412,7 +408,7 @@ You can test the USR button with ``evtest``
 We want to use ``gpio-keys``, so enter ``1``. Press and release 
 the USR button and you'll see:
 
- .. code-block:: shell-session
+.. code-block:: shell-session
 
     Input driver version is 1.0.1
     Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
@@ -445,6 +441,7 @@ The following script uses evtest to wait for the USR button to be pressed and
 then turns on the LED.
 
 .. literalinclude:: buttonEvent.sh
+    :language: Shell
     :caption: buttonEvent.sh
     :linenos:
 
@@ -455,6 +452,7 @@ Try running it and pressing the USR button.
 The next script polls the USR button and toggles the LED.
 
 .. literalinclude:: buttonLED.sh
+    :language: shell
     :caption: buttonLED.sh
     :linenos:
 

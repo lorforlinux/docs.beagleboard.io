@@ -439,20 +439,20 @@ in your local repository, type:
 If Jason is adding more commits to his remote branch and you want to update
 your local copy, just do:
 
-.. code-block::
+.. code-block:: bash
 
     git checkout awesomebranch  # if you are not already in branch awesomebranch pull
 
 If you later want to remove the reference to this particular branch:
 
-.. code-block::
+.. code-block:: bash
 
     git branch -r -d jkridner/awesomebranch
     Deleted remote branch jkridner/awesomebranch (#######)
 
 Or, to delete the references to all of Jason's branches:
 
-.. code-block::
+.. code-block:: bash
 
     git remote rm jkridner
     

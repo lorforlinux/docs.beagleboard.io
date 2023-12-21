@@ -18,3 +18,5 @@ Demos
     demos-and-tutorials/mchp-fpga-tools-installation-guide
     demos-and-tutorials/gateware/index
     demos-and-tutorials/gateware/how-to-find-out-whats-on-the-board
+    demos-and-tutorials/gateware/gateware-full-flow
+    demos-and-tutorials/gateware/gateware-tcl-scripts-structure

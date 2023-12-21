@@ -523,6 +523,7 @@ Solution
 .. _kernel_hello_patch:
 
 .. literalinclude:: ../code/07kernel/hello.patch
+   :language: diff
    :caption: Simple kernel patch file (hello.patch)
    :linenos:
 

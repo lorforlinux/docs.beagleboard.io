@@ -16,6 +16,12 @@ ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
 
 BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
+rst_epilog =""
+
+# Add latest images to rst_epilog
+with open('latest.images') as f:
+     rst_epilog += f.read()    
+                       
 # -- Project information -----------------------------------------------------
 
 project = 'BeagleBoard Docs'
@@ -34,8 +40,11 @@ extensions = [
     "sphinx.ext.imgconverter",
     "sphinx.ext.graphviz",
     "sphinx.ext.todo",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx_tabs.tabs",
     "breathe",
+    "sphinx_copybutton",
 ]
 
 #    "exhale"
@@ -71,7 +80,7 @@ LaTeXBuilder.supported_image_types = ['application/pdf', 'image/jpg', 'image/jpe
 
 templates_path = ['_templates']
 
-source_suffix = ['.rst', '.md']
+source_suffix = ['.rst']
 numfig = True
 navigation_with_keys = True
 

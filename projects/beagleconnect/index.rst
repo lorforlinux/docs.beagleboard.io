@@ -12,11 +12,6 @@ architecture.
 .. note:: 
     This documentation and the associated software are each a work-in-progress.
 
-.. image:: media/BeagleConnect-Freedom-Front.*
-   :width: 598
-   :align: center
-   :alt: BeagleConnect Freedom
-
 BeagleConnect™ is built using `Greybus <https://kernel-recipes.org/en/2015/talks/an-introduction-to-greybus/>`__
 code in the Linux kernel originally designed for mobile phones.
 To understand a bit more about how the BeagleConnect™ Greybus stack is being
@@ -31,7 +26,7 @@ Background
    :height: 400
    :alt: BeagleConnect Software Proposition
 
-BeagleConnect™ uses Greybus and updated Click Boards with identifiers to 
+BeagleConnect™ uses Greybus and mikroBUS add-on boards with ClickID and BeagleConnect™ mikroBUS manifests to 
 eliminate the need to add and manually configure devices added onto the Linux 
 system.
 
@@ -51,10 +46,15 @@ High-level
   the MCU and exposes the device generically to users using a Linux kernel 
   driver. Further, the Greybus protocol is spoken over 6LoWPAN on 802.15.4.
 
+.. _beagleconnect-software-architecture:
+
 Software architecture
 *********************
 
-.. graphviz:: BeagleConnect Software Architecture
+.. _beagleconnect-software-architecture-diagram:
+
+.. graphviz::
+        :caption: BeagleConnect Software Architecture Diagram
 
     	// Software architecture
     	digraph S {
@@ -216,7 +216,7 @@ that is required is a reliable transport.
 
 Every 1-2 minutes, you should see something like:
 
-.. code-block::
+.. code-block:: bash
 
     ('fe80::3111:7a22:4b:1200%lowpan0', 52213, 0, 13)  '2l:7.79;'
     ('fe80::3111:7a22:4b:1200%lowpan0', 52213, 0, 13)  '4h:43.75;4t:23.11;'
@@ -912,7 +912,7 @@ Ping Linux
 
 Similarly, we can ping the Linux host from the Zephyr shell.
 
-.. code-block::
+.. code-block:: bash
 
     uart:~$ net ping --help
     ping - Ping a network host.

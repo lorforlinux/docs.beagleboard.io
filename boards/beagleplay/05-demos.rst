@@ -113,13 +113,13 @@ Demos and tutorials
     +++
     .. admonition:: Complexity level
 
-        intermediate
+        advanced
 
 .. card::
     :link: greybus-host
     :link-type: ref
 
-    **Bealgplay Greybus Host**
+    **BeaglePlay Greybus Host**
     +++
     .. admonition:: Complexity level
         
@@ -143,3 +143,4 @@ Demos and tutorials
    demos-and-tutorials/zephyr-cc1352-development
    demos-and-tutorials/play-kernel-development
    demos-and-tutorials/greybus-host
+   demos-and-tutorials/understanding-boot

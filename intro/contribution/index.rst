@@ -62,7 +62,8 @@ designs and documentation.
 
 Reading the `help guide <https://git.beagleboard.org/help/>`_ is a great way to get started using our Gitlab server.
 
-This documentation has a number of ``todo`` items where help is needed that can be searched in the source.
+This documentation has a number of ``todo`` items where help is needed that can be searched in the source. This list will
+show up directly in the staging documentation at https://docs.beagleboard.io/latest/intro/contribution/index.html#how-can-i-contribute.
 
 .. todolist::
 
@@ -106,8 +107,7 @@ Articles on contribution
 
 .. toctree::
    :maxdepth: 1
-
-   /CONTRIBUTING
+   
    git-usage
    style
    rst-cheat-sheet
