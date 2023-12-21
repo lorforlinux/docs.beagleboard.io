@@ -4,10 +4,10 @@ Demos and tutorials
 ####################
 
 .. raw:: latex
-   
+
    \begin{comment}
 
-.. card:: 
+.. card::
     :link: beagleplay-serial-console
     :link-type: ref
 
@@ -16,10 +16,10 @@ Demos and tutorials
     Learn how to use any USB-UART converter to get access to BeaglePlay via serial console.
     +++
     .. admonition:: Complexity level
-        
-        beginner
 
-.. card:: 
+	beginner
+
+.. card::
     :link: beagleplay-connect-wifi
     :link-type: ref
 
@@ -28,10 +28,10 @@ Demos and tutorials
     Learn different ways to connect your BeaglePlay to a WiFi access point.
     +++
     .. admonition:: Complexity level
-        
-        beginner
 
-.. card:: 
+	beginner
+
+.. card::
     :link: beagleplay-grove
     :link-type: ref
 
@@ -40,10 +40,10 @@ Demos and tutorials
     Learn to expand your BeaglePlay capabilities with grove modules.
     +++
     .. admonition:: Complexity level
-        
-        beginner
 
-.. card:: 
+	beginner
+
+.. card::
     :link: beagleplay-mikrobus
     :link-type: ref
 
@@ -52,10 +52,10 @@ Demos and tutorials
     Learn to expand your BeaglePlay capabilities via 1000s of mikroBUS click board support.
     +++
     .. admonition:: Complexity level
-        
-        beginner
 
-.. card:: 
+	beginner
+
+.. card::
     :link: beagleplay-qwiic
     :link-type: ref
 
@@ -64,10 +64,22 @@ Demos and tutorials
     Learn to expand your BeaglePlay capabilities via Qwiic I2C boards.
     +++
     .. admonition:: Complexity level
-        
-        beginner
 
-.. card:: 
+	beginner
+
+.. card::
+    :link: beagleplay-rtc
+    :link-type: ref
+
+    **Using RTC**
+    ^^^
+    Learn how to use the onboard RTC to keep time.
+    +++
+    .. admonition:: Complexity level
+
+	beginner
+
+.. card::
     :link: beagleplay-oldi
     :link-type: ref
 
@@ -76,10 +88,10 @@ Demos and tutorials
     Learn how to connect and run oldi displays with BeaglePlay.
     +++
     .. admonition:: Complexity level
-        
-        intermediate
 
-.. card:: 
+	intermediate
+
+.. card::
     :link: beagleplay-csi
     :link-type: ref
 
@@ -88,10 +100,10 @@ Demos and tutorials
     Learn how to connect and run CSI cameras with BeaglePlay.
     +++
     .. admonition:: Complexity level
-        
-        intermediate
 
-.. card:: 
+	intermediate
+
+.. card::
     :link: beagleplay-zephyr-development
     :link-type: ref
 
@@ -100,8 +112,8 @@ Demos and tutorials
     Compile and flash zephyr to your beagleplay's CC1352P7.
     +++
     .. admonition:: Complexity level
-        
-        intermediate
+
+	intermediate
 
 .. card::
     :link: play-kernel-development
@@ -113,7 +125,7 @@ Demos and tutorials
     +++
     .. admonition:: Complexity level
 
-        advanced
+	advanced
 
 .. card::
     :link: greybus-host
@@ -122,8 +134,8 @@ Demos and tutorials
     **BeaglePlay Greybus Host**
     +++
     .. admonition:: Complexity level
-        
-        intermediate
+
+	intermediate
 
 .. card::
     :link: play-understanding-boot
@@ -132,8 +144,8 @@ Demos and tutorials
     **Understanding Boot**
     +++
     .. admonition:: Complexity level
-        
-        intermediate
+
+	intermediate
 
 .. raw:: latex
 
@@ -148,6 +160,7 @@ Demos and tutorials
    demos-and-tutorials/using-grove
    demos-and-tutorials/using-mikrobus
    demos-and-tutorials/using-qwiic
+   demos-and-tutorials/using-rtc
    demos-and-tutorials/using-oldi
    demos-and-tutorials/using-csi
    demos-and-tutorials/zephyr-cc1352-development
