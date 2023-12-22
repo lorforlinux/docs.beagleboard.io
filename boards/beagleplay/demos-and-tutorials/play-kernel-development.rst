@@ -114,9 +114,12 @@ Installing and Booting the Kernel
 
         See :ref:`beagleplay-serial-console` to setup access over the debug serial port.
 
-.. code-block:: bash
+.. _play-dpkg-install-kernel:
 
-        sudo dpkg -i linux-image-6.6.0_1xross_arm64.deb linux-libc-dev_1xross_arm64.deb
+.. code-block:: bash
+    :caption: Install 6.6.0 kernel and reboot
+
+        sudo dpkg -i linux-image-6.6.0_1xross_arm64.deb
         sudo shutdown -r now
 
 As long as the kernel you built has no significant issues, you'll boot back into a

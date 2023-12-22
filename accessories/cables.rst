@@ -155,12 +155,49 @@ JTAG debug Cables
 TagConnect (JTAG)
 ==================
 
-Boards like :ref:`beagleconnect_freedom_home` and :ref:`beagleplay-home` use the TagConnect 
-interface which allows you to perform firmware updates and JTAG hardware debugging. To use the 
-interface, the the parts below from `tag-connect <https://www.tag-connect.com>`_  are required.
+Boards like :ref:`beagleconnect_freedom_home`, :ref:`beaglev-ahead-home`, :ref:`beaglev-fire-home`, and :ref:`beagleplay-home` use the TagConnect 
+interface which allows you to perform firmware updates and JTAG hardware debugging. To use the interface, the the parts below from 
+`tag-connect <https://www.tag-connect.com>`_  are required.
 
-1. `10pin TagConnect (no legs) ribbon cable. <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
-2. `TagConnect retaining clip. <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
+.. note:: 
+    You need both the cable and the retaining clip to properly use/connect the cable with the boards. 
+    There is an option to 3D print protective cap and retaining cap which you can try.
+
+TC2050 debug cable
+-------------------
+
+.. image:: images/tc2050-idc-nl-10-pin-debug-cable.jpg
+    :align: center
+    :width: 420
+    :alt: TC2050 10pin debug cable
+ 
+1. `TC2050 cable (tag-connect.com) <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
+2. `TC2050 cable (DigiKey) <https://www.digikey.com/en/products/detail/tag-connect-llc/TC2050-IDC-NL/2605367>`_
+
+
+
+TC2050 retaining clip
+----------------------
+
+.. image:: images/TC2050-CLIP.jpg
+    :align: center
+    :width: 420
+    :alt: TC2050 retaining clip
+
+1. `TC2050 retaining clip (tag-connect.com) <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
+2. `TC2050 retaining clip (DigiKey) <https://www.digikey.com/en/products/detail/tag-connect-llc/TC2050-CLIP-3PACK/12318009>`_
+
+3D printable cap & clip (Optional)
+-----------------------------------
+
+.. image:: images/TC2050-protective-cap.jpg
+    :align: center
+    :width: 420
+    :alt: 3D printable TC2050 protective cap
+
+
+1. `Protective cap (Thingiverse) <https://www.thingiverse.com/thing:3025584>`_
+2. `Retaining clip (Thingiverse) <https://www.thingiverse.com/thing:3035278>`_
 
 
 HDMI Cables
