@@ -37,7 +37,7 @@ With asterisk you can format the text as italic & bold,
 
 With backquote character (`) you can format the text as link & inline literal.
 
-1. See `Links`_ section on how single backquote can be used to create a link like `this <www.beagleboard.org>`_.
+1. See `Links and cross referencing`_ section on how single backquote can be used to create a link like `this <www.beagleboard.org>`_.
 2. With double back quotes before and after text you can easily create ``inline lierals``.
 
 .. note::
@@ -253,19 +253,13 @@ Output
     example.
 
 
-Links
-******
-
-We have three types of links to use in sphinx,
-
-1. External links (http(s) links).
-2. Implicit links to title (within same rst file).
-3. Explicit links (labels that can be used anywhere in the project).
+Links and cross referencing
+****************************
 
 External links
 ==============
 
-For a simple link to a site the format is
+For a simple link (url) to a site the format is
 
 .. code-block:: rst
 
@@ -281,22 +275,32 @@ You can also include a label to the link as shown below.
 
 this will be rendered as `BeagleBoard.org <www.beagleboard.org>`_. 
 
-Implicit Links
-==============
+Cross referencing
+==================
+
+Cross referencing involves two components, references and targets.
+
+1. **references** are pointers in your documentation to other parts of your documentation.
+2. **targets** are where the references can point to.
+
+When you manually create a target which can be referenced from other pages it's called 
+explicit target. When you create a section (heading), a footnote, or a citation then 
+Sphinx will create a target with the title as the name which is called implicit target.
+
+Implicit target
+================
 
 These are basically the headings inside the rst page which can 
 be used as a link to that section within document. 
 
 .. code-block:: rst
 
-    `Links`_
+    `External links`_
 
-when rendered it becomes `Links`_
+when rendered it becomes `External links`_
 
-Explicit link
-==============
-
-.. todo:: The terminology ``Implicit`` and ``Explicit`` is not accurate here.
+Explicit target
+================
 
 These are special links you can assign to a specific part of the document and reference anywhere 
 in the project unlike implicit links which can be used only within the document they are defined. 
