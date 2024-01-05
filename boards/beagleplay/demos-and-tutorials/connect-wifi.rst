@@ -12,17 +12,17 @@ Connect WiFi
     Also see `this potential solution. <https://unix.stackexchange.com/questions/679862/wpa-supplicant-conf-escaping-characters/>`_.
 
 
-If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`.
+If you have a monitor and keyboard/mouse combo connected, the easiest way is to use ``wpa-gui``.
 
 Alternatively, you can use ``wpa_cli`` over a shell connection through:
 
-* the :ref:`serial console <beagleplay-serial-console>`,
+* The :ref:`serial console <beagleplay-serial-console>`,
 * VSCode or ``ssh`` over a USB network connection,
 * VSCode or ``ssh`` over an Ethernet connection,
 * VSCode or ``ssh`` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`, or
-* :ref:`a local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`.
+* A local Terminal Emulator session.
 
-Once you have a shell connection, follow the :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`.
+Once you have a shell connection, follow the ``wpa_cli`` instructions.
 
 .. _beagleplay-wifi-access-point:
 
@@ -67,244 +67,231 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
 .. important::
    Once logged in, you should change the default password using the `passwd` command.
 
-.. _beagleplay-wifi-wpa-gui:
+.. tabs:: 
 
-wpa_gui
-********
+    .. group-tab:: wpa_gui
 
-Simplest way to connect to WiFi is to use ``wpa_gui`` tool pre-installed on your BeaglePlay. 
-Follow simple steps below to connect to any WiFi access point.
+      Simplest way to connect to WiFi is to use ``wpa_gui`` tool pre-installed on your BeaglePlay. 
+      Follow simple steps below to connect to any WiFi access point.
 
-Step 1: Starting wpa_gui
-=========================
+      **Step 1: Starting wpa_gui**
 
-You can start ``wpa_gui`` either from ``Applications > Internet > wpa_gui`` or double click on the ``wpa_gui`` desktop application shortcut.
+      You can start ``wpa_gui`` either from ``Applications > Internet > wpa_gui`` or double click on the ``wpa_gui`` desktop application shortcut.
 
-.. figure:: ../images/wpa_gui_step1a.png
-    :align: center
-    :alt: Starting wpa_gui from Applications > Internet > wpa_gui
+      .. figure:: ../images/wpa_gui_step1a.png
+          :align: center
+          :alt: Starting wpa_gui from Applications > Internet > wpa_gui
 
-    Starting wpa_gui from Applications > Internet > wpa_gui
+          Starting wpa_gui from Applications > Internet > wpa_gui
 
-.. figure:: ../images/wpa_gui_step1b.png
-    :align: center
-    :alt: Starting wpa_gui from Desktop application shortcut
+      .. figure:: ../images/wpa_gui_step1b.png
+          :align: center
+          :alt: Starting wpa_gui from Desktop application shortcut
 
-    Starting wpa_gui from Desktop application shortcut    
+          Starting wpa_gui from Desktop application shortcut    
 
-Step 2: Understanding wpa_gui interface
-========================================
+      **Step 2: Understanding wpa_gui interface**
 
-Let's see the ``wpa_gui`` interface in detail,
+      Let's see the ``wpa_gui`` interface in detail,
 
-1. ``Adapter`` is the WiFi interface device, it should be ``wlan0`` (on-board WiFi) by default.
-2. ``Network`` shows the WiFi access point ``SSID`` if you are connected to that network.
-3. ``Current Status`` tab shows you network information if you are connected to any network.
-    - Click on ``Connect`` to connect if not automatically done.
-    - Click on ``Disconnect`` to disconnect/reset the connection.
-    - Click on ``Scan`` to scan nearby WiFi access points.
-4. ``Manage Network`` tab shows you all the saved networks and options to manage those.
+      1. ``Adapter`` is the WiFi interface device, it should be ``wlan0`` (on-board WiFi) by default.
+      2. ``Network`` shows the WiFi access point ``SSID`` if you are connected to that network.
+      3. ``Current Status`` tab shows you network information if you are connected to any network.
+          - Click on ``Connect`` to connect if not automatically done.
+          - Click on ``Disconnect`` to disconnect/reset the connection.
+          - Click on ``Scan`` to scan nearby WiFi access points.
+      4. ``Manage Network`` tab shows you all the saved networks and options to manage those.
 
-.. figure:: ../images/wpa_gui_step2.png
-    :align: center
-    :alt: wpa_gui interface
+      .. figure:: ../images/wpa_gui_step2.png
+          :align: center
+          :alt: wpa_gui interface
 
-    wpa_gui interface
+          wpa_gui interface
 
-Step 3: Scanning & Connecting to WiFi access points
-====================================================
+      **Step 3: Scanning & Connecting to WiFi access points**
 
-To scan the WiFi access points around you, just click on ``Scan`` button availale under 
-``wpa_gui > Current Status > Scan``.
+      To scan the WiFi access points around you, just click on ``Scan`` button availale under 
+      ``wpa_gui > Current Status > Scan``.
 
-.. figure:: ../images/wpa_gui_step3a.png
-    :align: center
-    :alt: Scanning WiFi access points
+      .. figure:: ../images/wpa_gui_step3a.png
+          :align: center
+          :alt: Scanning WiFi access points
 
-    Scanning WiFi access points
+          Scanning WiFi access points
 
-A new window will open up with,
+      A new window will open up with,
 
-1. SSID (WiFi name)
-2. BSSID
-3. Frequency
-4. Signal strength
-5. flags
+      1. SSID (WiFi name)
+      2. BSSID
+      3. Frequency
+      4. Signal strength
+      5. flags
 
-Now, you just have to double click on the Network you want to connect to as shown below.
+      Now, you just have to double click on the Network you want to connect to as shown below.
 
-.. note:: 
-    SSIDs and BSSIDs are not fully visible in screenshot below 
-    but you can change the column length to see the WiFi names better.
+      .. note:: 
+          SSIDs and BSSIDs are not fully visible in screenshot below 
+          but you can change the column length to see the WiFi names better.
 
-.. figure:: ../images/wpa_gui_step3b.png
-    :align: center
-    :alt: Selecting WiFi access point
+      .. figure:: ../images/wpa_gui_step3b.png
+          :align: center
+          :alt: Selecting WiFi access point
 
-    Selecting WiFi access point
+          Selecting WiFi access point
 
-Final step is to type your WiFi access point password under ``PSK`` input field and 
-click on ``Add`` (as shown in screenshot below) which will automatically connect 
-your board to WiFi (if password is correct). 
+      Final step is to type your WiFi access point password under ``PSK`` input field and 
+      click on ``Add`` (as shown in screenshot below) which will automatically connect 
+      your board to WiFi (if password is correct). 
 
-.. figure:: ../images/wpa_gui_step3c.*
-    :align: center
-    :alt: Connecting to WiFi access point
+      .. figure:: ../images/wpa_gui_step3c.*
+          :align: center
+          :alt: Connecting to WiFi access point
 
-    Connecting to WiFi access point
+          Connecting to WiFi access point
 
-.. _beagleplay-wifi-wpa-cli:
+    .. group-tab:: wpa_cli (shell)
 
-wpa_cli (shell)
-****************
+      In commands shown below, swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network BSSID and password, respectively.
 
-Swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network BSSID and password, respectively.
+      .. code-block:: console
 
-.. code-block:: shell-session
+         debian@BeaglePlay:~$ wpa_cli scan
+         Selected interface 'wlan0'
+         OK
+         debian@BeaglePlay:~$ wpa_cli scan_results
+         Selected interface 'wlan0'
+         bssid / frequency / signal level / flags / ssid
+         68:ff:7b:03:0a:8a	5805	-49	[WPA2-PSK-CCMP][WPS][ESS]	mywifi
+         debian@BeaglePlay:~$ wpa_cli add_network
+         Selected interface 'wlan0'
+         1
+         debian@BeaglePlay:~$ wpa_cli set_network 1 bssid 68:ff:7b:03:0a:8a
+         Selected interface 'wlan0'
+         OK
+         debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
+         Selected interface 'wlan0'
+         OK
+         debian@BeaglePlay:~$ wpa_cli enable_network 1
+         Selected interface 'wlan0'
+         OK
+         debian@BeaglePlay:~$ ifconfig wlan0
+         wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                 inet 192.168.0.245  netmask 255.255.255.0  broadcast 192.168.0.255
+                 inet6 fe80::6e30:2aff:fe29:757d  prefixlen 64  scopeid 0x20<link>
+                 inet6 2601:408:c083:b6c0::e074  prefixlen 128  scopeid 0x0<global>
+                 ether 6c:30:2a:29:75:7d  txqueuelen 1000  (Ethernet)
+                 RX packets 985  bytes 144667 (141.2 KiB)
+                 RX errors 0  dropped 0  overruns 0  frame 0
+                 TX packets 52  bytes 10826 (10.5 KiB)
+                 TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-   debian@BeaglePlay:~$ wpa_cli scan
-   Selected interface 'wlan0'
-   OK
-   debian@BeaglePlay:~$ wpa_cli scan_results
-   Selected interface 'wlan0'
-   bssid / frequency / signal level / flags / ssid
-   68:ff:7b:03:0a:8a	5805	-49	[WPA2-PSK-CCMP][WPS][ESS]	mywifi
-   debian@BeaglePlay:~$ wpa_cli add_network
-   Selected interface 'wlan0'
-   1
-   debian@BeaglePlay:~$ wpa_cli set_network 1 bssid 68:ff:7b:03:0a:8a
-   Selected interface 'wlan0'
-   OK
-   debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
-   Selected interface 'wlan0'
-   OK
-   debian@BeaglePlay:~$ wpa_cli enable_network 1
-   Selected interface 'wlan0'
-   OK
-   debian@BeaglePlay:~$ ifconfig wlan0
-   wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-           inet 192.168.0.245  netmask 255.255.255.0  broadcast 192.168.0.255
-           inet6 fe80::6e30:2aff:fe29:757d  prefixlen 64  scopeid 0x20<link>
-           inet6 2601:408:c083:b6c0::e074  prefixlen 128  scopeid 0x0<global>
-           ether 6c:30:2a:29:75:7d  txqueuelen 1000  (Ethernet)
-           RX packets 985  bytes 144667 (141.2 KiB)
-           RX errors 0  dropped 0  overruns 0  frame 0
-           TX packets 52  bytes 10826 (10.5 KiB)
-           TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-.. important::
-   The single quotes around the double quotes are needed to make sure the
-   double quotes are given to ``wpa_cli``. It expects to see them.
+      .. important::
+         The single quotes around the double quotes are needed to make sure the
+         double quotes are given to ``wpa_cli``. It expects to see them.
 
-.. note::
-   For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
+      .. note::
+         For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
 
-To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. This is described
-in :ref:`beagleplay-wifi-wpa-cli-xfce`.
+      To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. 
+      This is described in *wpa_cli (XFCE)* section.
 
-.. _beagleplay-wifi-wpa-cli-xfce:
+    .. group-tab:: wpa_cli (XFCE)
 
-wpa_cli (XFCE)
-**************
+      Another way of connecting to a WiFi access point is to edit the ``wpa_supplicant`` configuration file.
 
-Another way of connecting to a WiFi access point is to edit the ``wpa_supplicant`` configuration file.
 
+      **Step 1: Open up terminal**
 
-Step 1: Open up terminal
-=========================
+      Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
 
-Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
+      .. figure:: ../images/wpa_cli_step1a.jpg
+          :align: center
+          :alt: Open terminal from Applications > Terminal Emulator
 
-.. figure:: ../images/wpa_cli_step1a.jpg
-    :align: center
-    :alt: Open terminal from Applications > Terminal Emulator
+          Open terminal from Applications > Terminal Emulator    
 
-    Open terminal from Applications > Terminal Emulator    
+      .. figure:: ../images/wpa_cli_step1b.jpg
+          :align: center
+          :alt: Open terminal from Task Manager
 
-.. figure:: ../images/wpa_cli_step1b.jpg
-    :align: center
-    :alt: Open terminal from Task Manager
+          Open terminal from Task Manager
 
-    Open terminal from Task Manager
+      **Step 2: Setup credentials**
 
-Step 2: Setup credentials
-=========================
+      To setup credentials of your WiFi access point follow these steps,
 
-To setup credentials of your WiFi access point follow these steps,
+      1. Execute ``sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf``, 
+      which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based) text editor.
+      1. Edit ``wpa_supplicant-wlan0.conf`` to add SSID (WiFi name) & PSK (WiFi password) of your WiFi access point.
 
-1. Execute ``sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf``, 
-which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based) text editor.
-2. Edit ``wpa_supplicant-wlan0.conf`` to add SSID (WiFi name) & PSK (WiFi password) of your WiFi access point.
+      .. code-block::
 
-.. code-block::
+          ....
+          network={
+                  ssid="WiFi Name"
+                  psk="WiFi Password"
+                  ....
+          }
 
-    ....
-    network={
-            ssid="WiFi Name"
-            psk="WiFi Password"
-            ....
-    }
+      1. Now save the details using ``ctrl + O`` then enter.
+      2. To exit out of the ``nano`` text editor use ``ctrl + X``.
 
-3. Now save the details using ``ctrl + O`` then enter.
-4. To exit out of the ``nano`` text editor use ``ctrl + X``.
+      .. figure:: ../images/wpa_cli_step2a.jpg
+          :align: center
+          :alt: Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
-.. figure:: ../images/wpa_cli_step2a.jpg
-    :align: center
-    :alt: Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+          Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
-    Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+      .. figure:: ../images/wpa_cli_step2b.jpg
+          :align: center
+          :alt: Add SSID and PSK
 
-.. figure:: ../images/wpa_cli_step2b.jpg
-    :align: center
-    :alt: Add SSID and PSK
+          Add SSID and PSK
 
-    Add SSID and PSK
+      .. figure:: ../images/wpa_cli_step2c.jpg
+          :align: center
+          :alt: Save credentials and Exit
 
-.. figure:: ../images/wpa_cli_step2c.jpg
-    :align: center
-    :alt: Save credentials and Exit
+          Save credentials (ctrl + O) and Exit (ctrl + X)
 
-    Save credentials (ctrl + O) and Exit (ctrl + X)
+      **Step 3: Reconfigure wlan0**
 
-Step 3: Reconfigure wlan0
-=========================
+      The WiFi doesn't automatically connect to your WiFi access point 
+      after you add the credentials to ``wpa_supplicant-wlan0.conf``. 
 
-The WiFi doesn't automatically connect to your WiFi access point 
-after you add the credentials to ``wpa_supplicant-wlan0.conf``. 
+      1. To connect you can either execute ``sudo wpa_cli -i wlan0 reconfigure`` 
+      2. Or Reboot your device by executing ``reboot`` inside your terminal window.
+      3. Execute ``ping 8.8.8.8`` to check your connection. Use ``ctrl + C`` to quit.
 
-1. To connect you can either execute ``sudo wpa_cli -i wlan0 reconfigure`` 
-2. Or Reboot your device by executing ``reboot`` inside your terminal window.
-3. Execute ``ping 8.8.8.8`` to check your connection. Use ``ctrl + C`` to quit.
+      .. code-block:: console
 
-.. code-block:: shell
+          debian@BeaglePlay:~$ ping 8.8.8.8
+          PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+          64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=5.83 ms
+          64 bytes from 8.8.8.8: icmp_seq=2 ttl=118 time=7.27 ms
+          64 bytes from 8.8.8.8: icmp_seq=3 ttl=118 time=5.30 ms
+          64 bytes from 8.8.8.8: icmp_seq=4 ttl=118 time=5.28 ms
+          64 bytes from 8.8.8.8: icmp_seq=5 ttl=118 time=9.04 ms
+          64 bytes from 8.8.8.8: icmp_seq=6 ttl=118 time=7.52 ms
+          64 bytes from 8.8.8.8: icmp_seq=7 ttl=118 time=5.39 ms
+          64 bytes from 8.8.8.8: icmp_seq=8 ttl=118 time=5.94 ms
+          ^C
+          --- 8.8.8.8 ping statistics ---
+          8 packets transmitted, 8 received, 0% packet loss, time 7008ms
+          rtt min/avg/max/mdev = 5.281/6.445/9.043/1.274 ms
 
-    debian@BeaglePlay:~$ ping 8.8.8.8
-    PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-    64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=5.83 ms
-    64 bytes from 8.8.8.8: icmp_seq=2 ttl=118 time=7.27 ms
-    64 bytes from 8.8.8.8: icmp_seq=3 ttl=118 time=5.30 ms
-    64 bytes from 8.8.8.8: icmp_seq=4 ttl=118 time=5.28 ms
-    64 bytes from 8.8.8.8: icmp_seq=5 ttl=118 time=9.04 ms
-    64 bytes from 8.8.8.8: icmp_seq=6 ttl=118 time=7.52 ms
-    64 bytes from 8.8.8.8: icmp_seq=7 ttl=118 time=5.39 ms
-    64 bytes from 8.8.8.8: icmp_seq=8 ttl=118 time=5.94 ms
-    ^C
-    --- 8.8.8.8 ping statistics ---
-    8 packets transmitted, 8 received, 0% packet loss, time 7008ms
-    rtt min/avg/max/mdev = 5.281/6.445/9.043/1.274 ms
 
+      .. figure:: ../images/wpa_cli_step3a.jpg
+          :align: center
+          :alt: Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
-.. figure:: ../images/wpa_cli_step3a.jpg
-    :align: center
-    :alt: Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
+          Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
-    Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
+      .. figure:: ../images/wpa_cli_step3b.jpg
+          :align: center
+          :alt: To check connection try running $ ping 8.8.8.8
 
-.. figure:: ../images/wpa_cli_step3b.jpg
-    :align: center
-    :alt: To check connection try running $ ping 8.8.8.8
-
-    To check connection try running $ ping 8.8.8.8 
+          To check connection try running $ ping 8.8.8.8 
 
     
 Disabling the WIFI Access Point
@@ -342,4 +329,4 @@ Conversely, you can re-enable the access point by re-installing the `bb-wlan0-de
 
 Now just reboot.
 
---TODO Add notes on changing SSID/Password
+.. todo:: Add notes on changing SSID/Password
