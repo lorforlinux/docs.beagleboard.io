@@ -15,7 +15,7 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 5. Quick-start card
 
 .. image:: images/product-pictures/45fontall.*
-    :width: 1400
+    :width: 940
     :align: center
     :alt: BeaglePlay box contents
 
@@ -35,7 +35,7 @@ You can watch this video to see how to attach the attennas.
 
     .. raw:: html
 
-        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
+        <iframe style="display: block; margin: auto;" width="920" height="520" style="align:center" 
         src="https://www.youtube.com/embed/8zeIVd-JRc0" 
         title="YouTube video player" 
         frameborder="0" 
