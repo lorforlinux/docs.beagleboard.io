@@ -428,7 +428,7 @@ in a way that you'd like to preserve or share.
 Solution
 ---------
 
-The `eLinux wiki <The http://elinux.org/Beagleboard>`_ page on `BeagleBone Black Extracting eMMC contents <http://bit.ly/1C57I0a>`_
+The `eLinux wiki <http://elinux.org/Beagleboard>`_ page on `BeagleBone Black Extracting eMMC contents <http://bit.ly/1C57I0a>`_
 provides some simple steps for copying the contents of the onboard flash to a file on a microSD card:
 
 - Get a 4 GB or larger microSD card that is FAT formatted.
@@ -448,7 +448,7 @@ provides some simple steps for copying the contents of the onboard flash to a fi
 
 .. tip:: 
 
-   The `eLinux wiki <The http://elinux.org/Beagleboard>`_ is the 
+   The `eLinux wiki <http://elinux.org/Beagleboard>`_ is the 
    definitive place for the BeagleBoard.org community to 
    share information about the Beagles. Spend some time 
    looking around for other helpful information.
