@@ -3,7 +3,7 @@
 Introduction
 ###############
 
-BeagleBone AI-64 like its predecessors (BeagleBone AI), is designed to address the 
+BeagleBone AI-64 like its predecessors :ref:`beaglebone-ai-home`, is designed to address the 
 open-source Community, early adopters, and anyone interested in a low cost 64-bit 
 Dual Arm® Cortex®-A72 processor based Single Board Computer (SBC). It also offers 
 access to many of the interfaces and allows for the use of add-on boards called 
@@ -33,7 +33,7 @@ their own board or add their own circuitry.
 .. _bbai64-beaglebone-compatibility:
 
 BeagleBone Compatibility
--------------------------
+*************************
 
 The board is intended to provide functionality well beyond BeagleBone Black or BeagleBone AI, 
 while still providing compatibility with BeagleBone Black's expansion headers as 
