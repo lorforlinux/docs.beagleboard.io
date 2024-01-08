@@ -1,6 +1,6 @@
-.. _beaglebone-ai-design:
+.. _bbai-design-and-specifications:
 
-Detailed Hardware Design
+Design and specifications
 #########################
 
 This section provides a detailed description of the Hardware design.
@@ -12,7 +12,7 @@ those who may be concerned, this is the same figure found in section 5.
 It is placed here again for convenience so it is closer to the topics to
 follow.
 
-.. image:: images/BB_AI_Blockdiagram_1000px.jpg
+.. image:: media/BB_AI_Blockdiagram_1000px.jpg
    :align: center
    :alt: beaglebone ai component placement
 
@@ -61,7 +61,7 @@ resources. Power request signals enable power mode control for power
 optimization. The device includes a general-purpose sigma-delta
 analog-to-digital converter (GPADC) with three external input channels.
 
-.. image:: images/BB_AI_PMIC_schematicpg3_900px.png
+.. image:: media/BB_AI_PMIC_schematicpg3_900px.png
    :align: center
    :alt: beaglebone ai user interface placement
 
@@ -75,7 +75,7 @@ Below image shows how the USB-C power input is connected to the **TPS6590379**.
 Power Button
 =============
 
-.. image:: images/BB_AI_Userinterface_800px.png
+.. image:: media/BB_AI_Userinterface_800px.png
    :alt: beaglebone ai user interface placement
 
 .. _eMMC-flash-memory:
@@ -253,7 +253,7 @@ PRU-ICSS Block Diagram
 
 Below is a high level block diagram of one of the PRU-ICSS Subsystems
 
-.. image:: images/BB_AI_PRU_block_diagram.jpg
+.. image:: media/BB_AI_PRU_block_diagram.jpg
    :align: center
    :alt: beaglebone ai component placement
 
@@ -1971,7 +1971,7 @@ User LEDs
 There are 5 User Programmable LEDs on BeagleBone® AI. These are
 connected to GPIO pins on the processor. 
 
-.. image:: images/BB_AI_USERLEDS_800px.png
+.. image:: media/BB_AI_USERLEDS_800px.png
    :align: center
    :alt: beaglebone ai connector placement
 

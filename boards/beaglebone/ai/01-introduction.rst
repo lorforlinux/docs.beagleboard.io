@@ -1,7 +1,22 @@
-.. _beaglebone-ai-connecting:
+.. _bbai-introduction:
 
-Connecting Up Your BeagleBone AI
-################################
+Introduction
+#############
+
+Built on the proven BeagleBoard.org® open source Linux approach,
+BeagleBone® AI fills the gap between small SBCs and more powerful
+industrial computers. Based on the Texas Instruments AM5729, developers
+have access to the powerful SoC with the ease of BeagleBone® Black
+header and mechanical compatibility. BeagleBone® AI makes it easy to
+explore how artificial intelligence (AI) can be used in everyday life
+via TI C66x digital-signal-processor (DSP) cores and
+embedded-vision-engine (EVE) cores supported through an optimized TIDL
+machine learning OpenCL API with pre-installed tools. Focused on
+everyday automation in industrial, commercial and home applications.
+
+.. image:: media/BB_AI_BeautyAngle_800px.jpg
+   :align: center
+   :alt: BeagleBone AI Beauty Angle
 
 What’s In the Box
 *****************
@@ -16,7 +31,7 @@ distribution. In the box you will find:
 
 TODO: Add links to the design materials for both
 
-.. image:: images/BB_AI_antenna_heat_sink_place_500px.jpg
+.. image:: media/BB_AI_antenna_heat_sink_place_500px.jpg
    :align: center
    :alt: BeagleBone AI Overview
 
@@ -88,19 +103,19 @@ loaded on your BeagleBone® AI.
 
 1.  Locate the USB Type-C connector on BeagleBone® AI 
 
-.. image:: images/BB_AI_USBC_and_3pin_500px.png
+.. image:: media/BB_AI_USBC_and_3pin_500px.png
    :align: center
    :alt: USB connector and serial debug.
 
 2.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
 
-.. image:: images/BB_AI_connectingUSBC_500px.jpg
+.. image:: media/BB_AI_connectingUSBC_500px.jpg
    :align: center
    :alt: Connecting serial cable.
 
 3.  Connect the other end of the USB cable to the PC USB 3 port.
 
-.. image:: images/BB_AI_PlugIn_500px.jpg
+.. image:: media/BB_AI_PlugIn_500px.jpg
    :align: center
    :alt: connecting to PC
 
@@ -110,23 +125,23 @@ loaded on your BeagleBone® AI.
 
 6.  Look for a new mass storage drive to appear on the PC.
 
-.. image:: images/BB_AI_asadrive_500px.jpg
+.. image:: media/BB_AI_asadrive_500px.jpg
    :align: center
    :alt: BeagleBone storage drive options
 
 7.  Open the drive and open START.HTM with your web browser.
 
-.. image:: images/BB_AI_starthtm_500px.png
+.. image:: media/BB_AI_starthtm_500px.png
    :align: center
    :alt: BeagleBone drive 
 
-.. image:: images/BB_AI_connectedscreen_500px.jpg
+.. image:: media/BB_AI_connectedscreen_500px.jpg
    :align: center
    :alt: Getting started
 
 8.  Follow the instructions in the browser window.
 
-.. image:: images/vscode.png
+.. image:: media/vscode.png
    :align: center
    :alt: BeagleBone instructions
 
@@ -136,7 +151,7 @@ loaded on your BeagleBone® AI.
 Standalone w/Display and Keyboard/Mouse
 ****************************************
 
-.. image:: images/BB_AI_Standalone_setup_750px.jpg
+.. image:: media/BB_AI_Standalone_setup_750px.jpg
    :align: center
    :alt: BeagleBone AI Overview
 
@@ -180,7 +195,7 @@ Cables: https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently
 
 Locate the 3 PIN debug header on BeagleBone® AI, near the USB C connection.
 
-.. image:: images/BB_AI_USBC_and_3pin_500px.png
+.. image:: media/BB_AI_USBC_and_3pin_500px.png
    :align: center
    :alt: BeagleBone AI Overview
 
@@ -190,6 +205,6 @@ Press the small white connector into the 3 PIN debug header. The pinout is:
 - Pin 2: UART1_RX (i.e. this is a BB-AI input pin)
 - Pin 3: UART1_TX (i.e. BB-AI transmits out on this pin)
 
-.. image:: images/BB_AI_3pincableattach_500px.jpg
+.. image:: media/BB_AI_3pincableattach_500px.jpg
    :align: center
    :alt: BeagleBone AI Overview

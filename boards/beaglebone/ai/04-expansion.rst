@@ -1,12 +1,386 @@
-.. _beaglebone-ai-connectors:
+.. _bbai-expansion:
+
+Expansion
+#########
+
+.. _beaglebone-ai-overview:
+
+BeagleBone AI Overview
+======================
+
+.. image:: media/BB_AI_overview_image.*
+   :align: center
+   :alt: BeagleBone AI Overview
+
+BeagleBone® AI Features
+************************
+
+Main Processor Features of the AM5729 Within BeagleBone® AI
+============================================================
+
+-  Dual 1.5GHz ARM® Cortex®-A15 with out-of-order speculative issue
+   3-way superscalar execution pipeline for the fastest execution of
+   existing 32-bit code
+-  2 C66x Floating-Point VLIW DSP supported by OpenCL
+-  4 Embedded Vision Engines (EVEs) supported by TIDL machine learning
+   library
+-  2x Dual-Core Programmable Real-Time Unit (PRU) subsystems (4 PRUs
+   total) for ultra low-latency control and software generated
+   peripherals
+-  2x Dual ARM® Cortex®-M4 co-processors for real-time control
+-  IVA-HD subsystem with support for 4K @ 15fps H.264 encode/decode and
+   other codecs @ 1080p60
+-  Vivante® GC320 2D graphics accelerator
+-  Dual-Core PowerVR® SGX544™ 3D GPU
+
+Communications
+===============
+
+-  BeagleBone Black header and mechanical compatibility
+-  16-bit LCD interfaces
+-  4+ UARTs
+-  2 I2C ports
+-  2 SPI ports
+-  Lots of PRU I/O pins
+
+Memory
+=======
+
+-  1GB DDR3L
+-  16GB on-board eMMC flash
+
+Connectors
+===========
+
+-  USB Type-C connector for power and SuperSpeed dual-role controller
+-  Gigabit Ethernet
+-  802.11ac 2.4/5GHz WiFi via the AzureWave AW-CM256SM
+
+Out of Box Software
+====================
+
+-  Zero-download out of box software environment
+
+Board Component Locations
+**************************
+
+.. image:: media/BB_AI_ICPlacement_800px.png
+   :align: center
+   :alt: beaglebone ai component placement
+
+This section provides the high level specification of BeagleBone® AI
+
+Block Diagram
+**************
+
+The figure below is the high level block diagram of BeagleBone® AI. For
+detailed layout information please check the schematics.
+
+.. image:: media/BB_AI_Blockdiagram_1000px.jpg
+   :align: center
+   :alt: beaglebone ai component placement
+
+AM572x Sitara™ Processor
+*************************
+
+The Texas Instruments AM572x Sitara™ processor family of SOC devices
+brings high processing performance through the maximum flexibility of a
+fully integrated mixed processor solution. The devices also combine
+programmable video processing with a highly integrated peripheral set
+ideal for AI applications. The AM5729 used on BeagleBone® AI is the
+super-set device of the family.
+
+Programmability is provided by dual-core ARM® Cortex®-A15 RISC CPUs with
+Arm® Neon™ extension, and two TI C66x VLIW floating-point DSP core, and
+Vision AccelerationPac (with 4x EVEs). The Arm allows developers to keep
+control functions separate from other algorithms programmed on the DSPs
+and coprocessors, thus reducing the complexity of the system software.
+
+Texas Instruments AM572x Sitara™ Processor Family Block Diagram\*
+
+.. image:: media/BB_AI_AM5729_blockdiagram.jpg
+   :align: center
+   :alt: beaglebone ai component placement
+
+**MPU Subsystem** The Dual Cortex-A15 MPU subsystem integrates the
+following submodules:
+
+-  ARM Cortex-A15 MPCore
+
+   -  Two central processing units (CPUs)
+
+   -  ARM Version 7 ISA: Standard ARM instruction set plus Thumb®-2,
+      Jazelle® RCT Java™ accelerator, hardware virtualization support,
+      and large physical address extensions (LPAE)
+
+   -  Neon™ SIMD coprocessor and VFPv4 per CPU
+
+   -  Interrupt controller with up to 160 interrupt requests
+
+   -  One general-purpose timer and one watchdog timer per CPU – Debug
+      and trace features
+
+   -  32-KiB instruction and 32-KiB data level 1 (L1) cache per CPU
+
+-  Shared 2-MiB level 2 (L2) cache
+
+-  48-KiB bootable ROM
+
+-  Local power, reset, and clock management (PRCM) module
+
+-  Emulation features
+
+-  Digital phase-locked loop (DPLL)
+
+**DSP Subsystems** There are two DSP subsystems in the device. Each DSP
+subsystem contains the following submodules:
+
+-  TMS320C66x™ Floating-Point VLIW DSP core for audio processing, and
+   general-purpose imaging and video processing. It extends the
+   performance of existing C64x+™ and C647x™ DSPs through enhancements
+   and new features.
+
+   -  32-KiB L1D and 32-KiB L1P cache or addressable SRAM
+
+   -  288-KiB L2 cache
+
+-  256-KiB configurable as cache or SRAM
+
+-  32-KiB SRAM
+
+-  Enhanced direct memory access (EDMA) engine for video and audio data
+   transfer
+
+-  Memory management units (MMU) for address management.
+
+-  Interrupt controller (INTC)
+
+-  Emulation capabilities
+
+-  Supported by OpenCL
+
+**EVE Subsystems**
+
+-  4 Embedded Vision Engines (EVEs) supported by TIDL machine learning
+   library
+
+.. image:: media/BB_AI_EVEmodule.jpg
+   :align: center
+   :alt: BeagleBone AI component placement
+
+The Embedded Vision Engine (EVE) module is a programmable imaging and
+vision processing engine. Software support for the EVE module is
+available through OpenCL Custom Device model with fixed set of
+functions. More information is available
+http://www.ti.com/lit/wp/spry251/spry251.pdf
+
+**PRU-ICSS Subsystems**
+
+-  2x Dual-Core Programmable Real-Time Unit (PRU) subsystems (4 PRUs
+   total) for ultra low-latency control and software generated
+   peripherals. Access to these powerful subsystems is available through
+   through the P8 and P9 headers. These are detailed in Section 7.
+
+**IPU Subsystems** There are two Dual Cortex-M4 IPU subsystems in the
+device available for general purpose usage, particularly real-time
+control. Each IPU subsystem includes the following components:
+
+-  Two Cortex-M4 CPUs
+
+-  ARMv7E-M and Thumb-2 instruction set architectures
+
+-  Hardware division and single-cycle multiplication acceleration
+
+-  Dedicated INTC with up to 63 physical interrupt events with 16-level
+   priority
+
+-  Two-level memory subsystem hierarchy
+
+   -  L1 (32-KiB shared cache memory)
+
+   -  L2 ROM + RAM
+
+-  64-KiB RAM
+
+-  16-KiB bootable ROM
+
+-  MMU for address translation
+
+-  Integrated power management
+
+-  Emulation feature embedded in the Cortex-M4
+
+**IVA-HD Subsystem**
+
+-  IVA-HD subsystem with support for 4K @ 15fps H.264 encode/decode and
+   other codecs @ 1080p60 The IVA-HD subsystem is a set of video encoder
+   and decoder hardware accelerators. The list of supported codecs can
+   be found in the software development kit (SDK) documentation.
+
+**BB2D Graphics Accelerator Subsystem** The Vivante® GC320 2D graphics
+accelerator is the 2D BitBlt (BB2D) graphics accelerator subsystem on
+the device with the following features:
+
+-  API support:
+
+   -  OpenWF™, DirectFB
+
+   -  GDI/DirectDraw
+
+-  BB2D architecture:
+
+   -  BitBlt and StretchBlt
+
+   -  DirectFB hardware acceleration
+
+   -  ROP2, ROP3, ROP4 full alpha blending and transparency
+
+   -  Clipping rectangle support
+
+   -  Alpha blending includes Java 2 Porter-Duff compositing rules
+
+   -  90-, 180-, 270-degree rotation on every primitive
+
+   -  YUV-to-RGB color space conversion
+
+   -  Programmable display format conversion with 14 source and 7
+      destination formats
+
+   -  High-quality, 9-tap, 32-phase filter for image and video scaling
+      at 1080p
+
+   -  Monochrome expansion for text rendering
+
+   -  32K × 32K coordinate system
+
+**Dual-Core PowerVR® SGX544™ 3D GPU** The 3D graphics processing unit
+(GPU) subsystem is based on POWERVR® SGX544 subsystem from Imagination
+Technologies. It supports general embedded applications. The GPU can
+process different data types simultaneously, such as: pixel data, vertex
+data, video data, and general-purpose data. The GPU subsystem has the
+following features:
+
+-  Multicore GPU architecture: two SGX544 cores.
+
+-  Shared system level cache of 128 KiB
+
+-  Tile-based deferred rendering architecture
+
+-  Second-generation universal scalable shader engines (USSE2),
+   multithreaded engines incorporating pixel and vertex shader
+   functionality
+
+-  Present and texture load accelerators
+
+   -  Enables to move, rotate, twiddle, and scale texture surfaces.
+
+   -  Supports RGB, ARGB, YUV422, and YUV420 surface formats.
+
+   -  Supports bilinear upscale.
+
+   -  Supports source colorkey.
+
+-  Fine-grained task switching, load balancing, and power management
+
+-  Programmable high-quality image antialiasing
+
+-  Bilinear, trilinear, anisotropic texture filtering
+
+-  Advanced geometry DMA driven operation for minimum CPU interaction
+
+-  Fully virtualized memory addressing for OS operation in a unified
+   memory architecture (MMU)
+
+Memory
+********
+
+.. _bbai_ddr:
+
+1GB DDR3L
+==========
+
+Dual 256M x 16 DDR3L memory devices are used, one on each side of the
+board, for a total of 1 GB. They will each operate at a clock frequency
+of up to 533 MHz yielding an effective rate of 1066Mb/s on the DDR3L bus
+allowing for 4GB/s of DDR3L memory bandwidth.
+
+16GB Embedded MMC
+===================
+
+A single 16GB embedded MMC (eMMC) device is on the board.
+
+
+microSD Connector
+==================
+
+The board is equipped with a single microSD connector to act as a
+secondary boot source for the board and, if selected as such, can be the
+primary booth source. The connector will support larger capacity microSD
+cards. The microSD card is not provided with the board.
+
+Boot Modes
+*************
+
+.. todo:: Need info on BBAI boot mode settings
+
+Power Management
+******************
+
+.. todo:: Need info on BBAI power management
+
+Connectivity
+******************
+
+.. todo:: Add WiFi/Bluetooth/Ethernet
+
+BeagleBone® AI supports the majority of the functions of the AM5729 SOC
+through connectors or expansion header pin accessibility. See section 7
+for more information on expansion header pinouts. There are a few
+functions that are not accessible which are: (TBD)
+
+.. todo:: This text needs to go somewhere.
+
+.. table:: On-board I2C Devices
+
+   +---------+--------------+-----------------+
+   | Address | Identifier   | Description     |
+   +=========+==============+=================+
+   | 0x12    | U3           | TPS6590379 PMIC |
+   |         |              | DVS             |
+   +---------+--------------+-----------------+
+   | 0x41    | U78          | STMPE811Q ADC   |
+   |         |              | and GPIO        |
+   |         |              | expander        |
+   +---------+--------------+-----------------+
+   | 0x47    | U13          | HD3SS3220 USB   |
+   |         |              | Type-C DRP port |
+   |         |              | controller      |
+   +---------+--------------+-----------------+
+   | 0x50    | U9           | 24LC32 board ID |
+   |         |              | EEPROM          |
+   +---------+--------------+-----------------+
+   | 0x58    | U3           | TPS6590379 PMIC |
+   |         |              | power registers |
+   +---------+--------------+-----------------+
+   | 0x5a    | U3           | TPS6590379 PMIC |
+   |         |              | interfaces and  |
+   |         |              | auxiliaries     |
+   +---------+--------------+-----------------+
+   | 0x5c    | U3           | TPS6590379 PMIC |
+   |         |              | trimming and    |
+   |         |              | test            |
+   +---------+--------------+-----------------+
+   | 0x5e    | U3           | TPS6590379 PMIC |
+   |         |              | OTP             |
+   +---------+--------------+-----------------+
 
 Connectors
 ############
 
-.. image:: images/BB_AI_Connectorplacement_800px.png
+.. image:: media/BB_AI_Connectorplacement_800px.png
     :align: center
 
-.. image:: images/BB_AI_Connectorplacement_back_800px.png
+.. image:: media/BB_AI_Connectorplacement_back_800px.png
     :align: center
 
 Expansion Connectors
@@ -27,7 +401,7 @@ are **3.3V** unless otherwise indicated.
 
 **Figure ?** shows the location of the expansion connectors.
 
-.. image:: images/BB_AI_Headerplacement_800px.png
+.. image:: media/BB_AI_Headerplacement_800px.png
     :align: center
     :alt: beaglebone ai header placement
 
@@ -1624,3 +1998,192 @@ microHDMI
 ***********
 
 .. todo:: Need info on BealgeBone AI uHDMI connection
+
+
+Cape Board Support
+#####################
+
+There is a `Cape Headers Google
+Spreadsheet <https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing>`__
+which has a lot of detail regarding various boards and cape add-on
+boards.
+
+See also https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec
+
+TODO
+
+BeagleBone® Black Cape Compatibility
+**************************************
+
+TODO
+
+See https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec for
+now.
+
+EEPROM
+************
+
+TODO
+
+Pin Usage Consideration
+************************
+
+TODO
+
+GPIO
+*********
+
+TODO
+
+I2C
+*********
+
+TODO
+
+UART or PRU UART
+*******************
+
+This section is about both UART pins on the header and PRU UART pins on
+the headers we will include a chart and later some code
+
+.. table::  UART
+
+    +-------------+--------+-----------+-------------------+-------+
+    | Function    | Pin    | ABC Ball  | Pinctrl Register  | Mode  |
+    +=============+========+===========+===================+=======+
+    | uart3_txd   | P9.21  | B22       | 0x17C4            | 1     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart3_rxd   | P9.22  | A26       | 0x17C0            | 1     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_txd   | P9.13  | C17       | 0x1730            | 4     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_rxd   | P9.11  | B19       | 0x172C            | 4     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_ctsn  | P8.05  | AC9       | 0x178C            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_rtsn  | P8.06  | AC3       | 0x1790            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_txd   | P8.37  | A21       | 0x1738            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_rxd   | P8.38  | C18       | 0x1734            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_ctsn  | P8.31  | G16       | 0x173C            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_rtsn  | P8.32  | D17       | 0x1740            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_txd  | P9.24  | F20       | 0x168C            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rxd  | P9.26  | E21       | 0x1688            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_ctsn | P8.03  | AB8       | 0x179C            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rtsn | P8.04  | AB5       | 0x17A0            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_txd  | P9.24  | F20       | 0x168C            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rxd  | P9.26  | E21       | 0x1688            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_ctsn | P9.20  | D2        | 0x1578            | 8     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rtsn | P9.19  | F4        | 0x157C            | 8     |
+    +-------------+--------+-----------+-------------------+-------+
+
+.. table:: PRU UART
+
+    +------------------+--------+-----------+-------------------+-------+
+    | Function         | Pin    | ABC Ball  | Pinctrl Register  | Mode  |
+    +==================+========+===========+===================+=======+
+    | pr2_uart0_txd    | P8.31  | C8        | 0x1614            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr2_uart0_rxd    | P8.33  | C6        | 0x1610            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr2_uart0_cts_n  | P8.34  | D8        | 0x1608            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr2_uart0_rts_n  | P8.35  | A5        | 0x160C            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_rxd    | P8.43  | F10       | 0x15E4            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_txd    | P8.44  | G11       | 0x15E8            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_cts_n  | P8.45  | F11       | 0x15DC            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_rts_n  | P8.46  | G10       | 0x15E0            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+
+
+TODO
+
+SPI
+****
+
+TODO
+
+Analog
+********
+
+TODO
+
+.. _pwm-timer-ecap-or-pru-pwm-ecap:
+
+PWM, TIMER, eCAP or PRU PWM/eCAP
+**********************************
+
+TODO
+
+eQEP
+******
+
+TODO
+
+CAN
+*****
+
+TODO
+
+.. _mcasp-audio-serial-like-i2c-and-ac97:
+
+McASP (audio serial like I2S and AC97)
+****************************************
+
+TODO
+
+MMC
+*****
+
+TODO
+
+LCD
+*****
+
+TODO
+
+PRU GPIO
+**********
+
+TODO
+
+CLKOUT
+********
+
+TODO
+
+Expansion Connector Headers
+******************************
+
+TODO: discuss header options for working with the expansion connectors per 
+https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
+
+Signal Usage
+****************
+
+TODO
+
+Cape Power
+************
+
+TODO
+
+Mechanical
+************
+
+TODO
