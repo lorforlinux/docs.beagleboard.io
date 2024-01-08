@@ -16,7 +16,7 @@ diagram of BeagleBone AI-64 board surrounding TDA4VM SoC.
 .. _BeagleBone_AI-64-block-diagram:
 
 .. figure:: media/hardware-design/ai-64-block-diagram.*
-   :width: 740px
+   :width: 1040
    :align: center
    :alt: BeagleBone AI-64 key components
    
@@ -42,7 +42,7 @@ remaining of this section device, SoC, and processor will be used interchangeabl
 .. _soc-block-diagram:
 
 .. figure:: media/hardware-design/soc-block-diagram.*
-  :width: 740
+  :width: 1040
   :align: center
   :alt: System on Chip (SoC) block diagram
 
@@ -517,7 +517,7 @@ MikroBus port
 --------------
 
 .. figure:: media/hardware-design/mikrobus-port.*
-  :width: 1040
+  :width: 940
   :align: center
   :alt: MikroBus port
 
@@ -534,7 +534,7 @@ PCIe Key E
   PCIE Key E connector
 
 .. figure:: media/hardware-design/pcie-vlt-4ch.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt: PCIE Key E voltage translator (4ch)
 
@@ -542,7 +542,7 @@ PCIe Key E
 
 
 .. figure:: media/hardware-design/pcie-vlt-8ch.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt: PCIE Key E voltage translator (8ch)
 
@@ -570,7 +570,7 @@ Boot button
 -----------
 
 .. figure:: media/hardware-design/boot-button.*
-  :width: 1040
+  :width: 540
   :align: center
   :alt: Boot button
 
@@ -587,7 +587,7 @@ There are a total of six green LEDs on the board.
 * Five blue LEDs that can be controlled via the SW by setting GPIO pins.
 
 .. figure:: media/hardware-design/leds.*
-  :width: 1040
+  :width: 540
   :align: center
   :alt: LED indicators
 
@@ -604,7 +604,7 @@ Gigabit Ethernet
   Gigabit ethernet
 
 .. figure:: media/hardware-design/gb-ethernet-connector.*
-  :width: 1040
+  :width: 540
   :align: center
   :alt: Gigabit ethernet connector
 
@@ -677,21 +677,21 @@ Multimedia I/O
 ===============
 
 .. figure:: media/hardware-design/csi0.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt: CSI0 MIPI camera0 input
 
   CSI0 MIPI camera0 input
 
 .. figure:: media/hardware-design/csi1.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt: CSI1 MIPI camera1 input
 
   CSI1 MIPI camera1 input
 
 .. figure:: media/hardware-design/dsi.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt:  DSI MIPI display output
 
@@ -724,14 +724,14 @@ Two serial debug ports are provided on board via 3pin micro headers,
       $12 to $20 from various sources. Signals supported are TX and RX. None of the handshake signals are supported.
 
 .. figure:: media/hardware-design/wkup-uart0-debug-port.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt: WKUP UART0 debug port
 
   WKUP UART0 debug port
 
 .. figure:: media/hardware-design/uart0-debug-port.*
-  :width: 1040
+  :width: 740
   :align: center
   :alt: UART0 debug port
 
@@ -742,8 +742,60 @@ TagConnect
 -----------
 
 .. figure:: media/hardware-design/tag-connect.*
-  :width: 1040
+  :width: 540
   :align: center
   :alt: TagConnect JTAG debug port
 
   TagConnect JTAG debug port
+
+Mechanical specifications
+=========================
+
+Dimensions & Weight
+-------------------
+
+.. table:: Dimensions & weight
+
+    +--------------------+----------------------------------------------------+
+    | Parameter          | Value                                              |
+    +====================+====================================================+
+    | Size               |                                                    |
+    +--------------------+----------------------------------------------------+
+    | Max heigh          |                                                    |
+    +--------------------+----------------------------------------------------+
+    | PCB Size           |                                                    |
+    +--------------------+----------------------------------------------------+
+    | PCB Layers         |                                                    |
+    +--------------------+----------------------------------------------------+
+    | PCB Thickness      |                                                    |
+    +--------------------+----------------------------------------------------+
+    | RoHS compliant     |                                                    |
+    +--------------------+----------------------------------------------------+
+    | Weight             |                                                    |
+    +--------------------+----------------------------------------------------+
+
+Board Dimensions
+-----------------
+
+.. figure:: media/hardware-design/board-dimensions.*
+    :width: 700
+    :align: center
+    :alt: BeagleBone AI-64 board dimensions
+
+    BeagleBone AI-64 board dimensions
+
+PCB silkscreen
+--------------
+
+.. table:: BeagleBone AI-64 silkscreen
+   :align: center
+   :widths: auto
+
+   +----------------------------------------------------+----------------------------------------------------------------+
+   | Top silkscreen                                     | Bottom silkscreen                                              |
+   +====================================================+================================================================+
+   | .. image:: media/hardware-design/top-silkscreen.*  | .. image:: media/hardware-design/bottom-silkscreen.*           |
+   |    :width: 700                                     |       :width: 700                                              |
+   |    :align: center                                  |       :align: center                                           |
+   |    :alt: BeagleBone AI-64 top silkscreen           |       :alt: BeagleBone AI-64 bottom silkscreen                 |
+   +----------------------------------------------------+----------------------------------------------------------------+
