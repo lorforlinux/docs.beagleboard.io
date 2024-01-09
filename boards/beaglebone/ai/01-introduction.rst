@@ -18,193 +18,78 @@ everyday automation in industrial, commercial and home applications.
    :align: center
    :alt: BeagleBone AI Beauty Angle
 
-What’s In the Box
-*****************
+.. _beaglebone-ai-overview:
 
-BeagleBone® AI comes in the box with the heat sink and antenna already
-attached. Developers can get up and running in five minutes with no
-microSD card needed. BeagleBone® AI comes preloaded with a Linux
-distribution. In the box you will find:
+BeagleBone AI Overview
+======================
 
--  BeagleBone® AI
--  Quick Start Guide
-
-TODO: Add links to the design materials for both
-
-.. image:: media/BB_AI_antenna_heat_sink_place_500px.jpg
+.. image:: media/BB_AI_overview_image.*
    :align: center
    :alt: BeagleBone AI Overview
 
-What’s Not in the Box
-**********************
+BeagleBone® AI Features
+************************
 
-You will need to purchase:
+Main Processor Features of the AM5729 Within BeagleBone® AI
+============================================================
 
--  USB C cable or USB C to USB A cable
--  MicroSD Card (optional)
--  `Serial cable <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#serial-cable>`_ (optional)
+-  Dual 1.5GHz ARM® Cortex®-A15 with out-of-order speculative issue
+   3-way superscalar execution pipeline for the fastest execution of
+   existing 32-bit code
+-  2 C66x Floating-Point VLIW DSP supported by OpenCL
+-  4 Embedded Vision Engines (EVEs) supported by TIDL machine learning
+   library
+-  2x Dual-Core Programmable Real-Time Unit (PRU) subsystems (4 PRUs
+   total) for ultra low-latency control and software generated
+   peripherals
+-  2x Dual ARM® Cortex®-M4 co-processors for real-time control
+-  IVA-HD subsystem with support for 4K @ 15fps H.264 encode/decode and
+   other codecs @ 1080p60
+-  Vivante® GC320 2D graphics accelerator
+-  Dual-Core PowerVR® SGX544™ 3D GPU
 
-More information or to purchase a replacement heat sink or antenna, please go to these websites:
+Communications
+===============
 
--  `Antenna <https://bit.ly/2kmXAzF>`_
--  `Heat Sink <https://bit.ly/2klxxJa>`_
+-  BeagleBone Black header and mechanical compatibility
+-  16-bit LCD interfaces
+-  4+ UARTs
+-  2 I2C ports
+-  2 SPI ports
+-  Lots of PRU I/O pins
 
-Fans
-*****
+Memory
+=======
 
-The pre-attached heat sink has M3 holes spaced 20x20 mm. The height of
-the heat sink clears the USB type A socket, and all other components on
-the board except the 46-way header sockets and the Ethernet socket.
+-  1GB DDR3L
+-  16GB on-board eMMC flash
 
-If you run all of the accelerators or have an older software image,
-you’ll likely need fan. To find a fan, visit the link to `fans in the
-FAQ <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#fans>`_.
+Connectors
+===========
 
-.. caution::
+-  USB Type-C connector for power and SuperSpeed dual-role controller
+-  Gigabit Ethernet
+-  802.11ac 2.4/5GHz WiFi via the AzureWave AW-CM256SM
 
-   BeagleBone AI can run **HOT**! Even without running the accelerators,
-   getting up to 70C is not uncommon.
+Out of Box Software
+====================
 
-Official BeagleBone Fan Cape:
-https://www.newark.com/element14/6100310/beaglebone-ai-fan-cape/dp/50AH3704
+-  Zero-download out of box software environment
 
-TODO: create short-links for any long URLs so that text works.
-
-Main Connection Scenarios
+Board Component Locations
 **************************
 
-This section will describe how to connect the board for use. The board
-can be configured in several different ways. Below we will walk through
-the most common scenarios. NOTE: These connection scenarios are
-dependent on the software image presently on your BeagleBone® AI. When
-all else fails, follow the instructions at
-https://beagleboard.org/upgrade
-
--  `Tethered to a PC via USB C cable <#tethered-to-a-pc>`_
--  `Standalone Desktop with powered USB hub, display, keyboard and
-   mouse <#standalone-wdisplay-and-keyboardmouse>`_
--  `Wireless Connection to BeagleBone® AI <#wireless-connection>`_
-
-Tethered to a PC
-*****************
-
-The most common way to program BeagleBone® AI is via a USB connection to
-a PC. If your computer has a USB C type port, BeagleBone® AI will both
-communicate and receive power directly from the PC. If your computer
-does not support USB C type, you can utilize a powered USB C hub to
-power and connect to BeagleBone® AI which in turn will connect to your
-PC. You can also use a powered USB C hub to power and connect peripheral
-devices such as a USB camera. After booting, the board is accessed
-either as a USB storage device or via the browser on the PC. You will
-need Chrome or Firefox on the PC.
-
-NOTE:Start with this image "am57xx-eMMC-flasher-debian-10.3-iot-tidl-armhf-2020-04-06-6gb.img.xz"
-loaded on your BeagleBone® AI.
-
-1.  Locate the USB Type-C connector on BeagleBone® AI 
-
-.. image:: media/BB_AI_USBC_and_3pin_500px.png
+.. image:: media/BB_AI_ICPlacement_800px.png
+   :width: 740
    :align: center
-   :alt: USB connector and serial debug.
+   :alt: beaglebone ai component placement
 
-2.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
+.. image:: media/BB_AI_Connectorplacement_800px.png
+    :width: 740
+    :align: center
+    :alt: Connector placement front
 
-.. image:: media/BB_AI_connectingUSBC_500px.jpg
+.. image:: media/BB_AI_Connectorplacement_back_800px.png
+   :width: 740   
    :align: center
-   :alt: Connecting serial cable.
-
-3.  Connect the other end of the USB cable to the PC USB 3 port.
-
-.. image:: media/BB_AI_PlugIn_500px.jpg
-   :align: center
-   :alt: connecting to PC
-
-4.  BeagleBone® AI will boot.
-
-5.  You will notice some of the 5 user LEDs flashing
-
-6.  Look for a new mass storage drive to appear on the PC.
-
-.. image:: media/BB_AI_asadrive_500px.jpg
-   :align: center
-   :alt: BeagleBone storage drive options
-
-7.  Open the drive and open START.HTM with your web browser.
-
-.. image:: media/BB_AI_starthtm_500px.png
-   :align: center
-   :alt: BeagleBone drive 
-
-.. image:: media/BB_AI_connectedscreen_500px.jpg
-   :align: center
-   :alt: Getting started
-
-8.  Follow the instructions in the browser window.
-
-.. image:: media/vscode.png
-   :align: center
-   :alt: BeagleBone instructions
-
-9.  Go to Visual Studio Code IDE.
-
-
-Standalone w/Display and Keyboard/Mouse
-****************************************
-
-.. image:: media/BB_AI_Standalone_setup_750px.jpg
-   :align: center
-   :alt: BeagleBone AI Overview
-
-.. note::
-
-    This configuration requires loading the latest debian 9 image from
-    https://elinux.org/Beagleboard:Latest-images-testing
-
-Load "am57xx-eMMC-flasher-debian-9.13-lxqt-tidl-armhf-2020-08-25-6gb.img.xz"
-image on the BeagleBone® AI
-
-1. Connect a combo keyboard and mouse to BeagleBone® AI’s USB host port.
-2. Connect a microHDMI-to-HDMI cable to BeagleBone® AI’s microHDMI port.
-3. Connect the microHDMI-to-HDMI cable to an HDMI monitor.
-4. Plug a 5V 3A USB type-C power supply into BeagleBone® AI’s USB type-C port.
-5. BeagleBone® AI will boot. No need to enter any passwords.
-6. Depending on which software image is loaded, either a Desktop or a login shell will appear on the monitor.
-7. Follow the instructions at https://beagleboard.org/upgrade
-
-Wireless Connection
-*******************
-
-NOTE:Start with this image "am57xx-eMMC-flasher-debian-10.3-iot-tidl-armhf-2020-04-06-6gb.img.xz"
-loaded on your BeagleBone® AI.
-
-1. Plug a 5V 3A USB type-C power supply into BeagleBone® AI’s USB type-C port.
-2. BeagleBone® AI will boot.
-3. Connect your PC’s WiFi to SSID "BeagleBone-XXXX" where XXXX varies for your BeagleBone® AI.
-4. Use password "BeagleBone" to complete the WiFi connection.
-5. Open http://192.168.8.1 in your web browser.
-6. Follow the instructions in the browser window.
-
-Connecting a 3 PIN Serial Debug Cable
-*************************************
-
-A 3 PIN serial debug cable can be helpful to debug when you need to view
-the boot messages through a terminal program such as putty on your host
-PC. This cable is not needed for most BeagleBone® AI boot up scenarios.
-
-Cables: https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-Asked-Questions#serial-cable
-
-Locate the 3 PIN debug header on BeagleBone® AI, near the USB C connection.
-
-.. image:: media/BB_AI_USBC_and_3pin_500px.png
-   :align: center
-   :alt: BeagleBone AI Overview
-
-Press the small white connector into the 3 PIN debug header. The pinout is:
-
-- Pin 1 (the pin closest to the screw-hole in the board. It is also marked with a shape on the silkscreen): GND
-- Pin 2: UART1_RX (i.e. this is a BB-AI input pin)
-- Pin 3: UART1_TX (i.e. BB-AI transmits out on this pin)
-
-.. image:: media/BB_AI_3pincableattach_500px.jpg
-   :align: center
-   :alt: BeagleBone AI Overview
+   :alt: Connector placement back

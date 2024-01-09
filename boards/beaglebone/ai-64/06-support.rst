@@ -144,21 +144,21 @@ Weight: 192gm
 Silkscreen and Component Locations
 =====================================
 
-.. figure:: media/ch09/board-dimensions.*
+.. figure:: media/hardware-design/board-dimensions.*
    :width: 400px
    :align: center 
    :alt: Board Dimensions
    
    Board Dimensions
 
-.. figure:: media/ch09/top-silkscreen.*
+.. figure:: media/hardware-design/top-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Top silkscreen
    
    Top silkscreen
 
-.. figure:: media/ch09/bottom-silkscreen.*
+.. figure:: media/hardware-design/bottom-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Bottom silkscreen

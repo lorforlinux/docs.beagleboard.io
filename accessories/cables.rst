@@ -86,6 +86,8 @@ The default serial port settings for Beagles are:
     | Handshake    | None         |
     +--------------+--------------+
 
+.. _jst-sh-serial-cables:
+
 JST-SH serial cables
 ====================
 

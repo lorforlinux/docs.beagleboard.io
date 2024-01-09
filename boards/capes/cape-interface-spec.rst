@@ -19,8 +19,8 @@ Background and overview
    * See `spreadsheet with pin header details <https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing>`_ 
    * See `elinux.org Cape Expansion Headers for BeagleBone page <https://elinux.org/Beagleboard:Cape_Expansion_Headers>`_
    * See :ref:`BeagleBone Black System Reference Manual Connectors section <beagleboneblack-connectors>`
-   * See :ref:`BeagleBone AI System Reference Manual Connectors section <beaglebone-ai-connectors>`
-   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <bbai64-cape-board-support-1>`
+   * See :ref:`BeagleBone AI System Reference Manual Connectors section <bbai-expansion>`
+   * See :ref:`BeagleBone AI-64 System Reference Manual Connectors section <bbai64-expansion>`
 
 .. note:: Below, when mentioning "Black", this is true for all AM3358-based BeagleBone boards. "AI" is AM5729-based. "AI-64" is TDA4VM-based.
 
