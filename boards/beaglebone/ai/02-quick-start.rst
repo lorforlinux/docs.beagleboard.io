@@ -60,11 +60,13 @@ dependent on the software image presently on your BeagleBone® AI. When
 all else fails, follow the instructions at
 https://old.beagleboard.org/upgrade
 
--  Tethered to a PC via USB C cable
--  Standalone Desktop with powered USB hub, display, keyboard and mouse
--  Wireless Connection to BeagleBone® AI
+-  :ref:`Tethered to a PC via USB C cable <bbai-tethered>`
+-  :ref:`Standalone Desktop with powered USB hub, display, keyboard and mouse <bbai-standalone>`
+-  :ref:`Wireless Connection to BeagleBone® AI <bbai-wireless>`
 
 .. tabs:: 
+
+    .. _bbai-tethered:
 
     .. group-tab:: Tethered
 
@@ -135,6 +137,8 @@ https://old.beagleboard.org/upgrade
 
       9.  Go to Visual Studio Code IDE.
 
+    .. _bbai-standalone:
+    
     .. group-tab:: Standalone
 
       **Standalone w/Display and Keyboard/Mouse**
@@ -157,6 +161,8 @@ https://old.beagleboard.org/upgrade
       5. BeagleBone® AI will boot. No need to enter any passwords.
       6. Depending on which software image is loaded, either a Desktop or a login shell will appear on the monitor.
       7. Follow the instructions at https://beagleboard.org/upgrade
+
+    .. _bbai-wireless:
 
     .. group-tab:: Wireless
 
