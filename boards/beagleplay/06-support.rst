@@ -3,6 +3,9 @@
 Support
 #######
 
+All support for BeaglePlay design is through BeagleBoard.org 
+community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/play>`_.
+
 .. _beagleplay-certifications:
 
 Certifications and export control

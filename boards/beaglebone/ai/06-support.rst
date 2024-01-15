@@ -3,6 +3,9 @@
 Additional Support Information
 ##############################
 
+All support for BeagleBone AI design is through BeagleBoard.org 
+community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai>`_.
+
 .. todo::
 
   Reference https://docs.beagleboard.org/latest/intro/support/index.html and
