@@ -811,6 +811,12 @@ To preview docs on your local machine:
 
     bone$ sphinx-serve
 
+For hot reload in development:
+
+.. code-block:: bash
+
+    bone$ make livehtml
+
 Then point your browser to localhost:8081.
 
 .. tip:: 
