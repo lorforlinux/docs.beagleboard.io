@@ -314,33 +314,11 @@ When rendered it becomes :ref:`rst-cheat-sheet`.
 YouTube Videos
 ==============
 
-This section shows you the typical way of adding a YouTube video to 
-docs.BeagleBoard.org in a way that you see on page playable embedded 
-YouTube video when you look at HTML version of the docs and only a 
-clicable thumnail linked to the YouTube video when you see the PDF. 
+This site uses sphinxcontrib-youtube to embed YouTube videos. The syntax is as follows:
 
 .. callout::
 
-    .. code-block:: rst
-
-        .. only:: latex
-            
-            .. image:: https://img.youtube.com/vi/<YouTube_video_ID>/maxresdefault.jpg <1>
-                :alt: BeagleConnect unboxing YouTube video
-                :width: 1280
-                :target: https://www.youtube.com/watch?v=<YouTube_video_ID> <2>
-
-        .. only:: html
-
-            .. raw:: html
-
-                <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
-                src="https://www.youtube.com/embed/<YouTube_video_ID>" <3>
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
+    .. youtube:: <YouTube_video_ID>
     
     .. annotations::
 

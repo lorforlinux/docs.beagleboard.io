@@ -45,6 +45,7 @@ extensions = [
     "sphinx_tabs.tabs",
     "breathe",
     "sphinx_copybutton",
+    "sphinxcontrib.youtube",
 ]
 
 #    "exhale"
