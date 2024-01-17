@@ -90,9 +90,9 @@ To enable OLDI display support, modify the following file: /boot/firmware/extlin
 
 Then, add the following line to load the Lincoln LCD185 OLDI DTBO: 
 
-.. code:: console
+.. code:: bash
 
-   $ fdtoverlays /overlays/k3-am625-beagleplay-lt-lcd185.dtbo
+   fdtoverlays /overlays/k3-am625-beagleplay-lt-lcd185.dtbo
 
 Your /boot/firmware/extlinux/extlinux.conf file should look something like this:
 
