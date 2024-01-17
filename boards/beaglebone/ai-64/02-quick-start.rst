@@ -3,7 +3,7 @@
 Quick Start Guide
 ##################
 
-This section provides instructions on how to hook up your board. This beagle requires a 5V > 3A (15W) 
+This section provides instructions on how to hook up your board. This Beagle requires a 5V > 3A (15W) 
 power supply to work properly via either USB Type-C power adapter or a barrel jack power adapter. 
 
 Recommended adapters:
