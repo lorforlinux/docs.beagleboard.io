@@ -285,35 +285,42 @@ Cross referencing involves two components, references and targets.
 
 When you manually create a target which can be referenced from other pages it's called 
 explicit target. When you create a section (heading), a footnote, or a citation then 
-Sphinx will create a target with the title as the name which is called implicit target.
+Sphinx will create a target with the title as the name which is called implicit target 
+which you can use within that page/document.
 
 Implicit target
 ================
 
 These are basically the headings inside the rst page which can 
-be used as a link to that section within document. 
+be used as a link to that section within document. Taking the tile (name) 
+of section ``External links`` as target we can reference it with syntax below: 
+
+.. note:: 
+        This can only be used within the document.
 
 .. code-block:: rst
 
     `External links`_
 
-when rendered it becomes `External links`_
+Then the reference will be rendered as: `External links`_
 
 Explicit target
 ================
 
 These are special links you can assign to a specific part of the document and reference anywhere 
-in the project unlike implicit links which can be used only within the document they are defined. 
-On top of each page you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
+in the project unlike **implicit links which can be used only within the document they are defined**. 
+On top of each page in docs you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
 label for this chapter. These are called the explicit links amd you can reference these using ``ref:``.
 
-.. note:: This can be used inside or outside of the document and the rendered link will take you directly to that specific section.
+.. note:: 
+    This can be used inside or outside of the document and the rendered 
+    link will take you directly to that specific section.
 
 .. code-block:: rst
 
     :ref:`rst-cheat-sheet`
 
-When rendered it becomes :ref:`rst-cheat-sheet`.
+Then the reference will be rendered as: :ref:`rst-cheat-sheet`.
 
 YouTube Videos
 ==============
