@@ -3,15 +3,10 @@ image: beagle/sphinx-build-env:latest
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
-cache:
-  key: bbdocs
-  paths:
-  - public
-
 build:
   stage: build
   tags:
-  - docker-arm64
+  - docker-amd64
   parallel:
     matrix:
       - TARGET: [html, pdf]
@@ -24,7 +19,7 @@ pages:
     - "build: [html]"
     - "build: [pdf]"
   tags:
-  - docker-arm64
+  - docker-amd64
   script:
   - ./gitlab-build.sh publish
   artifacts:

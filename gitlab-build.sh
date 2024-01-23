@@ -8,20 +8,6 @@ export VERSION_TWEAK=$(( $(date "+10#%H * 60 + 10#%M") ))
 function do_build() {
 	echo "**** Updating $PAGES_URL/$VER_DIR: $1 ****"
 
-	if [ "x$1" != "xpublish" ]; then
-		echo "**** make clean ****"
-		# Clean build directory
-		make clean BUILDDIR=public/$VER_DIR
-	fi
-
-	echo "**** make librobotcontrol xml ****"
-	if [ -e projects/librobotcontrol/docs ] ; then
-		cd projects/librobotcontrol/docs
-		doxygen
-		cd ../../..
-	fi
-
-	if [ "x$1" == "xhtml" ]; then
 		cat << EOF > PAGES
 PAGES_URL =  $PAGES_URL
 PAGES_SLUG = $PAGES_SLUG
@@ -39,6 +25,14 @@ VERSION_TWEAK = $VERSION_TWEAK
 EXTRAVERSION = $EXTRAVERSION
 EOF
 
+	echo "**** make librobotcontrol xml ****"
+	if [ -e projects/librobotcontrol/docs ] ; then
+		cd projects/librobotcontrol/docs
+		doxygen
+		cd ../../..
+	fi
+
+	if [ "x$1" == "xhtml" ]; then
 		mkdir -p public
 		cat <<HERE > public/index.html
 <!DOCTYPE html>
@@ -55,7 +49,6 @@ HERE
 		echo "**** make html ****"
 		# Build and serve HTML
 		make html -j$(nproc) BUILDDIR=public/$VER_DIR
-		mv public/$VER_DIR/html/* public/$VER_DIR/
 	fi
 
 	if [ "x$1" == "xpdf" ]; then
@@ -67,8 +60,6 @@ HERE
 		pdfcpu version
 		pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
 
-		mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
-
 		echo "**** cleanup ****"
 		# Cleanup
 		rm -rf public/$VER_DIR/doctrees
@@ -76,6 +67,10 @@ HERE
 	fi
 
 	if [ "x$1" == "xpublish" ]; then
+		# Move files
+		mv public/$VER_DIR/html/* public/$VER_DIR/
+		mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
+
 		# Update docs.beagleboard.org
 		if [ "$CI_COMMIT_TAG" != "" ]; then
 			if [ "$VER_DIR" = "latest" ]; then
