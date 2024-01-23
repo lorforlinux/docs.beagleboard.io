@@ -69,6 +69,7 @@ HERE
 
 	if [ "x$1" == "xpublish" ]; then
 		# Move files
+		mkdir -p public/$VER_DIR/
 		mv public/html/* public/$VER_DIR/
 		mv public/pdf/beagleboard-docs.pdf public/$VER_DIR/
 
