@@ -19,6 +19,9 @@ submodule:
 librobotcontrol:
 	cd projects/librobotcontrol/docs/ ; doxygen
 
+livehtml:
+	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
 .PHONY: help Makefile submodule librobotcontrol
 
 # Catch-all target: route all unknown targets to Sphinx using the new
