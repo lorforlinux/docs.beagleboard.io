@@ -8,7 +8,7 @@ export VERSION_TWEAK=$(( $(date "+10#%H * 60 + 10#%M") ))
 function do_build() {
 	echo "**** Updating $PAGES_URL/$VER_DIR: $1 ****"
 
-		cat << EOF > PAGES
+	cat << EOF > PAGES
 PAGES_URL =  $PAGES_URL
 PAGES_SLUG = $PAGES_SLUG
 GITLAB_USER = $GITLAB_USER
@@ -17,7 +17,7 @@ GITLAB_HOST = $GITLAB_HOST
 PROJECT_REPO = $PROJECT_REPO
 EOF
 
-		cat << EOF > VERSION
+	cat << EOF > VERSION
 VERSION_MAJOR = $VERSION_MAJOR
 VERSION_MINOR = $VERSION_MINOR
 PATCHLEVEL = $PATCHLEVEL
@@ -33,8 +33,8 @@ EOF
 	fi
 
 	if [ "x$1" == "xhtml" ]; then
-		mkdir -p public
-		cat <<HERE > public/index.html
+		mkdir -p public/html
+		cat <<HERE > public/html/index.html
 <!DOCTYPE html>
 <html>
   <head>
@@ -47,29 +47,30 @@ EOF
 HERE
 
 		echo "**** make html ****"
-		# Build and serve HTML
-		make html -j$(nproc) BUILDDIR=public/$VER_DIR
+		# Build HTML
+		make html -j$(nproc) BUILDDIR=public
 	fi
 
 	if [ "x$1" == "xpdf" ]; then
 		echo "**** make latexpdf ****"
 		# Build, optimize, and serve PDF
-		make latexpdf -j$(nproc) BUILDDIR=public/$VER_DIR
+		make latexpdf -j$(nproc) BUILDDIR=public
 
 		echo "**** pdfcpu ****"
 		pdfcpu version
-		pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+		pdfcpu optimize public/latex/beagleboard-docs.pdf
 
 		echo "**** cleanup ****"
-		# Cleanup
-		rm -rf public/$VER_DIR/doctrees
-		rm -rf public/$VER_DIR/latex
+		mkdir -p public/pdf
+		mv public/latex/beagleboard-docs.pdf public/pdf
+		rm -rf public/doctrees
+		rm -rf public/latex
 	fi
 
 	if [ "x$1" == "xpublish" ]; then
 		# Move files
-		mv public/$VER_DIR/html/* public/$VER_DIR/
-		mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
+		mv public/html/* public/$VER_DIR/
+		mv public/pdf/beagleboard-docs.pdf public/$VER_DIR/
 
 		# Update docs.beagleboard.org
 		if [ "$CI_COMMIT_TAG" != "" ]; then

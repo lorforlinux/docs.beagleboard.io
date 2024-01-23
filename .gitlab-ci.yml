@@ -10,6 +10,9 @@ build:
   parallel:
     matrix:
       - TARGET: [html, pdf]
+  artifacts:
+    paths:
+    - public/$TARGET
   script:
     - ./gitlab-build.sh $TARGET
 
