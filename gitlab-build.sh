@@ -54,14 +54,14 @@ HERE
 
 		echo "**** make html ****"
 		# Build and serve HTML
-		make html BUILDDIR=public/$VER_DIR
+		make html -j$(nproc) BUILDDIR=public/$VER_DIR
 		mv public/$VER_DIR/html/* public/$VER_DIR/
 	fi
 
 	if [ "x$1" == "xpdf" ]; then
 		echo "**** make latexpdf ****"
 		# Build, optimize, and serve PDF
-		make latexpdf BUILDDIR=public/$VER_DIR
+		make latexpdf -j$(nproc) BUILDDIR=public/$VER_DIR
 
 		echo "**** pdfcpu ****"
 		pdfcpu version
