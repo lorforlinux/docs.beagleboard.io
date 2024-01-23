@@ -8,11 +8,25 @@ cache:
   paths:
   - public
 
+build:
+  stage: build
+  tags:
+  - docker-arm64
+  parallel:
+    matrix:
+      - TARGET: [html, pdf]
+  script:
+    - ./gitlab-build.sh $TARGET
+
 pages:
+  stage: deploy
+  dependencies:
+    - "build: [html]"
+    - "build: [pdf]"
   tags:
   - docker-arm64
   script:
-  - "./gitlab-build.sh"
+  - ./gitlab-build.sh publish
   artifacts:
     paths:
     - public
@@ -20,10 +34,14 @@ pages:
     - tags
 
 docs:
+  stage: deploy
+  dependencies:
+    - "build: [html]"
+    - "build: [pdf]"
   tags:
   - docs
   script:
-  - "./gitlab-build.sh"
+  - ./gitlab-build.sh publish
   artifacts:
     paths:
     - public

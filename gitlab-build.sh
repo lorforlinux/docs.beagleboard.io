@@ -6,7 +6,23 @@ export PATCHLEVEL=$(date +%Y%m%d)
 export VERSION_TWEAK=$(( $(date "+10#%H * 60 + 10#%M") ))
 
 function do_build() {
-	cat << EOF > PAGES
+	echo "**** Updating $PAGES_URL/$VER_DIR: $1 ****"
+
+	if [ "x$1" != "xpublish" ]; then
+		echo "**** make clean ****"
+		# Clean build directory
+		make clean BUILDDIR=public/$VER_DIR
+	fi
+
+	echo "**** make librobotcontrol xml ****"
+	if [ -e projects/librobotcontrol/docs ] ; then
+		cd projects/librobotcontrol/docs
+		doxygen
+		cd ../../..
+	fi
+
+	if [ "x$1" == "xhtml" ]; then
+		cat << EOF > PAGES
 PAGES_URL =  $PAGES_URL
 PAGES_SLUG = $PAGES_SLUG
 GITLAB_USER = $GITLAB_USER
@@ -15,7 +31,7 @@ GITLAB_HOST = $GITLAB_HOST
 PROJECT_REPO = $PROJECT_REPO
 EOF
 
-	cat << EOF > VERSION
+		cat << EOF > VERSION
 VERSION_MAJOR = $VERSION_MAJOR
 VERSION_MINOR = $VERSION_MINOR
 PATCHLEVEL = $PATCHLEVEL
@@ -23,8 +39,8 @@ VERSION_TWEAK = $VERSION_TWEAK
 EXTRAVERSION = $EXTRAVERSION
 EOF
 
-	mkdir -p public
-	cat <<HERE > public/index.html
+		mkdir -p public
+		cat <<HERE > public/index.html
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,60 +52,37 @@ EOF
 </html>
 HERE
 
-	echo "**** Updating $PAGES_URL/$VER_DIR ****"
-
-	echo "**** env ****"
-	env
-
-	echo "**** make clean ****"
-	# Clean build directory
-	make clean BUILDDIR=public/$VER_DIR
-
-	echo "**** make librobotcontrol xml ****"
-	if [ -e projects/librobotcontrol/docs ] ; then
-		cd projects/librobotcontrol/docs
-		doxygen
-		cd ../../..
+		echo "**** make html ****"
+		# Build and serve HTML
+		make html BUILDDIR=public/$VER_DIR
+		mv public/$VER_DIR/html/* public/$VER_DIR/
 	fi
 
-	echo "**** make html ****"
-	# Build and serve HTML
-	make html BUILDDIR=public/$VER_DIR
-	mv public/$VER_DIR/html/* public/$VER_DIR/
+	if [ "x$1" == "xpdf" ]; then
+		echo "**** make latexpdf ****"
+		# Build, optimize, and serve PDF
+		make latexpdf BUILDDIR=public/$VER_DIR
 
-	echo "**** make latexpdf ****"
-	# Build, optimize, and serve PDF
-	make latexpdf BUILDDIR=public/$VER_DIR
-
-	echo "**** pdfcpu ****"
-	if [ "x${CI_RUNNER_EXECUTABLE_ARCH}" == "xlinux/arm64" ] ; then
-		echo "**** check and install pdfcpu ****"
-		if [ ! -f /usr/local/bin/pdfcpu ] ; then
-			wget https://github.com/pdfcpu/pdfcpu/releases/download/v0.4.0/pdfcpu_0.4.0_Linux_arm64.tar.xz
-			tar xf pdfcpu_0.4.0_Linux_arm64.tar.xz
-			mv -v pdfcpu_0.4.0_Linux_arm64/pdfcpu /usr/local/bin/
-		fi
-		/usr/local/bin/pdfcpu version
-		du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
-		/usr/local/bin/pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
-		du -sh public/$VER_DIR/latex/beagleboard-docs.pdf
-	else
+		echo "**** pdfcpu ****"
 		pdfcpu version
 		pdfcpu optimize public/$VER_DIR/latex/beagleboard-docs.pdf
+
+		mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
+
+		echo "**** cleanup ****"
+		# Cleanup
+		rm -rf public/$VER_DIR/doctrees
+		rm -rf public/$VER_DIR/latex
 	fi
-	mv public/$VER_DIR/latex/beagleboard-docs.pdf public/$VER_DIR/
 
-	echo "**** cleanup ****"
-	# Cleanup
-	rm -rf public/$VER_DIR/doctrees
-	rm -rf public/$VER_DIR/latex
-
-	# Update docs.beagleboard.org
-	if [ "$CI_COMMIT_TAG" != "" ]; then
-		if [ "$VER_DIR" = "latest" ]; then
-			cp public/index.html /var/www/docs
+	if [ "x$1" == "xpublish" ]; then
+		# Update docs.beagleboard.org
+		if [ "$CI_COMMIT_TAG" != "" ]; then
+			if [ "$VER_DIR" = "latest" ]; then
+				cp public/index.html /var/www/docs
+			fi
+			rsync -v -a --delete public/$VER_DIR/. /var/www/docs/$VER_DIR
 		fi
-		rsync -v -a --delete public/$VER_DIR/. /var/www/docs/$VER_DIR
 	fi
 }
 
@@ -104,7 +97,7 @@ if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
 	export VERSION_MAJOR=$VER_LATEST_MAJOR
 	export VERSION_MINOR=$VER_LATEST_MINOR
 	export EXTRAVERSION=$VER_LATEST_EXTRA
-	do_build
+	do_build $1
 elif [ "$CI_COMMIT_BRANCH" != "" ]; then
 	export VER_DIR=$CI_COMMIT_BRANCH
 	export PAGES_URL=$CI_PAGES_URL
@@ -117,7 +110,7 @@ elif [ "$CI_COMMIT_BRANCH" != "" ]; then
 	export VERSION_MAJOR=${BRANCH_VER[0]}
 	export VERSION_MINOR=${BRANCH_VER[1]}
 	export EXTRAVERSION=wip
-	do_build
+	do_build $1
 elif [ "$CI_COMMIT_TAG" != "" ]; then
 	export TAG_SPLIT=($(echo $CI_COMMIT_TAG | tr "-" "\n"))
 	export TAG_VER=($(echo ${TAG_SPLIT[0]} | tr "." "\n"))
@@ -139,10 +132,11 @@ elif [ "$CI_COMMIT_TAG" != "" ]; then
 		export PAGES_SLUG=$GIT_BRANCH
 	fi
 	export SPHINXOPTS="-D todo_include_todos=0"
-	do_build
+	do_build $1
 else
 	echo "***** Not on a branch or tag *****"
 fi
 
+echo "**** env ****"
 env
 
