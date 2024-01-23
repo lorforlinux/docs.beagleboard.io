@@ -34,7 +34,7 @@ EOF
 
 	if [ "x$1" == "xhtml" ]; then
 		mkdir -p public/html
-		cat <<HERE > public/html/index.html
+		cat <<HERE > public/html/redir.html
 <!DOCTYPE html>
 <html>
   <head>
@@ -70,6 +70,7 @@ HERE
 	if [ "x$1" == "xpublish" ]; then
 		# Move files
 		mkdir -p public/$VER_DIR/
+		mv public/html/redir.html public/index.html
 		mv public/html/* public/$VER_DIR/
 		mv public/pdf/beagleboard-docs.pdf public/$VER_DIR/
 
