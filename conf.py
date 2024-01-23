@@ -183,8 +183,8 @@ html_context = {
     "current_version": version,
     "versions": ("latest", "0.0"),
     "reference_links": {
-        "About": "https://beagleboard.org/about",
-        "Donate": "https://beagleboard.org/donate",
+        "About": "https://www.beagleboard.org/about",
+        "Donate": "https://www.beagleboard.org/donate",
         "FAQ": "https://forum.beagleboard.org/c/faq"
     }
 }
