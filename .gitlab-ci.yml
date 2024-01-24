@@ -18,7 +18,7 @@ build:
     paths:
     - public/$TARGET
   before_script:
-    - apt update && apt install -y python3-venv
+    - apt update && apt install -y python3-venv doxygen
     - source ./venv-build-env.sh
   script:
     - ./gitlab-build.sh $TARGET
