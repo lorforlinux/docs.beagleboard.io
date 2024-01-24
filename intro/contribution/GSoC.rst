@@ -1,6 +1,7 @@
-.. _GSoC:
+.. _beagleboard-GSOC:
 
-#Google Summer of Code (GSoC)
+Google Summer of Code (GSoC)
+############################
 
 GSoC offers a unique opportunity to immerse yourself in open-source development, work closely with mentors, and make significant contributions to coding projects. Beyond the summer, many participants find themselves forging lifelong connections with the open-source community.
 
