@@ -75,14 +75,14 @@ Template
 
 Long summary of the project.
 
-Goal: (concise statement that describes completion and expected outcomes)
-Hardware Skills:
-Software Skills:
-Possible Mentors: (Discord nicknames of possible mentors for prospective students to contact)
-Expected size of project: (175 or 350 hour)
-Rating: (easy, medium or hard)
-Upstream Repository: (git repository and/or link to upstreaming process)
-References:
+| Goal: (concise statement that describes completion and expected outcomes)
+| Hardware Skills:
+| Software Skills:
+| Possible Mentors: (Discord nicknames of possible mentors for prospective students to contact)
+| Expected size of project: (175 or 350 hour)
+| Rating: (easy, medium or hard)
+| Upstream Repository: (git repository and/or link to upstreaming process)
+| References:
 
  - `link`
  - `link`
