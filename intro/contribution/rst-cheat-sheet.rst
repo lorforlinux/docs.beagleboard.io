@@ -318,11 +318,20 @@ This site uses sphinxcontrib-youtube to embed YouTube videos. The syntax is as f
 
 .. callout::
 
-    .. youtube:: <YouTube_video_ID>
+    .. code-block:: rst
+
+        .. youtube:: <YouTube_video_ID> <1>
     
     .. annotations::
 
-        <1> <2> <3> Here you have to replace the <YouTube_video_ID> with your actual youtube ID.
+        <1> Here you have to replace the <YouTube_video_ID> with your actual YouTube ID.
+
+When rendered, it looks like :ref:`youtube-example`.
+
+.. _youtube-example:
+    :caption: Example of embedded YouTube video
+
+.. youtube:: 7cm1AAnaawk
 
 More
 ====
