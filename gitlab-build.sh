@@ -48,13 +48,13 @@ HERE
 
 		echo "**** make html ****"
 		# Build HTML
-		make html -j$(nproc) BUILDDIR=public
+		make html BUILDDIR=public
 	fi
 
 	if [ "x$1" == "xpdf" ]; then
 		echo "**** make latexpdf ****"
 		# Build, optimize, and serve PDF
-		make latexpdf -j$(nproc) BUILDDIR=public
+		make latexpdf BUILDDIR=public
 
 		echo "**** pdfcpu ****"
 		pdfcpu version

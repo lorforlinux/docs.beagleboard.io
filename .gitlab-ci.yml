@@ -1,4 +1,4 @@
-image: beagle/debian-build:latest
+image: beagle/sphinx-build-env:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -6,6 +6,7 @@ variables:
 cache:
   paths:
   - .venv
+  - .cache
 
 build:
   stage: build
@@ -18,7 +19,6 @@ build:
     paths:
     - public/$TARGET
   before_script:
-    - apt update && apt install -y python3-venv doxygen
     - source ./venv-build-env.sh
   script:
     - ./gitlab-build.sh $TARGET
