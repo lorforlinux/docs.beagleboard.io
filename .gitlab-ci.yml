@@ -18,6 +18,7 @@ build:
     paths:
     - public/$TARGET
   before_script:
+    - apt update && apt install python3-venv
     - source ./venv-build-env.sh
   script:
     - ./gitlab-build.sh $TARGET
