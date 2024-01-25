@@ -1085,7 +1085,6 @@ multi-copters, traditional helicopters, fixed wing aircraft and rovers. ArduPilo
    institutions and corporations such as NASA, Intel and Insitu/Boeing, as well as countless 
    colleges and universities around the world.
 
-   http://www.machinekit.io/about/
 
 .. rubric:: Footnotes
    
