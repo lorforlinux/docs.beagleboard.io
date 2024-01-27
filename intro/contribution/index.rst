@@ -113,6 +113,7 @@ Articles on contribution
    rst-cheat-sheet
    linux-upstream
    /CONTRIB
+   GSoC
 
 Google Summer of Code (GSoC)
 ****************************
