@@ -14,7 +14,7 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 4. Plastic standoff hardware
 5. Quick-start card
 
-.. image:: images/product-pictures/45fontall.webp
+.. image:: images/product-pictures/45fontall.*
     :width: 1400
     :align: center
     :alt: BeaglePlay box contents
@@ -43,7 +43,7 @@ Tethering to PC
 
 For tethering to your PC you'll need a USB-C data cable.
 
-.. figure:: images/tethered-connection.webp
+.. figure:: images/tethered-connection.*
     :width: 1400
     :align: center
     :alt: Tethering BeaglePlay to PC
@@ -62,7 +62,7 @@ to browse documents and start programming your BeaglePlay!
    not having a public URL for your board. If you have any questions about this, please as on
    https://forum.beagleboard.org/tag/play.
 
-.. figure:: images/vscode.webp
+.. figure:: images/vscode.*
     :width: 1400
     :align: center
     :alt: BeaglePlay VSCode IDE (192.168.7.2:3000)

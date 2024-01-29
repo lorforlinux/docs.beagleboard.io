@@ -80,13 +80,13 @@ Step 1: Starting wpa_gui
 
 You can start ``wpa_gui`` either from ``Applications > Internet > wpa_gui`` or double click on the ``wpa_gui`` desktop application shortcut.
 
-.. figure:: ../images/wpa_gui_step1a.webp
+.. figure:: ../images/wpa_gui_step1a.*
     :align: center
     :alt: Starting wpa_gui from Applications > Internet > wpa_gui
 
     Starting wpa_gui from Applications > Internet > wpa_gui
 
-.. figure:: ../images/wpa_gui_step1b.webp
+.. figure:: ../images/wpa_gui_step1b.*
     :align: center
     :alt: Starting wpa_gui from Desktop application shortcut
 
@@ -105,7 +105,7 @@ Let's see the ``wpa_gui`` interface in detail,
     - Click on ``Scan`` to scan nearby WiFi access points.
 4. ``Manage Network`` tab shows you all the saved networks and options to manage those.
 
-.. figure:: ../images/wpa_gui_step2.webp
+.. figure:: ../images/wpa_gui_step2.*
     :align: center
     :alt: wpa_gui interface
 
@@ -117,7 +117,7 @@ Step 3: Scanning & Connecting to WiFi access points
 To scan the WiFi access points around you, just click on ``Scan`` button availale under 
 ``wpa_gui > Current Status > Scan``.
 
-.. figure:: ../images/wpa_gui_step3a.webp
+.. figure:: ../images/wpa_gui_step3a.*
     :align: center
     :alt: Scanning WiFi access points
 
@@ -137,7 +137,7 @@ Now, you just have to double click on the Network you want to connect to as show
     SSIDs and BSSIDs are not fully visible in screenshot below 
     but you can change the column length to see the WiFi names better.
 
-.. figure:: ../images/wpa_gui_step3b.webp
+.. figure:: ../images/wpa_gui_step3b.*
     :align: center
     :alt: Selecting WiFi access point
 
@@ -215,13 +215,13 @@ Step 1: Open up terminal
 
 Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
 
-.. figure:: ../images/wpa_cli_step1a.webp
+.. figure:: ../images/wpa_cli_step1a.*
     :align: center
     :alt: Open terminal from Applications > Terminal Emulator
 
     Open terminal from Applications > Terminal Emulator    
 
-.. figure:: ../images/wpa_cli_step1b.webp
+.. figure:: ../images/wpa_cli_step1b.*
     :align: center
     :alt: Open terminal from Task Manager
 
@@ -248,19 +248,19 @@ which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based
 3. Now save the details using ``ctrl + O`` then enter.
 4. To exit out of the ``nano`` text editor use ``ctrl + X``.
 
-.. figure:: ../images/wpa_cli_step2a.webp
+.. figure:: ../images/wpa_cli_step2a.*
     :align: center
     :alt: Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
     Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
-.. figure:: ../images/wpa_cli_step2b.webp
+.. figure:: ../images/wpa_cli_step2b.*
     :align: center
     :alt: Add SSID and PSK
 
     Add SSID and PSK
 
-.. figure:: ../images/wpa_cli_step2c.webp
+.. figure:: ../images/wpa_cli_step2c.*
     :align: center
     :alt: Save credentials and Exit
 
@@ -294,13 +294,13 @@ after you add the credentials to ``wpa_supplicant-wlan0.conf``.
     rtt min/avg/max/mdev = 5.281/6.445/9.043/1.274 ms
 
 
-.. figure:: ../images/wpa_cli_step3a.webp
+.. figure:: ../images/wpa_cli_step3a.*
     :align: center
     :alt: Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
     Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
-.. figure:: ../images/wpa_cli_step3b.webp
+.. figure:: ../images/wpa_cli_step3b.*
     :align: center
     :alt: To check connection try running $ ping 8.8.8.8
 
