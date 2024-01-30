@@ -320,15 +320,19 @@ This site uses sphinxcontrib-youtube to embed YouTube videos. The syntax is as f
 
     .. code-block:: rst
 
-        .. admonition:: YouTube Video Description <1>
+        .. _internal-link: <1>
 
-        .. youtube:: <YouTube_video_ID> <2>
+        .. admonition:: YouTube Video Description <2>
+
+            .. youtube:: <YouTube_video_ID> <3>
     
     .. annotations::
 
-        <1> Optionally, you can include a title for your video. This is useful for internal links.
+        <1> Internal link to the video to be used for references.
 
-        <2> Here you have to replace the <YouTube_video_ID> with your actual YouTube ID.
+        <2> Title for your video.
+
+        <3> Here you have to replace the <YouTube_video_ID> with your actual YouTube ID.
 
 When rendered, it looks like :ref:`youtube-example`.
 
@@ -336,10 +340,10 @@ When rendered, it looks like :ref:`youtube-example`.
 
 .. admonition:: Example of embedded YouTube video
 
-.. youtube:: 7cm1AAnaawk
+    .. youtube:: 7cm1AAnaawk
 
 More
-====
+****
 
 .. rubric:: footnotes
 
