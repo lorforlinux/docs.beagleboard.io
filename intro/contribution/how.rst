@@ -17,13 +17,13 @@ show up directly in the staging documentation at https://docs.beagleboard.io/lat
 Reporting bugs
 ***************
 
-Start by reading the `Gitlab Issues help page <https://git.beagleboard.org/help/user/project/issues/index.md>`_.
+Start by reading the `Gitlab Issues help page <https://openbeagle.org/help/user/project/issues/index.md>`_.
 
-Please request an account and report any issues on the appropriate project issue tracker at https://git.beagleboard.org.
+Please request an account and report any issues on the appropriate project issue tracker at https://openbeagle.org.
 
-Report issues on the software images at https://git.beagleboard.org/explore/topics/distros.
+Report issues on the software images at https://openbeagle.org/explore/topics/distros.
 
-Report issues on the hardware at https://git.beagleboard.org/explore/projects/topics/boards.
+Report issues on the hardware at https://openbeagle.org/explore/projects/topics/boards.
 
 Suggesting enhancements
 ***********************
@@ -34,17 +34,17 @@ ideas that are already out there and give us your idea. Try to be constructive i
 a volunteer community looking to make your experience better, as those that follow you, and your suggestion could be
 key in that endeavor.
 
-Where available, use the "enhancement" `label <https://git.beagleboard.org/help/user/project/labels.md>`_ on your issue
+Where available, use the "enhancement" `label <https://openbeagle.org/help/user/project/labels.md>`_ on your issue
 to make sure we know you are looking for a future improvement, not reporting something critically wrong.
 
 Submitting merge requests
 *************************
 
 If you want to contribute to a project, the most practical way is with a
-`merge request <https://git.beagleboard.org/help/user/project/merge_requests/index.html>`_. Start
-by `creating a fork <https://git.beagleboard.org/help/user/project/repository/forking_workflow.html>`_, which
+`merge request <https://openbeagle.org/help/user/project/merge_requests/index.html>`_. Start
+by `creating a fork <https://openbeagle.org/help/user/project/repository/forking_workflow.html>`_, which
 is your own copy of the project you can feel free to edit how you see fit. When ready,
-`create a merge request <https://git.beagleboard.org/help/user/project/merge_requests/creating_merge_requests.html>`_ and
+`create a merge request <https://openbeagle.org/help/user/project/merge_requests/creating_merge_requests.html>`_ and
 we'll review your work and give comments back to you. If suitable, we'll update the code to include your contribution!
 
 A bit more detailed suggestions can be found in the articles linked below.
