@@ -3,6 +3,8 @@
 Edge AI
 ========
 
+.. todo:: Update to latest text from Texas Instruments Edge AI docs
+
 .. toctree::
    :maxdepth: 1
 

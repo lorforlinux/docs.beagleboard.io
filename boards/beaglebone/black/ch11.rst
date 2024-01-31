@@ -3,8 +3,8 @@
 Support Information
 ########################
 
-All support for this design is through the BeagleBoard.org community at:
-`beagleboard@googlegroups.com <beagleboard@googlegroups.com>`_ or `http://beagleboard.org/discuss <http://beagleboard.org/discuss>`_
+All support for BeagleBone Black design is through BeagleBoard.org community 
+at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/beaglebone-black>`_.
 
 Hardware Design
 --------------------

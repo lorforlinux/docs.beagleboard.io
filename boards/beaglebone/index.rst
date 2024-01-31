@@ -27,6 +27,6 @@ All boards received without RMA approval will not be worked on.
 * `BeagleBone (original) <https://git.beagleboard.org/beagleboard/beaglebone/-/blob/master/BeagleBone_SRM_A6_0_1.pdf>`__
 * :ref:`beagleboneblack-home`
 * :ref:`beaglebone-blue-home`
-* :ref:`beaglebone-ai-home`
+* :ref:`bbai-home`
 * :ref:`bbai64-home`
 

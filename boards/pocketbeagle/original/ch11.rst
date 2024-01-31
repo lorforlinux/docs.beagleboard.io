@@ -3,10 +3,8 @@
 Support Information
 ============================
 
-All support for this design is through the BeagleBoard.org community at:
-
--  `beagleboard@googlegroups.com <https://beagleboard.org/chat>`__ or
--  `beagleboard.org/discuss <https://beagleboard.org/discuss>`__.
+All support for PocketBeagle design is through BeagleBoard.org community 
+at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle>`_.
 
 .. _hardware_design:
 

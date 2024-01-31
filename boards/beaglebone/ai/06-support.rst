@@ -1,7 +1,10 @@
-.. _beaglebone-ai-support:
+.. _bbai-support:
 
 Additional Support Information
 ##############################
+
+All support for BeagleBone AI design is through BeagleBoard.org 
+community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai>`_.
 
 .. todo::
 
@@ -112,8 +115,8 @@ Proposed changes.
 Pictures
 *********
 
-.. image:: images/BB_AI_Front.jpg
+.. image:: media/BB_AI_Front.jpg
     :align: center
 
-.. image:: images/BB_AI_Back.jpg
+.. image:: media/BB_AI_Back.jpg
     :align: center

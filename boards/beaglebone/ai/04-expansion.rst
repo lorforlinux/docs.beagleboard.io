@@ -1,13 +1,9 @@
-.. _beaglebone-ai-connectors:
+.. _bbai-expansion:
 
-Connectors
-############
+Expansion
+#########
 
-.. image:: images/BB_AI_Connectorplacement_800px.png
-    :align: center
 
-.. image:: images/BB_AI_Connectorplacement_back_800px.png
-    :align: center
 
 Expansion Connectors
 **********************
@@ -27,7 +23,7 @@ are **3.3V** unless otherwise indicated.
 
 **Figure ?** shows the location of the expansion connectors.
 
-.. image:: images/BB_AI_Headerplacement_800px.png
+.. image:: media/BB_AI_Headerplacement_800px.png
     :align: center
     :alt: beaglebone ai header placement
 
@@ -1624,3 +1620,192 @@ microHDMI
 ***********
 
 .. todo:: Need info on BealgeBone AI uHDMI connection
+
+
+Cape Board Support
+#####################
+
+There is a `Cape Headers Google
+Spreadsheet <https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing>`__
+which has a lot of detail regarding various boards and cape add-on
+boards.
+
+See also https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec
+
+TODO
+
+BeagleBone® Black Cape Compatibility
+**************************************
+
+TODO
+
+See https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec for
+now.
+
+EEPROM
+************
+
+TODO
+
+Pin Usage Consideration
+************************
+
+TODO
+
+GPIO
+*********
+
+TODO
+
+I2C
+*********
+
+TODO
+
+UART or PRU UART
+*******************
+
+This section is about both UART pins on the header and PRU UART pins on
+the headers we will include a chart and later some code
+
+.. table::  UART
+
+    +-------------+--------+-----------+-------------------+-------+
+    | Function    | Pin    | ABC Ball  | Pinctrl Register  | Mode  |
+    +=============+========+===========+===================+=======+
+    | uart3_txd   | P9.21  | B22       | 0x17C4            | 1     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart3_rxd   | P9.22  | A26       | 0x17C0            | 1     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_txd   | P9.13  | C17       | 0x1730            | 4     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_rxd   | P9.11  | B19       | 0x172C            | 4     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_ctsn  | P8.05  | AC9       | 0x178C            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart5_rtsn  | P8.06  | AC3       | 0x1790            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_txd   | P8.37  | A21       | 0x1738            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_rxd   | P8.38  | C18       | 0x1734            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_ctsn  | P8.31  | G16       | 0x173C            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart8_rtsn  | P8.32  | D17       | 0x1740            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_txd  | P9.24  | F20       | 0x168C            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rxd  | P9.26  | E21       | 0x1688            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_ctsn | P8.03  | AB8       | 0x179C            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rtsn | P8.04  | AB5       | 0x17A0            | 2     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_txd  | P9.24  | F20       | 0x168C            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rxd  | P9.26  | E21       | 0x1688            | 3     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_ctsn | P9.20  | D2        | 0x1578            | 8     |
+    +-------------+--------+-----------+-------------------+-------+
+    | uart10_rtsn | P9.19  | F4        | 0x157C            | 8     |
+    +-------------+--------+-----------+-------------------+-------+
+
+.. table:: PRU UART
+
+    +------------------+--------+-----------+-------------------+-------+
+    | Function         | Pin    | ABC Ball  | Pinctrl Register  | Mode  |
+    +==================+========+===========+===================+=======+
+    | pr2_uart0_txd    | P8.31  | C8        | 0x1614            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr2_uart0_rxd    | P8.33  | C6        | 0x1610            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr2_uart0_cts_n  | P8.34  | D8        | 0x1608            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr2_uart0_rts_n  | P8.35  | A5        | 0x160C            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_rxd    | P8.43  | F10       | 0x15E4            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_txd    | P8.44  | G11       | 0x15E8            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_cts_n  | P8.45  | F11       | 0x15DC            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+    | pr1_uart0_rts_n  | P8.46  | G10       | 0x15E0            | 10    |
+    +------------------+--------+-----------+-------------------+-------+
+
+
+TODO
+
+SPI
+****
+
+TODO
+
+Analog
+********
+
+TODO
+
+.. _pwm-timer-ecap-or-pru-pwm-ecap:
+
+PWM, TIMER, eCAP or PRU PWM/eCAP
+**********************************
+
+TODO
+
+eQEP
+******
+
+TODO
+
+CAN
+*****
+
+TODO
+
+.. _mcasp-audio-serial-like-i2c-and-ac97:
+
+McASP (audio serial like I2S and AC97)
+****************************************
+
+TODO
+
+MMC
+*****
+
+TODO
+
+LCD
+*****
+
+TODO
+
+PRU GPIO
+**********
+
+TODO
+
+CLKOUT
+********
+
+TODO
+
+Expansion Connector Headers
+******************************
+
+TODO: discuss header options for working with the expansion connectors per 
+https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
+
+Signal Usage
+****************
+
+TODO
+
+Cape Power
+************
+
+TODO
+
+Mechanical
+************
+
+TODO

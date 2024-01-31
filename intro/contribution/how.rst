@@ -3,14 +3,15 @@
 How can I contribute?
 #####################
 
-The most obvious way to contribute is using the `OpenBeagle Gitlab server <https://openbeagle.org>`_ to report
+The most obvious way to contribute is using the `OpenBeagle (BeagleBoard.org GitLab server) <https://openbeagle.org>`_ to report
 bugs, suggest enhancements and providing merge requests, also called pull requests, the provide fixes to software, hardware
 designs and documentation.
 
 Reading the `help guide <https://openbeagle.org/help/>`_ is a great way to get started using our Gitlab server.
 
-This documentation has a number of ``todo`` items where help is needed that can be searched in the source. This list will
-show up directly in the staging documentation at https://docs.beagleboard.io/latest/intro/contribution/index.html#how-can-i-contribute.
+.. note::
+    This documentation has a number of ``todo`` items where help is needed that can be searched in the source. This list will
+    show up directly in the staging documentation at https://docs.beagleboard.io/latest/intro/contribution/how.html
 
 .. todolist::
 

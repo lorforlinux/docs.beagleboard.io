@@ -1,4 +1,6 @@
 .. _beagleconnect-freedom-expansion:
 
-Connectors 
-###########
+Expansion 
+##########
+
+.. todo:: Add BeagleConnect Freedom expansion chapter content.

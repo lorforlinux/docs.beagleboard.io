@@ -171,11 +171,12 @@ it is located in a separate binary: the device tree blob.
 
 **What is a Device Tree?**
 
-A device tree is used to describe system hardware. A boot program loads a device tree into a
-client program’s memory and passes a pointer to the device tree to the client.
-
 A device tree is a tree data structure with nodes that describe
-the physical devices in a system.
+the physical devices in a system. It is used to describe system hardware. 
+A boot program loads a device tree into a client program’s memory and 
+passes a pointer to the device tree to the client.
+
+
 
 .. _linux-upstream-additional-resources:
 

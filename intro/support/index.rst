@@ -57,12 +57,18 @@ Best to be prepared with good diagnostic information to aide with support.
 -  `Beagle Tester source <https://git.beagleboard.org/jkridner/beagle-tester>`_
 
 .. figure:: images/beagle-version.png
+   :width: 940
    :align: center
    :alt: Run beagle-version
 
+   Run beagle-version
+
 .. figure:: images/beagle-version-download.png
+   :width: 1240
    :align: center
    :alt: Download beagle-version output
+
+   Download beagle-version output
 
 .. tip::
    For debugging purposes you can either share the ``beagle-version.txt`` file you just downloaded 

@@ -15,7 +15,7 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 5. Quick-start card
 
 .. image:: images/product-pictures/45fontall.*
-    :width: 1400
+    :width: 940
     :align: center
     :alt: BeaglePlay box contents
 
@@ -24,10 +24,12 @@ Attaching antennas
 
 You can watch this video to see how to attach the attennas.
 
-.. youtube:: 8zeIVd-JRc0
-    :width: 1280
-    :height: 720
-    :align: center
+.. admonition:: YouTube video of BeaglePlay antenna connection
+
+    .. youtube:: 8zeIVd-JRc0
+        :width: 1280
+        :height: 720
+        :align: center
 
 Tethering to PC
 ****************

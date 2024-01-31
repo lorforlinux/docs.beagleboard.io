@@ -23,7 +23,7 @@ developers, potential documentation contributors, testers and everybody
 interested in BeagleBoard Docs and other BeagleBoard projects.
 
 Relevance
-***************
+**********
 
 This page is about using ``git`` for tracking and submitting changes.
 
@@ -41,7 +41,7 @@ required software and integration with OpenBeagle. If you want to start
 contributing to BeagleBoard projects, you definitely need to install ``git`` and learn
 how to obtain a branch of the OpenBeagle project to which you want to contribute. 
 If you want to share your changes easily with others, you should also 
-sign up for an `OpenBeagle <https://openbeagle.org/users/sign_up>`_ 
+sign up for an `OpenBeagle (BeagleBoard Gitlab) <https://openbeagle.org/users/sign_up>`_ 
 account and read the corresponding section of the manual. Finally, if you are
 engaged in one of the collaborations on experimental BeagleBoard projects,
 you should look also into code review and branch merging.
@@ -53,52 +53,48 @@ You will need to install ``git`` on your computer. `git <http://git-scm.com/>`_
 is available for all major operating systems. Please use the appropriate
 installation method as described below.
 
-Linux
-======
+.. tabs:: 
 
-``git`` is now packaged in all major Linux distributions, you should find it
-in your package manager.
+    .. group-tab:: Linux
 
-Ubuntu/Debian
-==============
+        ``git`` is now packaged in all major Linux distributions. You should find it
+        in your package manager.
 
-You can install ``git`` from the `git-core` package. e.g.,
+        **Ubuntu/Debian**
 
-.. code-block:: shell
+        You can install ``git`` from the `git-core` package. e.g.,
 
-    sudo apt-get install git-core
+        .. code-block:: shell
 
+            sudo apt-get install git-core
 
-You'll probably also want to install the following packages: `gitk`,
-`git-gui`, and `git-doc`
+        You'll probably also want to install the following packages: `gitk`,
+        `git-gui`, and `git-doc`
 
-Redhat/Fedora/Mandriva
-==========================
+        **Redhat/Fedora/Mandriva**
 
-``git`` is also packaged in rpm-based linux distributions.
+        ``git`` is also packaged in rpm-based linux distributions.
 
-.. code-block:: shell
+        .. code-block:: shell
 
-    dnf install gitk
+            dnf install gitk
 
-should do the trick for you in any recent fedora/mandriva or
-derivatives
+        should do the trick for you in any recent Fedora/Mandriva or
+        derivatives
 
-Mac OS X
-==========
+    .. group-tab:: Mac OS X
 
-Download the `.dmg` disk image from
-http://code.google.com/p/git-osx-installer/
+        Download the `.dmg` disk image from
+        http://code.google.com/p/git-osx-installer/
 
-Windows
-==========
+    .. group-tab:: Windows
 
-.. note::
+        .. note::
 
-   It is worthwhile to consider using Linux at least inside of a virtual machine (VM).
+           It is worthwhile to consider using Linux at least inside of a virtual machine (VM).
 
-Download the official installers from
-`Windows installers <https://git-scm.com/download/win>`_
+        Download the official installers from
+        `Windows installers <https://git-scm.com/download/win>`_
 
 Testing your ``git`` installation
 **********************************
@@ -136,10 +132,10 @@ If you don't already have an OpenBeagle account, you can create one
 Once you have created your account, upload an SSH public key by clicking
 on `SSH and GPG keys <https://openbeagle.org/-/profile/keys>` after logging in. For more
 information on generating and uploading an SSH public key, see `this
-GitLab guide <https://docs.gitlab.com/ee/user/ssh.html>`_.
+OpenBeagle guide on SSH keys <https://openbeagle.org/help/user/ssh.html>`_.
 
 Working with the source code
-********************************
+******************************
 
 In order to start working with the BeagleBoard Docs source code, you need to
 obtain a local clone of our ``git`` repository. In ``git``, this means you will
@@ -243,7 +239,7 @@ OpenBeagle account). For example,
     git config --global user.name "David Jones" config --global user.email "d.jones@example.com"
 
 Making changes locally
-*************************
+***********************
 
 Now you can make changes to your local repository - you can do this
 offline, and you can commit your changes as often as you like. In fact,
@@ -300,12 +296,13 @@ you can push your changes back to the OpenBeagle server:
 
     git push origin demo-branch
 
-*This will not work if you have cloned directly from the official
-BeagleBoard branch, since only the core developers will have write access
-to the main repository.*
+.. note::
+        This will not work if you have cloned directly from the official
+        BeagleBoard branch, since only the core developers will have write access
+        to the main repository.
 
 Merging upstream changes
-**************************
+*************************
 
 We recommend that you don't actually make any changes to the **main**
 branch in your local repository (or your fork on OpenBeagle). Instead, use
@@ -329,8 +326,7 @@ Then all you need to do is:
 Provided you never commit any change to your local **main** branch,
 this should always be a simple *fast forward* merge without any
 conflicts. You can then deal with merging the upstream changes from your
-local main branch into your local branches (and you can do that
-offline).
+local main branch into your local branches (and you can do that offline).
 
 If you have your repository hosted online (e.g. at OpenBeagle), then push
 the updated main branch there:

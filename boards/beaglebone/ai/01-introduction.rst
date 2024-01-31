@@ -1,9 +1,29 @@
+.. _bbai-introduction:
+
+Introduction
+#############
+
+Built on the proven BeagleBoard.org® open source Linux approach,
+BeagleBone® AI fills the gap between small SBCs and more powerful
+industrial computers. Based on the Texas Instruments AM5729, developers
+have access to the powerful SoC with the ease of BeagleBone® Black
+header and mechanical compatibility. BeagleBone® AI makes it easy to
+explore how artificial intelligence (AI) can be used in everyday life
+via TI C66x digital-signal-processor (DSP) cores and
+embedded-vision-engine (EVE) cores supported through an optimized TIDL
+machine learning OpenCL API with pre-installed tools. Focused on
+everyday automation in industrial, commercial and home applications.
+
+.. image:: media/BB_AI_BeautyAngle_800px.jpg
+   :align: center
+   :alt: BeagleBone AI Beauty Angle
+
 .. _beaglebone-ai-overview:
 
 BeagleBone AI Overview
-########################
+======================
 
-.. image:: images/BB_AI_overview_image.*
+.. image:: media/BB_AI_overview_image.*
    :align: center
    :alt: BeagleBone AI Overview
 
@@ -59,7 +79,17 @@ Out of Box Software
 Board Component Locations
 **************************
 
-.. image:: images/BB_AI_ICPlacement_800px.png
+.. image:: media/BB_AI_ICPlacement_800px.png
+   :width: 740
    :align: center
    :alt: beaglebone ai component placement
 
+.. image:: media/BB_AI_Connectorplacement_800px.png
+    :width: 740
+    :align: center
+    :alt: Connector placement front
+
+.. image:: media/BB_AI_Connectorplacement_back_800px.png
+   :width: 740   
+   :align: center
+   :alt: Connector placement back

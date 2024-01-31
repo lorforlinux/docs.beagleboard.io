@@ -176,7 +176,7 @@ from source using appropriate design tools.
       IIoT projects to the next level with a full Linux computer the size of a mint tin.
 
    .. grid-item-card:: 
-      :link: beaglebone-ai-home
+      :link: bbai-home
       :link-type: ref
 
       **BeagleBone® AI**

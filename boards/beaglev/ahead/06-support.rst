@@ -3,6 +3,9 @@
 Support
 #######
 
+All support for BeagleV Ahead design is through BeagleBoard.org 
+community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/ahead>`_.
+
 .. _beaglev-ahead-certifications:
 
 Certifications and export control

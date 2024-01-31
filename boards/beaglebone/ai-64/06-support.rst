@@ -3,7 +3,8 @@
 Additional Support Information
 ##############################
 
-All support for this design is through BeagleBoard.org community at: link: `BeagleBoard.org forum <https://forum.beagleboard.org/>`_ .
+All support for this design is through BeagleBoard.org community 
+at: link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_ .
 
 
 .. _hardware-design:
@@ -64,14 +65,15 @@ Troubleshooting video output issues
 .. _getting-help:
 
 Getting Help
-*********************************************
+**************
 
-If you need some up to date troubleshooting techniques, you can post your queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/>`_
+If you need some up to date troubleshooting techniques, you can post your 
+queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_
 
 .. _bbai64-Change-history:
 
 Change History
-*********************************************
+****************
 
 This section describes the change history of this document and board. Document changes are not always a result of a board change. A board change will always result in a document change.
 
@@ -144,21 +146,21 @@ Weight: 192gm
 Silkscreen and Component Locations
 =====================================
 
-.. figure:: media/ch09/board-dimensions.*
+.. figure:: media/hardware-design/board-dimensions.*
    :width: 400px
    :align: center 
    :alt: Board Dimensions
    
    Board Dimensions
 
-.. figure:: media/ch09/top-silkscreen.*
+.. figure:: media/hardware-design/top-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Top silkscreen
    
    Top silkscreen
 
-.. figure:: media/ch09/bottom-silkscreen.*
+.. figure:: media/hardware-design/bottom-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Bottom silkscreen
