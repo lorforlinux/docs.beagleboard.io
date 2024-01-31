@@ -33,4 +33,3 @@ to propose changes to this document in a merge request.
    rst-cheat-sheet
    linux-upstream
    /CONTRIB
-
