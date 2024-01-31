@@ -9,9 +9,13 @@ designs and documentation.
 
 Reading the `help guide <https://openbeagle.org/help/>`_ is a great way to get started using OpenBeagle.
 
-.. note::
-    This documentation has a number of ``todo`` items where help is needed that can be searched in the source. This list will
-    show up directly in the staging documentation at https://docs.beagleboard.io/latest/intro/contribution/how.html
+.. _contribution-todo-list:
+
+Tackle to-do list
+*****************
+
+This documentation has a number of ``todo`` items where help is needed that can be searched in the source. This list will
+show up directly in the staging documentation at https://docs.beagleboard.io/latest/intro/contribution/how.html#contribution-todo-list
 
 .. todolist::
 
