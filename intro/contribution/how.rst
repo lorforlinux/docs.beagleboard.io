@@ -7,7 +7,7 @@ The most obvious way to contribute is using the `OpenBeagle (BeagleBoard.org Git
 bugs, suggest enhancements and providing merge requests, also called pull requests, the provide fixes to software, hardware
 designs and documentation.
 
-Reading the `help guide <https://openbeagle.org/help/>`_ is a great way to get started using our Gitlab server.
+Reading the `help guide <https://openbeagle.org/help/>`_ is a great way to get started using OpenBeagle.
 
 .. note::
     This documentation has a number of ``todo`` items where help is needed that can be searched in the source. This list will
@@ -15,10 +15,17 @@ Reading the `help guide <https://openbeagle.org/help/>`_ is a great way to get s
 
 .. todolist::
 
+Google Summer of Code (GSoC)
+****************************
+
+For newcomers venturing into the realm of open-source contribution, Google Summer of Code (GSoC) stands as an invaluable platform. GSoC provides a unique opportunity to collaborate with the open-source community, engaging in the identification and development of exciting projects during the summer term.
+
+BeagleBoard.org serves as a mentorship organization that takes part in the Google Summer of Code program actively, giving students the opportunity to work on open-source projects during the summer. Visit our dedicated :ref:`beagleboard-gsoc` for more information about this program, including past projects and mentorship opportunities. 
+
 Reporting bugs
 ***************
 
-Start by reading the `Gitlab Issues help page <https://openbeagle.org/help/user/project/issues/index.md>`_.
+Start by reading the `OpenBeagle Issues help page <https://openbeagle.org/help/user/project/issues/index.md>`_.
 
 Please request an account and report any issues on the appropriate project issue tracker at https://openbeagle.org.
 
