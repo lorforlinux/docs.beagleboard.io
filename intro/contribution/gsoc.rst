@@ -10,4 +10,4 @@ BeagleBoard.org actively participates in the Google Summer of Code program as a 
 Google Summer of Code is open to individuals age 18 and older in most countries who are new or beginner contributors to open source coding projects.
 Read more background on the `GSoC site rules <https://summerofcode.withgoogle.com/rules>`_ page and the `FAQ <https://developers.google.com/open-source/gsoc/faq>`_.
 
-**Get started with BeagleBoard.org at https://gsoc.beagleboard.io.**
+**Get started with BeagleBoard.org at:** `gsoc.beagleboard.io <https://gsoc.beagleboard.io>`_.
