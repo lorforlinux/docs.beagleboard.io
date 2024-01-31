@@ -1,4 +1,4 @@
-.. _beagleboard-GSOC:
+.. _beagleboard-gsoc:
 
 Google Summer of Code (GSoC)
 ############################
