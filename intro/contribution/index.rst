@@ -26,7 +26,6 @@ to propose changes to this document in a merge request.
    code-of-conduct
    faq
    background
-   prerequisites
    how
    git-usage
    style
