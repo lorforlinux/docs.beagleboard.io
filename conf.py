@@ -138,7 +138,7 @@ pages_url = "https://docs.beagleboard.io"
 pages_slug = "latest"
 gitlab_user = "docs"
 gitlab_version = "main"
-gitlab_host = "git.beagleboard.org"
+gitlab_host = "openbeagle.org"
 gitlab_repo = "docs.beagleboard.io"
 docs_url = "https://docs.beagleboard.io/latest/"
 
@@ -176,6 +176,9 @@ html_context = {
     "gitlab_user": gitlab_user,
     "gitlab_repo": gitlab_repo,
     "gitlab_version": gitlab_version,
+    #"use_edit_page_button": True,
+    #"edit_page_provider_name": "OpenBeagle",
+    #"edit_page_url_template": "https://openbeagle.org/XXXX/{{ file_name }}",
     "conf_py_path": "/",
     "show_license": True,
     "pages_url": pages_url,
