@@ -64,7 +64,19 @@ Demos and tutorials
     Learn to expand your BeaglePlay capabilities via Qwiic I2C boards.
     +++
     .. admonition:: Complexity level
-        
+
+        beginner
+
+.. card::
+    :link: beagleplay-nodered
+    :link-type: ref
+
+    **Using NodeRed**
+    ^^^
+    Learn how to use NodeRed with BeaglePlay for rapid and easy prototyping.
+    +++
+    .. admonition:: Complexity level
+
         beginner
 
 .. card:: 
