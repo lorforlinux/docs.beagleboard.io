@@ -8,6 +8,7 @@ An Introduction to Beagles
    :hidden:
 
    blinkLED
+   learning-c
    linux
    qwiic-stemma-grove-addons
 
