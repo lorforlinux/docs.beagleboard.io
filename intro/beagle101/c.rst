@@ -1,6 +1,6 @@
-.. _beagle101-learning-c:
+.. _intro-c:
 
-Learning C
-##########
+Introduction to C
+#################
 
 .. todo:: Place-holder for tutorial on the C programming language
