@@ -114,6 +114,8 @@ load up Linux.  This is because all Beagles
 to install an image on the Pocket) have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
 
+.. _intro-using-vs-code:
+
 Using VS Code
 **************
 
