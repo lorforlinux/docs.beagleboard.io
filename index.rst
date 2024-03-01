@@ -1,7 +1,7 @@
-..
-    BeagleBoard projects documentation main file
-
 .. _bbdocs-home:
+
+:html_theme.sidebar_secondary.remove: true
+:sd_hide_title: true
 
 BeagleBoard Documentation
 ############################
@@ -376,19 +376,7 @@ Capes
    :hidden:
    :caption: Boards
    
-   /boards/beagleplay/index
-   /boards/beaglebone/ai-64/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/black/index
-   /boards/beaglebone/blue/index
-   /boards/beaglebone/index
-   /boards/beaglev/ahead/index
-   /boards/beaglev/fire/index
-   /boards/pocketbeagle/original/index
-   /boards/beagleconnect/freedom/index
-   /boards/beagleboard/index
-   /boards/capes/index
-   /boards/terms-and-conditions
+   boards/index
 
 
 Projects
@@ -402,10 +390,7 @@ developers. Some developers choose to host documentation for their :ref:`project
    :hidden:
    :caption: Projects
 
-   /projects/simppru/index
-   /projects/bb-config/index
-   /projects/librobotcontrol/docs/index
-   /projects/beagleconnect/index
+   projects/index
 
 Books
 *****
@@ -420,8 +405,7 @@ This project hosts a collection of open-source :ref:`books-home` books written t
    :hidden:
    :caption: Books
 
-   /books/beaglebone-cookbook/index
-   /books/pru-cookbook/index
+   books/index
 
 Accessories
 ************
