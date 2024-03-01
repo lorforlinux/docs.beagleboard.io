@@ -6,15 +6,11 @@
 
 import os
 import sys
-from pathlib import Path
 import re
-import sphinx_rtd_theme
+import pydata_sphinx_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
-import textwrap
 
 ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
-
-BBDOCS_BASE = Path(__file__).resolve().parents[0]
 
 rst_epilog =""
 
@@ -22,13 +18,13 @@ rst_epilog =""
 with open('latest.images') as f:
      rst_epilog += f.read()    
                        
-# -- Project information -----------------------------------------------------
+# -- Project information --
 
 project = 'BeagleBoard Docs'
-copyright = '2023, BeagleBoard.org Foundation'
+copyright = '2024, BeagleBoard.org Foundation'
 author = 'BeagleBoard.org Foundation'
 
-# -- General configuration ---------------------------------------------------
+# -- General configuration --
 
 sys.path.append(os.path.abspath("./_ext"))
 
@@ -46,8 +42,6 @@ extensions = [
     "breathe",
     "sphinx_copybutton",
 ]
-
-#    "exhale"
 
 #graphviz_output_format = 'svg'
 
@@ -89,25 +83,83 @@ navigation_with_keys = True
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'pydata_sphinx_theme'
 html_show_sphinx = False
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_theme_options = {
-    "logo_only": True,
-    'prev_next_buttons_location': 'bottom',
-}
+html_theme_path = [pydata_sphinx_theme.Path()]
 html_title = "BeagleBoard Documentation"
-html_logo = str(BBDOCS_BASE / "_static" / "images" / "logo.svg")
-html_favicon = str(BBDOCS_BASE / "_static" / "images" / "favicon.ico")
-html_static_path = [str(BBDOCS_BASE / "_static")]
-html_last_updated_fmt = "%b %d, %Y"
+html_logo = "_static/images/logo.svg"
+html_favicon = "_static/images/boris.svg"
+html_sourcelink_suffix = ""
+html_last_updated_fmt = ""
+html_static_path = ["_static"]
+# html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
 html_split_index = True
 html_show_sourcelink = False
+html_theme_path = [pydata_sphinx_theme.Path()]
 html_baseurl = "docs.beagleboard.io"
+html_css_files = [
+    'css/custom.css',
+]
+
+html_sidebars = {
+}
+
+html_theme_options = {
+    # "header_links_before_dropdown": 4,
+    "show_prev_next": True,
+    "icon_links": [
+        {
+            "name": "OpenBeagle",
+            "url": "https://openbeagle.org/",
+            "icon": "fa-brands fa-gitlab",
+            "attributes": {"target": "_blank"},
+        },
+        {
+            "name": "Docs",
+            "url": "https://docs.beagleboard.org/",
+            "icon": "fa-solid fa-book",
+            "attributes": {"target": "_blank"},
+        },
+        {
+            "name": "Discord",
+            "url": "https://bbb.io/gsocchat",
+            "icon": "fa-brands fa-discord",
+            "attributes": {"target": "_blank"},
+        },
+        {
+            "name": "Forum",
+            "url": "https://bbb.io/gsocml",
+            "icon": "fa-brands fa-discourse",
+            "attributes": {"target": "_blank"},
+        },
+        {
+            "name": "BeagleBoard.org",
+            "url": "https://www.beagleboard.org",
+            "icon": "_static/images/boris.svg",
+            "type": "local",
+            "attributes": {"target": "_blank"},
+        }
+    ],
+    "use_edit_page_button": True,
+    "show_toc_level": 1,
+    "navbar_align": "right",
+    "show_nav_level": 2,
+    "announcement": "Welcome to the new site for BeagleBoard.org GSoC 2024 projects!",
+    # "show_version_warning_banner": True,
+    "navbar_center": ["navbar-nav"],
+    "navbar_start": ["navbar-logo"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    # "navbar_persistent": ["search-button"],
+    "footer_start": ["copyright"],
+    "footer_end": ["last-updated"],
+    # "content_footer_items": ["last-updated"],
+    "secondary_sidebar_items": {
+    },
+}
 
 # parse version from 'VERSION' file
-with open(BBDOCS_BASE  / "VERSION") as f:
+with open("VERSION") as f:
     m = re.match(
         (
             r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
@@ -142,7 +194,7 @@ gitlab_repo = "docs.beagleboard.io"
 docs_url = "https://docs.beagleboard.io/latest/"
 
 # parse pages details from 'PAGES' file
-with open(BBDOCS_BASE  / "PAGES") as f:
+with open("PAGES") as f:
     m = re.match(
         (
             r"^PAGES_URL\s*=\s*(\S+)$\n"
@@ -189,12 +241,12 @@ html_context = {
     }
 }
 
-# -- Options for LaTeX output ---------------------------------------------
+# -- Options for LaTeX output --
 
 latex_elements = {
     "papersize": "a4paper",
-    "maketitle": open(BBDOCS_BASE / "_static" / "latex" / "title.tex").read(),
-    "preamble": open(BBDOCS_BASE / "_static" / "latex" / "preamble.tex").read(),
+    "maketitle": open("_static/latex/title.tex").read(),
+    "preamble": open("_static/latex/preamble.tex").read(),
     "sphinxsetup": ",".join(
         (
             "verbatimwithframe=false",
@@ -207,7 +259,7 @@ latex_elements = {
     ),
 }
 latex_engine = "xelatex"
-latex_logo = str(BBDOCS_BASE / "_static" / "images" / "logo-latex.pdf")
+latex_logo = "_static/images/logo-latex.pdf"
 latex_documents = [
     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
 ]
@@ -215,7 +267,3 @@ latex_documents = [
 #language = 'en'
 #locales_dir = ['locale/']
 #gettext_compact = True
-
-def setup(app):
-    # theme customizations
-    app.add_css_file("css/custom.css")
