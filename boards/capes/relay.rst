@@ -80,7 +80,7 @@ python3 files with the Relay Cape work well!
 * Another idea, an image I found that works is `BeagleBoard.org Debian Bookworm IoT Image 2023-10-07`
 >>>>>>> 2ac757d (update to relay.rst)
 =======
-Currently, using C/C++ files, libgpiod-dev/gpiod in .c files, and 
+Currently, using C/C++ files, libgpiod-dev/gpiod in C files, and 
 python3 files with the Relay Cape work well!
 
 * For instance, a kernel that I found to work is kernel: `5.10.168-ti-r77`
@@ -320,4 +320,32 @@ One thing to note: `sudo apt install cmake`
 
 8. ./LibGPIO
 
-These are a few examples on how to use the RelayCape and am335x supported BeagleBone Black Wireless/BeagleBone Black SBCs.
+.. code-block::
+
+    #!/usr/bin/python3
+
+    # Getting help from #beagle on IRC
+    # You know who you are currently!
+
+    from pathlib import Path
+    from time import sleep
+
+    class Gpio:
+        def __init__(self, name):
+            self.name = name
+            self._value_path = Path('/sys/class/leds/', name, 'brightness')
+
+        def get(self):
+            return int(self._value_path.read_text())
+
+        def set(self, value):
+            self._value_path.write_text(str(value))
+
+    relay_one = Gpio('relay1/')
+
+    relay_one.set('1')
+    sleep(2)
+    relay_one.set('0')
+    sleep(2)
+
+These are a few examples on how to use the RelayCape and am335x supported BeagleBone Black SBC.
