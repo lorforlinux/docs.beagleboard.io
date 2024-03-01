@@ -64,12 +64,21 @@ Code to Get Started
 *******************
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Currently, using C files, libgpiod-dev in .c files, and 
 python3 files with the Relay Cape work well!
 
 * For instance, a kernel that I found to work is kernel: `5.10.168-ti-r72`.
 
 * Another idea, an image I found that works is `BeagleBoard.org Debian Bookworm IoT Image 2023-10-07`.
+=======
+Currently, using C/C++ files, libgpiod-dev/gpiod in .c files, and 
+python3 files with the Relay Cape work well!
+
+* For instance, a kernel that I found to work is kernel: `5.10.168-ti-r77`
+
+* Another idea, an image I found that works is `BeagleBoard.org Debian Bookworm IoT Image 2023-10-07`
+>>>>>>> 2ac757d (update to relay.rst)
 =======
 Currently, using C/C++ files, libgpiod-dev/gpiod in .c files, and 
 python3 files with the Relay Cape work well!
@@ -88,9 +97,15 @@ C Source with File Descriptors
 ******************************
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 You can name this file Bright.c and use gcc to handle compiling the source into a binary like so:
 
 `gcc Bright.c -o Bright`
+=======
+You can name this file Relay.c and use gcc to handle compiling the source into a binary like so:
+
+`gcc Relay.c -o Relay`
+>>>>>>> 2ac757d (update to relay.rst)
 =======
 You can name this file Relay.c and use gcc to handle compiling the source into a binary like so:
 
@@ -102,8 +117,13 @@ You can name this file Relay.c and use gcc to handle compiling the source into a
     /*
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     This is an example of programming GPIO from C on a BeagleBone Black or 
     other am335x board with the Relay Cape.
+=======
+    This is an example of programming C using the specification interface on
+    a BeagleBone Black or other am335x board with the Relay Cape.
+>>>>>>> 2ac757d (update to relay.rst)
 =======
     This is an example of programming C using the specification interface on
     a BeagleBone Black or other am335x board with the Relay Cape.
@@ -116,8 +136,12 @@ You can name this file Relay.c and use gcc to handle compiling the source into a
     Jeff Tranter <jtranter@ics.com>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using the specification
     made by the beagleboard.org people from their organization.
+=======
+    and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using the new specification.
+>>>>>>> 2ac757d (update to relay.rst)
 =======
     and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using the new specification.
 >>>>>>> 2ac757d (update to relay.rst)
@@ -175,8 +199,13 @@ C Source with gpiod.h and File Descriptors
 ***********************************************
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod, here is another form of
 source that can toggle the same GPIO listed from the file descriptor. 
+=======
+Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
+source that can toggle the same "GPIO" listed from the file descriptor. 
+>>>>>>> 2ac757d (update to relay.rst)
 =======
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
 source that can toggle the same "GPIO" listed from the file descriptor. 
@@ -198,9 +227,15 @@ One thing to note: `sudo apt install cmake`
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
 <<<<<<< HEAD
+<<<<<<< HEAD
     // It has been changed by me, Seth, to handle the Relay Cape and the BBB Linux based SoC SBC.
 
     // kernel: 5.10.168-ti-r72
+=======
+    // It has been changed by me, Seth, to handle the Relay Cape and the BBB Linux based SiP SBC.
+
+    // kernel: 5.10.168-ti-r77
+>>>>>>> 2ac757d (update to relay.rst)
 =======
     // It has been changed by me, Seth, to handle the Relay Cape and the BBB Linux based SiP SBC.
 
