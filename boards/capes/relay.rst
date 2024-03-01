@@ -45,7 +45,7 @@ Usage
 
 .. code-block::
 
-    ls /sys/class/leds
+    ls /sys/class/leds/
 
 The directory "relay1", for instance, exists in the following directory.
 The file brightness can be controlled by modifying it.
