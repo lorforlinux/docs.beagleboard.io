@@ -54,8 +54,8 @@ The file brightness can be controlled by modifying it.
 
     echo 1 > relay1/brightness
 
-This allows you to adjust the brightness;
-entering 1 for brightness turns it ON while entering 0 turns it OFF.
+This allows you to adjust the brightness file;
+entering 1 for brightness turns it ON while entering 0 for brightness turns it OFF.
 
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
@@ -63,30 +63,51 @@ by changing the number after "relay" in /sys/class/leds/relay.
 Code to Get Started
 *******************
 
+<<<<<<< HEAD
 Currently, using C files, libgpiod-dev in .c files, and 
 python3 files with the Relay Cape work well!
 
 * For instance, a kernel that I found to work is kernel: `5.10.168-ti-r72`.
 
 * Another idea, an image I found that works is `BeagleBoard.org Debian Bookworm IoT Image 2023-10-07`.
+=======
+Currently, using C/C++ files, libgpiod-dev/gpiod in .c files, and 
+python3 files with the Relay Cape work well!
+
+* For instance, a kernel that I found to work is kernel: `5.10.168-ti-r77`
+
+* Another idea, an image I found that works is `BeagleBoard.org Debian Bookworm IoT Image 2023-10-07`
+>>>>>>> 2ac757d (update to relay.rst)
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the Relay Cape. Please remember
-that older firmware will work differently on the BeagleBone Black or other related am335x SBC.
+that older firmware will work differently on the BeagleBone Black or other related am335x
+from beagleboard.org.
 
 C Source with File Descriptors
 ******************************
 
+<<<<<<< HEAD
 You can name this file Bright.c and use gcc to handle compiling the source into a binary like so:
 
 `gcc Bright.c -o Bright`
+=======
+You can name this file Relay.c and use gcc to handle compiling the source into a binary like so:
+
+`gcc Relay.c -o Relay`
+>>>>>>> 2ac757d (update to relay.rst)
 
 .. code-block::
 
     /*
 
+<<<<<<< HEAD
     This is an example of programming GPIO from C on a BeagleBone Black or 
     other am335x board with the Relay Cape.
+=======
+    This is an example of programming C using the specification interface on
+    a BeagleBone Black or other am335x board with the Relay Cape.
+>>>>>>> 2ac757d (update to relay.rst)
 
     Use the Relay Cape attached to the BeagleBone Black for a change in seconds and then exit with CTRL-C.
 
@@ -94,8 +115,12 @@ You can name this file Bright.c and use gcc to handle compiling the source into 
 
     Jeff Tranter <jtranter@ics.com>
 
+<<<<<<< HEAD
     and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using the specification
     made by the beagleboard.org people from their organization.
+=======
+    and...Seth. I changed the source a bit to fit the BeagleBone Black and Relay Cape while using the new specification.
+>>>>>>> 2ac757d (update to relay.rst)
 
     */
 
@@ -131,13 +156,13 @@ You can name this file Bright.c and use gcc to handle compiling the source into 
                 perror("Error writing to /sys/class/leds/relay1/brightness");
                 exit(1);
             }
-            usleep(50000);
+            usleep(50000); // Kind of fast
 
             if (write(fd, "0", 1) != 1) {
                 perror("Error writing to /sys/class/leds/relay1/brightness");
                 exit(1);
             }
-            usleep(50000);
+            usleep(50000); // Kind of fast 
         }
 
         close(fd);
@@ -146,11 +171,16 @@ You can name this file Bright.c and use gcc to handle compiling the source into 
         return 0;
     }
 
-C Source with LibGPIOd-dev and File Descriptors
+C Source with gpiod.h and File Descriptors
 ***********************************************
 
+<<<<<<< HEAD
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod, here is another form of
 source that can toggle the same GPIO listed from the file descriptor. 
+=======
+Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
+source that can toggle the same "GPIO" listed from the file descriptor. 
+>>>>>>> 2ac757d (update to relay.rst)
 
 One thing to note: `sudo apt install cmake`
 
@@ -167,9 +197,15 @@ One thing to note: `sudo apt install cmake`
     // Exits with or without CTRL-C.
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
+<<<<<<< HEAD
     // It has been changed by me, Seth, to handle the Relay Cape and the BBB Linux based SoC SBC.
 
     // kernel: 5.10.168-ti-r72
+=======
+    // It has been changed by me, Seth, to handle the Relay Cape and the BBB Linux based SiP SBC.
+
+    // kernel: 5.10.168-ti-r77
+>>>>>>> 2ac757d (update to relay.rst)
     // image : BeagleBoard.org Debian Bookworm IoT Image 2023-10-07
 
     // type gpioinfo and look for this line: line 20: "P9_41B" "relay1" output active-high [used]
