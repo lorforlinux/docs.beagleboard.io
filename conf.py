@@ -123,13 +123,13 @@ html_theme_options = {
         },
         {
             "name": "Discord",
-            "url": "https://bbb.io/gsocchat",
+            "url": "https://bbb.io/discord",
             "icon": "fa-brands fa-discord",
             "attributes": {"target": "_blank"},
         },
         {
             "name": "Forum",
-            "url": "https://bbb.io/gsocml",
+            "url": "https://forum.beagleboard.org/",
             "icon": "fa-brands fa-discourse",
             "attributes": {"target": "_blank"},
         },

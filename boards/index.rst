@@ -1,5 +1,3 @@
-:orphan:
-
 .. _boards:
 
 Boards
@@ -41,15 +39,17 @@ started.
    :maxdepth: 1
    :hidden:
 
-   /boards/beaglebone/index
+   /boards/beagleplay/index
+   /boards/beaglebone/ai-64/index
+   /boards/beaglebone/ai/index
    /boards/beaglebone/black/index
    /boards/beaglebone/blue/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/ai-64/index
-   /boards/pocketbeagle/original/index
+   /boards/beaglebone/index
    /boards/beaglev/ahead/index
    /boards/beaglev/fire/index
-   /boards/capes/index
-   /boards/beagleconnect/index
+   /boards/pocketbeagle/original/index
+   /boards/beagleconnect/freedom/index
    /boards/beagleboard/index
+   /boards/capes/index
+   /boards/terms-and-conditions
 
