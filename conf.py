@@ -76,15 +76,14 @@ templates_path = ['_templates']
 
 source_suffix = ['.rst']
 numfig = True
-navigation_with_keys = True
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
+templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
 
 html_theme = 'pydata_sphinx_theme'
-html_show_sphinx = False
 html_theme_path = [pydata_sphinx_theme.Path()]
 html_title = "BeagleBoard Documentation"
 html_logo = "_static/images/logo.svg"
@@ -103,10 +102,11 @@ html_css_files = [
 ]
 
 html_sidebars = {
+
 }
 
 html_theme_options = {
-    # "header_links_before_dropdown": 4,
+    "header_links_before_dropdown": 4,
     "show_prev_next": True,
     "icon_links": [
         {
@@ -144,8 +144,8 @@ html_theme_options = {
     "use_edit_page_button": True,
     "show_toc_level": 1,
     "navbar_align": "right",
-    "show_nav_level": 2,
-    "announcement": "Welcome to the new site for BeagleBoard.org GSoC 2024 projects!",
+    "show_nav_level": 1,
+    "announcement": "Welcome to new site for BeagleBoard.org docs!",
     # "show_version_warning_banner": True,
     "navbar_center": ["navbar-nav"],
     "navbar_start": ["navbar-logo"],
@@ -155,6 +155,7 @@ html_theme_options = {
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
+        "**": ["page-toc", "edit-this-page", "sourcelink"]
     },
 }
 
@@ -189,7 +190,7 @@ pages_url = "https://docs.beagleboard.io"
 pages_slug = "latest"
 gitlab_user = "docs"
 gitlab_version = "main"
-gitlab_host = "git.beagleboard.org"
+gitlab_url = "https://openbeagle.org"
 gitlab_repo = "docs.beagleboard.io"
 docs_url = "https://docs.beagleboard.io/latest/"
 
@@ -217,23 +218,27 @@ with open("PAGES") as f:
         pages_slug = slug
         gitlab_user = user
         gitlab_version = branch
-        gitlab_host = host
+        gitlab_url = host
         gitlab_repo = repo
         docs_url = "/".join((url, slug))
 
 html_context = {
     "display_gitlab": True,
-    "gitlab_host": gitlab_host,
+    "gitlab_url": gitlab_url,
     "gitlab_user": gitlab_user,
     "gitlab_repo": gitlab_repo,
     "gitlab_version": gitlab_version,
-    "conf_py_path": "/",
+    "doc_path": "",
+    "conf_py_path": "",
     "show_license": True,
     "pages_url": pages_url,
     "pages_slug": pages_slug,
     "docs_url": docs_url,
     "current_version": version,
     "versions": ("latest", "0.0"),
+    "edit_page_url_template": "{{ my_vcs_site }}{{ file_name }}",
+    "edit_page_provider_name": "OpenBeagle",
+    "my_vcs_site": "https://openbeagle.org/gsoc/gsoc.beagleboard.io/-/edit/main/",
     "reference_links": {
         "About": "https://beagleboard.org/about",
         "Donate": "https://beagleboard.org/donate",
@@ -263,7 +268,3 @@ latex_logo = "_static/images/logo-latex.pdf"
 latex_documents = [
     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
 ]
-
-#language = 'en'
-#locales_dir = ['locale/']
-#gettext_compact = True
