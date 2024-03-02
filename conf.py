@@ -106,7 +106,7 @@ html_sidebars = {
 }
 
 html_theme_options = {
-    "header_links_before_dropdown": 4,
+    # "header_links_before_dropdown": 4,
     "show_prev_next": True,
     "icon_links": [
         {

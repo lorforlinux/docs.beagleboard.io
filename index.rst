@@ -35,9 +35,7 @@ projects ongoing on our :ref:`contribution` page.
    :hidden:
    :caption: Introduction
 
-   /intro/beagle101/index
-   /intro/support/index
-   /intro/contribution/index
+   /intro/index
 
 
 Boards
