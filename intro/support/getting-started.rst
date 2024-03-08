@@ -136,6 +136,8 @@ to your computer. If your computer supports mDNS, you should see your Beagle as 
 Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same
 network will add a suffix such as beaglebone-2.local.
 
+.. _start-browse-to-beagle:
+
 Browse to your Beagle
 ============================
 

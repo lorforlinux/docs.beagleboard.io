@@ -78,13 +78,13 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
 
       You can start ``wpa_gui`` either from ``Applications > Internet > wpa_gui`` or double click on the ``wpa_gui`` desktop application shortcut.
 
-      .. figure:: ../images/wpa_gui_step1a.png
+      .. figure:: ../images/wpa_gui_step1a.*
           :align: center
           :alt: Starting wpa_gui from Applications > Internet > wpa_gui
 
           Starting wpa_gui from Applications > Internet > wpa_gui
 
-      .. figure:: ../images/wpa_gui_step1b.png
+      .. figure:: ../images/wpa_gui_step1b.*
           :align: center
           :alt: Starting wpa_gui from Desktop application shortcut
 
@@ -102,7 +102,7 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
           - Click on ``Scan`` to scan nearby WiFi access points.
       4. ``Manage Network`` tab shows you all the saved networks and options to manage those.
 
-      .. figure:: ../images/wpa_gui_step2.png
+      .. figure:: ../images/wpa_gui_step2.*
           :align: center
           :alt: wpa_gui interface
 
@@ -113,7 +113,7 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
       To scan the WiFi access points around you, just click on ``Scan`` button availale under 
       ``wpa_gui > Current Status > Scan``.
 
-      .. figure:: ../images/wpa_gui_step3a.png
+      .. figure:: ../images/wpa_gui_step3a.*
           :align: center
           :alt: Scanning WiFi access points
 
@@ -133,7 +133,7 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
           SSIDs and BSSIDs are not fully visible in screenshot below 
           but you can change the column length to see the WiFi names better.
 
-      .. figure:: ../images/wpa_gui_step3b.png
+      .. figure:: ../images/wpa_gui_step3b.*
           :align: center
           :alt: Selecting WiFi access point
 
@@ -204,13 +204,13 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
 
       Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
 
-      .. figure:: ../images/wpa_cli_step1a.jpg
+      .. figure:: ../images/wpa_cli_step1a.*
           :align: center
           :alt: Open terminal from Applications > Terminal Emulator
 
           Open terminal from Applications > Terminal Emulator    
 
-      .. figure:: ../images/wpa_cli_step1b.jpg
+      .. figure:: ../images/wpa_cli_step1b.*
           :align: center
           :alt: Open terminal from Task Manager
 
@@ -222,7 +222,7 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
 
       1. Execute ``sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf``, 
       which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based) text editor.
-      1. Edit ``wpa_supplicant-wlan0.conf`` to add SSID (WiFi name) & PSK (WiFi password) of your WiFi access point.
+      2. Edit ``wpa_supplicant-wlan0.conf`` to add SSID (WiFi name) & PSK (WiFi password) of your WiFi access point.
 
       .. code-block::
 
@@ -236,19 +236,19 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
       1. Now save the details using ``ctrl + O`` then enter.
       2. To exit out of the ``nano`` text editor use ``ctrl + X``.
 
-      .. figure:: ../images/wpa_cli_step2a.jpg
+      .. figure:: ../images/wpa_cli_step2a.*
           :align: center
           :alt: Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
           Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
-      .. figure:: ../images/wpa_cli_step2b.jpg
+      .. figure:: ../images/wpa_cli_step2b.*
           :align: center
           :alt: Add SSID and PSK
 
           Add SSID and PSK
 
-      .. figure:: ../images/wpa_cli_step2c.jpg
+      .. figure:: ../images/wpa_cli_step2c.*
           :align: center
           :alt: Save credentials and Exit
 
@@ -281,13 +281,13 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
           rtt min/avg/max/mdev = 5.281/6.445/9.043/1.274 ms
 
 
-      .. figure:: ../images/wpa_cli_step3a.jpg
+      .. figure:: ../images/wpa_cli_step3a.*
           :align: center
           :alt: Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
           Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
-      .. figure:: ../images/wpa_cli_step3b.jpg
+      .. figure:: ../images/wpa_cli_step3b.*
           :align: center
           :alt: To check connection try running $ ping 8.8.8.8
 

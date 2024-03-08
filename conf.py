@@ -41,6 +41,7 @@ extensions = [
     "sphinx_tabs.tabs",
     "breathe",
     "sphinx_copybutton",
+    "sphinxcontrib.youtube",
 ]
 
 #graphviz_output_format = 'svg'
@@ -229,6 +230,9 @@ html_context = {
     "gitlab_repo": gitlab_repo,
     "gitlab_version": gitlab_version,
     "doc_path": "",
+    #"use_edit_page_button": True,
+    #"edit_page_provider_name": "OpenBeagle",
+    #"edit_page_url_template": "https://openbeagle.org/XXXX/{{ file_name }}",
     "conf_py_path": "",
     "show_license": True,
     "pages_url": pages_url,
@@ -240,8 +244,8 @@ html_context = {
     "edit_page_provider_name": "OpenBeagle",
     "my_vcs_site": "https://openbeagle.org/gsoc/gsoc.beagleboard.io/-/edit/main/",
     "reference_links": {
-        "About": "https://beagleboard.org/about",
-        "Donate": "https://beagleboard.org/donate",
+        "About": "https://www.beagleboard.org/about",
+        "Donate": "https://www.beagleboard.org/donate",
         "FAQ": "https://forum.beagleboard.org/c/faq"
     }
 }

@@ -6,7 +6,7 @@ Using Serial Console
 To see the board boot log and access your BeaglePlay's console you can connect a USB-UART  
 cable as depicted in the image below and use applications like ``tio`` to access the console.
 
-.. figure:: images/serial-debug-connection.jpg
+.. figure:: images/serial-debug-connection.*
     :width: 1400
     :alt: Serial debug (USB-UART) cable connection.
 

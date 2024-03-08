@@ -501,14 +501,14 @@ Dimensions & Weight
     | Weight             | 55.3g                                              |
     +--------------------+----------------------------------------------------+
 
-.. figure:: images/dimensions.png
+.. figure:: images/dimensions.*
     :width: 700
     :align: center
     :alt: BeaglePlay board dimensions
 
     BeaglePlay board dimensions
 
-.. figure:: images/side-dimensions.png
+.. figure:: images/side-dimensions.*
     :width: 700
     :align: center
     :alt: BeaglePlay board side dimensions
