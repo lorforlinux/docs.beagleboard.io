@@ -3,7 +3,7 @@
 BeagleBoard.org BeagleBone Relay Cape
 #####################################
 
-Relay Cape, as the name suggests, is a simple Cape with relays on it.
+The Relay Cape, as the name suggests, is a simple Cape with relays on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
 
 .. image:: images/BeagleBoneRelayCapeA2-400x274.png
@@ -163,7 +163,7 @@ One thing to note: `sudo apt install cmake`
     /*
 
     Simple gpiod example of toggling a LED connected to a gpio line from
-    the BeagleBone Black and Relay Cape.
+    the Relay Cape on the BeagleBone Black.
     Exits with or without CTRL-C.
 
     */
@@ -257,6 +257,9 @@ One thing to note: `sudo apt install cmake`
     # Getting help from #beagle on IRC
     # You know who you are currently!
 
+    # Run by typing python3 Relay.py or after the command
+    # chmod a+x Relay.py, use ./Relay.py
+
     from pathlib import Path
     from time import sleep
 
@@ -278,4 +281,4 @@ One thing to note: `sudo apt install cmake`
     relay_one.set('0')
     sleep(2)
 
-These are a few examples on how to use the RelayCape and am335x supported BeagleBone Black SBC.
+These are a few examples on how to use the Relay Cape and am335x supported BeagleBone Black SBC.
