@@ -86,18 +86,24 @@ The default serial port settings for Beagles are:
     | Handshake    | None         |
     +--------------+--------------+
 
-.. _jst-sh-serial-cables:
+.. _molex-picoblade-serial-cables:
 
-JST-SH serial cables
-====================
+Molex picoblade serial cables
+=============================
 
-These cables are not active (only wries and connector) and provide an interface 
+These cables are not active (only wires and connector) and provide an interface 
 between USB to Serial converter cables such as the ones listed below and serial 
 debug ports on Beagles such as BeagleBone AI and AI-64. You can purchase these 
 cables from different sources including:
 
 1. `Farnell <https://www.newark.com/element14/1103004000156/serial-cable-ai-board/dp/50AH3702>`_
 2. `DigiKey <https://www.digikey.com/en/products/detail/digi-key-electronics/BBCAI/10187731>`_
+
+.. note:: 
+    BeagleBone AI and BeagleBone AI-64 UART debug port uses a 3pin **Molex PicoBlade (1.25mm)** connector. 
+    Raspberry Pi UART debug port uses a 3pin **JST-Sh (1.00mm)** connector. The connectors and the cables 
+    for both the connector types may look very similar but they are very different. Make sure to check connector 
+    type before buying cables because they are incompatible with each other.
 
 Standard FTDI Cable
 ====================

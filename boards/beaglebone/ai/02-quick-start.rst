@@ -25,7 +25,7 @@ You will need to purchase:
 
 -  USB C cable or USB C to USB A cable
 -  MicroSD Card (optional)
--  :ref:`Serial cable <jst-sh-serial-cables>` (optional)
+-  :ref:`Serial cable <molex-picoblade-serial-cables>` (optional)
 
 More information or to purchase a replacement heat sink or antenna, please go to these websites:
 
