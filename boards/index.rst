@@ -49,6 +49,7 @@ started.
    /boards/beaglev/fire/index
    /boards/pocketbeagle/original/index
    /boards/beagleconnect/freedom/index
+   /boards/beagleconnect/index
    /boards/beagleboard/index
    /boards/capes/index
    /boards/terms-and-conditions
