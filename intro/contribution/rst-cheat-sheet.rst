@@ -349,9 +349,12 @@ When rendered, it looks like :ref:`youtube-example`.
 
 .. _youtube-example:
 
-.. admonition:: Example of embedded YouTube video
+YouTube video example 
+-----------------------
 
-    .. youtube:: 7cm1AAnaawk
+.. youtube:: 7cm1AAnaawk
+    :width: 100%
+    :align: center
 
 More
 ****
