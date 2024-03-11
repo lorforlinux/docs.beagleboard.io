@@ -1,7 +1,7 @@
-.. _upgrade-beagle-software:
+.. _upgrade-beaglebone-ai-software:
 
-Upgrade Beagle software
-#######################
+Upgrade BeagleBone AI software
+###############################
 
 .. important:: 
         This documentation is very old and your feedback is requested, ideally via 

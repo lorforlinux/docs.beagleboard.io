@@ -577,6 +577,7 @@ Finally go to the Status Page as shown in :ref:`case_status`.
    Watching the status
 
 Now run a program on another computer that generated E1.31 packets.
+
 :ref:`case_e1.31_example` is an example python program.
 
 .. _case_e1.31_example:

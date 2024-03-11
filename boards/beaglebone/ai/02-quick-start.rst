@@ -57,7 +57,7 @@ This section will describe how to connect the board for use. The board
 can be configured in several different ways. Below we will walk through
 the most common scenarios. NOTE: These connection scenarios are
 dependent on the software image presently on your BeagleBone® AI. When
-all else fails, follow the instructions at :ref:`upgrade-beagle-software`.
+all else fails, follow the instructions at :ref:`upgrade-beaglebone-ai-software`.
 
 -  :ref:`Tethered to a PC via USB C cable <bbai-tethered>`
 -  :ref:`Standalone Desktop with powered USB hub, display, keyboard and mouse <bbai-standalone>`
