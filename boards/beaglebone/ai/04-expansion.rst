@@ -1637,29 +1637,29 @@ See also :ref:`beaglebone-cape-interface-spec`
 BeagleBone® Black Cape Compatibility
 **************************************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``BeagleBone® Black Cape Compatibility`` section content
 
 See :ref:`beaglebone-cape-interface-spec` for now.
 
 EEPROM
 ************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``EEPROM`` section content
 
 Pin Usage Consideration
 ************************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``Pin Usage Consideration`` section content
 
 GPIO
 *********
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``GPIO`` section content
 
 I2C
 *********
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``I2C`` section content
 
 UART or PRU UART
 *******************
@@ -1737,56 +1737,56 @@ the headers we will include a chart and later some code
 SPI
 ****
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``SPI`` section content
 
 Analog
 ********
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``Analog`` section content
 
 .. _pwm-timer-ecap-or-pru-pwm-ecap:
 
 PWM, TIMER, eCAP or PRU PWM/eCAP
 **********************************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``PWM, TIMER, eCAP or PRU PWM/eCAP`` section content
 
 eQEP
 ******
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``eQEP`` section content
 
 CAN
 *****
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``CAN`` section content
 
 .. _mcasp-audio-serial-like-i2c-and-ac97:
 
 McASP (audio serial like I2S and AC97)
 ****************************************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``McASP (audio serial like I2S and AC97)`` section content
 
 MMC
 *****
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``MMC`` section content
 
 LCD
 *****
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``LCD`` section content
 
 PRU GPIO
 **********
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``PRU GPIO`` section content
 
 CLKOUT
 ********
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``CLKOUT`` section content
 
 Expansion Connector Headers
 ******************************
@@ -1797,14 +1797,14 @@ https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Referenc
 Signal Usage
 ****************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``Signal Usage`` section content
 
 Cape Power
 ************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``Cape Power`` section content
 
 Mechanical
 ************
 
-.. todo:: Add BeagleBone-AI content
+.. todo:: Add BeagleBone-AI ``Mechanical`` section content
