@@ -1630,36 +1630,36 @@ Spreadsheet <https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvE
 which has a lot of detail regarding various boards and cape add-on
 boards.
 
-See also https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec
+See also :ref:`beaglebone-cape-interface-spec`
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 BeagleBone® Black Cape Compatibility
 **************************************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 See :ref:`beaglebone-cape-interface-spec` for now.
 
 EEPROM
 ************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 Pin Usage Consideration
 ************************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 GPIO
 *********
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 I2C
 *********
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 UART or PRU UART
 *******************
@@ -1732,61 +1732,61 @@ the headers we will include a chart and later some code
     +------------------+--------+-----------+-------------------+-------+
 
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 SPI
 ****
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 Analog
 ********
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 .. _pwm-timer-ecap-or-pru-pwm-ecap:
 
 PWM, TIMER, eCAP or PRU PWM/eCAP
 **********************************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 eQEP
 ******
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 CAN
 *****
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 .. _mcasp-audio-serial-like-i2c-and-ac97:
 
 McASP (audio serial like I2S and AC97)
 ****************************************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 MMC
 *****
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 LCD
 *****
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 PRU GPIO
 **********
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 CLKOUT
 ********
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 Expansion Connector Headers
 ******************************
@@ -1797,14 +1797,14 @@ https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Referenc
 Signal Usage
 ****************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 Cape Power
 ************
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 Mechanical
 ************
 
-TODO
+.. todo:: Add BeagleBone-AI content
