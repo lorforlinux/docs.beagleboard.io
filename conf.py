@@ -7,10 +7,13 @@
 import os
 import sys
 import re
+from pathlib import Path
 import pydata_sphinx_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
 ImagemagickConverter.conversion_rules.append(('image/webp', 'image/png'))
+
+sys.path.append(str(Path(".").resolve()))
 
 rst_epilog =""
 
@@ -107,6 +110,24 @@ html_sidebars = {
 }
 
 html_theme_options = {
+    "external_links": [
+        {
+            "url": "https://www.beagleboard.org/about",
+            "name": "About",
+        },
+        {
+            "url": "https://www.beagleboard.org/donate",
+            "name": "Donate",
+        },
+        {
+            "url": "https://gsoc.beagleboard.org/",
+            "name": "GSoC",
+        },
+        {
+            "url": "https://forum.beagleboard.org/c/faq",
+            "name": "FAQ",
+        },
+    ],
     # "header_links_before_dropdown": 4,
     "show_prev_next": True,
     "icon_links": [
@@ -243,12 +264,7 @@ html_context = {
     "versions": ("latest", "0.0"),
     "edit_page_url_template": "{{ my_vcs_site }}{{ file_name }}",
     "edit_page_provider_name": "OpenBeagle",
-    "my_vcs_site": "https://openbeagle.org/gsoc/gsoc.beagleboard.io/-/edit/main/",
-    "reference_links": {
-        "About": "https://www.beagleboard.org/about",
-        "Donate": "https://www.beagleboard.org/donate",
-        "FAQ": "https://forum.beagleboard.org/c/faq"
-    }
+    "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/"
 }
 
 # -- Options for LaTeX output --
