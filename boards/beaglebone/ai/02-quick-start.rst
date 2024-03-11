@@ -57,8 +57,7 @@ This section will describe how to connect the board for use. The board
 can be configured in several different ways. Below we will walk through
 the most common scenarios. NOTE: These connection scenarios are
 dependent on the software image presently on your BeagleBone® AI. When
-all else fails, follow the instructions at
-https://old.beagleboard.org/upgrade
+all else fails, follow the instructions at :ref:`upgrade-beagle-software`.
 
 -  :ref:`Tethered to a PC via USB C cable <bbai-tethered>`
 -  :ref:`Standalone Desktop with powered USB hub, display, keyboard and mouse <bbai-standalone>`
@@ -91,32 +90,32 @@ https://old.beagleboard.org/upgrade
          :align: center
          :alt: USB connector and serial debug.
 
-      2.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
+      1.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
 
       .. image:: media/BB_AI_connectingUSBC_500px.jpg
          :width: 740
          :align: center
          :alt: Connecting serial cable.
 
-      3.  Connect the other end of the USB cable to the PC USB 3 port.
+      1.  Connect the other end of the USB cable to the PC USB 3 port.
 
       .. image:: media/BB_AI_PlugIn_500px.jpg
          :width: 740
          :align: center
          :alt: connecting to PC
 
-      4.  BeagleBone® AI will boot.
+      1.  BeagleBone® AI will boot.
 
-      5.  You will notice some of the 5 user LEDs flashing
+      2.  You will notice some of the 5 user LEDs flashing
 
-      6.  Look for a new mass storage drive to appear on the PC.
+      3.  Look for a new mass storage drive to appear on the PC.
 
       .. image:: media/BB_AI_asadrive_500px.jpg
          :width: 740
          :align: center
          :alt: BeagleBone storage drive options
 
-      7.  Open the drive and open START.HTM with your web browser.
+      1.  Open the drive and open START.HTM with your web browser.
 
       .. image:: media/BB_AI_starthtm_500px.png
          :width: 740
@@ -128,14 +127,14 @@ https://old.beagleboard.org/upgrade
          :align: center
          :alt: Getting started
 
-      8.  Follow the instructions in the browser window.
+      1.  Follow the instructions in the browser window.
 
       .. image:: media/vscode.png
          :width: 740
          :align: center
          :alt: BeagleBone instructions
 
-      9.  Go to Visual Studio Code IDE.
+      1.  Go to Visual Studio Code IDE.
 
     .. _bbai-standalone:
     
