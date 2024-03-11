@@ -1639,8 +1639,7 @@ BeagleBone® Black Cape Compatibility
 
 TODO
 
-See https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec for
-now.
+See :ref:`beaglebone-cape-interface-spec` for now.
 
 EEPROM
 ************
