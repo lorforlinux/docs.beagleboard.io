@@ -153,6 +153,7 @@ html_theme_options = {
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     # "navbar_persistent": ["search-button"],
     "footer_start": ["copyright"],
+    "footer_center": ["cc-by-sa"],
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
