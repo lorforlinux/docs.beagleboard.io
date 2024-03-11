@@ -37,13 +37,9 @@ Install the SDK on BeaglePlay
 
 See :ref:`beagleplay-zephyr-development-setup`.
 
-.. important::
-
-   TODO: note the tested version of software for BeaglePlay
+.. todo:: note the tested version of software for BeaglePlay
    
-.. important::
-
-   TODO: describe how to know it is working
+.. todo:: describe how to know it is working
 
 Change default board
 ====================

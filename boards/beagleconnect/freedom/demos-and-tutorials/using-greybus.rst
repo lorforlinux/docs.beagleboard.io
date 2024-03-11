@@ -113,9 +113,7 @@ BeagleConnect™ node device designs.
 Greybus
 -------
 
-TODO
-
-#TODO: Find a place for the following notes:
+.. todo:: Find a place for the following notes:
 
 * The device interfaces get exposed to the host via Greybus BRIDGED_PHY
   protocol

@@ -72,7 +72,7 @@ microcontroller firmware. The Linux environment provides opportunities for
 high-level remote management using tools like Balena with applications deployed
 in Docker containers.
 
-#TODO: provide image illustrating remote management
+.. todo:: provide image illustrating remote management
 
 The hardware and software are fully open source, providing for scalability and a lack of vendor lock-in.
 

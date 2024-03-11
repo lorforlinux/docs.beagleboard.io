@@ -33,7 +33,7 @@ chapters you will see the details of how they work.
 
 Here we present:
 
-.. TODO Switch from LEDscape to FPP
+.. todo:: Switch from LEDscape to FPP
 
 * `Robotics Control Library <https://beagleboard.org/librobotcontrol>`_
 * `BeagleLogic <https://github.com/abhishek-kakkar/BeagleLogic/wiki>`_
@@ -108,8 +108,7 @@ via the PRU that can be used out of the box.
    :ref:`details_configure_servos` 
    to configure the pins for the Black and the Pocket.
 
-
-.. * TODO - verify these commands
+.. todo:: verify these commands
 
 Just run:
 
@@ -339,7 +338,7 @@ It points to an older image (beaglelogic-stretch-2017-07-13-4gb.img.xz) but shou
 
 If you want to be running a newer image, there are instructions on the site for `installing BeagleLogic <https://beaglelogic.readthedocs.io/en/latest/install.html>`_, but I had to do the additional steps in :ref:`case_installing_beaglelogic`.
 
-.. TODO - Recheck
+.. todo:: - Recheck
 
 .. _case_installing_beaglelogic:
 
@@ -429,167 +428,166 @@ BeagleLogic uses the two PRUs to sample at 100Msps.  Getting a PRU running at 20
 explaining how the PRUs get this type of performance.   
 
 
-..
-  TODO This is currently broken with the latest version of Falcon Christmas (no F8-B-20.json file)
+.. todo:: This is currently broken with the latest version of Falcon Christmas (no F8-B-20.json file)
 
-  NeoPixels -- 5050 RGB LEDs with Integrated Drivers (Falcon Christmas)
-  ***********************************************************************
+NeoPixels -- 5050 RGB LEDs with Integrated Drivers (Falcon Christmas)
+***********************************************************************
 
-  Problem
-  --------
+Problem
+--------
 
-  You have an `Adafruit NeoPixel LED string <http://www.adafruit.com/products/1138>`_,
-  `Adafruit NeoPixel LED matrix <http://www.adafruit.com/products/1487>`_ or
-  any other type of 
-  `WS2812 LED <https://cdn-shop.adafruit.com/datasheets/WS2812.pdf>`_
-  and want to light it up.
+You have an `Adafruit NeoPixel LED string <http://www.adafruit.com/products/1138>`_,
+`Adafruit NeoPixel LED matrix <http://www.adafruit.com/products/1487>`_ or
+any other type of 
+`WS2812 LED <https://cdn-shop.adafruit.com/datasheets/WS2812.pdf>`_
+and want to light it up.
 
-  .. TODO Show how to drive ws2812's with FPP.
+.. todo:: Show how to drive ws2812's with FPP.
 
-  Solution
-  ---------
+Solution
+---------
 
-  If you are driving just one string you can write your own code 
-  (See :ref:`blocks_ws2812`)
-  If you plan to drive multiple strings, then consider
-  Falcon Christmas (`FPP <https://falconchristmas.com/>`_). 
-  FPP can be used to drive both LEDs with an integrated
-  driver (neopixels) or without an integrated driver.  Here we'll show you how to
-  set up for the integrated drive and in the next section the no driver LEDs will be 
-  show.
+If you are driving just one string you can write your own code 
+(See :ref:`blocks_ws2812`)
+If you plan to drive multiple strings, then consider
+Falcon Christmas (`FPP <https://falconchristmas.com/>`_). 
+FPP can be used to drive both LEDs with an integrated
+driver (neopixels) or without an integrated driver.  Here we'll show you how to
+set up for the integrated drive and in the next section the no driver LEDs will be 
+show.
 
-  Hardware
-  ----------
+Hardware
+----------
 
-  For this setup we'll wire a single string of NeoPixels to the Beagle.  
-  I've attached the black wire on the string to ground on the Beagle 
-  and the red wire to a 3.3V pin on the Beagle.
-  The yellow data in line is attached to P1.31 (I'm using a PocketBeagle.).
+For this setup we'll wire a single string of NeoPixels to the Beagle.  
+I've attached the black wire on the string to ground on the Beagle 
+and the red wire to a 3.3V pin on the Beagle.
+The yellow data in line is attached to P1.31 (I'm using a PocketBeagle.).
 
-  How did I know to attach to P1.31?  The FalconChristmas git repo
-  (https://github.com/FalconChristmas/fpp) has files that tell which pins
-  attach to which port.  https://github.com/FalconChristmas/fpp/blob/master/capes/pb/strings/F8-B-20.json
-  has a list of 20 ports and where they are connected.  Pin P1.31 appears on
-  line 27.  It's the 20th entry in the list.  You could pick any of the others
-  if you'd rather.
+How did I know to attach to P1.31?  The FalconChristmas git repo
+(https://github.com/FalconChristmas/fpp) has files that tell which pins
+attach to which port.  https://github.com/FalconChristmas/fpp/blob/master/capes/pb/strings/F8-B-20.json
+has a list of 20 ports and where they are connected.  Pin P1.31 appears on
+line 27.  It's the 20th entry in the list.  You could pick any of the others
+if you'd rather.
 
-  Software Setup
-  ---------------
+Software Setup
+---------------
 
-  Assuming the PocketBeagle is attached via the USB cable, 
-  on your host computer browse to <http://192.168.7.2/> and you will see 
-  :ref:`case_fpp_program_control2`.
+Assuming the PocketBeagle is attached via the USB cable, 
+on your host computer browse to <http://192.168.7.2/> and you will see 
+:ref:`case_fpp_program_control2`.
 
-  .. _case_fpp_program_control2:
+.. _case_fpp_program_control2:
 
-  .. figure:: figures/fpp_program_control.png
-     :align: center
-     :alt: Falcon Play Program Control
+.. figure:: figures/fpp_program_control.png
+   :align: center
+   :alt: Falcon Play Program Control
 
-     Falcon Play Program Control
+   Falcon Play Program Control
 
-  You can test the display by first setting up the Channel Outputs and then 
-  going to *Display Testing*.  :ref:`case_channel_outputs_menu2` shows where to 
-  select Channel Outputs and :ref:`case_channel_outputs2` shows which settings to use.
+You can test the display by first setting up the Channel Outputs and then 
+going to *Display Testing*.  :ref:`case_channel_outputs_menu2` shows where to 
+select Channel Outputs and :ref:`case_channel_outputs2` shows which settings to use.
 
-  .. _case_channel_outputs_menu2:
+.. _case_channel_outputs_menu2:
 
-  .. figure:: figures/fpp_channel_outputs_menu.png
-     :align: center
-     :alt: Selecting Channel Outputs
+.. figure:: figures/fpp_channel_outputs_menu.png
+   :align: center
+   :alt: Selecting Channel Outputs
 
-     Selecting Channel Outputs
+   Selecting Channel Outputs
 
-  .. _case_channel_outputs2:
+.. _case_channel_outputs2:
 
-  .. figure:: figures/fpp_channel_outputs_strings.png
-     :align: center
-     :alt: Channel Outputs Settings
+.. figure:: figures/fpp_channel_outputs_strings.png
+   :align: center
+   :alt: Channel Outputs Settings
 
-     Channel Outputs Settings
+   Channel Outputs Settings
 
-  Click on the *Pixel Strings* tab.  Earlier we noted that *P1.31* is attached
-  to port 20.  Note that at the bottom of the screen, port 20 has a PIXEL COUNT
-  of 24.  We're telling FPP our string has 24 NeoPixels and they are attached
-  to port 2 which in *P1.31*.  
+Click on the *Pixel Strings* tab.  Earlier we noted that *P1.31* is attached
+to port 20.  Note that at the bottom of the screen, port 20 has a PIXEL COUNT
+of 24.  We're telling FPP our string has 24 NeoPixels and they are attached
+to port 2 which in *P1.31*.  
 
-  Be sure to check the *Enable String Cape*.
+Be sure to check the *Enable String Cape*.
 
-  Next we need to test the display.  Select **Display Testing** shown in
-  :ref:`case_display_testing_menu2`.
+Next we need to test the display.  Select **Display Testing** shown in
+:ref:`case_display_testing_menu2`.
 
-  .. _case_display_testing_menu2:
+.. _case_display_testing_menu2:
 
-  .. figure:: figures/fpp_display_testing_menu2.png
-     :align: center
-     :alt: Selecting Display Testing
+.. figure:: figures/fpp_display_testing_menu2.png
+   :align: center
+   :alt: Selecting Display Testing
 
-     Selecting Display Testing
+   Selecting Display Testing
 
-  Set the *End Channel* to *72*. (72 is 3*24)  
-  Click *Enable Test Mode* and your matrix should light up.  Try the different 
-  testing patterns shown in :ref:`case_display_testing2`.
+Set the *End Channel* to *72*. (72 is 3*24)  
+Click *Enable Test Mode* and your matrix should light up.  Try the different 
+testing patterns shown in :ref:`case_display_testing2`.
 
-  .. note::
+.. note::
 
-     Clicking on the *-3* will subtract three from the End Channel, which should
-     then display three fewer LEDs which is one NeoPixel.  The last of your NeoPixels
-     should go black.  This is an easy way to make sure you have the correct pixel
-     count.
+   Clicking on the *-3* will subtract three from the End Channel, which should
+   then display three fewer LEDs which is one NeoPixel.  The last of your NeoPixels
+   should go black.  This is an easy way to make sure you have the correct pixel
+   count.
 
-  .. _case_display_testing2:
+.. _case_display_testing2:
 
-  .. figure:: figures/fpp_display_testing2.png
-     :align: center
-     :alt: Display Testing Options
+.. figure:: figures/fpp_display_testing2.png
+   :align: center
+   :alt: Display Testing Options
 
-     Display Testing Options
+   Display Testing Options
 
-  You can control the LED string using the E1.31 protocol. 
-  (https://www.doityourselfchristmas.com/wiki/index.php?title=E1.31_(Streaming-ACN)_Protocol)
-  First configure the input channels by going to Channel Inputs as shown in
-  :ref:`case_channel_inputs`.
+You can control the LED string using the E1.31 protocol. 
+(https://www.doityourselfchristmas.com/wiki/index.php?title=E1.31_(Streaming-ACN)_Protocol)
+First configure the input channels by going to Channel Inputs as shown in
+:ref:`case_channel_inputs`.
 
-  .. _case_channel_inputs:
+.. _case_channel_inputs:
 
-  .. figure:: figures/fpp_channel_inputs.png
-     :align: center
-     :alt: Going to Channel Inputs
+.. figure:: figures/fpp_channel_inputs.png
+   :align: center
+   :alt: Going to Channel Inputs
 
-     Going to Channel Inputs
+   Going to Channel Inputs
 
-  Tell it you have 72 LEDs and enable the input as shown in :ref:`case_set_inputs`.
+Tell it you have 72 LEDs and enable the input as shown in :ref:`case_set_inputs`.
 
-  .. _case_set_inputs:
+.. _case_set_inputs:
 
-  .. figure:: figures/fpp_inputs_setup2.png
-     :align: center
-     :alt: Setting Channel Inputs
+.. figure:: figures/fpp_inputs_setup2.png
+   :align: center
+   :alt: Setting Channel Inputs
 
-     Setting Channel Inputs
+   Setting Channel Inputs
 
-  Finally go to the Status Page as shown in :ref:`case_status`.
+Finally go to the Status Page as shown in :ref:`case_status`.
 
-  .. _case_status:
+.. _case_status:
 
-  .. figure:: figures/fpp_status.png
-     :align: center
-     :alt: Watching Status
+.. figure:: figures/fpp_status.png
+   :align: center
+   :alt: Watching Status
 
-     Watching the status
+   Watching the status
 
-  Now run a program on another computer that generated E1.31 packets.
-  :ref:`case_e1.31_example` is an example python program.
+Now run a program on another computer that generated E1.31 packets.
+:ref:`case_e1.31_example` is an example python program.
 
-  .. _case_e1.31_example:
+.. _case_e1.31_example:
 
-  .. literalinclude:: ../code/02start/e1.31-test.py
-     :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
-     :linenos:
+.. literalinclude:: ../code/02start/e1.31-test.py
+   :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
+   :linenos:
 
-  :download:`e1.31-test.py <../code/02start/e1.31-test.py>`
+:download:`e1.31-test.py <../code/02start/e1.31-test.py>`
 
-  .. TODO document the code
+.. todo:: document the code
 
 .. _case_rgb_matrix:
 
@@ -753,7 +751,7 @@ Run xLights and you'll see :ref:`case_xlights_setup`.
    host$ chmod +x xLights-2021.18-x86_64.AppImage
    host$ ./xLights-2021.18-x86_64.AppImage
 
-.. TODO update the figures.
+.. todo:: update the figures.
 
 .. _case_xlights_setup:
 
@@ -857,7 +855,7 @@ Click on the **Save** button above the table.
 
 Then go to the **Status/Control** menu and select **Status Page**.  
 
-.. TODO  update this
+.. todo::  update this
 
 .. _case_mode_bridge:
 

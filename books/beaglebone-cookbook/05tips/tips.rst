@@ -729,7 +729,7 @@ The instructions here are based on using **networkctl**.
 
    Instructions for setting up your network.
 
-.. TODO 
+.. todo:: 
    is this up to date?
 
 Several WiFi adapters work with the Bone. Check `WiFi Adapters <http://bit.ly/1EbEwUo>`_ for the latest list.
@@ -762,7 +762,7 @@ Then run *lsusb* to ensure that your Bone found the adapter:
    being discovered when hot-plugged, which is why you should reboot. Newer kernels should address this issue.
 
 
-.. TODO
+.. todo::
    update
 
 Next, run *networkctl* to find your adapter's name. Mine is 
@@ -851,7 +851,7 @@ Change the *ssid* and *psk* entries for your network. Save your file, then run:
 Sharing the Host's Internet Connection over USB
 =================================================
 
-.. TODO
+.. todo::
    Test this
 
 Problem
@@ -937,7 +937,7 @@ what if you have a web server on your Bone that you want to access from the worl
 The solution is to use port forwarding from your host. 
 Web servers typically listen to port *80*. First, look up the IP address of your host:
 
-.. TODO
+.. todo::
    switch to ip address
 
 .. code-block:: bash
@@ -964,7 +964,7 @@ It's the number following *inet*, which in my case is *172.31.43.210*.
 
 Then run the following, using your host's IP address:
 
-.. TODO 
+.. todo:: 
    check this iptables, convert to ufw
 
 .. code-block:: bash
@@ -1195,7 +1195,7 @@ The second partition (*p2*) is the root of the file system.
 The *ls* command shows what devices are available to mount. Because *mmcblk0* is already mounted, 
 */dev/mmcblk1p1* must be the other media that we need to mount. Run the following commands to mount it:
 
-.. TODO 
+.. todo:: 
    update
 
 .. code-block:: bash

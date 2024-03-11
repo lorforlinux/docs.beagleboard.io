@@ -921,7 +921,7 @@ for this second processor pin.
     +-----------------+--------------------+--------------------+
 
 
-TODO: Notes regarding the resistors on muxed pins.
+.. todo:: Notes regarding the resistors on muxed pins.
 
 Connector P9
 ==============
@@ -963,13 +963,13 @@ In the table are the following notations:
 **PWR_BUT** is a 5V level as pulled up internally by the TPS6590379. It
 is activated by pulling the signal to GND.
 
-TODO: (Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
+.. todo:: (Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
 but activation is still done by pulling the signal to GND. Also, a quick
 grounding of PWR_BUT will trigger a system event where shutdown can
 occur, but there is no hardware power-off function like on BeagleBone
 Black via this signal. It does, however, act as a hardware power-on.)
 
-TODO: (On BeagleBone Black, SYS_RESET was a bi-directional signal, but
+.. todo:: (On BeagleBone Black, SYS_RESET was a bi-directional signal, but
 it is only an output from BeagleBone AI to capes on BeagleBone AI.)
 
 .. table:: P9.01-P9.05
@@ -1792,7 +1792,7 @@ TODO
 Expansion Connector Headers
 ******************************
 
-TODO: discuss header options for working with the expansion connectors per 
+.. todo:: discuss header options for working with the expansion connectors per 
 https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
 
 Signal Usage

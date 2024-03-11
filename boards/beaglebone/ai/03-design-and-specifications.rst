@@ -370,7 +370,7 @@ USB-C Power
 
 Below image shows how the USB-C power input is connected to the **TPS6590379**.
 
-.. TODO: (Schematic screenshot)
+.. todo:: (Schematic screenshot)
 
 Power Button
 =============
@@ -501,7 +501,7 @@ The HDMI interface is aligned with the HDMI TMDS single stream standard
 v1.4a (720p @60Hz to 1080p @24Hz) and the HDMI v1.3 (1080p @60Hz): 3
 data channels, plus 1 clock channel is supported (differential).
 
-TODO: Verify it isn’t better than this. Doesn’t seem right.
+.. todo:: Verify it isn’t better than this. Doesn’t seem right.
 
 PRU-ICSS
 *********
