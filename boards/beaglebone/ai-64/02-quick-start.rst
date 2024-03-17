@@ -6,12 +6,8 @@ Quick Start Guide
 This section provides instructions on how to hook up your board. This Beagle requires a 5V > 3A (15W) 
 power supply to work properly via either USB Type-C power adapter or a barrel jack power adapter. 
 
-Recommended adapters:
-
-* 5V @ 3A `USB C power supply <https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-power-supply-White-US/10258760>`_ adapter for SBCs.
-* 5V > 3A `laptop/mobile adapter <https://www.amazon.com/Lenovo-Laptop-Charger-USB-C-Adapter/dp/B0CH3S7TF4/ref=sr_1_3?crid=3AJB8P9KC7IKU&keywords=type+c+65w+thinkpad&qid=1704510213&sprefix=tye+c+65+w+thinkp%2Caps%2C348&sr=8-3>`_ with USB-C cable.
-
-All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter are shown in the figure below.
+Recommended adapters can be found at :ref:`accessories-power-supplies` section. All the 
+:ref:`BeagleBone AI-64 connections ports` we will use in this chapter are shown in the figure below.
 
 .. _BeagleBone AI-64 connections ports:
 
