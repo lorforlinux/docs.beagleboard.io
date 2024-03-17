@@ -582,11 +582,15 @@ Now run a program on another computer that generated E1.31 packets.
 
 .. _case_e1.31_example:
 
-.. literalinclude:: ../code/02start/e1.31-test.py
+Controlling NeoPixels
+---------------------
+
+.. literalinclude:: ../code/01case/e1.31-test.py
    :caption: e1.31-test.py -Example of generating packets to control the NeoPixels
+   :language: python
    :linenos:
 
-:download:`e1.31-test.py <../code/02start/e1.31-test.py>`
+:download:`e1.31-test.py <../code/01case/e1.31-test.py>`
 
 .. todo:: document the code
 

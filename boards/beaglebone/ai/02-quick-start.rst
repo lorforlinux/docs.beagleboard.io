@@ -48,7 +48,11 @@ FAQ <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-As
    BeagleBone AI can run **HOT**! Even without running the accelerators,
    getting up to 70C is not uncommon.
 
-`Official BeagleBone Fan Cape <https://www.newark.com/element14/6100310/beaglebone-ai-fan-cape/dp/50AH3704>`_
+   Read about `Fan update for BeagleBone AI on Forum 
+   <https://forum.beagleboard.org/t/fan-update-for-beaglebone-ai/1964>`. 
+
+1. `Official BeagleBone Fan Cape <https://www.newark.com/element14/6100310/beaglebone-ai-fan-cape/dp/50AH3704>`_
+2. `Coolerguys 25mm (25x25x10) USB Fan <https://www.coolerguys.com/en-in/collections/usb-fans/products/25mm-25x25x10-usb-fan>`
 
 Main Connection Scenarios
 **************************

@@ -964,13 +964,13 @@ In the table are the following notations:
 is activated by pulling the signal to GND.
 
 .. todo:: (Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
-but activation is still done by pulling the signal to GND. Also, a quick
-grounding of PWR_BUT will trigger a system event where shutdown can
-occur, but there is no hardware power-off function like on BeagleBone
-Black via this signal. It does, however, act as a hardware power-on.)
+    but activation is still done by pulling the signal to GND. Also, a quick
+    grounding of PWR_BUT will trigger a system event where shutdown can
+    occur, but there is no hardware power-off function like on BeagleBone
+    Black via this signal. It does, however, act as a hardware power-on.)
 
 .. todo:: (On BeagleBone Black, SYS_RESET was a bi-directional signal, but
-it is only an output from BeagleBone AI to capes on BeagleBone AI.)
+    it is only an output from BeagleBone AI to capes on BeagleBone AI.)
 
 .. table:: P9.01-P9.05
 
@@ -1792,7 +1792,7 @@ Expansion Connector Headers
 ******************************
 
 .. todo:: discuss header options for working with the expansion connectors per 
-https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
+    https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
 
 Signal Usage
 ****************

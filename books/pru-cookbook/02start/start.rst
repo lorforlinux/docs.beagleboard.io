@@ -330,7 +330,7 @@ Solution
 The 'hello, world' of the embedded world is to flash an LED. :ref:`start_hello` 
 is some code that blinks the ``USR3`` LED ten times using the PRU.
 
-.. todo:: The *'s and _'s in the code are messing with the formatting.
+.. todo:: The 's and _'s in the code are messing with the formatting.
 
 .. _start_hello:
 
