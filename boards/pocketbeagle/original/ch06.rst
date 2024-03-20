@@ -1,7 +1,7 @@
 .. _pocketbeagle_detailed_hardware_design:
 
 Detailed Hardware Design
-================================
+#########################
 
 The following sections contain schematic references for PocketBeagle.
 Full schematics in both PDF and Eagle are available on the
@@ -10,14 +10,14 @@ Full schematics in both PDF and Eagle are available on the
 .. _osd3358_sm_sip_design:
 
 OSD3358-SM SiP Design
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**********************
 
 Schematics for the OSD3358-SM SiP are divided into several diagrams.
 
 .. _sip_a_osd3358_sip_system_and_power_signals:
 
 SiP A OSD3358 SiP System and Power Signals
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================================
 
 .. figure:: images/SiP-A-sch.png
    :align: center
@@ -28,7 +28,7 @@ SiP A OSD3358 SiP System and Power Signals
 .. _sip_b_osd3358_sip_jtag_usb_analog_signals:
 
 SiP B OSD3358 SiP JTAG, USB & Analog Signals
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=============================================
 
 .. figure:: images/SiP-B-sch.png
    :align: center
@@ -39,7 +39,7 @@ SiP B OSD3358 SiP JTAG, USB & Analog Signals
 .. _sip_c_osd3358_sip_peripheral_signals:
 
 SiP C OSD3358 SiP Peripheral Signals
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+======================================
 
 .. figure:: images/SiP-C-sch.png
    :align: center
@@ -50,7 +50,7 @@ SiP C OSD3358 SiP Peripheral Signals
 .. _sip_d_osd3358_sip_system_boot_configuration:
 
 SiP D OSD3358 SiP System Boot Configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================================
 
 .. figure:: images/SiP-D-sch.png
    :align: center
@@ -61,7 +61,7 @@ SiP D OSD3358 SiP System Boot Configuration
 .. _sip_e_osd3358_sip_power_signals:
 
 SiP E OSD3358 SiP Power Signals
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+================================
 
 .. figure:: images/SiP-E-sch.png
    :align: center
@@ -72,7 +72,7 @@ SiP E OSD3358 SiP Power Signals
 .. _sip_f_osd3358_sip_power_signals:
 
 SiP F OSD3358 SiP Power Signals
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+================================
 
 .. figure:: images/SiP-F-sch.png
    :align: center
@@ -82,7 +82,7 @@ SiP F OSD3358 SiP Power Signals
 .. _microsd_connection:
 
 MicroSD Connection
-~~~~~~~~~~~~~~~~~~~~~~
+*******************
 
 The Micro Secure Digital (microSD) connector design is highlighted in
 Figure 35.
@@ -96,7 +96,7 @@ Figure 35.
 .. _usb_connector:
 
 USB Connector
-~~~~~~~~~~~~~~~~~
+**************
 
 The USB connector design is highlighted in Figure 36.
 
@@ -114,7 +114,7 @@ recognize and utilize the proper mode.
 .. _power_button_design:
 
 Power Button Design
-~~~~~~~~~~~~~~~~~~~~~~~
+********************
 
 The power button design is highlighted in Figure 37.
 
@@ -127,7 +127,7 @@ The power button design is highlighted in Figure 37.
 .. _user_leds:
 
 User LEDs
-~~~~~~~~~~~~~
+************
 
 There are four user programmable LEDs on PocketBeagle. The design is
 highlighted in Figure 38. Table 6 Provides the LED control signals and
@@ -154,7 +154,7 @@ pins. A logic level of "1" will cause the LEDs to turn on.
 .. _jtag_pads_1:
 
 JTAG Pads
-~~~~~~~~~~~~~
+***********
 
 There are 7 pads on the bottom of PocketBeagle to connect JTAG for
 debugging. The design is highlighted in Figure 39. More information
@@ -170,7 +170,7 @@ regarding JTAG debugging can be found at
 .. _pru_icss:
 
 PRU-ICSS
-~~~~~~~~~~~~
+***********
 
 The Programmable Real-Time Unit Subsystem and Industrial Communication
 SubSystem (PRU-ICSS) module is located inside the AM3358 processor,
@@ -200,7 +200,7 @@ Example projects using the PRU-ICSS can be found in :ref:`pru-cookbook-home`.
 .. _pru_icss_features:
 
 PRU-ICSS Features
-^^^^^^^^^^^^^^^^^^^^^^^
+===================
 
 The features of the PRU-ICSS include:
 
@@ -223,7 +223,7 @@ PRU-ICSS features available through the P1 and P2 headers.)
 .. _pru_icss_block_diagram:
 
 PRU-ICSS Block Diagram
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=======================
 
 Figure below is a high level block diagram of the PRU-ICSS.
 
@@ -233,7 +233,7 @@ Figure below is a high level block diagram of the PRU-ICSS.
 .. _pru_icss_pin_access:
 
 PRU-ICSS Pin Access
-^^^^^^^^^^^^^^^^^^^^^^^^^
+====================
 
 Both PRU 0 and PRU1 are accessible from the expansion headers. Listed
 below are the ports that can be accessed on each PRU.

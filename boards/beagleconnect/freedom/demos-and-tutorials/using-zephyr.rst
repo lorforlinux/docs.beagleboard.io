@@ -28,7 +28,7 @@ Required
 * USB Type-C cable for use with BeaglePlay
 
 Recommended
-===============
+============
 
 * Ethernet cable and Internet connection
 

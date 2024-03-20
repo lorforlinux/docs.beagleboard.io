@@ -66,7 +66,7 @@ Change History
 .. _beagleconnect-freedom-document-change-history:
 
 Document Changes
-******************
+=================
 
 For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
 specific hardware and software revisions are noted below.

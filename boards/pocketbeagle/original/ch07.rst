@@ -1,14 +1,14 @@
 .. _pocketbeagle_connectors:
 
 Connectors
-==================
+###########
 
 This section describes each of the connectors on the board.
 
 .. _expansion_header_connectors:
 
 Expansion Header Connectors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************
 
 The expansion interface on the board is comprised of two 36 pin
 connectors. The two Expansion Header Connectors on PocketBeagle are
@@ -46,7 +46,7 @@ header.
 .. _p1_header:
 
 P1 Header
-~~~~~~~~~~~~~~~
+***********
 
 Figure 43 shows the schematic diagram for the P1 Header.
 
@@ -150,7 +150,7 @@ chart separately.
 .. _p2_header:
 
 P2 Header
-~~~~~~~~~~~~~~~
+**********
 
 Figure 44 shows the schematic diagram for the P2 Header.
 
@@ -256,7 +256,7 @@ chart separately.
 .. _mikrobus_socket_connections:
 
 mikroBUS socket connections
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************
 
 mikroBUS and, by extension "mikroBUS Click boards", are trademarks of
 MikroElektronika. We do not make any claims of compatibility nor
@@ -300,7 +300,7 @@ trying out various Click Boards and posting results on the
 .. _setting_up_an_additional_usb_connection:
 
 Setting up an additional USB Connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************************
 
 You can add an additional USB connection to PocketBeagle easily by
 connecting a microUSB breakout. By default in the current software, the

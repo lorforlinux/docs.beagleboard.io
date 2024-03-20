@@ -89,12 +89,12 @@ Xuantie C910 processor clocked at 1.85GHz with a 4 TOPS NPU, support for
     +----------------------------+---------------------------------------------------------------------------+
 
 Board components location
-==========================
+**************************
 
 This section describes the key components on the board, their location and function.
 
 Front components location
--------------------------
+==========================
 
 .. figure:: media/components-front.*
     :width: 1400
@@ -142,7 +142,7 @@ Front components location
 
 
 Back components location
--------------------------
+=========================
 
 .. figure:: media/components-back.*
     :width: 1400

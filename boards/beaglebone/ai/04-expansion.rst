@@ -3,8 +3,6 @@
 Expansion
 #########
 
-
-
 Expansion Connectors
 **********************
 

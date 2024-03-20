@@ -40,7 +40,7 @@ VOID THE WARRANTY.*
 *NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.*
 
 BeagleBone Black Cape Compatibility
----------------------------------------
+************************************
 
 The main expansion headers are the same between the BeagleBone and
 BeagleBone Black. While the pins are the same, some of these pins are
@@ -52,7 +52,7 @@ The Power Expansion header was removed from the BeagleBone Black and is not avai
 **PAY VERY CLOSE ATTENTION TO THIS SECTION AND READ CAREFULLY!!**
 
 LCD Pins
-**************
+=========
 
 The LCD pins are used on the BeagleBone Black to drive the HDMI framer.
 These signals are listed in *Table 15* below.
@@ -164,7 +164,7 @@ framer should be put in a low power mode via the SW using the *I2C0*
 interface.
 
 eMMC Pins
-***************
+==========
 
 The BeagleBone Black uses 10 pins to connect to the processor that also
 connect to the P8 expansion connector. These signals are listed below in *Table 16*.
@@ -253,7 +253,7 @@ determined on a cape by cape basis by the designer of the respective
 cape.
 
 EEPROM
-----------
+=======
 
 Each cape must have its own EEPROM containing information that will
 allow the SW to identify the board and to configure the expansion
@@ -289,7 +289,7 @@ select supports 16 bit addressing. The part package used is at the
 discretion of the cape designer.
 
 EEPROM Address
-********************
+==============
 
 In order for each cape to have a unique address, a board ID scheme is
 used that sets the address to be different depending on the setting of
@@ -313,7 +313,7 @@ cape if needed without interfering with this EEPROM. It requires that A2
 be grounded on the EEPROM not used for cape identification.
 
 I2C Bus
-*************
+========
 
 The EEPROMs on each expansion board are connected to I2C2 on connector
 P9 pins 19 and 20. For this reason I2C2 must always be left connected
@@ -359,7 +359,7 @@ VDD_3V3B
    Expansion Board EEPROM Write Protect
 
 EEPROM Data Format
-*********************
+===================
 
 Table below shows the format of the contents of the expansion board
 EEPROM. Data is stored in Big Endian with the least significant value on
@@ -434,7 +434,7 @@ by the user when the EEPROM contents are dumped.
      - Available space for other non-volatile codes/data to be used as needed by the manufacturer or SW driver. Could also store presets for use by SW.
 
 Pin Usage
-***************
+=========
 
 *Table 18* is the locations in the EEPROM to set the I/O pin usage for
 the cape. It contains the value to be written to the Pad Control
@@ -1631,18 +1631,17 @@ for the AIN signals.
   \end{landscape}
 
 Pin Usage Consideration
----------------------------
+*************************
 
 This section covers things to watch for when hooking up to certain pins
 on the expansion headers.
 
 Boot PIN
-**************
+========
 
 There are 16 pins that control the boot mode of the processor that are
 exposed on the expansion headers. *Figure 63* below shows those signals
 as they appear on the BeagleBone Black.:
-
 
 .. figure:: media/image80.png
    :width: 530px
@@ -1673,7 +1672,7 @@ voltage of 0.8 volts and AM3358 maximum input leakage current of 18uA
 plus any other current leakage paths on these signals.
 
 Expansion Connectors
-------------------------
+=====================
 
 A combination of male and female headers is used for access to the
 expansion headers on the main board. There are three possible mounting
@@ -1687,7 +1686,7 @@ The following sections describe how the connectors are to be implemented
 and used for each of the different configurations.
 
 Non-Stacking Headers-Single Cape
-**************************************
+=================================
 
 For non-stacking capes single configurations or where the cape can be
 the last board on the stack, the two 46 pin expansion headers use the
@@ -1765,7 +1764,7 @@ Sullins and Samtec for these connectors. You will need to ensure the
 depth into the connector is sufficient
 
 Main Expansion Headers-Stacking
-*************************************
+================================
 
 For stacking configuration, the two 46 pin expansion headers use the
 same connectors. *Figure 66* is a picture of the connector. These are
@@ -1843,7 +1842,7 @@ Other possible sources are Sullins and Samtec but make sure you select
 one that has the correct mating depth.
 
 StackedStealing
-*************************************
+================
 
 *Figure 68* is the connector configuration for stackable capes that does
 not provide all of the signals upwards for use by other boards. This is
@@ -1863,7 +1862,7 @@ nonstacking style connectors.
    Stacked w/Signal Stealing Expansion Connector
 
 Retention Force
-*********************
+===============
 
 The length of the pins on the expansion header has a direct relationship
 to the amount of force that is used to remove a cape from the BeagleBone
@@ -1877,8 +1876,6 @@ the friction.
 
 This section will attempt to describe the tradeoffs and things to
 consider when selecting a connector and its pin length.
-
-****************************************
 
 *Figure 69* shows the key measurements used in calculating how much the
 pin extends past the contact point on the connector, what we call
@@ -1903,8 +1900,8 @@ The longer the pin extends past the contact point, the more force it
 will take to insert and remove the board. Removal is a greater issue
 than the insertion.
 
-8.5 Signal Usage
-----------------
+Signal Usage
+**************
 
 Based on the pin muxing capabilities of the processor, each expansion
 pin can be configured for different functions. When in the stacking
@@ -1930,13 +1927,13 @@ BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 
 *NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.*
 
-8.6 Cape Power
---------------
+Cape Power
+************
 
 This section describes the power rails for the capes and their usage.
 
 Main Board Power
-**********************
+=================
 
 The *Table 1* describes the voltages from the main board that are
 available on the expansion connectors and their ratings. All voltages
@@ -1990,7 +1987,7 @@ available current from this rail depends on the current available from
 the USB and DC external supplies.
 
 Power
-************************************
+=====
 
 A cape can have a jack or terminals to bring in whatever voltages may be
 needed by that board. Care should be taken not to let this voltage be
@@ -2022,8 +2019,8 @@ boards.*
 *Powering the processor via its I/O pins can cause damage to the
 processor.*
 
-8.7 Mechanical
---------------
+Mechanical
+***********
 
 This section provides the guidelines for the creation of expansion
 boards from a mechanical standpoint. Defined is a standard board size
@@ -2034,8 +2031,7 @@ required, as in the case of an LCD larger than the BeagleBone Black
 board.
 
 Standard Cape Size
-************************
-
+===================
 
 .. figure:: media/image87.jpg
    :width: 575px
@@ -2058,7 +2054,7 @@ It is not required that the cape be exactly like the BeagleBone Black
 board in this respect.
 
 Extended Cape Size
-************************
+===================
 
 Capes larger than the standard board size are also allowed. A good
 example would be an LCD panel. There is no practical limit to the sizes
@@ -2073,7 +2069,7 @@ As with all capes, the EEPROM is required and compliance with the power
 requirements must be adhered to.
 
 Enclosures
-****************
+===========
 
 There are numerous enclosures being created in all different sizes and
 styles. The mechanical design of these enclosures is not being defined

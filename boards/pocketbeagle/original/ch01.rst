@@ -1,7 +1,7 @@
 .. _pocketbeagle_introduction:
 
 Introduction
-===============
+#############
 
 This document is the **System Reference Manual** for PocketBeagle and
 covers its use and design. PocketBeagle is an ultra-tiny-yet-complete

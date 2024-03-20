@@ -1,7 +1,7 @@
 .. _connecting_up_pocketbeagle:
 
 Connecting Up PocketBeagle
-==========================
+##########################
 
 This section provides instructions on how to hook up your board. The
 most common scenario is tethering PocketBeagle to your PC for local
@@ -10,7 +10,7 @@ development.
 .. _whats_in_the_package:
 
 What’s In the Package
-~~~~~~~~~~~~~~~~~~~~~
+***********************
 
 In the package you will find two items as shown in figures below.
 
@@ -38,7 +38,7 @@ In the package you will find two items as shown in figures below.
 .. _connecting_the_board:
 
 Connecting the board
-~~~~~~~~~~~~~~~~~~~~
+*********************
 
 This section will describe how to connect to the board. Information can
 also be found on the Quick Start Guide that came in the box. Detailed
@@ -52,7 +52,7 @@ include additional configurations.
 .. _tethered_to_a_pc_using_debian_images:
 
 Tethered to a PC using Debian Images
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*************************************
 
 In this configuration, you will need the following additional items:
 
@@ -79,7 +79,7 @@ but rarely is this the case.
 .. _getting_started:
 
 Getting Started
-^^^^^^^^^^^^^^^
+================
 
 The following steps will guide you to quickly download a PocketBeagle
 software image onto your microSD card and get started writing code.
@@ -204,7 +204,7 @@ initially placed on your microSD card once the Linux kernel has booted.
 .. _accessing_the_board_and_getting_started_with_coding:
 
 Accessing the Board and Getting Started with Coding
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+====================================================
 
 The board will appear as a USB Storage drive on your PC after the kernel
 has booted, which will take approximately 10 seconds. The kernel on the
@@ -355,7 +355,7 @@ the USB cable follow these instructions:
 .. _other_ways_to_connect_up_to_your_pocketbeagle:
 
 Other ways to Connect up to your PocketBeagle
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==============================================
 
 The board can be configured in several different ways. Future revisions
 of this document may include additional configurations.

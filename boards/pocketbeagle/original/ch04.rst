@@ -1,7 +1,7 @@
 .. _pocketbeagle_overview:
 
 PocketBeagle Overview
-=============================
+#######################
 
 PocketBeagle is built around Octavo Systems' OSD335x-SM
 System-In-Package that integrates a high-performance Texas Instruments
@@ -20,7 +20,7 @@ own board or add their own circuitry.
 .. _pocketbeagle_features_and_specification:
 
 PocketBeagle Features and Specification
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************************
 
 This section covers the specifications and features of the board in a
 chart and provides a high level description of the major components and
@@ -106,7 +106,7 @@ interfaces that make up the board.
 .. _osd3358_512m_bsm_system_in_package:
 
 OSD3358-512M-BSM System in Package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+***********************************
 
 The Octavo Systems OSD3358-512M-BSM System-In-Package (SiP) is part of a
 family of products that are building blocks designed to allow easy and
@@ -129,7 +129,7 @@ Full Datasheet and more information is available at
 .. _board_component_locations:
 
 Board Component Locations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************
 
 This section describes the key components on the board, their location
 and function.

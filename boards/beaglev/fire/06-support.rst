@@ -9,10 +9,10 @@ community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/fire>`_.
 .. _beaglev-fire-certifications:
 
 Certifications and export control
-*********************************
+**********************************
 
 Export designations
-===================
+====================
 
 .. todo:: update details
 

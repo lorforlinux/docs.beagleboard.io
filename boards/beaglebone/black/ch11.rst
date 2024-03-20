@@ -7,7 +7,7 @@ All support for BeagleBone Black design is through BeagleBoard.org community
 at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/beaglebone-black>`_.
 
 Hardware Design
---------------------
+****************
 
 Design documentation can be found on the eMMC of the board under the
 documents/hardware directory when connected using the USB cable.
@@ -31,7 +31,7 @@ should always use the latest SW revision.
 To see what SW revision is loaded into the eMMC follow the instructions at `https://elinux.org/Beagleboard:Updating_The_Software#Checking_The_Angstrom_Image_Version <https://elinux.org/Beagleboard:Updating_The_Software#Checking_The_Angstrom_Image_Version>`_
 
 Software Updates
----------------------
+*****************
 
 It is a good idea to always use the latest software. Instructions for
 how to update your software to the latest version can be found at:
@@ -39,7 +39,7 @@ how to update your software to the latest version can be found at:
 `http://elinux.org/BeagleBoneBlack#Updating_the_eMMC_Software <http://elinux.org/BeagleBoneBlack#Updating_the_eMMC_Software>`_
 
 RMA Support
-----------------
+*************
 
 If you feel your board is defective or has issues, request an RMA by
 filling out the form at `http://beagleboard.org/support/rma <http://beagleboard.org/support/rma>`_
@@ -72,7 +72,7 @@ filling out the form at `http://beagleboard.org/support/rma <http://beagleboard.
 
 
 Trouble Shooting HDMI Issues
----------------------------------
+*****************************
 
 Many people are having issues with getting HDMI to work on their
 TV/Display. Unfortunately, we do not have the resources to buy all the
@@ -97,7 +97,7 @@ sure and use the latest SW to take advantage of the improvements.
 `http://www.elinux.org/Beagleboard:BeagleBoneBlack#Software_Resources <http://www.elinux.org/Beagleboard:BeagleBoneBlack#Software_Resources>`_
 
 EDID
-***********
+=====
 
 EDID is the way the board requests information from the display and
 determines all the resolutions that it can support. The driver on the
@@ -115,7 +115,7 @@ not have this information. A few possible reasons for this are:
 
 
 DISPLAY SOURCE SELECTION
-*******************************
+=========================
 
 One easy thing to overlook is that you need to select the display source
 that matches the port you are using on the TV. Some displays may auto
@@ -123,7 +123,7 @@ select, so you may need to disconnect the other inputs until you are
 sure the display works with the board.
 
 OUT OF SEQUENCE
-**********************
+===============
 
 Sometimes the display and the board can get confused. One way to prevent
 this is after everything is cabled up and running, you can power cycle
@@ -131,7 +131,7 @@ the display, with the board still running. You can also try resetting
 the board and let it reboot to resync with the TV.
 
 OVERSCAN
-***************
+=========
 
 Some displays use what is called overscan. This can be seen in TVs and
 not so much on Monitors. It causes the image to be missing on the edges,
@@ -144,7 +144,7 @@ option as it does not chop of the edges. The other ones will crop of the
 edges.
 
 Taking a Nap
-*******************
+=============
 
 In some cases the board can come up in a power down/screen save mode. No
 display will be present. This is due to the board believing that it is
@@ -157,7 +157,7 @@ to turn the display back on again. Sometimes, it may take a minute or so
 for the display to catch up and show the image.
 
 AUDIO
-************
+======
 
 Audio will only work on TV resolutions. This is due to the way the
 specification was written. Some displays have built in speakers and
@@ -167,7 +167,7 @@ resolution giving audio support. The HDMI driver should default to the
 highest audio supported resolution.
 
 Getting Help
-*******************
+=============
 
 If you need some up to date troubleshooting techniques, we have a Wiki
 set up at

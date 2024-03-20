@@ -1,7 +1,7 @@
 .. _pocketbeagle_pocketcape_support:
 
 PocketBeagle Cape Support
-==========================
+##########################
 
 This is a placeholder for recommendations for those building their own
 PocketBeagle Cape designs. If you'd like to join the conversation

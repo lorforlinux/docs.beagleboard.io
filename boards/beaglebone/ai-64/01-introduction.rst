@@ -80,7 +80,7 @@ much as possible. There are several significant differences between the three de
 .. _bbai64-features-and-specificationd:
 
 BeagleBone AI-64 Features and Specification
----------------------------------------------
+********************************************
 
 This section covers the specifications and features of the board and provides a high level 
 description of the major components and interfaces that make up the board.
@@ -139,7 +139,7 @@ description of the major components and interfaces that make up the board.
 .. _bbai64-component-locations:
 
 Board Component Locations
-----------------------------
+***************************
 
 This section describes the key components on the board. It provides information on their location 
 and function. Familiarize yourself with the various components on the board.
@@ -147,7 +147,7 @@ and function. Familiarize yourself with the various components on the board.
 .. _bbai64-components:
 
 Board components
------------------
+================
 
 This section describes the key components on the board, their location and function.
 

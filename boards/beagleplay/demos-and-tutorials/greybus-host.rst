@@ -219,6 +219,7 @@ Building gb-beagleplay Kernel Module
 
 Flashing BeagleConnect Freedom Greybus Firmware
 ***********************************************
+
 #. Connect BeagleConnect Freedom to BeaglePlay
 #. Build the BeagleConnect Freedom firmware
 

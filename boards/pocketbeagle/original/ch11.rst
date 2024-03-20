@@ -1,7 +1,7 @@
 .. _pocketbeagle_support_information:
 
 Support Information
-============================
+####################
 
 All support for PocketBeagle design is through BeagleBoard.org community 
 at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle>`_.
@@ -9,7 +9,7 @@ at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle>`_.
 .. _hardware_design:
 
 Hardware Design
-~~~~~~~~~~~~~~~~~~~~
+****************
 
 Design documentation can be found on the wiki.
 https://git.beagleboard.org/beagleboard/pocketbeagle/ Including:
@@ -27,7 +27,7 @@ https://git.beagleboard.org/beagleboard/pocketbeagle/ Including:
 .. _software_updates:
 
 Software Updates
-~~~~~~~~~~~~~~~~~~~~~
+******************
 
 It is a good idea to always use the latest software. Instructions for
 how to update your software to the latest version can be found at:
@@ -38,7 +38,7 @@ Download the latest software files from
 .. _export_information:
 
 Export Information
-~~~~~~~~~~~~~~~~~~~~~~~
+*******************
 
 -  ECCN: EAR99
 -  CCATS: G173833
@@ -48,7 +48,7 @@ Export Information
 .. _rma_support:
 
 RMA Support
-~~~~~~~~~~~~~~~~
+*************
 
 If you feel your board is defective or has issues and before returning
 merchandise, please seek approval from the manufacturer using
@@ -59,7 +59,7 @@ board.
 .. _getting_help:
 
 Getting Help
-~~~~~~~~~~~~~~~~~
+***************
 
 If you need some up to date troubleshooting techniques, the Wiki is a
 great place to start

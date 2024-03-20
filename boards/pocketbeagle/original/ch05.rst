@@ -1,14 +1,14 @@
 .. _pocketbeagle_high_level_specification:
 
 PocketBeagle High Level Specification
-=============================================
+######################################
 
 This section provides the high level specification of PocketBeagle.
 
 .. _block_diagram:
 
 Block Diagram
-~~~~~~~~~~~~~~~~~
+**************
 
 Figure 22 below is the high level block diagram of PocketBeagle.
 
@@ -21,7 +21,7 @@ Figure 22 below is the high level block diagram of PocketBeagle.
 .. _system_in_package_sip:
 
 System in Package (SiP)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************
 
 The OSD335x-SM Block Diagram is detailed in Figure 23 below. More
 information, including design resources are available on the 
@@ -40,12 +40,12 @@ available on PocketBeagle headers. Please check Section 7 for the P1 and
 P2 header pin tables.
 
 Connectivity
-~~~~~~~~~~~~~~~~
+*************
 
 .. _expansion_headers:
 
 Expansion Headers
-^^^^^^^^^^^^^^^^^^^^^^^
+==================
 
 PocketBeagle gives access to a large number of peripheral functions and
 GPIO via 2 dual rail expansion headers. With 36 pins each, the headers
@@ -64,7 +64,7 @@ is available in Section 7.
 .. _microsd_connector:
 
 microSD Connector
-^^^^^^^^^^^^^^^^^^^^^^^
+==================
 
 The board is equipped with a single microSD connector to act as the
 primary boot source for the board. Just about any microSD card you have
@@ -87,7 +87,7 @@ connector.
 .. _usb_2.0_connector:
 
 USB 2.0 Connector
-^^^^^^^^^^^^^^^^^^^^^^^
+==================
 
 The board has a microUSB connector that is USB 2.0 HS compatible that
 connects the USB0 port to the SiP. Generally this port is used as a
@@ -107,7 +107,7 @@ P1 pin 7 (USB1.VIN) or Header P2 pin 14 (BAT.VIN)
 .. _boot_modes:
 
 Boot Modes
-^^^^^^^^^^^^^^^^
+***********
 
 There are three boot modes:
 
@@ -156,7 +156,7 @@ Debug. See Section 5.6 for more information.
 *Please contact TI for support of this feature.*
 
 Power
-~~~~~~~~~
+*****
 
 The board can be powered from three different sources:
 
@@ -227,7 +227,7 @@ Expansion Headers.
 .. _jtag_pads:
 
 JTAG Pads
-~~~~~~~~~~~~~
+*********
 
 Pads for an optional connection to a JTAG emulator has been provided on
 the back of PocketBeagle. More information about JTAG emulation can be
@@ -243,7 +243,7 @@ development' <https://www.ti.com/tools-software/debug.html>`__
 .. _serial_debug_port:
 
 Serial Debug Port
-~~~~~~~~~~~~~~~~~~~~~
+******************
 
 Serial debug is provided via UART0 on the processor. See Section 5.3.4
 for the Header Pin table. Signals supported are TX and RX. None of the

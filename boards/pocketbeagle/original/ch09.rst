@@ -1,12 +1,12 @@
 .. _pocketbeagle_mechanical:
 
 PocketBeagle Mechanical
-===============================
+########################
 
 .. _dimensions_and_weight:
 
 9.1 Dimensions and Weight
-~~~~~~~~~~~~~~~~~~~~~~~~~
+***************************
 
 Size: 2.21” x 1.38” (56mm x 35mm)
 

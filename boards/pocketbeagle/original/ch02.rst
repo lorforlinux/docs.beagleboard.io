@@ -1,7 +1,7 @@
 .. _pocketbeagle_change_history:
 
 Change History
-=====================
+###############
 
 This section describes the change history of this document and board.
 Document changes are not always a result of a board change. A board
@@ -10,7 +10,7 @@ change will always result in a document change.
 .. _document_change_history:
 
 Document Change History
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************
 
 .. table:: Change History
 
@@ -25,7 +25,7 @@ Document Change History
 .. _board_changes:
 
 Board Changes
-~~~~~~~~~~~~~~~~~
+***************
 
 .. table:: Board History  
 
@@ -48,7 +48,7 @@ Board Changes
     +---------+-----------------------------------------------------------------------------------------+----------------------+--------+
 
 PocketBone
-^^^^^^^^^^^^^^^^
+**********
 
 Upon the creation of the first, 27mm-by-27mm, Octavo Systems OSD3358
 SIP, Jason did a hack two-layer board in EAGLE called “PocketBone” to
@@ -63,7 +63,7 @@ fitting into a mini-mint tin.
 .. _rev_a1:
 
 Rev A1
-^^^^^^^^^^^^
+======
 
 The Rev A1 of PocketBeagle was a prototype not released to production. A
 few lines were wrong to be able to control mikroBUS Click add-on board
@@ -72,7 +72,7 @@ reset lines and they were adjusted.
 .. _rev_a2:
 
 Rev A2
-^^^^^^^^^^^^
+======
 
 The Rev A2 of PocketBeagle was released to production and
 `launched at World MakerFaire 2017 <https://www.prnewswire.com/news-releases/small-in-size--cost-meet-pocketbeagle-the-25-development-board-for-hobbyists-educators-and-professionals-300519950.html>`__.
@@ -87,7 +87,7 @@ Known issues in rev A2:
 +----------------------------------+----------------------------------------------------------------------------------+
 
 Rev A2B
-^^^^^^^^^^^^
+=======
 
 Because 2 TI parts had a long lead time, we made the following changes:
 

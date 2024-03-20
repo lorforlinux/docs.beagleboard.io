@@ -76,12 +76,12 @@ Detailed overview
     +----------------------------+---------------------------------------------------------------------------+
 
 Board components location
-==========================
+**************************
 
 This section describes the key components on the board, their location and function.
 
 Front components location
--------------------------
+==========================
 
 .. figure:: media/BeagleV-Fire-Front-Annotated.*
     :width: 1400
@@ -129,7 +129,7 @@ Front components location
     +----------------------------+---------------------------------------------------------------------------+
 
 Back components location
--------------------------
+=========================
 
 .. figure:: media/BeagleV-Fire-Back-Annotated.*
     :width: 1400

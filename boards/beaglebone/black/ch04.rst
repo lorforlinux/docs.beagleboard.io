@@ -39,7 +39,7 @@ members, including Jason Kridner, employee of Texas Instruments, and
 Robert Nelson, employee of DigiKey.
 
 BeagleBone Compatibility
-----------------------------
+**************************
 
 The board is intended to be compatible with the original BeagleBone as
 much as possible. There are several areas where there are differences
@@ -113,7 +113,7 @@ the reasons for the differences.
     same thing.
 
 BeagleBone Black Features and Specification
------------------------------------------------
+********************************************
 
 This section covers the specifications and features of the board and
 provides a high level description of the major components and interfaces
@@ -179,14 +179,14 @@ that make up the board. table below provides a list of the features.
      - Refer to *section-6-1-7*
 
 Board Component Locations
------------------------------
+***************************
 
 This section describes the key components on the board. It provides
 information on their location and function. Familiarize yourself with
 the various components on the board.
 
 Connectors, LEDs, and Switches
-************************************
+===============================
 
 figure below shows the locations of the connectors, LEDs, and
 switches on the PCB layout of the board.
@@ -212,7 +212,7 @@ switches on the PCB layout of the board.
 * *USB Host* can be connected different USB interfaces such as Wi-Fi, BT, Keyboard, etc.
 
 Key Components
-********************
+===============
 
 figure below shows the locations of the key components on the PCB
 layout of the board.

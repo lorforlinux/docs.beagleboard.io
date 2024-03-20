@@ -18,10 +18,10 @@ BeagleBone Blue Pinouts
    with some Blue : Black corelation.
 
 UT1
-=====
+******
 
 UART (/dev/ttyS1)
---------------------
+=================
 
 .. code:: bash
 
@@ -29,10 +29,10 @@ UART (/dev/ttyS1)
    config-pin P9.26 uart
 
 GPS
-===========
+****
 
 UART (/dev/ttyS2)
---------------------
+==================
 
 .. code:: bash
 

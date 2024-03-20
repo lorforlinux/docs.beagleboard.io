@@ -1,7 +1,7 @@
 .. _pocketbeagle_additional_pictures:
 
 Additional Pictures
-============================
+#####################
 
 .. figure:: images/PocketBeagle_Front_BW.*
    :align: center

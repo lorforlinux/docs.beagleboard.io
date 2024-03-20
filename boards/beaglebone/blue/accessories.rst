@@ -10,7 +10,7 @@ Accessories
 .. _chassis_and_kits:
 
 Chassis and kits
-====================
+******************
 
 -  `EduMIP <https://www.renaissancerobotics.com/edumip.html>`__
 -  `Pololu Romi Chassis with geared
@@ -22,12 +22,12 @@ Chassis and kits
 -  `Sprout Runt Rover <https://www.servocity.com/sprout>`__
 
 Cases
-======
+*******
 
 .. _cable_assemblies_and_sub_assemblies:
 
 Cable assemblies and sub-assemblies
-========================================
+************************************
 
 Beware; purchased pre-made connector assembly wire colors may not
 reflect true pin designations. These assemblies are readily available
@@ -39,12 +39,12 @@ King <https://hobbyking.com>`__, `Pololu <https://www.pololu.com>`__ and
 .. _jst_connector_bundle:
 
 JST Connector Bundle
---------------------
+=====================
 
 .. _renaissance_robotics_jst_jumper_bundle:
 
 Renaissance Robotics JST Jumper Bundle
-********************************************
+---------------------------------------
 
 | Four of the 2-pin JST ZH (1.5mm pitch) connectors, with 150mm 28AWG
   wires, for motors,
@@ -58,7 +58,7 @@ Renaissance Robotics JST Jumper Bundle
 .. _conrad_beagleboard_kabel_bb_blue_kabelset:
 
 Conrad BeagleBoard Kabel BB-Blue-Kabelset
-***********************************************
+------------------------------------------
 
 | 10x 4-Pin JST-SH
 | 6x 6-Pin JST-SH
@@ -70,7 +70,7 @@ Conrad BeagleBoard Kabel BB-Blue-Kabelset
 .. _uart_i2c_can_quadrature_encoders_pwr:
 
 UART, I2C, CAN, Quadrature encoders, PWR
-==========================================
+=========================================
 
 4-wire JST-SH (1mm pitch)
 
@@ -90,7 +90,7 @@ UART, I2C, CAN, Quadrature encoders, PWR
 .. _spi_gpio_adc:
 
 SPI, GPIO, ADC
-===================
+===============
 
 6-wire JST-SH (1mm pitch)
 
@@ -108,7 +108,7 @@ SPI, GPIO, ADC
    (`Digi-Key <https://www.digikey.com/product-detail/en/seeed-technology-co-ltd/114991496/1597-1623-ND/8558387>`__)
 
 Motors
-=========
+*******
 
 2-wire JST-ZH (1.5mm pitch)
 
@@ -118,19 +118,19 @@ Motors
    receptacle <http://www.digikey.com/product-detail/en/jst-sales-america-inc/ZHR-2/455-1366-ND/566476>`__
 
 DSM
-======
+****
 
 3-wire JST-ZH (1.5mm pitch)
 
 -  `Pololu PN# 2411 <https://www.pololu.com/product/2411>`__
 
 microUSB
----------
+*********
 
 standard
 
 Batteries
------------
+**********
 
 2S1P LiPo with 3-wire JST-XH (2.5mm pitch) charge connection
 
@@ -142,7 +142,7 @@ Batteries
 .. _power_supplies:
 
 Power supplies
-==================
+***************
 
 12V with 5.5mm/2.1mm center positive
 
@@ -156,12 +156,12 @@ Power supplies
 .. _motors_1:
 
 Motors
-===========
+********
 
 .. _servo_motors:
 
 Servo motors
-------------------
+*************
 
 6V DC
 
@@ -174,7 +174,7 @@ Servo motors
 .. _dc_motors:
 
 DC motors
-----------
+**********
 
 6V, typically geared
 
@@ -186,7 +186,7 @@ DC motors
 .. _radio_remotes:
 
 Radio remotes
-=================
+***************
 
 -  `Hobby King OrangeRX satellite
    receiver <https://hobbyking.com/en_us/orangerx-r110x-dsmx-dsm2-compatible-satellite-receiver.html>`__
@@ -194,7 +194,7 @@ Radio remotes
    Receiver <https://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM9545>`__
 
 GPS
-======
+*****
 
 -  `Sparkfun GPS Receiver - EM-506 (48
    Channel) <https://www.sparkfun.com/products/12751>`__
@@ -208,7 +208,7 @@ GPS
 .. _replacement_antennas:
 
 Replacement antennas
-======================
+*********************
 
 -  `LSR
    PIFA <https://www.digikey.com/product-detail/en/laird-wireless-thermal-systems/001-0014/001-0014-ND/4732758>`__
@@ -224,12 +224,12 @@ Replacement antennas
 .. _usb_devices:
 
 USB devices
-================
+*************
 
 .. _usb_cameras:
 
 USB cameras
---------------
+============
 
 -  `Logitech
    C270 <https://www.amazon.com/Logitech-Desktop-Widescreen-Calling-Recording/dp/B004FHO5Y6>`__
@@ -239,19 +239,19 @@ USB cameras
 .. _spi_devices:
 
 SPI devices
-===============
+*************
 
 .. _spi_tft_displays:
 
 SPI TFT displays
-------------------
+=================
 
 -  `Adafruit 2.4" LCD breakout <https://www.adafruit.com/products/2478>`__
 
 .. _i2c_devices:
 
 I2C devices
-==============
+***********
 
 -  See :ref:`One Liner Module Tests <beaglebone-blue-one-liner-tests-i2c>`
 -  See :ref:`beagle101_i2c`
@@ -259,12 +259,12 @@ I2C devices
 .. _uart_devices:
 
 UART devices
-===============
+*************
 
 .. _computer_serial_adapters:
 
 Computer serial adapters
---------------------------
+=========================
 
 -  `Sparkfun FTDI Cable 5V VCC-3.3V
    I/O <https://www.sparkfun.com/products/9717>`__
@@ -274,7 +274,7 @@ Computer serial adapters
 .. _bluetooth_devices:
 
 Bluetooth devices
-=====================
+*******************
 
 -  `WowWee Groove Cube
    Speaker <https://git.beagleboard.org/beagleboard/beaglebone-blue/-/wikis/One-Liner-Module-Tests#grove-i2c-modules>`__
