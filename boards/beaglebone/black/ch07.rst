@@ -1109,7 +1109,7 @@ current rating may be needed if capes are plugged into the expansion
 headers. Using a higher current power supply will not damage the board.
 
 USB Client
---------------
+************
 
 The USB Client connector is accessible on the bottom side of the board
 under the row of four LEDs as shown in <<figure-52>>. It uses a 5 pin
@@ -1130,7 +1130,7 @@ This port is a USB Client only interface and is intended for connection
 to a PC.
 
 USB Host
-*********
+**********
 
 There is a single USB Host connector on the board and is shown in
 *Figure 53* below.
