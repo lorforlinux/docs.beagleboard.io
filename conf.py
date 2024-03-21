@@ -178,34 +178,35 @@ html_theme_options = {
 }
 
 # parse version from 'VERSION' file
-# with open("VERSION") as f:
-#     m = re.match(
-#         (
-#             r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
-#             + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
-#             + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
-#             + r"^VERSION_TWEAK\s*=\s*\d+$\n"
-#             + r"^EXTRAVERSION\s*=\s*(.*)$"
-#         ),
-#         f.read(),
-#         re.MULTILINE,
-#     )
 
-#     if not m:
-#         sys.stderr.write("Warning: Could not extract docs version\n")
-#         version = "Unknown"
-#     else:
-#         major, minor, patch, extra = m.groups(1)
-#         version = ".".join((major, minor, patch))
-#         release_version = ".".join((major, minor))
-#         if extra:
-#             version += "-" + extra
+with open("VERSION") as f:
+    m = re.match(
+        (
+            r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
+            + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
+            + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
+            + r"^VERSION_TWEAK\s*=\s*\d+$\n"
+            + r"^EXTRAVERSION\s*=\s*(.*)$"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
 
-# release = version
+    if not m:
+        sys.stderr.write("Warning: Could not extract docs version\n")
+        version = "Unknown"
+    else:
+        major, minor, patch, extra = m.groups(1)
+        version = ".".join((major, minor, patch))
+        release_version = ".".join((major, minor))
+        if extra:
+            version += "-" + extra
+
+release = version
 
 # Variables here holds default settings
 pages_url = "https://docs.beagleboard.io"
-# pages_slug = "latest"
+pages_slug = "latest"
 gitlab_user = "docs"
 gitlab_version = "main"
 gitlab_url = "https://openbeagle.org"
@@ -213,32 +214,33 @@ gitlab_repo = "docs.beagleboard.io"
 docs_url = "https://docs.beagleboard.io"
 
 # parse pages details from 'PAGES' file
-# with open("PAGES") as f:
-#     m = re.match(
-#         (
-#             r"^PAGES_URL\s*=\s*(\S+)$\n"
-#             + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
-#             + r"^GITLAB_USER\s*=\s*(\S+)$\n"
-#             + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
-#             + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
-#             + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
-#         ),
-#         f.read(),
-#         re.MULTILINE,
-#     )
 
-#     if not m:
-#         sys.stderr.write("Warning: Could not extract pages information\n")
-#     else:
-#         url, slug, user, branch, host, repo = m.groups(1)
-#         slug = "latest" if slug == "main" else slug
-#         pages_url = url
-#         pages_slug = slug
-#         gitlab_user = user
-#         gitlab_version = branch
-#         gitlab_url = host
-#         gitlab_repo = repo
-#         docs_url = "/".join((url, slug))
+with open("PAGES") as f:
+    m = re.match(
+        (
+            r"^PAGES_URL\s*=\s*(\S+)$\n"
+            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
+            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
+            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
+            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
+            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write("Warning: Could not extract pages information\n")
+    else:
+        url, slug, user, branch, host, repo = m.groups(1)
+        slug = "latest" if slug == "main" else slug
+        pages_url = url
+        pages_slug = slug
+        gitlab_user = user
+        gitlab_version = branch
+        gitlab_url = host
+        gitlab_repo = repo
+        docs_url = "/".join((url, slug))
 
 html_context = {
     "display_gitlab": True,
@@ -248,7 +250,6 @@ html_context = {
     "gitlab_version": gitlab_version,
     "doc_path": "",
     #"use_edit_page_button": True,
-    #"edit_page_provider_name": "OpenBeagle",
     #"edit_page_url_template": "https://openbeagle.org/XXXX/{{ file_name }}",
     "conf_py_path": "",
     "show_license": True,
@@ -262,23 +263,23 @@ html_context = {
 
 # -- Options for LaTeX output --
 
-# latex_elements = {
-#     "papersize": "a4paper",
-#     "maketitle": open("_static/latex/title.tex").read(),
-#     "preamble": open("_static/latex/preamble.tex").read(),
-#     "sphinxsetup": ",".join(
-#         (
-#             "verbatimwithframe=false",
-#             "VerbatimColor={HTML}{f0f2f4}",
-#             "InnerLinkColor={HTML}{2980b9}",
-#             "warningBgColor={HTML}{e9a499}",
-#             "warningborder=0pt",
-#             r"HeaderFamily=\rmfamily\bfseries",
-#         )
-#     ),
-# }
-# latex_engine = "xelatex"
-# latex_logo = "_static/images/logo-latex.pdf"
-# latex_documents = [
-#     ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
-# ]
+latex_elements = {
+    "papersize": "a4paper",
+    "maketitle": open("_static/latex/title.tex").read(),
+    "preamble": open("_static/latex/preamble.tex").read(),
+    "sphinxsetup": ",".join(
+        (
+            "verbatimwithframe=false",
+            "VerbatimColor={HTML}{f0f2f4}",
+            "InnerLinkColor={HTML}{2980b9}",
+            "warningBgColor={HTML}{e9a499}",
+            "warningborder=0pt",
+            r"HeaderFamily=\rmfamily\bfseries",
+        )
+    ),
+}
+latex_engine = "xelatex"
+latex_logo = "_static/images/logo-latex.pdf"
+latex_documents = [
+    ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
+]
