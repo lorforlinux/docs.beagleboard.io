@@ -85,7 +85,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       **Connect the Cable to the Board**
 
-      1. Connect the type C USB cable to the board as shown in :ref:`usb-c-connect-figure`. The connector is on the top side of the board near barrel jack.
+      1. Connect the type C USB cable to the board as shown in the figure below. The connector is on the top side of the board near barrel jack.
 
       .. figure:: media/ch03/usb-c-connection.*
          :width: 740px
@@ -93,7 +93,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          USB Connection to the Board
 
-      1.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the :ref:`usb-a-connect-figure` below.
+      2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the figure below.
 
       .. figure:: media/ch03/usb-a-connection.*
          :width: 740px
@@ -101,7 +101,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          USB Connection to the PC/Laptop
 
-      1.  The board will power on and the power LED will be on as shown in :ref:`power-led-figure` below.
+      3.  The board will power on and the power LED will be on as shown in the figure below.
 
       .. figure:: media/ch03/power-led.*
          :width: 740px
@@ -109,7 +109,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          Board Power LED
 
-      1. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in :ref:`boot-status-figure` below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
+      4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in the figure below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
 
       .. figure:: media/ch03/led-pattern.*
          :width: 740px
@@ -128,7 +128,7 @@ Each of these configurations is discussed in general terms in the following sect
 
    .. group-tab:: Standalone w/Display and Keyboard/Mouse
 
-      In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in :ref:`desktop-config-figure`. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
+      In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in the figure below. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
 
       .. figure:: media/ch03/desktop-configuration.*
          :width: 740px
@@ -159,7 +159,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
 
-      1. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in. :ref:`display-adapters-figure`.
+      2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in the figure below.
 
       .. figure:: media/ch03/display-adapters.*
          :width: 740px
@@ -167,7 +167,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          Display adapters
 
-      1. If you have wired/wireless USB keyboard and mouse such as seen in :ref:`keyboard-mouse-figure` below, you need to plug the receiver in the USB host port of the board as shown in :ref:`keyboard-mouse-figure`.
+      3. If you have wired/wireless USB keyboard and mouse such as seen in the figure below, you need to plug the receiver in the USB host port of the board as shown in the figure below.
 
       .. figure:: media/ch03/mouse-keyboard.*
          :width: 740px
@@ -175,10 +175,10 @@ Each of these configurations is discussed in general terms in the following sect
          
          Keyboard and Mouse
 
-      1. Connect the Ethernet Cable
+      4. Connect the Ethernet Cable
 
       If you decide you want to connect to your local area network, an Ethernet cable can be used. 
-      Connect the Ethernet Cable to the Ethernet port as shown in :ref:`ethernet-cable-figure`. Any 
+      Connect the Ethernet Cable to the Ethernet port as shown in the figure below. Any 
       standard 100M Ethernet cable should work.
 
       .. figure:: media/ch03/ethernet-cable.*
@@ -188,7 +188,7 @@ Each of these configurations is discussed in general terms in the following sect
          Ethernet Cable Connection
 
 
-      1. The final step is to plug in the DC power supply to the DC power jack as shown in :ref:`barrel-jack-figure` below.
+      5. The final step is to plug in the DC power supply to the DC power jack as shown in the figure below.
 
       .. figure:: media/ch03/barrel-jack.*
          :width: 740px
@@ -196,7 +196,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          External DC Power
 
-      1. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in :ref:`miniDP-figure` below.
+      6. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in the figure below.
 
       .. figure:: media/ch03/miniDP-connector.*
          :width: 740px
@@ -206,7 +206,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       The connector is fairly robust, but we suggest that you not use the cable as a leash for your Beagle. Take proper care not to put too much stress on the connector or cable.
 
-      1. Booting the Board
+      7. Booting the Board
 
       As soon as the power is applied to the board, it will start the booting up process. When the board starts to boot the LEDs will come on. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it boots the Linux kernel.
 
@@ -225,12 +225,12 @@ Each of these configurations is discussed in general terms in the following sect
       * **USR3** turns on when the onboard eMMC is being accessed.
       * **USR4** is an activity indicator for WiFi.
 
-      1. A Booted System
+      8. A Booted System
          
          a. The board will have a mouse pointer appear on the screen as it enters the Linux boot step. You may have to move the physical mouse to get the mouse pointer to appear. The system can come up in the suspend mode with the monitor in a sleep mode.
          b. After a minute or two a login screen will appear. You do not have to do anything at this point.
-         c. After a minute or two the desktop will appear. It should be similar to the one shown in :ref:`figure-16`. HOWEVER, it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.
-         d. And at this point you are ready to go! :ref:`figure-16` shows the desktop after booting.
+         c. After a minute or two the desktop will appear. It should be similar to the one shown in the figure below. HOWEVER, it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.
+         d. And at this point you are ready to go! The figure below shows the desktop after booting.
 
       .. figure:: media/ch03/xfce-desktop.*
          :width: 740px
