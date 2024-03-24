@@ -18,11 +18,21 @@ sys.path.append(str(Path(".").resolve()))
 rst_epilog =""
 
 # Add latest images to rst_epilog
-with open('latest.images') as f:
-     rst_epilog += f.read()    
-                       
-# -- Project information --
+rst_epilog_files = ['latest.images', 'production.images']
+for rst_epilog_file in rst_epilog_files:
+    with open(rst_epilog_file) as f:
+        rst_epilog += f.read() 
 
+# Board OSHWA certification information
+oshw_logos_path = "_static/images/oshw"
+oshw_details = []
+for (dirpath, dirnames, filenames) in os.walk(oshw_logos_path):
+    for filename in filenames:
+        if filename.endswith('.svg'):
+            oshw_logo_name = filename.split(".")[0]
+            oshw_details.append(oshw_logo_name.split('_'))
+             
+# -- Project information --
 project = 'BeagleBoard Docs'
 copyright = '2024, BeagleBoard.org Foundation'
 author = 'BeagleBoard.org Foundation'
@@ -172,9 +182,9 @@ html_theme_options = {
     "footer_center": ["cc-by-sa"],
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
-    # "secondary_sidebar_items": {
-    #     "**": ["page-toc", "edit-this-page", "sourcelink"]
-    # },
+    "secondary_sidebar_items": {
+        "**": ["page-toc", "edit-this-page", "sourcelink","oshwa"]
+    },
 }
 
 # parse version from 'VERSION' file
@@ -258,7 +268,8 @@ html_context = {
     "docs_url": docs_url,
     "edit_page_url_template": "{{ my_vcs_site }}{{ file_name }}",
     "edit_page_provider_name": "OpenBeagle",
-    "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/"
+    "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/",
+    "oshw_details": oshw_details
 }
 
 # -- Options for LaTeX output --

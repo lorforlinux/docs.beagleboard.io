@@ -1,0 +1,13 @@
+{% for board, oshw_id in oshw_details %}
+  {% if board+'/' in pagename %}
+    <div class="card bg-light mt-4 text-center">
+      <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/{{ oshw_id|lower }}.html" target="_blank">
+              <img src="../../../../_static/images/oshw/{{board}}_{{oshw_id}}.svg"/>
+            </a>
+        </p>
+      </div>
+    </div>
+  {% endif %}
+{% endfor%}
