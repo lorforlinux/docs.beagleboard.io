@@ -1,0 +1,21 @@
+.. Production board images
+.. Created on: 2024-03-22
+.. Updated on: 2024-03-24
+
+.. Add BeagleBone AI production image (Rev -)
+.. Add BeagleBone Blue production iamge (Rev -)
+.. Add BeagleV-Fire production image (Rev -)
+
+.. _BeaglePlay production image (Rev A2): https://www.beagleboard.org/distros/beagleplay-rev-a2
+
+.. _BeagleBone AI-64 production image (Rev B1): https://www.beagleboard.org/distros/beaglebone-ai-64-rev-b1
+
+.. _BeagleBone Black production image (Rev C3a): https://www.beagleboard.org/distros/am3358-debian-10-3-2020-04-06-4gb-sd-iot
+
+.. _BeagleBone Black Industrial production image (Rev C3a): https://www.beagleboard.org/distros/am3358-debian-10-3-2020-04-06-4gb-sd-iot
+
+.. _BeagleV-Ahead production image (Rev 1.0): https://www.beagleboard.org/distros/beaglev-ahead-rev-1-0
+
+.. _PocketBeagle production image (Rev Rev A2b): https://www.beagleboard.org/distros/am3358-debian-10-3-2020-04-06-4gb-sd-iot
+
+.. _BeagleConnect Freedom production iamge (Rev C7): https://www.beagleboard.org/distros/beagleconnect-freedom-rev-c7
