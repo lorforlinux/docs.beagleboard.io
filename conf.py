@@ -188,7 +188,6 @@ html_theme_options = {
 }
 
 # parse version from 'VERSION' file
-
 with open("VERSION") as f:
     m = re.match(
         (
@@ -224,7 +223,6 @@ gitlab_repo = "docs.beagleboard.io"
 docs_url = "https://docs.beagleboard.io"
 
 # parse pages details from 'PAGES' file
-
 with open("PAGES") as f:
     m = re.match(
         (
@@ -264,7 +262,7 @@ html_context = {
     "conf_py_path": "",
     "show_license": True,
     "pages_url": pages_url,
-    "pages_slug": "",
+    "pages_slug": pages_slug,
     "docs_url": docs_url,
     "edit_page_url_template": "{{ my_vcs_site }}{{ file_name }}",
     "edit_page_provider_name": "OpenBeagle",
