@@ -14,7 +14,7 @@ embedded-vision-engine (EVE) cores supported through an optimized TIDL
 machine learning OpenCL API with pre-installed tools. Focused on
 everyday automation in industrial, commercial and home applications.
 
-.. image:: media/BB_AI_BeautyAngle_800px.jpg
+.. image:: images/BB_AI_BeautyAngle_800px.jpg
    :align: center
    :alt: BeagleBone AI Beauty Angle
 
@@ -23,7 +23,7 @@ everyday automation in industrial, commercial and home applications.
 BeagleBone AI Overview
 ======================
 
-.. image:: media/BB_AI_overview_image.*
+.. image:: images/BB_AI_overview_image.*
    :align: center
    :alt: BeagleBone AI Overview
 
@@ -79,17 +79,17 @@ Out of Box Software
 Board Component Locations
 **************************
 
-.. image:: media/BB_AI_ICPlacement_800px.png
+.. image:: images/BB_AI_ICPlacement_800px.png
    :width: 740
    :align: center
    :alt: beaglebone ai component placement
 
-.. image:: media/BB_AI_Connectorplacement_800px.png
+.. image:: images/BB_AI_Connectorplacement_800px.png
     :width: 740
     :align: center
     :alt: Connector placement front
 
-.. image:: media/BB_AI_Connectorplacement_back_800px.png
+.. image:: images/BB_AI_Connectorplacement_back_800px.png
    :width: 740   
    :align: center
    :alt: Connector placement back

@@ -15,7 +15,7 @@ automation in industrial, commercial and home applications.
     .. grid-item::
         :columns: 12 12 12 4
         
-        .. figure:: media/OSHW_mark_US000169.*
+        .. figure:: images/OSHW_mark_US000169.*
             :width: 200
             :target: https://certification.oshwa.org/us000169.html
             :alt: BeagleBone AI OSHW Mark
@@ -31,7 +31,7 @@ automation in industrial, commercial and home applications.
                 * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai>`__
                 * For export, emissions and other compliance, see :ref:`bbai-support`
 
-.. image:: media/BB_AI_handheld_500px.jpg
+.. image:: images/BB_AI_handheld_500px.jpg
     :width: 740
     :align: center
     :alt: BeagleBone AI
@@ -49,7 +49,7 @@ automation in industrial, commercial and home applications.
         **1. Introduction**
         ^^^
 
-        .. image:: media/chapter-thumbnails/01-introduction.*
+        .. image:: images/chapter-thumbnails/01-introduction.*
             :align: center
             :alt: BeagleBone AI Chapter01 thumbnail
         
@@ -65,7 +65,7 @@ automation in industrial, commercial and home applications.
         **2. Quick start**
         ^^^
 
-        .. image:: media/chapter-thumbnails/02-quick-start.*
+        .. image:: images/chapter-thumbnails/02-quick-start.*
             :align: center
             :alt: BeagleBone AI Chapter02 thumbnail
 
@@ -81,7 +81,7 @@ automation in industrial, commercial and home applications.
         **3. Design & Specifications**
         ^^^
 
-        .. image:: media/chapter-thumbnails/03-design-and-specifications.*
+        .. image:: images/chapter-thumbnails/03-design-and-specifications.*
             :align: center
             :alt: BeagleBone AI Chapter03 thumbnail
 
@@ -97,7 +97,7 @@ automation in industrial, commercial and home applications.
         **4. Expansion**
         ^^^
 
-        .. image:: media/chapter-thumbnails/04-expansion.*
+        .. image:: images/chapter-thumbnails/04-expansion.*
             :align: center
             :alt: BeagleBone AI Chapter04 thumbnail
 
@@ -113,7 +113,7 @@ automation in industrial, commercial and home applications.
         **5. Demos**
         ^^^
 
-        .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
+        .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
             :align: center
             :alt: BeagleBone AI Chapter5 thumbnail
 
@@ -128,7 +128,7 @@ automation in industrial, commercial and home applications.
         **6. Support**
         ^^^
 
-        .. image:: media/chapter-thumbnails/06-support.*
+        .. image:: images/chapter-thumbnails/06-support.*
             :align: center
             :alt: BeagleBone AI Chapter6 thumbnail
 

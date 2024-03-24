@@ -27,7 +27,7 @@ Follow instructions below to download the latest image for your BeagleBone AI-64
 
 .. _filter-software-distribution-AI-64:
 
-.. figure:: media/ch11/distros.*
+.. figure:: images/ch11/distros.*
    :align: center
    :alt: Filter Software Distributions for BeagleBone AI-64 
 
@@ -59,7 +59,8 @@ Troubleshooting video output issues
 
 .. warning:: 
 
-   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. See :ref:`display-adapters-figure`.
+   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. 
+   See :ref:`accessories-cables_minidp_hdmi` accessories section for tested cables list.
 
 
 .. _getting-help:
@@ -146,21 +147,21 @@ Weight: 192gm
 Silkscreen and Component Locations
 =====================================
 
-.. figure:: media/hardware-design/board-dimensions.*
+.. figure:: images/hardware-design/board-dimensions.*
    :width: 400px
    :align: center 
    :alt: Board Dimensions
    
    Board Dimensions
 
-.. figure:: media/hardware-design/top-silkscreen.*
+.. figure:: images/hardware-design/top-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Top silkscreen
    
    Top silkscreen
 
-.. figure:: media/hardware-design/bottom-silkscreen.*
+.. figure:: images/hardware-design/bottom-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Bottom silkscreen
@@ -173,49 +174,49 @@ Silkscreen and Component Locations
 Pictures
 ************
 
-.. figure:: media/ch10/front.*
+.. figure:: images/ch10/front.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 front
    
    BeagleBone AI-64 front
 
-.. figure:: media/ch10/back.*
+.. figure:: images/ch10/back.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back
    
    BeagleBone AI-64 back
 
-.. figure:: media/ch10/back-heatsink.*
+.. figure:: images/ch10/back-heatsink.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back with heatsink
    
    BeagleBone AI-64 back with heatsink
 
-.. figure:: media/bbai64-45-front.*
+.. figure:: images/bbai64-45-front.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 front at 45° angle
    
    BeagleBone AI-64 front at 45° angle
 
-.. figure:: media/ch10/45-back.*
+.. figure:: images/ch10/45-back.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back at 45° angle
    
    BeagleBone AI-64 back at 45° angle
 
-.. figure:: media/ch10/45-back-heatsink.*
+.. figure:: images/ch10/45-back-heatsink.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back with heatsink at 45° angle
    
    BeagleBone AI-64 back with heatsink at 45° angle
 
-.. figure:: media/ch10/feature.*
+.. figure:: images/ch10/feature.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 ports

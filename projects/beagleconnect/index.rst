@@ -20,7 +20,7 @@ the principles of operation.
 
 Background
 **********
-.. image:: media/SoftwareProp.jpg
+.. image:: images/SoftwareProp.jpg
    :width: 600
    :align: center
    :height: 400

@@ -31,7 +31,7 @@ To connect BeagleV-Fire board to PC via USB Type C receptacle you need a USB typ
     1. `USB C cable 0.3m (mouser) <https://www.mouser.com/ProductDetail/Adafruit/4474?qs=CUBnOrq4ZJz9F%2FNF%252BRRALQ%3D%3D>`_
     2. `USB C cable 1.83m (digikey) <https://www.digikey.com/en/products/detail/coolgear/USB3-AC2MB/16384570>`_
 
-.. figure:: media/usb-guide/tethered-connection.*
+.. figure:: images/usb-guide/tethered-connection.*
     :align: center
     :alt: BeagleV-Fire tethered connection
     
@@ -57,7 +57,7 @@ Access UART debug console
 To access a BeagleV-Fire serial debug console you can connected a USB to UART 
 to your board as shown below:
 
-.. figure:: media/debug/BeagleV-Fire-UART-Debug.*
+.. figure:: images/debug/BeagleV-Fire-UART-Debug.*
     :align: center
     :alt: BeagleV-Fire UART debug port connection
 

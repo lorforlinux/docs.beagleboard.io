@@ -21,7 +21,7 @@ are **3.3V** unless otherwise indicated.
 
 **Figure ?** shows the location of the expansion connectors.
 
-.. image:: media/BB_AI_Headerplacement_800px.png
+.. image:: images/BB_AI_Headerplacement_800px.png
     :align: center
     :alt: beaglebone ai header placement
 

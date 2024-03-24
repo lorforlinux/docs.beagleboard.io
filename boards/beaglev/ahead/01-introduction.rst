@@ -13,7 +13,7 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: media/product-pictures/front.*          | .. image:: media/product-pictures/back.*                |
+   | .. image:: images/product-pictures/front.*         | .. image:: images/product-pictures/back.*               |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeagleV Ahead front                       |       :alt: BeagleV Ahead back                          |
@@ -28,7 +28,7 @@ Choose the cape header to see respective pinout diagram.
 
    .. group-tab:: P8 cape header
 
-        .. figure:: media/pinout/BeagleV-Ahead-P8.*
+        .. figure:: images/pinout/BeagleV-Ahead-P8.*
             :align: center
             :alt: BeagleV Ahead P8 cape header pinout
 
@@ -37,7 +37,7 @@ Choose the cape header to see respective pinout diagram.
 
    .. group-tab:: P9 cape header
 
-        .. figure:: media/pinout/BeagleV-Ahead-P9.*
+        .. figure:: images/pinout/BeagleV-Ahead-P9.*
             :align: center
             :alt: BeagleV Ahead P9 cape header pinout
 
@@ -96,7 +96,7 @@ This section describes the key components on the board, their location and funct
 Front components location
 ==========================
 
-.. figure:: media/components-front.*
+.. figure:: images/components-front.*
     :width: 1400
     :align: center
     :alt: BeagleV Ahead board front components location
@@ -144,7 +144,7 @@ Front components location
 Back components location
 =========================
 
-.. figure:: media/components-back.*
+.. figure:: images/components-back.*
     :width: 1400
     :align: center
     :alt: BeagleV Ahead board back components location

@@ -4,10 +4,10 @@
 BeagleBone Blue Pinouts 
 #########################
 
-.. image:: media/BeagleBone_Blue_pinouts.*
+.. image:: images/BeagleBone_Blue_pinouts.*
    :align: center
 
-.. image:: media/pinout.jpg
+.. image:: images/pinout.jpg
    :align: center
 
 -  Connector pinout

@@ -14,7 +14,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
     .. grid-item::
         :columns: 12 12 12 4
 
-        .. figure:: media/certification-mark-US002572-stacked.*
+        .. figure:: images/certification-mark-US002572-stacked.*
             :width: 200
             :target: https://certification.oshwa.org/us002572.html
             :alt: BeagleV-Fire OSHW Mark
@@ -31,7 +31,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
             * For export, emissions and other compliance, see :ref:`beaglev-fire-support`
 
 
-.. image:: media/BeagleV-Fire-hero.*
+.. image:: images/BeagleV-Fire-hero.*
     :align: center
     :alt: BeagleV-Fire hero image
 
@@ -52,7 +52,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
         **1. Introduction**
         ^^^
 
-        .. image:: media/chapter-thumbnails/01-introduction.*
+        .. image:: images/chapter-thumbnails/01-introduction.*
             :align: center
             :alt: BeagleV-Fire Chapter01 thumbnail
         
@@ -68,7 +68,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
         **2. Quick start**
         ^^^
 
-        .. image:: media/chapter-thumbnails/02-quick-start.*
+        .. image:: images/chapter-thumbnails/02-quick-start.*
             :align: center
             :alt: BeagleV-Fire Chapter02 thumbnail
 
@@ -84,7 +84,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
         **3. Design & Specifications**
         ^^^
 
-        .. image:: media/chapter-thumbnails/03-design-and-specifications.*
+        .. image:: images/chapter-thumbnails/03-design-and-specifications.*
             :align: center
             :alt: BeagleV-Fire Chapter03 thumbnail
 
@@ -100,7 +100,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
         **4. Expansion**
         ^^^
 
-        .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
+        .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.*
             :align: center
             :alt: BeagleV-Fire Chapter04 thumbnail
 
@@ -116,7 +116,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
         **5. Demos**
         ^^^
 
-        .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
+        .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
             :align: center
             :alt: BeagleV-Fire Chapter5 thumbnail
 
@@ -131,7 +131,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
         **6. Support**
         ^^^
 
-        .. image:: media/chapter-thumbnails/06-support-documents.*
+        .. image:: images/chapter-thumbnails/06-support-documents.*
             :align: center
             :alt: BeagleV-Fire Chapter6 thumbnail
 

@@ -27,7 +27,7 @@ To connect the SubGHz antenna with SMA connector to the BeagleConnect Freedom
 you just have to align, place and rotate the antenna clockwise as shown in the 
 image below. To detach the antenna just twist it anti-clockwise.
 
-.. figure:: media/BeagleConnect-Freedom-antenna-connection.*
+.. figure:: images/BeagleConnect-Freedom-antenna-connection.*
    :align: center
    :width: 1247
 

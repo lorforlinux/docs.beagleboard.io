@@ -12,7 +12,7 @@ BeagleConnect wireless user experience
 
 Enable a Linux host with BeagleConnect
 =======================================
-.. image:: media/ProvStep1.jpg
+.. image:: images/ProvStep1.jpg
    :width: 600
    :align: center
    :height: 400
@@ -37,7 +37,7 @@ with a sensor, actuator or indicator device connected.
 Connect host and device
 =======================
 
-.. image:: media/ProvStep2.jpg
+.. image:: images/ProvStep2.jpg
    :width: 600
    :align: center
    :height: 400
@@ -49,7 +49,7 @@ button(s).
 Device data shows up as files
 =============================
 
-.. image:: media/ProvStep3.jpg
+.. image:: images/ProvStep3.jpg
    :width: 600
    :align: center
    :height: 400

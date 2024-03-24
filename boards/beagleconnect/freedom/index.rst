@@ -12,7 +12,7 @@ battery charger, buzzer, LEDs, and JTAG connections to make it a comprehensive s
 The TI CC1352P7 microcontroller (MCU) includes a 48-MHz Arm Cortex-M4F processor, 704KB Flash memory, 256KB ROM, 8KB Cache SRAM, 144KB of ultra-low leakage SRAM, and
 over-the-air upgrades (OTA) capability. This MCU provides flexible support for many different protocols and bands making it suitable for many different communication requirements.
 
-.. image:: media/BeagleConnect-Freedom-Hand.*
+.. image:: images/BeagleConnect-Freedom-Hand.*
   :align: center
   :alt: BeagleConnect™ Freedom board
 
@@ -26,7 +26,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
     .. grid-item::
         :columns: 12 12 12 4
 
-         .. figure:: media/OSHW_mark_US002175.*
+         .. figure:: images/OSHW_mark_US002175.*
             :width: 200
             :target: https://certification.oshwa.org/us002175.html
             :alt: BeagleConnect™ Freedom OSHW Mark
@@ -57,7 +57,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **1. Introduction**
       ^^^
 
-      .. image:: media/chapter-thumbnails/01-introduction.*
+      .. image:: images/chapter-thumbnails/01-introduction.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter1 thumbnail
       
@@ -73,7 +73,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **2. Quick start**
       ^^^
 
-      .. image:: media/chapter-thumbnails/02-quick-start.*
+      .. image:: images/chapter-thumbnails/02-quick-start.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter2 thumbnail
 
@@ -88,7 +88,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **3. Design & Specifications**
       ^^^
 
-      .. image:: media/chapter-thumbnails/03-design-and-specifications.*
+      .. image:: images/chapter-thumbnails/03-design-and-specifications.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter3 thumbnail
 
@@ -104,7 +104,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **4. Expansion**
       ^^^
 
-      .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
+      .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter4 thumbnail
 
@@ -120,7 +120,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **5. Demos & tutorials**
       ^^^
 
-      .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
+      .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter5 thumbnail
 
@@ -135,7 +135,7 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
       **6. Support**
       ^^^
 
-      .. image:: media/chapter-thumbnails/06-support-documents.*
+      .. image:: images/chapter-thumbnails/06-support-documents.*
          :align: center
          :alt: BeagleConnect™ Freedom Chapter6 thumbnail
 

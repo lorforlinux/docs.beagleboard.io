@@ -112,7 +112,7 @@ Flashing eMMC
 
 Connect to BeagleV-Fire UART debug port using a 3.3v USB to UART bridge.
 
-.. figure:: ../media/debug/BeagleV-Fire-UART-Debug.*
+.. figure:: ../images/debug/BeagleV-Fire-UART-Debug.*
     :width: 1240
     :align: center
     :alt: UART debug connection

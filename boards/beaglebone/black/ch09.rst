@@ -21,7 +21,7 @@ Weight: 1.4 oz
 Silkscreen and Component Locations
 ***********************************
 
-.. figure:: media/image88.jpg
+.. figure:: images/image88.jpg
    :width: 530px
    :height: 782px
    :align: center
@@ -30,7 +30,7 @@ Silkscreen and Component Locations
    Board Dimensions
 
 
-.. figure:: media/image89.jpg
+.. figure:: images/image89.jpg
    :width: 493px
    :height: 818px
    :align: center
@@ -39,7 +39,7 @@ Silkscreen and Component Locations
    Component Side Silkscreen
 
 
-.. figure:: media/image90.jpg
+.. figure:: images/image90.jpg
    :width: 501px
    :height: 772px
    :align: center

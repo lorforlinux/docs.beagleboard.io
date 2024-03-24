@@ -15,7 +15,7 @@ diagram of BeagleBone AI-64 board surrounding TDA4VM SoC.
 
 .. _BeagleBone_AI-64-block-diagram:
 
-.. figure:: media/hardware-design/ai-64-block-diagram.*
+.. figure:: images/hardware-design/ai-64-block-diagram.*
    :width: 1040
    :align: center
    :alt: BeagleBone AI-64 key components
@@ -41,7 +41,7 @@ remaining of this section device, SoC, and processor will be used interchangeabl
 
 .. _soc-block-diagram:
 
-.. figure:: media/hardware-design/soc-block-diagram.*
+.. figure:: images/hardware-design/soc-block-diagram.*
   :width: 1040
   :align: center
   :alt: System on Chip (SoC) block diagram
@@ -203,21 +203,21 @@ A switch is provided to allow switching between the modes.
     
    Pressing the RESET button on the board will NOT result in a change of the boot mode. You MUST remove power and reapply power to change the boot mode. The boot pins are sampled during power on reset from the PMIC to the processor.The reset button on the board is a warm reset only and will not force a boot mode change.
 
-.. figure:: media/hardware-design/boot-config.*
+.. figure:: images/hardware-design/boot-config.*
   :width: 1040
   :align: center
   :alt: Boot config
 
   Boot config
 
-.. figure:: media/hardware-design/mcu-bootmode.*
+.. figure:: images/hardware-design/mcu-bootmode.*
   :width: 1040
   :align: center
   :alt: MCU Bootmode
 
   MCU Bootmode
 
-.. figure:: media/hardware-design/sys-bootmode.*
+.. figure:: images/hardware-design/sys-bootmode.*
   :width: 1040
   :align: center
   :alt: SYS Bootmode
@@ -275,7 +275,7 @@ high output voltage accuracy. The SS/TR pin allows setting the start-up time or 
 output voltage to an external source. This feature allows external sequencing of different supply rails
 and limiting the inrush current during start-up.
 
-.. figure:: media/hardware-design/1v1-3a-ddr-buck.*
+.. figure:: images/hardware-design/1v1-3a-ddr-buck.*
   :width: 1040
   :align: center
   :alt: 1V1 @ 1A DDR power supply
@@ -293,14 +293,14 @@ for powering many different types of processors and ASICs. The enable input and 
 allow easy sequencing with external regulators. This complete flexibility allows a solution to be configured
 that meets the sequencing requirements of FPGAs, DSPs, and other applications with special start-up requirements.
 
-.. figure:: media/hardware-design/1v1-usb3-ethernet-ldo.*
+.. figure:: images/hardware-design/1v1-usb3-ethernet-ldo.*
   :width: 1040
   :align: center
   :alt: 1V1 USB3 & Ethernet power supply
 
   1V1 USB3 & Ethernet power supply 
 
-.. figure:: media/hardware-design/2v5-ethernet-ldo.*
+.. figure:: images/hardware-design/2v5-ethernet-ldo.*
   :width: 1040
   :align: center
   :alt: 2V5 Ethernet power supply
@@ -320,7 +320,7 @@ The LM5141 has a high voltage bias regulator with automatic switch-over to an ex
 the IQ current from VIN. Additional features include frequency synchronization, cycle-by-cycle current
 limit, hiccup mode fault protection for sustained overload, and power good output.
 
-.. figure:: media/hardware-design/3v3-power-supply.*
+.. figure:: images/hardware-design/3v3-power-supply.*
   :width: 1040
   :align: center
   :alt: 3V3 power supply
@@ -338,7 +338,7 @@ TPS65941213 and TPS65941111 as PMIC-A and PMIC-B respectively as shown in AI-64 
 TPS65941213 (PMIC-A)
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: media/hardware-design/pmic-a.*
+.. figure:: images/hardware-design/pmic-a.*
   :width: 1040
   :align: center
   :alt: PMIC A
@@ -348,7 +348,7 @@ TPS65941213 (PMIC-A)
 TPS65941111 (PMIC-B)
 ~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: media/hardware-design/pmic-b.*
+.. figure:: images/hardware-design/pmic-b.*
   :width: 1040
   :align: center
   :alt: PMIC B
@@ -369,7 +369,7 @@ the load with minimal hold-up capacitance. Current limiting is used during start
 to protect against overcurrent events, and also protects the device during normal operation. The
 output current limit can be adjusted with a single external resistor.
 
-.. figure:: media/hardware-design/power-mux.*
+.. figure:: images/hardware-design/power-mux.*
   :width: 1040
   :align: center
   :alt: Power mux
@@ -386,7 +386,7 @@ to 5.7 V and can support a maximum continuous current of 6 A. The switch is cont
 off input (ON), which is capable of interfacing directly with low-voltage control signals. In the TPS22965, a
 225-Ω on-chip load resistor is added for quick output discharge when switch is turned off
 
-.. figure:: media/hardware-design/3v3-load-switch.*
+.. figure:: images/hardware-design/3v3-load-switch.*
   :width: 1040
   :align: center
   :alt: 3V3 load switch
@@ -401,21 +401,21 @@ General connectivity and expansion
 USB type C
 ----------
 
-.. figure:: media/hardware-design/type-c.*
+.. figure:: images/hardware-design/type-c.*
   :width: 720 
   :align: center
   :alt: USB type c
 
   USB type c 
 
-.. figure:: media/hardware-design/type-c-cc-logic.*
+.. figure:: images/hardware-design/type-c-cc-logic.*
   :width: 940
   :align: center
   :alt: USB type c CC logic
 
   USB type c CC logic
 
-.. figure:: media/hardware-design/type-c-signals.*
+.. figure:: images/hardware-design/type-c-signals.*
   :width: 1040
   :align: center
   :alt: USB type c signals
@@ -429,21 +429,21 @@ On the board is a stacked dual USB 3.0 Type A female connector with full LS/FS/H
 The ports can provide power on/off control and up to 1.5A of current at 5V. Under USB
 power, the board will not be able to supply the full 1.5A.
 
-.. figure:: media/hardware-design/dual-usb3-ports.*
+.. figure:: images/hardware-design/dual-usb3-ports.*
   :width: 1040
   :align: center
   :alt: Dual USB3 ports
 
   Dual USB3 ports
 
-.. figure:: media/hardware-design/usb3-hub.*
+.. figure:: images/hardware-design/usb3-hub.*
   :width: 1040
   :align: center
   :alt: USB3 hub
 
   USB3 hub
 
-.. figure:: media/hardware-design/usb3-hub-oc-protection.*
+.. figure:: images/hardware-design/usb3-hub-oc-protection.*
   :width: 1040
   :align: center
   :alt: USB3 hub over-current protection
@@ -456,7 +456,7 @@ Cape headers
 P8 cape header
 ~~~~~~~~~~~~~~
 
-.. figure:: media/hardware-design/p8-cape-header.*
+.. figure:: images/hardware-design/p8-cape-header.*
   :width: 1040
   :align: center
   :alt: P8 cape header
@@ -466,7 +466,7 @@ P8 cape header
 P9 cape header
 ~~~~~~~~~~~~~~
 
-.. figure:: media/hardware-design/p9-cape-header.*
+.. figure:: images/hardware-design/p9-cape-header.*
   :width: 1040
   :align: center
   :alt: P9 cape header
@@ -476,7 +476,7 @@ P9 cape header
 Double pins (shorted)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: media/hardware-design/cape-header-double-pins.*
+.. figure:: images/hardware-design/cape-header-double-pins.*
   :width: 1040
   :align: center
   :alt: P8 & P9 cape header pins that uses two pins of SoC
@@ -486,7 +486,7 @@ Double pins (shorted)
 Fan header
 ----------
 
-.. figure:: media/hardware-design/fan-header.*
+.. figure:: images/hardware-design/fan-header.*
   :width: 1040
   :align: center
   :alt: Fan header
@@ -506,7 +506,7 @@ cards. The microSD card is not provided with the board. Booting from
 MMC0 will be used to flash the eMMC in the production environment or can
 be used by the user to update the SW as needed.
 
-.. figure:: media/hardware-design/microsd-card.*
+.. figure:: images/hardware-design/microsd-card.*
   :width: 1040
   :align: center
   :alt: MicroSD card slot
@@ -516,7 +516,7 @@ be used by the user to update the SW as needed.
 MikroBus port
 --------------
 
-.. figure:: media/hardware-design/mikrobus-port.*
+.. figure:: images/hardware-design/mikrobus-port.*
   :width: 940
   :align: center
   :alt: MikroBus port
@@ -526,14 +526,14 @@ MikroBus port
 PCIe Key E
 ----------
 
-.. figure:: media/hardware-design/pcie-key-e.*
+.. figure:: images/hardware-design/pcie-key-e.*
   :width: 1040
   :align: center
   :alt: PCIE Key E connector
 
   PCIE Key E connector
 
-.. figure:: media/hardware-design/pcie-vlt-4ch.*
+.. figure:: images/hardware-design/pcie-vlt-4ch.*
   :width: 740
   :align: center
   :alt: PCIE Key E voltage translator (4ch)
@@ -541,7 +541,7 @@ PCIe Key E
   PCIE Key E voltage translator (4ch)
 
 
-.. figure:: media/hardware-design/pcie-vlt-8ch.*
+.. figure:: images/hardware-design/pcie-vlt-8ch.*
   :width: 740
   :align: center
   :alt: PCIE Key E voltage translator (8ch)
@@ -559,7 +559,7 @@ Reset & Power Button
 1. **Reset button:** When pressed and released, causes a reset of the board.
 2. **Power button:** This button takes advantage of the input to the PMIC for power down features.
 
-.. figure:: media/hardware-design/reset-power-buttons.*
+.. figure:: images/hardware-design/reset-power-buttons.*
   :width: 1040
   :align: center
   :alt: Reset & power button
@@ -569,7 +569,7 @@ Reset & Power Button
 Boot button
 -----------
 
-.. figure:: media/hardware-design/boot-button.*
+.. figure:: images/hardware-design/boot-button.*
   :width: 540
   :align: center
   :alt: Boot button
@@ -586,7 +586,7 @@ There are a total of six green LEDs on the board.
 * One green power LED indicates that power is applied and the power management IC is up.
 * Five blue LEDs that can be controlled via the SW by setting GPIO pins.
 
-.. figure:: media/hardware-design/leds.*
+.. figure:: images/hardware-design/leds.*
   :width: 540
   :align: center
   :alt: LED indicators
@@ -596,14 +596,14 @@ There are a total of six green LEDs on the board.
 Gigabit Ethernet
 ================
 
-.. figure:: media/hardware-design/gb-ethernet.*
+.. figure:: images/hardware-design/gb-ethernet.*
   :width: 1040
   :align: center
   :alt: Gigabit ethernet
 
   Gigabit ethernet
 
-.. figure:: media/hardware-design/gb-ethernet-connector.*
+.. figure:: images/hardware-design/gb-ethernet-connector.*
   :width: 540
   :align: center
   :alt: Gigabit ethernet connector
@@ -634,7 +634,7 @@ used by the Ethernet port. This does not interfere with SD card
 operation but it does make it unsuitable for use as an eMMC port if the
 8 bit feature is needed.
 
-.. figure:: media/hardware-design/16gb-emmc.*
+.. figure:: images/hardware-design/16gb-emmc.*
   :width: 1040
   :align: center
   :alt: 16GB eMMC storage
@@ -650,7 +650,7 @@ A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memo
 
 * Kingston Q3222PM1WDGTK-U
 
-.. figure:: media/hardware-design/lpddr4.*
+.. figure:: images/hardware-design/lpddr4.*
   :width: 1040
   :align: center
   :alt: 4GB LPDDR4 RAM
@@ -664,7 +664,7 @@ A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memo
 
 A single 4Kb EEPROM (24FC04HT-I/OT) is provided on I2C0 that holds the board information. This information includes board name, serial number, and revision information.
 
-.. figure:: media/hardware-design/board-id-eeprom.*
+.. figure:: images/hardware-design/board-id-eeprom.*
   :width: 1040
   :align: center
   :alt: Board ID EEPROM
@@ -676,28 +676,28 @@ A single 4Kb EEPROM (24FC04HT-I/OT) is provided on I2C0 that holds the board inf
 Multimedia I/O
 ===============
 
-.. figure:: media/hardware-design/csi0.*
+.. figure:: images/hardware-design/csi0.*
   :width: 740
   :align: center
   :alt: CSI0 MIPI camera0 input
 
   CSI0 MIPI camera0 input
 
-.. figure:: media/hardware-design/csi1.*
+.. figure:: images/hardware-design/csi1.*
   :width: 740
   :align: center
   :alt: CSI1 MIPI camera1 input
 
   CSI1 MIPI camera1 input
 
-.. figure:: media/hardware-design/dsi.*
+.. figure:: images/hardware-design/dsi.*
   :width: 740
   :align: center
   :alt:  DSI MIPI display output
 
   DSI MIPI display output
 
-.. figure:: media/hardware-design/mini-display-port.*
+.. figure:: images/hardware-design/mini-display-port.*
   :width: 1040
   :align: center
   :alt: Mini display port output
@@ -723,14 +723,14 @@ Two serial debug ports are provided on board via 3pin micro headers,
       is required with a 6 pin USB to TTL adapter. The header is compatible with the one provided by FTDI and can be purchased for about 
       $12 to $20 from various sources. Signals supported are TX and RX. None of the handshake signals are supported.
 
-.. figure:: media/hardware-design/wkup-uart0-debug-port.*
+.. figure:: images/hardware-design/wkup-uart0-debug-port.*
   :width: 740
   :align: center
   :alt: WKUP UART0 debug port
 
   WKUP UART0 debug port
 
-.. figure:: media/hardware-design/uart0-debug-port.*
+.. figure:: images/hardware-design/uart0-debug-port.*
   :width: 740
   :align: center
   :alt: UART0 debug port
@@ -741,7 +741,7 @@ Two serial debug ports are provided on board via 3pin micro headers,
 TagConnect
 -----------
 
-.. figure:: media/hardware-design/tag-connect.*
+.. figure:: images/hardware-design/tag-connect.*
   :width: 540
   :align: center
   :alt: TagConnect JTAG debug port
@@ -777,7 +777,7 @@ Dimensions & Weight
 Board Dimensions
 -----------------
 
-.. figure:: media/hardware-design/board-dimensions.*
+.. figure:: images/hardware-design/board-dimensions.*
     :width: 700
     :align: center
     :alt: BeagleBone AI-64 board dimensions
@@ -794,7 +794,7 @@ PCB silkscreen
    +----------------------------------------------------+----------------------------------------------------------------+
    | Top silkscreen                                     | Bottom silkscreen                                              |
    +====================================================+================================================================+
-   | .. image:: media/hardware-design/top-silkscreen.*  | .. image:: media/hardware-design/bottom-silkscreen.*           |
+   | .. image:: images/hardware-design/top-silkscreen.* | .. image:: images/hardware-design/bottom-silkscreen.*          |
    |    :width: 700                                     |       :width: 700                                              |
    |    :align: center                                  |       :align: center                                           |
    |    :alt: BeagleBone AI-64 top silkscreen           |       :alt: BeagleBone AI-64 bottom silkscreen                 |

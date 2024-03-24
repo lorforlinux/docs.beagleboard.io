@@ -11,7 +11,7 @@ Recommended adapters can be found at :ref:`accessories-power-supplies` section. 
 
 .. _BeagleBone AI-64 connections ports:
 
-.. figure:: media/ch03/ports.*
+.. figure:: images/ch03/ports.*
    :width: 740px
    :align: center 
    
@@ -32,7 +32,7 @@ a developer experience where the board can be used immediately with no other equ
 
 .. _bbai-64-pacakage:
 
-.. figure:: media/ch03/bbai64-in-box.*
+.. figure:: images/ch03/bbai64-in-box.*
    :width: 740px
    :align: center 
    
@@ -71,7 +71,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the connected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. 
 
-      .. figure:: media/ch03/usb-tethering.*
+      .. figure:: images/ch03/usb-tethering.*
          :width: 740px
          :align: center 
          
@@ -87,7 +87,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       1. Connect the type C USB cable to the board as shown in the figure below. The connector is on the top side of the board near barrel jack.
 
-      .. figure:: media/ch03/usb-c-connection.*
+      .. figure:: images/ch03/usb-c-connection.*
          :width: 740px
          :align: center 
          
@@ -95,7 +95,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the figure below.
 
-      .. figure:: media/ch03/usb-a-connection.*
+      .. figure:: images/ch03/usb-a-connection.*
          :width: 740px
          :align: center 
          
@@ -103,7 +103,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       3.  The board will power on and the power LED will be on as shown in the figure below.
 
-      .. figure:: media/ch03/power-led.*
+      .. figure:: images/ch03/power-led.*
          :width: 740px
          :align: center 
          
@@ -111,7 +111,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in the figure below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
 
-      .. figure:: media/ch03/led-pattern.*
+      .. figure:: images/ch03/led-pattern.*
          :width: 740px
          :align: center 
          
@@ -130,7 +130,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in the figure below. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
 
-      .. figure:: media/ch03/desktop-configuration.*
+      .. figure:: images/ch03/desktop-configuration.*
          :width: 740px
          :align: center 
          
@@ -153,7 +153,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       1. Connect the miniDP to DP or active miniDP to HDMI cable from your BeagleBone AI-64 to your monitor.
 
-      .. figure:: media/ch03/monitor-cable.*
+      .. figure:: images/ch03/monitor-cable.*
          :width: 740px
          :align: center 
          
@@ -161,7 +161,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in the figure below.
 
-      .. figure:: media/ch03/display-adapters.*
+      .. figure:: images/ch03/display-adapters.*
          :width: 740px
          :align: center 
          
@@ -169,7 +169,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       3. If you have wired/wireless USB keyboard and mouse such as seen in the figure below, you need to plug the receiver in the USB host port of the board as shown in the figure below.
 
-      .. figure:: media/ch03/mouse-keyboard.*
+      .. figure:: images/ch03/mouse-keyboard.*
          :width: 740px
          :align: center 
          
@@ -181,7 +181,7 @@ Each of these configurations is discussed in general terms in the following sect
       Connect the Ethernet Cable to the Ethernet port as shown in the figure below. Any 
       standard 100M Ethernet cable should work.
 
-      .. figure:: media/ch03/ethernet-cable.*
+      .. figure:: images/ch03/ethernet-cable.*
          :width: 740px
          :align: center 
          
@@ -190,7 +190,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       5. The final step is to plug in the DC power supply to the DC power jack as shown in the figure below.
 
-      .. figure:: media/ch03/barrel-jack.*
+      .. figure:: images/ch03/barrel-jack.*
          :width: 740px
          :align: center 
          
@@ -198,7 +198,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       6. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in the figure below.
 
-      .. figure:: media/ch03/miniDP-connector.*
+      .. figure:: images/ch03/miniDP-connector.*
          :width: 740px
          :align: center 
          
@@ -210,7 +210,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       As soon as the power is applied to the board, it will start the booting up process. When the board starts to boot the LEDs will come on. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it boots the Linux kernel.
 
-      .. figure:: media/ch03/leds.*
+      .. figure:: images/ch03/leds.*
          :width: 740px
          :align: center 
          
@@ -232,7 +232,7 @@ Each of these configurations is discussed in general terms in the following sect
          c. After a minute or two the desktop will appear. It should be similar to the one shown in the figure below. HOWEVER, it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.
          d. And at this point you are ready to go! The figure below shows the desktop after booting.
 
-      .. figure:: media/ch03/xfce-desktop.*
+      .. figure:: images/ch03/xfce-desktop.*
          :width: 740px
          :align: center 
          

@@ -27,7 +27,7 @@ Boot Linux in under 10 seconds and get started on development in less than 5 min
             * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-black>`__
             * For export, emissions and other compliance, see :ref:`beagleboneblack-support`
 
-.. image:: media/image1.jpg
+.. image:: images/image1.jpg
    :width: 598
    :align: center
    :alt: BeagleBone Black

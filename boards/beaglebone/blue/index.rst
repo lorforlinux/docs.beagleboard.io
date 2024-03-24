@@ -20,7 +20,7 @@ and of course the `BeagleBoard.org Foundation <https://beagleboard.org/about>`_.
     .. grid-item::
         :columns: 12 12 12 4
 
-        .. figure:: media/OSHW_mark_US000064.*
+        .. figure:: images/OSHW_mark_US000064.*
             :width: 200
             :target: https://certification.oshwa.org/us000064.html
             :alt: BeagleBone Blue OSHW Mark

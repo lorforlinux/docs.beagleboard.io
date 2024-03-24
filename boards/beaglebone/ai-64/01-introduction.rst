@@ -23,7 +23,7 @@ their own board or add their own circuitry.
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: media/front.*                           | .. image:: media/back.*                                 |
+   | .. image:: images/front.*                          | .. image:: images/back.*                                |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeagleBone AI-64 front                    |       :alt: BeagleBone AI-64 back                       |
@@ -155,7 +155,7 @@ This section describes the key components on the board, their location and funct
 
    .. group-tab:: Front components location
 
-    .. figure:: media/components/front.*
+    .. figure:: images/components/front.*
         :width: 1240
         :align: center
         :alt: BeagleBone AI-64 board front components location
@@ -198,7 +198,7 @@ This section describes the key components on the board, their location and funct
 
    .. group-tab:: Back components location
 
-    .. figure:: media/components/back.*
+    .. figure:: images/components/back.*
         :width: 1240
         :align: center
         :alt: BeagleBone AI-64 board back components location

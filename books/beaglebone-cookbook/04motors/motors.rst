@@ -125,12 +125,12 @@ Controlling a Servo with an Rotary Encoder
 Problem
 --------
 
-You have a rotary encoder from :ref:`digital_rotaryEncoder_js` that you want to control a servo motor.
+You have a rotary encoder from from chapter 2 rotary encoder example that you want to use to control a servo motor.
 
 Solution
 ---------
 
-Combine the code from :ref:`digital_rotaryEncoder_js` and :ref:`motors_servo`.
+Combine the code from ``rotaryEncoder.js`` and ``servoMotor.js``.
 
 
 .. code-block:: bash

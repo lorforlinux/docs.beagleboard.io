@@ -22,7 +22,7 @@ This is sufficient for the tethered scenario and creates an out of box
 experience where the board can be used immediately with no other
 equipment needed.
 
-.. figure:: media/image7.jpg
+.. figure:: images/image7.jpg
    :width: 400px
    :align: center
    :alt: BeagleBone Black in the box.
@@ -69,7 +69,7 @@ a USB storage drive or via the browser on the PC. You need to use either
 Firefox or Chrome on the PC, Internet Explorer will not work properly. <<figure-2>>
 shows this configuration.
 
-.. figure:: media/image8.jpg
+.. figure:: images/image8.jpg
    :width: 632px
    :height: 166px
    :align: center
@@ -90,7 +90,7 @@ Connect the Cable to the Board
 
 1. Connect the small connector on the USB cable to the board as shown in *figure-3*. The connector is on the bottom side of the board.
 
-.. figure:: media/image9.jpg
+.. figure:: images/image9.jpg
    :width: 451px
    :height: 206px
    :align: center
@@ -101,7 +101,7 @@ Connect the Cable to the Board
 2.  Connect the large connector of the USB cable to your PC or laptop USB port.
 3.  The board will power on and the power LED will be on as shown in figure below.
 
-.. figure:: media/image10.jpg
+.. figure:: images/image10.jpg
    :width: 401px
    :height: 267px
    :align: center
@@ -111,7 +111,7 @@ Connect the Cable to the Board
 
 4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in *figure-5* below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
 
-.. figure:: media/image11.jpg
+.. figure:: images/image11.jpg
    :width: 400px
    :height: 254px
    :align: center
@@ -141,7 +141,7 @@ your code to make the board do whatever you need it to do. It will
 however require certain common PC accessories. These accessories and
 instructions are described in the following section.
 
-.. figure:: media/image12.jpg
+.. figure:: images/image12.jpg
    :width: 356px
    :height: 409px
    :align: center
@@ -170,7 +170,7 @@ Connecting Up the Board
 
 1. Connect the big end of the HDMI cable as shown in *figure-7* to your HDMI monitor. Refer to your monitor Owner’s Manual for the location of your HDMI port. If you have a DVI-D Monitor go to *Step 3*, otherwise proceed to *Step 4* .
 
-.. figure:: media/image13.jpg
+.. figure:: images/image13.jpg
    :width: 260px
    :height: 95px
    :align: center
@@ -180,7 +180,7 @@ Connecting Up the Board
 
 2.  If you have a DVI-D monitor you must use a DVI-D to HDMI adapter in addition to your HDMI cable. An example is shown in *figure-8* below from two perspectives. If you use this configuration, you will not have audio support.
 
-.. figure:: media/image14.jpg
+.. figure:: images/image14.jpg
    :width: 243px
    :height: 243px
    :align: center
@@ -190,7 +190,7 @@ Connecting Up the Board
 
 3.  If you have a single wireless keyboard and mouse combination such as seen in *figure-9* below, you need to plug the receiver in the USB host port of the board as shown in *figure-10* .
 
-.. figure:: media/image16.jpg
+.. figure:: images/image16.jpg
    :width: 237px
    :height: 108px
    :align: center
@@ -199,7 +199,7 @@ Connecting Up the Board
    Wireless Keyboard and Mouse Combo
 
 
-.. figure:: media/image17.jpg
+.. figure:: images/image17.jpg
    :width: 279px
    :height: 222px
    :align: center
@@ -209,7 +209,7 @@ Connecting Up the Board
 
 If you have a wired USB keyboard requiring two USB ports, you will need a HUB similar to the ones shown in figure below . You may want to have more than one port for other devices. Note that the board can only supply up to 500mA, so if you plan to load it down, it will need to be externally powered.
 
-.. figure:: media/image18.jpg
+.. figure:: images/image18.jpg
    :width: 509px
    :height: 152px
    :align: center
@@ -221,7 +221,7 @@ If you have a wired USB keyboard requiring two USB ports, you will need a HUB si
 
 If you decide you want to connect to your local area network, an Ethernet cable can be used. Connect the Ethernet Cable to the Ethernet port as shown in figure below . Any standard 100M Ethernet cable should work.
 
-.. figure:: media/image24.jpg
+.. figure:: images/image24.jpg
    :width: 433px
    :height: 264px
    :align: center
@@ -231,7 +231,7 @@ If you decide you want to connect to your local area network, an Ethernet cable 
 
 5. The final step is to plug in the DC power supply to the DC power jack as shown in figure below.
 
-.. figure:: media/image25.jpg
+.. figure:: images/image25.jpg
    :width: 618px
    :height: 298px
    :align: center
@@ -241,7 +241,7 @@ If you decide you want to connect to your local area network, an Ethernet cable 
 
 6. The cable needed to connect to your display is a microHDMI to HDMI. Connect the microHDMI connector end to the board at this time. The connector is on the bottom side of the board as shown in *figure-14* below.
 
-.. figure:: media/image26.jpg
+.. figure:: images/image26.jpg
    :width: 540px
    :height: 227
    :align: center
@@ -255,7 +255,7 @@ The connector is fairly robust, but we suggest that you not use the cable as a l
 
 As soon as the power is applied to the board, it will start the booting up process. When the board starts to boot the LEDs will come on in sequence as shown in *figure-15* below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it boots the Linux kernel.
 
-.. figure:: media/image11.jpg
+.. figure:: images/image11.jpg
    :width: 541px
    :height: 254px
    :align: center
@@ -281,7 +281,7 @@ once the Linux kernel has booted.
       it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.
    d. And at this point you are ready to go! *figure-16* shows the desktop after booting.
 
-.. figure:: media/image27.jpg
+.. figure:: images/image27.jpg
    :width: 513px
    :height: 288px
    :align: center

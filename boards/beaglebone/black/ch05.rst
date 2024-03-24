@@ -9,7 +9,7 @@ Black.
 Block Diagram
 **************
 
-.. figure:: media/image30.jpg
+.. figure:: images/image30.jpg
    :width: 512px
    :height: 454px
    :align: center

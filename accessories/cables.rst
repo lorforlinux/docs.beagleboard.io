@@ -225,6 +225,8 @@ microHDMI to VGA
 
 `Cable Matters Micro HDMI to VGA Adapter <https://www.amazon.com/Cable-Matters-Active-Female-Adapter/dp/B00879EZJI/ref=sr_1_2?ie=UTF8&qid=1381610066&sr=8-2&keywords=micro-hdmi+to+vga>`_
 
+.. _accessories-cables_minidp_hdmi:
+
 miniDP to HDMI 
 ****************
 

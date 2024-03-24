@@ -115,8 +115,8 @@ Proposed changes.
 Pictures
 *********
 
-.. image:: media/BB_AI_Front.jpg
+.. image:: images/BB_AI_Front.jpg
     :align: center
 
-.. image:: media/BB_AI_Back.jpg
+.. image:: images/BB_AI_Back.jpg
     :align: center

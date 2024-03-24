@@ -274,7 +274,7 @@ a 64-byte page write buffer and supports the Standard (100 kHz), Fast
 
 
 
-.. figure:: media/image78.png
+.. figure:: images/image78.png
    :width: 509px
    :height: 228px
    :align: center
@@ -350,7 +350,7 @@ discretion of the cape designer.
 *Variable & MAC Memory*
 VDD_3V3B
 
-.. figure:: media/image79.png
+.. figure:: images/image79.png
    :width: 567px
    :height: 189px
    :align: center
@@ -1643,7 +1643,7 @@ There are 16 pins that control the boot mode of the processor that are
 exposed on the expansion headers. *Figure 63* below shows those signals
 as they appear on the BeagleBone Black.:
 
-.. figure:: media/image80.png
+.. figure:: images/image80.png
    :width: 530px
    :height: 468px
    :align: center
@@ -1695,7 +1695,7 @@ dual row 23 position 2.54mm x 2.54mm connectors.
 
 
 
-.. figure:: media/image81.jpg
+.. figure:: images/image81.jpg
    :width: 65px
    :height: 90px
    :align: center
@@ -1710,7 +1710,7 @@ of the dual row headers.
 
 
 
-.. figure:: media/image82.jpg
+.. figure:: images/image82.jpg
    :width: 575px
    :height: 54px
    :align: center
@@ -1772,7 +1772,7 @@ dual row 23 position 2.54mm x 2.54mm connectors.
 
 
 
-.. figure:: media/image83.jpg
+.. figure:: images/image83.jpg
    :width: 69px
    :height: 90px
    :align: center
@@ -1787,7 +1787,7 @@ connector configuration for the connector.
 
 
 
-.. figure:: media/image84.jpg
+.. figure:: images/image84.jpg
    :width: 575px
    :height: 65px
    :align: center
@@ -1853,7 +1853,7 @@ nonstacking style connectors.
 
 
 
-.. figure:: media/image85.jpg
+.. figure:: images/image85.jpg
    :width: 575px
    :height: 71px
    :align: center
@@ -1883,7 +1883,7 @@ overhang.
 
 
 
-.. figure:: media/image86.jpg
+.. figure:: images/image86.jpg
    :width: 552px
    :height: 314px
    :align: center
@@ -2033,7 +2033,7 @@ board.
 Standard Cape Size
 ===================
 
-.. figure:: media/image87.jpg
+.. figure:: images/image87.jpg
    :width: 575px
    :height: 369px
    :align: center

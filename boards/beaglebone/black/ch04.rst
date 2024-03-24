@@ -191,7 +191,7 @@ Connectors, LEDs, and Switches
 figure below shows the locations of the connectors, LEDs, and
 switches on the PCB layout of the board.
 
-.. figure:: media/image28.jpg
+.. figure:: images/image28.jpg
    :width: 509px
    :height: 340px
    :align: center
@@ -217,7 +217,7 @@ Key Components
 figure below shows the locations of the key components on the PCB
 layout of the board.
 
-.. figure:: media/image29.jpg
+.. figure:: images/image29.jpg
    :width: 575px
    :height: 417px
    :align: center
