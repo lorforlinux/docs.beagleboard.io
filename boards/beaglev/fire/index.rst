@@ -9,27 +9,13 @@ of RISC-V architecture and FPGA technology. It has the same P8 & P9 cape header 
 cape on top to expand it's capability. Built around the powerful and energy-efficient RISC-V instruction set architecture (ISA) along with its versatile FPGA fabric, 
 BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, and researchers to explore and experiment with RISC-V technology.
 
-.. grid:: 2
+.. admonition:: License Terms
 
-    .. grid-item::
-        :columns: 12 12 12 4
-
-        .. figure:: images/certification-mark-US002572-stacked.*
-            :width: 200
-            :target: https://certification.oshwa.org/us002572.html
-            :alt: BeagleV-Fire OSHW Mark
-
-    .. grid-item::
-        :columns: 12 12 12 8
-
-        .. admonition:: License Terms
-
-            * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beaglev-fire/beaglev-fire>`__
-            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-fire>`__
-            * For export, emissions and other compliance, see :ref:`beaglev-fire-support`
-
+    * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+    * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beaglev-fire/beaglev-fire>`__
+    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
+    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-fire>`__
+    * For export, emissions and other compliance, see :ref:`beaglev-fire-support`
 
 .. image:: images/BeagleV-Fire-hero.*
     :align: center

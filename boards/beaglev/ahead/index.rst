@@ -8,26 +8,13 @@ BeagleBone Black allowing you to stack your favourite BeagleBone cape on top to 
 Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable
 RISC-V enabled pocket-size computer for anybody who want's to dive deep into the new RISC-V ISA.
 
-.. grid:: 2
+.. admonition:: License Terms
 
-    .. grid-item::
-        :columns: 12 12 12 4
-
-        .. figure:: images/OSHW_mark_US002535.*
-            :width: 200
-            :target: https://certification.oshwa.org/us002535.html
-            :alt: BeagleV-Ahead OSHW Mark
-
-    .. grid-item::
-        :columns: 12 12 12 8
-
-        .. admonition:: License Terms
-
-            * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beaglev-ahead/beaglev-ahead>`__
-            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-ahead>`__
-            * For export, emissions and other compliance, see :ref:`beaglev-ahead-support`
+    * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+    * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beaglev-ahead/beaglev-ahead>`__
+    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
+    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-ahead>`__
+    * For export, emissions and other compliance, see :ref:`beaglev-ahead-support`
 
 .. image:: images/BeagleV-Ahead-with-hand.*
     :align: center
