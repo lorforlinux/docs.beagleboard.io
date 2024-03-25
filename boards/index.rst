@@ -38,18 +38,18 @@ started.
 .. toctree::
    :maxdepth: 1
 
-   /boards/beagleplay/index
-   /boards/beaglebone/ai-64/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/black/index
-   /boards/beaglebone/blue/index
-   /boards/beaglebone/index
-   /boards/beaglev/ahead/index
-   /boards/beaglev/fire/index
-   /boards/pocketbeagle/original/index
-   /boards/beagleconnect/freedom/index
-   /boards/beagleconnect/index
-   /boards/beagleboard/index
-   /boards/capes/index
-   /boards/terms-and-conditions
+   beagleplay/index
+   beaglebone/ai-64/index
+   beaglebone/ai/index
+   beaglebone/black/index
+   beaglebone/blue/index
+   beaglebone/index
+   beaglev/ahead/index
+   beaglev/fire/index
+   pocketbeagle/original/index
+   beagleconnect/freedom/index
+   beagleconnect/index
+   beagleboard/index
+   capes/index
+   terms-and-conditions
 

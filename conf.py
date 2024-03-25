@@ -18,20 +18,30 @@ sys.path.append(str(Path(".").resolve()))
 rst_epilog =""
 
 # Add latest images to rst_epilog
-rst_epilog_files = ['latest.images', 'production.images']
-for rst_epilog_file in rst_epilog_files:
-    with open(rst_epilog_file) as f:
-        rst_epilog += f.read() 
+rst_epilog_path = "_static/epilog/"
+for (dirpath, dirnames, filenames) in os.walk(rst_epilog_path):
+    for filename in filenames:
+        with open(dirpath + filename) as f:
+            rst_epilog += f.read() 
 
 # Board OSHWA certification information
-oshw_logos_path = "_static/images/oshw"
+oshw_logos_path = "_static/images/oshw/"
 oshw_details = []
 for (dirpath, dirnames, filenames) in os.walk(oshw_logos_path):
     for filename in filenames:
         if filename.endswith('.svg'):
             oshw_logo_name = filename.split(".")[0]
             oshw_details.append(oshw_logo_name.split('_'))
-             
+
+# Unique boards path information
+boards_path = []
+for board, path, oshw_id in oshw_details:
+    for (dirpath, dirnames, filenames) in os.walk("boards"):
+        if '/'+path+'/' in dirpath+'/':
+            if path+'/' not in dirpath:
+                boards_path.append(dirpath)
+boards_path = set(boards_path)
+
 # -- Project information --
 project = 'BeagleBoard Docs'
 copyright = '2024, BeagleBoard.org Foundation'
@@ -267,11 +277,14 @@ html_context = {
     "edit_page_url_template": "{{ my_vcs_site }}{{ file_name }}",
     "edit_page_provider_name": "OpenBeagle",
     "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/",
-    "oshw_details": oshw_details
+    "oshw_details": oshw_details,
+    "boards_path": boards_path
 }
 
 # -- Options for LaTeX output --
-
+latex_engine = "xelatex"
+latex_logo = "_static/images/logo-latex.pdf"
+latex_documents = []
 latex_elements = {
     "papersize": "a4paper",
     "maketitle": open("_static/latex/title.tex").read(),
@@ -287,8 +300,7 @@ latex_elements = {
         )
     ),
 }
-latex_engine = "xelatex"
-latex_logo = "_static/images/logo-latex.pdf"
-latex_documents = [
-    ("index-tex", "beagleboard-docs.tex", "BeagleBoard Docs", author, "manual"),
-]
+
+for board_path in boards_path:
+    board_tex_name = board_path.split('/')[-1]
+    latex_documents.append([(board_path, board_tex_name+".tex", "", author, "manual"),])

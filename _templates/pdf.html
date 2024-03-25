@@ -1,0 +1,7 @@
+{% for board_path in boards_path %}
+    {% if board_path+'/' in pagename %}
+        <a role="button" href="{{docs_url}}/{{board_path}}.pdf">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    {% endif %}
+{% endfor %}
