@@ -39,7 +39,7 @@ for board, path, oshw_id in oshw_details:
     for (dirpath, dirnames, filenames) in os.walk("boards"):
         if '/'+path+'/' in dirpath+'/':
             if path+'/' not in dirpath:
-                boards_path.append(path)
+                boards_path.append(dirpath)
 boards_path = set(boards_path)
 
 # -- Project information --
