@@ -24,12 +24,12 @@ Connect to BeagleV-Fire Linux Command Line Interface
 BeagleV-Fire boots Linux out of the box. Like all Beagleboard boards there are several methods to
 get BeagleV-Fire's Linux command prompt.
 
-- Debian Cockpit
-- USB web Console
-- USB serial port
+- Cockpit
+- SSH
+- Serial port
 
-Debian Cockpit
-===============
+Cockpit
+========
 
 Enter the following URL in your web browser: ``https://beaglev.localdomain:9090/``
 
@@ -40,16 +40,16 @@ section of this document.
 
 .. note::
     
-    You can connect to the Debian Cockpit using the IP address dynamically assigned to your
+    You can connect to the Cockpit using the IP address dynamically assigned to your
     BeagleV-Fire in your local Ethernet network. One method of finding the value of that
     dynamically assigned IP address is to open a serial terminal though the USB port and use the
     ``ip address`` Linux command. Please refer to the USB Serial Port section.
 
-USB Web Console
-===================
+SSH
+====
 
-Like all Beagleboard boards, the USB web console can be accessed via web browser by accessing IP
-address 192.168.2.7.
+Like all Beagleboard boards, you can SSH to the board through the USB interface by using IP
+address 192.168.7.2.
 
 .. note::
     
@@ -57,7 +57,7 @@ address 192.168.2.7.
     other approaches if you are not immediately successful with this one. You can circle back later
     to adjust your Windows installation if required.
 
-USB Serial Port
+Serial Port
 ================
 
 A serial port is available through the USB-C port. This serial port becomes available once Linux
@@ -81,6 +81,16 @@ serial port number in Putty with a speed 115200 baud, no flow-control.
 
 Gateware Upgrade Linux Commands
 ********************************
+
+Install bbb.io-gateware
+========================
+
+You need to install the bbb.io-gateware package. This will allow retrieving the most up-to-date
+gateware.
+
+.. code-block:: shell
+
+    sudo apt install bbb.io-gateware
 
 Retrieve Available Updated Linux packages List
 ===============================================
