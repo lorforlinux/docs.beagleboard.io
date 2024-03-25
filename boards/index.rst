@@ -36,8 +36,7 @@ started.
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
 .. toctree::
-   :maxdepth: 2
-   :hidden:
+   :maxdepth: 1
 
    /boards/beagleplay/index
    /boards/beaglebone/ai-64/index
