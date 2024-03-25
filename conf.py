@@ -303,4 +303,4 @@ latex_elements = {
 
 for board_path in boards_path:
     board_tex_name = board_path.split('/')[-1]
-    latex_documents.append([(board_path+"index", board_tex_name+".tex", "", author, "manual"),])
+    latex_documents.append([(board_path+"/index", board_tex_name+".tex", "", author, "manual"),])

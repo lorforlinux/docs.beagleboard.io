@@ -62,7 +62,7 @@ HERE
 
 		echo "**** cleanup ****"
 		mkdir -p public/pdf
-		mv public/latex/beagleboard-docs.pdf public/pdf
+		mv public/latex/*.pdf public/pdf
 		rm -rf public/doctrees
 		rm -rf public/latex
 	fi
