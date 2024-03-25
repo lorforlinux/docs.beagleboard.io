@@ -46,7 +46,7 @@ started.
    beaglebone/index
    beaglev/ahead/index
    beaglev/fire/index
-   pocketbeagle/original/index
+   pocketbeagle/index
    beagleconnect/freedom/index
    beagleconnect/index
    beagleboard/index
