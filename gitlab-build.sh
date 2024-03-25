@@ -57,8 +57,8 @@ HERE
 		make latexpdf BUILDDIR=public
 
 		# echo "**** pdfcpu ****"
-		# pdfcpu version
-		# pdfcpu optimize public/latex/beagleboard-docs.pdf
+		pdfcpu version
+		pdfcpu optimize public/latex/*.pdf
 
 		echo "**** cleanup ****"
 		mkdir -p public/pdf
@@ -72,7 +72,7 @@ HERE
 		mkdir -p public/$VER_DIR/
 		mv public/html/redir.html public/index.html
 		mv public/html/* public/$VER_DIR/
-		mv public/pdf/beagleboard-docs.pdf public/$VER_DIR/
+		mv public/pdf/*.pdf public/$VER_DIR/
 
 		# Update docs.beagleboard.org
 		if [ "$CI_COMMIT_TAG" != "" ]; then
