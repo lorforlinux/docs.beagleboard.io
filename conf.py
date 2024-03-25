@@ -29,6 +29,7 @@ oshw_logos_path = "_static/images/oshw/"
 oshw_details = []
 for (dirpath, dirnames, filenames) in os.walk(oshw_logos_path):
     for filename in filenames:
+        filename.replace("#","/")
         if filename.endswith('.svg'):
             oshw_logo_name = filename.split(".")[0]
             oshw_details.append(oshw_logo_name.split('_'))
@@ -303,4 +304,4 @@ latex_elements = {
 
 for board_path in boards_path:
     board_tex_name = board_path.split('/')[-1]
-    latex_documents.append([(board_path+"/index", board_tex_name+".tex", "", author, "manual"),])
+    latex_documents.append((board_path+"/index", board_tex_name+".tex", "", author, "manual"))
