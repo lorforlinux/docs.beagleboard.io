@@ -57,8 +57,8 @@ HERE
 		make latexpdf BUILDDIR=public
 
 		# echo "**** pdfcpu ****"
-		pdfcpu version
-		pdfcpu optimize public/latex/*.pdf
+		# pdfcpu version
+		# pdfcpu optimize public/latex/*.pdf
 
 		echo "**** cleanup ****"
 		mkdir -p public/pdf
