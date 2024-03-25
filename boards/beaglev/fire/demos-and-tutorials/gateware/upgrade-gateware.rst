@@ -82,6 +82,11 @@ serial port number in Putty with a speed 115200 baud, no flow-control.
 Gateware Upgrade Linux Commands
 ********************************
 
+.. note::
+    
+    BeagleV-Fire needs to be connected to the internet through your local network for the commands
+    in this section to work. The connection can be through the Ethernet port or the Wi-Fi module.
+
 Install bbb.io-gateware
 ========================
 
