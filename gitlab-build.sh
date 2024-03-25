@@ -56,9 +56,9 @@ HERE
 		# Build, optimize, and serve PDF
 		make latexpdf BUILDDIR=public
 
-		echo "**** pdfcpu ****"
-		pdfcpu version
-		pdfcpu optimize public/latex/beagleboard-docs.pdf
+		# echo "**** pdfcpu ****"
+		# pdfcpu version
+		# pdfcpu optimize public/latex/beagleboard-docs.pdf
 
 		echo "**** cleanup ****"
 		mkdir -p public/pdf
