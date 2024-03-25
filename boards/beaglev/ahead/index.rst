@@ -26,7 +26,7 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
 
 .. only:: html
 
-  .. grid:: 1 1 2 3
+  .. grid:: 1 1 2 2
     :margin: 4 4 0 0
     :gutter: 4
 

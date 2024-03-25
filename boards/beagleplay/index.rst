@@ -33,7 +33,7 @@ sensors, actuators, indicators, human interfaces, and connectivity to a reliable
    
    \begin{comment}
 
-.. grid:: 1 1 2 3
+.. grid:: 1 1 2 2
    :margin: 4 4 0 0
    :gutter: 4
 

@@ -27,7 +27,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
 
 .. only:: html
 
-  .. grid:: 1 1 2 3
+  .. grid:: 1 1 2 2
     :margin: 4 4 0 0
     :gutter: 4
 

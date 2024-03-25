@@ -26,7 +26,7 @@ hardware examples and dozens of readily available embedded expansion options ava
 
 .. only:: html
 
-  .. grid:: 1 1 2 3
+  .. grid:: 1 1 2 2
     :margin: 4 4 0 0
     :gutter: 4
 
