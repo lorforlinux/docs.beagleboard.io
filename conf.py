@@ -39,7 +39,6 @@ for board, path, oshw_id in oshw_details:
     for (dirpath, dirnames, filenames) in os.walk("boards"):
         if '/'+path+'/' in dirpath+'/':
             if path+'/' not in dirpath:
-                path = dirpath.replace("boards/","")
                 boards_path.append(path)
 boards_path = set(boards_path)
 
@@ -304,4 +303,4 @@ latex_elements = {
 
 for board_path in boards_path:
     board_tex_name = board_path.split('/')[-1]
-    latex_documents.append(("boards/"+board_path+"/index", board_tex_name+".tex", "", author, "manual"))
+    latex_documents.append((board_path+"/index", board_tex_name+".tex", "", author, "manual"))

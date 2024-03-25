@@ -1,6 +1,7 @@
 {% for board_path in boards_path %}
     {% if board_path+'/' in pagename %}
-        <a role="button" href="{{docs_url}}/{{board_path}}.pdf" target="_blank">
+        {% set pdf_name = board_path.split('/')[-1] %}
+        <a role="button" href="{{docs_url}}/{{pdf_name}}.pdf" target="_blank">
             <i class="fa-solid fa-download"></i> Download PDF
         </a>
     {% endif %}
