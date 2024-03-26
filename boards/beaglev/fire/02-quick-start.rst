@@ -93,6 +93,7 @@ Demos and Tutorials
 *******************
 
 * :ref:`beaglev-fire-gateware-version`
+* :ref:`beaglev-fire-upgrade-gateware`
 * :ref:`beaglev-fire-flashing-board`
 * :ref:`beaglev-fire-gateware-design`
 * :ref:`beaglev-fire-mchp-fpga-tools-installation-guide`
