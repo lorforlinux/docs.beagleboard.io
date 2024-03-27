@@ -41,6 +41,8 @@ started.
    :maxdepth: 1
    :hidden:
 
+   /boards/beagley/ai/index
+   /boards/beagleplay/index
    /boards/beaglebone/index
    /boards/beaglebone/black/index
    /boards/beaglebone/blue/index
