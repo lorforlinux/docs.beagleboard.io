@@ -64,7 +64,7 @@ to your board as shown below:
     BeagleV-Fire UART debug port connection
 
 To see the board boot log and access your BeagleV-Fire's console you can use application like ``tio`` 
-to access the conole. If you are using Linux your USB to UART converter may appear as ``/dev/ttyUSB``. 
+to access the console. If you are using Linux your USB to UART converter may appear as ``/dev/ttyUSB``. 
 It will be different for Mac and Windows operatig systems. To find serial port for your system you can checkout 
 `this guide <https://www.mathworks.com/help/supportpkg/arduinoio/ug/find-arduino-port-on-windows-mac-and-linux.html>`_.
 
@@ -79,6 +79,7 @@ Demos and Tutorials
 *******************
 
 * :ref:`beaglev-fire-gateware-version`
+* :ref:`beaglev-fire-upgrade-gateware`
 * :ref:`beaglev-fire-flashing-board`
 * :ref:`beaglev-fire-gateware-design`
 * :ref:`beaglev-fire-mchp-fpga-tools-installation-guide`
