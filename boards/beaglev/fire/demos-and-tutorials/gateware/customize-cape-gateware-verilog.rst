@@ -28,8 +28,10 @@ Steps:
 Fork BeagleV-Fire Gateware Repository
 **************************************
 
-Important
-All new users need to be manually approved to protect from BOT spam.  You will not be abloe to fork the Gateware Repository until you have been approved. A request to 'the forum <https://forum.beagleboard.org/t/requesting-access-to-gitlab-to-fork-gateware/37494>' may expedite the process. 
+.. important:: 
+    All new users need to be manually approved to protect from BOT spam. You will not be able to fork the Gateware
+    Repository until you have been approved. A request to 'the forum <https://forum.beagleboard.org/t/requesting-access-to-gitlab-to-fork-gateware/37494>'
+    may expedite the process. 
 
 Navigate to BeagleV-Fire's `gateware source code repository <https://git.beagleboard.org/beaglev-fire/gateware>`_.
 
