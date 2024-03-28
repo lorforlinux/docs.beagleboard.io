@@ -11,6 +11,7 @@ BeagleBoard Docs
 .. toctree::
 
    intro/index
+   boards/beagley/ai/index
    boards/beagleplay/index
    boards/beaglebone/ai-64/index
    boards/beaglebone/ai/index

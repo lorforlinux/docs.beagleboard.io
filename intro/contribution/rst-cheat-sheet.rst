@@ -329,13 +329,7 @@ This site uses sphinxcontrib-youtube to embed YouTube videos. The syntax is as f
 
 .. callout::
 
-    .. code-block:: rst
-
-        .. _internal-link: <1>
-
-        .. admonition:: YouTube Video Description <2>
-
-            .. youtube:: <YouTube_video_ID> <3>
+    .. youtube:: <YouTube_video_ID>
     
     .. annotations::
 

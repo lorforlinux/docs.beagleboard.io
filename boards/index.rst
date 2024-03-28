@@ -38,6 +38,8 @@ started.
 .. toctree::
    :maxdepth: 1
 
+   /boards/beagley/ai/index
+   /boards/beagleplay/index
    beagleplay/index
    beaglebone/ai-64/index
    beaglebone/ai/index

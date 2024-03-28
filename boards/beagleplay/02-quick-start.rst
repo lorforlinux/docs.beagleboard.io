@@ -24,12 +24,10 @@ Attaching antennas
 
 You can watch this video to see how to attach the attennas.
 
-.. admonition:: YouTube video of BeaglePlay antenna connection
-
-    .. youtube:: 8zeIVd-JRc0
-        :width: 1280
-        :height: 720
-        :align: center
+.. youtube:: 8zeIVd-JRc0
+    :width: 1280
+    :height: 720
+    :align: center
 
 Tethering to PC
 ****************
