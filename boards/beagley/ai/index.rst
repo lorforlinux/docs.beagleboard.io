@@ -7,6 +7,5 @@ BeagleY-AI
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
 
    02-quick-start

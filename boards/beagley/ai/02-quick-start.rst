@@ -1,5 +1,8 @@
 .. _beagley-ai-quick-start:
 
+BeagleY-AI Quick Start
+######################
+
 .. important:: Coming Soon!
 
 
