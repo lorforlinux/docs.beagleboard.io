@@ -30,18 +30,21 @@ oshw_details = []
 for (dirpath, dirnames, filenames) in os.walk(oshw_logos_path):
     for filename in filenames:
         if filename.endswith('.svg'):
-            oshw_logo_name = filename.replace('#','/').split(".")[0]
-            oshw_details.append(oshw_logo_name.split('_'))
-
+            oshw_logo_name = filename.split(".")[0]
+            board, path, oshw_id = oshw_logo_name.split('_')
+            path = path.replace('-','/')
+            oshw_details.append([board, path, oshw_id])
+            
 # Unique boards path information
 boards_path = []
 for board, path, oshw_id in oshw_details:
-    for (dirpath, dirnames, filenames) in os.walk("boards"):
+    for (dirpath, dirnames, filenames) in os.walk("boards"):  
         if '/'+path+'/' in dirpath+'/':
             if path+'/' not in dirpath:
                 boards_path.append(dirpath)
 boards_path = set(boards_path)
 
+print(boards_path)
 # -- Project information --
 project = 'BeagleBoard Docs'
 copyright = '2024, BeagleBoard.org Foundation'
