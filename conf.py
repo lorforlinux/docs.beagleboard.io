@@ -225,7 +225,7 @@ release = version
 
 # Variables here holds default settings
 pages_url = "https://docs.beagleboard.io"
-pages_slug = "latest"
+pages_slug = ""
 gitlab_user = "docs"
 gitlab_version = "main"
 gitlab_url = "https://openbeagle.org"
