@@ -1,3 +1,5 @@
+:orphan:
+
 .. _beagley-all-home:
 
 BeagleY

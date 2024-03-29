@@ -30,7 +30,7 @@ oshw_details = []
 for (dirpath, dirnames, filenames) in os.walk(oshw_logos_path):
     for filename in filenames:
         if filename.endswith('.svg'):
-            oshw_logo_name = filename.split(".")[0]
+            oshw_logo_name = filename.replace('#','/').split(".")[0]
             oshw_details.append(oshw_logo_name.split('_'))
 
 # Unique boards path information

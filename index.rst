@@ -60,6 +60,19 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
+      :link: beagley-ai-home
+      :link-type: ref
+
+      **BeagleY-AI**
+      ^^^
+
+      .. image:: boards/images/beagley-ai.*
+         :align: center
+      +++
+
+      An industry standard form-factor 64-bit ARM computer.
+
+   .. grid-item-card::
       :link: beagleplay-home
       :link-type: ref
 
