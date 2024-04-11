@@ -8,7 +8,12 @@ What's included in the box?
 
 When you purchase a brand new BeagleV-Fire, In the box you'll get:
 
+1. `BeagleV-Fire board <https://www.beagleboard.org/boards/beaglev-fire>`_
+2. Quick-start card
+
 .. todo:: add image & information about box content.
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleV-Ahead repository on OpenBeagle <https://openbeagle.org/beaglev-fire/beaglev-fire>`_.
 
 Unboxing
 *********
