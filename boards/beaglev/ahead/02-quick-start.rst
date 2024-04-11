@@ -8,10 +8,12 @@ What's included in the box?
 
 When you purchase a brand new BeagleV Ahead, In the box you'll get:
 
-1. BeagleV Ahead board
+1. `BeagleV Ahead board <https://www.beagleboard.org/boards/beaglev-ahead>`_
 2. One (1) 2.4GHz/5GHz antenna
 3. USB super-speed micro-A plug to type-A receptacle cable (for connecting common USB type-A peripherals)
 4. Quick-start card
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleV-Ahead repository on OpenBeagle <https://openbeagle.org/beaglev-ahead/beaglev-ahead>`_.
 
 .. image:: images/BeagleV-Ahead-all.*
     :width: 724
