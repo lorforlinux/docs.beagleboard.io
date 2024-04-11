@@ -11,12 +11,15 @@ attached. Developers can get up and running in five minutes with no
 microSD card needed. BeagleBone® AI comes preloaded with a Linux
 distribution. In the box you will find:
 
--  `BeagleBone® AI <https://openbeagle.org/beagleboard/beaglebone-ai>`_
+-  `BeagleBone® AI <https://www.beagleboard.org/boards/beaglebone-ai>`_
 -  Quick Start Guide
 
 .. image:: images/BB_AI_antenna_heat_sink_place_500px.jpg
    :align: center
    :alt: BeagleBone AI Overview
+
+.. tip:: For board files, 3D model, regulatory docs and more, you can checkout 
+    `BeagleBona-AI repository on OpenBeagle <https://openbeagle.org/beagleboard/beaglebone-ai/>`_.
 
 What’s Not in the Box
 **********************
