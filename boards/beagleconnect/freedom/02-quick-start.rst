@@ -6,7 +6,7 @@ Quick Start Guide
 What's included in the box?
 ****************************
 
-1. BeagleConnect Freedom board in enclosure
+1. `BeagleConnect Freedom board in enclosure <https://www.beagleboard.org/boards/beagleconnect-freedom>`_
 2. Antenna
 3. USB cable
 4. Quick-start card
@@ -15,10 +15,11 @@ What's included in the box?
 
    Image with what's inside the box and a better description.
 
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleConnect Freedom repository on OpenBeagle <https://openbeagle.org/beagleconnect/freedom>`_.
+
 .. youtube:: bJYZ6PTiV9g
    :align: center
-   :width: 1280
-   :height: 720
+   :width: 100%
 
 Attaching antenna
 ******************
