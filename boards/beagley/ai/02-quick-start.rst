@@ -3,9 +3,23 @@
 BeagleY-AI Quick Start
 ######################
 
-.. todo:: What's included in the box?
+What's included in the box?
+****************************
 
-.. todo:: Attaching antennas
+.. todo:: Update BeagleY-AI what's included in the box section as per production release.
+
+When you purchase a brand new BeagleY-AI, In the box you'll get:
+
+1. `BeagleY-AI <https://www.beagleboard.org/boards/beagley-ai>`_
+2. JST-SH cables
+3. 2.4GHz antennas
+4. Quick-start card
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleY-AI repository on OpenBeagle <https://openbeagle.org/beagley-ai/beagley-ai>`_.
+
+.. todo:: Attaching antennas instructions for BeagleY-AI
+
+.. todo:: BeagleY-AI unboxing video
 
 Getting started
 ***************
