@@ -12,7 +12,7 @@ Connect WiFi
     Also see `this potential solution. <https://unix.stackexchange.com/questions/679862/wpa-supplicant-conf-escaping-characters/>`_.
 
 
-If you have a monitor and keyboard/mouse combo connected, the easiest way is to use :ref:`beagleplay-wpa-gui`.
+If you have a monitor and keyboard/mouse combo connected, the easiest way is to use :ref:`beagleplay-wifi-wpa-gui`.
 
 Alternatively, you can use :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>` over a shell connection through:
 
@@ -67,7 +67,7 @@ You could also choose to `ssh` into your board via `ssh debian@192.168.8.1` and 
 .. important::
    Once logged in, you should change the default password using the `passwd` command.
 
-.. _beagleplay-wpa-gui:
+.. _beagleplay-wifi-wpa-gui:
 
 wpa_gui
 ********
@@ -153,7 +153,7 @@ your board to WiFi (if password is correct).
 
     Connecting to WiFi access point
 
-.. _beagleplay-wpa-cli-shell:
+.. _beagleplay-wifi-wpa-cli:
 
 wpa_cli (shell)
 ****************
@@ -201,7 +201,7 @@ In commands shown below, swap out "68:ff:7b:03:0a:8a" and "mypassword" with your
 To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. 
 This is described in *wpa_cli (XFCE)* section.
 
-.. _beagleplay-wpa-cli-xfce:
+.. _beagleplay-wifi-wpa-cli-xfce:
 
 wpa_cli (XFCE)
 **************
