@@ -67,22 +67,6 @@ Change History
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
 
-.. _beaglev-ahead-document-changes:
-
-Document Changes
-==================
-
-For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
-specific hardware and software revisions are noted below.
-
-.. table:: BeagleV Ahead document change history
-
-    +---------+------------------------------------------------------------+----------------------+-------+
-    | Rev     |   Changes                                                  | Date                 |    By |
-    +=========+============================================================+======================+=======+
-    |         |                                                            |                      |       |
-    +---------+------------------------------------------------------------+----------------------+-------+
-
 .. _beaglev-ahead-board-changes:
 
 Board Changes

@@ -65,22 +65,6 @@ Change History
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
 
-.. _beagley-ai-document-changes:
-
-Document Changes
-==================
-
-For all changes, see https://openbeagle.org/docs/docs.beagleboard.io. Frozen releases tested against
-specific hardware and software revisions are noted below.
-
-.. table:: BeagleY-AI document change history
-
-    +---------+------------------------------------------------------------+----------------------+-------+
-    | Rev     |   Changes                                                  | Date                 |    By |
-    +=========+============================================================+======================+=======+
-    |         |                                                            |                      |       |
-    +---------+------------------------------------------------------------+----------------------+-------+
-
 .. _beagley-ai-board-changes:
 
 Board Changes
