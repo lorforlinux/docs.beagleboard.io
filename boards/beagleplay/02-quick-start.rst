@@ -8,11 +8,13 @@ What's included in the box?
 
 When you purchase a brand new BeaglePlay, In the box you'll get:
 
-1. BeaglePlay board
+1. `BeaglePlay board <https://www.beagleboard.org/boards/beagleplay>`_
 2. One (1) sub-GHz antenna
 3. Three (3) 2.4GHz/5GHz antennas
 4. Plastic standoff hardware
 5. Quick-start card
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeaglePlay repository on OpenBeagle <https://openbeagle.org/beagleplay/beagleplay>`_.
 
 .. image:: images/product-pictures/45fontall.*
     :width: 940
