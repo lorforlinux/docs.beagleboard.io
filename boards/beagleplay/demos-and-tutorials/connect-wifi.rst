@@ -14,15 +14,15 @@ Connect WiFi
 
 If you have a monitor and keyboard/mouse combo connected, the easiest way is to use :ref:`beagleplay-wpa-gui`.
 
-Alternatively, you can use ``wpa_cli`` over a shell connection through:
+Alternatively, you can use :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>` over a shell connection through:
 
 * The :ref:`serial console <beagleplay-serial-console>`,
 * VSCode or ``ssh`` over a USB network connection,
 * VSCode or ``ssh`` over an Ethernet connection,
 * VSCode or ``ssh`` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`, or
-* A local Terminal Emulator session.
+* :ref:`A local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`.
 
-Once you have a shell connection, follow the ``wpa_cli`` instructions.
+Once you have a shell connection, follow the :ref:`wpa_cli <beagleplay-wifi-wpa-cli>` instructions.
 
 .. _beagleplay-wifi-access-point:
 
@@ -193,10 +193,10 @@ In commands shown below, swap out "68:ff:7b:03:0a:8a" and "mypassword" with your
 
 .. important::
    The single quotes around the double quotes are needed to make sure the
-   double quotes are given to ``wpa_cli``. It expects to see them.
+   double quotes are given to :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`. It expects to see them.
 
 .. note::
-   For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
+   For more information about :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`, see https://w1.fi/wpa_supplicant/
 
 To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. 
 This is described in *wpa_cli (XFCE)* section.
