@@ -24,11 +24,13 @@ What’s In the Box
 
 In the box you will find two main items as shown in :ref:`bbai-64-pacakage`.
 
-* BeagleBone AI-64
+* `BeagleBone AI-64 <https://www.beagleboard.org/boards/beaglebone-ai-64>`_
 * Instruction card
 
-A USB-C to USB-C cable is not included, but recommended for the tethered scenario and creates 
-a developer experience where the board can be used immediately with no other equipment needed.
+.. note:: A USB-C to USB-C cable is not included, but recommended for the tethered scenario and creates 
+    a developer experience where the board can be used immediately with no other equipment needed.
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleBona AI-64 repository on OpenBeagle <https://openbeagle.org/beagleboard/beaglebone-ai-64>`_.
 
 .. _bbai-64-pacakage:
 
