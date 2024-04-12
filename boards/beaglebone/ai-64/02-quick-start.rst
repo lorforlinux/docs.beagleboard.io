@@ -148,8 +148,11 @@ Each of these configurations is discussed in general terms in the following sect
       * Display Port or HDMI monitor.
       * miniDP-DP or active miniDP-HDMI cable (or a recommended **miniDP-DP or active miniDP-HDMI adapter** https://www.amazon.com/dp/B089GF8M87 has been tested and worked beautifully).
       * USB wired/wireless keyboard and mouse.
-      * powered USB HUB (OPTIONAL). The board has only two USB Type-A host ports, so you may need to use a powered USB Hub if you wish to add additional USB devices, such as a USB WiFi adapter.
-      * M.2 Bluetooth & WiFi module (OPTIONAL). For wireless connections, a USB WiFi adapter or a recommended M.2 WiFi module can provide wireless networking.
+
+      **Optional Accessories**
+      
+      * Powered USB hub, The board has only two USB Type-A host ports, so you may need to use a powered USB Hub if you wish to add additional USB devices, such as a USB WiFi adapter.
+      * M.2 Bluetooth & WiFi module, For wireless connections, a USB WiFi adapter or a recommended M.2 WiFi module can provide wireless networking.
 
       **Connecting Up the Board**
 
@@ -161,7 +164,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
 
-      2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in the figure below.
+      1. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in the figure below.
 
       .. figure:: images/ch03/display-adapters.*
          :width: 740px
@@ -169,7 +172,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          Display adapters
 
-      3. If you have wired/wireless USB keyboard and mouse such as seen in the figure below, you need to plug the receiver in the USB host port of the board as shown in the figure below.
+      1. If you have wired/wireless USB keyboard and mouse such as seen in the figure below, you need to plug the receiver in the USB host port of the board as shown in the figure below.
 
       .. figure:: images/ch03/mouse-keyboard.*
          :width: 740px
@@ -177,7 +180,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          Keyboard and Mouse
 
-      4. Connect the Ethernet Cable
+      1. Connect the Ethernet Cable
 
       If you decide you want to connect to your local area network, an Ethernet cable can be used. 
       Connect the Ethernet Cable to the Ethernet port as shown in the figure below. Any 
@@ -190,7 +193,7 @@ Each of these configurations is discussed in general terms in the following sect
          Ethernet Cable Connection
 
 
-      5. The final step is to plug in the DC power supply to the DC power jack as shown in the figure below.
+      1. The final step is to plug in the DC power supply to the DC power jack as shown in the figure below.
 
       .. figure:: images/ch03/barrel-jack.*
          :width: 740px
@@ -198,7 +201,7 @@ Each of these configurations is discussed in general terms in the following sect
          
          External DC Power
 
-      6. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in the figure below.
+      1. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in the figure below.
 
       .. figure:: images/ch03/miniDP-connector.*
          :width: 740px
@@ -208,7 +211,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       The connector is fairly robust, but we suggest that you not use the cable as a leash for your Beagle. Take proper care not to put too much stress on the connector or cable.
 
-      7. Booting the Board
+      1. Booting the Board
 
       As soon as the power is applied to the board, it will start the booting up process. When the board starts to boot the LEDs will come on. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it boots the Linux kernel.
 
@@ -227,7 +230,7 @@ Each of these configurations is discussed in general terms in the following sect
       * **USR3** turns on when the onboard eMMC is being accessed.
       * **USR4** is an activity indicator for WiFi.
 
-      8. A Booted System
+      1. A Booted System
          
          a. The board will have a mouse pointer appear on the screen as it enters the Linux boot step. You may have to move the physical mouse to get the mouse pointer to appear. The system can come up in the suspend mode with the monitor in a sleep mode.
          b. After a minute or two a login screen will appear. You do not have to do anything at this point.
