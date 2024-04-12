@@ -17,6 +17,7 @@ sensors, actuators, indicators, human interfaces, and connectivity to a reliable
    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beagleplay>`__
    * For export, emissions and other compliance, see :ref:`beagleplay-support`
+   * All support for BeaglePlay design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/play>`_.
 
 .. table::
    :align: center

@@ -4,7 +4,7 @@ Additional Support Information
 ##############################
 
 All support for this design is through BeagleBoard.org community 
-at: link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_ .
+at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_.
 
 
 .. _hardware-design:

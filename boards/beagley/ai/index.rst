@@ -16,6 +16,7 @@ BeagleY-AI is an open-source single board computer based on the Texas Instrument
    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beagley-ai>`__
    * For export, emissions and other compliance, see :ref:`beagley-ai-support`
+   * All support for BeagleY-AI design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/beagley-ai>`_.
 
 .. image:: images/beagley-ai-board.png
 

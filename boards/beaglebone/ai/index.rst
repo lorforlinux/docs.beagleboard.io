@@ -17,6 +17,7 @@ automation in industrial, commercial and home applications.
     * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
     * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai>`__
     * For export, emissions and other compliance, see :ref:`bbai-support`
+    * All support for BeagleBone AI design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai>`_.
 
 .. image:: images/BB_AI_handheld_500px.jpg
     :width: 740

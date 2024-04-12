@@ -18,6 +18,7 @@ hardware examples and dozens of readily available embedded expansion options ava
     * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
     * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai-64>`__
     * For export, emissions and other compliance, see :ref:`bbai64-support`
+    * All support for this design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_.
 
 .. image:: images/bbai64-45-front.jpg
    :width: 740px

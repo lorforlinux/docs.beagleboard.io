@@ -16,6 +16,7 @@ BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, 
     * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
     * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-fire>`__
     * For export, emissions and other compliance, see :ref:`beaglev-fire-support`
+    * All support for BeagleV Fire design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/fire>`_.
 
 .. image:: images/BeagleV-Fire-hero.*
     :align: center

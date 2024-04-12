@@ -15,6 +15,7 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
     * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
     * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-ahead>`__
     * For export, emissions and other compliance, see :ref:`beaglev-ahead-support`
+    * All support for BeagleV Ahead design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/ahead>`_.
 
 .. image:: images/BeagleV-Ahead-with-hand.*
     :align: center
