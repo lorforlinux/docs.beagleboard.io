@@ -6,6 +6,11 @@ Support
 All support for BeagleV Fire design is through BeagleBoard.org 
 community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/fire>`_.
 
+Production board boot media
+****************************
+
+.. todo:: Add production boot media link in ``_static/epilog/production.image`` and reference it here.
+
 .. _beaglev-fire-certifications:
 
 Certifications and export control

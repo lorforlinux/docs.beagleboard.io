@@ -6,6 +6,11 @@ Support
 All support for BeagleConnect Freedom design is through BeagleBoard.org 
 community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bcf>`_.
 
+Production board boot media
+****************************
+
+- `BeagleConnect Freedom Rev C7`_
+
 .. _beagleconnect-certifications:
 
 Certifications and export control

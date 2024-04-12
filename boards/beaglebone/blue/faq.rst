@@ -7,6 +7,11 @@ Frequently Asked Questions (FAQs)
       All support for BeagleBone Blue design is through BeagleBoard.org community 
       at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/beaglebone-blue>`_.
 
+Production board boot media
+****************************
+
+.. todo:: Add production boot media link in ``_static/epilog/production.image`` and reference it here.
+
 .. _are_there_any_books_to_help_me_get_started:
 
 Are there any books to help me get started?

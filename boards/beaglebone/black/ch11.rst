@@ -38,6 +38,11 @@ how to update your software to the latest version can be found at:
 
 `http://elinux.org/BeagleBoneBlack#Updating_the_eMMC_Software <http://elinux.org/BeagleBoneBlack#Updating_the_eMMC_Software>`_
 
+Production board boot media
+****************************
+
+- `BeagleBone Black Rev C3a`_
+
 RMA Support
 *************
 

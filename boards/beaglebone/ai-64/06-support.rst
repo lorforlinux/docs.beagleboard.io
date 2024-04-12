@@ -14,6 +14,10 @@ Hardware Design
 
 You can find all BeagleBone AI-64 hardware files `here <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`_ under the `hw` folder.
 
+Production board boot media
+****************************
+
+- `BeagleBone AI-64 Rev B1`_
 
 .. _software-updates:
 
@@ -40,10 +44,10 @@ Follow instructions below to download the latest image for your BeagleBone AI-64
 To see what SW revision is loaded into the eMMC check `/etc/dogtag`.
 It should look something like as shown below,
 
-```
-root@BeagleBone:~# cat /etc/dogtag
-BeagleBoard.org Debian Bullseye Xfce Image 2022-01-14
-```
+.. code-block:: shell
+
+   root@BeagleBone:~# cat /etc/dogtag
+   BeagleBoard.org Debian Bullseye Xfce Image 2022-01-14
 
 .. _rma-support:
 
@@ -81,7 +85,7 @@ This section describes the change history of this document and board. Document c
 .. _bbai64-document-change-history:
 
 Document Change History
-==========================================
+=========================
 
 This table seeks to keep track of major revision cycles in the documentation. Moving forward, we'll seek to align these version numbers across all of the various documentation.
 
@@ -110,14 +114,15 @@ This table seeks to keep track of major revision cycles in the documentation. Mo
 .. _board-changes:
 
 Board Changes
-==========================================
+================
 
 Be sure to check the board revision history in the schematic file in the `BeagleBone AI-64 git repository <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`_ . Also check the `issues list <https://git.beagleboard.org/beagleboard/beaglebone-ai-64/-/issues>`_ .
 
 .. _rev-B:
 
 Rev B
-------------
+------
+
 We are starting with revision B based on this being an update to the BeagleBone Black AI. However, because this board ended up being so different, we've decided to name it BeagleBone AI-64, rather than simply a new revision. This refers to the Seeed release on 21 Dec 2021 of "BeagleBone AI-64_SCH_Rev B_211221". This is the initial production release.
 
 .. _BeagleBone-AI-64-Mechanical:
@@ -172,7 +177,7 @@ Silkscreen and Component Locations
 .. _bbai64-pictures:
 
 Pictures
-************
+*********
 
 .. figure:: images/ch10/front.*
    :width: 400px

@@ -6,6 +6,11 @@ Support
 All support for BeagleY-AI design is through BeagleBoard.org 
 community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/beagley-ai>`_.
 
+Production board boot media
+****************************
+
+.. todo:: Add production boot media link in ``_static/epilog/production.image`` and reference it here.
+
 .. _beagley-ai-certifications:
 
 Certifications and export control

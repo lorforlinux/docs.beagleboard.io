@@ -6,6 +6,11 @@ Support
 All support for BeaglePlay design is through BeagleBoard.org 
 community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/play>`_.
 
+Production board boot media
+****************************
+
+- `BeaglePlay Rev A2`_
+
 .. _beagleplay-certifications:
 
 Certifications and export control
