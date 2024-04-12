@@ -144,13 +144,13 @@ Each of these configurations is discussed in general terms in the following sect
 
       In order to use the board in this configuration, you will need the following accessories:
 
-      * 5V > 3A power supply.
-      * Display Port or HDMI monitor.
-      * miniDP-DP or active miniDP-HDMI cable (or a recommended **miniDP-DP or active miniDP-HDMI adapter** https://www.amazon.com/dp/B089GF8M87 has been tested and worked beautifully).
-      * USB wired/wireless keyboard and mouse.
+      * :ref:`5V > 3A power supply <accessories-power-supplies>`.
+      * :ref:`Display Port or HDMI monitor <accessories-displays>`.
+      * :ref:`miniDP-DP or active miniDP-HDMI cable <accessories-cables_minidp_hdmi>`.
+      * :ref:`USB wired/wireless keyboard and mouse <accessories-peripherals>`.
 
       **Optional Accessories**
-      
+
       * Powered USB hub, The board has only two USB Type-A host ports, so you may need to use a powered USB Hub if you wish to add additional USB devices, such as a USB WiFi adapter.
       * M.2 Bluetooth & WiFi module, For wireless connections, a USB WiFi adapter or a recommended M.2 WiFi module can provide wireless networking.
 

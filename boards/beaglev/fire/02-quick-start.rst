@@ -48,7 +48,6 @@ Flashing eMMC
 Flash the latest image on eMMC
 ===============================
 
-
 Access UART debug console
 **************************
 

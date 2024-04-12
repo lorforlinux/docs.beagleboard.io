@@ -26,7 +26,7 @@ What’s Not in the Box
 
 You will need to purchase:
 
--  USB C cable or USB C to USB A cable
+-  :ref:`USB C cable or USB C to USB A cable <accessories-cables-usb>`_
 -  MicroSD Card (optional)
 -  :ref:`Serial cable <molex-picoblade-serial-cables>` (optional)
 

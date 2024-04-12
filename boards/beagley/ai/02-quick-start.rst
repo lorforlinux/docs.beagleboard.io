@@ -26,8 +26,8 @@ Getting started
 
 To get started you need the following:
 
-1. USB Type-A to Type-C cable or Type-C to Type-C cable
-2. 5V ≥ 3A power adapter
+1. :ref:`USB Type-A to Type-C cable or Type-C to Type-C cable <accessories-cables-usb>`
+2. :ref:`5V > 3A power supply <accessories-power-supplies>`
 3. Micro SD Card 
 4. Boot media
 

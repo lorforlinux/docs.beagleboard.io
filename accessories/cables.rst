@@ -3,6 +3,8 @@
 Cables
 #######
 
+.. _accessories-cables-usb:
+
 USB Data/Power Cables
 ***********************
 
