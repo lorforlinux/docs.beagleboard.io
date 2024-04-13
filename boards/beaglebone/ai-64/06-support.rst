@@ -6,6 +6,17 @@ Additional Support Information
 All support for this design is through BeagleBoard.org community 
 at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_.
 
+.. _bbai64-certifications:
+
+Certifications and export control
+*********************************
+
+Export designations
+===================
+
+* HS: 8471504090
+* US HS: 8543708800
+* EU HS: 8471707000
 
 .. _hardware-design:
 
@@ -133,19 +144,29 @@ Mechanical Details
 .. _dimensions-and-weight:
 
 Dimensions and Weight
-===========================
+======================
 
-Size: 102.5 x 80 (4" x 3.15")
+.. table:: Dimensions & weight
 
-Max height: #TODO#
-
-PCB Layers: #TODO#
-
-PCB thickness: 2mm (0.08")
-
-RoHS Compliant: Yes
-
-Weight: 192gm
+   +--------------------+----------------------------------------------------+
+   | Parameter          | Value                                              |
+   +====================+====================================================+
+   | Size               | 104 * 83* 37 mm                                    |
+   +--------------------+----------------------------------------------------+
+   | Max heigh          | 23 mm                                              |
+   +--------------------+----------------------------------------------------+
+   | PCB Size           | 102.5*80*2.0 mm                                    |
+   +--------------------+----------------------------------------------------+
+   | PCB Layers         | 14 layers                                          |
+   +--------------------+----------------------------------------------------+
+   | PCB Thickness      | 2.0 mm                                             |
+   +--------------------+----------------------------------------------------+
+   | RoHS compliant     | Yes                                                |
+   +--------------------+----------------------------------------------------+
+   | Gross Weight       | 249g                                               |
+   +--------------------+----------------------------------------------------+
+   | Net Weight         | 193g                                               |
+   +--------------------+----------------------------------------------------+
 
 .. _silkscreen-and-component-locations:
 

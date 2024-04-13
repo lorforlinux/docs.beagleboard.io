@@ -35,22 +35,22 @@ started.
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
-.. toctree::
-   :maxdepth: 1
+..  toctree::
+    :maxdepth: 1
 
-   beagley/ai/index.rst
-   beagleplay/index
-   beaglebone/ai-64/index
-   beaglebone/ai/index
-   beaglebone/black/index
-   beaglebone/blue/index
-   beaglebone/index
-   beaglev/ahead/index
-   beaglev/fire/index
-   pocketbeagle/index
-   beagleconnect/freedom/index
-   beagleconnect/index
-   beagleboard/index
-   capes/index
-   terms-and-conditions
+    beagley/ai/index.rst
+    beagleplay/index
+    beaglebone/ai-64/index
+    beaglebone/ai/index
+    beaglebone/black/index
+    beaglebone/blue/index
+    beaglebone/index
+    beaglev/ahead/index
+    beaglev/fire/index
+    pocketbeagle/index
+    beagleconnect/freedom/index
+    beagleconnect/index
+    beagleboard/index
+    capes/index
+    terms-and-conditions
 

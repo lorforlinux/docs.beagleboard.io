@@ -8,7 +8,7 @@ BeagleBoard Documentation
 
 .. image:: _static/images/banner.webp
 
-Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`__.
+Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`_.
 If you are looking for help with your Beagle open-hardware development platform, you've found the right place!
 
 .. note:: 
