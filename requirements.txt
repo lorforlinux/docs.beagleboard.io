@@ -36,3 +36,4 @@ sphinxcontrib-svg2pdfconverter==1.2.2
 sphinxcontrib-youtube==1.4.1
 tornado==6.4
 urllib3==2.1.0
+pyyaml>=3.13

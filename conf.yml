@@ -1,0 +1,28 @@
+# YAML file to configure PDF build and sidebar links
+
+# PDF buils configuration
+# 
+# all: If you want to build PDFs of all the listed boards, books, projects, etc.
+# 
+# name1,name2,name3: If you want to build PDF for specific boards, books, projects, etc.
+# Example: pdf_build: BeagleBone Black,BeagleBone AI-64
+# Note: there is now space after comma!
+
+pdf_build: all
+
+# Boards
+
+boards:
+   BeagleBone Black:
+      path: boards/beaglebone/black
+      pdf: True
+   BeagleBone AI-64:
+      path: boards/beaglebone/ai-64
+      pdf: True
+
+# Books
+
+books:
+   BeagleBone Cookbook:
+      path: books/beaglebone-cookbook
+

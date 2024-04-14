@@ -18,8 +18,7 @@ distribution. In the box you will find:
    :align: center
    :alt: BeagleBone AI Overview
 
-.. tip:: For board files, 3D model, regulatory docs and more, you can checkout 
-    `BeagleBona-AI repository on OpenBeagle <https://openbeagle.org/beagleboard/beaglebone-ai/>`_.
+.. tip:: For board files, 3D model, regulatory docs and more, you can checkout `BeagleBona-AI repository on OpenBeagle <https://openbeagle.org/beagleboard/beaglebone-ai/>`_.
 
 What’s Not in the Box
 **********************
