@@ -1,22 +1,22 @@
-# YAML file to configure PDF build and sidebar links
+# YAML file to configure PDF builds and sidebar links
 
-# PDF buils configuration
+# PDF builds configuration
 # 
 # all: If you want to build PDFs of all the listed boards, books, projects, etc.
 # 
-# name1,name2,name3: If you want to build PDF for specific boards, books, projects, etc.
+# name1, name2, name3: If you want to build PDF for specific boards, books, projects, etc.
 # Example: pdf_build: BeagleBone Black, BeagleBone AI-64
 
 pdf_build: all
 
-# Boards
+# Boards 
 # 
 # Example:
 # boards:
 #     name:
-#         path: <board path for index.rst>
-#         pdf: True/False
-#         oshw: <comma seprated file names from _static/images/oshw folder> 
+#         path: First level board documentation path for board 'index.rst'
+#         pdf: True/False (optional, False if this 'pdf:' option is not added)
+#         oshw: Comma seprated file names from '_static/images/oshw' folder
 
 boards:
    BeagleBone Black:
@@ -26,10 +26,43 @@ boards:
    BeagleBone AI-64:
       path: boards/beaglebone/ai-64
       pdf: True
+      oshw: BeagleBone AI-64_US002120.svg
+   BeagleBone AI:
+      path: boards/beaglebone/ai
+      pdf: True
+      oshw: BeagleBone AI_US000169.svg
+   BeagleBone Blue:
+      path: boards/beaglebone/blue
+      pdf: True
+      oshw: BeagleBone Blue_US000064.svg
+   BeagleConnect Freedom:
+      path: boards/beagleconnect/freedom
+      pdf: True
+      oshw: BeagleConnect Freedom_US002175.svg
+   BeaglePlay:
+      path: boards/beagleplay
+      pdf: True
+      oshw: BeaglePlay_US002174.svg
+   BeagleV-Ahead:
+      path: boards/beaglev/ahead
+      pdf: True
+      oshw: BeagleV-Ahead_US002535.svg
+   BeagleV-Fire:
+      path: boards/beaglev/fire
+      pdf: True
+      oshw: BeagleV Fire_US002572.svg
+   BeagleY-AI:
+      path: boards/beagley/ai
+      pdf: True
+      oshw: BeagleY-AI_US002616.svg
+   PocketBeagle:
+      path: boards/pocketbeagle
+      pdf: True
+      oshw: PocketBeagle_US000083.svg
+
+   
 
 # Books
 
-books:
-   BeagleBone Cookbook:
-      path: books/beaglebone-cookbook
+# Projects
 

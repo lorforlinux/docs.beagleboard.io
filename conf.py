@@ -32,15 +32,16 @@ for (dirpath, dirnames, filenames) in os.walk(rst_epilog_path):
 # Configure PDF build and sidebar links
 latex_documents = []
 pdf_paths = []
-pdf_list = []
 oshw_details = []
+
 with open('conf.yml', 'r') as conf_file:
     conf_data = yaml.safe_load(conf_file)
 
     pdf_build_all = True
+    pdf_build = []
     if(conf_data["pdf_build"] != "all"):
         for name in conf_data["pdf_build"].split(","):
-            pdf_list.append(name.lstrip())
+            pdf_build.append(name.lstrip())
         pdf_build_all = False
 
     for type, data in conf_data.items():
@@ -52,7 +53,7 @@ with open('conf.yml', 'r') as conf_file:
                 pdf = data.get('pdf', False)
                 
                 # PDF build details
-                if(pdf and (name in pdf_list or pdf_build_all)):
+                if(pdf and (name in pdf_build or pdf_build_all)):
                     pdf_paths.append(path)
                     tex_name = '-'.join(path.split('/')[1:])
                     latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
