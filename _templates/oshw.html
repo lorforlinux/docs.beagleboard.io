@@ -1,5 +1,5 @@
 {% for board, path, oshw_id in oshw_details %}
-  {% if '/'+path+'/' in pagename %}
+  {% if path in pagename %}
     <div class="card bg-light mt-4 text-center">
       <div class="card-header">
         {{board}}
@@ -8,9 +8,9 @@
         <p class="card-text text-dark">
             <a href="https://certification.oshwa.org/{{ oshw_id|lower }}.html" target="_blank">
               {% if pages_slug %}
-                <img src="{{docs_url}}/_static/images/oshw/{{board}}_{{path | replace('/', '@')}}_{{oshw_id}}.svg" alt="{{board}} OSHW mark"/>
+                <img src="{{docs_url}}/_static/images/oshw/{{board}}_{{oshw_id}}.svg" alt="{{board}} OSHW mark"/>
               {% else %}
-                <img src="../../../../_static/images/oshw/{{board}}_{{path | replace('/', '@')}}_{{oshw_id}}.svg" alt="{{board}} OSHW mark"/>
+                <img src="../../../../_static/images/oshw/{{board}}_{{oshw_id}}.svg" alt="{{board}} OSHW mark"/>
               {% endif %}
             </a>
         </p>

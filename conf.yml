@@ -5,17 +5,24 @@
 # all: If you want to build PDFs of all the listed boards, books, projects, etc.
 # 
 # name1,name2,name3: If you want to build PDF for specific boards, books, projects, etc.
-# Example: pdf_build: BeagleBone Black,BeagleBone AI-64
-# Note: there is now space after comma!
+# Example: pdf_build: BeagleBone Black, BeagleBone AI-64
 
 pdf_build: all
 
 # Boards
+# 
+# Example:
+# boards:
+#     name:
+#         path: <board path for index.rst>
+#         pdf: True/False
+#         oshw: <comma seprated file names from _static/images/oshw folder> 
 
 boards:
    BeagleBone Black:
       path: boards/beaglebone/black
       pdf: True
+      oshw: BeagleBone Black_US000236.svg, BeagleBone Black Wireless_US000011.svg
    BeagleBone AI-64:
       path: boards/beaglebone/ai-64
       pdf: True

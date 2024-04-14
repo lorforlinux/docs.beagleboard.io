@@ -33,12 +33,14 @@ for (dirpath, dirnames, filenames) in os.walk(rst_epilog_path):
 latex_documents = []
 pdf_paths = []
 pdf_list = []
+oshw_details = []
 with open('conf.yml', 'r') as conf_file:
     conf_data = yaml.safe_load(conf_file)
 
     pdf_build_all = True
     if(conf_data["pdf_build"] != "all"):
-        pdf_list = conf_data["pdf_build"].split(",")
+        for name in conf_data["pdf_build"].split(","):
+            pdf_list.append(name.lstrip())
         pdf_build_all = False
 
     for type, data in conf_data.items():
@@ -49,32 +51,19 @@ with open('conf.yml', 'r') as conf_file:
                 path = data['path']
                 pdf = data.get('pdf', False)
                 
+                # PDF build details
                 if(pdf and (name in pdf_list or pdf_build_all)):
                     pdf_paths.append(path)
                     tex_name = '-'.join(path.split('/')[1:])
                     latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
 
-# Board OSHWA certification information
-oshw_logos_path = "_static/images/oshw/"
-oshw_details = []
-for (dirpath, dirnames, filenames) in os.walk(oshw_logos_path):
-    for filename in filenames:
-        if filename.endswith('.svg'):
-            oshw_logo_name = filename.split(".")[0]
-            board, path, oshw_id = oshw_logo_name.split('_')
-            path = path.replace('@','/')
-            oshw_details.append([board, path, oshw_id])
-
-# Unique boards path information
-# boards_path = []
-# for board, path, oshw_id in oshw_details:
-#     for (dirpath, dirnames, filenames) in os.walk("boards"):  
-#         if '/'+path+'/' in dirpath+'/':
-#             if path+'/' not in dirpath:
-#                 boards_path.append(dirpath)
-# boards_path = set(boards_path)
-
-# print(boards_path)
+                # OSHW mark details
+                oshw_data = data.get('oshw', False)
+                if oshw_data:
+                    for oshw_mark_file in data['oshw'].split(','):
+                        if oshw_mark_file.endswith('.svg'):
+                            board, oshw_id = oshw_mark_file.lstrip().split(".")[0].split('_')
+                            oshw_details.append([board, path, oshw_id])
 
 # -- General configuration --
 
