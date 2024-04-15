@@ -20,7 +20,7 @@ the principles of operation.
 
 Background
 **********
-.. image:: media/SoftwareProp.jpg
+.. image:: images/SoftwareProp.jpg
    :width: 600
    :align: center
    :height: 400
@@ -227,7 +227,7 @@ the relative humidity and after "4t:" is the temperature in Celsius.
 Flash BeagleConnect™ Freedom node device with Greybus firmware
 --------------------------------------------------------------
 
-#TODO: How can we add a step in here to show the network is connected without needing gbridge to be fully functional?
+.. todo:: How can we add a step in here to show the network is connected without needing gbridge to be fully functional?
 
 Do this from the BeagleBone® Green Gateway board that was previously used to 
 program the BeagleConnect™ Freedom gateway device:
@@ -348,17 +348,17 @@ program the BeagleConnect™ Freedom gateway device:
     debian@beaglebone:~$
 
 
-#TODO: update the below for the built-in sensors
+.. todo:: update the below for the built-in sensors
 
-#TODO: can we also handle the case where these sensors are included and recommend them? Same firmware?
+.. todo:: can we also handle the case where these sensors are included and recommend them? Same firmware?
 
-#TODO: the current demo is for the built-in sensors, not the Click boards mentioned below
+.. todo:: the current demo is for the built-in sensors, not the Click boards mentioned below
 
 Currently only a limited number of add-on boards have been tested to work over Greybus, simple add-on boards without interrupt requirement are the ones that work currently. The example is for Air Quality 2 Click and Weather Click attached to the mikroBUS ports on the device side.
 
 /var/log/gbridge will have the gbridge log, and if the mikroBUS port has been instantiated successfully the kernel log will show the devices probe messages:
 
-#TODO: this log needs to be updated
+.. todo:: this log needs to be updated
 
 .. code-block::
 
@@ -377,7 +377,7 @@ Currently only a limited number of add-on boards have been tested to work over G
     mikrobus mikrobus-0: registering device : ams-iaq-core
 
 
-#TODO: bring in the GPIO toggle and I2C explorations for greater understanding
+.. todo:: bring in the GPIO toggle and I2C explorations for greater understanding
 
 Flashing via a Linux Host
 -------------------------
@@ -622,7 +622,7 @@ While the statically configured IPv6 address is useful, it isn't 100% necessary.
 Rebuilding from source
 ----------------------
 
-#TODO: revisit everything below here
+.. todo:: revisit everything below here
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -743,7 +743,7 @@ For this demo, I used the 5.8.4 stable kernel. Also, I've applied the
 Note: The parent directory :code:`~` is simply used as a placeholder for testing. 
 Please use whatever parent directory you see fit. 
 
-TODO: The patches for gb-netlink will eventually be applied here until pushed into mainline.
+.. todo:: The patches for gb-netlink will eventually be applied here until pushed into mainline.
 
 .. code-block:: bash
 

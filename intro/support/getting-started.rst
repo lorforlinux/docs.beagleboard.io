@@ -125,28 +125,33 @@ with an IP address of either 192.168.7.1 or 192.168.6.1, depending on the
 type of USB network adapter supported by your computer's operating system.
 Your Beagle will reserve 192.168.7.2 or 192.168.6.2 for itself.
 
-If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" where "XXXX"
-varies between boards. The access point password defaults to "BeagleBone".
-Your Beagle should be running a DHCP server that will provide your computer
-with an IP address in the 192.168.8.x range and reserve 192.168.8.1 for itself.
+If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" will be created where "XXXX"
+varies between boards. The access point password defaults to "BeagleBone". Your Beagle should be 
+running a DHCP server that will provide your compute with an IP address in the 192.168.8.x range 
+and reserve 192.168.8.1 for itself.
 
 If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi,
 it will utilize `mDNS <https://en.wikipedia.org/wiki/Multicast_DNS>`_ to broadcast itself
-to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local.
+to your computer. If your computer supports mDNS, you should see your Beagle as ``beaglebone.local``.
 Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same
 network will add a suffix such as beaglebone-2.local.
+
+.. _start-browse-to-beagle:
 
 Browse to your Beagle
 ============================
 
 A web server with an Visual Studio Code (IDE) should be running on your Beagle. 
-Point your browser to **http://192.168.7.2:3000** to begin development.
+Point your browser to `http://192.168.7.2:3000 <http://192.168.7.2:3000>`_ to begin development.
 
-.. image:: images/vscode.png
+.. figure:: images/vscode.png
+   :width: 920
    :align: center
-   :alt: Visual Studio Code
+   :alt: Visual Studio Code Server
 
-.. NOTE::
+   Visual Studio Code Server
+
+.. note::
     Use either `Firefox <https://www.mozilla.org/firefox>`_ or `Chrome <https://www.google.com/chrome>`_
     (Internet Explorer will NOT work), browse to the web server running on your board. It will load a presentation
     showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.
@@ -178,12 +183,12 @@ The below table summarizes the typical addresses.
 Troubleshooting
 ***************
 
-Do not use Internet Explorer.
+.. tip:: Do not use Internet Explorer.
 
 Virtual machines are not recommended when using the direct USB connection.
 It is recommended you use only network connections to your board if you are using a virtual machine.
 
-When using 'ssh' with the provided image, the username is 'debian' and the password is 'temppwd'.
+.. note:: When using 'ssh' with the provided image, the username is '`debian`' and the password is '`temppwd`'.
 
 With the latest images, it should no longer be necessary to install drivers for your operating
 system to give you network-over-USB access to your Beagle. In case you are running an older image,

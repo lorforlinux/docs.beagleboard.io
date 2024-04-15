@@ -38,11 +38,10 @@ It's all on a GitHub repository.
     bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
     bone$ cd pru-cookbook-code
     bone$ sudo ./install.sh
-.. note::
-   #TODO#: The version of code used needs to be noted in the documentation.
 
-.. note::
-   #TODO#: Why is this documented in multiple places?
+.. todo:: The version of code used needs to be noted in the documentation.
+
+.. todo:: Why is this documented in multiple places?
 
 .. _compiling_with_clpru_and_lnkpru:
 
@@ -344,7 +343,7 @@ Both files can be found in ``/opt/source/pru-cookbook-code/common``.
 
 :download:`am335x_pru.cmd <../code/03details/am335x_pru.cmd>`
 
-.. TODO does  this need updating?
+.. todo:: does  this need updating?
 
 The cmd file for the AI is about the same, with appropriate addresses for the AI.
 

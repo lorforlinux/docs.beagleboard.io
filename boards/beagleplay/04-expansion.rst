@@ -12,7 +12,7 @@ mikroBUS
 
 The mikroBUS header provides several GPIO pins as well as UART, I2C, SPI, PWM and an Analog Input. 
 
-By default, the port is controlled by a mikroBUS driver that helps with auto-detecting MikroE Click Board that feature [ClickID](https://www.mikroe.com/clickid). 
+By default, the port is controlled by a mikroBUS driver that helps with auto-detecting MikroE Click Board that feature `ClickID <https://www.mikroe.com/clickid>`_. 
 This does however mean that if you want to manually control the port, you may need to first disable the driver.
 
 To disable the driver, do the following - TODO
@@ -41,7 +41,9 @@ To avoid performance penalties related to the approach above, it is recommended 
 
 The `PCam5C from Digilent <https://digilent.com/shop/pcam-5c-5-mp-fixed-focus-color-camera-module/>`_ is one CSI camera that features this sensor.
 
+
 .. note:: Since BeaglePlay uses a 22-pin CSI connector, a 15 pin to 22 pin CSI adapter may also be required `such as this one <https://www.uctronics.com/arducam-15-pin-1-0mm-pitch-to-22-pin-0-5mm-camera-cable-for-raspberry-pi-zero-version-1-3-specific-pack-of-2.html>`_
+
 
 Once installed, there are some software changes required to load the device driver at boot for the OV5640. 
 

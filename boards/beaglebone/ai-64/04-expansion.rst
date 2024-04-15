@@ -3,16 +3,20 @@
 Expansion
 ############
 
+.. _bbai64-pinout-diagrams:
+
 Pinout Diagrams
 ***************
 
-Choose the cape header to see respective pinout diagram.
+BeagleBone AI-64 P8 & P9 cape headers are designed to be compatible with BeagleBone Black as much as possible. 
+Below pinout diagrams are design to simplify cape header pin usage and cape design process for AI-64. To start 
+using P8 / P9 cape header choose respective pinout diagram tab below.
 
 .. tabs::
 
    .. group-tab:: P8 cape header
 
-        .. figure:: media/pinout/BeagleBone-AI-64-P8.*
+        .. figure:: images/pinout/BeagleBone-AI-64-P8.*
             :align: center
             :alt: BeagleBone AI-64 P8 cape header pinout
 
@@ -21,7 +25,7 @@ Choose the cape header to see respective pinout diagram.
 
    .. group-tab:: P9 cape header
 
-        .. figure:: media/pinout/BeagleBone-AI-64-P9.*
+        .. figure:: images/pinout/BeagleBone-AI-64-P9.*
             :align: center
             :alt: BeagleBone AI-64 P9 cape header pinout
 
@@ -32,19 +36,18 @@ Choose the cape header to see respective pinout diagram.
 Cape Header Connectors
 **********************
 
-The cape expansion interface on the board is comprised of two headers P8 (46 pin) & P9 (50 pin).
-All signals on the expansion headers are **3.3V** unless otherwise indicated.
+Beagle cape expansion interface on the BeagleBone AI-64 like other Beagles is comprised of two 
+headers P8 (46 pin) & P9 (50 pin). All signals on the expansion headers are **3.3V** unless 
+otherwise indicated. **On some of the cape header pins on AI-64 multiple SoC pins are shorted and 
+only one of them should be used at a time.** Information regarding the double/shorted pins is provided 
+in the :ref:`bbai64-pinout-diagrams` above (simplified) and cape header pin tables below (detailed).
 
-.. important::
+.. danger:: 
     Do not connect 5V logic level signals to these pins or the board will be damaged.
 
-.. important:: 
-    DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE BOARD. 
-    IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.
-
-.. important::
-
-    **NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.**
+    **NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH. DO NOT APPLY 
+    VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE BOARD. 
+    IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.**
 
 Connector P8
 ==============
@@ -1496,7 +1499,7 @@ P9.43-P9.46
 +--------+--------+--------+--------+
 
 
-.. _bbai64-cape-board-support-1:
+.. _bbai64-cape-board-support:
 
 Cape Board Support
 ===================
@@ -1512,8 +1515,8 @@ can be used with your BeagleBone AI-64 also like shown in :ref:`bbai64-cape-plac
 
 .. _bbai64-cape-placement-figure:
 
-.. figure:: media/ch08/cape-placement.*
-   :width: 400px
+.. figure:: images/ch08/cape-placement.*
+   :width: 1040
    :align: center 
    :alt: BeagleBone AI-64 cape placement
    
@@ -1563,7 +1566,7 @@ See :ref:`beaglebone-cape-interface-spec` for compatibility information.
    Add BeagleBone AI-64 LCD pins information.
    Add BeagleBone AI-64 eMMC pins information.
 
-.. _eeprom:
+.. _bbai64-eeprom:
 
 EEPROM
 --------
@@ -1581,8 +1584,8 @@ below is the design of the EEPROM circuit.
 
 .. _expansion-board-eeprom-without-write-protect-figure:
 
-.. figure:: media/ch08/eeprom.*
-   :width: 400px
+.. figure:: images/ch08/eeprom.*
+   :width: 740
    :align: center 
    
    Expansion board EEPROM without write protect
@@ -1667,8 +1670,8 @@ discretion of the cape designer.
 
 .. _expansion-board-eeprom-with-write-protect-figure:
 
-.. figure:: media/ch08/eeprom-write-protect.*
-   :width: 400px
+.. figure:: images/ch08/eeprom-write-protect.*
+   :width: 740
    :align: center 
    
    Expansion board EEPROM with write protect
@@ -1795,8 +1798,8 @@ the connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
 .. _single-expansion-connector-figure:
 
-.. figure:: media/ch08/single-expansion-connector.*
-   :width: 400px
+.. figure:: images/ch08/single-expansion-connector.*
+   :width: 740
    :align: center 
    
    Single expansion connector
@@ -1808,8 +1811,8 @@ single row 23 pin headers for each of the dual row headers.
 
 .. _single-cape-expansion-connector-figure:
 
-.. figure:: media/ch08/proto.*
-   :width: 400px
+.. figure:: images/ch08/proto.*
+   :width: 740
    :align: center 
    
    Single cape expansion connector on BeagleBone Proto Cape with EEPROM from onlogic
@@ -1871,8 +1874,8 @@ connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
 .. _expansion-connector-figure:
 
-.. figure:: media/ch08/expansion-connector.*
-   :width: 400px
+.. figure:: images/ch08/expansion-connector.*
+   :width: 740
    :align: center
    :alt: Expansion Connector
    
@@ -1885,8 +1888,8 @@ connector configuration for the connector.
 
 .. _stacked-cape-expansion-connector-figure:
 
-.. figure:: media/ch08/can-cape.*
-   :width: 250px
+.. figure:: images/ch08/can-cape.*
+   :width: 740
    :align: center 
    :alt: Stacked cape expansion connector
    
@@ -1952,8 +1955,8 @@ nonstacking style connectors.
 
 .. _stacked-with-signal-stealing-expansion-connector-figure:
 
-.. figure:: media/ch08/stealing-expansion-connector.*
-   :width: 400px
+.. figure:: images/ch08/stealing-expansion-connector.*
+   :width: 740
    :align: center 
    
    Stacked with signal stealing expansion connector figure
@@ -1987,7 +1990,7 @@ overhang.
 
 .. _connector-pin-insertion-depth:
 
-.. figure:: media/ch08/berg-stip-insertion.*
+.. figure:: images/ch08/berg-stip-insertion.*
    :width: 400px
    :align: center 
    :alt: Connector Pin Insertion Depth
@@ -2138,8 +2141,8 @@ Standard Cape Size
 
 .. _cape-board-dimensions-figure:
 
-.. figure:: media/ch08/cape-dimension.*
-   :width: 400px
+.. figure:: images/ch08/cape-dimension.*
+   :width: 740
    :align: center 
    :alt: Cape board dimensions
    
@@ -2166,6 +2169,7 @@ supplier of such a cape to repair. As with all capes, the EEPROM is required and
 compliance with the power requirements must be adhered to.
 
 
+.. todo:: Update everything taken from BBB chapters to BB AI-64 compatible text.
 
 RANDOM PRU STUFF THAT MIGHT NEED A HOME
 ***************************************

@@ -3,6 +3,8 @@
 Cables
 #######
 
+.. _accessories-cables-usb:
+
 USB Data/Power Cables
 ***********************
 
@@ -86,16 +88,24 @@ The default serial port settings for Beagles are:
     | Handshake    | None         |
     +--------------+--------------+
 
-JST-SH serial cables
-====================
+.. _molex-picoblade-serial-cables:
 
-These cables are not active (only wries and connector) and provide an interface 
+Molex picoblade serial cables
+=============================
+
+These cables are not active (only wires and connector) and provide an interface 
 between USB to Serial converter cables such as the ones listed below and serial 
 debug ports on Beagles such as BeagleBone AI and AI-64. You can purchase these 
 cables from different sources including:
 
 1. `Farnell <https://www.newark.com/element14/1103004000156/serial-cable-ai-board/dp/50AH3702>`_
 2. `DigiKey <https://www.digikey.com/en/products/detail/digi-key-electronics/BBCAI/10187731>`_
+
+.. note:: 
+    BeagleBone AI and BeagleBone AI-64 UART debug port uses a 3pin **Molex PicoBlade (1.25mm)** connector. 
+    Raspberry Pi UART debug port uses a 3pin **JST-Sh (1.00mm)** connector. The connectors and the cables 
+    for both the connector types may look very similar but they are very different. Make sure to check connector 
+    type before buying cables because they are incompatible with each other.
 
 Standard FTDI Cable
 ====================
@@ -216,6 +226,8 @@ microHDMI to VGA
 =================
 
 `Cable Matters Micro HDMI to VGA Adapter <https://www.amazon.com/Cable-Matters-Active-Female-Adapter/dp/B00879EZJI/ref=sr_1_2?ie=UTF8&qid=1381610066&sr=8-2&keywords=micro-hdmi+to+vga>`_
+
+.. _accessories-cables_minidp_hdmi:
 
 miniDP to HDMI 
 ****************

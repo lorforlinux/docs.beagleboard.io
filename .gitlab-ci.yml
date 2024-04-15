@@ -4,15 +4,35 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 cache:
-  key: bbdocs
+  key: sphinx-build-env-docs-001
   paths:
-  - public
+  - .venv
+  - .cache
+
+build:
+  stage: build
+  tags:
+  - docker-amd64
+  parallel:
+    matrix:
+      - TARGET: [html, pdf]
+  artifacts:
+    paths:
+    - public/$TARGET
+  before_script:
+    - source ./venv-build-env.sh
+  script:
+    - ./gitlab-build.sh $TARGET
 
 pages:
+  stage: deploy
+  dependencies:
+    - "build: [html]"
+    - "build: [pdf]"
   tags:
-  - docker-arm64
+  - docker-amd64
   script:
-  - "./gitlab-build.sh"
+  - ./gitlab-build.sh publish
   artifacts:
     paths:
     - public
@@ -20,10 +40,14 @@ pages:
     - tags
 
 docs:
+  stage: deploy
+  dependencies:
+    - "build: [html]"
+    - "build: [pdf]"
   tags:
   - docs
   script:
-  - "./gitlab-build.sh"
+  - ./gitlab-build.sh publish
   artifacts:
     paths:
     - public

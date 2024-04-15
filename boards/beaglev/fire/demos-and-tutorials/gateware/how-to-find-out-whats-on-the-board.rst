@@ -16,7 +16,7 @@ You can retrieve that information using the following command:
 
 This should give an output similar to the one below.
 
-.. figure:: media/dts-design-info.png
+.. figure:: images/dts-design-info.png
     :align: center
 
 The gateware version can be retrieve by reading one of the overlay files. For example, the command:
@@ -28,7 +28,7 @@ The gateware version can be retrieve by reading one of the overlay files. For ex
 
 should result in:
 
-.. figure:: media/dts-design-version.png
+.. figure:: images/dts-design-version.png
     :align: center
 
 where the result of a "git describe" command on the gateware repository is displayed. This provides the
@@ -41,7 +41,7 @@ Bootloader messages
 The Hart Software Services display the gateware design name and design version retrieve from the FPGA
 at system start-up.
 
-.. figure:: media/hss-design-info.png
+.. figure:: images/hss-design-info.png
     :align: center
 
 The design name is the name of the build option selected when using the bitstream-builder to generate

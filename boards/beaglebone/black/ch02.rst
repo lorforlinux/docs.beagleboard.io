@@ -8,7 +8,7 @@ Document changes are not always a result of a board change. A board
 change will always result in a document change.
 
 Document Change History
----------------------------
+***********************
 
 .. list-table:: AsciiDoc Change History
    :header-rows: 1
@@ -116,17 +116,17 @@ Document Change History
      - JK
 
 Board Changes
------------------
+**************
 
 Rev C3a
-********
+========
 
 PCB revision C.
 
 * New USB Type-A connector.
 
 Rev C3
-********
+=======
 
 PCB revision C.
 
@@ -140,7 +140,7 @@ PCB revision C.
 Initial boxes mistakenly say rev C1.
 
 Rev C2
-*******
+=======
 
 PCB revision B6.
 
@@ -155,7 +155,7 @@ PCB revision B6.
     * Kingston MMC04G-M627-X02U
 
 Rev C1
-********
+=======
 
 PCB revision B6.
 
@@ -171,7 +171,7 @@ PCB revision B6.
     * Kingston EMMC04G-S100-A08U
 
 Rev C
-***********
+======
 
 * Changed the eMMC from 2GB to 4GB.
 
@@ -180,19 +180,19 @@ required us to move to 4GB. We now have two sources for the device. This
 will however, require an increase in the price of the board.
 
 Rev B
-***********
+======
 
 * Changed the processor to the AM3358BZCZ100.
 
 Rev A6A
-*************
+========
 
 * Added connection from 32KHz OSC_GND to system ground and changed C106 to 1uF.
 * Changes C25 to 2.2uF. This resolved an issue we were seeing in a few boards where the board would not boot in 1 in 20 tries.
 * Change required PCB revision to B6.
 
 Rev A6
-************
+=======
 
 * In random instances there could be a glitch in the SYS_RESETn signal from the processor where the SYS_RESETn signal was taken high for a momentary amount of time before it was supposed to. To prevent this, the signal was ORed with the PORZn (Power On reset).
 * Noise issues were observed in other design where the clock oscillator was getting hit due to a suspected issue in ground bounce. A zero ohm resistor was added to connect the OSC_GND to the system ground.
@@ -200,7 +200,7 @@ Rev A6
 There are no new features added as a result of these changes.
 
 Rev A5C
-*************
+========
 
 We were seeing some fallout in production test where we were seeing some
 jitter on the HDMI display test. It started showing up on our second
@@ -212,7 +212,7 @@ issue was caught in production test. No impact on features or
 functionality resulted from this change.
 
 Rev A5B
-*************
+========
 
 There is no operational difference between the Rev A5A and the Rev A5B.
 There were two changes made to the A5B version.
@@ -225,7 +225,7 @@ was not a result of any hardware changes but only updated software. The
 A5A version also supports this resolution.
 
 Rev A5A
-*************
+========
 
 This is the initial production release of the board. We will be tracking
 changes from this point forward.

@@ -4,7 +4,7 @@ Flashing Firmware
 #####################
 
 Overview
-============
+*********
 
 Most Beaglebones have a built in 4 GB SD card known as a eMMC (embedded
 MMC). When the boards are made the eMMC is “flashed” with some version
@@ -14,7 +14,7 @@ the last version of the BeagleBone OS or a specific version of it if
 someone tells you otherwise.
 
 Required Items
-==================
+****************
 
 1. Micro sd card. 4 GB minimum
 2. Micro sd card reader or a built in sd card reader for your PC
@@ -22,7 +22,7 @@ Required Items
 4. `Etcher utility <https://etcher.io/>`__ for your PC’s OS.
 
 Steps Overview
-=================
+****************
 
 1. Burn the image you want to flash onto a micro sd card using the
    Etcher utility.

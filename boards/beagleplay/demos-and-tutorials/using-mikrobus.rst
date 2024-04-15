@@ -39,11 +39,14 @@ BeaglePlay's Linux kernel is patched with a mikrobus driver that automatically r
 Does my add-on have ClickID?
 ============================
 
-Look for the "ID" logo on the board. It should be on the side with the pins sticking out, near the AN pin.
+Look for the "ID" logo on the board. It's near PWM pin on upper right hand side in the illustration shown below.
 
-.. todo::
+.. figure:: images/mikrobus-linux-board-illustration.png
+   :width: 940
+   :align: center
+   :alt: mikroBUS clickID - BeaglePlay connection
 
-   Need an image of the logo
+   mikroBUS clickID - BeaglePlay connection
 
 If your add-on has ClickID, simply connect it while BeaglePlay is powered off and then apply power.
 
@@ -69,13 +72,16 @@ To use the add-on, see :ref:`beagleplay-mikrobus-using`.
 What if my add-on doesn't have ClickID?
 ***************************************
 
-It is still possible a ``manifest`` has been created for your add-on as we have created over 100 of them. You can install the existing manifest files onto your BeaglePlay.
+It is still possible a ``manifest`` has been created for your add-on as we have created over 100 of them. 
+You can install the existing manifest files onto your BeaglePlay. First, make sure you have the 
+latest manifests installed in your system.
 
-First, make sure you have the latest manifests installed in your system.
-
-.. code:: bash
+.. code:: console
 
    sudo apt update
+
+.. code:: console
+
    sudo apt install bbb.io-clickid-manifests
 
 
@@ -117,12 +123,12 @@ Take a look at the list of ``manifest`` files to see if the Click or other mikro
    COLOR-2-CLICK.mnfb        HEART-RATE-7-CLICK.mnfb    PROXIMITY-9-CLICK.mnfb      WAVEFORM-CLICK.mnfb
    COLOR-7-CLICK.mnfb        HEART-RATE-CLICK.mnfb      PROXIMITY-CLICK.mnfb        WEATHER-CLICK.mnfb
 
-Then, load the appropriate ``manifest`` using the ``mikrobus`` bus driver. For example, with the Ambient 2 Click, you can write that ``manifest`` to the ``mikrobus-0`` ``new_device`` entry.
+Then, load the appropriate ``manifest`` using the ``mikrobus`` bus driver. For example, with the Ambient 2 Click, 
+you can write that ``manifest`` to the ``mikrobus-0`` ``new_device`` entry.
 
 .. code:: bash
 
    cat /lib/firmware/mikrobus/AMBIENT-2-CLICK.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
-
 
 .. note::
 
@@ -183,7 +189,7 @@ See also https://wiki.analog.com/software/linux/docs/iio/iio.
 
 To discover IIO driver enabled devices, use the ``iio_info`` command.
 
-.. code-block:: shell-session
+.. code-block:: console
 
     debian@BeaglePlay:~$ iio_info
     Library version: 0.24 (git tag: v0.24)
@@ -262,7 +268,7 @@ Apply overlay to disable mikrobus0 instance.
 
 Log back in after reboot and verify the device driver did not capture the busses.
 
-.. code-block:: shell-session
+.. code-block:: console
 
     debian@BeaglePlay:~$ ls /dev/play
     grove  mikrobus  qwiic
@@ -282,7 +288,7 @@ To re-enable.
 
 Verify driver is enabled again.
 
-.. code-block:: shell-session
+.. code-block:: console
 
     debian@BeaglePlay:~$ ls /sys/bus/mikrobus/devices/
     mikrobus-0

@@ -110,7 +110,7 @@ Once ``prudebug`` is installed is rather easy to use.
 
   ``prudebug`` has now been ported to the AI.
 
-.. TODO  Isn't working on Pocket at this time.
+.. todo::  Isn't working on Pocket at this time.
 
 .. code-block:: bash
 
@@ -280,7 +280,7 @@ Problem
 
 I'd like to use something like ``printf()`` to debug my code.
 
-.. TODO Check these on the Black and Pocket without grove
+.. todo:: Check these on the Black and Pocket without grove
 
 Solution
 ---------
@@ -389,7 +389,7 @@ For example
 
   DRA7XX_CORE_IOPAD(0x3610, *PIN_INPUT* | MUX_MODE10) // C6: P8.33a:
 
-.. * TODO - Add code for Blue.
+.. todo:: Add code for Blue.
 
 .. literalinclude:: ../code/04debug/uart1.pru1_0.c
    :caption: uart1.pru1_0.c

@@ -37,7 +37,7 @@ With asterisk you can format the text as italic & bold,
 
 With backquote character (`) you can format the text as link & inline literal.
 
-1. See `Links`_ section on how single backquote can be used to create a link like `this <www.beagleboard.org>`_.
+1. See `Links and cross referencing`_ section on how single backquote can be used to create a link like `this <www.beagleboard.org>`_.
 2. With double back quotes before and after text you can easily create ``inline lierals``.
 
 .. note::
@@ -253,19 +253,13 @@ Output
     example.
 
 
-Links
-******
-
-We have three types of links to use in sphinx,
-
-1. External links (http(s) links).
-2. Implicit links to title (within same rst file).
-3. Explicit links (labels that can be used anywhere in the project).
+Links and cross referencing
+****************************
 
 External links
 ==============
 
-For a simple link to a site the format is
+For a simple link (url) to a site the format is
 
 .. code-block:: rst
 
@@ -281,35 +275,52 @@ You can also include a label to the link as shown below.
 
 this will be rendered as `BeagleBoard.org <www.beagleboard.org>`_. 
 
-Implicit Links
-==============
+Cross referencing
+==================
+
+Cross referencing involves two components, references and targets.
+
+1. **references** are pointers in your documentation to other parts of your documentation.
+2. **targets** are where the references can point to.
+
+When you manually create a target which can be referenced from other pages it's called 
+explicit target. When you create a section (heading), a footnote, or a citation then 
+Sphinx will create a target with the title as the name which is called implicit target 
+which you can use within that page/document.
+
+Implicit target
+================
 
 These are basically the headings inside the rst page which can 
-be used as a link to that section within document. 
+be used as a link to that section within document. Taking the tile (name) 
+of section ``External links`` as target we can reference it with syntax below: 
+
+.. note:: 
+        This can only be used within the document.
 
 .. code-block:: rst
 
-    `Links`_
+    `External links`_
 
-when rendered it becomes `Links`_
+Then the reference will be rendered as: `External links`_
 
-Explicit link
-==============
-
-.. todo:: The terminology ``Implicit`` and ``Explicit`` is not accurate here.
+Explicit target
+================
 
 These are special links you can assign to a specific part of the document and reference anywhere 
-in the project unlike implicit links which can be used only within the document they are defined. 
-On top of each page you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
+in the project unlike **implicit links which can be used only within the document they are defined**. 
+On top of each page in docs you'll see some text like ``.. _rst-cheat-sheet:`` is used to create a
 label for this chapter. These are called the explicit links amd you can reference these using ``ref:``.
 
-.. note:: This can be used inside or outside of the document and the rendered link will take you directly to that specific section.
+.. note:: 
+    This can be used inside or outside of the document and the rendered 
+    link will take you directly to that specific section.
 
 .. code-block:: rst
 
     :ref:`rst-cheat-sheet`
 
-When rendered it becomes :ref:`rst-cheat-sheet`.
+Then the reference will be rendered as: :ref:`rst-cheat-sheet`.
 
 YouTube Videos
 ==============
@@ -322,10 +333,25 @@ This site uses sphinxcontrib-youtube to embed YouTube videos. The syntax is as f
     
     .. annotations::
 
-        <1> <2> <3> Here you have to replace the <YouTube_video_ID> with your actual youtube ID.
+        <1> Internal link to the video to be used for references.
+
+        <2> Title for your video.
+
+        <3> Here you have to replace the <YouTube_video_ID> with your actual YouTube ID.
+
+When rendered, it looks like :ref:`youtube-example`.
+
+.. _youtube-example:
+
+YouTube video example 
+-----------------------
+
+.. youtube:: 7cm1AAnaawk
+    :width: 100%
+    :align: center
 
 More
-====
+****
 
 .. rubric:: footnotes
 

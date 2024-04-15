@@ -1,12 +1,14 @@
-..
-    BeagleBoard projects documentation main file
-
 .. _bbdocs-home:
+
+:html_theme.sidebar_secondary.remove: true
+:sd_hide_title: true
 
 BeagleBoard Documentation
 ############################
 
-Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`__.
+.. image:: _static/images/banner.webp
+
+Welcome to the `BeagleBoard project documentation <https://git.beagleboard.org/docs/docs.beagleboard.io>`_.
 If you are looking for help with your Beagle open-hardware development platform, you've found the right place!
 
 .. note:: 
@@ -35,9 +37,7 @@ projects ongoing on our :ref:`contribution` page.
    :hidden:
    :caption: Introduction
 
-   /intro/beagle101/index
-   /intro/support/index
-   /intro/contribution/index
+   /intro/index
 
 
 Boards
@@ -60,13 +60,26 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
+      :link: beagley-ai-home
+      :link-type: ref
+
+      **BeagleY-AI**
+      ^^^
+
+      .. image:: boards/images/beagley-ai.*
+         :align: center
+      +++
+
+      An industry standard form-factor 64-bit ARM computer.
+
+   .. grid-item-card::
       :link: beagleplay-home
       :link-type: ref
 
       **BeaglePlay®**
       ^^^
 
-      .. image:: boards/beagleplay/images/product-pictures/45front.*
+      .. image:: boards/images/beagleplay.*
          :align: center
       +++
 
@@ -80,7 +93,7 @@ from source using appropriate design tools.
       **BeagleConnect™ Freedom**
       ^^^
 
-      .. image:: boards/beagleconnect/freedom/media/product-pictures/bcf-front1.*
+      .. image:: boards/images/beagleconnect-freedom.*
          :align: center
       +++
 
@@ -94,7 +107,7 @@ from source using appropriate design tools.
       **BeagleBone® AI-64**
       ^^^
 
-      .. image:: boards/images/beaglebone-ai-64-400x.*
+      .. image:: boards/images/beaglebone-ai-64.*
          :align: center
       +++
 
@@ -109,7 +122,7 @@ from source using appropriate design tools.
       **BeagleV®-Fire**
       ^^^
 
-      .. image:: boards/beaglev/fire/media/product-pictures/bvf-45front.*
+      .. image:: boards/images/beaglev-fire.*
          :align: center
       +++
 
@@ -123,7 +136,7 @@ from source using appropriate design tools.
       **BeagleV®-Ahead**
       ^^^
 
-      .. image:: boards/beaglev/ahead/media/product-pictures/bva-45front.*
+      .. image:: boards/images/beaglev-ahead.*
          :align: center
       +++
 
@@ -137,7 +150,7 @@ from source using appropriate design tools.
       **BeagleBone® Black**
       ^^^
 
-      .. image:: boards/images/beaglebone-black-400x400.png
+      .. image:: boards/images/beaglebone-black.*
          :align: center
       +++
 
@@ -147,42 +160,13 @@ from source using appropriate design tools.
       materials behind it making it ready for any application.
 
    .. grid-item-card:: 
-      :link: beagleboneblack-home
-      :link-type: ref
-
-      **BeagleBone® Black Industrial**
-      ^^^
-
-      .. image:: boards/images/bb-industrial-400x356.png
-         :align: center
-      +++
-
-      Answer the need for an industrial rated single board computer with extended 
-      temperature range with the same functionality as the popular BeagleBone Black®
-
-   .. grid-item-card:: 
-      :link: beagleboneblack-home
-      :link-type: ref
-
-      **BeagleBone® Black Wireless**
-      ^^^
-
-      .. image:: boards/images/BeagleBoneBlackWireless-Angled-400x268.png
-         :align: center
-      +++
-
-      With built-in 802.11 b/g/n 2.4GHz Wi-Fi and Bluetooth wireless networking capability, 
-      the popular open source BeagleBone® Black computer goes anywhere. Take your IoT and 
-      IIoT projects to the next level with a full Linux computer the size of a mint tin.
-
-   .. grid-item-card:: 
-      :link: beaglebone-ai-home
+      :link: bbai-home
       :link-type: ref
 
       **BeagleBone® AI**
       ^^^
 
-      .. image:: boards/images/beaglebone-ai-400x208.png
+      .. image:: boards/images/beaglebone-ai.*
          :align: center
       +++
 
@@ -197,7 +181,7 @@ from source using appropriate design tools.
       **PocketBeagle®**
       ^^^
 
-      .. image:: boards/images/pocketBeagle-hero-hand-400x222.png
+      .. image:: boards/images/pocketbeagle.*
          :align: center
       +++
 
@@ -212,7 +196,7 @@ from source using appropriate design tools.
       **BeagleBone® Blue**
       ^^^
 
-      .. image:: boards/images/beaglebone-blue-400x279.png
+      .. image:: boards/images/beaglebone-blue.*
          :align: center
       +++
 
@@ -376,20 +360,7 @@ Capes
    :hidden:
    :caption: Boards
    
-   /boards/beagley/ai/index
-   /boards/beagleplay/index
-   /boards/beaglebone/ai-64/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/black/index
-   /boards/beaglebone/blue/index
-   /boards/beaglebone/index
-   /boards/beaglev/ahead/index
-   /boards/beaglev/fire/index
-   /boards/pocketbeagle/original/index
-   /boards/beagleconnect/freedom/index
-   /boards/beagleboard/index
-   /boards/capes/index
-   /boards/terms-and-conditions
+   boards/index
 
 
 Projects
@@ -403,10 +374,7 @@ developers. Some developers choose to host documentation for their :ref:`project
    :hidden:
    :caption: Projects
 
-   /projects/simppru/index
-   /projects/bb-config/index
-   /projects/librobotcontrol/docs/index
-   /projects/beagleconnect/index
+   projects/index
 
 Books
 *****
@@ -421,8 +389,7 @@ This project hosts a collection of open-source :ref:`books-home` books written t
    :hidden:
    :caption: Books
 
-   /books/beaglebone-cookbook/index
-   /books/pru-cookbook/index
+   books/index
 
 Accessories
 ************
@@ -443,12 +410,3 @@ Indices and tables
 
 * :ref:`glossary`
 * :ref:`genindex`
-
-This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_. 
-
-Attribute original work to BeagleBoard.org Foundation.
-
-.. image:: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-    :width: 88px
-    :height: 31px
-    :target: http://creativecommons.org/licenses/by-sa/4.0/
