@@ -8,14 +8,14 @@ What's included in the box?
 
 .. todo:: Update BeagleY-AI what's included in the box section as per production release.
 
-When you purchase a brand new BeagleY-AI, In the box you'll get:
+When you purchase a BeagleY-AI, you'll get the following in the box:
 
 1. `BeagleY-AI <https://www.beagleboard.org/boards/beagley-ai>`_
 2. JST-SH cables
 3. 2.4GHz antennas
 4. Quick-start card
 
-.. tip:: For board files, 3D model, and more, you can checkout `BeagleY-AI repository on OpenBeagle <https://openbeagle.org/beagley-ai/beagley-ai>`_.
+.. tip:: For board files, 3D model, and more, you can checkout the `BeagleY-AI repository on OpenBeagle <https://openbeagle.org/beagley-ai/beagley-ai>`_.
 
 .. todo:: Attaching antennas instructions for BeagleY-AI
 
@@ -26,9 +26,9 @@ Getting started
 
 To get started you need the following:
 
-1. :ref:`USB Type-A to Type-C cable or Type-C to Type-C cable <accessories-cables-usb>`
-2. :ref:`5V > 3A power supply <accessories-power-supplies>`
-3. Micro SD Card 
+1. :ref:`USB type-A to type-C cable or type-C to type-C cable <accessories-cables-usb>`
+2. :ref:`5V - 3A power supply <accessories-power-supplies>`
+3. MicroSD Card 
 4. Boot media
 
 Boot Media
@@ -52,20 +52,19 @@ Power Supply
 =============
 
 To power the board you can either connect it to a dedicated power supply like a mobile charger or a wall adapter that 
-can provide 5V ≥ 3A. Checkout `docs power supply page <https://docs.beagleboard.org/latest/accessories/power-supplies.html#accessories-power-supplies>`_ 
-for recommended power supply.
+can provide 5V ≥ 3A. Checkout the `docs power supply page <https://docs.beagleboard.org/latest/accessories/power-supplies.html#accessories-power-supplies>`_ 
+for power supply recommendations.
 
 Board connection
 =================
 
-There is only one USB type-c port on board, if you choose to use a dedicated power supply you have to access to board via any of the following methods:
+There is only one USB type-C port on board, if you choose to use a dedicated power supply for first time setup, you may access the board via one of the following methods:
 
 1. Connection to HDMI display, Keyboard and Mouse
-2. UART using rpi pico debug probe or similar
+2. UART using RPi debug probe or similar
 3. Ethernet network connection
 
-Another direct and easy option is to connect the board directly to your PC or Laptop using a USB type-a to type-c cable. 
-This is not recommended if you are doing any heavy task on your BeagleY-AI but, for testing this should be fine.
+Another direct and easy option is to connect the board directly to your PC or Laptop using a USB type-C cable. 
 
 .. note:: 
     If you are using the board with a fan or running a heavy task you should always power 
@@ -74,11 +73,11 @@ This is not recommended if you are doing any heavy task on your BeagleY-AI but, 
 USB Tethering
 ==============
 
-To initially test your board, you can connect the board directly to your computer using a type-a to type-c cable shown in the image below. 
+To initially test your board, you can connect the board directly to your computer using a type-A to type-C cable shown in the image below. 
 
 .. image:: images/beagley-ai-tethered-connection.*
 
-After connecting, you should see Power LED glow, and soon just like with other Beagles, you’ll see a virtual wired connection on your computer. To access the board you can use ssh as shown below.
+After connecting, you should see the power LED glow, and soon just like with other Beagles, you’ll see a virtual wired connection on your computer. To access the board you can use SSH as shown below.
 
 .. note::
     Here you must update the default password to something safer.

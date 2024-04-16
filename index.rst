@@ -367,7 +367,7 @@ Projects
 ********
 
 A number of software projects, like :ref:`simppru_home` exist to help Beagle
-developers. Some developers choose to host documentation for their :ref:`projects-home` .
+developers. Some developers choose to host documentation for their :ref:`projects-home` here.
 
 .. toctree::
    :maxdepth: 1
@@ -379,7 +379,7 @@ developers. Some developers choose to host documentation for their :ref:`project
 Books
 *****
 
-This project hosts a collection of open-source :ref:`books-home` books written to help Beagle developers.
+This project hosts a collection of open-source :ref:`books-home` written to help Beagle developers.
 
 * Find a great introduction to BeagleBone at: :ref:`bone-cook-book-home`
 * Learn one of the most amazing Beagle features at: :ref:`pru-cookbook-home`
@@ -394,8 +394,8 @@ This project hosts a collection of open-source :ref:`books-home` books written t
 Accessories
 ************
 
-This is a list of curated hardware accessories tested thouroghly with BeagleBone hardware. 
-The list is growing with support of volunteers like you. Checkout :ref:`accessories-home` 
+This is a list of hardware accessories tested with BeagleBone hardware. 
+The list is growing with support of volunteers like you. Checkout the :ref:`accessories-home` 
 page for more information.
 
 .. toctree::
