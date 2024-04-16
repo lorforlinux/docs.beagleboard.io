@@ -12,16 +12,16 @@ BeagleY-AI is an open-source single board computer designed for edge AI applicat
 Detailed overview
 ******************
 
-It is based on Texas Instruments AM67A Arm-based vision processor with quad-core 64-bit Arm®Cortex®-A53 CPU subsystem at 1.4GHz, 
-Dual general-purpose C7x DSP with Matrix Multiply Accelerator (MMA) capable of 4 TOPs, Arm Cortex-R5 subsystem for low-latency 
-I/O and control, GPU, video and vision accelerators, and other specialized processing capability.
+BeagleY-AI is based on the Texas Instruments AM67A Arm-based vision processor.  It features a quad-core 64-bit Arm®Cortex®-A53 CPU subsystem at 1.4GHz, 
+Dual general-purpose C7x DSP with Matrix Multiply Accelerator (MMA) capable of 4 TOPs each, Arm Cortex-R5 subsystem for low-latency 
+I/O and control, a 50 GFlop GPU, video and vision accelerators, and other specialized processing capability.
 
 .. table:: BeagleY-AI features
         
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Feature               | Description                                                                                                                                                              |
     +=======================+==========================================================================================================================================================================+
-    | Processor             | TI AM67, Quad 64-bit Arm® Cortex®-A53 microprocessor subsystem at up to 1.4 GHz, multiple cores including Arm/GPU processors, DSP, and vision/deep learning accelerators |
+    | Processor             | Texas Instruments AM67A, Quad 64-bit Arm® Cortex®-A53 @1.4 GHz, multiple cores including Arm/GPU processors, DSP, and vision/deep learning accelerators                  |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | RAM                   | 4GB LPDDR4                                                                                                                                                               |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -29,19 +29,19 @@ I/O and control, GPU, video and vision accelerators, and other specialized proce
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Bluetooth             | Bluetooth Low Energy 5.4 (BLE)                                                                                                                                           |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | USB Ports             | 4 x USB 3.0 TypeA ports supporting simultaneous 5Gbps operation, 1 x USB 2.0 TypeC, supports USB 2.0 device                                                              |
+    | USB Ports             | 4 x USB 3.0 TypeA ports supporting simultaneous 5Gbps operation, 1 x USB 2.0 TypeC, supports USB 2.0 device mode                                                         |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Ethernet              | Gigabit Ethernet, with PoE+ support (requires separate PoE+ HAT)                                                                                                         |
+    | Ethernet              | Gigabit Ethernet, with PoE+ support (requires separate PoE HAT)                                                                                                         |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Camera/Display        | 1 x 4-lane MIPI camera/display transceivers, 1 x 4-lane MIPI camera                                                                                                      |
+    | Camera/Display        | 2 x 4-lane MIPI camera connector (one connector muxed with DSI capability)                                                                                                 |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Display Output        | 1 x HDMI display, 1 x OLDI display                                                                                                                                       |
+    | Display Output        | 1 x HDMI display, 1 x OLDI display, 1 x DSI MIPI Display                                                                                                                                       |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Real-time Clock (RTC) | Supports external button battery for power failure time retention. only populated on EVT samples.                                                                        |
+    | Real-time Clock (RTC) | Supports external coin-cell battery for power failure time retention                                                                        |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Debug UART            | 1 x 3-pin debug UART                                                                                                                                                     |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Power                 | 5V/5A DC power via USB-C, with Power Delivery support                                                                                                                    |
+    | Power                 | 5V/3A DC power via USB-C                                                                                                              |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Power Button          | On/Off included                                                                                                                                                          |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -49,11 +49,11 @@ I/O and control, GPU, video and vision accelerators, and other specialized proce
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Expansion Connector   | 40-pin header                                                                                                                                                            |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Fan connector         | 1 x 4-pin fan connector, supports PWM speed control and speed measurement                                                                                                |
+    | Fan connector         | 1 x 4-pin fan connector, supports PWM control and fan speed measurement                                                                                                |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Storage               | microSD card slot, with support for high-speed SDR104 mode                                                                                                               |
+    | Storage               | microSD card slot with UHS-1 support                                                                                                               |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Tag Connect           | 1 x JTAG, 1 x Tag Connect for PMIC NVM Programming                                                                                                                       |
+    | Tag Connect           | 1 x JTAG, 1 x External PMIC programming port                                                                                                                     |
     +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 AM67A SoC
