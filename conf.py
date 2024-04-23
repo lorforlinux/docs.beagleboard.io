@@ -138,9 +138,13 @@ html_css_files = [
     'css/custom.css',
 ]
 
-# html_sidebars = {
+# Pages entry without primary (left) sidebar
 
-# }
+html_sidebars = {
+    "**": ["sidebar-nav-bs", "mission"],
+    "index": []
+}
+
 
 html_theme_options = {
     "external_links": [
@@ -211,7 +215,7 @@ html_theme_options = {
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
-        "**": ["page-toc", "edit-this-page", "sourcelink","pdf","oshw"]
+        "**": ["page-toc", "edit-this-page", "sourcelink","pdf","forum","oshw"]
     },
 }
 
