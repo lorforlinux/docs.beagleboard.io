@@ -2,3 +2,5 @@
 
 Expansion
 #########
+
+* :ref:`beagley-ai-expansion-nvme`
