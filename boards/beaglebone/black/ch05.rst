@@ -7,9 +7,9 @@ This section provides the high level specification of the BeagleBone
 Black.
 
 Block Diagram
------------------
+**************
 
-.. figure:: media/image30.jpg
+.. figure:: images/image30.jpg
    :width: 512px
    :height: 454px
    :align: center
@@ -18,19 +18,19 @@ Block Diagram
    BeagleBone Black Key Components
 
 Processor
--------------
+**********
 
 The revision B and later boards have moved to the Sitara AM3358BZCZ100
 device.
 
 Memory
-----------
+********
 
 Described in the following sections are the three memory devices found
 on the board.
 
 512MB DDR3L
-*****************
+============
 
 A single 256Mb x16 DDR3L 4Gb (512MB) memory device is used. The memory
 used is one of two devices:
@@ -43,7 +43,7 @@ rate of 800MHZ on the DDR3L bus allowing for 1.6GB/S of DDR3L memory
 bandwidth.
 
 4KB EEPROM
-****************
+==========
 
 A single 4KB EEPROM is provided on I2C0 that holds the board
 information. This information includes board name, serial number, and
@@ -53,7 +53,7 @@ It has a test point to allow the device to be programmed and otherwise
 to provide write protection when not grounded.
 
 4GB Embedded MMC
-**********************
+================
 
 A single 4GB embedded MMC (eMMC) device is on the board. The device
 connects to the MMC1 port of the processor, allowing for 8bit wide
@@ -67,7 +67,7 @@ operation but it does make it unsuitable for use as an eMMC port if the
 8 bit feature is needed.
 
 MicroSD Connector
-***********************
+=================
 
 The board is equipped with a single microSD connector to act as the
 secondary boot source for the board and, if selected as such, can be the
@@ -77,7 +77,7 @@ MMC0 will be used to flash the eMMC in the production environment or can
 be used by the user to update the SW as needed.
 
 Boot Modes
-****************
+==========
 
 As mentioned earlier, there are four boot modes:
 
@@ -102,7 +102,7 @@ from the PMIC to the processor.The reset button on the board is a
 warm reset only and will not force a boot mode change.*
 
 Power Management
---------------------
+*****************
 
 The *TPS65217C* power management device is used along with a separate
 LDO to provide power to the system. The**TPS65217C** version provides
@@ -119,14 +119,14 @@ the processor. An external *LDOTLV70233* provides the 3.3V rail for the
 rest of the board.
 
 PC USB Interface
---------------------
+=================
 
 The board has a miniUSB connector that connects the USB0 port to the
 processor. This is the same connector as used on the original
 BeagleBone.
 
 Serial Debug Port
----------------------
+==================
 
 Serial debug is provided via UART0 on the processor via a single 1x6 pin
 header. In order to use the interface a USB to TTL adapter will be
@@ -135,7 +135,7 @@ be purchased for about $$12 to $$20 from various sources. Signals
 supported are TX and RX. None of the handshake signals are supported.
 
 USB1 Host Port
-------------------
+===============
 
 On the board is a single USB Type A female connector with full LS/FS/HS
 Host support that connects to USB1 on the processor. The port can
@@ -148,7 +148,7 @@ You can use a wireless keyboard/mouse configuration or you can add a HUB
 for standard keyboard and mouse interfacing.
 
 Power Sources
------------------
+==============
 
 The board can be powered from four different sources:
 
@@ -174,7 +174,7 @@ from power derived on a cape. The DC supply should be well regulated and
 5V +/-.25V.
 
 Reset Button
-----------------
+=============
 
 When pressed and released, causes a reset of the board. The reset button
 used on the BeagleBone Black is a little larger than the one used on the
@@ -182,7 +182,7 @@ original BeagleBone. It has also been moved out to the edge of the board
 so that it is more accessible.
 
 Power Button
------------------
+=============
 
 A power button is provided near the reset button close to the Ethernet
 connector. This button takes advantage of the input to the PMIC for
@@ -206,7 +206,7 @@ If you do not remove the power jack, you can press the button again and
 the board will power up.
 
 Indicators
----------------
+===========
 
 There are a total of five blue LEDs on the board.
 
@@ -218,7 +218,7 @@ indication. One is yellow (100M Link up if on) and the other is green
 (Indicating traffic when flashing).
 
 CTI JTAG Header
---------------------
+===============
 
 A place for an optional 20 pin CTI JTAG header is provided on the board
 to facilitate the SW development and debugging of the board by using
@@ -231,7 +231,7 @@ number is FTR-110-03-G-D-06. You can purchase it from
 `http://www.digikey.com/ <http://www.digikey.com>`_
 
 HDMI Interface
--------------------
+==============
 
 A single HDMI interface is connected to the 16 bit LCD interface on the
 processor. The 16b interface was used to preserve as many expansion pins
@@ -252,7 +252,7 @@ software:
 * 1280 x 720
 
 Cape Board Support
------------------------
+==================
 
 The BeagleBone Black has the ability to accept up to four expansion
 boards or capes that can be stacked onto the expansion headers. The word

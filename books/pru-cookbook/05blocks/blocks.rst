@@ -28,7 +28,7 @@ Problem
 
 I want to control where my variables are stored in memory.
 
-.. TODO Include a section on accessing DDR.
+.. todo:: Include a section on accessing DDR.
 
 Solution
 ---------
@@ -480,7 +480,7 @@ Here's what's in ``resource_table_empty.h``
 
 Bit 0 is the LSB.
 
-.. TODO fill in Blue
+.. todo:: fill in Blue
 
 .. _blocks_mapping_bits:
 
@@ -1581,7 +1581,7 @@ Run the code as usual.
   bone$ echo -1 > /dev/rpmsg_pru30
 
 
-.. TODO get this working on the 5.10 kernel
+.. todo:: get this working on the 5.10 kernel
 
 ``/dev/rpmsg_pru30`` is a device driver that lets the ARM talk to the PRU.
 The first ``echo`` says to set the 0^th^ LED to RGB value 0xff 0 127. (Note: you can
@@ -1720,7 +1720,7 @@ That gives a good overview, but there are a few details missing.
 :ref:`blocks_rgb_python` is a functioning python program that gives a nice
 high-level view of how to drive the display. 
 
-.. TODO Test this
+.. todo:: Test this
 
 .. _blocks_rgb_python:
 

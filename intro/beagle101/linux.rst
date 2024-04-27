@@ -1,7 +1,7 @@
 .. _intro-linux:
 
-An Introduction to Linux
-########################
+Introduction to Linux
+#####################
 
 This article seeks to give you some quick exploration of Linux. For a deeper training,
 scroll down to :ref:`embedded-linux-training`.

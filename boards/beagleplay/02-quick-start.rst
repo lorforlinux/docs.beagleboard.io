@@ -8,14 +8,16 @@ What's included in the box?
 
 When you purchase a brand new BeaglePlay, In the box you'll get:
 
-1. BeaglePlay board
+1. `BeaglePlay board <https://www.beagleboard.org/boards/beagleplay>`_
 2. One (1) sub-GHz antenna
 3. Three (3) 2.4GHz/5GHz antennas
 4. Plastic standoff hardware
 5. Quick-start card
 
+.. tip:: For board files, 3D model, and more, you can checkout `BeaglePlay repository on OpenBeagle <https://openbeagle.org/beagleplay/beagleplay>`_.
+
 .. image:: images/product-pictures/45fontall.*
-    :width: 1400
+    :width: 940
     :align: center
     :alt: BeaglePlay box contents
 
@@ -24,24 +26,10 @@ Attaching antennas
 
 You can watch this video to see how to attach the attennas.
 
-.. only:: latex
-    
-    .. image:: images/attach-antennas.*
-        :alt: YouTube video of BeaglePlay antenna connection
-        :width: 1280
-        :target: https://youtu.be/8zeIVd-JRc0
-
-.. only:: html
-
-    .. raw:: html
-
-        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
-        src="https://www.youtube.com/embed/8zeIVd-JRc0" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-        </iframe>
+.. youtube:: 8zeIVd-JRc0
+    :width: 1280
+    :height: 720
+    :align: center
 
 Tethering to PC
 ****************
@@ -57,7 +45,7 @@ Tethering to PC
 
 For tethering to your PC you'll need a USB-C data cable.
 
-.. figure:: images/tethered-connection.jpg
+.. figure:: images/tethered-connection.*
     :width: 1400
     :align: center
     :alt: Tethering BeaglePlay to PC
@@ -76,7 +64,7 @@ to browse documents and start programming your BeaglePlay!
    not having a public URL for your board. If you have any questions about this, please as on
    https://forum.beagleboard.org/tag/play.
 
-.. figure:: images/vscode.png
+.. figure:: images/vscode.*
     :width: 1400
     :align: center
     :alt: BeaglePlay VSCode IDE (192.168.7.2:3000)

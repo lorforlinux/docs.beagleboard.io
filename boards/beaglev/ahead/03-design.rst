@@ -11,14 +11,14 @@ specifications in  a short and crisp form as well.
 Block diagram
 **************
 
-.. figure:: media/hardware-design/SystemBlockDiagram.*
+.. figure:: images/hardware-design/SystemBlockDiagram.*
     :width: 740
     :align: center
     :alt: System block diagram
 
     System block diagram
 
-.. figure:: media/hardware-design/I2C-Usage.*
+.. figure:: images/hardware-design/I2C-Usage.*
     :width: 420
     :align: center
     :alt: I2C-Usage diagram
@@ -28,42 +28,42 @@ Block diagram
 System on Chip (SoC)
 *********************
 
-.. figure:: media/hardware-design/SD-EMMC-PowerSwitch.png
+.. figure:: images/hardware-design/SD-EMMC-PowerSwitch.png
     :width: 420
     :align: center
     :alt: SoC eMMC power switch
 
     SoC eMMC power switch
 
-.. figure:: media/hardware-design/SoC-DDR-Power.png
+.. figure:: images/hardware-design/SoC-DDR-Power.png
     :width: 740
     :align: center
     :alt: SoC DDR Power
 
     SoC DDR Power
 
-.. figure:: media/hardware-design/SoC-MIPI-CSI-DSI-HDMI.png
+.. figure:: images/hardware-design/SoC-MIPI-CSI-DSI-HDMI.png
     :width: 740
     :align: center
     :alt: SoC MIPI CSI DSI HDMI
 
     SoC MIPI CSI DSI HDMI
 
-.. figure:: media/hardware-design/SoC-Power.png
+.. figure:: images/hardware-design/SoC-Power.png
     :width: 740
     :align: center
     :alt: SoC power
 
     SoC power
 
-.. figure:: media/hardware-design/SoC-SYS-ADC-Clock.png
+.. figure:: images/hardware-design/SoC-SYS-ADC-Clock.png
     :width: 1247
     :align: center
     :alt: SoC sys, ADC, and Clock
 
     SoC sys, ADC, and Clock
 
-.. figure:: media/hardware-design/SoC-USB-GMAC-Audio.png
+.. figure:: images/hardware-design/SoC-USB-GMAC-Audio.png
     :width: 740
     :align: center
     :alt: SoC USB GMAC Audio
@@ -77,7 +77,7 @@ Power management
 Barrel jack 
 ============
 
-.. figure:: media/hardware-design/BarrelJackInput.*
+.. figure:: images/hardware-design/BarrelJackInput.*
     :width: 1247
     :align: center
     :alt: Barrel jack power input
@@ -87,7 +87,7 @@ Barrel jack
 0.8V DCDC buck 
 ==============
 
-.. figure:: media/hardware-design/DCDC0V8.png
+.. figure:: images/hardware-design/DCDC0V8.png
     :width: 1247
     :align: center
     :alt: 0.8V DCDC buck converter
@@ -97,7 +97,7 @@ Barrel jack
 3.3V DCDC buck 
 ==============
 
-.. figure:: media/hardware-design/DCDC3V3.png
+.. figure:: images/hardware-design/DCDC3V3.png
     :width: 740
     :align: center
     :alt: 3.3V DCDC buck converter
@@ -107,7 +107,7 @@ Barrel jack
 1.8V LDO
 ========
 
-.. figure:: media/hardware-design/LDO1V8.png
+.. figure:: images/hardware-design/LDO1V8.png
     :width: 740
     :align: center
     :alt: 1.8V LDO regulator
@@ -117,21 +117,21 @@ Barrel jack
 PMIC
 ====
 
-.. figure:: media/hardware-design/PMIC-BUCK.png
+.. figure:: images/hardware-design/PMIC-BUCK.png
     :width: 740
     :align: center
     :alt: PMIC Buck
 
     PMIC Buck
 
-.. figure:: media/hardware-design/PMIC-Control.png
+.. figure:: images/hardware-design/PMIC-Control.png
     :width: 740
     :align: center
     :alt: PMIC Control
 
     PMIC Control
 
-.. figure:: media/hardware-design/PMIC-LDO.png
+.. figure:: images/hardware-design/PMIC-LDO.png
     :width: 740
     :align: center
     :alt: PMIC LDO
@@ -145,7 +145,7 @@ General Connectivity and Expansion
 microUSB 3.0 port
 ==================
 
-.. figure:: media/hardware-design/microUSB3.png
+.. figure:: images/hardware-design/microUSB3.png
     :width: 740
     :align: center
     :alt: microUSB 3.0 port
@@ -155,14 +155,14 @@ microUSB 3.0 port
 P8 & P9 cape header pins
 =========================
 
-.. figure:: media/hardware-design/P8-Header.png
+.. figure:: images/hardware-design/P8-Header.png
     :width: 420
     :align: center
     :alt: P8 cape header
 
     P8 cape header
 
-.. figure:: media/hardware-design/P9-Header.png
+.. figure:: images/hardware-design/P9-Header.png
     :width: 420
     :align: center
     :alt: P9 cape header
@@ -172,7 +172,7 @@ P8 & P9 cape header pins
 mikroBUS shuttle connector
 ==========================
 
-.. figure:: media/hardware-design/mikroBUS.png
+.. figure:: images/hardware-design/mikroBUS.png
     :width: 420
     :align: center
     :alt: mikroBUS shuttle connector 
@@ -181,12 +181,12 @@ mikroBUS shuttle connector
 P8, P9, and mikroBUS helper circuitry
 ======================================
 
-.. figure:: media/hardware-design/mikroBUS-reset.png
+.. figure:: images/hardware-design/mikroBUS-reset.png
     :width: 420
     :align: center
     :alt: mikroBUS reset circuitry
 
-.. figure:: media/hardware-design/P8-P9-mikroBUS-LevelShifter.png
+.. figure:: images/hardware-design/P8-P9-mikroBUS-LevelShifter.png
     :width: 1247
     :align: center
     :alt: P8, P9, and mikroBUS level shifters
@@ -199,7 +199,7 @@ Buttons and LEDs
 Boot select buttons
 ====================
 
-.. figure:: media/hardware-design/BootSelect.*
+.. figure:: images/hardware-design/BootSelect.*
     :width: 740
     :align: center
     :alt: Boot select buttons
@@ -209,7 +209,7 @@ Boot select buttons
 User LEDs and Power LED
 ========================
 
-.. figure:: media/hardware-design/User-Power-LEDs.*
+.. figure:: images/hardware-design/User-Power-LEDs.*
     :width: 740
     :align: center
     :alt: User LEDs and power LED
@@ -219,7 +219,7 @@ User LEDs and Power LED
 Power and reset button
 =======================
 
-.. figure:: media/hardware-design/Power-Reset-Button.*
+.. figure:: images/hardware-design/Power-Reset-Button.*
     :width: 740
     :align: center
     :alt: Power and reset button
@@ -232,14 +232,14 @@ Wired and wireless connectivity
 Ethernet
 ========
 
-.. figure:: media/hardware-design/Ethernet.png
+.. figure:: images/hardware-design/Ethernet.png
     :width: 740
     :align: center
     :alt: Ethernet 
 
     Ethernet
 
-.. figure:: media/hardware-design/Ethernet-LevelShifter-Strapping.png
+.. figure:: images/hardware-design/Ethernet-LevelShifter-Strapping.png
     :width: 740
     :align: center
     :alt: Ethernet LevelShifter and Strapping
@@ -249,7 +249,7 @@ Ethernet
 WiFi & Bluetooth
 =================
 
-.. figure:: media/hardware-design/WiFi-Bluetooth.png
+.. figure:: images/hardware-design/WiFi-Bluetooth.png
     :width: 740
     :align: center
     :alt: WiFi and Bluetooth
@@ -262,14 +262,14 @@ Memory, Media and Data storage
 DDR memory
 ==========
 
-.. figure:: media/hardware-design/DDR4-0-1.png
+.. figure:: images/hardware-design/DDR4-0-1.png
     :width: 740
     :align: center
     :alt: 2GB DDR4 Memory chip1
 
     2GB DDR4 Memory chip1
 
-.. figure:: media/hardware-design/DDR4-2-3.png
+.. figure:: images/hardware-design/DDR4-2-3.png
     :width: 740
     :align: center
     :alt: 2GB DDR4 Memory chip2
@@ -279,7 +279,7 @@ DDR memory
 eMMC
 =====
 
-.. figure:: media/hardware-design/EMMC.png
+.. figure:: images/hardware-design/EMMC.png
     :width: 740
     :align: center
     :alt: 16GB eMMC
@@ -289,7 +289,7 @@ eMMC
 microSD
 =======
 
-.. figure:: media/hardware-design/microSDCard.png
+.. figure:: images/hardware-design/microSDCard.png
     :width: 740
     :align: center
     :alt: microSD card connector 
@@ -299,7 +299,7 @@ microSD
 EEPROM
 ======
 
-.. figure:: media/hardware-design/EEPROM.png
+.. figure:: images/hardware-design/EEPROM.png
     :width: 420
     :align: center
     :alt: 16GB EEPROM
@@ -312,7 +312,7 @@ Multimedia I/O
 CSI0
 ====
 
-.. figure:: media/hardware-design/CSI0.png
+.. figure:: images/hardware-design/CSI0.png
     :width: 420
     :align: center
     :alt: CSI0 camera interface
@@ -322,7 +322,7 @@ CSI0
 CSI1
 ====
 
-.. figure:: media/hardware-design/CSI1.png
+.. figure:: images/hardware-design/CSI1.png
     :width: 420
     :align: center
     :alt: CSI1 camera interface
@@ -332,7 +332,7 @@ CSI1
 DSI
 ====
 
-.. figure:: media/hardware-design/DSI.png
+.. figure:: images/hardware-design/DSI.png
     :width: 420
     :align: center
     :alt: DSI display interface
@@ -342,7 +342,7 @@ DSI
 CSI & DSI level shifter
 =======================
 
-.. figure:: media/hardware-design/CSI-DSI-LevelShifter.png
+.. figure:: images/hardware-design/CSI-DSI-LevelShifter.png
     :width: 420
     :align: center
     :alt: CSI & DSI level shifter
@@ -352,7 +352,7 @@ CSI & DSI level shifter
 HDMI
 ====
 
-.. figure:: media/hardware-design/HDMI.png
+.. figure:: images/hardware-design/HDMI.png
     :width: 1247
     :align: center
     :alt: HDMI display interface
@@ -365,7 +365,7 @@ Debug
 UART debug port 
 ===============
 
-.. figure:: media/hardware-design/DebugPort.png
+.. figure:: images/hardware-design/DebugPort.png
     :width: 420
     :align: center
     :alt: UART Debug port 
@@ -375,7 +375,7 @@ UART debug port
 JTAG debug port
 ===============
 
-.. figure:: media/hardware-design/JTAG.png
+.. figure:: images/hardware-design/JTAG.png
     :width: 720
     :align: center
     :alt: JTAG debug port
@@ -393,7 +393,7 @@ Mechanical Specifications
    +----------------------------------------------------+---------------------------------------------------------+
    | Top                                                | Bottom                                                  |
    +====================================================+=========================================================+
-   | .. image:: media/mechanical-design/top.*           | .. image:: media/mechanical-design/bottom.*             |
+   | .. image:: images/mechanical-design/top.*          | .. image:: images/mechanical-design/bottom.*            |
    |    :width: 427                                     |       :width: 427                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeagleV Ahead top                         |       :alt: BeagleV Ahead bottom                        |
@@ -406,7 +406,7 @@ Mechanical Specifications
    +----------------------------------------------------+---------------------------------------------------------+---------------------------------------------------------+
    | Front                                              | Left                                                    | Right                                                   |
    +====================================================+=========================================================+=========================================================+
-   | .. image:: media/mechanical-design/front.*         | .. image:: media/mechanical-design/left.*               | .. image:: media/mechanical-design/right.*              |
+   | .. image:: images/mechanical-design/front.*        | .. image:: images/mechanical-design/left.*              | .. image:: images/mechanical-design/right.*             |
    |    :width: 247                                     |       :width: 295                                       |    :width: 168                                          |
    |    :align: center                                  |       :align: center                                    |    :align: center                                       |
    |    :alt: BeagleV Ahead top                         |       :alt: BeagleV Ahead left                          |    :alt: BeagleV Ahead right                            |
