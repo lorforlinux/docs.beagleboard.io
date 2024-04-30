@@ -36,8 +36,7 @@ Similar Adapters exist for 2230 to 2280 for example such as this one from @nzalo
 Step 1. Boot from SD Normally
 **********************************
 
-.. note::
-    This article was written using the (`BeagleY-AI Debian XFCE 12.5 2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.) image.  
+.. note:: This article was written using the (`BeagleY-AI Debian XFCE 12.5 2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.) image.  
 
 Grab the latest BeagleY-AI SD Image from (`BeagleBoard.org/distros <https://www.beagleboard.org/distros>`_.) 
 
