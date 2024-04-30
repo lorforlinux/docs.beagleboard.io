@@ -22,10 +22,10 @@
             <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i class="fa-solid fa-lightbulb"></i> Idea</label>
             </div>
             <div class="mb-3">
-            <input type="title" class="form-control" id="feedbackModalTitle" placeholder="Title (minimum 4 characters)" onChange="feedbackInputHandler()">
+            <input type="title" class="form-control" id="feedbackModalTitle" placeholder="Title" onChange="feedbackInputHandler()">
             </div>
             <div class="mb-3">
-            <textarea class="form-control" id="feedbackModalDescription" minlength="13" rows="3" placeholder="Description (minimum 10 characters)" onChange="feedbackInputHandler()"></textarea>
+            <textarea class="form-control" id="feedbackModalDescription" minlength="13" rows="3" placeholder="Description" onChange="feedbackInputHandler()"></textarea>
             </div>
         </div>
         <div class="modal-footer">
@@ -40,22 +40,27 @@
 
 <script>
 
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
     document.body.appendChild(document.getElementById('feedbackModal'));
 
     var link = document.getElementById("feedbacklink")
     var gitlab_project = "{{gitlab_project}}"
     var title = document.getElementById("feedbackModalTitle")
     var description = document.getElementById("feedbackModalDescription")
-    
+
+    title.placeholder = "Title (minimum "+titleMinLength+" characters)"
+    description.placeholder = "Title (minimum "+descriptionMinLength+" characters)"
 
     function feedbackInputHandler() {
         var type = document.querySelector('input[name="feedbackType"]:checked').value
-
+        
         if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
             gitlab_project = 'https://' + gitlab_project;
         }
 
-        if(title.value.length >= 4 && description.value.length >= 10) {
+        if(title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
             link.target="_blank"
             link.classList.remove("disabled");
             link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + "{{docs_url}}/{{pagename}}"
