@@ -1,0 +1,67 @@
+
+<a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" id="feedbackButton" href="#">
+    <i class="fa-solid fa-arrows-rotate"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0" id="feedbackModalLabel">Feedback</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body text-center">
+            <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType" onChange="feedbackInputHandler()">
+            <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off" value="Issue">
+            <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+            <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off" value="Feedback" checked>
+            <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i class="fa-solid fa-arrows-rotate"></i> Feedback</label>
+
+            <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off" value="Idea">
+            <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i class="fa-solid fa-lightbulb"></i> Idea</label>
+            </div>
+            <div class="mb-3">
+            <input type="title" class="form-control" id="feedbackModalTitle" placeholder="Title (minimum 4 characters)" onChange="feedbackInputHandler()">
+            </div>
+            <div class="mb-3">
+            <textarea class="form-control" id="feedbackModalDescription" minlength="13" rows="3" placeholder="Description (minimum 10 characters)" onChange="feedbackInputHandler()"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear & Close</button>
+            <a href="javascript:void(0);" id="feedbacklink" type="button" class="btn btn-primary disabled text-light">
+                <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue 
+            </a>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var link = document.getElementById("feedbacklink")
+    var project = "{{gitlab_project}}"
+
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var type = document.querySelector('input[name="feedbackType"]:checked')
+
+    function feedbackInputHandler() {
+        if(title.value.length >= 4 && description.value.length >= 10) {
+            link.target="_blank"
+            link.classList.remove("disabled");
+            link.href = project + "/-/issues/new?issue[title]=" + type.value + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + "{{docs_url}}/{{pagename}}"
+        } else {
+            link.classList.add("disabled");
+        }
+    }
+    
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+    }
+
+</script>
