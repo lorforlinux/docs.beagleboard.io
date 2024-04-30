@@ -44,16 +44,18 @@
 
     var link = document.getElementById("feedbacklink")
     var gitlab_project = "{{gitlab_project}}"
-
     var title = document.getElementById("feedbackModalTitle")
     var description = document.getElementById("feedbackModalDescription")
     
+
     function feedbackInputHandler() {
         var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
         if(title.value.length >= 4 && description.value.length >= 10) {
-            if (new URI(gitlab_project).scheme === null) {
-                gitlab_project = 'https://' + gitlab_project;
-            }
             link.target="_blank"
             link.classList.remove("disabled");
             link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + "{{docs_url}}/{{pagename}}"
@@ -65,6 +67,8 @@
     function feedbackClear() {
         title.value = ""
         description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
     }
 
 </script>
