@@ -3,29 +3,29 @@
 .. note:: This page is a work in progress. Further drive testing and images will be added soon
 
 Booting from NVMe Drives
-***
+##########################
 
-BeagleY-AI Supports a PCI-Express x1 interface which enables data rates of up to 1GB/s for high speed expansion. 
+BeagleY-AI supports a PCI-Express x1 interface which enables data rates of up to 1GB/s for high speed expansion. 
 
 .. note:: While the SoC supports PCI-e Gen 3, the flat-flex connector required by HATs is only rated for PCI-e Gen 2, so, as is the case with other similar boards in this form factor, actual transfer speeds may be limited to Gen 2, depending on a variety of layout and environmental factors
 
 This enables it to take advantage of standard PC NVMe drives which offer exponentially higher random and sequential read/write speeds as well as improved endurance over SD cards or traditional eMMC storage.
 
-While the BootROM on the AM67 SoC does not support direct Boot-To-NVMe, we can use a method where we boot U-Boot from the SD Card and then use it to load the Linux File System from external NVMe storage. 
+While the boot-ROM on the AM67 SoC does not support direct boot-to-NVMe, we can use a method where we boot U-Boot from the SD Card and then use it to load the Linux filesystem from external NVMe storage. 
 
 Verified HATs and Drives
-***
+***************************
 
 Most/All HATs and NVMe drives should work, but the following have been verified to work as part of writing this guide:
 
 HATs:
-1. Geekworm X1001 PCIe to M.2 Key-M (`Amazon non-affiliate link <https://www.amazon.com/Geekworm-X1001-Key-M-Peripheral-Raspberry/dp/B0CPPGGDQT>`_.)
-2. Geekworm X1000 PCIe M.2 Key-M (`Amazon non-affiliate link <https://www.amazon.com/gp/product/B0CQ4D2C9S>`_.)
+1. Geekworm X1001 PCIe to M.2 Key-M (`Amazon Link <https://www.amazon.com/Geekworm-X1001-Key-M-Peripheral-Raspberry/dp/B0CPPGGDQT>`_.)
+2. Geekworm X1000 PCIe M.2 Key-M (`Amazon Link <https://www.amazon.com/gp/product/B0CQ4D2C9S>`_.)
 
 NVMe drives:
 
-1. Kingston OM3PDP3512B (512GB 2230) -  (`Amazon non-affiliate link <https://www.amazon.com/Kingston-512GB-3-0x4-Solid-OM3PDP3512B-A01/dp/B0BW7V8ZZ3>`_.)
-2. Kingston NV2 (512GB 2280) - (`Amazon non-affiliate link <https://www.amazon.com/Kingston-500G-2280-Internal-SNV2S/dp/B0BBWJH1P8/`_.)
+1. Kingston OM3PDP3512B (512GB 2230) -  (`Amazon Link <https://www.amazon.com/Kingston-512GB-3-0x4-Solid-OM3PDP3512B-A01/dp/B0BW7V8ZZ3>`_.)
+2. Kingston NV2 (512GB 2280) - (`Amazon Link <https://www.amazon.com/Kingston-500G-2280-Internal-SNV2S/dp/B0BBWJH1P8/>`_.)
 
 Drive Adapters (3D Printable):
 
@@ -34,27 +34,32 @@ A simple adapter from @eliasjonsson on Printables works great - https://www.prin
 Similar Adapters exist for 2230 to 2280 for example such as this one from @nzalog - https://www.printables.com/model/217264-2230-to-2280-m2-adapter-ssd
 
 Step 1. Boot from SD Normally
-***************
+**********************************
+
+.. note::
+    This article was written using the (`BeagleY-AI Debian XFCE 12.5 2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.) image.  
+
+Grab the latest BeagleY-AI SD Image from (`BeagleBoard.org/distros <https://www.beagleboard.org/distros>`_.) 
 
 Once logged in and at the terminal, make sure your system is up to date (a reboot is also recommended after updating)
 
-.. code:: bash
+.. code:: console
 
    sudo apt-get update && sudo apt-get full-upgrade -y
    sudo reboot
 
 
 Step 2. Verify that your NVMe drive is detected
-***************
+************************************************************
 
 The command ``lspci`` will list the attached PCI Express devices on the system:
 
-.. code:: bash
-    lspci    
+.. code:: console
+    debian@BeagleY:~$ lspci    
 
 You should see an output similar to the following, where the first entrance is the SoC internal PCI Express bridge device and the second device listed is your NVMe drive, in this case, a Kingston OM3PDP3 drive.
 
-.. code:: bash
+.. code:: console
 
     00:00.0 PCI bridge: Texas Instruments Device b010
     01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. OM3PDP3 NVMe SSD (rev 01)
@@ -63,8 +68,8 @@ Now that we know the PCIe device is detected, let's see if it's recognized as a 
 
 The command ``lsblk`` will list the attached storage devices on the system:
 
-.. code:: bash
-    debian@BeagleBone:~$ lsblk
+.. code:: console
+    debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
     mmcblk0     179:0    0  59.7G  0 disk
     ├─mmcblk0p1 179:1    0   256M  0 part /boot/firmware
@@ -78,8 +83,8 @@ Here we see that two devices are connected, ``mmcblk0`` corresponds to our SD ca
 If your drives aren't listed as expected, please check the Troubleshooting section at the end of this document. 
 
 
-Step 3. Copy your file system and modify extlinux.conf for NVMe boot
-***************
+Step 3. Copy your filesystem and modify extlinux.conf for NVMe boot
+***************************************************************************
 
 A variety of useful scripts are available  in ``/opt/``, one of them enables us to move our micro-sd contents to NVMe and make BeagleY-AI boot from there directly.
 
@@ -89,19 +94,19 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 .. code:: bash
 
-   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai-evt/beagley-microsd-to-nvme /etc/default/beagle-flasher
+   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-microsd-to-nvme /etc/default/beagle-flasher
    sudo beagle-flasher-boot-emmc-rootfs-nvme
    sudo reboot 
 
 Enjoy NVMe speeds!
 ***************
 
-Now that we've run the scripts above, you should see that lsblk now reports that our ``/`` or root file system is on the ``nvme0n1p1`` partition, meaning we are successfully booting from the NVMe drive.
+Now that we've run the scripts above, you should see that lsblk now reports that our ``/`` or root filesystem is on the ``nvme0n1p1`` partition, meaning we are successfully booting from the NVMe drive.
 
 It's subtle, but the change can be seen by running ``lsblk`` again.
 
-.. code:: bash
-    debian@BeagleBone:~$ lsblk
+.. code:: console
+    debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
     mmcblk0     179:0    0  59.7G  0 disk
     ├─mmcblk0p1 179:1    0   256M  0 part /boot/firmware
@@ -112,7 +117,7 @@ It's subtle, but the change can be seen by running ``lsblk`` again.
 Congratulations! 
 
 Troubleshooting
-***************
+********************
 
 While most setups should work, it is possible that a combination of Software, Hardware or both can result in minor issues. Here are some ideas for troubleshooting on your own:
 
@@ -132,15 +137,11 @@ As a side note, since 2230 drives are normally designed to run in Laptops, they 
 Check the Linux Kernel Logs for PCI:
 ***
 
-.. code:: bash
-
-   dmesg | grep "PCI"
-
 You should see something similar to below without further errors:
 
-.. code:: bash
+.. code:: console
 
-    debian@BeagleBone:~$ dmesg | grep "PCI"
+    debian@BeagleY:~$ dmesg | grep "PCI"
     [    0.005276] PCI/MSI: /bus@f0000/interrupt-controller@1800000/msi-controller@1820000 domain created
     [    0.158546] PCI: CLS 0 bytes, default 64
     [    3.674209] j721e-pcie-host f102000.pcie: PCI host bridge to bus 0000:00
@@ -151,4 +152,4 @@ You should see something similar to below without further errors:
 Still having issues? 
 ***
 
-Post on the Forums and talk to us on Discord. 
+Post on the (`Forum <https://forum.beagleboard.org/>`_.)  and talk to us on Discord. 
