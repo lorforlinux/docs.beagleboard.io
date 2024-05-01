@@ -35,8 +35,11 @@ The X1000 above uses the slightly uncommon 2242 drive size, so, an adapter may b
 A simple adapter from @eliasjonsson on Printables works great - https://www.printables.com/model/578236-m2-ssd-2230-to-2242 
 Similar Adapters exist for 2230 to 2280 for example such as this one from @nzalog - https://www.printables.com/model/217264-2230-to-2280-m2-adapter-ssd
 
+Step by step
+************
+
 Step 1. Boot from SD Normally
-**********************************
+==================================
 
 .. note:: This article was written using the (`BeagleY-AI Debian XFCE 12.5 2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.) image.  
 
@@ -51,11 +54,12 @@ Once logged in and at the terminal, make sure your system is up to date (a reboo
 
 
 Step 2. Verify that your NVMe drive is detected
-************************************************************
+============================================================
 
 The command ``lspci`` will list the attached PCI Express devices on the system:
 
 .. code:: console
+
     debian@BeagleY:~$ lspci    
 
 You should see an output similar to the following, where the first entrance is the SoC internal PCI Express bridge device and the second device listed is your NVMe drive, in this case, a Kingston OM3PDP3 drive.
@@ -70,6 +74,7 @@ Now that we know the PCIe device is detected, let's see if it's recognized as a 
 The command ``lsblk`` will list the attached storage devices on the system:
 
 .. code:: console
+
     debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
     mmcblk0     179:0    0  59.7G  0 disk
@@ -85,7 +90,7 @@ If your drives aren't listed as expected, please check the Troubleshooting secti
 
 
 Step 3. Copy your filesystem and modify extlinux.conf for NVMe boot
-***************************************************************************
+===========================================================================
 
 A variety of useful scripts are available  in ``/opt/``, one of them enables us to move our micro-sd contents to NVMe and make BeagleY-AI boot from there directly.
 
@@ -100,13 +105,14 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
    sudo reboot 
 
 Enjoy NVMe speeds!
-***************
+==================
 
 Now that we've run the scripts above, you should see that lsblk now reports that our ``/`` or root filesystem is on the ``nvme0n1p1`` partition, meaning we are successfully booting from the NVMe drive.
 
 It's subtle, but the change can be seen by running ``lsblk`` again.
 
 .. code:: console
+
     debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
     mmcblk0     179:0    0  59.7G  0 disk
@@ -123,12 +129,12 @@ Troubleshooting
 While most setups should work, it is possible that a combination of Software, Hardware or both can result in minor issues. Here are some ideas for troubleshooting on your own:
 
 Check that your cables are plugged in and oriented correctly
-***
+============================================================
 
 The flat-flex ribbon cable will only connect correctly one way, so ensure the orientation is correct with your expansion HAT manual and that the ribbon cable is correctly seated. 
 
 A note on power-hungry drives
-***
+=============================
 
 While most drives can be powered as-is with only the ribbon cable, some drives, especially high end full-size 2280 drives may consume more power than normal for an M.2 connector. 
 For such cases, some HAT expansions will provide a means of providing external supplemental power. If your drive is not detected, it may be worthwhile to try using a drive from a different manufacturer as a troubleshooting step.
@@ -136,7 +142,7 @@ For such cases, some HAT expansions will provide a means of providing external s
 As a side note, since 2230 drives are normally designed to run in Laptops, they tend to also consume less power than their desktop counterparts and as such, are a "safer" option.
 
 Check the Linux Kernel Logs for PCI:
-***
+====================================
 
 You should see something similar to below without further errors:
 
@@ -151,6 +157,6 @@ You should see something similar to below without further errors:
 
 
 Still having issues? 
-***
+====================
 
 Post on the (`Forum <https://forum.beagleboard.org/>`_.)  and talk to us on Discord. 
