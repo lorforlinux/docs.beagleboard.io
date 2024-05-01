@@ -15,7 +15,7 @@ its runtime in a single-click.
 2. MikroE `Accel click <https://www.mikroe.com/accel-click>`_ or any mikroBUS add-on
 
 Let's get started!
-##################
+*************************
 
 First, we want to make sure the mikroBUS™ add-on board is connected and functioning as expected.
 To do this, we make use of the `iio_info command <https://man.archlinux.org/man/iio_info.1.en>`_.
