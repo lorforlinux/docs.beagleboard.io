@@ -9,7 +9,12 @@ its runtime in a single-click.
 
 .. youtube:: 2llY2ZnTmnw
 
-***************
+Pre-requisites
+==============
+
+.. note::
+
+        If you're using the official Beagleplay debian image then you most likely can skip the Install Node-RED step.
 
 1. Install Node-RED using the `official guide here <https://nodered.org/docs/getting-started/beaglebone>`_
 2. MikroE `Accel click <https://www.mikroe.com/accel-click>`_ or any mikroBUS add-on
@@ -23,7 +28,7 @@ To do this, we make use of the `iio_info command <https://man.archlinux.org/man/
 Connecting mikroBUS™ add-on board
 ================================
 
-``iio_info`` is a utility for displaying information about local or remote IIO devices, in this case it's the accel click board.
+``iio_info`` is a utility for displaying information about local or remote IIO devices, in this case it's the `Accel click board <https://www.mikroe.com/accel-click>`_.
 
 .. figure:: ./iio_info_out.png
    :scale: 100
@@ -36,7 +41,7 @@ Once your BeaglePlay is booted up and connected to your computer, access it from
 ``192.168.7.2:1880`` in your address bar.
 
 Creating a basic flow
-*********************
+=====================
 
 In this flow we'll take a look at how we can get the accelerometer readings output on the node
 red console.
@@ -47,6 +52,7 @@ an entry like ``/sys/bus/iio/...``.
 Double click on the function block and in the command paste:
 
 .. code-block:: bash
+
    cat /sys/bus/iio/devices/iio\:device0.../in_accel_x_raw
 
 Give it some name and press Done.
@@ -64,7 +70,7 @@ with timestamps.
 
 
 Adding a Gauge
-**************
+==============
 
 .. figure:: ./nodered-base-flow.png
    :scale: 100
@@ -76,7 +82,7 @@ Adding a Gauge
 
 
 Adding a Graph and 3 Axis
-**************************
+=========================
 
 .. todo::
         * Add flow diagram
