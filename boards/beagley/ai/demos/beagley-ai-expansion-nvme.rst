@@ -21,6 +21,7 @@ Verified HATs and Drives
 Most/All HATs and NVMe drives should work, but the following have been verified to work as part of writing this guide:
 
 HATs:
+
 1. `Geekworm X1001 PCIe to M.2 Key-M <https://www.amazon.com/Geekworm-X1001-Key-M-Peripheral-Raspberry/dp/B0CPPGGDQT>`_
 2. `Geekworm X1000 PCIe M.2 Key-M <https://www.amazon.com/gp/product/B0CQ4D2C9S>`_
 
@@ -32,16 +33,17 @@ NVMe drives:
 Drive Adapters (3D Printable):
 
 The X1000 above uses the slightly uncommon 2242 drive size, so, an adapter may be required to mount a 2230 drive. 
-A simple adapter from @eliasjonsson on Printables works great - https://www.printables.com/model/578236-m2-ssd-2230-to-2242 
-Similar Adapters exist for 2230 to 2280 for example such as this one from @nzalog - https://www.printables.com/model/217264-2230-to-2280-m2-adapter-ssd
+
+1. A simple adapter from ``@eliasjonsson`` on Printables works great - https://www.printables.com/model/578236-m2-ssd-2230-to-2242 
+2. Similar adapters exist for 2230 to 2280 for example such as this one from ``@nzalog`` - https://www.printables.com/model/217264-2230-to-2280-m2-adapter-ssd
 
 Step by step
 ************
 
+.. note:: This article was written using the `BeagleY-AI Debian XFCE 12.5 2024-03-25 image <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.
+
 Step 1. Boot from SD Normally
 ==================================
-
-.. note:: This article was written using the (`BeagleY-AI Debian XFCE 12.5 2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.) image.  
 
 Grab the latest BeagleY-AI SD Image from (`BeagleBoard.org/distros <https://www.beagleboard.org/distros>`_.) 
 
@@ -159,4 +161,4 @@ You should see something similar to below without further errors:
 Still having issues? 
 ====================
 
-Post on the (`Forum <https://forum.beagleboard.org/>`_.)  and talk to us on Discord. 
+Post questions on the `forum under the tag "beagley-ai" <https://forum.beagleboard.org/tags/c/general/8/beagley-ai>`_.
