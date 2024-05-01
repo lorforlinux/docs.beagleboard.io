@@ -1,9 +1,11 @@
 .. _beagley-ai-expansion-nvme:
 
-.. note:: This page is a work in progress. Further drive testing and images will be added soon
-
 Booting from NVMe Drives
 ##########################
+
+.. todo:: remove notes about work-in-progress. they just make the site more janky.
+
+.. note:: This page is a work in progress. Further drive testing and images will be added soon
 
 BeagleY-AI supports a PCI-Express x1 interface which enables data rates of up to 1GB/s for high speed expansion. 
 
