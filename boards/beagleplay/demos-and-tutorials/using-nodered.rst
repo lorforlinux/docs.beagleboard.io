@@ -9,8 +9,7 @@ its runtime in a single-click.
 
 .. youtube:: 2llY2ZnTmnw
 
-Pre-requisites
-##############
+***************
 
 1. Install Node-RED using the `official guide here <https://nodered.org/docs/getting-started/beaglebone>`_
 2. MikroE `Accel click <https://www.mikroe.com/accel-click>`_ or any mikroBUS add-on
