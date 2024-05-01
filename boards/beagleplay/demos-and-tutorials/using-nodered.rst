@@ -21,7 +21,7 @@ First, we want to make sure the mikroBUS™ add-on board is connected and functi
 To do this, we make use of the `iio_info command <https://man.archlinux.org/man/iio_info.1.en>`_.
 
 Connecting mikroBUS™ add-on board
-*********************************
+================================
 
 ``iio_info`` is a utility for displaying information about local or remote IIO devices, in this case it's the accel click board.
 
