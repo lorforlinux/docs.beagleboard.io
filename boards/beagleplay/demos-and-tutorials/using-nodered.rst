@@ -30,7 +30,7 @@ Connecting mikroBUS™ add-on board
    :align: center
 
 Accessing Node-RED
-******************
+=====================
 
 Once your BeaglePlay is booted up and connected to your computer, access it from your browser by typing
 ``192.168.7.2:1880`` in your address bar.
