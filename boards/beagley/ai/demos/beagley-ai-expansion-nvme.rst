@@ -21,13 +21,13 @@ Verified HATs and Drives
 Most/All HATs and NVMe drives should work, but the following have been verified to work as part of writing this guide:
 
 HATs:
-1. Geekworm X1001 PCIe to M.2 Key-M (`Amazon Link <https://www.amazon.com/Geekworm-X1001-Key-M-Peripheral-Raspberry/dp/B0CPPGGDQT>`_.)
-2. Geekworm X1000 PCIe M.2 Key-M (`Amazon Link <https://www.amazon.com/gp/product/B0CQ4D2C9S>`_.)
+1. `Geekworm X1001 PCIe to M.2 Key-M <https://www.amazon.com/Geekworm-X1001-Key-M-Peripheral-Raspberry/dp/B0CPPGGDQT>`_
+2. `Geekworm X1000 PCIe M.2 Key-M <https://www.amazon.com/gp/product/B0CQ4D2C9S>`_
 
 NVMe drives:
 
-1. Kingston OM3PDP3512B (512GB 2230) -  (`Amazon Link <https://www.amazon.com/Kingston-512GB-3-0x4-Solid-OM3PDP3512B-A01/dp/B0BW7V8ZZ3>`_.)
-2. Kingston NV2 (512GB 2280) - (`Amazon Link <https://www.amazon.com/Kingston-500G-2280-Internal-SNV2S/dp/B0BBWJH1P8/>`_.)
+1. `Kingston OM3PDP3512B (512GB 2230) <https://www.amazon.com/Kingston-512GB-3-0x4-Solid-OM3PDP3512B-A01/dp/B0BW7V8ZZ3>`_
+2. `Kingston NV2 (512GB 2280) <https://www.amazon.com/Kingston-500G-2280-Internal-SNV2S/dp/B0BBWJH1P8/>`_
 
 Drive Adapters (3D Printable):
 
