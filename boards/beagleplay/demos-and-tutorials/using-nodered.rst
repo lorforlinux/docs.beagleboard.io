@@ -42,7 +42,7 @@ In this flow we'll take a look at how we can get the accelerometer readings outp
 red console.
 
 First, let's insert the exec function block. This will help us capture a linux command from
-an entry like `/sys/bus/iio/...`.
+an entry like ``/sys/bus/iio/...``.
 
 Double click on the function block and in the command paste:
 
