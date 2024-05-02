@@ -64,7 +64,7 @@
         if(title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
             link.target="_blank"
             link.classList.remove("disabled");
-            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
         } else {
             link.classList.add("disabled");
         }
