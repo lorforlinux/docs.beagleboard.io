@@ -1,5 +1,5 @@
 
-<a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" id="feedbackButton" href="#">
+<a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
     <i class="fa-solid fa-arrows-rotate"></i> Provide Feedback
 </a>
 
@@ -11,7 +11,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div> 
         <div class="modal-body text-center">
-            <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType" onChange="feedbackInputHandler()">
+            <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType" onChange="feedbackHandler()">
             <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off" value="Issue">
             <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i class="fa-solid fa-triangle-exclamation"></i> Issue</label>
 
@@ -22,10 +22,10 @@
             <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i class="fa-solid fa-lightbulb"></i> Idea</label>
             </div>
             <div class="mb-3">
-            <input type="title" class="form-control bg-light" id="feedbackModalTitle" placeholder="Title" onChange="feedbackInputHandler()">
+            <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle" placeholder="Title" onChange="feedbackHandler()">
             </div>
             <div class="mb-3">
-            <textarea class="form-control bg-light" id="feedbackModalDescription" minlength="13" rows="3" placeholder="Description" onChange="feedbackInputHandler()"></textarea>
+            <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13" rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
             </div>
         </div>
         <div class="modal-footer">
@@ -49,11 +49,12 @@
     var gitlab_project = "{{gitlab_project}}"
     var title = document.getElementById("feedbackModalTitle")
     var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
 
     title.placeholder = "Title (minimum "+titleMinLength+" characters)"
     description.placeholder = "Title (minimum "+descriptionMinLength+" characters)"
 
-    function feedbackInputHandler() {
+    function feedbackHandler() {
         var type = document.querySelector('input[name="feedbackType"]:checked').value
         
         if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
@@ -63,7 +64,7 @@
         if(title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
             link.target="_blank"
             link.classList.remove("disabled");
-            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + "{{docs_url}}/{{pagename}}"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink
         } else {
             link.classList.add("disabled");
         }
@@ -74,6 +75,20 @@
         description.value = ""
         link.href = ""
         link.classList.add("disabled");
+    }
+
+    var headerlinks = document.getElementsByClassName("headerlink")
+    for(let i=0; i<headerlinks.length; i++){     
+        headerlinks[i].innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>'
+        headerlinks[i].title = "Provide Feedback"
+        headerlinks[i].setAttribute("data-bs-toggle","modal")
+        headerlinks[i].setAttribute("data-bs-target","#feedbackModal")
+        headerlinks[i].setAttribute("onclick","getFeedbackButtonhref(this)")
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
     }
 
 </script>
