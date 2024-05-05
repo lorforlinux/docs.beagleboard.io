@@ -31,7 +31,7 @@ Thus, we can use the decoder table above to infer that to drive motor channel A 
 
 If we wanted to go counter-clockwise, we would simply swap things around so INA1 was Low, INA2 was High and assuming we want to keep the same rotation speed, PWM1 at a 50% duty cycle. 
 
-Lastly, we have the option for a "Short Brake" or a full "Stop" for the motors but please note that it is not recommended to keep motors in these states as that shorts the coils internally and will cause them to heat up over time. If you want to stop your motor, you should issue a "Stop" state followed by a short delay to allow the motor to physically stop rotating and then leave the motor in the "Stop" state by setting IN1 and IN2 to LOW.
+Lastly, we have the option for a "Short Brake" for the motors but please note that it is not recommended to keep motors in this state as that shorts the coils internally and will cause them to heat up over time. If you want to stop your motor, you should issue a "Short brake" state followed by a short delay to allow the motor to physically stop rotating and then leave the motor in the "Stop" state (which de-energizes the coils) by setting IN1 and IN2 to LOW.
 
 But enough theory, let's use some actual code to make things spin...
 
