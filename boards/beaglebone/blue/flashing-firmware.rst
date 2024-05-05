@@ -19,7 +19,7 @@ Required Items
 1. Micro sd card. 4 GB minimum
 2. Micro sd card reader or a built in sd card reader for your PC
 3. BeagleBone image you want to flash.
-4. `Etcher utility <https://etcher.io/>`__ for your PC’s OS.
+4. `Etcher utility <https://etcher.io/>`_ for your PC’s OS.
 
 Steps Overview
 ****************
@@ -37,8 +37,8 @@ Windows PCs
 =============
 
 1.  Download the `BeagleBone
-    OS <https://www.beagleboard.org/distros>`__ image you want to use.
-2.  Use the `Etcher utility <https://etcher.io/>`__ to burn the
+    OS <https://www.beagleboard.org/distros>`_ image you want to use.
+2.  Use the `Etcher utility <https://etcher.io/>`_ to burn the
     BeagleBone image you want to use on the micro sd card you plan on
     using.
 3.  Make sure you don’t have the micro sd card plugged into your board.
@@ -70,24 +70,34 @@ Windows PCs
     off the sdcard.
 13. Restart (RST button) or power up (while still pushing SD button).
 
-Flashing can take some minutes. ## Linux/Mac PCs 1. Download the
-`BeagleBone OS <https://www.beagleboard.org/distros>`__ image you want
-to use. 1. Use the `Etcher utility <https://etcher.io/>`__ to burn the
-BeagleBone image you want to use on the micro sd card you plan on using.
-1. On the SD card edit the file ``/boot/uEnv.txt`` in order for the SD
-card contents to be flashed onto the firmware eMMC. (Otherwise the BBBL
-will do no more than boot the SD image.) Uncomment the line containing
-``init-eMMC-flasher-v<number>.sh`` either manually or using these
-commands substituting ``X`` with what your SD card shows in ``/dev/``:
-\* ``sudo mount /dev/emmcblkXp1 /mnt`` \* ``cd /mnt`` \*
-``sed -i 's_#[ ]*\(cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v[0-9]\+.*\.sh\)_\1_' boot/uEnv.txt``
+Flashing can take some minutes. 
 
-1. Eject the sdcard from your computer.
-2. Put it into your BeagleBoneBlue.
-3. If your board was already powered on then power it off
-4. Hold the update button labeled ``SD`` (the one by itself) to boot off
-   the sdcard.
-5. Restart (RST button) or power up (while still pushing SD button).
+Linux/Mac PCs 
+=============
+
+1.  Download the
+    `BeagleBone OS <https://www.beagleboard.org/distros>`_ image you want
+    to use. 
+2.  Use the `Etcher utility <https://etcher.io/>`_ to burn the
+    BeagleBone image you want to use on the micro sd card you plan on using.
+3.  On the SD card edit the file ``/boot/uEnv.txt`` in order for the SD
+    card contents to be flashed onto the firmware eMMC. (Otherwise the BBBL
+    will do no more than boot the SD image.) Uncomment the line containing
+    ``init-eMMC-flasher-v<number>.sh`` either manually or using these
+    commands substituting ``X`` with what your SD card shows in ``/dev/``:
+
+.. code:: bash
+
+   sudo mount /dev/emmcblkXp1 /mnt
+   cd /mnt
+   sed -i 's_#[ ]*\(cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v[0-9]\+.*\.sh\)_\1_' boot/uEnv.txt
+
+4.  Eject the sdcard from your computer.
+5.  Put it into your BeagleBoneBlue.
+6.  If your board was already powered on then power it off
+7.  Hold the update button labeled ``SD`` (the one by itself) to boot off
+    the sdcard.
+8.  Restart (RST button) or power up (while still pushing SD button).
 
 Flashing can take some minutes.
 
