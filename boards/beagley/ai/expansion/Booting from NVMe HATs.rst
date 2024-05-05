@@ -154,6 +154,6 @@ You should see something similar to below without further errors:
 
 
 Still having issues? 
-***
+************************
 
-Post on the (`Forum <https://forum.beagleboard.org/>`_.)  and talk to us on Discord. 
+Post on the `Forum <https://forum.beagleboard.org/>`_  and talk to us on Discord. 
