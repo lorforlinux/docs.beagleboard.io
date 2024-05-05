@@ -21,7 +21,7 @@ In addition, to add the ability to drive DC motors, some board designers add one
 .. image:: ../images/xicoolee_sch1.png
 
 
-If we look at the Xicoolee board and compare it to the schematic, we see that indeed Servo Channels 3-8 on the PCB Silkscreen match mins 12 through 18 of the PWM Driver, while PWM1, PWM2, INA1/2 and INB1/2 are used in conjunction with the TB6612FNG.
+If we look at the Xicoolee board and compare it to the schematic, we see that indeed Servo Channels 3-8 on the PCB Silkscreen match pins 12 through 18 of the PWM Driver, while PWM1, PWM2, INA1/2 and INB1/2 are used in conjunction with the TB6612FNG.
 
 Looking at the `TB6612FNG Datasheet <https://www.sparkfun.com/datasheets/Robotics/TB6612FNG.pdf>`_, we can see that the IN pins for Channels A and B (INAx, INBx) are used to control the direction or "mode" of the DC motor, while the PWM signal controls the rotation speed for that particular channel.
 
