@@ -19,7 +19,7 @@ Required Items
 1. Micro sd card. 4 GB minimum
 2. Micro sd card reader or a built in sd card reader for your PC
 3. BeagleBone image you want to flash.
-4. `Etcher utility <https://etcher.io/>`__ for your PC’s OS.
+4. `Etcher utility <https://etcher.io/>`_ for your PC’s OS.
 
 Steps Overview
 ****************
@@ -37,8 +37,8 @@ Windows PCs
 =============
 
 1.  Download the `BeagleBone
-    OS <https://www.beagleboard.org/distros>`__ image you want to use.
-2.  Use the `Etcher utility <https://etcher.io/>`__ to burn the
+    OS <https://www.beagleboard.org/distros>`_ image you want to use.
+2.  Use the `Etcher utility <https://etcher.io/>`_ to burn the
     BeagleBone image you want to use on the micro sd card you plan on
     using.
 3.  Make sure you don’t have the micro sd card plugged into your board.
@@ -76,9 +76,9 @@ Linux/Mac PCs
 =============
 
 1.  Download the
-    `BeagleBone OS <https://www.beagleboard.org/distros>`__ image you want
+    `BeagleBone OS <https://www.beagleboard.org/distros>`_ image you want
     to use. 
-2.  Use the `Etcher utility <https://etcher.io/>`__ to burn the
+2.  Use the `Etcher utility <https://etcher.io/>`_ to burn the
     BeagleBone image you want to use on the micro sd card you plan on using.
 3.  On the SD card edit the file ``/boot/uEnv.txt`` in order for the SD
     card contents to be flashed onto the firmware eMMC. (Otherwise the BBBL
