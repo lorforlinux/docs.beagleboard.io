@@ -5,11 +5,11 @@
 Using the Arducam Dual V3Link Camera Kit
 ############################################
 
-`The Arducam Dual V3Link Camera Kit <https://www.arducam.com/product/arducam-imx219-v3link-camera-kit-for-raspberry-pi/>`_ is an IMX219 based kit that leverages Texas Instruments' FPDLink technology to enable using two CSI cameras over a single port up to 15 minutes away using twisted pair cables.
+`The Arducam Dual V3Link Camera Kit <https://www.arducam.com/product/arducam-imx219-v3link-camera-kit-for-raspberry-pi/>`_ is an IMX219 based kit that leverages Texas Instruments' FPDLink technology to enable using two CSI cameras over a single port up to 15 meters away using twisted pair cables.
 
 .. image:: ../images/arducam_dual_1.jpg
 
-.. note:: Unlike the larger quad-camera kit, the dual camera kit aims to simplify the software stack and improve operability with the Pi and other non-TI SBCs by forgoing the ability to support multi-stream CSI inputs. This means that it is limited to "switching" between the two FPDLink inputs but have the benefit of not requiring additional drivers beyond support for the base CSI camera driver (IMX219 in this case)
+.. note:: Unlike the larger quad-camera kit, the dual camera kit aims to simplify the software stack and improve interoperability with the Raspberry Pi and other non-TI SBCs by forgoing the ability to support multi-stream CSI inputs. This means that it is limited to "switching" between the two FPDLink inputs but has the benefit of not requiring additional drivers beyond support for the base CSI camera driver (IMX219 in this case)
 
 Initial Hardware Connection
 *****************************
