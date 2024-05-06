@@ -126,7 +126,7 @@ Demos and tutorials
         intermediate
 
 .. card::
-    :link: beagleplay-lpm-video
+    :link: beagleplay-demo-lpm-video
     :link-type: ref
 
     **Using Suspend to RAM and video streaming**

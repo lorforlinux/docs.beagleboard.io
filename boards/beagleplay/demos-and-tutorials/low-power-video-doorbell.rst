@@ -1,9 +1,9 @@
-.. _beagleplay-lpm-video:
+.. _beagleplay-demo-lpm-video:
 
-Smart Energy efficient video doorbell
-####################################
+Smart energy efficient video doorbell
+#####################################
 
-1. Intelligent Camera streaming and recording at  640x480 resolution and 30 FPS with power saving.
+1. Intelligent Camera streaming and recording at 640x480 resolution and 30 FPS with power saving.
 2. Detect user activity using an external button/sensor and configure it as a wake-up source
 3. Camera should start streaming on wakeup event and pause on suspend thus saving power.
 
@@ -13,8 +13,8 @@ Give options to enable below functionalities:
 - On-the-fly recording of live camera feed with a timeout to record visitor activity
 - On-the-fly streaming of live camera feed to remote server for post processing/storage or display.
 
-About Deep Sleep
-################
+About deep sleep
+******************
 
 Deep Sleep AKA Suspend-to-RAM is a low-power mode that allows an embedded
 device to retain its state in RAM while the processor is turned off.
@@ -23,18 +23,23 @@ This can save a significant amount of power, especially in devices that are batt
 The benefits of using deep sleep in embedded devices are faster wake-up time and
 better efficiency.
 
-Hardware Requirements
-#####################
+.. tip:: Checkout `kernel docs on power states <https://www.kernel.org/doc/Documentation/power/states.txt>`_
 
-1. BeaglePlay board.
-2. A smart camera sensor like TEVI-OV5640
-3. Optionally, you can also make do with an USB camera
-4. HDMI monitor/ cable
-5. Ethernet cable and a laptop/ desktop with Ethernet port
-6. A Grove PIR sensor or a Grove button
+.. youtube:: 4jbOXl_o4uo
+	:width: 100%
+	:align: center
 
-Software Requirements
-#####################
+Hardware requirements
+**********************
+
+1. `BeaglePlay board <https://www.beagleboard.org/boards/beagleplay>`_
+2. A CSI MIPI camera like `TEVI-OV5640 <https://www.technexion.com/products/embedded-vision/image-sensors/tevi-ov5640/>`_ or a USB web-cam
+3. HDMI monitor & HDMI cable
+4. Ethernet cable and a laptop/desktop with an Ethernet port
+5. A Grove PIR sensor or a Grove button
+
+Software requirements
+*********************
 
 First, make sure that you have the latest U-Boot which packages the right firmwares
 to make deep sleep work on beagleplay. You will also need to use ti-linux-kernel for
@@ -48,7 +53,7 @@ https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-lang
 for further details on how to install gstreamer.
 
 Devicetree changes
-##################
+*******************
 
 You will need to tell Linux what your wakeup source is going to be, it can be a simple button
 or even a  PIR sensor. To do this you'll need to make the following changes to the
@@ -84,14 +89,16 @@ k3-am625-beagleplay.dts:
 The above will help us configure the grove connector's GPIO to act as a
 wakeup source from Deep Sleep.
 
-If using the smart sensor like tevi-ov5640 then be sure to also apply the
-k3-am625-beagleplay-csi2-tevi-ov5640.dtbo overlay.
+If using the CSI MIPI camera like tevi-ov5640 then be sure to also apply the respective overlay, 
+for tevi-ov5640 applu ``k3-am625-beagleplay-csi2-tevi-ov5640.dtbo`` overlay.
 
 Linux commands
-##############
+***************
 
 Once your hardware, software and devicetree changes are all set, and
 you boot till linux prompt we can finally start with the final bit!
+
+.. todo:: Add more information on how each command is working.
 
 1. Run the following gst pipeline:
 
@@ -116,7 +123,7 @@ If you also want to record the video:
 bring the device back up and you will see the video resume almost instantly!
 
 Resources
-#########
+**********
 
 1. https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_02_01_09/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Power_Management/pm_low_power_modes.html#deep-sleep
 2. https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_02_01_09/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Camera/CSI2RX.html
