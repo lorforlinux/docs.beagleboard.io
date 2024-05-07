@@ -1,4 +1,4 @@
-.. _imx219-csi-cameras:
+.. _beagley-ai-imx219-csi-cameras:
 
 .. note:: This page is a work in progress. Further drive testing and images will be added soon
 
