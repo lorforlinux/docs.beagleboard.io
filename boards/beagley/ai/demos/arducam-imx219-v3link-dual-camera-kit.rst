@@ -18,7 +18,7 @@ Simply plug in the HAT into the BeagleY GPIO header and connect the CSI header a
 
 Either CSI header may be connected but make sure you use the corresponding CSI port DTS when enabling your "camera".
 
-TODO - ADD CSI 0/1 Header Location photo.
+.. todo:: ADD CSI 0/1 Header Location photo.
 
 Verify that the HAT is connected
 ************************************
