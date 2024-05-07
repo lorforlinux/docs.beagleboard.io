@@ -1,4 +1,4 @@
-.. _arducam-imx219-v3link-dual-camera-kit:
+.. _beagley-ai-arducam-imx219-v3link-dual-camera-kit:
 
 .. note:: This page is a work in progress. Further drive testing and images will be added soon
 
