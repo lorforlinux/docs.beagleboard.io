@@ -102,7 +102,7 @@ WaveShare Motor and Servo Driver HAT
 
 Waveshare writes some of the better `documentation <https://www.waveshare.com/wiki/Motor_Driver_HAT>`_ for these types of Motor Driver HATs
 
-TODO EXPAND HERE
+.. todo:: Add more information on Waveshare motor & servo driver HAT.
 
 XICOOLEE Motor and Servo Driver HAT
 ************************************
