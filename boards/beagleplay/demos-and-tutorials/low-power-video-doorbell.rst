@@ -3,7 +3,7 @@
 Smart energy efficient video doorbell
 #####################################
 
-1. Intelligent Camera streaming and recording at 640x480 resolution and 30 FPS with power saving.
+1. Intelligent camera streaming and recording at 640x480 resolution and 30 FPS with power saving.
 2. Detect user activity using an external button/sensor and configure it as a wake-up source
 3. Camera should start streaming on wakeup event and pause on suspend thus saving power.
 
@@ -36,7 +36,7 @@ Hardware requirements
 2. A CSI MIPI camera like `TEVI-OV5640 <https://www.technexion.com/products/embedded-vision/image-sensors/tevi-ov5640/>`_ or a USB web-cam
 3. HDMI monitor & HDMI cable
 4. Ethernet cable and a laptop/desktop with an Ethernet port
-5. A Grove PIR sensor or a Grove button
+5. `A Grove PIR sensor <https://wiki.seeedstudio.com/Grove-PIR_Motion_Sensor/>`_ or a Grove button
 
 Software requirements
 *********************
@@ -89,8 +89,64 @@ k3-am625-beagleplay.dts:
 The above will help us configure the grove connector's GPIO to act as a
 wakeup source from Deep Sleep.
 
-If using the CSI MIPI camera like tevi-ov5640 then be sure to also apply the respective overlay, 
-for tevi-ov5640 applu ``k3-am625-beagleplay-csi2-tevi-ov5640.dtbo`` overlay.
+If using the CSI MIPI camera like tevi-ov5640 then, be sure to also apply the respective overlay, 
+for tevi-ov5640 apply ``k3-am625-beagleplay-csi2-tevi-ov5640.dtbo`` overlay.
+
+The Technexion TEVI-OV5640 module supports Suspend-to-RAM but may fail to set the sensor registers
+in time when built as a module. You can fix this by making it a part of the kernel image:
+Find further details in the `TI-SDK Documentation <https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_01_00_08/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Camera/CSI2RX.html#suspend-to-ram>`_
+
+.. todo:: Add the below changes to the beagle defconfig
+
+.. code:: diff
+
+	diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+	index 1f402994efed..0f081e5f96c1 100644
+	--- a/arch/arm64/configs/defconfig
+	+++ b/arch/arm64/configs/defconfig
+	@@ -739,14 +739,14 @@ CONFIG_RC_DECODERS=y
+	 CONFIG_RC_DEVICES=y
+	 CONFIG_IR_MESON=m
+	 CONFIG_IR_SUNXI=m
+	-CONFIG_MEDIA_SUPPORT=m
+	+CONFIG_MEDIA_SUPPORT=y
+	 # CONFIG_DVB_NET is not set
+	 CONFIG_MEDIA_USB_SUPPORT=y
+	 CONFIG_USB_VIDEO_CLASS=m
+	 CONFIG_V4L_PLATFORM_DRIVERS=y
+	 CONFIG_SDR_PLATFORM_DRIVERS=y
+	 CONFIG_V4L_MEM2MEM_DRIVERS=y
+	-CONFIG_VIDEO_CADENCE_CSI2RX=m
+	+CONFIG_VIDEO_CADENCE_CSI2RX=y
+	 CONFIG_VIDEO_WAVE_VPU=m
+	 CONFIG_VIDEO_IMG_VXD_DEC=m
+	 CONFIG_VIDEO_IMG_VXE_ENC=m
+	@@ -764,12 +764,12 @@ CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
+	 CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+	 CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
+	 CONFIG_VIDEO_SUN6I_CSI=m
+	-CONFIG_VIDEO_TI_J721E_CSI2RX=m
+	+CONFIG_VIDEO_TI_J721E_CSI2RX=y
+	 CONFIG_VIDEO_HANTRO=m
+	 CONFIG_VIDEO_IMX219=m
+	 CONFIG_VIDEO_IMX390=m
+	 CONFIG_VIDEO_OV2312=m
+	-CONFIG_VIDEO_OV5640=m
+	+CONFIG_VIDEO_OV5640=y
+	 CONFIG_VIDEO_OV5645=m
+	 CONFIG_VIDEO_DS90UB953=m
+	 CONFIG_VIDEO_DS90UB960=m
+	@@ -1309,8 +1309,8 @@ CONFIG_PHY_XGENE=y
+	 CONFIG_PHY_CAN_TRANSCEIVER=m
+	 CONFIG_PHY_SUN4I_USB=y
+	 CONFIG_PHY_CADENCE_TORRENT=y
+	-CONFIG_PHY_CADENCE_DPHY=m
+	-CONFIG_PHY_CADENCE_DPHY_RX=m
+	+CONFIG_PHY_CADENCE_DPHY=y
+	+CONFIG_PHY_CADENCE_DPHY_RX=y
+	 CONFIG_PHY_CADENCE_SIERRA=y
+	 CONFIG_PHY_MIXEL_MIPI_DPHY=m
+	 CONFIG_PHY_FSL_IMX8M_PCIE=y
 
 Linux commands
 ***************
@@ -98,7 +154,7 @@ Linux commands
 Once your hardware, software and devicetree changes are all set, and
 you boot till linux prompt we can finally start with the final bit!
 
-.. todo:: Add more information on how each command is working.
+.. todo:: Add more information on how each gst command is working.
 
 1. Run the following gst pipeline:
 
@@ -120,7 +176,21 @@ If you also want to record the video:
 	echo mem > /sys/power/state
 
 3. Then, if you press the button/ trigger PIR sensor with some movement it should
-bring the device back up and you will see the video resume almost instantly!
+   bring the device back up and you will see the video resume almost instantly!
+
+4. Additionally, you can enable auto suspend for the device by using a simple systemd service. Follow the `guide here <https://tecadmin.net/run-shell-script-as-systemd-service/>`_
+   to see how to create and enable a script as a systemd service. The script that I used was as follows:
+
+.. code:: console
+
+        #!/bin/bash
+
+        while true
+        do
+         sleep 15       # Adjust this time to whatever delay you prefer the device stays on after resume
+         echo "Entering Suspend to RAM..."
+         echo mem > /sys/power/state
+        done
 
 Resources
 **********
