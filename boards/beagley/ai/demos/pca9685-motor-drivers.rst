@@ -1,4 +1,4 @@
-.. _pca9685-motor-drivers:
+.. _beagley-ai-pca9685-motor-drivers:
 
 .. note:: This page is a work in progress. Further drive testing and images will be added soon
 
