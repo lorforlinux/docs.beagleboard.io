@@ -63,7 +63,7 @@ from source using appropriate design tools.
       :link: beagley-ai-home
       :link-type: ref
 
-      **BeagleY-AI**
+      **BeagleY®-AI**
       ^^^
 
       .. image:: boards/images/beagley-ai.*
