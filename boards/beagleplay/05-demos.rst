@@ -125,6 +125,18 @@ Demos and tutorials
         
         intermediate
 
+.. card::
+    :link: beagleplay-demo-lpm-video
+    :link-type: ref
+
+    **Using Suspend to RAM and video streaming**
+    ^^^
+    Make a DIY video doorbell which can stream video and also save power when left idle!
+    +++
+    .. admonition:: Complexity level
+
+        intermediate
+
 .. raw:: latex
 
    \end{comment}
@@ -144,3 +156,4 @@ Demos and tutorials
    demos-and-tutorials/play-kernel-development
    demos-and-tutorials/greybus-host
    demos-and-tutorials/understanding-boot
+   demos-and-tutorials/low-power-video-doorbell
