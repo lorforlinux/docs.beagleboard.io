@@ -28,10 +28,10 @@ Export designations
 Size and weight
 ===============
 
-* Bare board dimensions: **TBD**
-* Bare board weight: **TBD**
-* Full package dimensions: **TBD**
-* Full package weight: **TBD**
+* Bare board dimensions: 85 x 56 x 20 mm
+* Bare board weight: 50 g
+* Full package dimensions: 140 x 100 x 40 mm
+* Full package weight: 110g
 
 .. _beagley-ai-support-documentation:
 
