@@ -1,7 +1,8 @@
 .. _beagley-ai-imx219-csi-cameras:
 
-.. note:: This page is a work in progress. Further camera testing and images will be added soon
+.. todo::
 
+   Need to add `gstreamer` and/or `cheese` commands to show how to make use of connected cameras.
 
 Using IMX219 CSI Cameras
 ############################
