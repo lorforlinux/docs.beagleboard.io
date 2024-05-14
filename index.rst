@@ -70,7 +70,8 @@ from source using appropriate design tools.
          :align: center
       +++
 
-      An industry standard form-factor 64-bit ARM computer.
+      An industry standard form-factor 64-bit ARM computer with 4 TOPS AI engine
+      and integrated ARM Cortex-R5 for low-latency I/O tasks.
 
    .. grid-item-card::
       :link: beagleplay-home
