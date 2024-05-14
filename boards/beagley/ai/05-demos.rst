@@ -7,7 +7,7 @@ Demos and tutorials
    :maxdepth: 1
 
    demos/beagley-ai-expansion-nvme
-   demos/beagley-ai-pca9685-motor-drivers
-   demos/beagley-ai-arducam-imx219-v3link-dual-camera-kit
+   demos/pca9685-motor-drivers
+   demos/arducam-imx219-v3link-dual-camera-kit
    demos/connecting-imx219-csi-cameras
 
