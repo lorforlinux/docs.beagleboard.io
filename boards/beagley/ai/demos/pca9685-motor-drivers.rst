@@ -226,4 +226,4 @@ Looking at the schematic for the Adafruit HAT, we see that we need to define our
         self.BIN1_2 = 5
         self.BIN2_2 = 6
 
-TODO - expand on running 2 DC motor objects
+.. todo:: Expand on running 2 DC motor objects
