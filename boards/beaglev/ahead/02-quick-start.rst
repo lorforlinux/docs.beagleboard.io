@@ -24,8 +24,7 @@ Unboxing
 *********
 
 .. youtube:: SVC9peUUzE0
-   :width: 1280
-   :height: 720
+   :width: 100%
    :align: center
 
 Antenna guide

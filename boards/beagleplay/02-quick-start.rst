@@ -27,8 +27,7 @@ Attaching antennas
 You can watch this video to see how to attach the attennas.
 
 .. youtube:: 8zeIVd-JRc0
-    :width: 1280
-    :height: 720
+    :width: 100%
     :align: center
 
 Tethering to PC
