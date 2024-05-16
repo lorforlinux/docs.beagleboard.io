@@ -13,8 +13,16 @@ PCIe
 For software reference, you can :ref:`see how PCIe is used on NVMe HATs<beagley-ai-expansion-nvme>`.
 
 
-
 CSI
 ***
 
 For software reference, you can :ref:`see how CSI is used on IMX219-based camera modules<beagley-ai-imx219-csi-cameras>`.
+
+RTC
+***
+
+.. todo::
+
+   Remove this. I really don't see how "RTC" falls into our definition of what should be documented in "Expansion".
+
+* :ref:`beagley-ai-rtc`
