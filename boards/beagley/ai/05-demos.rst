@@ -6,6 +6,7 @@ Demos and tutorials
 .. toctree::
    :maxdepth: 1
 
+   demos/using-rtc
    demos/expansion-nvme
    demos/pca9685-motor-drivers
    demos/arducam-imx219-v3link-dual-camera-kit
