@@ -11,7 +11,7 @@ What's included in the box?
 When you purchase a BeagleY-AI, you'll get the following in the box:
 
 1. `BeagleY-AI <https://www.beagleboard.org/boards/beagley-ai>`_
-2. 2.4GHz antennas
+2. 2.4GHz antenna
 3. Quick-start card
 
 .. tip:: For board files, 3D model, and more, you can checkout the `BeagleY-AI repository on OpenBeagle <https://openbeagle.org/beagley-ai/beagley-ai>`_.
