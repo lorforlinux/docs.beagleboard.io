@@ -3,6 +3,10 @@
 Design and specifications
 #########################
 
+.. todo::
+
+   Don't these go on the support page which is the focus of distributors?
+
 Mechanical Specifications 
 **************************
 
