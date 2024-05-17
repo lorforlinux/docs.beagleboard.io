@@ -95,7 +95,7 @@ Let's fix our hardware clock. We assume here that the system clock is freshly sy
 
 Let's write a simple script to get the two times, we'll call it **getTime.sh**:
 
-.. code:: console
+.. code:: shell
 
    HWTIME=$(sudo hwclock)
    echo "RTC - ${HWTIME} "
