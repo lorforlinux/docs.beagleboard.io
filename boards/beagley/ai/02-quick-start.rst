@@ -165,3 +165,8 @@ After successfully attaching the antenna, power up the board. Once booted you ca
 .. code::
     
     ping 8.8.8.8
+
+Demos and Tutorials
+*******************
+
+* :ref:`beagley-ai-expansion-nvme`
