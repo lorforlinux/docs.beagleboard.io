@@ -1,12 +1,6 @@
 .. _beagley-ai-demos:
 
 Demos and tutorials
-<<<<<<< HEAD
-<<<<<<< HEAD
-####################
-=======
-=======
->>>>>>> 4ae108e7e300197de6528dd664413457ae317ede
 ####################
 
 .. toctree::
