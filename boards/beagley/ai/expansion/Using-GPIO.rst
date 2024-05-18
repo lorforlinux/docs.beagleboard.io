@@ -1,0 +1,208 @@
+.. _beagley-ai-gpio:
+
+.. note:: This page is a work in progress. Further testing and images will be added soon
+
+
+Using GPIO
+#################
+
+**GPIO** stands for **General-Purpose Input/Output**. It's a set of programmable pins that you can use to connect and control various electronic components. 
+
+You can set each pin to either **read signals (input)** from things 
+like buttons and sensors or **send signals (output)** to things like LEDs and motors. This lets you interact with and control 
+the physical world using code!
+
+A great resource for understanding pin numbering can be found at `BeagleY.Pinout.xyz <https://pinout.xyz>`_ 
+
+.. note:: **WARNING** - BeagleY-AI GPIOs are 3.3V tolerant, using higher voltages WILL damage the processor!
+
+
+Pin Numbering
+**********************
+
+You will see pins referenced in several ways. While this is confusing at first, in reality, we can pick our favorite way and stick to it.
+
+The two main ways of referring to GPIOs is **by their number**, so GPIO 2, 3, 4 etc. as seen in the diagram below. This corresponds
+to the SoC naming convention. For broad compatibility, BeagleY-AI re-uses the Broadcom GPIO numbering scheme used by RaspberryPi. 
+
+The second (and arguably easier) way we will use for this tutorial is to use the **actual pin header number** (shown in dark grey)
+
+So, for the rest of the tutorial, if we refer to **hat-08-gpio** we mean the **8th pin of the GPIO header**. Which, if you referenced
+the image below, can see refers to **GPIO 14 (UART TX)**
+
+.. image:: ../images/gpio/pinout.png
+   :width: 30 %
+   :align: center
+
+
+If you are curious about the "real" GPIO numbers on the Texas Instruments AM67A SoC, you can look at the board schematics. 
+
+Required Hardware
+**********************
+
+For the simple blink demo, all that is needed is an LED, a Resistor (we use 2.2K here) and 2 wires.
+
+Similarly, a button is used for the GPIO read example, but you can also just connect that pin to 3.3V or GND with a wire 
+to simulate a button press.
+
+
+.. todo:: Add fritzing diagram here
+
+GPIO Write
+**********************
+
+At it's most basic, we can set a GPIO using the **gpioset** command. 
+
+To set HAT **Pin 8** to **ON**:
+
+.. code:: console
+
+   gpioset hat-08-gpio 0=1
+
+.. image:: ../images/gpio/on.png
+   :width: 50 %
+   :align: center
+
+To set HAT **Pin 8** to **OFF**:
+
+.. code:: console
+
+   gpioset hat-08-gpio 0=0
+
+.. image:: ../images/gpio/off.png
+   :width: 50 %
+   :align: center
+
+Blink an LED
+**********************
+
+.. image:: ../images/gpio/blinky.gif
+   :width: 50 %
+   :align: center
+
+.. code:: bash
+
+   EXAMPLE CODE HERE
+
+GPIO Read
+**********************
+
+Reading GPIOs can be done using the **gpioget** command
+
+.. code:: console
+
+   gpioget hat-08-gpio 0
+   
+Results in **1** if the Input is held **HIGH** or **0** if the Input is held **LOW**
+
+Read a Button
+**********************
+
+A push button simply completes an electric circuit when pressed. Depending on wiring, it can drive a signal either "Low" (GND) or "High" (3.3V)
+
+Let's write a Bash script to continuously read an input pin connected to a button:
+
+.. code:: bash
+
+   EXAMPLE CODE FOR BUTTON HERE
+
+
+Combining the Two
+**********************
+
+Now, logically, let's make an LED match the state of the button.
+
+.. code:: bash
+
+   EXAMPLE CODE FOR BUTTON + LED HERE
+
+
+Cool! How about "toggling" the state of the LED on each button press? 
+
+.. code:: bash
+
+   EXAMPLE CODE FOR LATCHING BUTTON + LED HERE
+
+Understanding Internal Pull Resistors
+*******************************************
+
+Pull-up and pull-down resistors are used in digital circuits to ensure that inputs to logic settle at expected levels.
+
+* Pull-up resistors: Connect the input to a high voltage level (e.g., 3.3V) to ensure the input reads as a logic high (1) when no active device is pulling it low.
+
+* Pull-down resistors: Connect the input to ground (GND) to ensure the input reads as a logic low (0) when no active device is pulling it high.
+
+These resistors prevent floating inputs and undefined states.
+
+By default, all GPIOs on the HAT Header are configured as **Inputs with Pull-up Resistors Enabled**.
+
+This is important for something like a button, as without it, once a button is released, it goes in an "undefined" state!
+
+To configure Pull-ups on a per-pin basis, we can use pass the following arguments within **gpioget or gpioset**:
+
+.. code:: console
+
+   -B, --bias=[as-is|disable|pull-down|pull-up] (defaults to 'as-is')
+
+The "Bias" argument has the following options:
+   * **as-is** - This leaves the bias as-is... quite self explanatory
+   * **disable** - This state is also known as High-Z (high impedance) where the Pin is left Floating without any bias resistor
+   * **pull-down** - In this state, the pin is pulled DOWN by the internal 50KΩ resistor
+   * **pull-up** - In this state, the pin is pulled UP by the internal 50KΩ resistor
+
+For example, a command to read an input with the Bias intentionally disabled would look  like this:
+
+.. code:: bash
+
+   gpioget --bias=disable hat-08-gpio 0
+
+Pull resistors are a foundational block of digital circuits and understanding when to (and not to) use them is important.
+
+This article from SparkFun Electronics is a good basic primer - `Link <https://learn.sparkfun.com/tutorials/pull-up-resistors/all>`_ 
+
+Troubleshooting
+*******************
+
+* **My script won't run!**
+
+Make sure you gave the script execute permissions first and that you're executing it with a **./** before
+
+To make it executable:
+
+.. code:: bash
+
+   chmod +X scriptName.sh
+
+To run it:
+
+.. code:: bash
+
+   ./scriptName.sh
+
+
+Bonus - Turn all GPIOs ON/OFF
+*******************************
+
+.. image:: ../images/gpio/allonoff.gif
+   :width: 50 %
+   :align: center
+
+Copy and paste this with the button on the right to turn **all pins ON**. 
+
+.. code:: bash
+
+   gpioset hat-03-gpio 0=1 ;\ gpioset hat-05-gpio 0=1 ;\ gpioset hat-08-gpio 0=1 ;\ gpioset hat-10-gpio 0=1 ;\ gpioset hat-11-gpio 0=1 ;\ gpioset hat-12-gpio 0=1 ;\ gpioset hat-13-gpio 0=1 ;\ gpioset hat-15-gpio 0=1 ;\ gpioset hat-16-gpio 0=1 ;\ gpioset hat-18-gpio 0=1 ;\ gpioset hat-19-gpio 0=1 ;\ gpioset hat-21-gpio 0=1 ;\ gpioset hat-22-gpio 0=1 ;\ gpioset hat-23-gpio 0=1 ;\ gpioset hat-24-gpio 0=1 ;\ gpioset hat-26-gpio 0=1 ;\ gpioset hat-29-gpio 0=1 ;\ gpioset hat-31-gpio 0=1 ;\ gpioset hat-32-gpio 0=1 ;\ gpioset hat-33-gpio 0=1 ;\ gpioset hat-35-gpio 0=1 ;\ gpioset hat-36-gpio 0=1 ;\ gpioset hat-37-gpio 0=1 ;\ gpioset hat-40-gpio 0=1
+
+Similarly, copy and paste this to turn **all pins OFF**. 
+
+.. code:: bash
+
+   gpioset hat-03-gpio 0=0 ;\ gpioset hat-05-gpio 0=0 ;\ gpioset hat-08-gpio 0=0 ;\ gpioset hat-10-gpio 0=0 ;\ gpioset hat-11-gpio 0=0 ;\ gpioset hat-12-gpio 0=0 ;\ gpioset hat-13-gpio 0=0 ;\ gpioset hat-15-gpio 0=0 ;\ gpioset hat-16-gpio 0=0 ;\ gpioset hat-18-gpio 0=0 ;\ gpioset hat-19-gpio 0=0 ;\ gpioset hat-21-gpio 0=0 ;\ gpioset hat-22-gpio 0=0 ;\ gpioset hat-23-gpio 0=0 ;\ gpioset hat-24-gpio 0=0 ;\ gpioset hat-26-gpio 0=0 ;\ gpioset hat-29-gpio 0=0 ;\ gpioset hat-31-gpio 0=0 ;\ gpioset hat-32-gpio 0=0 ;\ gpioset hat-33-gpio 0=0 ;\ gpioset hat-35-gpio 0=0 ;\ gpioset hat-36-gpio 0=0 ;\ gpioset hat-37-gpio 0=0 ;\ gpioset hat-40-gpio 0=0
+
+
+Going Further
+*******************
+
+* `BeagleY.Pinout.xyz <https://pinout.xyz>`_ 
+* `GPIOSet Documentation <https://manpages.debian.org/testing/gpiod/gpioset.1.en.html>`_
+* `GPIOGet Documentation <https://manpages.debian.org/testing/gpiod/gpioget.1.en.html>`_
