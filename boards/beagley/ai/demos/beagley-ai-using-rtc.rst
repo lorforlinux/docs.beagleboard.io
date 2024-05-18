@@ -1,14 +1,15 @@
-.. _beagley-ai-rtc:
-
-.. note:: This page is a work in progress. Further testing and images will be added soon
-
+.. _beagley-ai-using-rtc:
 
 Using the on-board Real Time Clock (RTC)
 #################################################
 
+.. todo::
+
+   Add specific actions rather than notes that this is a work-in-progress.
+
 Real Time Clocks (RTCs) provide precise and reliable timekeeping capabilities, which are beneficial for applications ranging from simple timekeeping to complex scheduling and secure operations.
 
-Without an RTC, a computer must rely on something called Network Time Protocol (NTP) to obtain the current time from a network source. There are many cases however where an SBC such as BeagleY may not have 
+Without an RTC, a computer must rely on something called Network Time Protocol (NTP) to obtain the current time from a network source. There are many cases however where an SBC such as BeagleY-AI may not have 
 a constant or reliable network connection. In situations such as these, an RTC allows the board to keep time even if the network connection is severed or the board loses power for an extended period of time. 
 
 Fortunately, BeagleY-AI comes with a built-in `DS1340 <https://www.analog.com/media/en/technical-documentation/data-sheets/DS1340-DS1340C.pdf>`_  RTC for all your fancy time keeping needs!
@@ -16,14 +17,15 @@ Fortunately, BeagleY-AI comes with a built-in `DS1340 <https://www.analog.com/me
 Required Hardware
 **********************
 
-BeagleY provides a **1.25 mm pitch, 2-pin JST GH connector** for a coin cell battery to enable the RTC to keep time even if power is lost to the board.
+BeagleY provides a **1.00 mm pitch, 2-pin JST SH connector** for a coin cell battery to enable the RTC to keep time even if power is lost to the board.
 
 These batteries are available from several vendors:
 
-* Adafruit - `Link <https://www.adafruit.com/product/5817>`_ 
-* DigiKey - `Link <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
-* Amazon (reusable battery holder) - `Link <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
-  
+* `Raspberry Pi 5 RTC Battery via Adafruit <https://www.adafruit.com/product/5817>`_ 
+* `Raspberry Pi 5 RTC Battery via DigiKey <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
+* `CR2023 battery holder for Pi 5 via Amazon <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
+   demos/connecting-imx219-csi-cameras
+
 .. image:: ../images/beagley_rtc.png
 
 Uses for an RTC
@@ -42,7 +44,7 @@ Uses for an RTC
 Reading time
 **********************
 
-.. note:: If you have not connected your BeagleY to a network so it can get time from an NTP server, you must set the time before being able to read it. If you don't do this first, you'll see errors. 
+.. note:: If you have not connected your BeagleY-AI to a network so it can get time from an NTP server, you must set the time before being able to read it. If you don't do this first, you'll see errors. 
 
 Reading the current time on the RTC is achieved using the **hwclock** command.
 
@@ -95,7 +97,7 @@ Let's fix our hardware clock. We assume here that the system clock is freshly sy
 
 Let's write a simple script to get the two times, we'll call it **getTime.sh**:
 
-.. code:: console
+.. code:: shell
 
    HWTIME=$(sudo hwclock)
    echo "RTC - ${HWTIME} "
@@ -138,8 +140,26 @@ Going Further
 
 Consider learning about topics such as time keeping over GPS and Atomic Clocks!
 
-Some good YouTube Videos and sources for inspiration - 
+There are some good YouTube videos below to provide sources for inspiration.
 
-* `Network Time Protocol - Computerphile <https://www.youtube.com/watch?v=BAo5C2qbLq8>`_
-* `Nanosecond Clock Sync - Jeff Geerling <https://www.youtube.com/watch?v=RvnG-ywF6_s>`_ 
-* `Using GPS with PPS to synchronize clocks over the network <https://www.youtube.com/watch?v=7aTZ66ZL6Dk>`_
+Network Time Protocol - Computerphile
+=====================================
+
+.. youtube:: BAo5C2qbLq8
+   :width: 100%
+   :align: center
+
+Nanosecond Clock Sync - Jeff Geerling
+=====================================
+
+.. youtube:: RvnG-ywF6_s
+   :width: 100%
+   :align: center
+
+Using GPS with PPS to synchronize clocks over the network
+=========================================================
+
+.. youtube:: 7aTZ66ZL6Dk
+   :width: 100%
+   :align: center
+

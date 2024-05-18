@@ -1,10 +1,11 @@
-.. _beagley-ai-rtc:
-
-.. note:: This page is a work in progress. Further drive testing and images will be added soon
-
+.. _beagley-ai-connecting-imx219-csi-cameras:
 
 Using IMX219 CSI Cameras
 ############################
+
+.. todo::
+
+   Need to add `gstreamer` and/or `cheese` commands to show how to make use of connected cameras.
 
 To enable an IMX219 CSI camera, modify the following file: `/boot/firmware/extlinux/extlinux.conf`
 
@@ -43,6 +44,7 @@ Your /boot/firmware/extlinux/extlinux.conf file should look something like this:
 Now reboot...
 
 .. code:: console 
+
    debian@BeagleBone:~$ ls /dev/ | grep "video"
    video0
    video1
@@ -56,6 +58,7 @@ Troubleshooting
 *******************
 
 .. code:: console
+
    Found /extlinux/extlinux.conf
    Retrieving file: /extlinux/extlinux.conf
    beagley-ai microSD (extlinux.conf)

@@ -51,8 +51,8 @@ Once logged in and at the terminal, make sure your system is up to date (a reboo
 
 .. code:: console
 
-   sudo apt-get update && sudo apt-get full-upgrade -y
-   sudo reboot
+    sudo apt-get update && sudo apt-get full-upgrade -y
+    sudo reboot
 
 
 Step 2. Verify that your NVMe drive is detected
@@ -102,9 +102,9 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 .. code:: bash
 
-   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-microsd-to-nvme /etc/default/beagle-flasher
-   sudo beagle-flasher-boot-emmc-rootfs-nvme
-   sudo reboot 
+    sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-microsd-to-nvme /etc/default/beagle-flasher
+    sudo beagle-flasher-boot-emmc-rootfs-nvme
+    sudo reboot 
 
 Enjoy NVMe speeds!
 ==================
