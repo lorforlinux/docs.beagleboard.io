@@ -46,7 +46,8 @@ Similarly, a button is used for the GPIO read example, but you can also just con
 to simulate a button press.
 
 
-.. todo:: Add fritzing diagram here
+.. todo:: Add fritzing diagram and chapter on Pin Binding here
+
 
 GPIO Write
 **********************
@@ -76,13 +77,38 @@ To set HAT **Pin 8** to **OFF**:
 Blink an LED
 **********************
 
+Let's write a script called **blinky.sh** that contains the following:
+
+.. code:: bash
+
+   #!/bin/bash
+
+   while :
+   do
+	   gpioset hat-08-gpio 0=1
+	   sleep 1
+	   gpioset hat-08-gpio 0=0
+	   sleep 1
+   done
+
+The script is quite simple, it's an infinite "while" loop in which we do the following:
+
+1. set the HAT Pin 8 as 1 (HIGH)
+2. Wait 1 Second
+3. set the HAT Pin 8 as 0 (LOW)
+4. Wait 1 Second
+
+Now execute it by typing:
+
+.. code:: console
+
+   bash blinky.sh
+
 .. image:: ../images/gpio/blinky.gif
    :width: 50 %
    :align: center
 
-.. code:: bash
-
-   EXAMPLE CODE HERE
+You can exit by pressing **Ctrl + c** on your keyboard.
 
 GPIO Read
 **********************
@@ -100,28 +126,64 @@ Read a Button
 
 A push button simply completes an electric circuit when pressed. Depending on wiring, it can drive a signal either "Low" (GND) or "High" (3.3V)
 
-Let's write a Bash script to continuously read an input pin connected to a button:
+We will connect our Button between HAT Pin 16 (GPIO23) and Ground (GND).
+
+The cool part is since we have an internal pull-up resistor, we don't need an external one!
+The pull resistor guarantees that the Pin stays in a known (HIGH) state unless the button is pressed,
+in which case it will go LOW.
+
+.. todo:: Add fritzing diagram here
+
+Let's write a script called **button.sh** to continuously read an input pin connected 
+to a button and print out when it's pressed! :
 
 .. code:: bash
 
-   EXAMPLE CODE FOR BUTTON HERE
+   #!/bin/bash
 
+   while :
+   do
+	   if (( $(gpioget hat-12-gpio 0) == 0))
+	   then
+		echo "Button Pressed!"
+	   fi
+   done
 
 Combining the Two
 **********************
 
 Now, logically, let's make an LED match the state of the button.
 
-.. code:: bash
-
-   EXAMPLE CODE FOR BUTTON + LED HERE
-
-
-Cool! How about "toggling" the state of the LED on each button press? 
+Let's modify our script and call it **blinkyButton.sh**:
 
 .. code:: bash
 
-   EXAMPLE CODE FOR LATCHING BUTTON + LED HERE
+   #!/bin/bash
+
+   while :
+      do
+	      if (( $(gpioget hat-12-gpio 0) == 0))
+	      then
+		      gpioset hat-08-gpio 0=1
+	      else
+		      gpioset hat-08-gpio 0=0
+	      fi
+      done
+
+This means when we see HAT Pin 12 go LOW, we know the button is pressed, so we set HAT Pin 8 (our LED) to ON, otherwise, we turn it OFF.
+
+Now execute it by typing:
+
+.. code:: console
+
+   bash blinkyButton.sh.sh
+
+.. image:: ../images/gpio/BlinkyButton.gif
+   :width: 50 %
+   :align: center
+
+You can exit by pressing **Ctrl + c** on your keyboard.
+
 
 Understanding Internal Pull Resistors
 *******************************************
