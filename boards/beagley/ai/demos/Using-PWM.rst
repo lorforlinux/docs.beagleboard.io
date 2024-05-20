@@ -1,6 +1,6 @@
 .. _beagley-ai-pwm:
 
-.. note:: This page is a work in progress. Further testing and images will be added soon
+.. todo:: This page is a work in progress. Further testing and images will be added soon
 
 
 Pulse Width Modulation (PWM)
@@ -74,7 +74,7 @@ Now execute it by typing:
 
 .. code:: console
 
-   bash shade.sh
+   bash fade.sh
 
 .. image:: ../images/gpio/pwm.gif
    :align: center
@@ -84,6 +84,9 @@ Now execute it by typing:
 Troubleshooting
 *******************
 
+.. todo:: Fill out empty section
 
 Going Further
 *******************
+
+.. todo:: Fill out empty section
