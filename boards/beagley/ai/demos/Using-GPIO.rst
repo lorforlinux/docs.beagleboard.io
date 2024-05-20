@@ -1,6 +1,6 @@
 .. _beagley-ai-gpio:
 
-.. note:: This page is a work in progress. Further testing and images will be added soon
+.. todo:: This page is a work in progress. Further testing and images will be added soon
 
 
 Using GPIO
