@@ -354,7 +354,6 @@ General connectivity and expansion
 
     BeagleY-AI voltage level translator
 
-
 Buttons and LEDs
 *****************
 
@@ -374,7 +373,6 @@ Networking
     :alt: BeagleY-AI WiFi module
 
     BeagleY-AI WiFi module
-
 
 Ethernet
 *********
