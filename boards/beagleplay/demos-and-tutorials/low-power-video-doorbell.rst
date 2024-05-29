@@ -171,18 +171,22 @@ There are two sets of gstreamer pipelines that get run in this demo one at serve
 
 Server side gstreamer pipeline (on beagleplay board):
 =====================================================
+
 Here, you can run either of the below two sets of gstreamer pipeline depending upon your requirement :
 
 Display live camera feed
 ------------------------
+
 Pipeline topology
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	v4l2src --> kmssink
 
 Gstreamer Pipeline
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	#Stop weston if using kmssink
@@ -193,14 +197,17 @@ Gstreamer Pipeline
    Change the video format to UYVY if using CSI based ov5640 camera
 
 Description
-^^^^^^^^^^^^
+~~~~~~~~~~~~
+
 The Linux kernel uses V4L2 based driver for Camera and DRM/KMS based driver for Display, Gstreamer has v4l2src element to communicate with V4l2's based driver and kmssink element to talk with display driver and using above command, we can create a media pipeline which shares video buffers from camera to display using DMA to transfer the buffer. This is specified using io-mode property of v4l2src.
 By default display server i.e weston is in charge of controlling the display, so it needs to be disabled if we want to control the display directly. We also use kmssink's force-modesetting property to set the display mode to the camera resolution and have a full screen display. If using a graphics server involving GPU, one can use waylandsink (which uses weston as display server), glimagesink (which uses opengl API) or ximagesink (which uses Xorg as display server) depending upon the display server.
 
 Display live camera feed + Stream out to remote server
 ------------------------------------------------------
+
 Pipeline topology
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
                          .-->kmssink
@@ -208,7 +215,8 @@ Pipeline topology
 	                 .-->x264enc-->rtph264pay-->udpsink
 
 Gstreamer pipeline
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	#Stop weston if using kmssink
@@ -219,15 +227,18 @@ Gstreamer pipeline
    Change the video format to UYVY if using CSI based ov5640 camera
 
 Description
-^^^^^^^^^^^^
+~~~~~~~~~~~~
+
 Here we use gstreamer's tee element to split the media pipeline graph into two arms, one arm is used to display the camera feed on-screen (which is same as the one described in previous section) and other arm is used to encode the camera feed and stream it to remote server. We use libx264 based x264enc element to encode the raw video to H.264 based access units. However x264enc does not support YUY2 video format, so we use ticolorconvert element to convert the video format to the one supported by the encoder, this element is CPU based but it uses ARM neon based instructions underneath for faster conversion. The x264enc element also offers different parameters to fine tune the encoding. We use superfast speed preset along with zerolatency tuning as we want to strem in realtime with minimal latency. We set IDR or key frame interval to 30 frames using key-int-max property. The IDR frame is important from streaming point of view as it marks arrival of fresh group of pictures without any dependencies to previous frames so that decoding at client side can resume back seamlessly even if there were packet losses in between due to network issues. However the value needs to be carefully chosen as the trade-off with higher frequency of IDR frames though is the increase in size of rtp payload which may consume more bandwidth. The video quality of encoded stream is controleld by bitrate parameter which specifies number of Kbits used for encoding video for 1s. Higher value for bitrate will increase the video quality albeit at the cost of increased size. The encoded frame is then packetized into RTP packets using rtph264pay element and transmitted over network using UDP protocol using udpsink element. The ip address and port number of remote host are specified using "host" and "port" property of udpsink element respectively.
 
 This gstreamer pipeline is useful for prototyping use-case where you not just want to display the camera feed outside the door when some visitor comes, but also want to stream out to a remote server (for e.g. security control rool or to your mobile device) for more safety.
 
 Display live camera feed + Stream out to remote server+ Record camera feed
 --------------------------------------------------------------------------
+
 Pipeline topology
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	                 .-->kmssink
@@ -236,7 +247,8 @@ Pipeline topology
 	                                    .--rtph264pay-->udpsink
 
 Gstreamer pipeline
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	#Stop weston if using kmssink
@@ -247,23 +259,28 @@ Gstreamer pipeline
    Change the video format to UYVY if using CSI based ov5640 camera
 
 Description
-^^^^^^^^^^^^
+~~~~~~~~~~~
+
 In addition to the media topology described in previous section, one more tee element is added here to save the encoded file over user-specified storage media. This could be helpful to have the camera feed of all the visitors (or potential intruders :)) recorded at the device end itself for future reference/analysis or as a blackbox recording. However care needs to be taken to constantly backup the recorded stream so that storage media does not run out of space.
 
 Client side gstreamer pipeline (runs on remote host):
 =====================================================
+
 The previous section described how the camera feed is displayed and streamed out to remote server using RTP and UDP protocols. Here we will discuss about how we can receive the transmitted stream and display it or record it. We use X86_64 based Ubuntu machine as remote host here.
 
 Display camera feed received over network
 ------------------------------------------
+
 Pipeline topology
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	udpsrc --> rtpjitterbuffer-->rtph264depay-->h264parse-->avdec_h264-->xvimagesink
 
 Gstreamer pipeline
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	# This is the IP address of the remote host which is specified in the server pipelien running on beagleplay
@@ -271,13 +288,16 @@ Gstreamer pipeline
 	gst-launch-1.0 udpsrc port=5000 caps = "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtpjitterbuffer latency=50 ! rtph264depay ! h264parse ! avdec_h264 ! queue ! fpsdisplaysink text-overlay=false name=fpssink video-sink="xvimagesink sync=false" sync=false -v
 
 Description
-^^^^^^^^^^^^
+~~~~~~~~~~~~
+
 The above gstreamer pipeline uses udpsrc element which reads UDP packets from the network, listening on the specified port (5000) and provide RTP packets to downstream element. rtpjitterbuffer element is used to buffer the incoming RTP packets to help reduce the impact of network jitter on smoothness of video. The bufferring is set to 50ms using latency property of rtpjitterbuffer, the value should be chosen optimally as tradeoff of choosing higher value is protection against network jitter maintaining the smoothness of pipeline but a higher value also increases the glass-to-glass latency. rtph264depay element is used to depacketize the H264 payload from RTP packets and feed send it to h264parse which parses it and provides access unit-by-access unit byte-stream to avdec_h264 which is a libav based software decoding element to decode H264 stream to raw video. fpsdisplaysink element is used along with xvimagesink (X11 backend) as video-sink to display overall frame-rate of the pipeline. If using weston as display server then waylandsink should be used as video-sink instead.
 
 Display camera feed received over network + record incoming stream
 ------------------------------------------------------------------
+
 Pipeline topology
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	                                                             .-->avdec_h264-->xvimagesink
@@ -285,7 +305,8 @@ Pipeline topology
                                                                      .-->filesink
 
 Gstreamer pipeline
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
+
 .. code:: console
 
 	# This is the IP address of the remote host which is specified in the server pipelien running on beagleplay
@@ -293,7 +314,8 @@ Gstreamer pipeline
 	gst-launch-1.0 udpsrc port=5000 caps = "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtpjitterbuffer latency=50 ! rtph264depay ! h264parse ! video/x-h264, stream-format=byte-stream ! tee name=t t. ! queue ! filesink location="op.h264"  t. ! queue ! avdec_h264 ! queue ! fpsdisplaysink text-overlay=false name=fpssink video-sink="xvimagesink sync=false" sync=false -v
 
 Description
-^^^^^^^^^^^^
+~~~~~~~~~~~~
+
 This is same as pipeline described in previous section albeit with the extra addition of tee element which adds another arm to save the decoded video over a file on the host machine.
 
 2. Let the above pipelines run in the background and then to suspend the device (beagleplay):
