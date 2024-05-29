@@ -102,8 +102,8 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 .. code:: bash
 
-   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-microsd-to-nvme /etc/default/beagle-flasher
-   sudo beagle-flasher-boot-emmc-rootfs-nvme
+   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-ai-microsd-to-nvme-w-swap /etc/default/beagle-flasher
+   sudo beagle-flasher-mv-rootfs-to-nvme
    sudo reboot 
 
 Enjoy NVMe speeds!
