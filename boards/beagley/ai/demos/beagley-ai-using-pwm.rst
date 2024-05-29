@@ -1,10 +1,9 @@
-.. _beagley-ai-pwm:
-
-.. todo:: This page is a work in progress. Further testing and images will be added soon
-
+.. _beagley-ai-using-pwm:
 
 Pulse Width Modulation (PWM)
 #############################
+
+.. todo:: This page is a work in progress. Further testing and images will be added soon
 
 What is it
 ************

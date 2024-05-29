@@ -1,10 +1,9 @@
-.. _beagley-ai-gpio:
-
-.. todo:: This page is a work in progress. Further testing and images will be added soon
-
+.. _beagley-ai-using-gpio:
 
 Using GPIO
 #################
+
+.. todo:: This page is a work in progress. Further testing and images will be added soon!
 
 **GPIO** stands for **General-Purpose Input/Output**. It's a set of programmable pins that you can use to connect and control various electronic components. 
 
@@ -12,15 +11,15 @@ You can set each pin to either **read signals (input)** from things
 like buttons and sensors or **send signals (output)** to things like LEDs and motors. This lets you interact with and control 
 the physical world using code!
 
-A great resource for understanding pin numbering can be found at `BeagleY.Pinout.xyz <https://pinout.xyz>`_ 
+A great resource for understanding pin numbering can be found at `pinout.beagley.ai <https://pinout.beagley.ai/>`_ 
 
 .. note:: **WARNING** - BeagleY-AI GPIOs are 3.3V tolerant, using higher voltages WILL damage the processor!
-
 
 Pin Numbering
 **********************
 
-You will see pins referenced in several ways. While this is confusing at first, in reality, we can pick our favorite way and stick to it.
+You will see pins referenced in several ways. While this is confusing at first, in reality, 
+we can pick our favorite way and stick to it.
 
 The two main ways of referring to GPIOs is **by their number**, so GPIO 2, 3, 4 etc. as seen in the diagram below. This corresponds
 to the SoC naming convention. For broad compatibility, BeagleY-AI re-uses the Broadcom GPIO numbering scheme used by RaspberryPi. 
@@ -30,15 +29,17 @@ The second (and arguably easier) way we will use for this tutorial is to use the
 So, for the rest of the tutorial, if we refer to **hat-08-gpio** we mean the **8th pin of the GPIO header**. Which, if you referenced
 the image below, can see refers to **GPIO 14 (UART TX)**
 
-.. image:: ../images/gpio/pinout.png
-   :width: 30 %
+.. figure:: ../images/gpio/pinout.png
    :align: center
+   :alt: BeagleY-AI pinout
+
+   BeagleY-AI pinout
 
 
 If you are curious about the "real" GPIO numbers on the Texas Instruments AM67A SoC, you can look at the board schematics. 
 
 Required Hardware
-**********************
+******************
 
 For the simple blink demo, all that is needed is an LED, a Resistor (we use 2.2K here) and 2 wires.
 
@@ -50,7 +51,7 @@ to simulate a button press.
 
 
 GPIO Write
-**********************
+***********
 
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
@@ -108,12 +109,12 @@ Now execute it by typing:
    :width: 50 %
    :align: center
 
-You can exit by pressing **Ctrl + c** on your keyboard.
+You can exit by pressing ``Ctrl + c`` on your keyboard.
 
 GPIO Read
-**********************
+**********
 
-Reading GPIOs can be done using the **gpioget** command
+Reading GPIOs can be done using the ``gpioget`` command
 
 .. code:: console
 
@@ -122,7 +123,7 @@ Reading GPIOs can be done using the **gpioget** command
 Results in **1** if the Input is held **HIGH** or **0** if the Input is held **LOW**
 
 Read a Button
-**********************
+**************
 
 A push button simply completes an electric circuit when pressed. Depending on wiring, it can drive a signal either "Low" (GND) or "High" (3.3V)
 
@@ -265,6 +266,6 @@ Similarly, copy and paste this to turn **all pins OFF**.
 Going Further
 *******************
 
-* `BeagleY.Pinout.xyz <https://pinout.xyz>`_ 
+* `pinout.beagley.ai <https://pinout.beagley.ai/>`_ 
 * `GPIOSet Documentation <https://manpages.debian.org/testing/gpiod/gpioset.1.en.html>`_
 * `GPIOGet Documentation <https://manpages.debian.org/testing/gpiod/gpioget.1.en.html>`_

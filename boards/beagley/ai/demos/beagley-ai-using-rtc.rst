@@ -1,10 +1,9 @@
-.. _beagley-ai-rtc:
-
-.. note:: This page is a work in progress. Further testing and images will be added soon
-
+.. _beagley-ai-using-rtc:
 
 Using the on-board Real Time Clock (RTC)
-#################################################
+#########################################
+
+.. todo:: This page is a work in progress. Further testing and images will be added soon
 
 Real Time Clocks (RTCs) provide precise and reliable timekeeping capabilities, which are beneficial for applications ranging from simple timekeeping to complex scheduling and secure operations.
 
@@ -14,20 +13,20 @@ a constant or reliable network connection. In situations such as these, an RTC a
 Fortunately, BeagleY-AI comes with a built-in `DS1340 <https://www.analog.com/media/en/technical-documentation/data-sheets/DS1340-DS1340C.pdf>`_  RTC for all your fancy time keeping needs!
 
 Required Hardware
-**********************
+******************
 
 BeagleY provides a **1.25 mm pitch, 2-pin JST GH connector** for a coin cell battery to enable the RTC to keep time even if power is lost to the board.
 
 These batteries are available from several vendors:
 
-* Adafruit - `Link <https://www.adafruit.com/product/5817>`_ 
-* DigiKey - `Link <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
-* Amazon (reusable battery holder) - `Link <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
+* `Adafruit - Raspberry Pi 5 RTC Battery <https://www.adafruit.com/product/5817>`_ 
+* `DigiKey - SC1163 <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
+* `Amazon (reusable battery holder) <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
   
 .. image:: ../images/beagley_rtc.png
 
 Uses for an RTC
-**********************
+******************
 
 1. **Maintaining Accurate Time:** RTCs provide an accurate clock that continues to run even when the SBC is powered down. This is crucial for maintaining the correct time and date across reboots.
 
