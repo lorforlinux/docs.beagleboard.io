@@ -79,13 +79,14 @@ The command ``lsblk`` will list the attached storage devices on the system:
 
     debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-    mmcblk0     179:0    0  59.7G  0 disk
-    ├─mmcblk0p1 179:1    0   256M  0 part /boot/firmware
-    └─mmcblk0p2 179:2    0  59.4G  0 part /
+    mmcblk1     179:0    0 29.7G  0 disk
+    ├─mmcblk1p1 179:1    0  256M  0 part /boot/firmware
+    ├─mmcblk1p2 179:2    0    4G  0 part [SWAP]
+    └─mmcblk1p3 179:3    0 25.5G  0 part /
     nvme0n1     259:0    0 476.9G  0 disk
     └─nvme0n1p1 259:1    0 476.9G  0 part 
 
-Here we see that two devices are connected, ``mmcblk0`` corresponds to our SD card, and ``nvme0n1`` corresponds to our NVMe drive, so everything is ready to go!
+Here we see that two devices are connected, ``mmcblk1`` corresponds to our SD card, and ``nvme0n1`` corresponds to our NVMe drive, so everything is ready to go!
 
 
 If your drives aren't listed as expected, please check the Troubleshooting section at the end of this document. 
@@ -102,9 +103,9 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 .. code:: bash
 
-    sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-microsd-to-nvme /etc/default/beagle-flasher
-    sudo beagle-flasher-boot-emmc-rootfs-nvme
-    sudo reboot 
+   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-ai-microsd-to-nvme-w-swap /etc/default/beagle-flasher
+   sudo beagle-flasher-mv-rootfs-to-nvme
+   sudo reboot 
 
 Enjoy NVMe speeds!
 ==================
@@ -117,9 +118,10 @@ It's subtle, but the change can be seen by running ``lsblk`` again.
 
     debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-    mmcblk0     179:0    0  59.7G  0 disk
-    ├─mmcblk0p1 179:1    0   256M  0 part /boot/firmware
-    └─mmcblk0p2 179:2    0  59.4G  0 part 
+    mmcblk1     179:0    0 29.7G  0 disk
+    ├─mmcblk1p1 179:1    0  256M  0 part /boot/firmware
+    ├─mmcblk1p2 179:2    0    4G  0 part
+    └─mmcblk1p3 179:3    0 25.5G  0 part
     nvme0n1     259:0    0 476.9G  0 disk
     └─nvme0n1p1 259:1    0 476.9G  0 part /
 
