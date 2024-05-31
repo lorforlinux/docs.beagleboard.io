@@ -3,6 +3,10 @@
 Design and specifications
 #########################
 
+:bdg-danger:`Work in progress`
+
+.. todo:: Add details about all the schematic sections.
+
 If you want to know how BeagleY-AI is designed and the detailed specifications, then
 this chapter is for you. We are going to attept to provide you a short and crisp overview
 followed by discussing each hardware design element in detail.
