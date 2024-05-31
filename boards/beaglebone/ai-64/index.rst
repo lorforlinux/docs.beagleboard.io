@@ -11,15 +11,6 @@ are all that need to be added to start building performance-optimized embedded a
 expansion possibilities are enabled through familiar BeagleBone® cape headers, with hundreds of open-source
 hardware examples and dozens of readily available embedded expansion options available off-the-shelf.
 
-.. admonition:: License Terms
-
-    * This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-    * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`__
-    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai-64>`__
-    * For export, emissions and other compliance, see :ref:`bbai64-support`
-    * All support for this design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_.
-
 .. image:: images/bbai64-45-front.jpg
    :width: 740px
    :align: center

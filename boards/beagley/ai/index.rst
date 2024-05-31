@@ -9,15 +9,6 @@ BeagleY-AI
 
 BeagleY-AI is an open-source single board computer based on the Texas Instruments AM67A Arm-based vision processor.
 
-.. admonition:: License Terms
-
-   * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-   * Design materials and license can be found in the `git repository <https://openbeagle.org/beagley-ai/>`__
-   * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-   * Software images and purchase links are available on the `board page <https://www.beagleboard.org/boards/beagley-ai>`__
-   * For export, emissions and other compliance, see :ref:`beagley-ai-support`
-   * All support for BeagleY-AI design is through the BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/beagley-ai>`_.
-
 .. image:: images/beagley-ai-board.png
 
 .. only:: html
