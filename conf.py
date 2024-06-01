@@ -33,6 +33,7 @@ for (dirpath, dirnames, filenames) in os.walk(rst_epilog_path):
 latex_documents = []
 pdf_paths = []
 oshw_details = []
+board_details = []
 
 with open('conf.yml', 'r') as conf_file:
     conf_data = yaml.safe_load(conf_file)
@@ -51,20 +52,26 @@ with open('conf.yml', 'r') as conf_file:
                 name = board
                 path = data['path']
                 pdf = data.get('pdf', False)
+                page = data.get('page', False)
+                git = data.get('git', False)
+                forum = data.get('forum', False)
                 
-                # PDF build details
+                # Board PDF build details
                 if(pdf and (name in pdf_build or pdf_build_all)):
                     pdf_paths.append(path)
                     tex_name = '-'.join(path.split('/')[1:])
                     latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
 
-                # OSHW mark details
+                # Board OSHW mark details
                 oshw_data = data.get('oshw', False)
                 if oshw_data:
                     for oshw_mark_file in data['oshw'].split(','):
                         if oshw_mark_file.endswith('.svg'):
                             board, oshw_id = oshw_mark_file.lstrip().split(".")[0].split('_')
                             oshw_details.append([board, path, oshw_id])
+                
+                # Board basic details
+                board_details.append([board, path, page, git, forum])
 
 # -- General configuration --
 
@@ -138,9 +145,13 @@ html_css_files = [
     'css/custom.css',
 ]
 
-# html_sidebars = {
+# Pages entry without primary (left) sidebar
 
-# }
+html_sidebars = {
+    "**": ["sidebar-nav-bs", "mission"],
+    "index": []
+}
+
 
 html_theme_options = {
     "external_links": [
@@ -211,7 +222,7 @@ html_theme_options = {
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
-        "**": ["page-toc", "edit-this-page", "sourcelink","pdf","oshw"]
+        "**": ["page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
     },
 }
 
@@ -248,6 +259,7 @@ gitlab_user = "docs"
 gitlab_version = "main"
 gitlab_url = "https://openbeagle.org"
 gitlab_repo = "docs.beagleboard.io"
+gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
 docs_url = "https://docs.beagleboard.io"
 
 # parse pages details from 'PAGES' file
@@ -276,6 +288,7 @@ with open("PAGES") as f:
         gitlab_version = branch
         gitlab_url = host
         gitlab_repo = repo
+        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
         docs_url = "/".join((url, slug))
 
 html_context = {
@@ -284,6 +297,7 @@ html_context = {
     "gitlab_user": gitlab_user,
     "gitlab_repo": gitlab_repo,
     "gitlab_version": gitlab_version,
+    "gitlab_project": gitlab_project,
     "doc_path": "",
     #"use_edit_page_button": True,
     #"edit_page_url_template": "https://openbeagle.org/XXXX/{{ file_name }}",
@@ -296,7 +310,8 @@ html_context = {
     "edit_page_provider_name": "OpenBeagle",
     "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/",
     "oshw_details": oshw_details,
-    "pdf_paths": pdf_paths
+    "pdf_paths": pdf_paths,
+    "board_details": board_details
 }
 
 # -- Options for LaTeX output --

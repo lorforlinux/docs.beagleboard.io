@@ -51,8 +51,8 @@ Once logged in and at the terminal, make sure your system is up to date (a reboo
 
 .. code:: console
 
-   sudo apt-get update && sudo apt-get full-upgrade -y
-   sudo reboot
+    sudo apt-get update && sudo apt-get full-upgrade -y
+    sudo reboot
 
 
 Step 2. Verify that your NVMe drive is detected
