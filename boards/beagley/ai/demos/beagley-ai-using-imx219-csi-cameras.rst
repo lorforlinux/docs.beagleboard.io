@@ -3,7 +3,9 @@
 Using IMX219 CSI Cameras
 ############################
 
-.. note:: This page is a work in progress. Further drive testing and images will be added soon
+:bdg-danger:`Work in progress`
+
+.. todo:: Add further testing steps, results, and images.
 
 To enable an IMX219 CSI camera, modify the following file: `/boot/firmware/extlinux/extlinux.conf`
 

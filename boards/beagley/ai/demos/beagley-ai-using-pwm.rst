@@ -3,7 +3,9 @@
 Pulse Width Modulation (PWM)
 #############################
 
-.. todo:: This page is a work in progress. Further testing and images will be added soon
+:bdg-danger:`Work in progress`
+
+.. todo:: Add further testing steps, results, and images..
 
 What is it
 ************

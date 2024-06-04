@@ -3,7 +3,9 @@
 Using GPIO
 #################
 
-.. todo:: This page is a work in progress. Further testing and images will be added soon!
+:bdg-danger:`Work in progress`
+
+.. todo:: Add further testing steps, results, and images.
 
 **GPIO** stands for **General-Purpose Input/Output**. It's a set of programmable pins that you can use to connect and control various electronic components. 
 
