@@ -56,10 +56,29 @@ I/O and control, a 50 GFlop GPU, video and vision accelerators, and other specia
     | Tag Connect           | 1 x JTAG, 1 x External PMIC programming port                                                                                                            |
     +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+.. _AM67A: https://www.ti.com/product/AM67A
+
 AM67A SoC
 =========
 
-.. todo:: Add AM67A SoC details
+The `AM67A`_ scalable processor family is based on the evolutionary Jacinto™ 7 architecture, targeted at Smart
+Vision Camera and General Compute applications and built on extensive market knowledge accumulated over
+a decade of TI’s leadership in the Vision processor market. The `AM67A`_ family is built for a broad set of
+cost-sensitive high performance compute applications in Factory Automation, Building Automation, and other
+markets.
+
+The `AM67A`_ provides high performance compute technology for both traditional and deep learning algorithms
+at industry leading power/performance ratios with a high level of system integration to enable scalability and
+lower costs for advanced vision camera applications. Key cores include the latest Arm and GPU processors for
+general compute, next generation DSP with scalar and vector cores, dedicated deep learning and traditional
+algorithm accelerators, an integrated next generation imaging subsystem (ISP), video codec, and MCU cores. All
+protected by industrial-grade security hardware accelerators.
+
+.. figure:: images/am67a.png
+    :align: center
+    :alt: AM67A block diagram
+
+    AM67A block diagram
 
 Board components location
 ***************************

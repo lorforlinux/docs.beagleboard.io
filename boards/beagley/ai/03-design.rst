@@ -38,6 +38,12 @@ Block diagram and overview
 SoC
 ****
 
+.. figure:: images/am67a.png
+    :align: center
+    :alt: AM67A block diagram
+
+    AM67A block diagram
+
 .. figure:: images/hardware-design/beagley-ai-soc-csi-0123.*
     :width: 1040
     :align: center
