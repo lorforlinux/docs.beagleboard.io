@@ -80,7 +80,7 @@ HERE
 			eval "$(ssh-agnet -s)"
 			echo "${PRIVATE_KEY}" | base64 -d | ssh-add -
 			if [ "$VER_DIR" = "latest" ]; then
-				rsync -v -a --delete public/index.html docs@beagleboard.org:/var/www/docs/
+				rsync -v public/index.html docs@beagleboard.org:/var/www/docs/
 			fi
 			rsync -v -a --delete public/$VER_DIR/. docs@beagleboard.org:/var/www/docs/$VER_DIR
 		fi
