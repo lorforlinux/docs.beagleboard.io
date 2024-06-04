@@ -45,7 +45,7 @@ docs:
     - "build: [html]"
     - "build: [pdf]"
   tags:
-  - docs
+  - docker-amd64
   script:
   - ./gitlab-build.sh publish
   artifacts:
