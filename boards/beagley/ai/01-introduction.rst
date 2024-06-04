@@ -67,6 +67,22 @@ a decade of TI’s leadership in the Vision processor market. The `AM67A`_ famil
 cost-sensitive high performance compute applications in Factory Automation, Building Automation, and other
 markets.
 
+Some Applications include:
+
+- Human Machine Interface (HMI)
+- Hospital patient monitoring
+- Industrial PC
+- Building security system
+- Off-highway vehicle
+- Test and measurement
+- Energy storage systems
+- Video Surveillance
+- Machine Vision
+- Industrial mobile robot (AGV/AMR)
+- Front camera systems
+
+
+
 The `AM67A`_ provides high performance compute technology for both traditional and deep learning algorithms
 at industry leading power/performance ratios with a high level of system integration to enable scalability and
 lower costs for advanced vision camera applications. Key cores include the latest Arm and GPU processors for
@@ -74,11 +90,7 @@ general compute, next generation DSP with scalar and vector cores, dedicated dee
 algorithm accelerators, an integrated next generation imaging subsystem (ISP), video codec, and MCU cores. All
 protected by industrial-grade security hardware accelerators.
 
-.. figure:: images/am67a.png
-    :align: center
-    :alt: AM67A block diagram
-
-    AM67A block diagram
+.. tip:: For more information about AM67A SoC you can checkout https://www.ti.com/product/AM67A
 
 Board components location
 ***************************
