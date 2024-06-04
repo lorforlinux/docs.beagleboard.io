@@ -27,12 +27,14 @@ have to either supply the power via USB jack or a matching (center positive) bar
     |                            |                   |             | - `AA10E-050A(M)-R <https://mou.sr/3jrA4zZ>`_               |
     +----------------------------+-------------------+-------------+-------------------------------------------------------------+
     | BeagleBone AI-64           | Type-C            | 5V @ 3A     | - `AA65M-59FKA-R <https://mou.sr/3Dz9P1E>`_                 |
-    +----------------------------+                   |             | - `Lenovo 65W USB Type C AC Adater <https://a.co/d/hH8SbG5>`|
+    +----------------------------+                   |             | - `Lenovo 65W USB Type C Adater <https://a.co/d/hH8SbG5>`_  |
     | BeaglePlay                 |                   |             |                                                             |      
     +----------------------------+                   |             |                                                             |
     | BeagleBone AI              |                   |             |                                                             | 
     +----------------------------+                   |             |                                                             |
-    | BeagleV-Fire               |                   |             |                                                             |           
+    | BeagleV-Fire               |                   |             |                                                             |
+    +----------------------------+                   |             |                                                             |
+    | BeagleY-AI                 |                   |             |                                                             |          
     +----------------------------+-------------------+-------------+-------------------------------------------------------------+
     | BeagleBone Green Gateway   | 2.1mm Barrel Jack | 12V @ 5A    | - `PSAC60M-120-R <https://mou.sr/3Rs657U>`_                 |
     +----------------------------+                   |             |                                                             |
