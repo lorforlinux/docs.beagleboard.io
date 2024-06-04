@@ -25,13 +25,16 @@ Getting started
 
 To get started you need the following:
 
-1. :ref:`USB type-A to type-C cable or type-C to type-C cable <accessories-cables-usb>`
-2. :ref:`5V - 3A power supply <accessories-power-supplies>`
-3. MicroSD Card 
-4. Boot media
+1. :ref:`5V @ 3A power supply <accessories-power-supplies>`
+2. MicroSD Card (32GB)
+3. Boot media (Software image)
 
-Boot Media
-===========
+.. note:: Instead of using a :ref:`power supply or power adapter <accessories-power-supplies>` if you are using a :ref:`USB type-A to type-C cable or type-C to type-C cable <accessories-cables-usb>` to connect the board to your laptop/PC then make sure it can supply at least 1000mA.
+
+Boot Media (Software image)
+============================
+
+.. todo:: Update this section to use latest boot media (software image) for BeagleY-AI.
 
 Download the boot media from
 `https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25>`_ 
@@ -40,6 +43,8 @@ and flash it on a micro SD Card using using `Balena Etcher <https://etcher.balen
 1. Select downloaded boot media
 2. Select SD Card 
 3. Flash!
+
+.. tip:: For more detailed steps checkout the :ref:`beagleboard-getting-started` under support section of the documentation.
 
 .. image:: images/balena-etcher.*
 
