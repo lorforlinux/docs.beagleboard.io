@@ -77,7 +77,7 @@ HERE
 		# Update docs.beagleboard.org
 		if [ "$CI_COMMIT_TAG" != "" ]; then
 			mkdir -p ~/.ssh
-			eval "$(ssh-agnet -s)"
+			eval "$(ssh-agent -s)"
 			echo "${PRIVATE_KEY}" | base64 -d | ssh-add -
 			if [ "$VER_DIR" = "latest" ]; then
 				rsync -v public/index.html docs@beagleboard.org:/var/www/docs/
