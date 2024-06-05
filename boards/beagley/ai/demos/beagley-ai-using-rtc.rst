@@ -44,7 +44,7 @@ Uses for an RTC
 Reading time
 **********************
 
-.. note:: If you have not connected your BeagleY-AI to a network so it can get time from an NTP server, you must set the time before being able to read it. If you don't do this first, you'll see errors. 
+.. note:: You must set the time before being able to read it. If you don't do this first, you'll see errors. You may connect your BeagleY-AI to a network so it can get time from an NTP server.
 
 Reading the current time on the RTC is achieved using the **hwclock** command.
 
