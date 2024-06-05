@@ -4,7 +4,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 cache:
-  key: sphinx-build-env-docs-002
+  key: sphinx-build-env-docs-003
   paths:
   - .venv
   - .cache
