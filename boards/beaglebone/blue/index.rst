@@ -15,13 +15,6 @@ robotics by `UCSD Flow Control and Coordinated Robotics Lab <http://robotics.ucs
 `WowWee <http://www.wowwee.com/mip/>`_, `National Instruments LabVIEW <http://www.ni.com/labview/>`_ 
 and of course the `BeagleBoard.org Foundation <https://beagleboard.org/about>`_.
 
-.. admonition:: License Terms
-
-    * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-    * Design materials and license can be found in the `OpenBeagle repository <https://openbeagle.org/beagleboard/beaglebone-blue>`__
-    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-blue>`__
-
 .. toctree::
    :maxdepth: 1
    

@@ -21,15 +21,6 @@ over-the-air upgrades (OTA) capability. This MCU provides flexible support for m
     This is a work in progress, for latest documentation please 
     visit https://docs.beagleboard.org/latest/
 
-.. admonition:: License Terms
-
-   * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-   * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleconnect/freedom>`__
-   * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-   * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beagleconnect-freedom>`__
-   * For export, emissions and other compliance, see :ref:`beagleconnect-freedom-support`
-   * All support for BeagleConnect Freedom design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bcf>`_.
-
 .. only:: html
 
    .. grid:: 1 1 2 2

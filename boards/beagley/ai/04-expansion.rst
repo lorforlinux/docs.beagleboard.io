@@ -25,4 +25,6 @@ RTC
 
    Remove this. I really don't see how "RTC" falls into our definition of what should be documented in "Expansion".
 
-* :ref:`beagley-ai-rtc`
+* :ref:`beagley-ai-expansion-nvme`
+* :ref:`beagley-ai-using-imx219-csi-cameras`
+* :ref:`beagley-ai-using-rtc`
