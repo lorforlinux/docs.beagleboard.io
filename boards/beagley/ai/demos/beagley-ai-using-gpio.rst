@@ -5,7 +5,7 @@ Using GPIO
 
 :bdg-danger:`Work in progress`
 
-.. todo:: Add further testing steps, results, and images.
+.. todo:: Add information about software image used for this demo.
 
 **GPIO** stands for **General-Purpose Input/Output**. It's a set of programmable pins that you can use to connect and control various electronic components. 
 
@@ -15,7 +15,7 @@ the physical world using code!
 
 A great resource for understanding pin numbering can be found at `pinout.beagley.ai <https://pinout.beagley.ai/>`_ 
 
-.. note:: **WARNING** - BeagleY-AI GPIOs are 3.3V tolerant, using higher voltages WILL damage the processor!
+.. warning:: BeagleY-AI GPIOs are 3.3V tolerant, using higher voltages **WILL DAMAGE** the processor!
 
 Pin Numbering
 **********************
@@ -55,6 +55,26 @@ to simulate a button press.
 GPIO Write
 ***********
 
+Before using any pin with HAT pin number we need to configure it using commands below,
+
+You need root access to use any pin, this may change in the future.
+
+.. code:: console
+
+   sudo su
+
+Override driver,
+
+.. code:: console
+
+   echo gpio-aggregator > /sys/devices/platform/hat-08-gpio/driver_override
+
+Bind driver,
+
+.. code:: console
+
+   echo hat-08-gpio > /sys/bus/platform/drivers/gpio-aggregator/bind
+
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
 To set HAT **Pin 8** to **ON**:
@@ -78,9 +98,23 @@ To set HAT **Pin 8** to **OFF**:
    :align: center
 
 Blink an LED
-**********************
+**************
 
 Let's write a script called **blinky.sh** that contains the following:
+
+Create the file,
+
+.. code:: console
+
+   touch blinky.sh
+
+Open the file using ``nano`` editor,
+
+.. code:: console
+
+   nano blinky.sh
+
+Copy paste the code below to ``blinky.sh`` file,
 
 .. code:: bash
 
@@ -94,13 +128,6 @@ Let's write a script called **blinky.sh** that contains the following:
 	   sleep 1
    done
 
-The script is quite simple, it's an infinite "while" loop in which we do the following:
-
-1. set the HAT Pin 8 as 1 (HIGH)
-2. Wait 1 Second
-3. set the HAT Pin 8 as 0 (LOW)
-4. Wait 1 Second
-
 Now execute it by typing:
 
 .. code:: console
@@ -111,7 +138,36 @@ Now execute it by typing:
    :width: 50 %
    :align: center
 
-You can exit by pressing ``Ctrl + c`` on your keyboard.
+You can exit the ``blinky.sh`` progrm by pressing ``CTRL + C`` on your keyboard.
+
+Understanding the code
+======================
+
+.. callout::
+
+   .. code-block:: bash
+
+      #!/bin/bash
+
+      while :
+      do
+         gpioset hat-08-gpio 0=1 <1>
+         sleep 1 <2>
+         gpioset hat-08-gpio 0=0 <3>
+         sleep 1 <4>
+      done
+
+   .. annotations::
+
+      The script is an infinite ``while`` loop in which we do the following:
+
+      <1> set the HAT Pin 8 as 1 (HIGH)
+
+      <2> Wait 1 Second
+
+      <3> set the HAT Pin 8 as 0 (LOW)
+
+      <4> Wait 1 Second
 
 GPIO Read
 **********
@@ -193,9 +249,9 @@ Understanding Internal Pull Resistors
 
 Pull-up and pull-down resistors are used in digital circuits to ensure that inputs to logic settle at expected levels.
 
-* Pull-up resistors: Connect the input to a high voltage level (e.g., 3.3V) to ensure the input reads as a logic high (1) when no active device is pulling it low.
+* ``Internal pull-up resistors`` connects the pin to a high voltage level (e.g., 3.3V) to ensure the pin input reads as a logic high (1) when no active device is pulling it low.
 
-* Pull-down resistors: Connect the input to ground (GND) to ensure the input reads as a logic low (0) when no active device is pulling it high.
+* ``Internal pull-down resistors`` connects the pin to ground (GND) to ensure the input reads as a logic low (0) when no active device is pulling it high.
 
 These resistors prevent floating inputs and undefined states.
 
