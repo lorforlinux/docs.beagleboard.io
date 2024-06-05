@@ -46,6 +46,8 @@ can provide 5V ≥ 3A. Checkout the :ref:`docs power supply page <accessories-po
     Instead of using a :ref:`power supply or power adapter <accessories-power-supplies>` if you are using a :ref:`USB type-A to 
     type-C cable or type-C to type-C cable <accessories-cables-usb>` to connect the board to your laptop/PC then make sure it can supply at least 1000mA.
 
+.. _beagley-ai-boot-media:
+
 Boot Media (Software image)
 ============================
 
@@ -61,11 +63,19 @@ and flash it on a micro SD Card using using `Balena Etcher <https://etcher.balen
 
 .. tip:: For more detailed steps checkout the :ref:`beagleboard-getting-started` under support section of the documentation.
 
-.. image:: images/balena-etcher.*
+.. figure:: images/balena-etcher.*
+    :align: center
+    :alt: Flashing BeagleY-AI boot image (software image) to sd Card
+
+    Flashing BeagleY-AI boot image (software image) to sd Card
 
 Once flashed, you can insert the SD card into your BeagleY-AI as shown in the image below:
 
-.. image:: images/beagley-ai-micro-sd-card.*
+.. figure:: images/beagley-ai-micro-sd-card.*
+    :align: center
+    :alt: Insert sd card in BeagleY-AI
+
+    Insert sd card in BeagleY-AI
 
 .. _beagley-ai-usb-tethering:
 
@@ -97,8 +107,9 @@ After connecting, you should see the power LED glow, and soon just like with oth
     
     ssh debian@192.168.7.2
 
-.. note::
-    Here you must update the default password to something safer.
+.. tip:: If you are not able to find your beagle at ``192.168.7.2`` make sure to checkout :ref:`start-browse-to-beagle` to resolve your connection issue.
+
+.. note:: If you have not updated your default username and password during :ref:`beagley-ai-boot-media`, you must update the default password at this step to something safer.
 
 .. figure:: images/ssh-connection.*
     :align: center 
@@ -139,29 +150,53 @@ Make sure you have the sd Card with boot media (software image) inserted in to t
 
 The connection diagram below provides a clear representation of all the connections,
 
-.. image:: images/standalone.*
+.. figure:: images/standalone.*
+    :align: center
+    :alt: BeagleY-AI standalone connection
+
+    BeagleY-AI standalone connection
 
 If everything is connected properly you should see four penguins on your monitor.
 
-.. image:: images/boot-penguins.*
+.. figure:: images/boot-penguins.*
+    :align: center
+    :alt: BeagleY-AI boot penguins
+
+    BeagleY-AI boot penguins
 
 When prompted, log in using the updated login credentials you updated during the USB tethering step.
 
 .. note:: You can not update login credentials at this step, you must update them during USB tethering step!
 
-.. image:: images/login.*
+.. figure:: images/login.*
+    :align: center
+    :alt: BeagleY-AI login
+
+    BeagleY-AI login
 
 Once logged in you should see the splash screen shown in the image below:
 
-.. image:: images/screen-saver.*
+.. figure:: images/screen-saver.*
+    :align: center
+    :alt: BeagleY-AI XFCE home screen
+
+    BeagleY-AI XFCE home screen
 
 Test network connection by running ping 8.8.8.8
 
-.. image:: images/ping-test.*
+.. figure:: images/ping-test.*
+    :align: center
+    :alt: BeagleY-AI ping test
+
+    BeagleY-AI ping test
 
 Explore and build with your new BeagleY-AI board!
 
-.. image:: images/htop.*
+.. figure:: images/htop.*
+    :align: center
+    :alt: BeagleY-AI running htop
+
+    BeagleY-AI running htop
 
 .. _beagley-ai-connecting-wifi:
 
