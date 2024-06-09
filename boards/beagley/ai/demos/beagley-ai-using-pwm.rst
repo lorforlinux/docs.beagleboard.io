@@ -68,15 +68,21 @@ In the editor copy paste the script content below,
         echo $i
         sleep 0.0005
     done
+- Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
 
-Now execute it by typing:
+- Now execute the ``fade.sh`` script by typing:
 
 .. code:: console
 
    bash fade.sh
 
-.. image:: ../images/gpio/pwm.gif
+.. figure:: ../images/gpio/pwm.gif
    :align: center
+   :alt: LED PWM fade demo
+
+   LED PWM fade demo
+
+- You can exit the ``fade.sh`` program by pressing ``Ctrl + C`` on your keyboard.
 
 .. todo:: Add section about driving Servo Motors at 50KHz
 
