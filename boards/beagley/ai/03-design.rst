@@ -8,7 +8,7 @@ Design and specifications
 .. todo:: Add details about all the schematic sections.
 
 If you want to know how BeagleY-AI is designed and the detailed specifications, then
-this chapter is for you. We are going to attept to provide you a short and crisp overview
+this chapter is for you. We are going to attempt to provide you a short and crisp overview
 followed by discussing each hardware design element in detail.
 
 .. tip:: For board files, 3D model, and more, you can checkout the `BeagleY-AI repository on OpenBeagle <https://openbeagle.org/beagley-ai/beagley-ai>`_.
@@ -30,12 +30,32 @@ Block diagram and overview
 
     BeagleY-AI power distribution network
 
+BeagleY-AI is powered via USB-C. PD Power negotiation is not done dynamically but rather
+by tying the CC lines to GND via 5.1KΩ resistors to indicate to the PD Source that the device requires 5V 3A. Using USB-PD power supplies rated for higher wattages is safe as they will always negotiate to the 5V 3A requested by the board. 
+
+The power architecture is split between the TPS65219 PMIC which handles the main logic rails and a dedicated TPS62872 high current buck regulator for the SoC core rail which defaults to 0.85V on boot. 
+
+Both PMIC and VDD_CORE regulators are highly configurable but will boot the board to "sane" defaults out of box. For advanced users, it is possible to adjust both the VDD_CORE rail as well as IO rails (voltages, timings, behavior, etc.) for applications such as low power modes where
+you may want to trade clock speeds for power efficiency by running the SoC Core at 0.75V for example. Be careful, as changes here could result in unexpected behavior, the board not booting or even hardware damage, so tread carefully.
+
+At the time of writing, DVS (Dynamic Voltage Switching) is not supported by the AM67A SoC.
+
 .. figure:: images/hardware-design/beagley-ai-iic-tree.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI I2C tree
 
     BeagleY-AI I2C tree
+
+By default, 5 different I2C interfaces are exposed, all of which feature external 2.2KΩ pull-up resistors. 3 of the interfaces are used by the CSI, DSI and OLDI ports for Cameras & Displays.
+The remaining 2 ports are exposed on the 40pin GPIO expansion connector. 
+
+The MCU_I2C0 interface is intended as the primary external I2C interface for BeagleY-AI and matches physical pins 3 and 5 of the header. Most HATs will use these pins. 
+
+While WKUP_I2C0 is also exposed on the 40pin Header (physical pins 27 & 28), that bus is shared with several on-board devices, namely the PMIC, VDD_CORE regulator, Board ID EEPROM and RTC. As such,
+it is highly advisable to leave these pins unused unless you are sure you know what you are doing. These pins are normally only pinned out as a "HAT EEPROM detect" for RPi HATs that provide such functionality (of which there are very few)
+
+See `pinout.beagleboard.io/pinout/i2c <https://pinout.beagleboard.io/pinout/i2c>`_  for a more visual explanation. 
 
 SoC
 ****
@@ -46,12 +66,23 @@ SoC
 
     AM67A block diagram
 
-.. figure:: images/hardware-design/beagley-ai-soc-csi-0123.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC CSI1, CSI2, and CSI3
+The AM67A processor from Texas Instruments is a highly integrated SoC with an Automotive pedigree. It may be referenced by TI documentation
+by it's superset J722s/TDA4AEN. 
 
-    BeagleY-AI SoC CSI1, CSI2, and CSI3
+It's primary compute cluster revolves around 4xARM Cortex-A53 Cores running at 1.4Ghz. 
+
+An MCU subsystem consisting of an ARM Cortex-R5F running at up to 800Mhz is also available for user applications and is especially useful
+for real-time IO applications. 
+
+For very advanced users, two additional R5 cores are also present, but they are normally reserved for Device and Run-time Management of the SoC typically. 
+
+2x C7x DSPs with MMA support are intended for use as Deep Learning Accelerators for things like AI Vision, with up to 2TOPS each. 
+
+An Imagination BXS-4-64 GPU rounds out the compute cluster, with a dedicated video encoder/decoder available for multimedia tasks. 
+
+The SoC features advanced high speed connectivity, including USB3.1, PCIe and more.  
+
+Secure Boot is also available with the ability burn One-Time-Programmable (OTP) eFUSES by energizing the VPP test pads.
 
 .. figure:: images/hardware-design/beagley-ai-soc-ddr0.*
     :width: 1040
@@ -60,40 +91,9 @@ SoC
 
     BeagleY-AI SoC DDR0 connections
 
-.. figure:: images/hardware-design/beagley-ai-soc-dsi.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC DSI connections
+BeagleY-AI has 4GB of Kingston x32 LPDDR4 Memory. 
 
-    BeagleY-AI SoC DSI0 TX connections
-
-.. figure:: images/hardware-design/beagley-ai-soc-efuse-vmon-jtag-rsvd.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC eFUSE, VMON, Debug, and RSVD
-
-    BeagleY-AI SoC eFUSE, VMON, Debug, and RSVD
-
-.. figure:: images/hardware-design/beagley-ai-soc-gpmc.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC GPMC0
-
-    BeagleY-AI SoC GPMC0
-
-.. figure:: images/hardware-design/beagley-ai-soc-ground.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC ground connections
-
-    BeagleY-AI SoC ground connections
-
-.. figure:: images/hardware-design/beagley-ai-soc-mmc-012.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC MMC0, MMC1, and MMC2
-
-    BeagleY-AI SoC MMC0, MMC1, and MMC2
+.. todo:: Add Final DDR Part Number
 
 .. figure:: images/hardware-design/beagley-ai-soc-oldi.*
     :width: 1040
@@ -101,13 +101,6 @@ SoC
     :alt: BeagleY-AI SoC OLDI
 
     BeagleY-AI SoC OLDI
-
-.. figure:: images/hardware-design/beagley-ai-soc-ospi.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC OSPI0
-
-    BeagleY-AI SoC OSPI0
 
 .. figure:: images/hardware-design/beagley-ai-soc-rgmii.*
     :width: 1040
@@ -129,13 +122,6 @@ SoC
     :alt: BeagleY-AI SoC SERDES1
 
     BeagleY-AI SoC SERDES1
-
-.. figure:: images/hardware-design/beagley-ai-soc-supply-noise-kelvin-sensing.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC supply noise kelvin sensing
-
-    BeagleY-AI SoC supply noise kelvin sensing
 
 .. figure:: images/hardware-design/beagley-ai-soc-usb0-and-usb1.*
     :width: 1040
@@ -171,7 +157,6 @@ SoC
     :alt: BeagleY-AI SoC digital power3
 
     BeagleY-AI SoC digital power3
-
 
 .. figure:: images/hardware-design/beagley-ai-reset-cntrls-mcu-osc.*
     :width: 1040
@@ -257,12 +242,32 @@ General connectivity and expansion
 
     BeagleY-AI user expansion connector
 
+.. figure:: images/hardware-design/beagley-ai-soc-csi-0123.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC CSI1, CSI2, and CSI3
+
+    BeagleY-AI SoC CSI1, CSI2, and CSI3
+
 .. figure:: images/hardware-design/beagley-ai-rpi-csi.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI RPI CSI
 
     BeagleY-AI RPI CSI
+
+To maintain a Pi compatible form factor, BeagleY-AI only exposes 2 of the 4 Physical CSI interfaces of the AM67A SoC. 
+Each CSI interfaces is MIPI® CSI-2 v1.3 + MIPI® D-PHY 1.2 with 4 Data Lanes running at up to 2.5Gbps/lane. 
+The interface also supports up to 16 Virtual Channels for multi-camera applications using FPDLink or V3Link. 
+
+.. figure:: images/hardware-design/beagley-ai-soc-dsi.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC DSI connections
+
+    BeagleY-AI SoC DSI0 TX connections
+
+The DSI0 port is shared withe CSI1 and selectable via a MUX switch to maintain Pi functionality.
 
 .. figure:: images/hardware-design/beagley-ai-rpi-dsi-csi.*
     :width: 1040
@@ -271,6 +276,7 @@ General connectivity and expansion
 
     BeagleY-AI RPI DSI/CSI
 
+Please note that DSI is only available on one of the two 22-pin "CSI" connectors. 
 
 .. figure:: images/hardware-design/beagley-ai-dual-usb-1.*
     :width: 1040
@@ -530,6 +536,51 @@ Debug ports
     :alt: BeagleY-AI debug UART port
 
     BeagleY-AI debug UART port
+
+Miscellaneous
+********************
+
+.. figure:: images/hardware-design/beagley-ai-soc-ospi.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC OSPI0
+
+    BeagleY-AI SoC OSPI0
+
+.. figure:: images/hardware-design/beagley-ai-soc-efuse-vmon-jtag-rsvd.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC eFUSE, VMON, Debug, and RSVD
+
+    BeagleY-AI SoC eFUSE, VMON, Debug, and RSVD
+
+.. figure:: images/hardware-design/beagley-ai-soc-gpmc.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC GPMC0
+
+    BeagleY-AI SoC GPMC0
+
+.. figure:: images/hardware-design/beagley-ai-soc-supply-noise-kelvin-sensing.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC supply noise kelvin sensing
+
+    BeagleY-AI SoC supply noise kelvin sensing
+
+.. figure:: images/hardware-design/beagley-ai-soc-ground.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC ground connections
+
+    BeagleY-AI SoC ground connections
+
+.. figure:: images/hardware-design/beagley-ai-soc-mmc-012.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC MMC0, MMC1, and MMC2
+
+    BeagleY-AI SoC MMC0, MMC1, and MMC2
 
 Mechanical Specifications 
 **************************
