@@ -55,25 +55,11 @@ to simulate a button press.
 GPIO Write
 ***********
 
-Before using any pin with HAT pin number we need to configure it using commands below,
-
-You need root access to use any pin, this may change in the future.
+Before using any pin with HAT pin number we need to configure it using command below,
 
 .. code:: console
 
-   sudo su
-
-Override driver,
-
-.. code:: console
-
-   echo gpio-aggregator > /sys/devices/platform/hat-08-gpio/driver_override
-
-Bind driver,
-
-.. code:: console
-
-   echo hat-08-gpio > /sys/bus/platform/drivers/gpio-aggregator/bind
+   sudo beagle-pin-mux --pin hat-08 --mode gpio
 
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
