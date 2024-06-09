@@ -5,7 +5,7 @@ Introduction
 
 BeagleY-AI is an open-source single board computer designed for edge AI applications.
 
-.. image:: images/beagley-ai-board.png
+.. image:: images/beagley-ai-board.*
 
 .. _beagley-ai-detailed-overview:
 

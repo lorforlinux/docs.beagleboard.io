@@ -6,8 +6,6 @@ BeagleY-AI Quick Start
 What's included in the box?
 ****************************
 
-.. todo:: Update BeagleY-AI what's included in the box section as per production release.
-
 When you purchase a BeagleY-AI, you'll get the following in the box:
 
 1. `BeagleY-AI <https://www.beagleboard.org/boards/beagley-ai>`_
@@ -37,7 +35,7 @@ Easiest option is to connect the board directly to your PC or Laptop using a USB
 choose to use a dedicated power supply for first time setup, you may choose to access the board via any other methods listed above.
 
 Power Supply
-=============
+**************
 
 To power the board you can either connect it to a dedicated power supply like a mobile charger or a wall adapter that 
 can provide 5V ≥ 3A. Checkout the :ref:`docs power supply page <accessories-power-supplies>` for power supply recommendations.
@@ -49,9 +47,9 @@ can provide 5V ≥ 3A. Checkout the :ref:`docs power supply page <accessories-po
 .. _beagley-ai-boot-media:
 
 Boot Media (Software image)
-============================
+*****************************
 
-.. todo:: Update this section to use latest boot media (software image) for BeagleY-AI.
+.. todo:: Update this section to use latest boot media (software image) for BeagleY-AI and add instructions to add username and password under ``sysconf.txt``.
 
 Download the boot media from
 `https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25>`_ 
@@ -80,7 +78,7 @@ Once flashed, you can insert the SD card into your BeagleY-AI as shown in the im
 .. _beagley-ai-usb-tethering:
 
 USB Tethering
-==============
+**************
 
 .. note:: 
     If you are using the board with a fan or running a heavy task you should always power 
@@ -101,7 +99,12 @@ To initially test your board, you can connect the board directly to your compute
 
     BeagleY-AI tethered connection
 
-After connecting, you should see the power LED glow, and soon just like with other Beagles, BeagleY-AI will create a virtual wired connection on your computer. To access the board you can use the SSH command as shown below.
+SSH connection
+===============
+
+After connecting, you should see the power LED glow, and soon just like with other Beagles, BeagleY-AI will create a virtual wired connection on your computer. 
+To access the board, open up a terminal (`Linux <https://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu>`_/`Mac <https://www.wikihow.com/Open-a-Terminal-Window-in-Mac>`_) 
+or command prompt (`Windows <https://www.wikihow.com/Open-the-Command-Prompt-in-Windows>`_) and use the SSH command as shown below.
 
 .. code:: shell
     
@@ -117,8 +120,27 @@ After connecting, you should see the power LED glow, and soon just like with oth
 
     BeagleY-AI SSH connection
 
-With this you have the access to BeagleY-AI terminal. Now, you can connect your board to WiFi, 
-try out all the cool demos and explore all the other ways to access your BeagleY-AI.
+UART connection
+================
+
+Your BeagleY-AI board creates a UART connection (No additional hardware required) when tethered to a Laptop/PC which you can access using ``Putty`` of ``tio``. 
+On a linux machine it may come up as ``dev/ttyACM*``, it will be different for Mac and Windows operatig systems. To find serial port for your system you can checkout 
+`this guide <https://www.mathworks.com/help/matlab/supportpkg/find-arduino-port-on-windows-mac-and-linux.html;jsessionid=c2d3127cd10411c66f33468cbd5b>`_.
+
+.. figure:: images/uart/putty.*
+    :align: center
+    :alt: Putty serial connection
+
+    Putty serial connection
+
+- If you are on linux, try ``tio`` with default setting using command below,
+
+.. code:: console
+
+    tio /dev/ttyACM0
+
+With this you have the access to BeagleY-AI terminal. Now, you can connect your board to :ref:`WiFi <beagley-ai-connecting-wifi>`, 
+try out all the :ref:`cool demos <beagley-ai-demos>` and explore all the other ways to access your BeagleY-AI listed below.
 
 - :ref:`beagley-ai-connecting-wifi`
 - :ref:`beagley-ai-demos`
@@ -129,6 +151,8 @@ Headless connection
 ===================
 
 If you want to run your BeagleY-AI in headless mode, you need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ or similar serial adapter.
+
+.. todo:: Add images and description for this section.
 
 .. _standalone-connection:
 
@@ -201,7 +225,51 @@ Explore and build with your new BeagleY-AI board!
 .. _beagley-ai-connecting-wifi:
 
 Connecting to WiFi
-===================
+**********************
+
+We have two options to connect to WiFi,
+
+1. :ref:`beagley-ai-nmtui`
+2. :ref:`beagley-ai-iwctl`
+
+.. _beagley-ai-nmtui:
+
+nmtui
+======
+
+- Enable ``NetworkManager``
+
+.. code:: console
+
+    sudo systemctl enable NetworkManager
+
+- Start ``NetworkManager``
+
+.. code:: console
+
+    sudo systemctl start NetworkManager
+
+- Start ``nmtui`` application
+
+.. code:: console
+
+    sudo nmtui
+
+- To navigate, use the ``arrow keys`` or press ``Tab`` to step forwards and press ``Shift+Tab`` to step back through the options. Press ``Enter`` to select an option. The ``Space bar`` toggles the status of a check box.
+- You should see a screen as shown below, here you have to press ``Enter`` on ``Acticate a connection`` option to `activate wired and wireless connection options <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmtui>`_.
+
+.. figure:: images/wifi/nmtui.*
+    :align: center
+    :alt: NetworkManager TUI
+
+    NetworkManager TUI
+
+There under ``WiFi`` section press ``Enter`` on desired access point and provide password to connect. When successfully connected press ``Esc`` to get out of the ``nmtui`` application window.
+
+.. _beagley-ai-iwctl:
+
+iwctl
+======
 
 Once board is fully booted and you have access to the shell, follow the commands below to connect to any WiFi access point,
 
@@ -248,7 +316,7 @@ Once board is fully booted and you have access to the shell, follow the commands
     ping 8.8.8.8
 
 Attach fan
-==========
+***********
 
 .. todo:: add instructions to attach raspberrypi official fan.
 
