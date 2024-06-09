@@ -24,7 +24,6 @@ These batteries are available from several vendors:
 * `Raspberry Pi 5 RTC Battery via Adafruit <https://www.adafruit.com/product/5817>`_ 
 * `Raspberry Pi 5 RTC Battery via DigiKey <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
 * `CR2023 battery holder for Pi 5 via Amazon <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
-   demos/connecting-imx219-csi-cameras
 
 .. image:: ../images/beagley_rtc.png
 
