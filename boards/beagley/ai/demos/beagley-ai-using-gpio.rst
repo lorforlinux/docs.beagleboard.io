@@ -55,7 +55,7 @@ to simulate a button press.
 GPIO Write
 ***********
 
-Before using any pin with HAT pin number we need to configure it using command below,
+Before using any pin with HAT Pin number we need to configure it using command below,
 
 .. code:: console
 
@@ -63,9 +63,9 @@ Before using any pin with HAT pin number we need to configure it using command b
 
 .. figure:: ../images/gpio/led-pin8.*
    :align: center
-   :alt: LED connected to HAT pin8
+   :alt: LED connected to HAT Pin8
 
-   LED connected to HAT pin8
+   LED connected to HAT Pin8
 
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
@@ -132,7 +132,7 @@ Let's create a script called **blinky.sh**,
 
    bash blinky.sh
 
-.. image:: ../images/gpio/blinky.gif
+.. figure:: ../images/gpio/blinky.gif
    :align: center
    :alt: LED blinking
 
@@ -178,9 +178,9 @@ We will connect our Button between HAT Pin 12 (GPIO18) and Ground (GND).
 
 .. figure:: ../images/gpio/switch-pin12.*
    :align: center
-   :alt: Button connected to HAT pin12
+   :alt: Button connected to HAT Pin12
 
-   Button connected to HAT pin12
+   Button connected to HAT Pin12
 
 - Configure pin12 as ``gpio`` using command below,
 
@@ -244,9 +244,9 @@ Combining the Two
 
 .. figure:: ../images/gpio/switch-pin12-led-pin8.*
    :align: center
-   :alt: Button connected to HAT pin12 & LED connected to HAT pin8
+   :alt: Button connected to HAT Pin12 & LED connected to HAT Pin8
 
-   Button connected to HAT pin12 & LED connected to HAT pin8
+   Button connected to HAT Pin12 & LED connected to HAT Pin8
 
 Now, logically, let's make an LED match the state of the button.
 
@@ -341,15 +341,15 @@ Troubleshooting
 
 - **My script won't run!**
 
-Make sure you gave the script execute permissions first and that you're executing it with a **./** before
+Make sure you gave the script execute permissions first and that you're executing it with a ``./`` before
 
-To make it executable:
+- To make it executable:
 
 .. code:: bash
 
    chmod +X scriptName.sh
 
-To run it:
+- To run it:
 
 .. code:: bash
 
