@@ -3,9 +3,7 @@
 BeaglePlay
 ##########
 
-.. important::
-    This is a work in progress, for latest documentation please 
-    visit https://docs.beagleboard.org/latest/
+:bdg-danger:`Work in progress`
 
 BeaglePlay is an open-source single board computer based on the Texas Instruments AM6254 quad-core Cortex-A53 Arm SoC designed to simplify the process of adding
 sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system.

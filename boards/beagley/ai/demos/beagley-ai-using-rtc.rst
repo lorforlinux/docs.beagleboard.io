@@ -24,7 +24,7 @@ These batteries are available from several vendors:
 * `Raspberry Pi 5 RTC Battery via Adafruit <https://www.adafruit.com/product/5817>`_ 
 * `Raspberry Pi 5 RTC Battery via DigiKey <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
 * `CR2023 battery holder for Pi 5 via Amazon <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
-  
+
 .. image:: ../images/beagley_rtc.png
 
 Uses for an RTC
@@ -43,7 +43,7 @@ Uses for an RTC
 Reading time
 **********************
 
-.. note:: If you have not connected your BeagleY-AI to a network so it can get time from an NTP server, you must set the time before being able to read it. If you don't do this first, you'll see errors. 
+.. note:: You must set the time before being able to read it. If you don't do this first, you'll see errors. You may connect your BeagleY-AI to a network so it can get time from an NTP server.
 
 Reading the current time on the RTC is achieved using the **hwclock** command.
 
