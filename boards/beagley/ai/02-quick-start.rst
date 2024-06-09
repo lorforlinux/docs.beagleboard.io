@@ -22,8 +22,8 @@ Getting started
 To get started your BeagleY-AI you need the following:
 
 1. :ref:`5V @ 3A power supply <accessories-power-supplies>`
-2. MicroSD Card (32GB)
-3. Boot media (Software image)
+2. MicromicroSD card (32GB)
+3. :ref:`beagley-ai-boot-media`
 
 You may need additional accessories based on the mode of operation, you can use your BeagleY-AI in different ways.
 
@@ -41,39 +41,81 @@ To power the board you can either connect it to a dedicated power supply like a 
 can provide 5V ≥ 3A. Checkout the :ref:`docs power supply page <accessories-power-supplies>` for power supply recommendations.
 
 .. note:: 
-    Instead of using a :ref:`power supply or power adapter <accessories-power-supplies>` if you are using a :ref:`USB type-A to 
-    type-C cable or type-C to type-C cable <accessories-cables-usb>` to connect the board to your laptop/PC then make sure it can supply at least 1000mA.
+    Instead of using a :ref:`power supply or power adapter <accessories-power-supplies>` if you are using a :ref:`Type-C to Type-C cable 
+    <accessories-cables-usb>` to connect the board to your laptop/PC then make sure it can supply at least 1000mA.
 
 .. _beagley-ai-boot-media:
 
 Boot Media (Software image)
 *****************************
 
-.. todo:: Update this section to use latest boot media (software image) for BeagleY-AI and add instructions to add username and password under ``sysconf.txt``.
+.. todo:: Update this section to use latest boot media (software image) for BeagleY-AI.
 
 Download the boot media from
 `https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25 <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25>`_ 
-and flash it on a micro SD Card using using `Balena Etcher <https://etcher.balena.io/>`_ following these steps:
+and flash it on a micro microSD card using using `Balena Etcher <https://etcher.balena.io/>`_ following these steps:
 
 1. Select downloaded boot media
-2. Select SD Card 
+2. Select microSD card 
 3. Flash!
 
 .. tip:: For more detailed steps checkout the :ref:`beagleboard-getting-started` under support section of the documentation.
 
 .. figure:: images/balena-etcher.*
     :align: center
-    :alt: Flashing BeagleY-AI boot image (software image) to sd Card
+    :alt: Flashing BeagleY-AI boot image (software image) to microSD card
 
-    Flashing BeagleY-AI boot image (software image) to sd Card
+    Flashing BeagleY-AI boot image (software image) to microSD card
 
-Once flashed, you can insert the SD card into your BeagleY-AI as shown in the image below:
+Once the microSD card is flashed you should see ``BOOT`` and ``rootfs`` mounted on your system as shown in image below,
+
+.. figure:: images/disk.*
+    :align: center
+    :alt: Flashed microSD card mounted partitions
+
+    Flashed microSD card mounted partitions
+
+Under ``BOOT`` partition open ``sysconf.txt`` to edit login ``username`` and ``password``.
+
+.. figure:: images/sysconf.*
+    :align: center
+    :alt: sysconf file under BOOT partition
+
+    sysconf file under BOOT partition
+
+In ``sysconf.txt`` file you have to edit the two lines highlighted below. 
+
+.. callout::
+
+    .. code-block:: text
+        :linenos:
+        :lineno-start: 29
+        :emphasize-lines: 2,5
+
+        # user_name - Set a user name for the user (1000)
+        #user_name=beagle <1>
+
+        # user_password - Set a password for user (1000)
+        #user_password=FooBar <2>
+
+    .. annotations::
+
+        <1> If ``boris`` is your username, update ``#user_name=beagle`` to ``user_name=boris``
+
+        <2> If ``bash`` is your password, update ``#user_password=FooBar`` to ``user_password=bash``
+
+.. note:: 
+    Make sure to remove ``#`` from in front of these lines else the lines will still be 
+    interpreted like a comment and your username & password will not be updated.
+
+Once username and password are updated, you can insert the microSD card into 
+your BeagleY-AI as shown in the image below:
 
 .. figure:: images/beagley-ai-micro-sd-card.*
     :align: center
-    :alt: Insert sd card in BeagleY-AI
+    :alt: Insert microSD card in BeagleY-AI
 
-    Insert sd card in BeagleY-AI
+    Insert microSD card in BeagleY-AI
 
 .. _beagley-ai-usb-tethering:
 
@@ -81,17 +123,17 @@ USB Tethering
 **************
 
 .. note:: 
-    If you are using the board with a fan or running a heavy task you should always power 
-    the board with a dedicated power supply that can supply 5V ≥ 3A. 
+    If you are using the board with a fan or running a computationally intensive 
+    task you should always power the board with a dedicated power supply that can supply 5V ≥ 3A (15W+). 
 
-    As per USB standards these are the current that each cable can supply:
+    As per USB standards these are the current at 5V that each downstream USB port type can (max) supply:
 
-    - Type-A to Type-C - 900mA
-    - Type-C to Type-C - 1500mA
+    - USB Type-A 3.x port - 900mA (4.5W)
+    - USB Type-C 1.2 port - 1500mA (7.5W) to 3000mA (15W)
 
     Thus it's recommended to use type-C to type-C cable.
 
-To initially test your board, you can connect the board directly to your computer using a ``type-A to type-C`` or ``type-C to type-C`` cable shown in the image below.
+To initially test your board, you can connect the board directly to your computer using a ``type-C to type-C`` cable shown in the image below.
 
 .. figure:: images/beagley-ai-tethered-connection.*
     :align: center
@@ -112,7 +154,7 @@ or command prompt (`Windows <https://www.wikihow.com/Open-the-Command-Prompt-in-
 
 .. tip:: If you are not able to find your beagle at ``192.168.7.2`` make sure to checkout :ref:`start-browse-to-beagle` to resolve your connection issue.
 
-.. note:: If you have not updated your default username and password during :ref:`beagley-ai-boot-media`, you must update the default password at this step to something safer.
+.. important:: If you have not updated your default username and password during :ref:`beagley-ai-boot-media`, you must update the default password at this step to something safer.
 
 .. figure:: images/ssh-connection.*
     :align: center 
@@ -166,7 +208,7 @@ To setup your BeagleY-AI for standalone usage, you need the following additional
 3. Wireless keyboard & mice combo
 4. Ethernet cable (Optional)
 
-Make sure you have the sd Card with boot media (software image) inserted in to the BeagleY-AI. Now connect,
+Make sure you have the microSD card with boot media (software image) inserted in to the BeagleY-AI. Now connect,
 
 1. microHDMI to BeagleY-AI and full size HDMI to monitor
 2. keyboard and mice combo to one of the four USB port of BeagleY-AI
@@ -190,13 +232,13 @@ If everything is connected properly you should see four penguins on your monitor
 
 When prompted, log in using the updated login credentials you updated during the USB tethering step.
 
-.. note:: You can not update login credentials at this step, you must update them during USB tethering step!
+.. Important:: You can not update login credentials at this step, you must update them during boot media (software image) micrSD card flashing or USB tethering step!
 
 .. figure:: images/login.*
     :align: center
-    :alt: BeagleY-AI login
+    :alt: BeagleY-AI XFCE desktop login
 
-    BeagleY-AI login
+    BeagleY-AI XFCE desktop login
 
 Once logged in you should see the splash screen shown in the image below:
 
@@ -210,9 +252,9 @@ Test network connection by running ping 8.8.8.8
 
 .. figure:: images/ping-test.*
     :align: center
-    :alt: BeagleY-AI ping test
+    :alt: BeagleY-AI network ping test
 
-    BeagleY-AI ping test
+    BeagleY-AI network ping test
 
 Explore and build with your new BeagleY-AI board!
 
