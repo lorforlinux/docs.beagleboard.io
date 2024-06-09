@@ -16,7 +16,7 @@ using P8 / P9 cape header choose respective pinout diagram tab below.
 
    .. group-tab:: P8 cape header
 
-        .. figure:: media/pinout/BeagleBone-AI-64-P8.*
+        .. figure:: images/pinout/BeagleBone-AI-64-P8.*
             :align: center
             :alt: BeagleBone AI-64 P8 cape header pinout
 
@@ -25,7 +25,7 @@ using P8 / P9 cape header choose respective pinout diagram tab below.
 
    .. group-tab:: P9 cape header
 
-        .. figure:: media/pinout/BeagleBone-AI-64-P9.*
+        .. figure:: images/pinout/BeagleBone-AI-64-P9.*
             :align: center
             :alt: BeagleBone AI-64 P9 cape header pinout
 
@@ -1515,7 +1515,7 @@ can be used with your BeagleBone AI-64 also like shown in :ref:`bbai64-cape-plac
 
 .. _bbai64-cape-placement-figure:
 
-.. figure:: media/ch08/cape-placement.*
+.. figure:: images/ch08/cape-placement.*
    :width: 1040
    :align: center 
    :alt: BeagleBone AI-64 cape placement
@@ -1584,7 +1584,7 @@ below is the design of the EEPROM circuit.
 
 .. _expansion-board-eeprom-without-write-protect-figure:
 
-.. figure:: media/ch08/eeprom.*
+.. figure:: images/ch08/eeprom.*
    :width: 740
    :align: center 
    
@@ -1670,7 +1670,7 @@ discretion of the cape designer.
 
 .. _expansion-board-eeprom-with-write-protect-figure:
 
-.. figure:: media/ch08/eeprom-write-protect.*
+.. figure:: images/ch08/eeprom-write-protect.*
    :width: 740
    :align: center 
    
@@ -1798,7 +1798,7 @@ the connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
 .. _single-expansion-connector-figure:
 
-.. figure:: media/ch08/single-expansion-connector.*
+.. figure:: images/ch08/single-expansion-connector.*
    :width: 740
    :align: center 
    
@@ -1811,7 +1811,7 @@ single row 23 pin headers for each of the dual row headers.
 
 .. _single-cape-expansion-connector-figure:
 
-.. figure:: media/ch08/proto.*
+.. figure:: images/ch08/proto.*
    :width: 740
    :align: center 
    
@@ -1874,7 +1874,7 @@ connector. These are dual row 23 position 2.54mm x 2.54mm connectors.
 
 .. _expansion-connector-figure:
 
-.. figure:: media/ch08/expansion-connector.*
+.. figure:: images/ch08/expansion-connector.*
    :width: 740
    :align: center
    :alt: Expansion Connector
@@ -1888,7 +1888,7 @@ connector configuration for the connector.
 
 .. _stacked-cape-expansion-connector-figure:
 
-.. figure:: media/ch08/can-cape.*
+.. figure:: images/ch08/can-cape.*
    :width: 740
    :align: center 
    :alt: Stacked cape expansion connector
@@ -1955,7 +1955,7 @@ nonstacking style connectors.
 
 .. _stacked-with-signal-stealing-expansion-connector-figure:
 
-.. figure:: media/ch08/stealing-expansion-connector.*
+.. figure:: images/ch08/stealing-expansion-connector.*
    :width: 740
    :align: center 
    
@@ -1990,7 +1990,7 @@ overhang.
 
 .. _connector-pin-insertion-depth:
 
-.. figure:: media/ch08/berg-stip-insertion.*
+.. figure:: images/ch08/berg-stip-insertion.*
    :width: 400px
    :align: center 
    :alt: Connector Pin Insertion Depth
@@ -2141,7 +2141,7 @@ Standard Cape Size
 
 .. _cape-board-dimensions-figure:
 
-.. figure:: media/ch08/cape-dimension.*
+.. figure:: images/ch08/cape-dimension.*
    :width: 740
    :align: center 
    :alt: Cape board dimensions

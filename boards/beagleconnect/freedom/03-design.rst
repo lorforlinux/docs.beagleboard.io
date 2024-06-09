@@ -6,17 +6,17 @@ Design
 .. _beagleconnect-freedom-detailed-overview:
 
 Detailed overview
-=================
+*******************
 
 .. _beagleconnect-freedom-detailed-hardware-design:
 
 Detailed hardware design
-=========================
+*************************
 
 LEDs
-----
+=====
 
-.. figure:: media/hardware-design/LEDs.svg
+.. figure:: images/hardware-design/LEDs.svg
     :width: 1247
     :align: center
     :alt: BeagleConnect LEDs
@@ -24,9 +24,9 @@ LEDs
     BeagleConnect LEDs
 
 Buttons & Buzzer
-----------------
+=================
 
-.. figure:: media/hardware-design/UserInputOutput.svg
+.. figure:: images/hardware-design/UserInputOutput.svg
     :width: 1247
     :align: center
     :alt: User Input Output (Buttons & Buzzer)
@@ -34,9 +34,9 @@ Buttons & Buzzer
     User Input Output (Buttons & Buzzer)
 
 Sensors
---------
+=========
 
-.. figure:: media/hardware-design/sensors.svg
+.. figure:: images/hardware-design/sensors.svg
     :width: 1247
     :align: center
     :alt: On-board sesnsors
@@ -44,9 +44,9 @@ Sensors
     On-board sesnsors
 
 mikroBUS
----------
+=========
 
-.. figure:: media/hardware-design/mikroBUS.svg
+.. figure:: images/hardware-design/mikroBUS.svg
     :width: 1247
     :align: center
     :alt: mikroBUS ports
@@ -54,9 +54,9 @@ mikroBUS
     mikroBUS ports
 
 USB-C port
------------
+==========
 
-.. figure:: media/hardware-design/USB.svg
+.. figure:: images/hardware-design/USB.svg
     :width: 1247
     :align: center
     :alt: USB-C for power & programming
@@ -64,9 +64,9 @@ USB-C port
     USB-C for power & programming
 
 Buck converter
---------------
+===============
 
-.. figure:: media/hardware-design/BuckConverter.svg
+.. figure:: images/hardware-design/BuckConverter.svg
     :width: 1247
     :align: center
     :alt: BuckConverter (3.3V output)
@@ -74,9 +74,9 @@ Buck converter
     BuckConverter (3.3V output)
 
 LiPo battery charger
----------------------
+====================
 
-.. figure:: media/hardware-design/LiPoCharger.svg
+.. figure:: images/hardware-design/LiPoCharger.svg
     :width: 1247
     :align: center
     :alt: 4.2V LiPo battery charger
@@ -84,9 +84,9 @@ LiPo battery charger
     4.2V LiPo battery charger
 
 Battery input protection
-------------------------
+========================
 
-.. figure:: media/hardware-design/AltPower.svg
+.. figure:: images/hardware-design/AltPower.svg
     :width: 1247
     :align: center
     :alt: LiPo battery input protection
@@ -94,9 +94,9 @@ Battery input protection
     LiPo battery input protection
 
 MSP430F5503
------------
+===========
 
-.. figure:: media/hardware-design/MSP430.svg
+.. figure:: images/hardware-design/MSP430.svg
     :width: 1247
     :align: center
     :alt: MSP430F5503 (USB to UART & mikroBUS)
@@ -104,12 +104,12 @@ MSP430F5503
     MSP430F5503 (USB to UART & mikroBUS)
 
 CC1352P7
----------
+=========
 
 Digital subsection
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
-.. figure:: media/hardware-design/CC1352DigitalSubsection.svg
+.. figure:: images/hardware-design/CC1352DigitalSubsection.svg
     :width: 1247
     :align: center
     :alt: CC1352P7 Digital subsection
@@ -117,9 +117,9 @@ Digital subsection
     CC1352P7 Digital subsection
 
 Analog subsection
-~~~~~~~~~~~~~~~~~~
+------------------
 
-.. figure:: media/hardware-design/CC1352AnalogSubsection.svg
+.. figure:: images/hardware-design/CC1352AnalogSubsection.svg
     :width: 1247
     :align: center
     :alt: CC1352P7 Analog subsection
@@ -127,9 +127,9 @@ Analog subsection
     CC1352P7 Analog subsection
 
 Power subsection
-~~~~~~~~~~~~~~~~~~
+-----------------
 
-.. figure:: media/hardware-design/CC1352PowerSubsection.svg
+.. figure:: images/hardware-design/CC1352PowerSubsection.svg
     :width: 1247
     :align: center
     :alt: CC1352P7 Power subsection
@@ -137,9 +137,9 @@ Power subsection
     CC1352P7 Power subsection
 
 RF subsection
-~~~~~~~~~~~~~~~~~~
+--------------
 
-.. figure:: media/hardware-design/CC1352RFSubsection.svg
+.. figure:: images/hardware-design/CC1352RFSubsection.svg
     :width: 1247
     :align: center
     :alt: CC1352P7 RF subsection
@@ -147,9 +147,9 @@ RF subsection
     CC1352P7 RF subsection
 
 SPI Flash
-----------
+==========
 
-.. figure:: media/hardware-design/SPIFlash.svg
+.. figure:: images/hardware-design/SPIFlash.svg
     :width: 1247
     :align: center
     :alt: SPIFlash
@@ -157,9 +157,9 @@ SPI Flash
     SPIFlash
 
 Debug interface
-----------------
+================
 
-.. figure:: media/hardware-design/TagConnect.svg
+.. figure:: images/hardware-design/TagConnect.svg
     :width: 1247
     :align: center
     :alt: CC1352P7 & MSP430F5503 TagConnect
@@ -171,4 +171,4 @@ Debug interface
 .. _beagleconnect-freedom-mechanical:
 
 Mechanical
-===========
+************

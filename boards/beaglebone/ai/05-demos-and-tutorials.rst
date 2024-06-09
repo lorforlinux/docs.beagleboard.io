@@ -6,4 +6,4 @@ Demos & Tutorials
 .. toctree::
     :maxdepth: 1
 
-    demos-and-tutorials/upgrade-beagle-software
+    demos-and-tutorials/upgrade-beaglebone-ai-software

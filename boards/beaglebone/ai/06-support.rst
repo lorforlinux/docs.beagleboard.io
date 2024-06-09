@@ -13,6 +13,11 @@ community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai>`_.
 
   Related TI documentation: http://www.ti.com/tool/BEAGLE-3P-BBONE-AI
 
+Production board boot media
+****************************
+
+.. todo:: Add production boot media link in ``_static/epilog/production.image`` and reference it here.
+
 .. _beaglebone-ai-regulatory:
 
 REGULATORY, COMPLIANCE, AND EXPORT INFORMATION
@@ -115,8 +120,8 @@ Proposed changes.
 Pictures
 *********
 
-.. image:: media/BB_AI_Front.jpg
+.. image:: images/BB_AI_Front.jpg
     :align: center
 
-.. image:: media/BB_AI_Back.jpg
+.. image:: images/BB_AI_Back.jpg
     :align: center

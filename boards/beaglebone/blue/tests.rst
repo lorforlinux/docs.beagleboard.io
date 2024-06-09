@@ -4,7 +4,7 @@ BeagleBone Blue tests
 #######################
 
 ADC
-=====
+****
 
 -  `Grove Rotary Angle
    Sensor <http://wiki.seeed.cc/Grove-Rotary_Angle_Sensor/>`__
@@ -16,7 +16,7 @@ ADC
       rc_test_adc
 
 GP0
-====
+****
 
 -  Grove single GPIO output modules like `LED Socket
    Kit <http://wiki.seeed.cc/Grove-LED_Socket_Kit/>`__
@@ -34,7 +34,7 @@ GP0
       cd /sys/class/gpio;echo 49 >export;cd gpio49;echo in >direction;watch -n0 cat value
 
 GP1
-=====
+****
 
 -  Grove single GPIO output modules like `LED Socket
    Kit <http://wiki.seeed.cc/Grove-LED_Socket_Kit/>`__
@@ -52,7 +52,7 @@ GP1
       cd /sys/class/gpio;echo 97 >export;cd gpio97;echo in >direction;watch -n0 cat value
 
 UT1
-=====
+****
 
 -  `Grove GPS <http://wiki.seeed.cc/Grove-GPS/>`__
 
@@ -61,7 +61,7 @@ UT1
       tio /dev/ttyO1 -b 9600
 
 GPS
-====
+*****
 
 -  `GPS Receiver - EM-506 <https://www.sparkfun.com/products/12751>`__
 
@@ -72,12 +72,12 @@ GPS
 .. _beaglebone-blue-one-liner-tests-i2c:
 
 I2C
-====
+*****
 
 .. _grove_i2c_modules:
 
 Grove I2C modules
----------------------
+==================
 
 The Linux kernel source has some `basic IIO SYSFS interface
 documentation <https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-bus-iio>`__
@@ -99,7 +99,7 @@ presentation <http://elinux.org/images/b/ba/ELC_2017_-_Industrial_IO_and_You-_No
       cd /sys/bus/i2c/devices/i2c-1;echo th02 0x40 >new_device;watch -n0 cat 1-0040/iio\:device0/in_temp_raw
 
 Motors
-========
+*******
 
 .. code:: bash
 

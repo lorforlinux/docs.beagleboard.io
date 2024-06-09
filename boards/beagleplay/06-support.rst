@@ -6,6 +6,11 @@ Support
 All support for BeaglePlay design is through BeagleBoard.org 
 community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/play>`_.
 
+Production board boot media
+****************************
+
+- `BeaglePlay Rev A2`_
+
 .. _beagleplay-certifications:
 
 Certifications and export control
@@ -62,22 +67,6 @@ Change History
     This section describes the change history of this document and board. 
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
-
-.. _beagleplay-document-changes:
-
-Document Changes
-==================
-
-For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
-specific hardware and software revisions are noted below.
-
-.. table:: BeaglePlay document change history
-
-    +---------+------------------------------------------------------------+----------------------+-------+
-    | Rev     |   Changes                                                  | Date                 |    By |
-    +=========+============================================================+======================+=======+
-    |         |                                                            |                      |       |
-    +---------+------------------------------------------------------------+----------------------+-------+
 
 .. _beagleplay-board-changes:
 

@@ -28,11 +28,16 @@ Steps:
 Fork BeagleV-Fire Gateware Repository
 **************************************
 
+.. important:: 
+    All new users need to be manually approved to protect from BOT spam. You will not be able to fork the Gateware
+    Repository until you have been approved. A request to 'the forum <https://forum.beagleboard.org/t/requesting-access-to-gitlab-to-fork-gateware/37494>'
+    may expedite the process. 
+
 Navigate to BeagleV-Fire's `gateware source code repository <https://git.beagleboard.org/beaglev-fire/gateware>`_.
 
 Click on the ``Forks`` button on the top-right corner.
 
-.. figure:: media/gateware-beaglev-fire-fork.png
+.. figure:: images/gateware-beaglev-fire-fork.png
     :align: center
     :width: 1040
     :alt: BeagleV-Fire gateware repo fork button 
@@ -43,7 +48,7 @@ Click on the ``Forks`` button on the top-right corner.
 On the Fork Project page, select your namespace and adjust the project name to help you manage multiple 
 custom gateware (e.g. ``my-lovely-gateware``). Click the ``Fork project`` button.
 
-.. figure:: media/verilog-gateware-fork.png
+.. figure:: images/verilog-gateware-fork.png
     :align: center
     :width: 1040
     :alt: Create gateware fork
@@ -360,7 +365,7 @@ Navigate to your forked repository. Click Pipelines in the left pane then the Do
 button on the right handside. Select ``build-job:archive``. This will result in an ``artifacts.zip`` file
 being downloaded.
 
-.. figure:: media/gateware-pipeline.png
+.. figure:: images/gateware-pipeline.png
     :align: center
     :width: 1040
     :alt: gateware pipeline 
@@ -401,7 +406,7 @@ device tree overlays:
 
     tree /proc/device-tree/chosen/overlays/
 
-.. figure:: media/gateware-lovely-overlay.png
+.. figure:: images/gateware-lovely-overlay.png
     :align: center
     :width: 740
     :alt: gateware lovely overlay

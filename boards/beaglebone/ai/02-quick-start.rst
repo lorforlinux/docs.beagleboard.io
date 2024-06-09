@@ -11,21 +11,23 @@ attached. Developers can get up and running in five minutes with no
 microSD card needed. BeagleBone® AI comes preloaded with a Linux
 distribution. In the box you will find:
 
--  `BeagleBone® AI <https://openbeagle.org/beagleboard/beaglebone-ai>`_
+-  `BeagleBone® AI <https://www.beagleboard.org/boards/beaglebone-ai>`_
 -  Quick Start Guide
 
-.. image:: media/BB_AI_antenna_heat_sink_place_500px.jpg
+.. image:: images/BB_AI_antenna_heat_sink_place_500px.jpg
    :align: center
    :alt: BeagleBone AI Overview
+
+.. tip:: For board files, 3D model, regulatory docs and more, you can checkout `BeagleBona-AI repository on OpenBeagle <https://openbeagle.org/beagleboard/beaglebone-ai/>`_.
 
 What’s Not in the Box
 **********************
 
 You will need to purchase:
 
--  USB C cable or USB C to USB A cable
+-  :ref:`USB C cable or USB C to USB A cable <accessories-cables-usb>`
 -  MicroSD Card (optional)
--  :ref:`Serial cable <jst-sh-serial-cables>` (optional)
+-  :ref:`Serial cable <molex-picoblade-serial-cables>` (optional)
 
 More information or to purchase a replacement heat sink or antenna, please go to these websites:
 
@@ -48,7 +50,11 @@ FAQ <https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently-As
    BeagleBone AI can run **HOT**! Even without running the accelerators,
    getting up to 70C is not uncommon.
 
-`Official BeagleBone Fan Cape <https://www.newark.com/element14/6100310/beaglebone-ai-fan-cape/dp/50AH3704>`_
+   Read about `Fan update for BeagleBone AI on Forum 
+   <https://forum.beagleboard.org/t/fan-update-for-beaglebone-ai/1964>`. 
+
+1. `Official BeagleBone Fan Cape <https://www.newark.com/element14/6100310/beaglebone-ai-fan-cape/dp/50AH3704>`_
+2. `Coolerguys 25mm (25x25x10) USB Fan <https://www.coolerguys.com/en-in/collections/usb-fans/products/25mm-25x25x10-usb-fan>`
 
 Main Connection Scenarios
 **************************
@@ -57,8 +63,7 @@ This section will describe how to connect the board for use. The board
 can be configured in several different ways. Below we will walk through
 the most common scenarios. NOTE: These connection scenarios are
 dependent on the software image presently on your BeagleBone® AI. When
-all else fails, follow the instructions at
-https://old.beagleboard.org/upgrade
+all else fails, follow the instructions at :ref:`upgrade-beaglebone-ai-software`.
 
 -  :ref:`Tethered to a PC via USB C cable <bbai-tethered>`
 -  :ref:`Standalone Desktop with powered USB hub, display, keyboard and mouse <bbai-standalone>`
@@ -86,56 +91,56 @@ https://old.beagleboard.org/upgrade
 
       1.  Locate the USB Type-C connector on BeagleBone® AI 
 
-      .. image:: media/BB_AI_USBC_and_3pin_500px.png
+      .. image:: images/BB_AI_USBC_and_3pin_500px.png
          :width: 740
          :align: center
          :alt: USB connector and serial debug.
 
-      2.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
+      1.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
 
-      .. image:: media/BB_AI_connectingUSBC_500px.jpg
+      .. image:: images/BB_AI_connectingUSBC_500px.jpg
          :width: 740
          :align: center
          :alt: Connecting serial cable.
 
-      3.  Connect the other end of the USB cable to the PC USB 3 port.
+      1.  Connect the other end of the USB cable to the PC USB 3 port.
 
-      .. image:: media/BB_AI_PlugIn_500px.jpg
+      .. image:: images/BB_AI_PlugIn_500px.jpg
          :width: 740
          :align: center
          :alt: connecting to PC
 
-      4.  BeagleBone® AI will boot.
+      1.  BeagleBone® AI will boot.
 
-      5.  You will notice some of the 5 user LEDs flashing
+      2.  You will notice some of the 5 user LEDs flashing
 
-      6.  Look for a new mass storage drive to appear on the PC.
+      3.  Look for a new mass storage drive to appear on the PC.
 
-      .. image:: media/BB_AI_asadrive_500px.jpg
+      .. image:: images/BB_AI_asadrive_500px.jpg
          :width: 740
          :align: center
          :alt: BeagleBone storage drive options
 
-      7.  Open the drive and open START.HTM with your web browser.
+      1.  Open the drive and open START.HTM with your web browser.
 
-      .. image:: media/BB_AI_starthtm_500px.png
+      .. image:: images/BB_AI_starthtm_500px.png
          :width: 740
          :align: center
          :alt: BeagleBone drive 
 
-      .. image:: media/BB_AI_connectedscreen_500px.jpg
+      .. image:: images/BB_AI_connectedscreen_500px.jpg
          :width: 740
          :align: center
          :alt: Getting started
 
-      8.  Follow the instructions in the browser window.
+      1.  Follow the instructions in the browser window.
 
-      .. image:: media/vscode.png
+      .. image:: images/vscode.png
          :width: 740
          :align: center
          :alt: BeagleBone instructions
 
-      9.  Go to Visual Studio Code IDE.
+      1.  Go to Visual Studio Code IDE.
 
     .. _bbai-standalone:
     
@@ -143,7 +148,7 @@ https://old.beagleboard.org/upgrade
 
       **Standalone w/Display and Keyboard/Mouse**
 
-      .. image:: media/BB_AI_Standalone_setup_750px.jpg
+      .. image:: images/BB_AI_Standalone_setup_750px.jpg
          :width: 740
          :align: center
          :alt: BeagleBone AI Overview
@@ -188,7 +193,7 @@ Cables: https://git.beagleboard.org/beagleboard/beaglebone-ai/-/wikis/Frequently
 
 Locate the 3 PIN debug header on BeagleBone® AI, near the USB C connection.
 
-.. image:: media/BB_AI_USBC_and_3pin_500px.png
+.. image:: images/BB_AI_USBC_and_3pin_500px.png
    :align: center
    :alt: BeagleBone AI Overview
 
@@ -198,6 +203,6 @@ Press the small white connector into the 3 PIN debug header. The pinout is:
 - Pin 2: UART1_RX (i.e. this is a BB-AI input pin)
 - Pin 3: UART1_TX (i.e. BB-AI transmits out on this pin)
 
-.. image:: media/BB_AI_3pincableattach_500px.jpg
+.. image:: images/BB_AI_3pincableattach_500px.jpg
    :align: center
    :alt: BeagleBone AI Overview

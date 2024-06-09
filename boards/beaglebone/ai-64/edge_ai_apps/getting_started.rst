@@ -84,7 +84,7 @@ Note that the headers have to be lifted up to connect the cameras
 .. note:: To be updated
     By default IMX219 is disabled. After connecting the camera you can enable it
     by specifying the dtb overlay file in
-    ``/run/media/mmcblk0p1/uenv.txt`` as below,
+    ``/run/images/mmcblk0p1/uenv.txt`` as below,
 
     ``name_overlays=k3-j721e-edgeai-apps.dtbo k3-j721e-sk-rpi-cam-imx219.dtbo``
 

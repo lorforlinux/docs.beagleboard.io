@@ -29,8 +29,6 @@ more detail with schematic diagrams.
     :align: center
     :alt: BeaglePlay block diagram
 
- 
-
 System on Chip (SoC)
 *********************
 
@@ -66,10 +64,10 @@ and Power Management Integrated Circuit (PMIC) that interface with SoC to genera
    :align: center
    :alt: BeaglePlay power block diagram
 
-TLV75801 - LDO
-===============
+1.0V LDO
+=========
 
-An adjustable 500-mA low-dropout (LDO) regulator. Consumes very low quiescent current and provides fast line and load transient
+TLV75801 is an adjustable 500-mA low-dropout (LDO) regulator. Consumes very low quiescent current and provides fast line and load transient
 performance. The TLV758P features an ultra-low dropout of 130 mV at 500 mA that can help improve the power efficiency of the system. 
 The TLV758P is stable with small ceramic output capacitors, allowing for a small overall solution size. A precision band-gap and error 
 amplifier provides high accuracy of 0.7% (max) at 25°C and 1% (max) over temperature (85°C). This device includes integrated thermal 
@@ -94,10 +92,10 @@ when running low on power rails.
   significant on a board typically consuming 400mA at 5V (2W). However, this is an area where some power
   optimization could be performed if concerned about sleep modes.
 
-TLV62595 - DC/DC regulator
-==========================
+3.3V DCDC buck
+===============
 
-A high-frequency synchronous step-down converter optimized for compact solution size
+TLV62595 is a high-frequency synchronous step-down converter optimized for compact solution size
 and high efficiency. The device integrates switches capable of delivering an output current up to 4 A.
 At medium to heavy loads, the converter operates in pulse width modulation (PWM) mode with typical
 2.2-MHz switching frequency. At light load, the device automatically enters Power Save Mode (PSM) to
@@ -106,9 +104,9 @@ maintain high efficiency over the entire load current range with a quiescent cur
 .. figure:: images/hardware-design/TLV62595DMQR.svg
     :width: 1024
     :align: center
-    :alt: TLV62595DMQR DC/DC regulator schematic for 3V3 output
+    :alt: TLV62595DMQ step-down regulator schematic for 3V3 output
 
-    TLV62595DMQR LDO schematic for 3V3 output
+    TLV62595DMQ step-down regulator schematic for 3V3 output
 
 This provides 3.3V for the vast majority of 3.3V I/Os on the board, off-board 3.3V power to microSD, mikroBUS,
 QWIIC and Grove connectors, as well as to the PMIC LDO to provide power for the 1.8V on-board I/Os, DDR4, and
@@ -118,8 +116,8 @@ gigabit Ethernet PHY. Due to the relatively high current rating (3A), a highly e
         The primary TPS65219 PMIC firmware uses GPO2 to provide the enable signal (VDD_3V3_EN). The power-good signal
         (VDD_3V3_PG) is available at TP19 and is unused on the rest of the board.
 
-TPS65219 - PMIC
-================
+PMIC
+=====
 
 The TPS65219 is a Power Management IC (PMIC) designed to supply a wide range of SoCs in both
 portable and stationary applications. The DC-DC converters are capable of 1x 3.5 A and 2x
@@ -173,8 +171,8 @@ Below is the schematic of full size USB A for pripheral connection and USB C for
 
     USB-A and USB-C
 
-ADC102S051 - 2ch 10bit ADC
-===========================
+2ch 10bit ADC
+==============
 
 The ADC102S051 is a low-power, two-channel CMOS 10-bit analog-to-digital converter with a high-
 speed serial interface. Unlike the conventional practice of specifying performance at a single sample
@@ -236,7 +234,7 @@ Qwiic, or STEMMA QT are 4pin JST SH 1.00 connectors for easy I2C connection.
     QWIIC connnector for I2C modules
 
 Buttons and LEDs
-********************
+*****************
 
 To interact with the Single Board Computers we use buttons for input and LEDs for visual feedback. 
 On your BeaglePlay board you will find 3 buttons each with a specific purpose: power, reset, and user. 
@@ -275,8 +273,8 @@ Wired and wireless connectivity
 
 For internet connection or general connectivity between BeaglePlay and other devices.
 
-RTL8211F Gigabit ethernet
-==========================
+Gigabit ethernet
+=================
 
 The Realtek RTL8211F-CG is a highly integrated Ethernet transceiver that is compatible with 10Base-T, 
 100Base-TX, and 1000Base-T IEEE 802.3 standards. It provides all the necessary physical layer functions 
@@ -294,8 +292,8 @@ implemented in the RTL8211F(I)-CG to provide robust transmission and reception c
 
     Gigabit ethernet
 
-DP83TD510E Single pair ethernet
-================================
+Single pair ethernet
+=====================
 
 The DP83TD510E is an ultra-low power Ethernet physical layer transceiver compliant with the IEEE
 802.3cg 10Base-T1L specification. The PHY has very low noise coupled receiver architecture enabling
@@ -313,8 +311,8 @@ test, and loopback capabilities for ease of design or debug
 
     Single pair ethernet
 
-WL1807MOD - WiFi 2.4G/5G
-=========================
+WiFi 2.4G/5G
+=============
 
 The WL18x7MOD is a Wi-Fi, dual-band, 2.4- and 5-GHz module solution with two antennas supporting industrial temperature grade. 
 The device is FCC, IC, ETSI/CE, and TELEC certified for AP (with DFS support) and client. TI offers drivers for high-level
@@ -328,8 +326,8 @@ QNX, Nucleus, ThreadX, and FreeRTOS, are supported through third parties.
 
     WL1807MOD dual-band (2.4G/5G) WiFi
 
-CC1352P7 - BLE & SubGHz
-========================
+BLE & SubGHz
+=============
 
 The SimpleLink™ CC1352P7 device is a multiprotocol and multi-band Sub-1 GHz and 2.4-GHz wireless
 microcontroller (MCU) supporting Thread, Zigbee®, Bluetooth® 5.2 Low Energy, IEEE 802.15.4g, IPv6-enabled

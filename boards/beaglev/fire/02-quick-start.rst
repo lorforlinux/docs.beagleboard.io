@@ -8,7 +8,12 @@ What's included in the box?
 
 When you purchase a brand new BeagleV-Fire, In the box you'll get:
 
+1. `BeagleV-Fire board <https://www.beagleboard.org/boards/beaglev-fire>`_
+2. Quick-start card
+
 .. todo:: add image & information about box content.
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleV-Fire repository on OpenBeagle <https://openbeagle.org/beaglev-fire/beaglev-fire>`_.
 
 Unboxing
 *********
@@ -31,7 +36,7 @@ To connect BeagleV-Fire board to PC via USB Type C receptacle you need a USB typ
     1. `USB C cable 0.3m (mouser) <https://www.mouser.com/ProductDetail/Adafruit/4474?qs=CUBnOrq4ZJz9F%2FNF%252BRRALQ%3D%3D>`_
     2. `USB C cable 1.83m (digikey) <https://www.digikey.com/en/products/detail/coolgear/USB3-AC2MB/16384570>`_
 
-.. figure:: media/usb-guide/tethered-connection.*
+.. figure:: images/usb-guide/tethered-connection.*
     :align: center
     :alt: BeagleV-Fire tethered connection
     
@@ -42,7 +47,6 @@ Flashing eMMC
 
 Flash the latest image on eMMC
 ===============================
-
 
 Access UART debug console
 **************************
@@ -57,7 +61,7 @@ Access UART debug console
 To access a BeagleV-Fire serial debug console you can connected a USB to UART 
 to your board as shown below:
 
-.. figure:: media/debug/BeagleV-Fire-UART-Debug.*
+.. figure:: images/debug/BeagleV-Fire-UART-Debug.*
     :align: center
     :alt: BeagleV-Fire UART debug port connection
 

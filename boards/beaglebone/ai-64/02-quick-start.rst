@@ -6,16 +6,12 @@ Quick Start Guide
 This section provides instructions on how to hook up your board. This Beagle requires a 5V > 3A (15W) 
 power supply to work properly via either USB Type-C power adapter or a barrel jack power adapter. 
 
-Recommended adapters:
-
-* 5V @ 3A `USB C power supply <https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-power-supply-White-US/10258760>`_ adapter for SBCs.
-* 5V > 3A `laptop/mobile adapter <https://www.amazon.com/Lenovo-Laptop-Charger-USB-C-Adapter/dp/B0CH3S7TF4/ref=sr_1_3?crid=3AJB8P9KC7IKU&keywords=type+c+65w+thinkpad&qid=1704510213&sprefix=tye+c+65+w+thinkp%2Caps%2C348&sr=8-3>`_ with USB-C cable.
-
-All the :ref:`BeagleBone AI-64 connections ports` we will use in this chapter are shown in the figure below.
+Recommended adapters can be found at :ref:`accessories-power-supplies` section. All the 
+:ref:`BeagleBone AI-64 connections ports` we will use in this chapter are shown in the figure below.
 
 .. _BeagleBone AI-64 connections ports:
 
-.. figure:: media/ch03/ports.*
+.. figure:: images/ch03/ports.*
    :width: 740px
    :align: center 
    
@@ -28,15 +24,17 @@ What’s In the Box
 
 In the box you will find two main items as shown in :ref:`bbai-64-pacakage`.
 
-* BeagleBone AI-64
+* `BeagleBone AI-64 <https://www.beagleboard.org/boards/beaglebone-ai-64>`_
 * Instruction card
 
-A USB-C to USB-C cable is not included, but recommended for the tethered scenario and creates 
-a developer experience where the board can be used immediately with no other equipment needed.
+.. note:: A USB-C to USB-C cable is not included, but recommended for the tethered scenario and creates 
+    a developer experience where the board can be used immediately with no other equipment needed.
+
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleBona AI-64 repository on OpenBeagle <https://openbeagle.org/beagleboard/beaglebone-ai-64>`_.
 
 .. _bbai-64-pacakage:
 
-.. figure:: media/ch03/bbai64-in-box.*
+.. figure:: images/ch03/bbai64-in-box.*
    :width: 740px
    :align: center 
    
@@ -75,9 +73,7 @@ Each of these configurations is discussed in general terms in the following sect
 
       In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the connected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. 
 
-      .. _tethered-figure:
-
-      .. figure:: media/ch03/usb-tethering.*
+      .. figure:: images/ch03/usb-tethering.*
          :width: 740px
          :align: center 
          
@@ -89,51 +85,39 @@ Each of these configurations is discussed in general terms in the following sect
       unsure that the system can provide the required power or are otherwise using a USB-A to Type-C 
       cable which will always require power from the DC barrel jack.
 
-      .. _connect-the-cable-to-the-board:
-
       **Connect the Cable to the Board**
 
-      1. Connect the type C USB cable to the board as shown in :ref:`usb-c-connect-figure`. The connector is on the top side of the board near barrel jack.
+      1. Connect the type C USB cable to the board as shown in the figure below. The connector is on the top side of the board near barrel jack.
 
-      .. _usb-c-connect-figure:
-
-      .. figure:: media/ch03/usb-c-connection.*
+      .. figure:: images/ch03/usb-c-connection.*
          :width: 740px
          :align: center 
          
          USB Connection to the Board
 
-      2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the :ref:`usb-a-connect-figure` below.
+      2.  Connect the USB-A end of the cable to your PC or laptop USB port as shown in the figure below.
 
-      .. _usb-a-connect-figure:
-
-      .. figure:: media/ch03/usb-a-connection.*
+      .. figure:: images/ch03/usb-a-connection.*
          :width: 740px
          :align: center 
          
          USB Connection to the PC/Laptop
 
-      3.  The board will power on and the power LED will be on as shown in :ref:`power-led-figure` below.
+      3.  The board will power on and the power LED will be on as shown in the figure below.
 
-      .. _power-led-figure:
-
-      .. figure:: media/ch03/power-led.*
+      .. figure:: images/ch03/power-led.*
          :width: 740px
          :align: center 
          
          Board Power LED
 
-      4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in :ref:`boot-status-figure` below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
+      4. When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in the figure below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.
 
-      .. _boot-status-figure:
-
-      .. figure:: media/ch03/led-pattern.*
+      .. figure:: images/ch03/led-pattern.*
          :width: 740px
          :align: center 
          
          Board Boot Status
-
-      .. _accessing-the-board-as-a-storage-drive:
 
       **Accessing the Board as a Storage Drive**
 
@@ -146,11 +130,9 @@ Each of these configurations is discussed in general terms in the following sect
 
    .. group-tab:: Standalone w/Display and Keyboard/Mouse
 
-      In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in :ref:`desktop-config-figure`. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
+      In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in the figure below. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
 
-      .. _desktop-config-figure:
-
-      .. figure:: media/ch03/desktop-configuration.*
+      .. figure:: images/ch03/desktop-configuration.*
          :width: 740px
          :align: center 
          
@@ -158,84 +140,70 @@ Each of these configurations is discussed in general terms in the following sect
 
       Ethernet cable and M.2 WiFi + Bluetooth card are optional. They can be used if network access required.
 
-      .. _required-accessories:
-
       **Required Accessories**
 
       In order to use the board in this configuration, you will need the following accessories:
 
-      * 5V > 3A power supply.
-      * Display Port or HDMI monitor.
-      * miniDP-DP or active miniDP-HDMI cable (or a recommended **miniDP-DP or active miniDP-HDMI adapter** https://www.amazon.com/dp/B089GF8M87 has been tested and worked beautifully).
-      * USB wired/wireless keyboard and mouse.
-      * powered USB HUB (OPTIONAL). The board has only two USB Type-A host ports, so you may need to use a powered USB Hub if you wish to add additional USB devices, such as a USB WiFi adapter.
-      * M.2 Bluetooth & WiFi module (OPTIONAL). For wireless connections, a USB WiFi adapter or a recommended M.2 WiFi module can provide wireless networking.
+      * :ref:`5V > 3A power supply <accessories-power-supplies>`.
+      * :ref:`Display Port or HDMI monitor <accessories-displays>`.
+      * :ref:`miniDP-DP or active miniDP-HDMI cable <accessories-cables_minidp_hdmi>`.
+      * :ref:`USB wired/wireless keyboard and mouse <accessories-peripherals>`.
 
-      .. _connecting-up-the-board:
+      **Optional Accessories**
+
+      * Powered USB hub, The board has only two USB Type-A host ports, so you may need to use a powered USB Hub if you wish to add additional USB devices, such as a USB WiFi adapter.
+      * M.2 Bluetooth & WiFi module, For wireless connections, a USB WiFi adapter or a recommended M.2 WiFi module can provide wireless networking.
 
       **Connecting Up the Board**
 
       1. Connect the miniDP to DP or active miniDP to HDMI cable from your BeagleBone AI-64 to your monitor.
 
-      .. _display-cable-figure,miniDP-DP or active miniDP-HDMI cable connection figure:
-
-      .. figure:: media/ch03/monitor-cable.*
+      .. figure:: images/ch03/monitor-cable.*
          :width: 740px
          :align: center 
          
          Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64
 
-      2. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in. :ref:`display-adapters-figure`.
+      1. If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in the figure below.
 
-      .. _display-adapters-figure:
-
-      .. figure:: media/ch03/display-adapters.*
+      .. figure:: images/ch03/display-adapters.*
          :width: 740px
          :align: center 
          
          Display adapters
 
-      3. If you have wired/wireless USB keyboard and mouse such as seen in :ref:`keyboard-mouse-figure` below, you need to plug the receiver in the USB host port of the board as shown in :ref:`keyboard-mouse-figure`.
+      1. If you have wired/wireless USB keyboard and mouse such as seen in the figure below, you need to plug the receiver in the USB host port of the board as shown in the figure below.
 
-
-      .. _keyboard-mouse-figure:
-
-      .. figure:: media/ch03/mouse-keyboard.*
+      .. figure:: images/ch03/mouse-keyboard.*
          :width: 740px
          :align: center 
          
          Keyboard and Mouse
 
-      4. Connect the Ethernet Cable
+      1. Connect the Ethernet Cable
 
       If you decide you want to connect to your local area network, an Ethernet cable can be used. 
-      Connect the Ethernet Cable to the Ethernet port as shown in :ref:`ethernet-cable-figure`. Any 
+      Connect the Ethernet Cable to the Ethernet port as shown in the figure below. Any 
       standard 100M Ethernet cable should work.
 
-      .. _ethernet-cable-figure:
-
-      .. figure:: media/ch03/ethernet-cable.*
+      .. figure:: images/ch03/ethernet-cable.*
          :width: 740px
          :align: center 
          
          Ethernet Cable Connection
 
 
-      5. The final step is to plug in the DC power supply to the DC power jack as shown in :ref:`barrel-jack-figure` below.
+      1. The final step is to plug in the DC power supply to the DC power jack as shown in the figure below.
 
-      .. _barrel-jack-figure:
-
-      .. figure:: media/ch03/barrel-jack.*
+      .. figure:: images/ch03/barrel-jack.*
          :width: 740px
          :align: center 
          
          External DC Power
 
-      6. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in :ref:`miniDP-figure` below.
+      1. The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in the figure below.
 
-      .. _miniDP-figure:
-
-      .. figure:: media/ch03/miniDP-connector.*
+      .. figure:: images/ch03/miniDP-connector.*
          :width: 740px
          :align: center 
          
@@ -243,13 +211,11 @@ Each of these configurations is discussed in general terms in the following sect
 
       The connector is fairly robust, but we suggest that you not use the cable as a leash for your Beagle. Take proper care not to put too much stress on the connector or cable.
 
-      7. Booting the Board
+      1. Booting the Board
 
       As soon as the power is applied to the board, it will start the booting up process. When the board starts to boot the LEDs will come on. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it boots the Linux kernel.
 
-      .. _LEDs-figure,BeagleBone AI-64 LEDs figure:
-
-      .. figure:: media/ch03/leds.*
+      .. figure:: images/ch03/leds.*
          :width: 740px
          :align: center 
          
@@ -264,16 +230,14 @@ Each of these configurations is discussed in general terms in the following sect
       * **USR3** turns on when the onboard eMMC is being accessed.
       * **USR4** is an activity indicator for WiFi.
 
-      8. A Booted System
+      1. A Booted System
          
          a. The board will have a mouse pointer appear on the screen as it enters the Linux boot step. You may have to move the physical mouse to get the mouse pointer to appear. The system can come up in the suspend mode with the monitor in a sleep mode.
          b. After a minute or two a login screen will appear. You do not have to do anything at this point.
-         c. After a minute or two the desktop will appear. It should be similar to the one shown in :ref:`figure-16`. HOWEVER, it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.
-         d. And at this point you are ready to go! :ref:`figure-16` shows the desktop after booting.
+         c. After a minute or two the desktop will appear. It should be similar to the one shown in the figure below. HOWEVER, it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.
+         d. And at this point you are ready to go! The figure below shows the desktop after booting.
 
-      .. _figure-16:
-
-      .. figure:: media/ch03/xfce-desktop.*
+      .. figure:: images/ch03/xfce-desktop.*
          :width: 740px
          :align: center 
          

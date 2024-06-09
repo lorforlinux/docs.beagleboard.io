@@ -27,7 +27,7 @@ have to either supply the power via USB jack or a matching (center positive) bar
     |                            |                   |             | - `AA10E-050A(M)-R <https://mou.sr/3jrA4zZ>`_               |
     +----------------------------+-------------------+-------------+-------------------------------------------------------------+
     | BeagleBone AI-64           | Type-C            | 5V @ 3A     | - `AA65M-59FKA-R <https://mou.sr/3Dz9P1E>`_                 |
-    +----------------------------+                   |             |                                                             |
+    +----------------------------+                   |             | - `Lenovo 65W USB Type C AC Adater <https://a.co/d/hH8SbG5>`|
     | BeaglePlay                 |                   |             |                                                             |      
     +----------------------------+                   |             |                                                             |
     | BeagleBone AI              |                   |             |                                                             | 

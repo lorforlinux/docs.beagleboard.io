@@ -56,13 +56,13 @@ HERE
 		# Build, optimize, and serve PDF
 		make latexpdf BUILDDIR=public
 
-		echo "**** pdfcpu ****"
-		pdfcpu version
-		pdfcpu optimize public/latex/beagleboard-docs.pdf
+		# echo "**** pdfcpu ****"
+		# pdfcpu version
+		# pdfcpu optimize public/latex/*.pdf
 
 		echo "**** cleanup ****"
 		mkdir -p public/pdf
-		mv public/latex/beagleboard-docs.pdf public/pdf
+		mv public/latex/*.pdf public/pdf
 		rm -rf public/doctrees
 		rm -rf public/latex
 	fi
@@ -72,14 +72,17 @@ HERE
 		mkdir -p public/$VER_DIR/
 		mv public/html/redir.html public/index.html
 		mv public/html/* public/$VER_DIR/
-		mv public/pdf/beagleboard-docs.pdf public/$VER_DIR/
+		mv public/pdf/*.pdf public/$VER_DIR/
 
 		# Update docs.beagleboard.org
 		if [ "$CI_COMMIT_TAG" != "" ]; then
+			mkdir -p ~/.ssh
+			eval "$(ssh-agent -s)"
+			echo "${PRIVATE_KEY}" | base64 -d | ssh-add -
 			if [ "$VER_DIR" = "latest" ]; then
-				cp public/index.html /var/www/docs
+				rsync -v public/index.html docs@beagleboard.org:/var/www/docs/
 			fi
-			rsync -v -a --delete public/$VER_DIR/. /var/www/docs/$VER_DIR
+			rsync -v -a --delete public/$VER_DIR/. docs@beagleboard.org:/var/www/docs/$VER_DIR
 		fi
 	fi
 }

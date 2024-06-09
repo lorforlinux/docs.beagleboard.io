@@ -11,35 +11,14 @@ are all that need to be added to start building performance-optimized embedded a
 expansion possibilities are enabled through familiar BeagleBone® cape headers, with hundreds of open-source
 hardware examples and dozens of readily available embedded expansion options available off-the-shelf.
 
-.. grid:: 2
-
-    .. grid-item::
-        :columns: 12 12 12 4
-
-        .. figure:: media/OSHW_mark_US002120.*
-            :width: 200
-            :target: https://certification.oshwa.org/us002120.html
-            :alt: BeagleBone AI-64 OSHW Mark
-
-    .. grid-item::
-        :columns: 12 12 12 8
-
-        .. admonition:: License Terms
-
-            * This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-            * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`__
-            * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-            * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglebone-ai-64>`__
-            * For export, emissions and other compliance, see :ref:`bbai64-support`
-
-.. image:: media/bbai64-45-front.jpg
+.. image:: images/bbai64-45-front.jpg
    :width: 740px
    :align: center
    :alt: BeagleBone AI-64 front at 45° angle
 
 .. only:: html
 
-  .. grid:: 1 1 2 3
+  .. grid:: 1 1 2 2
     :margin: 4 4 0 0
     :gutter: 4
 
@@ -50,7 +29,7 @@ hardware examples and dozens of readily available embedded expansion options ava
         **1. Introduction**
         ^^^
 
-        .. image:: media/chapter-thumbnails/01-introduction.*
+        .. image:: images/chapter-thumbnails/01-introduction.*
             :align: center
             :alt: BeagleBone AI-64 Chapter01 thumbnail
         
@@ -66,7 +45,7 @@ hardware examples and dozens of readily available embedded expansion options ava
         **2. Quick start**
         ^^^
 
-        .. image:: media/chapter-thumbnails/02-quick-start.*
+        .. image:: images/chapter-thumbnails/02-quick-start.*
             :align: center
             :alt: BeagleBone AI-64 Chapter02 thumbnail
 
@@ -82,7 +61,7 @@ hardware examples and dozens of readily available embedded expansion options ava
         **3. Design & Specifications**
         ^^^
 
-        .. image:: media/chapter-thumbnails/03-design-and-specifications.*
+        .. image:: images/chapter-thumbnails/03-design-and-specifications.*
             :align: center
             :alt: BeagleBone AI-64 Chapter03 thumbnail
 
@@ -98,7 +77,7 @@ hardware examples and dozens of readily available embedded expansion options ava
         **4. Expansion**
         ^^^
 
-        .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
+        .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.*
             :align: center
             :alt: BeagleBone AI-64 Chapter04 thumbnail
 
@@ -114,7 +93,7 @@ hardware examples and dozens of readily available embedded expansion options ava
         **5. Demos**
         ^^^
 
-        .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
+        .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
             :align: center
             :alt: BeagleBone AI-64 Chapter5 thumbnail
 
@@ -129,7 +108,7 @@ hardware examples and dozens of readily available embedded expansion options ava
         **6. Support**
         ^^^
 
-        .. image:: media/chapter-thumbnails/06-support.*
+        .. image:: images/chapter-thumbnails/06-support.*
             :align: center
             :alt: BeagleBone AI-64 Chapter6 thumbnail
 

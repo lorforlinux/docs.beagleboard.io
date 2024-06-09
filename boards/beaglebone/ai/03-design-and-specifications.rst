@@ -18,7 +18,7 @@ Block Diagram
 The figure below is the high level block diagram of BeagleBone® AI. For
 detailed layout information please check the schematics.
 
-.. image:: media/BB_AI_Blockdiagram_1000px.jpg
+.. image:: images/BB_AI_Blockdiagram_1000px.jpg
    :align: center
    :alt: beaglebone ai component placement
 
@@ -40,7 +40,7 @@ and coprocessors, thus reducing the complexity of the system software.
 
 Texas Instruments AM572x Sitara™ Processor Family Block Diagram\*
 
-.. image:: media/BB_AI_AM5729_blockdiagram.jpg
+.. image:: images/BB_AI_AM5729_blockdiagram.jpg
    :align: center
    :alt: beaglebone ai component placement
 
@@ -106,7 +106,7 @@ subsystem contains the following submodules:
 -  4 Embedded Vision Engines (EVEs) supported by TIDL machine learning
    library
 
-.. image:: media/BB_AI_EVEmodule.jpg
+.. image:: images/BB_AI_EVEmodule.jpg
    :align: center
    :alt: BeagleBone AI component placement
 
@@ -361,7 +361,7 @@ resources. Power request signals enable power mode control for power
 optimization. The device includes a general-purpose sigma-delta
 analog-to-digital converter (GPADC) with three external input channels.
 
-.. image:: media/BB_AI_PMIC_schematicpg3_900px.png
+.. image:: images/BB_AI_PMIC_schematicpg3_900px.png
    :align: center
    :alt: beaglebone ai user interface placement
 
@@ -370,12 +370,12 @@ USB-C Power
 
 Below image shows how the USB-C power input is connected to the **TPS6590379**.
 
-.. TODO: (Schematic screenshot)
+.. todo:: (Schematic screenshot)
 
 Power Button
 =============
 
-.. image:: media/BB_AI_Userinterface_800px.png
+.. image:: images/BB_AI_Userinterface_800px.png
    :alt: beaglebone ai user interface placement
 
 .. _eMMC-flash-memory:
@@ -501,7 +501,7 @@ The HDMI interface is aligned with the HDMI TMDS single stream standard
 v1.4a (720p @60Hz to 1080p @24Hz) and the HDMI v1.3 (1080p @60Hz): 3
 data channels, plus 1 clock channel is supported (differential).
 
-TODO: Verify it isn’t better than this. Doesn’t seem right.
+.. todo:: Verify it isn’t better than this. Doesn’t seem right.
 
 PRU-ICSS
 *********
@@ -553,7 +553,7 @@ PRU-ICSS Block Diagram
 
 Below is a high level block diagram of one of the PRU-ICSS Subsystems
 
-.. image:: media/BB_AI_PRU_block_diagram.jpg
+.. image:: images/BB_AI_PRU_block_diagram.jpg
    :align: center
    :alt: beaglebone ai component placement
 
@@ -2271,7 +2271,7 @@ User LEDs
 There are 5 User Programmable LEDs on BeagleBone® AI. These are
 connected to GPIO pins on the processor. 
 
-.. image:: media/BB_AI_USERLEDS_800px.png
+.. image:: images/BB_AI_USERLEDS_800px.png
    :align: center
    :alt: beaglebone ai connector placement
 

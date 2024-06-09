@@ -72,7 +72,7 @@ microcontroller firmware. The Linux environment provides opportunities for
 high-level remote management using tools like Balena with applications deployed
 in Docker containers.
 
-#TODO: provide image illustrating remote management
+.. todo:: provide image illustrating remote management
 
 The hardware and software are fully open source, providing for scalability and a lack of vendor lock-in.
 
@@ -84,7 +84,7 @@ For home automaters, integration into WebThings…
 
    think a bit more about this section with some feedback from Cathy.
 
-.. image:: freedom/media/BeagleConnect-Boards-Angled.*
+.. image:: freedom/images/BeagleConnect-Boards-Angled.*
    :width: 598
    :align: center
    :alt: BeagleConnect Freedom

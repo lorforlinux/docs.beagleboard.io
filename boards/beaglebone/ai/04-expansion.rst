@@ -3,8 +3,6 @@
 Expansion
 #########
 
-
-
 Expansion Connectors
 **********************
 
@@ -23,7 +21,7 @@ are **3.3V** unless otherwise indicated.
 
 **Figure ?** shows the location of the expansion connectors.
 
-.. image:: media/BB_AI_Headerplacement_800px.png
+.. image:: images/BB_AI_Headerplacement_800px.png
     :align: center
     :alt: beaglebone ai header placement
 
@@ -921,7 +919,7 @@ for this second processor pin.
     +-----------------+--------------------+--------------------+
 
 
-TODO: Notes regarding the resistors on muxed pins.
+.. todo:: Notes regarding the resistors on muxed pins.
 
 Connector P9
 ==============
@@ -963,14 +961,14 @@ In the table are the following notations:
 **PWR_BUT** is a 5V level as pulled up internally by the TPS6590379. It
 is activated by pulling the signal to GND.
 
-TODO: (Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
-but activation is still done by pulling the signal to GND. Also, a quick
-grounding of PWR_BUT will trigger a system event where shutdown can
-occur, but there is no hardware power-off function like on BeagleBone
-Black via this signal. It does, however, act as a hardware power-on.)
+.. todo:: (Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
+    but activation is still done by pulling the signal to GND. Also, a quick
+    grounding of PWR_BUT will trigger a system event where shutdown can
+    occur, but there is no hardware power-off function like on BeagleBone
+    Black via this signal. It does, however, act as a hardware power-on.)
 
-TODO: (On BeagleBone Black, SYS_RESET was a bi-directional signal, but
-it is only an output from BeagleBone AI to capes on BeagleBone AI.)
+.. todo:: (On BeagleBone Black, SYS_RESET was a bi-directional signal, but
+    it is only an output from BeagleBone AI to capes on BeagleBone AI.)
 
 .. table:: P9.01-P9.05
 
@@ -1630,37 +1628,36 @@ Spreadsheet <https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvE
 which has a lot of detail regarding various boards and cape add-on
 boards.
 
-See also https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec
+See also :ref:`beaglebone-cape-interface-spec`
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 BeagleBone® Black Cape Compatibility
 **************************************
 
-TODO
+.. todo:: Add BeagleBone-AI ``BeagleBone® Black Cape Compatibility`` section content
 
-See https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec for
-now.
+See :ref:`beaglebone-cape-interface-spec` for now.
 
 EEPROM
 ************
 
-TODO
+.. todo:: Add BeagleBone-AI ``EEPROM`` section content
 
 Pin Usage Consideration
 ************************
 
-TODO
+.. todo:: Add BeagleBone-AI ``Pin Usage Consideration`` section content
 
 GPIO
 *********
 
-TODO
+.. todo:: Add BeagleBone-AI ``GPIO`` section content
 
 I2C
 *********
 
-TODO
+.. todo:: Add BeagleBone-AI ``I2C`` section content
 
 UART or PRU UART
 *******************
@@ -1733,79 +1730,79 @@ the headers we will include a chart and later some code
     +------------------+--------+-----------+-------------------+-------+
 
 
-TODO
+.. todo:: Add BeagleBone-AI content
 
 SPI
 ****
 
-TODO
+.. todo:: Add BeagleBone-AI ``SPI`` section content
 
 Analog
 ********
 
-TODO
+.. todo:: Add BeagleBone-AI ``Analog`` section content
 
 .. _pwm-timer-ecap-or-pru-pwm-ecap:
 
 PWM, TIMER, eCAP or PRU PWM/eCAP
 **********************************
 
-TODO
+.. todo:: Add BeagleBone-AI ``PWM, TIMER, eCAP or PRU PWM/eCAP`` section content
 
 eQEP
 ******
 
-TODO
+.. todo:: Add BeagleBone-AI ``eQEP`` section content
 
 CAN
 *****
 
-TODO
+.. todo:: Add BeagleBone-AI ``CAN`` section content
 
 .. _mcasp-audio-serial-like-i2c-and-ac97:
 
 McASP (audio serial like I2S and AC97)
 ****************************************
 
-TODO
+.. todo:: Add BeagleBone-AI ``McASP (audio serial like I2S and AC97)`` section content
 
 MMC
 *****
 
-TODO
+.. todo:: Add BeagleBone-AI ``MMC`` section content
 
 LCD
 *****
 
-TODO
+.. todo:: Add BeagleBone-AI ``LCD`` section content
 
 PRU GPIO
 **********
 
-TODO
+.. todo:: Add BeagleBone-AI ``PRU GPIO`` section content
 
 CLKOUT
 ********
 
-TODO
+.. todo:: Add BeagleBone-AI ``CLKOUT`` section content
 
 Expansion Connector Headers
 ******************************
 
-TODO: discuss header options for working with the expansion connectors per 
-https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
+.. todo:: discuss header options for working with the expansion connectors per 
+    https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1
 
 Signal Usage
 ****************
 
-TODO
+.. todo:: Add BeagleBone-AI ``Signal Usage`` section content
 
 Cape Power
 ************
 
-TODO
+.. todo:: Add BeagleBone-AI ``Cape Power`` section content
 
 Mechanical
 ************
 
-TODO
+.. todo:: Add BeagleBone-AI ``Mechanical`` section content

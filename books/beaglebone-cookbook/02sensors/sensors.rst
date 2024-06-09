@@ -167,13 +167,10 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
    
    Diagram for wiring a pushbutton and magnetic reed switch input
 
-The code in :ref:`py_pushbutton_code` 
-reads GPIO port *P9_42*, which is attached to the pushbutton. 
+The code below reads GPIO port *P9_42*, which is attached to the pushbutton. 
 
 .. tabs::
    .. group-tab:: Python
-
-      .. _py_pushbutton_code:
 
       .. literalinclude:: ../code/02sensors/pushbutton.py
          :caption: Monitoring a pushbutton (pushbutton.py)
@@ -183,8 +180,6 @@ reads GPIO port *P9_42*, which is attached to the pushbutton.
       :download:`pushbutton.py <../code/02sensors/pushbutton.py>`
 
    .. group-tab:: c
-
-      .. _c_pushbutton_code:
 
       .. literalinclude:: ../code/02sensors/pushbutton.c
          :caption: Monitoring a pushbutton (pushbutton.c)
@@ -313,14 +308,12 @@ is wired to one of the seven analog-in ports (*P9_36*).
 
    Wiring a 10 |kohm| variable resistor (trimpot) to an ADC port
 
-:ref:`py_analogIn_code` shows the code used to read the variable resistor.  
+The section below shows the code used to read the variable resistor.  
 Add the code to a file called *analogIn.py* and run it; then change the resistor and run it again. The voltage read will change.
 
 .. tabs::
 
    .. group-tab:: Python
-
-         .. _py_analogIn_code:
 
          .. literalinclude:: ../code/02sensors/analogIn.py
             :caption: Reading an analog voltage (analogIn.py)
@@ -331,8 +324,6 @@ Add the code to a file called *analogIn.py* and run it; then change the resistor
 
    .. group-tab:: JavaScript
 
-         .. _sensors_analogIn_code:
-
          .. literalinclude:: ../code/02sensors/analogIn.js
             :caption: Reading an analog voltage (analogIn.js)
             :language: JavaScript
@@ -342,8 +333,7 @@ Add the code to a file called *analogIn.py* and run it; then change the resistor
 
 .. note::
 
-  The code in :ref:`sensors_analogIn_code` 
-  outputs a value between 0 and 4096.
+  The code above outputs a value between 0 and 4096.
 
 A variable resistor with two terminals
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -362,8 +352,7 @@ across the flex sensor.
    
    Reading a two-terminal flex resistor
 
-The code in :ref:`py_analogIn_code` and 
-:ref:`sensors_analogIn_code` also works for this setup.
+The code in ``analogIn.py`` also works for this setup.
 
 Reading a Distance Sensor (Analog or Variable Voltage Sensor)
 =============================================================
@@ -398,14 +387,11 @@ as shown in :ref:`sensors_ultrasonic_fig`. The device outputs ~6.4 mV/in when po
 
    Wiring the LV-MaxSonar-EZ1 Sonar Range Finder to the *P9_33* analog-in port
 
-:ref:`py_ultrasonicRange_code` 
-shows the code that reads the sensor at a fixed interval.
+``ultrasonicRange.py`` shows the code that reads the sensor at a fixed interval.
 
 .. tabs::
 
    .. group-tab:: Python
-
-      .. _py_ultrasonicRange_code:
 
       .. literalinclude:: ../code/02sensors/ultrasonicRange.py
          :caption: Reading an analog voltage (ultrasonicRange.py)
@@ -415,8 +401,6 @@ shows the code that reads the sensor at a fixed interval.
       :download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
 
    .. group-tab:: JavaScript
-
-      .. _sensors_ultrasonicRange_code:
 
       .. literalinclude:: ../code/02sensors/ultrasonicRange.js
          :caption: Reading an analog voltage (ultrasonicRange.js)
@@ -556,14 +540,11 @@ Then run the following commands:
 This will enable *eQEP2* on pins *P8_11* and *P8_12*. 
 The *2* after the *qep* returned by *show-pins* shows it's *eQEP2*.  
 
-Finally, add the code in :ref:`digital_rotaryEncoder_py` 
-to a file named *rotaryEncoder.py* and run it.
+Finally, add the code below to a file named *rotaryEncoder.py* and run it.
 
 .. tabs::
 
    .. group-tab:: Python
-
-      .. _digital_rotaryEncoder_py:
 
       .. literalinclude:: ../code/02sensors/rotaryEncoder.py
          :caption: Reading a rotary encoder (rotaryEncoder.py)
@@ -573,8 +554,6 @@ to a file named *rotaryEncoder.py* and run it.
       :download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
 
    .. group-tab:: JavaScript
-
-      .. _digital_rotaryEncoder_js:
 
       .. literalinclude:: ../code/02sensors/rotaryEncoder.js
          :caption: Reading a rotary encoder (rotaryEncoder.js)
@@ -737,8 +716,7 @@ the value. It returns the temperature in hexadecimal and degrees C.
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
 Try warming up the TMP101 with your finger and running *i2cget* again.
 
-.. todo
-   fix deg
+.. todo:: fix deg
 
 .. _js_i2cTools:
 
@@ -832,12 +810,11 @@ You can try the Linux Kernel Driver Database,
 https://cateee.net/lkddb/ to see them.
 
 Once the driver is in place, you can read it via code. 
-:ref:`py_i2cTemp_code` shows how to read the TMP101.
+``i2cTemp.py``` shows how to read the TMP101.
 
 .. tabs::
+   
    .. group-tab:: Python
-
-      .. _py_i2cTemp_code:
 
       .. literalinclude:: ../code/02sensors/i2cTemp.py
          :caption: Reading an |I2C|  device (i2cTemp.py)
@@ -847,8 +824,6 @@ Once the driver is in place, you can read it via code.
       :download:`i2cTemp.py <../code/02sensors/i2cTemp.py>`
 
    .. group-tab:: JavaScript
-
-      .. _js_i2cTemp_code:
 
       .. literalinclude:: ../code/02sensors/i2cTemp.js
          :caption: Reading an |I2C|  device (i2cTemp.js)
@@ -969,15 +944,12 @@ Now run the following command to discover the serial number on your device:
 I have two devices wired in parallel on the same P9_12 input. 
 This shows the serial numbers for all the devices. 
 
-Finally, add the code in :ref:`py_onewire__code` in to a 
-file named *w1.py*, edit the path assigned to *w1* so 
+Finally, add the code below in to a file named *w1.py*, edit the path assigned to *w1* so 
 that the path points to your device, and then run it.
 
 .. tabs::
 
    .. group-tab:: Python
-
-      .. _py_onewire__code:
 
       .. literalinclude:: ../code/02sensors/w1.py
          :caption: Reading a temperature with a DS18B20 (w1.py)
@@ -987,8 +959,6 @@ that the path points to your device, and then run it.
       :download:`w1.py <../code/02sensors/w1.py>`
 
    .. group-tab:: JavaScript
-
-      .. _sensors_onewire__code:
 
       .. literalinclude:: ../code/02sensors/w1.js
          :caption: Reading a temperature with a DS18B20 (w1.js)
@@ -1131,7 +1101,7 @@ Each temperature sensor has a unique serial number, so you can have several all 
 Playing and Recording Audio
 ============================
 
-.. TODO
+.. todo::
   Remove?
 
 Problem

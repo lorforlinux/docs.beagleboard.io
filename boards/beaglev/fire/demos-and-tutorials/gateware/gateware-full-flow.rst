@@ -37,7 +37,7 @@ The chip configuration applied by the HSS icludes the configuration of:
 Of course all these components need to be in synch with each other for the system to work properly.
 This is the reason for using a gateware build system rather than building and tracking each component individually.
 
-.. figure:: media/Gateware-Flow-bitstream-builder-full-picture.png
+.. figure:: images/Gateware-Flow-bitstream-builder-full-picture.png
     :align: center
     :alt: BeagleV-Fire Gateware Full Build Flow
 

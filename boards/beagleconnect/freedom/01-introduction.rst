@@ -22,13 +22,13 @@ and is the first available BeagleConnect™ solution. It features:
    :widths: auto
 
    +----------------------------------------------------------------+---------------------------------------------------------------+
-   | .. image:: media/BeagleConnect-Freedom-Front-Annotated-wbg.*   | .. image:: media/BeagleConnect-Freedom-Back-Annotated-wbg.*   |
+   | .. image:: images/BeagleConnect-Freedom-Front-Annotated-wbg.*  | .. image:: images/BeagleConnect-Freedom-Back-Annotated-wbg.*  |
    |    :width: 700                                                 |       :width: 700                                             |
    |    :align: center                                              |       :align: center                                          |
    |    :alt: BeagleConnect Freedom front pinout diagram            |       :alt: BeagleConnect Freedom Back Annotated              |
    +----------------------------------------------------------------+---------------------------------------------------------------+
 
-.. image:: media/BeagleConnect-Freedom-with-case.*
+.. image:: images/BeagleConnect-Freedom-with-case.*
   :align: center
   :alt: BeagleConnect™ Freedom board
 

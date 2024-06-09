@@ -21,7 +21,7 @@ The gateware project is made up of:
 
 All these files are found in the FPGA-design directory.
 
-.. figure:: media/gateware-source-dir.*
+.. figure:: images/gateware-source-dir.*
     :align: center
 
 
@@ -37,7 +37,7 @@ The gateware is organized into 6 components:
 - MIPI camera interface
 - SYZYGY high speed interface
 
-.. figure:: media/gateware-components.*
+.. figure:: images/gateware-components.*
     :align: center
 
 Gateware Build Options
@@ -47,7 +47,7 @@ Each interface component may have a number of build options. For example, which 
 supported by the generated gateware.
 
 
-.. figure:: media/gateware-cape-options.*
+.. figure:: images/gateware-cape-options.*
     :align: center
 
 The name of the directories within the component's directory are the option names passed to the
@@ -67,7 +67,7 @@ The component directory contains subdirectories for:
 - Device tree overlay
 - Optional HDL/Verilog source code
 
-.. figure:: media/gateware-cape-robotics-dirs.png
+.. figure:: images/gateware-cape-robotics-dirs.png
     :align: center
 
 Gareware TCL Scripts
@@ -78,7 +78,7 @@ The TCL script framework executes a hand-crafted ADD_<COMPONENT_NAME>.tcl script
 the component and stiches it to the base RISC-V subsystem and top level IOs. The other TCL scripts
 are typically IP configuration scripts and SmartDesign stiching scripts.
 
-.. figure:: media/gateware-cape-robotics-files.png
+.. figure:: images/gateware-cape-robotics-files.png
     :align: center
 
 

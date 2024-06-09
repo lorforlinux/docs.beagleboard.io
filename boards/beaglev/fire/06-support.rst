@@ -6,13 +6,18 @@ Support
 All support for BeagleV Fire design is through BeagleBoard.org 
 community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/fire>`_.
 
+Production board boot media
+****************************
+
+.. todo:: Add production boot media link in ``_static/epilog/production.image`` and reference it here.
+
 .. _beaglev-fire-certifications:
 
 Certifications and export control
-*********************************
+**********************************
 
 Export designations
-===================
+====================
 
 .. todo:: update details
 
@@ -66,22 +71,6 @@ Change History
     This section describes the change history of this document and board. 
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
-
-.. _beaglev-fire-document-changes:
-
-Document Changes
-==================
-
-For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
-specific hardware and software revisions are noted below.
-
-.. table:: BeagleV-Fire document change history
-
-    +---------+------------------------------------------------------------+----------------------+-------+
-    | Rev     |   Changes                                                  | Date                 |    By |
-    +=========+============================================================+======================+=======+
-    |         |                                                            |                      |       |
-    +---------+------------------------------------------------------------+----------------------+-------+
 
 .. _beaglev-fire-board-changes:
 
