@@ -3,9 +3,9 @@
 Booting from NVMe Drives
 ##########################
 
-.. todo:: remove notes about work-in-progress. they just make the site more janky.
+:bdg-danger:`Work in progress`
 
-.. note:: This page is a work in progress. Further drive testing and images will be added soon
+.. todo:: Add further testing steps, results, and images.
 
 BeagleY-AI supports a PCI-Express x1 interface which enables data rates of up to 1GB/s for high speed expansion. 
 

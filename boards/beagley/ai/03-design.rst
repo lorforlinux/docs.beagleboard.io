@@ -11,6 +11,8 @@ If you want to know how BeagleY-AI is designed and the detailed specifications, 
 this chapter is for you. We are going to attept to provide you a short and crisp overview
 followed by discussing each hardware design element in detail.
 
+.. tip:: For board files, 3D model, and more, you can checkout the `BeagleY-AI repository on OpenBeagle <https://openbeagle.org/beagley-ai/beagley-ai>`_.
+
 Block diagram and overview
 ***************************
 
@@ -37,6 +39,12 @@ Block diagram and overview
 
 SoC
 ****
+
+.. figure:: images/am67a.png
+    :align: center
+    :alt: AM67A block diagram
+
+    AM67A block diagram
 
 .. figure:: images/hardware-design/beagley-ai-soc-csi-0123.*
     :width: 1040

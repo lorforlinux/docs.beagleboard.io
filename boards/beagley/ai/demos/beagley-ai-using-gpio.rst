@@ -3,7 +3,9 @@
 Using GPIO
 #################
 
-.. todo:: This page is a work in progress. Further testing and images will be added soon!
+:bdg-danger:`Work in progress`
+
+.. todo:: Add information about software image used for this demo.
 
 **GPIO** stands for **General-Purpose Input/Output**. It's a set of programmable pins that you can use to connect and control various electronic components. 
 
@@ -13,7 +15,7 @@ the physical world using code!
 
 A great resource for understanding pin numbering can be found at `pinout.beagley.ai <https://pinout.beagley.ai/>`_ 
 
-.. note:: **WARNING** - BeagleY-AI GPIOs are 3.3V tolerant, using higher voltages WILL damage the processor!
+.. warning:: BeagleY-AI GPIOs are 3.3V tolerant, using higher voltages **WILL DAMAGE** the processor!
 
 Pin Numbering
 **********************
@@ -53,32 +55,62 @@ to simulate a button press.
 GPIO Write
 ***********
 
+Before using any pin with HAT Pin number we need to configure it using command below,
+
+.. code:: console
+
+   sudo beagle-pin-mux --pin hat-08 --mode gpio
+
+.. figure:: ../images/gpio/led-pin8.*
+   :align: center
+   :alt: LED connected to HAT Pin8
+
+   LED connected to HAT Pin8
+
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
-To set HAT **Pin 8** to **ON**:
+- To set HAT **Pin 8** to **ON**:
 
 .. code:: console
 
    gpioset hat-08-gpio 0=1
 
-.. image:: ../images/gpio/on.png
-   :width: 50 %
+.. figure:: ../images/gpio/on.png
    :align: center
+   :alt: GPIO ON state
 
-To set HAT **Pin 8** to **OFF**:
+   GPIO ON state
+
+- To set HAT **Pin 8** to **OFF**:
 
 .. code:: console
 
    gpioset hat-08-gpio 0=0
 
-.. image:: ../images/gpio/off.png
-   :width: 50 %
+.. figure:: ../images/gpio/off.png
    :align: center
+   :alt: GPIO OFF state
+
+   GPIO OFF state
 
 Blink an LED
-**********************
+**************
 
-Let's write a script called **blinky.sh** that contains the following:
+Let's create a script called **blinky.sh**,
+
+- Create the file,
+
+.. code:: console
+
+   touch blinky.sh
+
+- Open the file using ``nano`` editor,
+
+.. code:: console
+
+   nano blinky.sh
+
+- Copy paste the code below to ``blinky.sh`` file,
 
 .. code:: bash
 
@@ -92,51 +124,98 @@ Let's write a script called **blinky.sh** that contains the following:
 	   sleep 1
    done
 
-The script is quite simple, it's an infinite "while" loop in which we do the following:
+- Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
 
-1. set the HAT Pin 8 as 1 (HIGH)
-2. Wait 1 Second
-3. set the HAT Pin 8 as 0 (LOW)
-4. Wait 1 Second
-
-Now execute it by typing:
+- Now execute the ``blinky.sh`` script by typing:
 
 .. code:: console
 
    bash blinky.sh
 
-.. image:: ../images/gpio/blinky.gif
-   :width: 50 %
+.. figure:: ../images/gpio/blinky.gif
    :align: center
+   :alt: LED blinking
 
-You can exit by pressing ``Ctrl + c`` on your keyboard.
+   LED blinking
 
-GPIO Read
-**********
+- You can exit the ``blinky.sh`` progrm by pressing ``CTRL + C`` on your keyboard.
 
-Reading GPIOs can be done using the ``gpioget`` command
+Understanding the code
+======================
 
-.. code:: console
+.. callout::
 
-   gpioget hat-08-gpio 0
-   
-Results in **1** if the Input is held **HIGH** or **0** if the Input is held **LOW**
+   .. code-block:: bash
+
+      #!/bin/bash
+
+      while :
+      do
+         gpioset hat-08-gpio 0=1 <1>
+         sleep 1 <2>
+         gpioset hat-08-gpio 0=0 <3>
+         sleep 1 <4>
+      done
+
+   .. annotations::
+
+      The script is an infinite ``while`` loop in which we do the following:
+
+      <1> set the HAT Pin 8 as 1 (HIGH)
+
+      <2> Wait 1 Second
+
+      <3> set the HAT Pin 8 as 0 (LOW)
+
+      <4> Wait 1 Second
 
 Read a Button
 **************
 
-A push button simply completes an electric circuit when pressed. Depending on wiring, it can drive a signal either "Low" (GND) or "High" (3.3V)
+A push button simply completes an electric circuit when pressed. Depending on wiring, it can drive a signal either "Low" (GND) or "High" (3.3V).
 
-We will connect our Button between HAT Pin 16 (GPIO23) and Ground (GND).
+We will connect our Button between HAT Pin 12 (GPIO18) and Ground (GND). 
+
+.. figure:: ../images/gpio/switch-pin12.*
+   :align: center
+   :alt: Button connected to HAT Pin12
+
+   Button connected to HAT Pin12
+
+- Configure pin12 as ``gpio`` using command below,
+
+.. code:: console
+
+   sudo beagle-pin-mux --pin hat-12 --mode gpio-pu
 
 The cool part is since we have an internal pull-up resistor, we don't need an external one!
 The pull resistor guarantees that the Pin stays in a known (HIGH) state unless the button is pressed,
 in which case it will go LOW.
 
-.. todo:: Add fritzing diagram here
+- Reading GPIOs can be done using the ``gpioget`` command
 
-Let's write a script called **button.sh** to continuously read an input pin connected 
-to a button and print out when it's pressed! :
+.. code:: console
+
+   gpioget hat-12-gpio-pu 0
+   
+Results in ``1`` if the Input is held ``HIGH`` or ``0`` if the Input is held ``LOW``
+
+Let's create a script called ``button.sh`` to continuously read an input pin connected 
+to a button and print out when it's pressed!
+
+- Create the file,
+
+.. code:: console
+
+   touch button.sh
+
+- Open the file using ``nano`` editor,
+
+.. code:: console
+
+   nano button.sh
+
+- Copy paste the code below to ``button.sh`` file,
 
 .. code:: bash
 
@@ -144,18 +223,48 @@ to a button and print out when it's pressed! :
 
    while :
    do
-	   if (( $(gpioget hat-12-gpio 0) == 0))
+	   if (( $(gpioget hat-12-gpio-pu 0) == 0))
 	   then
 		echo "Button Pressed!"
 	   fi
    done
 
+- Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
+
+- Now execute the ``button.sh`` script by typing:
+
+.. code:: console
+
+   bash button.sh
+
+- You can exit the ``button.sh`` by pressing ``Ctrl + C`` on your keyboard.
+
 Combining the Two
 **********************
 
+.. figure:: ../images/gpio/switch-pin12-led-pin8.*
+   :align: center
+   :alt: Button connected to HAT Pin12 & LED connected to HAT Pin8
+
+   Button connected to HAT Pin12 & LED connected to HAT Pin8
+
 Now, logically, let's make an LED match the state of the button.
 
-Let's modify our script and call it **blinkyButton.sh**:
+Let's create a script called **blinkyButton.sh**:
+
+- Create the file,
+
+.. code:: console
+
+   touch blinkyButton.sh
+
+- Open the file using ``nano`` editor,
+
+.. code:: console
+
+   nano blinkyButton.sh
+
+- Copy paste the code below to ``blinkyButton.sh`` file,
 
 .. code:: bash
 
@@ -163,7 +272,7 @@ Let's modify our script and call it **blinkyButton.sh**:
 
    while :
       do
-	      if (( $(gpioget hat-12-gpio 0) == 0))
+	      if (( $(gpioget hat-12-gpio-pu 0) == 0))
 	      then
 		      gpioset hat-08-gpio 0=1
 	      else
@@ -171,29 +280,33 @@ Let's modify our script and call it **blinkyButton.sh**:
 	      fi
       done
 
-This means when we see HAT Pin 12 go LOW, we know the button is pressed, so we set HAT Pin 8 (our LED) to ON, otherwise, we turn it OFF.
+- Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
 
-Now execute it by typing:
+- Now execute the ``blinkyButton.sh`` script by typing:
 
 .. code:: console
 
-   bash blinkyButton.sh.sh
+   bash blinkyButton.sh
 
-.. image:: ../images/gpio/BlinkyButton.gif
-   :width: 50 %
+This means when we see HAT Pin 12 go LOW, we know the button is pressed, 
+so we set HAT Pin 8 (our LED) to ON, otherwise, we turn it OFF.
+
+.. figure:: ../images/gpio/BlinkyButton.gif
    :align: center
+   :alt: LED is ON when button is pressed
 
-You can exit by pressing **Ctrl + c** on your keyboard.
+   LED is ON when button is pressed
 
+- You can exit the ``blinkyButton.sh`` program by pressing ``Ctrl + C`` on your keyboard.
 
 Understanding Internal Pull Resistors
 *******************************************
 
 Pull-up and pull-down resistors are used in digital circuits to ensure that inputs to logic settle at expected levels.
 
-* Pull-up resistors: Connect the input to a high voltage level (e.g., 3.3V) to ensure the input reads as a logic high (1) when no active device is pulling it low.
+* ``Internal pull-up resistors`` connects the pin to a high voltage level (e.g., 3.3V) to ensure the pin input reads as a logic high (1) when no active device is pulling it low.
 
-* Pull-down resistors: Connect the input to ground (GND) to ensure the input reads as a logic low (0) when no active device is pulling it high.
+* ``Internal pull-down resistors`` connects the pin to ground (GND) to ensure the input reads as a logic low (0) when no active device is pulling it high.
 
 These resistors prevent floating inputs and undefined states.
 
@@ -226,17 +339,17 @@ This article from SparkFun Electronics is a good basic primer - `Link <https://l
 Troubleshooting
 *******************
 
-* **My script won't run!**
+- **My script won't run!**
 
-Make sure you gave the script execute permissions first and that you're executing it with a **./** before
+Make sure you gave the script execute permissions first and that you're executing it with a ``./`` before
 
-To make it executable:
+- To make it executable:
 
 .. code:: bash
 
    chmod +X scriptName.sh
 
-To run it:
+- To run it:
 
 .. code:: bash
 
@@ -246,17 +359,19 @@ To run it:
 Bonus - Turn all GPIOs ON/OFF
 *******************************
 
-.. image:: ../images/gpio/allonoff.gif
-   :width: 50 %
+.. figure:: ../images/gpio/allonoff.gif
    :align: center
+   :alt: All HAT GPIO toggle
 
-Copy and paste this with the button on the right to turn **all pins ON**. 
+   All HAT GPIO toggle
+
+- Copy and paste this with the button on the right to turn **all pins ON**. 
 
 .. code:: bash
 
    gpioset hat-03-gpio 0=1 ;\ gpioset hat-05-gpio 0=1 ;\ gpioset hat-08-gpio 0=1 ;\ gpioset hat-10-gpio 0=1 ;\ gpioset hat-11-gpio 0=1 ;\ gpioset hat-12-gpio 0=1 ;\ gpioset hat-13-gpio 0=1 ;\ gpioset hat-15-gpio 0=1 ;\ gpioset hat-16-gpio 0=1 ;\ gpioset hat-18-gpio 0=1 ;\ gpioset hat-19-gpio 0=1 ;\ gpioset hat-21-gpio 0=1 ;\ gpioset hat-22-gpio 0=1 ;\ gpioset hat-23-gpio 0=1 ;\ gpioset hat-24-gpio 0=1 ;\ gpioset hat-26-gpio 0=1 ;\ gpioset hat-29-gpio 0=1 ;\ gpioset hat-31-gpio 0=1 ;\ gpioset hat-32-gpio 0=1 ;\ gpioset hat-33-gpio 0=1 ;\ gpioset hat-35-gpio 0=1 ;\ gpioset hat-36-gpio 0=1 ;\ gpioset hat-37-gpio 0=1 ;\ gpioset hat-40-gpio 0=1
 
-Similarly, copy and paste this to turn **all pins OFF**. 
+- Similarly, copy and paste this to turn **all pins OFF**. 
 
 .. code:: bash
 
