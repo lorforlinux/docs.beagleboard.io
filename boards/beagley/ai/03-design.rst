@@ -60,7 +60,7 @@ Boot Modes
 
     BeagleY-AI boot modes
 
-The default bootmode for BeagleY-AI is the SD Card Interface. 
+The default boot mode for BeagleY-AI is the SD Card Interface. If no SD card is present, the BootROM on the AM67A SoC is going to try booting from Ethernet.
 
 It is also possible to load U-Boot from the SD card and then load your main file system from another source, such as :ref:`beagley-ai-expansion-nvme`.
 
@@ -74,12 +74,16 @@ Clocks and Resets
 
     BeagleY-AI SoC Reset, Cntrls, and Clk
 
+BeagleY's main clock source is a 25Mhz Crystal Oscillator connected to MCU_OSC0 pins.
+
 .. figure:: images/hardware-design/beagley-ai-wkup-reset-cntrls-osc.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI wkup reset cntrls osc
 
     BeagleY-AI wkup reset cntrls osc
+
+A 32.768Khz "Slow Clock" Crystal is used on the WKUP_LFOSC0 domain. 
 
 Power
 ***************
@@ -91,10 +95,7 @@ Power
 
     BeagleY-AI power distribution network
 
-BeagleY-AI is powered via USB-C. PD Power negotiation is not done dynamically but rather
-by tying the CC lines to GND via 5.1KΩ resistors to indicate to the PD Source that the device requires 5V 3A. Using USB-PD power supplies rated for higher wattages is safe as they will always negotiate to the 5V 3A requested by the board. 
-
-The power architecture is split between the TPS65219 PMIC which handles the main logic rails and a dedicated TPS62872 high current buck regulator for the SoC core rail which defaults to 0.85V on boot. 
+BeagleY-AI's power architecture is split between the TPS65219 PMIC which handles the main logic rails and a dedicated TPS62872 high current buck regulator for the SoC core rail which defaults to 0.85V on boot. 
 
 Both PMIC and VDD_CORE regulators are highly configurable but will boot the board to "sane" defaults out of box. For advanced users, it is possible to adjust both the VDD_CORE rail as well as IO rails (voltages, timings, behavior, etc.) for applications such as low power modes where
 you may want to trade clock speeds for power efficiency by running the SoC Core at 0.75V for example. Be careful, as changes here could result in unexpected behavior, the board not booting or even hardware damage, so tread carefully.
@@ -111,6 +112,14 @@ USB-C Input
 
     BeagleY-AI USB-C
 
+The board is primarily intended to be powered via USB-C. PD Power negotiation is not done dynamically but rather
+by tying the CC lines to GND via 5.1KΩ resistors to indicate to the PD Source that the device requires 5V 3A. 
+Using USB-PD power supplies rated for higher wattages is safe as they will always negotiate to the 5V 3A requested by the board. 
+
+The USB-C port is configured by default to also show up as a USB2.0 Device which exposes a serial console, ethernet gadget (for connection sharing) as well as MTP (Flash Drive)
+so that only one cable is required to use the board. A Type-C to Type-C cable and avoiding un-powered USB hubs is recommended due to
+the board's power consumption requirements. Inadequate behavior may result in brownouts/resets or other unexpected behavior. 
+
 PMIC
 ----------------
 
@@ -120,6 +129,7 @@ PMIC
     :alt: BeagleY-AI PMIC
 
     BeagleY-AI PMIC
+
 
 HCPS (High Current Power Stage)
 ---------------------------------
@@ -131,32 +141,32 @@ HCPS (High Current Power Stage)
 
     BeagleY-AI VDD core High Current Power Stage (HCPS)
 
-Analog Rails
-----------------
+Analog Rail Decoupling
+------------------------------------
 
 .. figure:: images/hardware-design/beagley-ai-soc-analog-power1.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI SoC analog power1
 
-    BeagleY-AI SoC analog power1
+    BeagleY-AI SoC analog power rail decoupling capacitors
 
 .. figure:: images/hardware-design/beagley-ai-soc-io-ddr-power2.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI AI SoC IO and DDR power2
 
-    BeagleY-AI AI SoC IO and DDR power2
+    BeagleY-AI AI SoC IO and DDR decoupling capacitors
 
-Digital Rails
-----------------
+Digital Rail Decoupling
+-----------------------------------------
 
 .. figure:: images/hardware-design/beagley-ai-soc-digital-power3.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI SoC digital power3
 
-    BeagleY-AI SoC digital power3
+    BeagleY-AI SoC VDD & VDDR_CORE decoupling capacitors
 
 .. note:: 
     Other power sections are nested within their specific interface section. 
@@ -171,6 +181,20 @@ LDOs
 
     BeagleY-AI VSYS 3V3
 
+While the 3.3V VDD_IO rail is provided by the PMIC, the actual "high current" VSYS 3.3V rail used on the expansion header and elsewhere 
+in the system is provided by a discrete TPS62A06DRLR regulator. 
+
+.. figure:: images/hardware-design/beagley-ai-ethernet-power-3v3-to-2v5.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI ethernet power 3V3 to 2V5
+
+    BeagleY-AI ethernet power 3V3 to 2V5
+
+The 2V5 Rail used by the Ethernet PHY is generated a discrete TPS74801 regulator. 
+This regulator is fed by the 3V3 VSYS regulator.  
+
+
 .. figure:: images/hardware-design/beagley-ai-3v3-2v5-to-1v1-ldo.*
     :width: 1040
     :align: center
@@ -178,11 +202,25 @@ LDOs
 
     BeagleY-AI 3V3/V5 to 1V1 LDO
 
+The 1V1 Rail used by the PHY and USB 3.1 Hub is generated a discrete TPS74801 regulator. 
+By default, this regulator is fed by the 3V3 VSYS regulator previously discussed.
+
 Memory
 ****************************
 
 RAM (LPDDR4)
 --------------
+
+.. figure:: images/hardware-design/beagley-ai-ddr.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI DDR
+
+    BeagleY-AI DDR
+
+BeagleY-AI has 4GB of Kingston x32 LPDDR4 Memory. 
+
+.. todo:: Add Final DDR Part Number
 
 .. figure:: images/hardware-design/beagley-ai-soc-ddr0.*
     :width: 1040
@@ -191,23 +229,12 @@ RAM (LPDDR4)
 
     BeagleY-AI SoC DDR0 connections
 
-BeagleY-AI has 4GB of Kingston x32 LPDDR4 Memory. 
-
-.. todo:: Add Final DDR Part Number
-
 .. figure:: images/hardware-design/beagley-ai-ddr-caps.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI DDR caps
 
     BeagleY-AI DDR caps
-
-.. figure:: images/hardware-design/beagley-ai-ddr.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI DDR
-
-    BeagleY-AI DDR
 
 .. figure:: images/hardware-design/beagley-ai-ddr-power.*
     :width: 1040
@@ -226,6 +253,8 @@ EEPROM
 
     BeagleY-AI board id eeprom
 
+BeagleY-AI features an on-board FT24C32A 32Kbit I2C EEPROM for storing things like board information, manufacture date, etc. 
+
 microSD Card
 --------------
 .. figure:: images/hardware-design/beagley-ai-micro-sd-card-interface.*
@@ -235,12 +264,7 @@ microSD Card
 
     BeagleY-AI microSD card interface
 
-.. figure:: images/hardware-design/beagley-ai-soc-mmc-012.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC MMC0, MMC1, and MMC2
-
-    BeagleY-AI SoC MMC0, MMC1, and MMC2
+The microSD card is the primary boot interface for BeagleY-AI, it corresponds to the MMC1 interface on the AM67A SoC. 
 
 General Expansion
 ************************************
@@ -254,6 +278,10 @@ General Expansion
     :alt: BeagleY-AI user expansion connector
 
     BeagleY-AI user expansion connector
+
+BeagleY-AI features a 40-pin GPIO Header which aims to enable compatibility with a lot of existing Raspberry Pi HAT add-on boards. 
+See `pinout.beagleboard.io <https://pinout.beagleboard.io/>`_ for a more comprehensive view of the 40 pin GPIO header,
+available pin functions and tested accessories!
 
 I2C
 ---------------
@@ -275,20 +303,6 @@ it is highly advisable to leave these pins unused unless you are sure you know w
 
 See `pinout.beagleboard.io/pinout/i2c <https://pinout.beagleboard.io/pinout/i2c>`_  for a more visual explanation. 
 
-.. figure:: images/hardware-design/beagley-ai-i2c2-pu.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI I2C2 pull-up resistors
-
-    BeagleY-AI I2C2 pull-up resistors
-
-.. figure:: images/hardware-design/beagley-ai-iic-ext-rtc.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI I2C ext RTC
-
-    BeagleY-AI I2C ext RTC
-
 .. figure:: images/hardware-design/beagley-ai-iic-voltage-level-translator.*
     :width: 1040
     :align: center
@@ -298,6 +312,30 @@ See `pinout.beagleboard.io/pinout/i2c <https://pinout.beagleboard.io/pinout/i2c>
 
 USB
 ---------
+
+.. figure:: images/hardware-design/beagley-ai-usb3-hub.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI USB3 hub
+
+    BeagleY-AI USB3 hub
+
+BeagleY-AI features a USB3.1 HUB that provides 4 total USB3.1 Ports from a single USB3.1 Gen-1 (5 Gbps) SERDES0
+lane.
+
+.. figure:: images/hardware-design/beagley-ai-usb-hub-config.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI USB hub config
+
+    BeagleY-AI USB hub config
+
+.. figure:: images/hardware-design/beagley-ai-soc-serdes0.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC SERDES0
+
+    BeagleY-AI SoC SERDES0
 
 .. figure:: images/hardware-design/beagley-ai-soc-usb0-and-usb1.*
     :width: 1040
@@ -309,16 +347,16 @@ USB
 .. figure:: images/hardware-design/beagley-ai-dual-usb-1.*
     :width: 1040
     :align: center
-    :alt: BeagleY-AI dual USB1
+    :alt: BeagleY-AI USB-A Connector 1
 
-    BeagleY-AI dual USB1
+    BeagleY-AI USB-A Connector 1
 
 .. figure:: images/hardware-design/beagley-ai-dual-usb-2.*
     :width: 1040
     :align: center
-    :alt: BeagleY-AI dual USB2
+    :alt: BeagleY-AI USB-A Connector 2
 
-    BeagleY-AI dual USB2
+    BeagleY-AI USB-A Connector 2
 
 .. figure:: images/hardware-design/beagley-ai-dual-usb-current-limiter.*
     :width: 1040
@@ -327,19 +365,8 @@ USB
 
     BeagleY-AI dual USB current limiter
 
-.. figure:: images/hardware-design/beagley-ai-usb3-hub.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI USB3 hub
-
-    BeagleY-AI USB3 hub
-
-.. figure:: images/hardware-design/beagley-ai-usb-hub-config.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI USB hub config
-
-    BeagleY-AI USB hub config
+BeagleY-AI features a dedicated USB current limiter that will prevent the Type-A ports from drawing
+power in excess of 2.8A.
 
 .. figure:: images/hardware-design/beagley-ai-usb-vbus-resistor-divider-circuit.*
     :width: 1040
@@ -358,12 +385,9 @@ PCI Express
 
     BeagleY-AI PCIE connector
 
-.. figure:: images/hardware-design/beagley-ai-soc-serdes0.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC SERDES0
+BeagleY-AI features an RPi 5 compatible PCIe connector rated for PCIe Gen2 x1 (5GT/s) connected to SERDES1 on AM67A. 
 
-    BeagleY-AI SoC SERDES0
+.. note:: Just like the Raspberry Pi 5, while the AM67A SoC is capable of PCIe Gen3 (8GT/s), the choice of cable/connector means that some devices may not be able to run at full Gen 3 speeds and will need to be limited to Gen 2 for stable operation.
 
 .. figure:: images/hardware-design/beagley-ai-soc-serdes1.*
     :width: 1040
@@ -371,6 +395,20 @@ PCI Express
     :alt: BeagleY-AI SoC SERDES1
 
     BeagleY-AI SoC SERDES1
+
+RTC (Real-time Clock)
+------------------------
+
+.. figure:: images/hardware-design/beagley-ai-iic-ext-rtc.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI I2C ext RTC
+
+    BeagleY-AI I2C ext RTC
+
+BeagleY-AI has an on-board I2C RTC that can be powered by an external RTC for accurate time-keeping even when the board is powered off.
+For more information, see the corresponding docs page - :ref:`beagley-ai-using-rtc` 
+
 
 Fan Header
 ------------------------
@@ -382,8 +420,14 @@ Fan Header
 
     BeagleY-AI fan connector
 
+BeagleY-AI features a Raspberry Pi 5 compatible Fan connector. The fan is software PWM controller in Linux by default 
+to maintain a balance between cooling and noise depending on SoC temperature.
+
 Networking
 ************
+
+WiFi / Bluetooth LE
+------------------------------
 
 .. figure:: images/hardware-design/beagley-ai-wifi-module.*
     :width: 1040
@@ -392,7 +436,38 @@ Networking
 
     BeagleY-AI WiFi module
 
-BeagleY-AI features a Beagle BM3301 Wireless module based on the Texas Instruments CC3301 which features Wifi6 (802.11AX) and BLE 5.4
+.. figure:: images/hardware-design/beagley-ai-soc-mmc-012.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC MMC0, MMC1, and MMC2
+
+    BeagleY-AI SoC MMC0, MMC1, and MMC2
+
+
+BeagleY-AI features a Beagle BM3301 Wireless module based on the Texas Instruments CC3301 which features 2.4Ghz WiFi6 (802.11AX) and BLE 5.4
+
+.. note:: 5Ghz WiFi Bands and Bluetooth Classic are not supported by the CC3301.
+
+Ethernet
+------------------------------
+
+BeagleY-AI is equipped with a 1 Gb (10/100/1000) DP83867 Ethernet PHY connected over RGMII.
+
+.. figure:: images/hardware-design/beagley-ai-ethernet-dp83867.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI ethernet DP83867
+
+    BeagleY-AI ethernet DP83867
+
+.. figure:: images/hardware-design/beagley-ai-ethernet-connector.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI ethernet connector
+    
+    BeagleY-AI ethernet connector
+
+BeagleY-AI uses an RJ45 ethernet connector with integrated magnetics. 
 
 .. figure:: images/hardware-design/beagley-ai-soc-rgmii.*
     :width: 1040
@@ -408,47 +483,26 @@ BeagleY-AI features a Beagle BM3301 Wireless module based on the Texas Instrumen
 
     BeagleY-AI SoC RGMII1 RST
 
-.. figure:: images/hardware-design/beagley-ai-ethernet-connector.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI ethernet connector
-
-    BeagleY-AI ethernet connector
-
-.. figure:: images/hardware-design/beagley-ai-ethernet-dp83867.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI ethernet DP83867
-
-    BeagleY-AI ethernet DP83867
-
 .. figure:: images/hardware-design/beagley-ai-ethernet-phy-caps.*
     :width: 1040
     :align: center
-    :alt: BeagleY-AI ethernet phy caps
+    :alt: BeagleY-AI ethernet PHY caps
 
-    BeagleY-AI ethernet phy caps
+    BeagleY-AI Ethernet PHY caps
 
 .. figure:: images/hardware-design/beagley-ai-ethernet-phy-misc.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI ethernet phy misc
 
-    BeagleY-AI ethernet phy misc
+    BeagleY-AI Ethernet PHY misc
 
 .. figure:: images/hardware-design/beagley-ai-ethernet-phy-protection.*
     :width: 1040
     :align: center
     :alt: BeagleY-AI ethernet phy protection
 
-    BeagleY-AI ethernet phy protection
-
-.. figure:: images/hardware-design/beagley-ai-ethernet-power-3v3-to-2v5.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI ethernet power 3V3 to 2V5
-
-    BeagleY-AI ethernet power 3V3 to 2V5
+    BeagleY-AI Ethernet PHY protection
 
 .. figure:: images/hardware-design/beagley-ai-poe-header.*
     :width: 1040
@@ -457,11 +511,37 @@ BeagleY-AI features a Beagle BM3301 Wireless module based on the Texas Instrumen
 
     BeagleY-AI PoE header
 
+Optional PoE (Power over Ethernet) can also be used with compatible 3rd party HATs designed for the Raspberry Pi 5.
+
+.. note:: Only Pi 5 PoE HATs are compatible, as Pi 4 and previous designs have the PoE pins in a different location.   
+
 Cameras & Displays
 ***********************
 
+BeagleY-AI is capable of driving up to 3 Displays (HDMI, OLDI/LVDS & DSI) simultaneously.
+
+* HDMI via DPI Converter up to 1920 x 1080 @60FPS
+* OLDI/LVDS up to 3840 x 1080 @60FPS (Dual Link, 150-Mhz Pixel Clock)
+* DSI up to 3840 x 1080 at 60fps (4 Lane MIPI® D-PHY, 300-MHz Pixel Clock)
+
+It also features 2 CSI interfaces and can support up to 8 Cameras using Virtual Channels and V3Link. 
+
+.. note:: The CSI1/DSI0 22-pin port is muxed between the two interfaces like the RPi 5, meaning that you must chose if it's used as a Display or Camera port. The CSI0 22-pin connector can only be used as a Camera port.   
+
 HDMI (DPI)
 -----------------
+
+.. figure:: images/hardware-design/beagley-ai-rgb888-to-hdmi.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI RGB888 to HDMI
+
+    BeagleY-AI RGB888 to HDMI
+
+BeagleY-AI has a single HDMI 1.4 port capable of up to 1080p @60FPS with Audio. This is achieved
+using an external Parallel RGB (DPI) to HDMI converter from ITE. 
+
+Because the DPI interface is used up by the HDMI converter, it does mean that DPI is not available on the 40Pin GPIO header.
 
 .. figure:: images/hardware-design/beagley-ai-soc-vout.*
     :width: 1040
@@ -491,13 +571,6 @@ HDMI (DPI)
 
     BeagleY-AI HDMI reset
 
-.. figure:: images/hardware-design/beagley-ai-rgb888-to-hdmi.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI RGB888 to HDMI
-
-    BeagleY-AI RGB888 to HDMI
-
 OLDI (LVDS)
 -----------------
 
@@ -508,26 +581,8 @@ OLDI (LVDS)
 
     BeagleY-AI SoC OLDI
 
-CSI
------------------
-
-.. figure:: images/hardware-design/beagley-ai-soc-csi-0123.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI SoC CSI1, CSI2, and CSI3
-
-    BeagleY-AI SoC CSI1, CSI2, and CSI3
-
-.. figure:: images/hardware-design/beagley-ai-rpi-csi.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI RPI CSI
-
-    BeagleY-AI RPI CSI
-
-To maintain a Pi compatible form factor, BeagleY-AI only exposes 2 of the 4 Physical CSI interfaces of the AM67A SoC. 
-Each CSI interfaces is MIPI® CSI-2 v1.3 + MIPI® D-PHY 1.2 with 4 Data Lanes running at up to 2.5Gbps/lane. 
-The interface also supports up to 16 Virtual Channels for multi-camera applications using FPDLink or V3Link. 
+The OLDI connector on BeagleY-AI has the same pinout as the one used by Beagle Play, meaning the same displays
+are compatible. 
 
 DSI
 -----------------
@@ -539,7 +594,8 @@ DSI
 
     BeagleY-AI SoC DSI0 TX connections
 
-The DSI0 port is shared withe CSI1 and selectable via a MUX switch to maintain Pi functionality.
+The DSI0 port is shared withe CSI1 and selectable via a MUX switch to maintain Pi functionality. It features the same
+pinout found on the 22-pin DSI connector on RPi5 and BeagleBone AI-64 and enables connectivity to existing supported DSI displays.
 
 .. figure:: images/hardware-design/beagley-ai-rpi-dsi-csi.*
     :width: 1040
@@ -548,7 +604,28 @@ The DSI0 port is shared withe CSI1 and selectable via a MUX switch to maintain P
 
     BeagleY-AI RPI DSI/CSI
 
-Please note that DSI is only available on one of the two 22-pin "CSI" connectors. 
+Please note that DSI is only available on the second of the two 22-pin "CSI" connectors. 
+
+CSI
+-----------------
+
+.. figure:: images/hardware-design/beagley-ai-rpi-csi.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI RPI CSI
+
+    BeagleY-AI RPI CSI
+
+To maintain a Pi compatible form factor, BeagleY-AI only exposes 2 of the 4 physical CSI interfaces of the AM67A SoC. 
+Each CSI interfaces is MIPI® CSI-2 v1.3 + MIPI® D-PHY 1.2 with 4 Data Lanes running at up to 2.5Gbps/lane. 
+The interface also supports up to 16 Virtual Channels for multi-camera applications using FPDLink or V3Link. 
+
+.. figure:: images/hardware-design/beagley-ai-soc-csi-0123.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI SoC CSI1, CSI2, and CSI3
+
+    BeagleY-AI SoC CSI1, CSI2, and CSI3
 
 Buttons and LEDs
 *****************
@@ -559,6 +636,8 @@ Buttons and LEDs
     :alt: BeagleY-AI LEDs
 
     BeagleY-AI LEDs
+
+BeagleY-AI features a single dual-color (Red/Green) LED for Power/Status indication.
 
 Debug Ports
 ************
@@ -573,6 +652,11 @@ JTAG Tag-Connect
 
     BeagleY-AI Tag-Connect
 
+JTAG is available on the BeagleY-AI via a 10pin Tag-Connect header located on the bottom of the board between the USB 3.0 ports. 
+
+Because of the density of the board and tight fit of the USB connectors, the standard retention clip provided by Tag-Connect will not fit.
+A recommended 3D printable adapter is `available on Printables <https://www.printables.com/model/879533-beagley-ai-tagconnect-clip-10pin>`_ 
+
 UART
 -------------------
 
@@ -583,6 +667,9 @@ UART
 
     BeagleY-AI debug UART port
 
+By default, BeagleY-AI exposes the UART port used by UBoot & Linux on a Pi Debugger compatible JST 3pin header. The UART port used for debug
+can also be changed in software to use a UART available on the 40Pin GPIO header.
+
 PMIC NVM Tag-Connect
 --------------------------------------
 
@@ -592,6 +679,11 @@ PMIC NVM Tag-Connect
     :alt: BeagleY-AI PMIC NVM programming interface
 
     BeagleY-AI PMIC NVM programming interface
+
+A PMIC programming header is present on the BeagleY-AI in the form of a 10pin Tag-Connect header located on the bottom of the board between the Ethernet and USB 3.0 ports.
+Ensure you do not connect JTAG to this port as the pinout and interface is different. PMIC NVM programming should not be performed unless
+you know what you're doing. The port is mainly intended for use during manufacturing. 
+
 
 Miscellaneous
 ********************
