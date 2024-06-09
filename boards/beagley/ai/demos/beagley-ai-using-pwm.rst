@@ -10,7 +10,7 @@ Pulse Width Modulation (PWM)
 What is it
 ************
 
-PWM, or Pulse Width Modulation, is a technique used to control the amount of power delivered to an electronic device by breaking up the power signal into discrete ON and OFF periods. 
+``PWM`` or ``Pulse Width Modulation``, is a technique used to control the amount of power delivered to an electronic device by breaking up the power signal into discrete ON and OFF periods. 
 The amount of time the signal spends ON during each cycle determines the output power level (brightness of the LED).
 
 .. image:: ../images/gpio/pwm.jpg
@@ -21,27 +21,25 @@ The amount of time the signal spends ON during each cycle determines the output 
 How do we do it
 *****************
 
-First we unbind the pin as GPIO 
+To configure HAT pin8 as PWM pin using ``beagle-pin-mux`` execute the command below,
 
-.. code:: bash
+.. code:: console
 
-    echo hat-08-gpio > /sys/bus/platform/drivers/gpio-aggregator/unbind
+    sudo beagle-pin-mux --pin hat-08 --mode pwm
 
-Now we override the driver
+Let's create a script called ``fade.sh`` that cycles through LED brightness on HAT pin8 by changing PWM duty cycle.
 
-.. code:: bash
+.. code:: console
 
-    echo gpio-aggregator > /sys/devices/platform/hat-08-pwm/driver_override 
+    touch fade.sh
 
-Then we bind the pin
+Now open the file with nano editor,
 
-.. code:: bash
+.. code:: console
 
-    echo hat-08-pwm > /sys/bus/platform/drivers/gpio-aggregator/bind
+    nano fade.sh
 
-.. todo:: Add note about matching PWM channel to Pin
-
-Let's write a script called **fade.sh** that contains the following:
+In the editor copy paste the script content below,
 
 .. code:: bash
 
