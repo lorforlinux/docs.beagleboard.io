@@ -288,6 +288,8 @@ BeagleY-AI features a 40-pin GPIO Header which aims to enable compatibility with
 See `pinout.beagleboard.io <https://pinout.beagleboard.io/>`_ for a more comprehensive view of the 40 pin GPIO header,
 available pin functions and tested accessories!
 
+.. todo:: Add link to docs on building expansion accessories. 
+
 I2C
 ---------------
 
