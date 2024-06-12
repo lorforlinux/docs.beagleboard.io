@@ -269,6 +269,7 @@ The microSD card is the primary boot interface for BeagleY-AI, it corresponds to
 
 To enable UHS-1 SD card functionality (and speeds!), a load switch is provided which allows the SoC MMC1 PHY to switch the SD Card IO voltage to 1.8V.
 
+.. todo:: Add link to TRM for boot modes and resistor swap options for advanced users.
 
 General Expansion
 ************************************
