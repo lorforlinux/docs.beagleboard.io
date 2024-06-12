@@ -64,6 +64,23 @@ The default boot mode for BeagleY-AI is the SD Card Interface. If no SD card is 
 
 It is also possible to load U-Boot from the SD card and then load your main file system from another source, such as :ref:`beagley-ai-expansion-nvme`.
 
+Power
+***************
+
+.. figure:: images/hardware-design/beagley-ai-pdn.*
+    :width: 1040
+    :align: center
+    :alt: BeagleY-AI power distribution network
+
+    BeagleY-AI power distribution network
+
+BeagleY-AI's power architecture is split between the TPS65219 PMIC which handles the main logic rails and a dedicated TPS62872 high current buck regulator for the SoC core rail which defaults to 0.85V on boot. 
+
+Both PMIC and VDD_CORE regulators are highly configurable but will boot the board to "sane" defaults out of box. For advanced users, it is possible to adjust both the VDD_CORE rail as well as IO rails (voltages, timings, behavior, etc.) for applications such as low power modes where
+you may want to trade clock speeds for power efficiency by running the SoC Core at 0.75V for example. Be careful, as changes here could result in unexpected behavior, the board not booting or even hardware damage, so tread carefully.
+
+.. note:: At the time of writing, dynamic voltage switching is not supported by the AM67A SoC.
+
 Clocks and Resets
 *********************
 
@@ -85,25 +102,8 @@ BeagleY's main clock source is a 25Mhz Crystal Oscillator connected to MCU_OSC0 
 
 A 32.768Khz "Slow Clock" Crystal is used on the WKUP_LFOSC0 domain. 
 
-Power
-***************
-
-.. figure:: images/hardware-design/beagley-ai-pdn.*
-    :width: 1040
-    :align: center
-    :alt: BeagleY-AI power distribution network
-
-    BeagleY-AI power distribution network
-
-BeagleY-AI's power architecture is split between the TPS65219 PMIC which handles the main logic rails and a dedicated TPS62872 high current buck regulator for the SoC core rail which defaults to 0.85V on boot. 
-
-Both PMIC and VDD_CORE regulators are highly configurable but will boot the board to "sane" defaults out of box. For advanced users, it is possible to adjust both the VDD_CORE rail as well as IO rails (voltages, timings, behavior, etc.) for applications such as low power modes where
-you may want to trade clock speeds for power efficiency by running the SoC Core at 0.75V for example. Be careful, as changes here could result in unexpected behavior, the board not booting or even hardware damage, so tread carefully.
-
-At the time of writing, DVS (Dynamic Voltage Switching) is not supported by the AM67A SoC.
-
-USB-C Input
-----------------
+USB-C Power/Data Port
+------------------------------
 
 .. figure:: images/hardware-design/beagley-ai-usb-c.*
     :width: 1040
@@ -168,8 +168,7 @@ Digital Rail Decoupling
 
     BeagleY-AI SoC VDD & VDDR_CORE decoupling capacitors
 
-.. note:: 
-    Other power sections are nested within their specific interface section. 
+.. note:: Other power sections are nested within their specific interface section. 
 
 LDOs
 ----------
@@ -255,6 +254,8 @@ EEPROM
 
 BeagleY-AI features an on-board FT24C32A 32Kbit I2C EEPROM for storing things like board information, manufacture date, etc. 
 
+.. todo:: Add details about specific EEPROM contents and formatting.
+
 microSD Card
 --------------
 .. figure:: images/hardware-design/beagley-ai-micro-sd-card-interface.*
@@ -265,6 +266,9 @@ microSD Card
     BeagleY-AI microSD card interface
 
 The microSD card is the primary boot interface for BeagleY-AI, it corresponds to the MMC1 interface on the AM67A SoC. 
+
+To enable UHS-1 SD card functionality (and speeds!), a load switch is provided which allows the SoC MMC1 PHY to switch the SD Card IO voltage to 1.8V.
+
 
 General Expansion
 ************************************
