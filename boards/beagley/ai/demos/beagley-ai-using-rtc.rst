@@ -1,11 +1,7 @@
 .. _beagley-ai-using-rtc:
 
 Using the on-board Real Time Clock (RTC)
-#################################################
-
-.. todo::
-
-   Add specific actions rather than notes that this is a work-in-progress.
+############################################
 
 Real Time Clocks (RTCs) provide precise and reliable timekeeping capabilities, which are beneficial for applications ranging from simple timekeeping to complex scheduling and secure operations.
 
@@ -25,7 +21,11 @@ These batteries are available from several vendors:
 * `Raspberry Pi 5 RTC Battery via DigiKey <https://www.digikey.com/en/products/detail/raspberry-pi/SC1163/21658274>`_ 
 * `CR2023 battery holder for Pi 5 via Amazon <https://www.amazon.com/KODASW-RTCBattery-Holder-Include-Battery/dp/B0CRKQ2MG1/>`_ 
 
-.. image:: ../images/beagley_rtc.png
+.. figure:: ../images/beagley_rtc.*
+   :align: center
+   :alt: BeagleY-AI RTC battery connection
+
+   BeagleY-AI RTC battery connection
 
 Uses for an RTC
 **********************
@@ -40,39 +40,45 @@ Uses for an RTC
 
 5. **Standby Power Efficiency:** Many RTCs operate with a very low power requirement and can keep time even when the rest of the board is in a low-power or sleep mode. This helps in reducing overall power consumption.
 
-Reading time
-**********************
+Setting time
+*************
 
 .. note:: You must set the time before being able to read it. If you don't do this first, you'll see errors. You may connect your BeagleY-AI to a network so it can get time from an NTP server.
-
-Reading the current time on the RTC is achieved using the **hwclock** command.
-
-.. code:: console
-
-   debian@BeagleY:~$ sudo hwclock
-   2024-05-10 00:00:02.224187-05:00
-
-Setting time
-**********************
 
 You can set time manually by running the following command:
 
 .. code:: console
 
-   hwclock --set --date "10/05/2024 21:01:05"
-
+   sudo hwclock --set --date "2024-06-11 22:22:22"
 
 Diving Deeper
-**********************
+**************
 
 There are actually two different "times" that your Linux system keeps track of. 
 
-* System time, which can be read using the **date** or **timedatectl** commands
-* RTC (hardware) time which can be read using the **hwclock** command shown above.
+* System time, which can be read using the ``date`` or ``timedatectl`` commands
+* RTC (hardware) time which can be read using the ``hwclock`` command shown above.
 
-Comparing the time, we see something interesting, they're different!
+Open up a BeagleY-AI console and try the commands shown below,
 
-You can just type "date" but the format will be different, so we add some extra instructions to match the format.
+- Reading the current **system time** is achieved using the ``date`` command,
+
+.. code:: console
+
+   date
+
+The ``date`` command should print ``Tue Jun 11 06:30:51 UTC 2024``.
+
+- Reading the current **RTC (hardware) time** is achieved using the ``hwclock`` command.
+
+.. code:: console
+
+   sudo hwclock
+   
+The ``hwclock`` command should print ``2024-05-10 00:00:02.224187-05:00``.
+
+Comparing both ``date`` and ``hwclock`` output above we see the time format 
+is different. we add some extra instructions to match the format.
 
 .. code:: console
 
@@ -82,19 +88,28 @@ You can just type "date" but the format will be different, so we add some extra 
    debian@BeagleBone:~$ sudo hwclock
    2024-05-10 21:06:56.692874+00:00
 
-But why? We see here that our system and hardware clock are over 9 seconds apart!
-
-Ok, in this particular case we set the HW clock slightly ahead to illustrate the point, but in real life "drift" is a real problem
-that has to be dealt with. Environmental conditions like temperature or stray cosmic rays can cause electronics to become ever so slightly out of sync, and these effects only grow over time unless corrected. It's why RTCs and other fancier time keeping instruments implement various methods to help account for this
-such as temperature compensated oscillators. 
+.. admonition:: But why? 
+   
+   We see here that our system and hardware clock are over 9 seconds apart!
+   
+   Ok, in this particular case we set the HW clock slightly ahead to illustrate the point, but in real life "drift" is a real problem
+   that has to be dealt with. Environmental conditions like temperature or stray cosmic rays can cause electronics to become ever so 
+   slightly out of sync, and these effects only grow over time unless corrected. It's why RTCs and other fancier time keeping 
+   instruments implement various methods to help account for this such as temperature compensated oscillators. 
 
 Let's fix our hardware clock. We assume here that the system clock is freshly synced over NTP so it's going to be our true time "source".
 
 .. code:: console
 
-   debian@BeagleBone:~$ sudo hwclock --systohc
+   sudo hwclock --systohc
 
-Let's write a simple script to get the two times, we'll call it **getTime.sh**:
+Let's create a simple script to get the two times, we'll call it ``getTime.sh``,
+
+.. code:: console
+
+   nano getTime.sh
+
+copy paste the below code in that file,
 
 .. code:: shell
 
@@ -108,15 +123,18 @@ Now let's run it!
 
 .. code:: console
    
-   debian@BeagleBone:~$ sudo chmod +x getTime.sh
-   debian@BeagleBone:~$ ./getTime.sh
-   
+   bash getTime.sh
+
+
+The script gives us this output,
+
    RTC - 2024-05-10 21:52:58.374954+00:00
+
    SYS - 2024-05-10 21:52:59.048442940+00:00
 
 As we can see, we're still about a second off, but this is because it takes a bit of time to query the RTC via I2C.
 
-If you want to learn more, the **Going Further** at the end of this article is a good starting point!
+If you want to learn more, the :ref:`beagley-ai-rtc-going-further` at the end of this article is a good starting point!
 
 Troubleshooting
 *******************
@@ -126,16 +144,25 @@ This usually happens if the system is powered on without an RTC battery and with
 
 In such cases, you should be able to read the time after setting the time as follows:
 
+- Sync clock
+
 .. code:: console
 
-   debian@BeagleBone:~$ sudo hwclock --systohc
-   
-   debian@BeagleBone:~$ sudo hwclock
-   2024-05-10 21:06:56.692874+00:00
+   sudo hwclock --systohc
 
+- Check RTC time
+
+.. code:: console
+
+   sudo hwclock
+   
+The above command should output ``2024-05-10 21:06:56.692874+00:00``.
+
+
+.. _beagley-ai-rtc-going-further:
 
 Going Further
-*******************
+*************
 
 Consider learning about topics such as time keeping over GPS and Atomic Clocks!
 
