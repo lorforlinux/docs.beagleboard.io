@@ -52,7 +52,7 @@ Boot Media (Software image)
 .. todo:: Update this section to use latest boot media (software image) for BeagleY-AI.
 
 Download the boot media from
-`https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce>`_ 
+`https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-15-xfce <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-15-xfce>`_ 
 and flash it on a micro microSD card using using `Balena Etcher <https://etcher.balena.io/>`_ following these steps:
 
 1. Select downloaded boot media
