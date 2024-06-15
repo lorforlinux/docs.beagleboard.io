@@ -8,16 +8,13 @@ What's included in the box?
 
 When you purchase a BeagleY-AI, you'll get the following in the box:
 
-1. `BeagleY-AI <https://www.beagleboard.org/boards/beagley-ai>`_
-2. 2.4GHz antenna
-3. Quick-start card
-
-.. todo:: Attaching antennas instructions for BeagleY-AI
+1. `BeagleY-AI <https://www.beagleboard.org/boards/beagley-ai>`_ with attached antenna.
+2. Quick-start card
 
 .. todo:: BeagleY-AI unboxing video
 
 Getting started
-***************
+****************
 
 To get started your BeagleY-AI you need the following:
 
@@ -49,11 +46,135 @@ can provide 5V ≥ 3A. Checkout the :ref:`docs power supply page <accessories-po
 Boot Media (Software image)
 *****************************
 
-.. todo:: Update this section to use latest boot media (software image) for BeagleY-AI.
+We have two methods to prepare bootable microSD card,
 
-Download the boot media from
-`https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce>`_ 
-and flash it on a micro microSD card using using `Balena Etcher <https://etcher.balena.io/>`_ following these steps:
+1. :ref:`beagley-ai-bb-imager` 
+2. :ref:`beagley-ai-balena-etcher`
+
+.. _beagley-ai-bb-imager:
+
+bb-imager
+==========
+
+Download and install `bb-imager <https://beagley-ai.beagleboard.io/bb-imager>`_ for your operating system. 
+Below are all the steps required to create a bootable microSD card with latest/recommended OS image for BeagleY-AI.
+
+.. figure:: images/imager/step1-choose-device.*
+    :align: center
+    :alt: Click on ``CHOOSE DEVICE`` button
+
+    Click on ``CHOOSE DEVICE`` button
+
+.. figure:: images/imager/step2-choose-beagley-ai.*
+    :align: center
+    :alt: Choose ``BeagleY-AI`` board
+
+    Choose ``BeagleY-AI`` board
+
+.. figure:: images/imager/step3-choose-os.*
+    :align: center
+    :alt: Click on ``CHOOSE OS`` button
+
+    Click on ``CHOOSE OS`` button
+
+.. figure:: images/imager/step4-select-recommended-os.*
+    :align: center
+    :alt: Select ``Recommended OS``
+
+    Select ``Recommended OS``
+
+.. figure:: images/imager/step5-select-storage.*
+    :align: center
+    :alt: Click on ``CHOOSE STORAGE`` buddon
+
+    Click on ``CHOOSE STORAGE`` buddon
+
+.. figure:: images/imager/step6-choose-microsd-card.*
+    :align: center
+    :alt: Choose your microSD card
+
+    Choose your microSD card
+
+.. figure:: images/imager/step7-hit-next.*
+    :align: center
+    :alt: Click on ``Next`` button
+
+    Click on ``Next`` button
+
+.. figure:: images/imager/step8-edit-settings.*
+    :align: center
+    :alt: Click on ``EDIT SETTINGS`` button
+
+    Click on ``EDIT SETTINGS`` button
+
+.. figure:: images/imager/step9-settings-save.*
+    :align: center
+    :alt: Edit settings 
+
+    Edit settings
+
+.. figure:: images/imager/step9a-enable-ssh.*
+    :align: center
+    :alt: Under ``SERVICES`` you can enable SSH
+
+    Under ``SERVICES`` you can enable SSH
+
+.. figure:: images/imager/step9b-play-sound.*
+    :align: center
+    :alt: Under ``OPTIONS`` you can enable to play sound when flashing is finished
+
+    Under ``OPTIONS`` you can enable to play sound when flashing is finished
+
+.. figure:: images/imager/step10-select-yes.*
+    :align: center
+    :alt: Select ``YES`` to apply settings
+
+    Select ``YES`` to apply settings
+
+.. figure:: images/imager/step11-erase-data.*
+    :align: center
+    :alt: Select ``YES`` again to confirm sdCard formatting
+
+    Select ``YES`` again to confirm sdCard formatting
+
+.. figure:: images/imager/step12-authenticate.*
+    :align: center
+    :alt: Provide password to Authenticate the flashing process
+
+    Provide password to Authenticate the flashing process
+
+.. figure:: images/imager/step13-download-started.*
+    :align: center
+    :alt: Download image else automatically open cached image
+
+    Download image else automatically open cached image
+
+.. figure:: images/imager/step14-writing.*
+    :align: center
+    :alt: Writing data to microSD card
+
+    Writing data to microSD card
+
+.. figure:: images/imager/step15-verifying.*
+    :align: center
+    :alt: Verifying flashed microSD card
+
+    Verifying flashed microSD card
+
+.. figure:: images/imager/step16-sdcard-ready.*
+    :align: center
+    :alt: microSD card is ready
+
+    microSD card is ready
+
+.. _beagley-ai-balena-etcher:
+
+Balena Etcher
+==============
+
+Download and install `Balena Etcher <https://etcher.balena.io/>`_ and then download the boot media from
+`https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce>`_. 
+Flash it on a microSD card using `Balena Etcher <https://etcher.balena.io/>`_ following the steps below:
 
 1. Select downloaded boot media
 2. Select microSD card 
@@ -104,9 +225,11 @@ In ``sysconf.txt`` file you have to edit the two lines highlighted below.
 
         <2> If ``bash`` is your password, update ``#user_password=FooBar`` to ``user_password=bash``
 
-.. note:: 
-    Make sure to remove ``#`` from in front of these lines else the lines will still be 
-    interpreted like a comment and your username & password will not be updated.
+.. important::
+    
+    1. Make sure to remove ``#`` from ``#user_name=`` and ``#user_password=`` else the lines will be interpreted as a comment and your username & password will not be updated.
+    2. If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a :ref:`standalone-connection` setup.
+
 
 Once username and password are updated, you can insert the microSD card into 
 your BeagleY-AI as shown in the image below:
@@ -152,7 +275,9 @@ or command prompt (`Windows <https://www.wikihow.com/Open-the-Command-Prompt-in-
     
     ssh debian@192.168.7.2
 
-.. tip:: If you are not able to find your beagle at ``192.168.7.2`` make sure to checkout :ref:`start-browse-to-beagle` to resolve your connection issue.
+.. important:: Here ``debian`` is the default username, make sure to replace ``debian`` with the ``username`` you selected during :ref:`beagley-ai-boot-media` prepration step.
+
+.. tip:: If you are not able to find your beagle at ``192.168.7.2``, checkout :ref:`start-browse-to-beagle` to resolve your connection issue.
 
 .. important:: If you have not updated your default username and password during :ref:`beagley-ai-boot-media`, you must update the default password at this step to something safer.
 
@@ -161,6 +286,8 @@ or command prompt (`Windows <https://www.wikihow.com/Open-the-Command-Prompt-in-
     :alt: BeagleY-AI SSH connection
 
     BeagleY-AI SSH connection
+
+.. _beagley-ai-uart-connection:
 
 UART connection
 ================
@@ -192,14 +319,24 @@ try out all the :ref:`cool demos <beagley-ai-demos>` and explore all the other w
 Headless connection
 ===================
 
-If you want to run your BeagleY-AI in headless mode, you need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ or similar serial adapter.
+If you want to run your BeagleY-AI in headless mode, you need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
+or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command 
+line utility like ``tio`` on Linux of Putty on any operating system. Check :ref:`beagley-ai-uart-connection` for more information.
 
-.. todo:: Add images and description for this section.
+.. figure:: images/uart/rpi-debug-probe-connection.*
+    :align: center
+    :alt: Connecting Raspberry Pi debug probe to BeagleY-AI
+
+    Connecting Raspberry Pi debug probe to BeagleY-AI
 
 .. _standalone-connection:
 
 Standalone connection
 =====================
+
+.. important:: 
+    Make sure to update your ``username`` and ``password`` during 
+    :ref:`beagley-ai-boot-media` prepration step else you'll not see any output on you HDMI monitor.
 
 To setup your BeagleY-AI for standalone usage, you need the following additional accessories,
 
@@ -230,7 +367,7 @@ If everything is connected properly you should see four penguins on your monitor
 
     BeagleY-AI boot penguins
 
-When prompted, log in using the updated login credentials you updated during the USB tethering step.
+When prompted, login using the credentials you updated during :ref:`beagley-ai-boot-media` prepration step.
 
 .. Important:: You can not update login credentials at this step, you must update them during boot media (software image) micrSD card flashing or USB tethering step!
 
@@ -248,7 +385,7 @@ Once logged in you should see the splash screen shown in the image below:
 
     BeagleY-AI XFCE home screen
 
-Test network connection by running ping 8.8.8.8
+Test network connection by running ``ping 8.8.8.8``
 
 .. figure:: images/ping-test.*
     :align: center
@@ -269,6 +406,7 @@ Explore and build with your new BeagleY-AI board!
 Connecting to WiFi
 **********************
 
+The onboard ``BM3301`` can connect to any 2.5GHz wifi access point. 
 We have two options to connect to WiFi,
 
 1. :ref:`beagley-ai-nmtui`
@@ -357,10 +495,20 @@ Once board is fully booted and you have access to the shell, follow the commands
     
     ping 8.8.8.8
 
-Attach fan
-***********
+Attach cooling fan
+*******************
 
-.. todo:: add instructions to attach raspberrypi official fan.
+To attached the Raspberry Pi cooling fan to BeagleY-AI you have to follow these steps,
+
+1. Clean the surface of BeagleY-AI with a microfiber cloth or electronics safe cleaning brush.
+2. Gently pull the pre-cut (blue) thermal pads from cooling fan surface and transfer them to the most heating parts of BegleY-AI like CPU and RAM.
+3. Connect the fan cable, then carefully place the flat part of cooling fan on BeagleY-AI. Now, gently apply force on spring loaded push pins to securely attach the cooling fan.
+
+.. figure:: images/fan/fan-connection.*
+    :align: center
+    :alt: Attaching cooling fan to BeagleY-AI
+
+    Attaching cooling fan to BeagleY-AI
 
 Demos and Tutorials
 *******************
