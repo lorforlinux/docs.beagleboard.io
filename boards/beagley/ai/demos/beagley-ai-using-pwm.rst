@@ -3,8 +3,6 @@
 Pulse Width Modulation (PWM)
 #############################
 
-:bdg-danger:`Work in progress`
-
 .. todo:: Add further testing steps, results, and images..
 
 What is it
