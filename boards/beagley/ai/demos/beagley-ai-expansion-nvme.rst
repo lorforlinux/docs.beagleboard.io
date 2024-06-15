@@ -40,7 +40,7 @@ The X1000 above uses the slightly uncommon 2242 drive size, so, an adapter may b
 Step by step
 ************
 
-.. note:: This article was written using the `BeagleY-AI Debian XFCE 12.5 2024-03-25 image <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.
+.. note:: This article was written using the `BeagleY-AI Debian XFCE 12.5 2024-06-12 image <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce/>`_.
 
 Step 1. Boot from SD Normally
 ==================================
