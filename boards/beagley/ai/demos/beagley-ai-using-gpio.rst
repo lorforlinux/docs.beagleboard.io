@@ -367,13 +367,13 @@ Bonus - Turn all GPIOs ON/OFF
 
 .. code:: bash
 
-   gpioset hat-03-gpio 0=1 ;\ gpioset hat-05-gpio 0=1 ;\ gpioset hat-08-gpio 0=1 ;\ gpioset hat-10-gpio 0=1 ;\ gpioset hat-11-gpio 0=1 ;\ gpioset hat-12-gpio 0=1 ;\ gpioset hat-13-gpio 0=1 ;\ gpioset hat-15-gpio 0=1 ;\ gpioset hat-16-gpio 0=1 ;\ gpioset hat-18-gpio 0=1 ;\ gpioset hat-19-gpio 0=1 ;\ gpioset hat-21-gpio 0=1 ;\ gpioset hat-22-gpio 0=1 ;\ gpioset hat-23-gpio 0=1 ;\ gpioset hat-24-gpio 0=1 ;\ gpioset hat-26-gpio 0=1 ;\ gpioset hat-29-gpio 0=1 ;\ gpioset hat-31-gpio 0=1 ;\ gpioset hat-32-gpio 0=1 ;\ gpioset hat-33-gpio 0=1 ;\ gpioset hat-35-gpio 0=1 ;\ gpioset hat-36-gpio 0=1 ;\ gpioset hat-37-gpio 0=1 ;\ gpioset hat-40-gpio 0=1
+   gpioset hat-08-gpio 0=1 ;\ gpioset hat-10-gpio 0=1 ;\ gpioset hat-11-gpio 0=1 ;\ gpioset hat-12-gpio 0=1 ;\ gpioset hat-13-gpio 0=1 ;\ gpioset hat-15-gpio 0=1 ;\ gpioset hat-16-gpio 0=1 ;\ gpioset hat-18-gpio 0=1 ;\ gpioset hat-19-gpio 0=1 ;\ gpioset hat-21-gpio 0=1 ;\ gpioset hat-22-gpio 0=1 ;\ gpioset hat-23-gpio 0=1 ;\ gpioset hat-24-gpio 0=1 ;\ gpioset hat-26-gpio 0=1 ;\ gpioset hat-29-gpio 0=1 ;\ gpioset hat-31-gpio 0=1 ;\ gpioset hat-32-gpio 0=1 ;\ gpioset hat-33-gpio 0=1 ;\ gpioset hat-35-gpio 0=1 ;\ gpioset hat-36-gpio 0=1 ;\ gpioset hat-37-gpio 0=1 ;\ gpioset hat-40-gpio 0=1
 
 - Similarly, copy and paste this to turn **all pins OFF**. 
 
 .. code:: bash
 
-   gpioset hat-03-gpio 0=0 ;\ gpioset hat-05-gpio 0=0 ;\ gpioset hat-08-gpio 0=0 ;\ gpioset hat-10-gpio 0=0 ;\ gpioset hat-11-gpio 0=0 ;\ gpioset hat-12-gpio 0=0 ;\ gpioset hat-13-gpio 0=0 ;\ gpioset hat-15-gpio 0=0 ;\ gpioset hat-16-gpio 0=0 ;\ gpioset hat-18-gpio 0=0 ;\ gpioset hat-19-gpio 0=0 ;\ gpioset hat-21-gpio 0=0 ;\ gpioset hat-22-gpio 0=0 ;\ gpioset hat-23-gpio 0=0 ;\ gpioset hat-24-gpio 0=0 ;\ gpioset hat-26-gpio 0=0 ;\ gpioset hat-29-gpio 0=0 ;\ gpioset hat-31-gpio 0=0 ;\ gpioset hat-32-gpio 0=0 ;\ gpioset hat-33-gpio 0=0 ;\ gpioset hat-35-gpio 0=0 ;\ gpioset hat-36-gpio 0=0 ;\ gpioset hat-37-gpio 0=0 ;\ gpioset hat-40-gpio 0=0
+   gpioset hat-08-gpio 0=0 ;\ gpioset hat-10-gpio 0=0 ;\ gpioset hat-11-gpio 0=0 ;\ gpioset hat-12-gpio 0=0 ;\ gpioset hat-13-gpio 0=0 ;\ gpioset hat-15-gpio 0=0 ;\ gpioset hat-16-gpio 0=0 ;\ gpioset hat-18-gpio 0=0 ;\ gpioset hat-19-gpio 0=0 ;\ gpioset hat-21-gpio 0=0 ;\ gpioset hat-22-gpio 0=0 ;\ gpioset hat-23-gpio 0=0 ;\ gpioset hat-24-gpio 0=0 ;\ gpioset hat-26-gpio 0=0 ;\ gpioset hat-29-gpio 0=0 ;\ gpioset hat-31-gpio 0=0 ;\ gpioset hat-32-gpio 0=0 ;\ gpioset hat-33-gpio 0=0 ;\ gpioset hat-35-gpio 0=0 ;\ gpioset hat-36-gpio 0=0 ;\ gpioset hat-37-gpio 0=0 ;\ gpioset hat-40-gpio 0=0
 
 
 Going Further
