@@ -43,7 +43,7 @@ In the editor copy paste the script content below,
 
     #!/bin/bash
 
-    PWMPIN="/sys/devices/platform/bus@f0000/23000000.pwm/pwm/pwmchip3/pwm1"
+    PWMPIN="/dev/hat/pwm/hat-08-pwm"
 
 
     echo 1000 > $PWMPIN/period
