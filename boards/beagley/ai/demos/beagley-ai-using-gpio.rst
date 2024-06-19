@@ -324,11 +324,11 @@ The "Bias" argument has the following options:
    * **pull-down** - In this state, the pin is pulled DOWN by the internal 50KΩ resistor
    * **pull-up** - In this state, the pin is pulled UP by the internal 50KΩ resistor
 
-For example, a command to read an input with the Bias intentionally disabled would look  like this:
+For example, a command to read an input with the Bias intentionally disabled would look like this:
 
 .. code:: bash
 
-   gpioget --bias=disable hat-08-gpio 0
+   gpioget --bias=disable $(gpiofind GPIO14)
 
 Pull resistors are a foundational block of digital circuits and understanding when to (and not to) use them is important.
 
