@@ -1,4 +1,4 @@
-.. _play-understanding-boot:
+.. _beagleplay-understanding-boot:
 
 Understanding Boot
 ##################
