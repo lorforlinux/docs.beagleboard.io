@@ -66,6 +66,7 @@ In the editor copy paste the script content below,
         echo $i
         sleep 0.0005
     done
+    
 - Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
 
 - Now execute the ``fade.sh`` script by typing:
