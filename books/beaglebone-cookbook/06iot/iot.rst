@@ -499,7 +499,7 @@ Run it:
   bone$ ./analogInContinuous.py
   Hit ^C to stop
 
-.. TODO 
+.. todo:: 
   verify this works. fonts are taking too long to load
 
 :ref:`analog_sine_fig` is the output of a 1KHz sine wave.
@@ -591,7 +591,7 @@ A number of files get installed, including the ADC file. Now try rerunning.
 
 Here's the output of a 10KHz triangle wave. 
 
-.. TODO  
+.. todo::  
   Is this true: (The plot is wrong, but eLinux won't let me fix it.)
 
 .. _analog_tri_fig:
@@ -662,7 +662,7 @@ See https://realpython.com/python-send-email/ for an example that sends an attac
 Sending an SMS Message
 =======================
 
-.. TODO  
+.. todo::  
   My twilio account is suspended, using yoder@rose-hulman.edu.
 
 Problem
@@ -863,7 +863,7 @@ Around line 15 is the *id* number.  Paste in the value returned above.
 
 :download:`twitter_delete_tweet.py <../code/06iot/twitter_delete_tweet.py>`
 
-.. TODO
+.. todo::
   Start Here.  Update for python.
 
 The code in :ref:`networking_pushbutton_code` sends a tweet whenever a button is pushed.

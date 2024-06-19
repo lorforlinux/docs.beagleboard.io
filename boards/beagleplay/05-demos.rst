@@ -3,153 +3,137 @@
 Demos and tutorials
 ####################
 
-.. raw:: latex
+.. only:: html
 
-   \begin{comment}
+    .. card:: 
+        :link: beagleplay-serial-console
+        :link-type: ref
 
-.. card::
-    :link: beagleplay-serial-console
-    :link-type: ref
+        **Using serial console**
+        ^^^
+        Learn how to use any USB-UART converter to get access to BeaglePlay via serial console.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
 
-    **Using serial console**
-    ^^^
-    Learn how to use any USB-UART converter to get access to BeaglePlay via serial console.
-    +++
-    .. admonition:: Complexity level
+    .. card:: 
+        :link: beagleplay-connect-wifi
+        :link-type: ref
 
-	beginner
+        **Connecting WiFi**
+        ^^^
+        Learn different ways to connect your BeaglePlay to a WiFi access point.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
 
-.. card::
-    :link: beagleplay-connect-wifi
-    :link-type: ref
+    .. card:: 
+        :link: beagleplay-grove
+        :link-type: ref
 
-    **Connecting WiFi**
-    ^^^
-    Learn different ways to connect your BeaglePlay to a WiFi access point.
-    +++
-    .. admonition:: Complexity level
+        **Using grove**
+        ^^^
+        Learn to expand your BeaglePlay capabilities with grove modules.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
 
-	beginner
+    .. card:: 
+        :link: beagleplay-mikrobus
+        :link-type: ref
 
-.. card::
-    :link: beagleplay-grove
-    :link-type: ref
+        **Using mikroBUS**
+        ^^^
+        Learn to expand your BeaglePlay capabilities via 1000s of mikroBUS click board support.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
 
-    **Using grove**
-    ^^^
-    Learn to expand your BeaglePlay capabilities with grove modules.
-    +++
-    .. admonition:: Complexity level
+    .. card:: 
+        :link: beagleplay-qwiic
+        :link-type: ref
 
-	beginner
+        **Using Qwiic**
+        ^^^
+        Learn to expand your BeaglePlay capabilities via Qwiic I2C boards.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
 
-.. card::
-    :link: beagleplay-mikrobus
-    :link-type: ref
+    .. card:: 
+        :link: beagleplay-oldi
+        :link-type: ref
 
-    **Using mikroBUS**
-    ^^^
-    Learn to expand your BeaglePlay capabilities via 1000s of mikroBUS click board support.
-    +++
-    .. admonition:: Complexity level
+        **Using OLDI**
+        ^^^
+        Learn how to connect and run oldi displays with BeaglePlay.
+        +++
+        .. admonition:: Complexity level
+            
+            intermediate
 
-	beginner
+    .. card:: 
+        :link: beagleplay-csi
+        :link-type: ref
 
-.. card::
-    :link: beagleplay-qwiic
-    :link-type: ref
+        **Using CSI**
+        ^^^
+        Learn how to connect and run CSI cameras with BeaglePlay.
+        +++
+        .. admonition:: Complexity level
+            
+            intermediate
 
-    **Using Qwiic**
-    ^^^
-    Learn to expand your BeaglePlay capabilities via Qwiic I2C boards.
-    +++
-    .. admonition:: Complexity level
+    .. card:: 
+        :link: beagleplay-zephyr-development
+        :link-type: ref
 
-	beginner
+        **Zephyr development**
+        ^^^
+        Compile and flash zephyr to your beagleplay's CC1352P7.
+        +++
+        .. admonition:: Complexity level
+            
+            intermediate
 
-.. card::
-    :link: beagleplay-rtc
-    :link-type: ref
+    .. card::
+        :link: play-kernel-development
+        :link-type: ref
 
-    **Using RTC**
-    ^^^
-    Learn how to use the onboard RTC to keep time.
-    +++
-    .. admonition:: Complexity level
+        **Linux Kernel development**
+        ^^^
+        Compile and install Linux Kernel to your beagleplay.
+        +++
+        .. admonition:: Complexity level
 
-	beginner
+            advanced
 
-.. card::
-    :link: beagleplay-oldi
-    :link-type: ref
+    .. card::
+        :link: greybus-host
+        :link-type: ref
 
-    **Using OLDI**
-    ^^^
-    Learn how to connect and run oldi displays with BeaglePlay.
-    +++
-    .. admonition:: Complexity level
+        **BeaglePlay Greybus Host**
+        +++
+        .. admonition:: Complexity level
+            
+            intermediate
 
-	intermediate
+    .. card::
+        :link: beagleplay-demo-lpm-video
+        :link-type: ref
 
-.. card::
-    :link: beagleplay-csi
-    :link-type: ref
+        **Using Suspend to RAM and video streaming**
+        ^^^
+        Make a DIY video doorbell which can stream video and also save power when left idle!
+        +++
+        .. admonition:: Complexity level
 
-    **Using CSI**
-    ^^^
-    Learn how to connect and run CSI cameras with BeaglePlay.
-    +++
-    .. admonition:: Complexity level
-
-	intermediate
-
-.. card::
-    :link: beagleplay-zephyr-development
-    :link-type: ref
-
-    **Zephyr development**
-    ^^^
-    Compile and flash zephyr to your beagleplay's CC1352P7.
-    +++
-    .. admonition:: Complexity level
-
-	intermediate
-
-.. card::
-    :link: play-kernel-development
-    :link-type: ref
-
-    **Linux Kernel development**
-    ^^^
-    Compile and install Linux Kernel to your beagleplay.
-    +++
-    .. admonition:: Complexity level
-
-	advanced
-
-.. card::
-    :link: greybus-host
-    :link-type: ref
-
-    **BeaglePlay Greybus Host**
-    +++
-    .. admonition:: Complexity level
-
-	intermediate
-
-.. card::
-    :link: play-understanding-boot
-    :link-type: ref
-
-    **Understanding Boot**
-    +++
-    .. admonition:: Complexity level
-
-	intermediate
-
-.. raw:: latex
-
-   \end{comment}
+            intermediate
 
 .. toctree::
    :maxdepth: 1
@@ -167,3 +151,4 @@ Demos and tutorials
    demos-and-tutorials/play-kernel-development
    demos-and-tutorials/greybus-host
    demos-and-tutorials/understanding-boot
+   demos-and-tutorials/low-power-video-doorbell

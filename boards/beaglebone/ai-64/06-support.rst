@@ -3,8 +3,20 @@
 Additional Support Information
 ##############################
 
-All support for this design is through BeagleBoard.org community at: link: `BeagleBoard.org forum <https://forum.beagleboard.org/>`_ .
+All support for this design is through BeagleBoard.org community 
+at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_.
 
+.. _bbai64-certifications:
+
+Certifications and export control
+*********************************
+
+Export designations
+===================
+
+* HS: 8471504090
+* US HS: 8543708800
+* EU HS: 8471707000
 
 .. _hardware-design:
 
@@ -13,6 +25,10 @@ Hardware Design
 
 You can find all BeagleBone AI-64 hardware files `here <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`_ under the `hw` folder.
 
+Production board boot media
+****************************
+
+- `BeagleBone AI-64 Rev B1`_
 
 .. _software-updates:
 
@@ -26,7 +42,7 @@ Follow instructions below to download the latest image for your BeagleBone AI-64
 
 .. _filter-software-distribution-AI-64:
 
-.. figure:: media/ch11/distros.*
+.. figure:: images/ch11/distros.*
    :align: center
    :alt: Filter Software Distributions for BeagleBone AI-64 
 
@@ -39,10 +55,10 @@ Follow instructions below to download the latest image for your BeagleBone AI-64
 To see what SW revision is loaded into the eMMC check `/etc/dogtag`.
 It should look something like as shown below,
 
-```
-root@BeagleBone:~# cat /etc/dogtag
-BeagleBoard.org Debian Bullseye Xfce Image 2022-01-14
-```
+.. code-block:: shell
+
+   root@BeagleBone:~# cat /etc/dogtag
+   BeagleBoard.org Debian Bullseye Xfce Image 2022-01-14
 
 .. _rma-support:
 
@@ -58,27 +74,29 @@ Troubleshooting video output issues
 
 .. warning:: 
 
-   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. See :ref:`display-adapters-figure`.
+   When connecting to an HDMI monitor, make sure your miniDP adapter is *active*. A *passive* adapter will not work. 
+   See :ref:`accessories-cables_minidp_hdmi` accessories section for tested cables list.
 
 
 .. _getting-help:
 
 Getting Help
-*********************************************
+**************
 
-If you need some up to date troubleshooting techniques, you can post your queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/>`_
+If you need some up to date troubleshooting techniques, you can post your 
+queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bbai64>`_
 
 .. _bbai64-Change-history:
 
 Change History
-*********************************************
+****************
 
 This section describes the change history of this document and board. Document changes are not always a result of a board change. A board change will always result in a document change.
 
 .. _bbai64-document-change-history:
 
 Document Change History
-==========================================
+=========================
 
 This table seeks to keep track of major revision cycles in the documentation. Moving forward, we'll seek to align these version numbers across all of the various documentation.
 
@@ -107,14 +125,15 @@ This table seeks to keep track of major revision cycles in the documentation. Mo
 .. _board-changes:
 
 Board Changes
-==========================================
+================
 
 Be sure to check the board revision history in the schematic file in the `BeagleBone AI-64 git repository <https://git.beagleboard.org/beagleboard/beaglebone-ai-64>`_ . Also check the `issues list <https://git.beagleboard.org/beagleboard/beaglebone-ai-64/-/issues>`_ .
 
 .. _rev-B:
 
 Rev B
-------------
+------
+
 We are starting with revision B based on this being an update to the BeagleBone Black AI. However, because this board ended up being so different, we've decided to name it BeagleBone AI-64, rather than simply a new revision. This refers to the Seeed release on 21 Dec 2021 of "BeagleBone AI-64_SCH_Rev B_211221". This is the initial production release.
 
 .. _BeagleBone-AI-64-Mechanical:
@@ -125,40 +144,50 @@ Mechanical Details
 .. _dimensions-and-weight:
 
 Dimensions and Weight
-===========================
+======================
 
-Size: 102.5 x 80 (4" x 3.15")
+.. table:: Dimensions & weight
 
-Max height: #TODO#
-
-PCB Layers: #TODO#
-
-PCB thickness: 2mm (0.08")
-
-RoHS Compliant: Yes
-
-Weight: 192gm
+   +--------------------+----------------------------------------------------+
+   | Parameter          | Value                                              |
+   +====================+====================================================+
+   | Size               | 104 * 83* 37 mm                                    |
+   +--------------------+----------------------------------------------------+
+   | Max heigh          | 23 mm                                              |
+   +--------------------+----------------------------------------------------+
+   | PCB Size           | 102.5*80*2.0 mm                                    |
+   +--------------------+----------------------------------------------------+
+   | PCB Layers         | 14 layers                                          |
+   +--------------------+----------------------------------------------------+
+   | PCB Thickness      | 2.0 mm                                             |
+   +--------------------+----------------------------------------------------+
+   | RoHS compliant     | Yes                                                |
+   +--------------------+----------------------------------------------------+
+   | Gross Weight       | 249g                                               |
+   +--------------------+----------------------------------------------------+
+   | Net Weight         | 193g                                               |
+   +--------------------+----------------------------------------------------+
 
 .. _silkscreen-and-component-locations:
 
 Silkscreen and Component Locations
 =====================================
 
-.. figure:: media/ch09/board-dimensions.*
+.. figure:: images/hardware-design/board-dimensions.*
    :width: 400px
    :align: center 
    :alt: Board Dimensions
    
    Board Dimensions
 
-.. figure:: media/ch09/top-silkscreen.*
+.. figure:: images/hardware-design/top-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Top silkscreen
    
    Top silkscreen
 
-.. figure:: media/ch09/bottom-silkscreen.*
+.. figure:: images/hardware-design/bottom-silkscreen.*
    :width: 400px
    :align: center 
    :alt: Bottom silkscreen
@@ -169,51 +198,51 @@ Silkscreen and Component Locations
 .. _bbai64-pictures:
 
 Pictures
-************
+*********
 
-.. figure:: media/ch10/front.*
+.. figure:: images/ch10/front.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 front
    
    BeagleBone AI-64 front
 
-.. figure:: media/ch10/back.*
+.. figure:: images/ch10/back.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back
    
    BeagleBone AI-64 back
 
-.. figure:: media/ch10/back-heatsink.*
+.. figure:: images/ch10/back-heatsink.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back with heatsink
    
    BeagleBone AI-64 back with heatsink
 
-.. figure:: media/bbai64-45-front.*
+.. figure:: images/bbai64-45-front.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 front at 45° angle
    
    BeagleBone AI-64 front at 45° angle
 
-.. figure:: media/ch10/45-back.*
+.. figure:: images/ch10/45-back.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back at 45° angle
    
    BeagleBone AI-64 back at 45° angle
 
-.. figure:: media/ch10/45-back-heatsink.*
+.. figure:: images/ch10/45-back-heatsink.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 back with heatsink at 45° angle
    
    BeagleBone AI-64 back with heatsink at 45° angle
 
-.. figure:: media/ch10/feature.*
+.. figure:: images/ch10/feature.*
    :width: 400px
    :align: center 
    :alt: BeagleBone AI-64 ports

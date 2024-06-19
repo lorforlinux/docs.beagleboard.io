@@ -14,6 +14,7 @@ Demos
 .. toctree:: 
     :maxdepth: 1
     
+    demos-and-tutorials/gateware/upgrade-gateware
     demos-and-tutorials/flashing-board
     demos-and-tutorials/mchp-fpga-tools-installation-guide
     demos-and-tutorials/gateware/index

@@ -8,12 +8,14 @@ What's included in the box?
 
 When you purchase a brand new BeagleV Ahead, In the box you'll get:
 
-1. BeagleV Ahead board
+1. `BeagleV Ahead board <https://www.beagleboard.org/boards/beaglev-ahead>`_
 2. One (1) 2.4GHz/5GHz antenna
 3. USB super-speed micro-A plug to type-A receptacle cable (for connecting common USB type-A peripherals)
 4. Quick-start card
 
-.. image:: media/BeagleV-Ahead-all.*
+.. tip:: For board files, 3D model, and more, you can checkout `BeagleV-Ahead repository on OpenBeagle <https://openbeagle.org/beaglev-ahead/beaglev-ahead>`_.
+
+.. image:: images/BeagleV-Ahead-all.*
     :width: 724
     :align: center
     :alt: BeagleV Ahead box contents
@@ -21,25 +23,9 @@ When you purchase a brand new BeagleV Ahead, In the box you'll get:
 Unboxing
 *********
 
-.. only:: latex
-    
-   .. image:: https://img.youtube.com/vi/SVC9peUUzE0/maxresdefault.jpg
-      :alt: BeagleV Ahead Unboxing YouTube video
-      :width: 1280
-      :target: https://www.youtube.com/watch?v=SVC9peUUzE0
-
-.. only:: html
-
-    .. raw:: html
-
-        <iframe style="display: block; margin: auto;" width="1280" height="720" style="align:center" 
-        src="https://www.youtube.com/embed/SVC9peUUzE0" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-        </iframe>
-
+.. youtube:: SVC9peUUzE0
+   :width: 100%
+   :align: center
 
 Antenna guide
 *************
@@ -54,7 +40,7 @@ Antenna guide
       in BeagleV Ahead box. Below is a guide to connect the antenna to your 
       BeagleV Ahead board.
 
-      .. figure:: media/antenna-guide/connect.*
+      .. figure:: images/antenna-guide/connect.*
           :align: center
           :alt: Connecting 2.4GHz/5GHz antenna to BeagleV Ahead.
 
@@ -66,7 +52,7 @@ Antenna guide
       If for some reason you want to disconnect the antenna from your BeagleV Ahead board 
       you can follow the guide below to remove the antenna without beaking the uFL antenna connector.
 
-      .. figure:: media/antenna-guide/disconnect.*
+      .. figure:: images/antenna-guide/disconnect.*
           :align: center
           :alt: Removing 2.4GHz/5GHz antenna to BeagleV Ahead.
 
@@ -94,7 +80,7 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
 
       .. note:: If you only have a high-speed micro-B cable you can checkout high-speed micro-B connection guide.
 
-      .. figure:: media/usb-guide/super-speed-micro-B-connection.*
+      .. figure:: images/usb-guide/super-speed-micro-B-connection.*
           :align: center
           :alt: super-speed micro-B (USB 3.0) connection guide for BeagleV Ahead.
           
@@ -113,7 +99,7 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
 
       .. note:: Make sure the high-speed micro-B cable you have is a data cable as some high-speed micro-B cables are power only.        
 
-      .. figure:: media/usb-guide/high-speed-micro-B-connection.*
+      .. figure:: images/usb-guide/high-speed-micro-B-connection.*
           :align: center
           :alt: high-speed micro-B (USB 2.0) connection guide BeagleV Ahead.
 
@@ -132,7 +118,7 @@ Download latest software image
 To download the latest software image visit `https://www.beagleboard.org/distros <https://www.beagleboard.org/distros>`_ and 
 search for BeagleV Ahead as shown below.
 
-.. figure:: media/Software-Image.png
+.. figure:: images/Software-Image.png
     :align: center
     :alt: Download latest software image for BeagleV Ahead board
 
@@ -150,7 +136,7 @@ To put your BeagleV Ahead board into eMMC flash mode you can follow the steps be
 2. Connect to PC with super-speed micro-B or high-speed micro-B cable.
 3. Release USB button.
 
-.. figure:: media/usb-guide/Flash-eMMC.*
+.. figure:: images/usb-guide/Flash-eMMC.*
     :align: center
     :alt: Connecting BeagleV Ahead to flash eMMC
 
@@ -229,7 +215,7 @@ Access UART debug console
 To access a BeagleV Ahead serial debug console you can connected a USB to UART 
 to your board as shown below:
 
-.. figure:: media/debug/BeagleV-Ahead-UART-Debug.*
+.. figure:: images/debug/BeagleV-Ahead-UART-Debug.*
     :align: center
     :alt: BeagleV Ahead UART debug port connection
 
@@ -257,7 +243,7 @@ When you do this, you'll be required to power the board via Barrel jack.
 .. important:: To properly power the board and USB gadgets you must power 
     the board with 5V @ 2A power supply.
 
-.. figure:: media/usb-guide/OTG-usage.*
+.. figure:: images/usb-guide/OTG-usage.*
     :align: center
     :alt: USB OTG to connect USB gadgets to BeagleV Ahead board
 

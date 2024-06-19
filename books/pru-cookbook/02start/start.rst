@@ -175,7 +175,7 @@ Solution
 On your host computer open a browser and go to
 http://www.beagleboard.org/distros.
 
-.. TODO  Update links
+.. todo::  Update links
 
 This shows you two current choices of recent Debian images,
 one for the BeagleBone AI 
@@ -330,7 +330,7 @@ Solution
 The 'hello, world' of the embedded world is to flash an LED. :ref:`start_hello` 
 is some code that blinks the ``USR3`` LED ten times using the PRU.
 
-.. TODO The *'s and _'s in the code are messing with the formatting.
+.. todo:: The 's and _'s in the code are messing with the formatting.
 
 .. _start_hello:
 

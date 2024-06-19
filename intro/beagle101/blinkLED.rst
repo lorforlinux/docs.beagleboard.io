@@ -3,8 +3,8 @@
 
 .. _blinkLED:
 
-Blink LED
-#########
+Blink an LED
+############
 
 The "Hello World!" of the embedded world is to blink an LED. 
 Here we'll show you how to do just that in three simple steps. 
@@ -113,6 +113,8 @@ load up Linux.  This is because all Beagles
 (except PocketBeagle, see :ref:`flash-latest-image` 
 to install an image on the Pocket) have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
+
+.. _intro-using-vs-code:
 
 Using VS Code
 **************

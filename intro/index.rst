@@ -1,7 +1,3 @@
-..
-
-   This adds content to the print version that is in /index.rst, but skipped in /index-tex.rst
-
 .. _introduction:
 
 Introduction
