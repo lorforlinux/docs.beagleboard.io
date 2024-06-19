@@ -46,7 +46,7 @@ can provide 5V ≥ 3A. Checkout the :ref:`docs power supply page <accessories-po
 Boot Media (Software image)
 *****************************
 
-We have two methods to prepare bootable microSD card,
+We have two methods to prepare bootable microSD card, It is recommended to use :ref:`beagley-ai-bb-imager`.
 
 1. :ref:`beagley-ai-bb-imager` 
 2. :ref:`beagley-ai-balena-etcher`
