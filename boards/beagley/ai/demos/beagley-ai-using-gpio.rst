@@ -71,7 +71,7 @@ At it's most basic, we can set a GPIO using the **gpioset** command.
 
 .. code:: console
 
-   gpioset hat-08-gpio 0=1
+   gpioset $(gpiofind GPIO14)=1
 
 .. figure:: ../images/gpio/on.png
    :align: center
@@ -83,7 +83,7 @@ At it's most basic, we can set a GPIO using the **gpioset** command.
 
 .. code:: console
 
-   gpioset hat-08-gpio 0=0
+   gpioset $(gpiofind GPIO14)=0
 
 .. figure:: ../images/gpio/off.png
    :align: center
@@ -116,9 +116,9 @@ Let's create a script called **blinky.sh**,
 
    while :
    do
-	   gpioset hat-08-gpio 0=1
+	   gpioset $(gpiofind GPIO14)=1
 	   sleep 1
-	   gpioset hat-08-gpio 0=0
+	   gpioset $(gpiofind GPIO14)=0
 	   sleep 1
    done
 
@@ -149,9 +149,9 @@ Understanding the code
 
       while :
       do
-         gpioset hat-08-gpio 0=1 <1>
+         gpioset $(gpiofind GPIO14)=1 <1>
          sleep 1 <2>
-         gpioset hat-08-gpio 0=0 <3>
+         gpioset $(gpiofind GPIO14)=0 <3>
          sleep 1 <4>
       done
 
@@ -159,11 +159,11 @@ Understanding the code
 
       The script is an infinite ``while`` loop in which we do the following:
 
-      <1> set the HAT Pin 8 as 1 (HIGH)
+      <1> set the HAT Pin 8 (GPIO14) as 1 (HIGH)
 
       <2> Wait 1 Second
 
-      <3> set the HAT Pin 8 as 0 (LOW)
+      <3> set the HAT Pin 8 (GPIO14) as 0 (LOW)
 
       <4> Wait 1 Second
 
@@ -272,9 +272,9 @@ Let's create a script called **blinkyButton.sh**:
       do
 	      if (( $(gpioget hat-12-gpio-pu 0) == 0))
 	      then
-		      gpioset hat-08-gpio 0=1
+		      gpioset $(gpiofind GPIO14)=1
 	      else
-		      gpioset hat-08-gpio 0=0
+		      gpioset $(gpiofind GPIO14)=0
 	      fi
       done
 
@@ -367,13 +367,13 @@ Bonus - Turn all GPIOs ON/OFF
 
 .. code:: bash
 
-   gpioset hat-08-gpio 0=1 ;\ gpioset hat-10-gpio 0=1 ;\ gpioset hat-11-gpio 0=1 ;\ gpioset hat-12-gpio 0=1 ;\ gpioset hat-13-gpio 0=1 ;\ gpioset hat-15-gpio 0=1 ;\ gpioset hat-16-gpio 0=1 ;\ gpioset hat-18-gpio 0=1 ;\ gpioset hat-19-gpio 0=1 ;\ gpioset hat-21-gpio 0=1 ;\ gpioset hat-22-gpio 0=1 ;\ gpioset hat-23-gpio 0=1 ;\ gpioset hat-24-gpio 0=1 ;\ gpioset hat-26-gpio 0=1 ;\ gpioset hat-29-gpio 0=1 ;\ gpioset hat-31-gpio 0=1 ;\ gpioset hat-32-gpio 0=1 ;\ gpioset hat-33-gpio 0=1 ;\ gpioset hat-35-gpio 0=1 ;\ gpioset hat-36-gpio 0=1 ;\ gpioset hat-37-gpio 0=1 ;\ gpioset hat-40-gpio 0=1
+   gpioset $(gpiofind GPIO14)=1 ;\ gpioset $(gpiofind GPIO15)=1 ;\ gpioset $(gpiofind GPIO17)=1 ;\ gpioset $(gpiofind GPIO18)=1 ;\ gpioset $(gpiofind GPIO27)=1 ;\ gpioset $(gpiofind GPIO22)=1 ;\ gpioset $(gpiofind GPIO23)=1 ;\ gpioset $(gpiofind GPIO24)=1 ;\ gpioset $(gpiofind GPIO10)=1 ;\ gpioset $(gpiofind GPIO9)=1 ;\ gpioset $(gpiofind GPIO25)=1 ;\ gpioset $(gpiofind GPIO11)=1 ;\ gpioset $(gpiofind GPIO8)=1 ;\ gpioset $(gpiofind GPIO7)=1 ;\ gpioset $(gpiofind GPIO1)=1 ;\ gpioset $(gpiofind GPIO6)=1 ;\ gpioset $(gpiofind GPIO12)=1 ;\ gpioset $(gpiofind GPIO13)=1 ;\ gpioset $(gpiofind GPIO19)=1 ;\ gpioset $(gpiofind GPIO16)=1 ;\ gpioset $(gpiofind GPIO26)=1 ;\ gpioset $(gpiofind GPIO21)=1
 
 - Similarly, copy and paste this to turn **all pins OFF**. 
 
 .. code:: bash
 
-   gpioset hat-08-gpio 0=0 ;\ gpioset hat-10-gpio 0=0 ;\ gpioset hat-11-gpio 0=0 ;\ gpioset hat-12-gpio 0=0 ;\ gpioset hat-13-gpio 0=0 ;\ gpioset hat-15-gpio 0=0 ;\ gpioset hat-16-gpio 0=0 ;\ gpioset hat-18-gpio 0=0 ;\ gpioset hat-19-gpio 0=0 ;\ gpioset hat-21-gpio 0=0 ;\ gpioset hat-22-gpio 0=0 ;\ gpioset hat-23-gpio 0=0 ;\ gpioset hat-24-gpio 0=0 ;\ gpioset hat-26-gpio 0=0 ;\ gpioset hat-29-gpio 0=0 ;\ gpioset hat-31-gpio 0=0 ;\ gpioset hat-32-gpio 0=0 ;\ gpioset hat-33-gpio 0=0 ;\ gpioset hat-35-gpio 0=0 ;\ gpioset hat-36-gpio 0=0 ;\ gpioset hat-37-gpio 0=0 ;\ gpioset hat-40-gpio 0=0
+   gpioset $(gpiofind GPIO14)=0 ;\ gpioset $(gpiofind GPIO15)=0 ;\ gpioset $(gpiofind GPIO17)=0 ;\ gpioset $(gpiofind GPIO18)=0 ;\ gpioset $(gpiofind GPIO27)=0 ;\ gpioset $(gpiofind GPIO22)=0 ;\ gpioset $(gpiofind GPIO23)=0 ;\ gpioset $(gpiofind GPIO24)=0 ;\ gpioset $(gpiofind GPIO10)=0 ;\ gpioset $(gpiofind GPIO9)=0 ;\ gpioset $(gpiofind GPIO25)=0 ;\ gpioset $(gpiofind GPIO11)=0 ;\ gpioset $(gpiofind GPIO8)=0 ;\ gpioset $(gpiofind GPIO7)=0 ;\ gpioset $(gpiofind GPIO1)=0 ;\ gpioset $(gpiofind GPIO6)=0 ;\ gpioset $(gpiofind GPIO12)=0 ;\ gpioset $(gpiofind GPIO13)=0 ;\ gpioset $(gpiofind GPIO19)=0 ;\ gpioset $(gpiofind GPIO16)=0 ;\ gpioset $(gpiofind GPIO26)=0 ;\ gpioset $(gpiofind GPIO21)=0
 
 
 Going Further
