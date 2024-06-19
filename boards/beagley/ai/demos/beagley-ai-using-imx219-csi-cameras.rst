@@ -59,7 +59,7 @@ Your ``/boot/firmware/extlinux/extlinux.conf`` file should look something like t
       kernel /Image
       append console=ttyS2,115200n8 root=/dev/mmcblk0p2 ro rootfstype=ext4 rootwait net.ifnames=0
       fdtdir /
-      fdt /ti/k3-j722s-beagley-ai.dtb
+      fdt /ti/k3-am67a-beagley-ai.dtb
       fdtoverlays /overlays/k3-am67a-beagley-ai-csi0-imx219.dtbo
       initrd /initrd.img
 
