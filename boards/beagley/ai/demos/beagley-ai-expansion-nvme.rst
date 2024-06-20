@@ -91,10 +91,11 @@ Here we see that two devices are connected, ``mmcblk1`` corresponds to our SD ca
 
 If your drives aren't listed as expected, please check the Troubleshooting section at the end of this document. 
 
-Step 3a. Copy your filesystem and modify extlinux.conf for NVMe boot over serial (recommended)
+Step 3a. Transfer your root filesystem over to NVMe with a bootmenu option (recommended)
 ================================================================================================
 
-For this method, you must use the serial port, to select the ``2: transfer microSD rootfs to NVMe (advanced)`` the boot menu option:
+For this method, you will need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
+or similar serial (USB to UART) adapter, to select the ``2: transfer microSD rootfs to NVMe (advanced)`` the boot menu option:
 
 .. code:: console
 
@@ -111,7 +112,7 @@ For this method, you must use the serial port, to select the ``2: transfer micro
 The BeagleY-AI will shutdown when complete
 
 
-Step 3b. Copy your filesystem and modify extlinux.conf for NVMe boot over user-space
+Step 3b. Transfer your root filesystem over to NVMe with a shell script
 =======================================================================================
 
 A variety of useful scripts are available  in ``/opt/``, one of them enables us to move our micro-sd contents to NVMe and make BeagleY-AI boot from there directly.
