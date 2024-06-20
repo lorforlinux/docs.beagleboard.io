@@ -173,7 +173,7 @@ Balena Etcher
 ==============
 
 Download and install `Balena Etcher <https://etcher.balena.io/>`_ and then download the boot media from
-`https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-15-xfce <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-15-xfce>`_. 
+`https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-19-xfce <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-19-xfce>`_. 
 Flash it on a microSD card using `Balena Etcher <https://etcher.balena.io/>`_ following the steps below:
 
 1. Select downloaded boot media
