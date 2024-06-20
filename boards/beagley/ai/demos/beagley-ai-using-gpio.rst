@@ -53,21 +53,15 @@ to simulate a button press.
 GPIO Write
 ***********
 
-Before using any pin with HAT Pin number we need to configure it using command below,
-
-.. code:: console
-
-   sudo beagle-pin-mux --pin hat-08 --mode gpio
-
 .. figure:: ../images/gpio/led-pin8.*
    :align: center
-   :alt: LED connected to HAT Pin8
+   :alt: LED connected to HAT Pin8 (GPIO14)
 
-   LED connected to HAT Pin8
+   LED connected to HAT Pin8 (GPIO14)
 
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
-- To set HAT **Pin 8** to **ON**:
+- To set HAT **Pin 8** (GPIO14) to **ON**:
 
 .. code:: console
 
@@ -79,7 +73,7 @@ At it's most basic, we can set a GPIO using the **gpioset** command.
 
    GPIO ON state
 
-- To set HAT **Pin 8** to **OFF**:
+- To set HAT **Pin 8** (GPIO14) to **OFF**:
 
 .. code:: console
 
@@ -116,10 +110,10 @@ Let's create a script called **blinky.sh**,
 
    while :
    do
-	   gpioset $(gpiofind GPIO14)=1
-	   sleep 1
-	   gpioset $(gpiofind GPIO14)=0
-	   sleep 1
+         gpioset $(gpiofind GPIO14)=1
+         sleep 1
+         gpioset $(gpiofind GPIO14)=0
+         sleep 1
    done
 
 - Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
@@ -178,13 +172,7 @@ We will connect our Button between HAT Pin 12 (GPIO18) and Ground (GND).
    :align: center
    :alt: Button connected to HAT Pin12
 
-   Button connected to HAT Pin12
-
-- Configure pin12 as ``gpio`` using command below,
-
-.. code:: console
-
-   sudo beagle-pin-mux --pin hat-12 --mode gpio-pu
+   Button connected to HAT Pin12 (GPIO18)
 
 The cool part is since we have an internal pull-up resistor, we don't need an external one!
 The pull resistor guarantees that the Pin stays in a known (HIGH) state unless the button is pressed,
@@ -194,7 +182,7 @@ in which case it will go LOW.
 
 .. code:: console
 
-   gpioget hat-12-gpio-pu 0
+   gpioget --bias=pull-up $(gpiofind GPIO18)
    
 Results in ``1`` if the Input is held ``HIGH`` or ``0`` if the Input is held ``LOW``
 
@@ -221,10 +209,10 @@ to a button and print out when it's pressed!
 
    while :
    do
-	   if (( $(gpioget hat-12-gpio-pu 0) == 0))
-	   then
-		echo "Button Pressed!"
-	   fi
+      if (( $(gpioget --bias=pull-up $(gpiofind GPIO18)) == 0))
+      then
+         echo "Button Pressed!"
+      fi
    done
 
 - Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
@@ -242,9 +230,9 @@ Combining the Two
 
 .. figure:: ../images/gpio/switch-pin12-led-pin8.*
    :align: center
-   :alt: Button connected to HAT Pin12 & LED connected to HAT Pin8
+   :alt: Button connected to HAT Pin12 (GPIO18) & LED connected to HAT Pin8 (GPIO14)
 
-   Button connected to HAT Pin12 & LED connected to HAT Pin8
+   Button connected to HAT Pin12 (GPIO18) & LED connected to HAT Pin8 (GPIO14)
 
 Now, logically, let's make an LED match the state of the button.
 
@@ -269,14 +257,14 @@ Let's create a script called **blinkyButton.sh**:
    #!/bin/bash
 
    while :
-      do
-	      if (( $(gpioget hat-12-gpio-pu 0) == 0))
-	      then
-		      gpioset $(gpiofind GPIO14)=1
-	      else
-		      gpioset $(gpiofind GPIO14)=0
-	      fi
-      done
+   do
+      if (( $(gpioget --bias=pull-up $(gpiofind GPIO18)) == 0))
+      then
+         gpioset $(gpiofind GPIO14)=1
+      else
+         gpioset $(gpiofind GPIO14)=0
+      fi
+   done
 
 - Close the editor by pressing ``Ctrl + O`` followed by ``Enter`` to save the file and then press to ``Ctrl + X`` exit
 
@@ -286,8 +274,8 @@ Let's create a script called **blinkyButton.sh**:
 
    bash blinkyButton.sh
 
-This means when we see HAT Pin 12 go LOW, we know the button is pressed, 
-so we set HAT Pin 8 (our LED) to ON, otherwise, we turn it OFF.
+This means when we see HAT Pin 12 (GPIO18) go LOW, we know the button is pressed,
+so we set HAT Pin 8 (GPIO14) (our LED) to ON, otherwise, we turn it OFF.
 
 .. figure:: ../images/gpio/BlinkyButton.gif
    :align: center
@@ -324,11 +312,11 @@ The "Bias" argument has the following options:
    * **pull-down** - In this state, the pin is pulled DOWN by the internal 50KΩ resistor
    * **pull-up** - In this state, the pin is pulled UP by the internal 50KΩ resistor
 
-For example, a command to read an input with the Bias intentionally disabled would look  like this:
+For example, a command to read an input with the Bias intentionally disabled would look like this:
 
 .. code:: bash
 
-   gpioget --bias=disable hat-08-gpio 0
+   gpioget --bias=disable $(gpiofind GPIO14)
 
 Pull resistors are a foundational block of digital circuits and understanding when to (and not to) use them is important.
 
