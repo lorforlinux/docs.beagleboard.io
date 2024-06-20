@@ -53,6 +53,12 @@ to simulate a button press.
 GPIO Write
 ***********
 
+.. figure:: ../images/gpio/led-pin8.*
+   :align: center
+   :alt: LED connected to HAT Pin8 (GPIO14)
+
+   LED connected to HAT Pin8 (GPIO14)
+
 At it's most basic, we can set a GPIO using the **gpioset** command. 
 
 - To set HAT **Pin 8** (GPIO14) to **ON**:
