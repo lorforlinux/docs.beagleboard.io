@@ -84,16 +84,35 @@ The command ``lsblk`` will list the attached storage devices on the system:
     ├─mmcblk1p2 179:2    0    4G  0 part [SWAP]
     └─mmcblk1p3 179:3    0 25.5G  0 part /
     nvme0n1     259:0    0 476.9G  0 disk
-    └─nvme0n1p1 259:1    0 476.9G  0 part 
+    └─nvme0n1p1 259:1    0 476.9G  0 part
 
 Here we see that two devices are connected, ``mmcblk1`` corresponds to our SD card, and ``nvme0n1`` corresponds to our NVMe drive, so everything is ready to go!
 
 
 If your drives aren't listed as expected, please check the Troubleshooting section at the end of this document. 
 
+Step 3a. Copy your filesystem and modify extlinux.conf for NVMe boot over serial (recommended)
+================================================================================================
 
-Step 3. Copy your filesystem and modify extlinux.conf for NVMe boot
-===========================================================================
+For this method, you must use the serial port, to select the ``2: transfer microSD rootfs to NVMe (advanced)`` the boot menu option:
+
+.. code:: console
+
+    Scanning mmc 1:1...
+    Found /extlinux/extlinux.conf
+    Retrieving file: /extlinux/extlinux.conf
+    BeagleY-AI microSD (extlinux.conf) (swap enabled)
+    1:	microSD (production test)
+    2:	transfer microSD rootfs to NVMe (advanced)
+    3:	microSD (debug)
+    4:	microSD (default)
+    Enter choice: 2
+
+The BeagleY-AI will shutdown when complete
+
+
+Step 3b. Copy your filesystem and modify extlinux.conf for NVMe boot over user-space
+=======================================================================================
 
 A variety of useful scripts are available  in ``/opt/``, one of them enables us to move our micro-sd contents to NVMe and make BeagleY-AI boot from there directly.
 
