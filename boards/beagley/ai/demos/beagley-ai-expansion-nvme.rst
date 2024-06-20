@@ -101,11 +101,17 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 .. note:: This will copy the entire contents of your SD card to the NVMe drive, so expect it to take upwards of 15 minutes. This only needs to be run one time
 
-.. code:: bash
+.. code:: console
 
    sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-ai-microsd-to-nvme-w-swap /etc/default/beagle-flasher
+
+.. code:: console
+
    sudo beagle-flasher-mv-rootfs-to-nvme
-   sudo reboot 
+
+.. code:: console
+
+   sudo reboot
 
 Enjoy NVMe speeds!
 ==================
