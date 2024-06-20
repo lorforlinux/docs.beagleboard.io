@@ -48,12 +48,15 @@ To enable and install WSL, follow these steps:
 
 
 After installing the necessary tools, proceed to the repository and follow the instructions in the README to build the bitstream on Windows
+
+
 Repository
 ------------
 Access the BeagleV-Fire gateware builder repository at https://openbeagle.org/cyril-jean/gateware-maintenance/ 
 
 
 .. note::
+
     If you encounter an end-of-line error (CRLF/LF) during the build process, change the local Git configuration *core.autocrlf* to false and clone the repository again
 
 
@@ -64,6 +67,7 @@ Access the BeagleV-Fire gateware builder repository at https://openbeagle.org/cy
 
 
 .. note::  
+
     - Should the build fail due to an unrecognized Python package, despite the package being installed, it may be due to multiple Python/pip versions. Reinstall the package using.
 
     .. code-block::
