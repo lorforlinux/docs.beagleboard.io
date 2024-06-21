@@ -40,7 +40,7 @@ The X1000 above uses the slightly uncommon 2242 drive size, so, an adapter may b
 Step by step
 ************
 
-.. note:: This article was written using the `BeagleY-AI Debian XFCE 12.5 2024-03-25 image <https://www.beagleboard.org/distros/beagley-ai-debian-xfce-12-5-2024-03-25/>`_.
+.. note:: This article was written using the `BeagleY-AI Debian XFCE 12.5 2024-06-12 image <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce/>`_.
 
 Step 1. Boot from SD Normally
 ==================================
@@ -62,7 +62,7 @@ The command ``lspci`` will list the attached PCI Express devices on the system:
 
 .. code:: console
 
-    debian@BeagleY:~$ lspci    
+    debian@BeagleY:~$ lspci
 
 You should see an output similar to the following, where the first entrance is the SoC internal PCI Express bridge device and the second device listed is your NVMe drive, in this case, a Kingston OM3PDP3 drive.
 
@@ -84,16 +84,36 @@ The command ``lsblk`` will list the attached storage devices on the system:
     ├─mmcblk1p2 179:2    0    4G  0 part [SWAP]
     └─mmcblk1p3 179:3    0 25.5G  0 part /
     nvme0n1     259:0    0 476.9G  0 disk
-    └─nvme0n1p1 259:1    0 476.9G  0 part 
+    └─nvme0n1p1 259:1    0 476.9G  0 part
 
 Here we see that two devices are connected, ``mmcblk1`` corresponds to our SD card, and ``nvme0n1`` corresponds to our NVMe drive, so everything is ready to go!
 
 
 If your drives aren't listed as expected, please check the Troubleshooting section at the end of this document. 
 
+Step 3a. Transfer your root filesystem over to NVMe with a bootmenu option (recommended)
+================================================================================================
 
-Step 3. Copy your filesystem and modify extlinux.conf for NVMe boot
-===========================================================================
+For this method, you will need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
+or similar serial (USB to UART) adapter, to select the ``2: transfer microSD rootfs to NVMe (advanced)`` the boot menu option:
+
+.. code:: console
+
+    Scanning mmc 1:1...
+    Found /extlinux/extlinux.conf
+    Retrieving file: /extlinux/extlinux.conf
+    BeagleY-AI microSD (extlinux.conf) (swap enabled)
+    1:	microSD (production test)
+    2:	transfer microSD rootfs to NVMe (advanced)
+    3:	microSD (debug)
+    4:	microSD (default)
+    Enter choice: 2
+
+The BeagleY-AI will shutdown when complete
+
+
+Step 3b. Transfer your root filesystem over to NVMe with a shell script
+=======================================================================================
 
 A variety of useful scripts are available  in ``/opt/``, one of them enables us to move our micro-sd contents to NVMe and make BeagleY-AI boot from there directly.
 
@@ -101,11 +121,35 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 .. note:: This will copy the entire contents of your SD card to the NVMe drive, so expect it to take upwards of 15 minutes. This only needs to be run one time
 
-.. code:: bash
+.. code:: console
 
-   sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-ai-microsd-to-nvme-w-swap /etc/default/beagle-flasher
-   sudo beagle-flasher-mv-rootfs-to-nvme
-   sudo reboot 
+    sudo cp -v /opt/u-boot/bb-u-boot-beagley-ai/beagley-ai-microsd-to-nvme-w-swap /etc/default/beagle-flasher
+
+.. code:: console
+
+    sudo beagle-flasher-mv-rootfs-to-nvme
+
+.. code:: console
+
+    sudo reboot
+
+
+Step 4. (optional) Verify u-boot (Serial Debug) will jump to the rootfs on the NVMe
+===========================================================================
+
+.. note:: boot menu ``1: return to microSD`` will allow you to return to the microSD rootfs for any reasons.
+
+.. code:: console
+
+    Scanning mmc 1:1...
+    Found /extlinux/extlinux.conf
+    Retrieving file: /extlinux/extlinux.conf
+    BeagleY-AI NVMe (extlinux.conf) (swap enabled)
+    1:	return to microSD
+    2:	NVMe (debug)
+    3:	NVMe (default)
+    Enter choice: 3
+
 
 Enjoy NVMe speeds!
 ==================
@@ -118,12 +162,13 @@ It's subtle, but the change can be seen by running ``lsblk`` again.
 
     debian@BeagleY:~$ lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-    mmcblk1     179:0    0 29.7G  0 disk
-    ├─mmcblk1p1 179:1    0  256M  0 part /boot/firmware
-    ├─mmcblk1p2 179:2    0    4G  0 part
-    └─mmcblk1p3 179:3    0 25.5G  0 part
-    nvme0n1     259:0    0 476.9G  0 disk
-    └─nvme0n1p1 259:1    0 476.9G  0 part /
+    mmcblk1     179:0    0  29.8G  0 disk
+    ├─mmcblk1p1 179:1    0   256M  0 part /boot/firmware
+    ├─mmcblk1p2 179:2    0     4G  0 part
+    └─mmcblk1p3 179:3    0  25.6G  0 part
+    nvme0n1     259:0    0 931.5G  0 disk
+    ├─nvme0n1p1 259:1    0     4G  0 part [SWAP]
+    └─nvme0n1p2 259:2    0 927.5G  0 part /
 
 Congratulations! 
 

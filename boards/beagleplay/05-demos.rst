@@ -78,6 +78,18 @@ Demos and tutorials
             beginner
 
     .. card:: 
+        :link: beagleplay-rtc
+        :link-type: ref
+
+        **Using RTC**
+        ^^^
+        Learn to use on-board RTC of your BeaglePlay board.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
+
+    .. card:: 
         :link: beagleplay-oldi
         :link-type: ref
 
@@ -136,6 +148,16 @@ Demos and tutorials
             intermediate
 
     .. card::
+        :link: beagleplay-understanding-boot
+        :link-type: ref
+
+        **Understanding boot**
+        +++
+        .. admonition:: Complexity level
+            
+            intermediate
+
+    .. card::
         :link: beagleplay-demo-lpm-video
         :link-type: ref
 
@@ -148,18 +170,19 @@ Demos and tutorials
             intermediate
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+    :maxdepth: 1
+    :hidden:
 
-   demos-and-tutorials/using-serial-console
-   demos-and-tutorials/connect-wifi
-   demos-and-tutorials/using-grove
-   demos-and-tutorials/using-mikrobus
-   demos-and-tutorials/using-qwiic
-   demos-and-tutorials/using-oldi
-   demos-and-tutorials/using-csi
-   demos-and-tutorials/zephyr-cc1352-development
-   demos-and-tutorials/play-kernel-development
-   demos-and-tutorials/greybus-host
-   demos-and-tutorials/understanding-boot
-   demos-and-tutorials/low-power-video-doorbell
+    demos-and-tutorials/using-serial-console
+    demos-and-tutorials/connect-wifi
+    demos-and-tutorials/using-grove
+    demos-and-tutorials/using-mikrobus
+    demos-and-tutorials/using-qwiic
+    demos-and-tutorials/using-rtc
+    demos-and-tutorials/using-oldi
+    demos-and-tutorials/using-csi
+    demos-and-tutorials/zephyr-cc1352-development
+    demos-and-tutorials/play-kernel-development
+    demos-and-tutorials/greybus-host
+    demos-and-tutorials/understanding-boot
+    demos-and-tutorials/low-power-video-doorbell

@@ -20,7 +20,7 @@ This project and everyone participating in it is governed by the [BeagleBoard.or
 
 If you are new to Sphinx, RST, or git then you can checkout out our [How can I contribute? guide](https://docs.beagleboard.org/latest/intro/contribution/how.html).
 
-See more about contribution at https://docs.beagleboard.org/en/latest/intro/contribution/.
+See more at https://docs.beagleboard.org/latest/intro/contribution/.
 
 ### Forking the Project
 
