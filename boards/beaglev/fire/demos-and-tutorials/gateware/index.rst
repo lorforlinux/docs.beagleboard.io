@@ -19,7 +19,8 @@ The diagram below is a simplified overview of the gateware's structure.
 
     
 The overall gateware is made-up of several blocks, some of them interchangeable. These blocks are
-all clocked and reset by another "Clock and Resets" block not showed in the diagram for clarity.
+all clocked and reset by another "Clock and Resets" block not showed in the diagram for clarity. A 125MHz,
+and a 160MHz clock are provided for use by the gateware blocks.
 
 Each gateware block is associated with one of BeagleV-Fire's connectors.
 
