@@ -103,7 +103,7 @@ Following the annotation in the image above:
 2. Click on ``RUN`` button
 3. Shows the progress
 
-If you see a lot of green color and progess bar says
+If you see a lot of green color and progress bar says
 `PASSED`` then well done you have successfully flashed
 the gateware image on your BeagleV-Fire board.
 
@@ -127,8 +127,8 @@ in the
     :align: center
     :alt: BeagleV-Fire booting HSS with progress bar
 
-Once you see that progress bar on your screem you can start pressing any
-button (0-9/a-z) which whill stop the board from fully botting and you'll be
+Once you see that progress bar on your screen you can start pressing any
+button (0-9/a-z) which will stop the board from fully booting and you'll be
 able to access Hart Software Services (HSS) prompt. BeagleV-Fire's eMMC content is
 written by the Hart Software Services (HSS) using the ``usbdmsc`` command. The
 HSS ``usbdmsc`` command exposes the eMMC as a USB mass storage device USB type C connector.
