@@ -205,11 +205,11 @@ We will add a simple Verilog source file, ``blinky.v``, in the ``MY_LOVELY_CAPE`
     begin
         if(~resetn)
             begin
-                counter <= 16'h0000;
+                counter <= 23'h0;
             end
         else
             begin
-                counter <= counter + 1;
+                counter <= counter + 23'b1;
             end
     end
     endmodule
