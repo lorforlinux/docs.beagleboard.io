@@ -76,10 +76,13 @@ HERE
 
 		# Update docs.beagleboard.org
 		if [ "$CI_COMMIT_TAG" != "" ]; then
+			mkdir -p ~/.ssh
+			eval "$(ssh-agent -s)"
+			echo "${PRIVATE_KEY}" | base64 -d | ssh-add -
 			if [ "$VER_DIR" = "latest" ]; then
-				cp public/index.html /var/www/docs
+				rsync -e 'ssh -p 45 -o "StrictHostKeyChecking=no"' -vP public/index.html docs@beagleboard.org:/var/www/docs/
 			fi
-			rsync -v -a --delete public/$VER_DIR/. /var/www/docs/$VER_DIR
+			rsync -e 'ssh -p 45 -o "StrictHostKeyChecking=no"' -avP --delete public/$VER_DIR/. docs@beagleboard.org:/var/www/docs/$VER_DIR
 		fi
 	fi
 }

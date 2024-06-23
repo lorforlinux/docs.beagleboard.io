@@ -1,10 +1,10 @@
-image: beagle/sphinx-build-env:latest
+image: registry.git.beagleboard.org/docs/sphinx-build-env:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 cache:
-  key: sphinx-build-env-docs-001
+  key: sphinx-build-env-docs-003
   paths:
   - .venv
   - .cache
@@ -45,7 +45,7 @@ docs:
     - "build: [html]"
     - "build: [pdf]"
   tags:
-  - docs
+  - docker-amd64
   script:
   - ./gitlab-build.sh publish
   artifacts:

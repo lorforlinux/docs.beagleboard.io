@@ -3,9 +3,11 @@
 Expansion
 #########
 
-.. note::
+:bdg-danger:`Work in progress`
 
-   This chapter is a work in progress and will include information on building expansion hardware for BeaglePlay.
+.. todo::
+
+   Add information on building expansion hardware for BeaglePlay.
 
 mikroBUS
 *********

@@ -3,28 +3,17 @@
 BeagleV-Fire
 ###################
 
+:bdg-danger:`Work in progress`
+
 BeagleV®-Fire is a revolutionary SBC powered by the Microchip's PolarFire® MPFS025T RISC-V System on Chip 
 (SoC) with FPGA fabric. BeagleV®-Fire opens up new horizons for developers, tinkerers, and the open-source community to explore the vast potential 
 of RISC-V architecture and FPGA technology. It has the same P8 & P9 cape header pins as BeagleBone Black allowing you to stack your favorite BeagleBone 
 cape on top to expand it's capability. Built around the powerful and energy-efficient RISC-V instruction set architecture (ISA) along with its versatile FPGA fabric, 
 BeagleV®-Fire SBC offers unparalleled opportunities for developers, hobbyists, and researchers to explore and experiment with RISC-V technology.
 
-.. admonition:: License Terms
-
-    * This documentation is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-    * Design materials and license can be found in the `git repository <https://git.beagleboard.org/beaglev-fire/beaglev-fire>`__
-    * Use of the boards or design materials constitutes an agreement to the :ref:`boards-terms-and-conditions`
-    * Software images and purchase links available on the `board page <https://www.beagleboard.org/boards/beaglev-fire>`__
-    * For export, emissions and other compliance, see :ref:`beaglev-fire-support`
-    * All support for BeagleV Fire design is through BeagleBoard.org community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/fire>`_.
-
 .. image:: images/BeagleV-Fire-hero.*
     :align: center
     :alt: BeagleV-Fire hero image
-
-.. important::
-    This is a work in progress, for latest documentation please 
-    visit https://docs.beagleboard.org/latest/
 
 .. only:: html
 
