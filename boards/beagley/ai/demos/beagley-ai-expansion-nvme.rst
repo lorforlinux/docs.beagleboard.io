@@ -43,7 +43,7 @@ Step by step
 .. note:: This article was written using the `BeagleY-AI Debian XFCE 12.5 2024-06-12 image <https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-12-xfce/>`_.
 
 Step 1. Boot from SD Normally
-==================================
+===============================
 
 Grab the latest BeagleY-AI SD Image from (`BeagleBoard.org/distros <https://www.beagleboard.org/distros>`_.) 
 
@@ -56,7 +56,7 @@ Once logged in and at the terminal, make sure your system is up to date (a reboo
 
 
 Step 2. Verify that your NVMe drive is detected
-============================================================
+=================================================
 
 The command ``lspci`` will list the attached PCI Express devices on the system:
 
@@ -92,8 +92,7 @@ Here we see that two devices are connected, ``mmcblk1`` corresponds to our SD ca
 If your drives aren't listed as expected, please check the Troubleshooting section at the end of this document. 
 
 Step 3a. Transfer your root filesystem over to NVMe with a bootmenu option (recommended)
-================================================================================================
-
+==========================================================================================
 For this method, you will need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
 or similar serial (USB to UART) adapter, to select the ``2: transfer microSD rootfs to NVMe (advanced)`` the boot menu option:
 
@@ -113,7 +112,7 @@ The BeagleY-AI will shutdown when complete
 
 
 Step 3b. Transfer your root filesystem over to NVMe with a shell script
-=======================================================================================
+========================================================================
 
 A variety of useful scripts are available  in ``/opt/``, one of them enables us to move our micro-sd contents to NVMe and make BeagleY-AI boot from there directly.
 
@@ -135,7 +134,7 @@ The following 3 commands will change your U-boot prompt to boot from NVMe by def
 
 
 Step 4. (optional) Verify u-boot (Serial Debug) will jump to the rootfs on the NVMe
-===========================================================================
+=====================================================================================
 
 .. note:: boot menu ``1: return to microSD`` will allow you to return to the microSD rootfs for any reasons.
 
