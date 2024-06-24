@@ -35,9 +35,9 @@ Connection for both ``128x64`` and ``128x32`` resolution displays are demostrate
 
 .. figure:: ../images/i2c/oled-128x64.*
     :align: center
-    :alt: OLED diaplay 128x32
+    :alt: OLED diaplay 128x64
 
-    OLED diaplay 128x32
+    OLED diaplay 128x64
 
 To check if your OLED is correctly connected to your BeagleY-AI you 
 can use ``i2cdetect`` command as shown below.
@@ -94,7 +94,7 @@ let's create a script inside the repository (ssd1306 folder) to print ``Hello Wo
 
     nano hello-world.sh
 
-Now copy paste the code shown below in your ``hello-world.sh`` file. Update the code if you display resolution 
+Now copy paste the code shown below in your ``hello-world.sh`` file. Update the code if your display resolution 
 is not ``128x64``, comment out first line and uncomment second line to choose ``128x32`` display size.
 
 .. code:: bash
@@ -168,13 +168,13 @@ To print the date and time on our OLED screen we will be using ``date`` command 
 can also use ``hwclock`` command to show date and time from onboard RTC. For details on using 
 ``date`` and ``hwclock`` you can check :ref:`beagley-ai-using-rtc` demo.
 
-Let's start with created ``date-time.sh`` in the same folder.
+Let's create ``date-time.sh`` in the same folder.
 
 .. code:: console
 
     nano date-time.sh
 
-Now copy paste the code shown below in your ``date-time.sh`` file. Make sure to update the code if you display resolution 
+Now copy paste the code shown below in your ``date-time.sh`` file. Make sure to update the code if your display resolution 
 is not ``128x64``, comment out first line and uncomment second line to choose ``128x32`` display size.
 
 .. code:: bash
