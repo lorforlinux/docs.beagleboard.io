@@ -3,7 +3,7 @@
 Exploring Gateware Design with Libero
 ######################################
 
-In this demonstration, we'll be exploring the BeagleV-Fire gateware in Libero Design tool, making changes
+In this demonstration, we'll be exploring the BeagleV-Fire gateware in the `Libero Design Suite <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions>`_, making changes
 to the default gateware. This demo will serve as an introduction to the design tool, an alternative method 
 for developing gateware.
 
@@ -26,7 +26,7 @@ The prerequisites required for creating the libero project locally are:
     - ``LIBERO_INSTALL_DIR``
     - ``LM_LICENSE_FILE``
     
-    A script is provided for setting up these variables in the :ref:`installation<beaglev-fire-mchp-fpga-tools-installation-guide>` section. An example script for setting up the environment is available `here <https://openbeagle.org/beaglev-fire/Microchip-FPGA-Tools-Setup>`_.
+    A script is provided for setting up these variables in the :ref:`fpga tools installation <beaglev-fire-mchp-fpga-tools-installation-guide>` section. An example script for setting up the environment is available `here <https://openbeagle.org/beaglev-fire/Microchip-FPGA-Tools-Setup>`_.
 
 4. It is highly recommended to go through the :ref:`beaglev-fire-customize-cape-gateware-verilog` tutorial to understand the
 basics of the gateware structure.
@@ -48,8 +48,12 @@ Next, we'll clone the gateware repository to get a local copy of the project.
     cd gateware
 
 We can use the ``build-gateware`` script to generate a libero project for us, where we 
-can start making our changes. Make sure to source the microchip setup script before 
-starting this one.
+can start making our changes. 
+
+.. important::
+
+    Make sure to source the microchip setup script before starting this one.
+
 
 .. code-block:: shell
 
@@ -85,9 +89,7 @@ Let the IDE load everything, and then you're all set to browse around! You can g
 ``Design Hierarchy`` view to look at all Smart Design components. Here, all the gateware components 
 are listed in block-like views. Select the ``DEFAULT_******`` option in the hierarchy to have a look
 at the whole gateware. You should also be able to see the cape, M.2 interface and the RISC-V subsystem 
-modules. An explanation of these modules is given in `Gateware Introduction <beaglev-fire-gateware-design>`_ .
-
-
+modules. These modules are explained in `Gateware Introduction <beaglev-fire-gateware-design>`_.
 
 .. figure:: images/libero-gateware-overview.png
     :align: center
@@ -202,7 +204,7 @@ Rebuild the Hierarchy too as we've done before.
 
     Regenerate designs
 
-Next, right click on the cape and select “Export Component Description(Tcl)” to export it as a script which can be used
+Next, right-click on the cape and select “Export Component Description (TCL)” to export it as a script which can be used
 in the gateware repository. I suggest creating an export directory where you can temporarily store the exported gateware
 files before getting them into the repository.
 
@@ -224,8 +226,8 @@ copying the HDL to it.
     mkdir ~/gateware/sources/FPGA-design/script_support/HDL/BLINKY
     cp ~/export/gateware/blinky.v ~/gateware/sources/FPGA-design/script_support/HDL/BLINKY/
 
-Now, to add the tcl script to import this design for the CAPE scripts, we can export the script by right clicking on the
-HDL file in the Design Hierarchy and selecting “Export Component Description”.
+Now, to add the TCL script to import this design for the CAPE scripts, we can export the script by right-clicking on the
+HDL file in the Design Hierarchy and select ``Export Component Description``.
 
 .. figure:: images/libero-export-hdl.png
     :align: center
@@ -240,6 +242,7 @@ First, copy the contents of the exported TCL file to the bottom of the file. Rep
 in the line with ``-file $project_dir/hdl/blinky.v``. Finally, source the file by add a line below line no. 11 as:
 
 .. code-block:: tcl
+
         -hdl_source {script_support/HDL/AXI4_address_shim/AXI4_address_shim.v} \
         -hdl_source {script_support/HDL/BLINKY/blinky.v} # ⓵ Source the script below line 11
 
@@ -256,6 +259,7 @@ Verify your script as above, save it and now you're good to compile your project
 Go ahead and run the python script to build the gateware and verify your changes to the gateware.
 
 .. code-block:: shell
+
     python build-bitstream.py ./build-options/default.yaml # run this in the gateware di
 
 If at any point the compilation fails, you can debug the script at the mentioned line. If it compiles successfully, it will mention by saying:
@@ -265,5 +269,5 @@ If at any point the compilation fails, you can debug the script at the mentioned
     The Execute Script command succeeded.
     The BVF_GATEWARE_025T project was closed.
 
-Now, you can commit the repository to your gateware fork, download the artifacts after compilation and program 
+Now, you can commit the changes to your gateware repository fork, download the artifacts after compilation, and program 
 the gateware using the ``change_gateware.sh`` script. Have fun!

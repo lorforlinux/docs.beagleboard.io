@@ -103,8 +103,8 @@ Following the annotation in the image above:
 2. Click on ``RUN`` button
 3. Shows the progress
 
-If you see a lot of green color and progress bar says
-`PASSED`` then well done you have successfully flashed
+If you see a lot of green color and the progress bar says
+``PASSED`` then well done you have successfully flashed
 the gateware image on your BeagleV-Fire board.
 
 Flashing eMMC
