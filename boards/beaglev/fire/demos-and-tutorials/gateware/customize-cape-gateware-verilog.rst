@@ -30,7 +30,7 @@ Fork BeagleV-Fire Gateware Repository
 
 .. important:: 
     All new users need to be manually approved to protect from BOT spam. You will not be able to fork the Gateware
-    Repository until you have been approved. A request to 'the forum <https://forum.beagleboard.org/t/requesting-access-to-gitlab-to-fork-gateware/37494>'
+    Repository until you have been approved. A request to `the forum <https://forum.beagleboard.org/t/requesting-access-to-gitlab-to-fork-gateware/37494>`_
     may expedite the process. 
 
 Navigate to BeagleV-Fire's `gateware source code repository <https://git.beagleboard.org/beaglev-fire/gateware>`_.
@@ -205,11 +205,11 @@ We will add a simple Verilog source file, ``blinky.v``, in the ``MY_LOVELY_CAPE`
     begin
         if(~resetn)
             begin
-                counter <= 16'h0000;
+                counter <= 23'h0;
             end
         else
             begin
-                counter <= counter + 1;
+                counter <= counter + 23'b1;
             end
     end
     endmodule
@@ -392,7 +392,7 @@ On BeagleV-Fire, initiate the reprogramming of the FPGA with your gateware bitst
 
 .. code:: shell
 
-    sudo /usr/share/beagleboard/gateware/changes-gateware.sh ./my_custom_fpga_design
+    sudo /usr/share/beagleboard/gateware/change-gateware.sh ./my_custom_fpga_design
 
 Wait for a couple of minutes for the BeagleV-Fire to reprogram itself.
 
