@@ -61,6 +61,100 @@ The above command should show ``3c`` address occupied in the output, which is th
     60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
     70: -- -- -- -- -- -- -- --
 
+Using kernel driver
+===================
+
+To use the kernel driver to drive the SSD1306 oled, we have created an overlay ``/boot/firmware/overlays/k3-am67a-beagley-ai-i2c1-ssd1306.dtbo``. 
+To load the overlay you have to add ``fdtoverlays /overlays/k3-am67a-beagley-ai-i2c1-ssd1306.dtbo`` to ``/boot/firmware/extlinux/extlinux.conf`` as shown below.
+
+.. note:: Current overlay is created for 128x64 OLED displays, you can update the overlay to use it for other resolution OLED displays.
+
+.. code:: text
+
+    ...
+    ...
+    ...
+
+    label microSD (default)
+    kernel /Image
+    append console=ttyS2,115200n8 root=/dev/mmcblk1p3 ro rootfstype=ext4 resume=/dev/mmcblk1p2 rootwait net.ifnames=0 quiet
+    fdtdir /
+    fdt /ti/k3-am67a-beagley-ai.dtb
+    fdtoverlays /overlays/k3-am67a-beagley-ai-i2c1-ssd1306.dtbo
+    initrd /initrd.img
+
+After rebooting the board you should see ``/dev/fb0`` available.
+
+.. code:: shell
+
+    debian@BeagleBone:~$ ls /dev | grep fb
+    fb0
+
+To show random noise on the display you can use ``/dev/urandom`` and feed it to ``/dev/fb0``,
+
+.. code:: shell
+
+    cat /dev/urandom > /dev/fb0
+
+.. figure:: ../images/i2c/oled-urandom-fb0.*
+    :align: center
+    :alt: Random noise on SSD1306 OLED
+
+    Random noise on SSD1306 OLED
+
+To show blank screen you can use ``/dev/zero`` and feed it to ``/dev/fb0``,
+
+.. code:: shell
+
+    cat /dev/zero > /dev/fb0
+
+.. figure:: ../images/i2c/oled-zero-fb0.*
+    :align: center
+    :alt: Blank (black/zero) SSD1306 OLED pixels
+
+    Blank (black/zero) SSD1306 OLED pixels
+
+To fill the screen with white pixels you can create a python script 
+called ``fill-oled.py`` to create ``data.out`` file and feed it to ``/dev/fb0``,
+
+.. code:: shell
+
+    nano fill-oled.py
+
+Copy paste the below code to ``fill-oled.py``,
+
+.. code:: python
+
+    xsize = 128
+    ysize = 64
+
+    with open('data.out', 'wb') as f:
+    for y in range(0, ysize):
+        for x in range(0, xsize):
+        pixel = 255
+        f.write((pixel).to_bytes(1, byteorder='little'))
+
+To get the ``data.out`` from ``fill-oled.py`` file execute the command below,
+
+.. code:: shell
+
+    python fill-oled.py
+
+The above command should create a file called ``data.out``. 
+To feed ``data.out`` to ``/dev/fb0`` execute the command below,
+
+.. code:: shell
+
+    cat data.out > /dev/fb0
+
+.. figure:: ../images/i2c/oled-rect-fb0.*
+    :align: center
+    :alt: Fill (white/ones) SSD1306 OLED pixels
+
+    Fill (white/ones) SSD1306 OLED pixels
+
+.. todo:: Add instructions to use OLED for console and printing text via ``/dev/fb0`` interface.
+
 Setup ssd1306 linux software
 =============================
 
