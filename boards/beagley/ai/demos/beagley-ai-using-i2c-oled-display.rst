@@ -61,6 +61,8 @@ The above command should show ``3c`` address occupied in the output, which is th
     60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
     70: -- -- -- -- -- -- -- --
 
+.. _beagley-ai-ssd1306-using-kernel-driver:
+
 Using kernel driver
 ===================
 
@@ -157,6 +159,12 @@ To feed ``data.out`` to ``/dev/fb0`` execute the command below,
 
 Setup ssd1306 linux software
 =============================
+
+.. note:: 
+    If you tried :ref:`beagley-ai-ssd1306-using-kernel-driver`, you must remove the 
+    ``fdtoverlays /overlays/k3-am67a-beagley-ai-i2c1-ssd1306.dtbo`` line from 
+    ``/boot/firmware/extlinux/extlinux.conf`` and ``reboot`` your BeagleY-AI board 
+    before following the instructions provided below.
 
 Clone the ``ssd1306_linux`` github repository on your BeagleY-AI.
 
