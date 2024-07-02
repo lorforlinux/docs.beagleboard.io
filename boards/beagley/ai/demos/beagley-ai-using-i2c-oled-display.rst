@@ -77,7 +77,6 @@ To load the overlay you have to add ``fdtoverlays /overlays/k3-am67a-beagley-ai-
     fdtdir /
     fdt /ti/k3-am67a-beagley-ai.dtb
     fdtoverlays /overlays/k3-am67a-beagley-ai-i2c1-ssd1306.dtbo
-    initrd /initrd.img
 
 After rebooting the board you should see ``/dev/fb0`` available.
 
