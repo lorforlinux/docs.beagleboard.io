@@ -15,12 +15,6 @@ The image below shows the BeagleY-AI I2C pinout. For more information check `pin
 OLED (ssd1306) displays
 ************************
 
-There are several examples available online to use OLED (ssd1306) displays under linux. 
-We are using `ssd1306_linux <https://github.com/armlabs/ssd1306_linux>`_ from ``armlabs`` to 
-demonstrate how you can write to an OLED (ssd1306) display.
-
-.. tip:: For detailed usage examples of the library check `Examples section of the Readme <https://github.com/armlabs/ssd1306_linux?tab=readme-ov-file#example>`_.
-
 Wiring/connection
 ==================
 
@@ -50,7 +44,7 @@ The above command should show ``3c`` address occupied in the output, which is th
 
 .. code:: console
 
-    debian@BeagleBone:~/ssd1306_linux$ i2cdetect -y -r 1
+    debian@BeagleBone:~$ i2cdetect -y -r 1
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
     00:                         -- -- -- -- -- -- -- -- 
     10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -159,6 +153,12 @@ To feed ``data.out`` to ``/dev/fb0`` execute the command below,
 
 Setup ssd1306 linux software
 =============================
+
+There are several examples available online to use OLED (ssd1306) displays under linux. 
+We are using `ssd1306_linux <https://github.com/armlabs/ssd1306_linux>`_ from ``armlabs`` to 
+demonstrate how you can write to an OLED (ssd1306) display.
+
+.. tip:: For detailed usage examples of the library check `Examples section of the Readme <https://github.com/armlabs/ssd1306_linux?tab=readme-ov-file#example>`_.
 
 .. note:: 
     If you tried :ref:`beagley-ai-ssd1306-using-kernel-driver`, you must remove the 
