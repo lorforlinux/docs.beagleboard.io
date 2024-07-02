@@ -19,7 +19,7 @@ ADS1115 16-bit ADC
 Wiring/connection
 ==================
 
-Following the I2C pinout shown above let's make the connection of our ADS1115 ADC with BeagleY-AI.
+Following the I2C pinout shown above let's make the connection of our ADS1115 ADC. 
 
 .. figure:: ../images/i2c/ads1115-connection.*
     :align: center
@@ -27,8 +27,9 @@ Following the I2C pinout shown above let's make the connection of our ADS1115 AD
 
     ADS1115 connection
 
-To check if your ADS1115 ADC is correctly connected to your BeagleY-AI you 
-can use ``i2cdetect`` command as shown below.
+.. tip:: The ADC can work on ``2.0V - 5.5V`` voltage range, here we have selected to run it on ``5V`` from ``HAT PIN2``. For more information checkout `ADS1115 datasheet <https://www.ti.com/lit/ds/symlink/ads1115.pdf>`_.
+
+To check if your ADS1115 ADC is correctly connected to your BeagleY-AI you can use ``i2cdetect`` command as shown below.
 
 .. code:: console
 
@@ -57,26 +58,26 @@ PGA
 
 The pga is the programmable gain amplifier (values are full scale), in the device tree overlay we have ``ti,gain = <#>;`` where ``#`` can be following,
 
-- 0: +/- 6.144 V
-- 1: +/- 4.096 V (default)
-- 2: +/- 2.048 V
-- 3: +/- 1.024 V
-- 4: +/- 0.512 V
-- 5: +/- 0.256 V
+- ``0``: +/- 6.144 V
+- ``1``: +/- 4.096 V (default)
+- ``2``: +/- 2.048 V
+- ``3``: +/- 1.024 V
+- ``4``: +/- 0.512 V
+- ``5``: +/- 0.256 V
 
 Data rate
 ----------
 
 The data_rate in samples per second, in the device tree overlay we have ``ti,datarate = <#>;`` where ``#`` can be following,
 
-- 0: 8
-- 1: 16
-- 2: 32
-- 3: 64
-- 4: 128
-- 5: 250
-- 6: 475
-- 7: 860 (default)
+- ``0``: 8
+- ``1``: 16
+- ``2``: 32
+- ``3``: 64
+- ``4``: 128
+- ``5``: 250
+- ``6``: 475
+- ``7``: 860 (default)
 
 .. _beagley-ai-adc-ads1115-inputs:
 
@@ -85,16 +86,16 @@ ADC Inputs
 
 The inputs can be made available by 8 sysfs input files in0_input - in7_input,
 
-- in0: Voltage over AIN0 and AIN1.
-- in1: Voltage over AIN0 and AIN3.
-- in2: Voltage over AIN1 and AIN3.
-- in3: Voltage over AIN2 and AIN3.
-- in4: Voltage over AIN0 and GND.
-- in5: Voltage over AIN1 and GND.
-- in6: Voltage over AIN2 and GND.
-- in7: Voltage over AIN3 and GND.
+- ``in0``: Voltage over AIN0 and AIN1.
+- ``in1``: Voltage over AIN0 and AIN3.
+- ``in2``: Voltage over AIN1 and AIN3.
+- ``in3``: Voltage over AIN2 and AIN3.
+- ``in4``: Voltage over AIN0 and GND.
+- ``in5``: Voltage over AIN1 and GND.
+- ``in6``: Voltage over AIN2 and GND.
+- ``in7``: Voltage over AIN3 and GND.
 
-in the device tree overlay we have ``channel@4  - channel@7`` representing ``in4 - in7``.
+.. note:: In the device tree overlay we have ``channel@4 - channel@7`` device tree nodes representing ``in4 - in7`` from the list above.
 
 .. _beagley-ai-ads1115-using-kernel-driver:
 
@@ -125,16 +126,15 @@ After rebooting the board you should see ``/sys/bus/iio/devices/iio:device0`` av
     debian@BeagleBone:~$ ls /sys/bus/iio/devices/ | grep iio
     iio:device0
 
-To show all the ``beagley-ai-adc-ads1115-inputs`` you can create a script called ``adcreader.sh ``,
+To show all the :ref:`beagley-ai-adc-ads1115-inputs` you can create a script called ``adcreader.sh``.
 
-
-Create the file,
+- Create the file,
 
 .. code:: shell
 
     nano adcreader.sh
 
-Copy and paste the content below,
+- Copy and paste the content below,
 
 .. code:: bash
 
@@ -149,13 +149,13 @@ Copy and paste the content below,
 
     echo "in0=${in0}\nin1=${in1}\nin2=${in2}\nin3=${in3}\nin4=${in4}\nin5=${in5}\nin6=${in6}\nin7=${in7}"
 
-To allow the execution of the script as normal user use the command below,
+- To allow the execution of the script as normal user use the command below,
 
 .. code:: shell
 
     chmod +x adcreader.sh
 
-To view the ADC updates every 100ms use the ``watch`` command as shown below,
+- To view the ADC updates every 100ms use the ``watch`` command as shown below,
 
 .. code:: shell
 
