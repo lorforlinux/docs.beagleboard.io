@@ -87,4 +87,5 @@ Demos and Tutorials
 * :ref:`beaglev-fire-flashing-board`
 * :ref:`beaglev-fire-gateware-design`
 * :ref:`beaglev-fire-mchp-fpga-tools-installation-guide`
+* :ref:`beagleV-fire-gateware-builder`
 
