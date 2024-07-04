@@ -117,7 +117,7 @@ Let the IDE load everything, and then you're all set to browse around! You can g
 ``Design Hierarchy`` view to look at all Smart Design components. Here, all the gateware components 
 are listed in block-like views. Double click the ``DEFAULT_******`` option in the hierarchy to have a look
 at the whole gateware. You should also be able to see the cape, M.2 interface and the RISC-V subsystem 
-modules. These modules are explained in `Gateware Introduction <beaglev-fire-gateware-design>`_.
+modules. These modules are explained in :ref:`Gateware Introduction <beaglev-fire-gateware-design>`.
 
 .. figure:: images/libero-gateware-overview.png
     :align: center
