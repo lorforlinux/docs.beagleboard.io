@@ -1,7 +1,7 @@
 .. _beaglev-fire-exploring-gateware-design-libero:
 
 Exploring Gateware Design with Libero
-######################################
+#####################################
 
 In this demonstration, we'll be exploring the BeagleV-Fire gateware in the `Libero Design Suite <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions>`_, making changes
 to the default gateware. This demo will serve as an introduction to the design tool, an alternative method 
@@ -10,7 +10,7 @@ for developing gateware.
 Prerequisites
 *************
 
-The prerequisites required for creating the libero project locally are:
+The prerequisites required for creating the Libero project locally are:
 
 1. Microchip design tools: Refer to the document here for :ref:`installation instructions<beaglev-fire-mchp-fpga-tools-installation-guide>` of microchip FPGA tools.
 2. Python requirements for gateware build scripts:
@@ -20,19 +20,37 @@ The prerequisites required for creating the libero project locally are:
     pip3 install gitpython
     pip3 install pyyaml
  
-3. Environment variables: The following environment variables are required for compilation
+3. Build requirements:
+ 
+.. code-block:: shell
+
+    sudo apt install device-tree-compiler
+ 
+
+.. tip::
+
+    For convience, you can install a python command alias like so:
+
+    .. code-block:: shell
+
+        sudo apt install python-is-python3
+ 
+    This is optional, but remember to use ``python3`` in later command examples if you don't.
+ 
+4. Environment variables: The following environment variables are required for compilation:
     - ``SC_INSTALL_DIR``
     - ``FPGENPROG``
     - ``LIBERO_INSTALL_DIR``
     - ``LM_LICENSE_FILE``
     
-    A script is provided for setting up these variables in the :ref:`fpga tools installation <beaglev-fire-mchp-fpga-tools-installation-guide>` section. An example script for setting up the environment is available `here <https://openbeagle.org/beaglev-fire/Microchip-FPGA-Tools-Setup>`_.
+    | A script is provided for setting up these variables in the :ref:`fpga tools installation <beaglev-fire-mchp-fpga-tools-installation-guide>` section.
+    | An example script for setting up the environment is available `here <https://openbeagle.org/beaglev-fire/Microchip-FPGA-Tools-Setup>`_.
 
-4. It is highly recommended to go through the :ref:`beaglev-fire-customize-cape-gateware-verilog` tutorial to understand the
-basics of the gateware structure.
+5. It is highly recommended to go through the :ref:`beaglev-fire-customize-cape-gateware-verilog` tutorial
+to understand the basics of the gateware structure.
 
 Cloning and Building the Gateware
-**********************************
+*********************************
 
 First, we must source the environment to include the microchip tools.
 
@@ -47,32 +65,42 @@ Next, we'll clone the gateware repository to get a local copy of the project.
     git clone https://openbeagle.org/beaglev-fire/gateware.git
     cd gateware
 
-We can use the ``build-gateware`` script to generate a libero project for us, where we 
-can start making our changes. 
+.. line-block::
+    We can then use the ``build-bitstream.py`` script to generate a Libero project for us,
+    where we can start making our changes.
 
 .. important::
 
-    Make sure to source the microchip setup script before starting this one.
+    | Make sure to source the microchip setup script before starting the next command.
+    | This is required every time you open a new terminal.
 
 
 .. code-block:: shell
 
-    python build-gateware.py ./build-options/default.yaml # exploring the default gateware
+    python build-bitstream.py ./build-options/default.yaml # exploring the default gateware
 
 
 This should start a big log stating the compilation of the project. First, the device tree 
-overlays are compiled, which contain information for linux about the gateware being compiled. 
+overlays are compiled, which contain information for linux about the gateware.
 
 Next, the Hart Software Services (HSS) is compiled. This acts as a zero-stage bootloader, configuring
 the Polarfire SoC and allowing services like loading the next stage bootloader and flashing the eMMC 
 of the board.
 
 Then the libero project generating is started. Here, TCL scripts inside the ``sources`` directory are 
-executed, starting with ``BUILD_BVF_GATEWARE.tcl`` script. This stitches each HDL module, IP, 
-hardware configuration in the gateware.
+executed, starting with the ``BUILD_BVF_GATEWARE.tcl`` script. This stitches each HDL module, IP, 
+hardware configuration together in the gateware.
 
-Once bitstream generation is completed, the Libero project is ready to be opened. Start Libero on the 
-same terminal in linux, or from the start menu in Windows, and open the project file by pressing 
+.. line-block::
+    Once bitstream generation is completed, the Libero project is ready to be opened.
+    Start Libero on the same terminal in linux, like so:
+
+.. code-block:: shell
+
+    libero &
+
+
+or from the start menu in Windows, and open the project file by pressing 
 ``CTRL+O`` and selecting the generated project as ``gateware/work/libero/BVF_GATEWARE_025T.prjx`` .
 
 .. figure:: images/libero-project-location.png
@@ -87,9 +115,9 @@ Exploring The Design
 
 Let the IDE load everything, and then you're all set to browse around! You can go to the 
 ``Design Hierarchy`` view to look at all Smart Design components. Here, all the gateware components 
-are listed in block-like views. Select the ``DEFAULT_******`` option in the hierarchy to have a look
+are listed in block-like views. Double click the ``DEFAULT_******`` option in the hierarchy to have a look
 at the whole gateware. You should also be able to see the cape, M.2 interface and the RISC-V subsystem 
-modules. These modules are explained in `Gateware Introduction <beaglev-fire-gateware-design>`_.
+modules. These modules are explained in :ref:`Gateware Introduction <beaglev-fire-gateware-design>`.
 
 .. figure:: images/libero-gateware-overview.png
     :align: center
@@ -101,9 +129,11 @@ modules. These modules are explained in `Gateware Introduction <beaglev-fire-gat
 Adding Custom HDL
 *****************
 
-Once you're done exploring, we can start by adding our first HDL to the design. Create a new HDL file through the
-menu bar, and name it ``blinky`` . Once created, you can find the HDL file under the ``User HDL Source Files``
-heading in the Design Hierarchy.
+.. line-block::
+    Once you're done exploring, we can start by adding our first HDL to the design.
+    Create a new HDL file through the menu bar, and name it ``blinky``.
+    Once created, you can find the HDL file under the ``User HDL Source Files``
+    heading in the Design Hierarchy.
 
 .. figure:: images/libero-add-new-hdl.png
     :align: center
@@ -112,7 +142,7 @@ heading in the Design Hierarchy.
 
     Adding new HDL
 
-Next, add this code to the file
+Next, add this code to the file:
 
 .. code-block:: verilog
 
@@ -143,9 +173,11 @@ Next, add this code to the file
     end
     endmodule
 
-After adding it, press the ``Build Hierarchy`` button in the Design Hierarchy window to refresh it and bring the
-added HDL to the work directory. Right click on it to select the “Create Core from HDL….” option. Press No on the 
-dialog that follows since we've described the ports perfectly in our HDL.
+.. line-block::
+    After saving it, press the ``Build Hierarchy`` button in the Design Hierarchy window to refresh it,
+    and bring the added HDL to the work directory.
+    Right click on it to select the “Create Core from HDL….” option.
+    Press ``No`` on the dialog that follows since we've described the ports completely in our HDL.
 
 .. figure:: images/libero-create-core-from-hdl.png
     :align: center
@@ -154,9 +186,13 @@ dialog that follows since we've described the ports perfectly in our HDL.
 
     Create core from HDL
 
-Now, open the ``CAPE`` design under the ``DEFAULT_****`` smart design, to have a look at what's in the cape. Drag 
-and drop the ``blinky`` file appearing in the work section into the cape design. You will have successfully instantiated
-the new verilog file into the cape smart design.
+.. line-block::
+    Now, double click the ``CAPE`` design under the ``DEFAULT_****`` smart design,
+    to have a look at what's in the cape.
+
+.. line-block::
+    Drag and drop the ``blinky`` file appearing in the work section into the cape design.
+    You will have successfully instantiated the new verilog file into the cape smart design.
 
 .. figure:: images/libero-add-blinky-to-cape.png
     :align: center
@@ -168,11 +204,16 @@ the new verilog file into the cape smart design.
 Making The Connections
 ======================
 
-You should see the blinky module within the CAPE design, and it should be fairly obvious where we're going to be connecting 
-the module if you've gone through the previous demo. First, delete the wires connecting the ``GPIO_OUT`` and ``GPIO_OE`` to
-the ``CAPE_DEFAULT_GPIOS`` module. Then, simply connect the ``GPIO_OUT`` and the ``GPIO_OE`` terminals of the cape to the
-``gpio_out`` and the ``gpio_enable`` pins respectively. Similarly connect the outputs of the blinky module to the 
-``CAPE_DEFAULT_GPIOS`` module.
+.. line-block::
+    You should see the blinky module within the CAPE design,
+    and it should be fairly obvious where we're going to be connecting 
+    the module if you've gone through the previous demo.
+
+.. line-block::
+    First, delete the wires connecting the ``GPIO_OUT`` and ``GPIO_OE`` to the ``CAPE_DEFAULT_GPIOS`` module.
+    Then, simply connect the ``GPIO_OUT`` and the ``GPIO_OE`` terminals of the cape
+    to the ``gpio_out`` and the ``gpio_enable`` pins respectively.
+    Similarly connect the outputs of the blinky module to the ``CAPE_DEFAULT_GPIOS`` module.
 
 .. figure:: images/libero-connect-blinky-to-cape.png
     :align: center
@@ -181,21 +222,26 @@ the ``CAPE_DEFAULT_GPIOS`` module. Then, simply connect the ``GPIO_OUT`` and the
 
     Connect blinky to cape
 
-Finally, connect the CLK and the RESET pins to the ``PCLK`` and the ``PRESETN`` pins below in the cape. You can use the 
-compress layout button in the toolbar to make the design neat once you're done connecting the wires. 
+.. line-block::
+    Finally, connect the CLK and the RESET pins to the ``PCLK`` and the ``PRESETN`` pins below in the cape.
+    You can use the **compress layout** button in the toolbar to make the design neat once you're done connecting the wires. 
 
-Go ahead and save the CAPE file. You can also verify the design by pressing the checkmark icon in the editor toolbar. 
-Now, it's time to export our design back to the gateware repository.
+.. line-block::
+    Go ahead and save the CAPE file.
+    You can also verify the design by pressing the checkmark icon in the editor toolbar.
+    Now, it's time to export our design back to the gateware repository.
 
 Exporting The Design
-*********************
+********************
 
 Exporting the Cape
 ==================
 
-The SmartDesigns you have changed should show an “i” icon in front of them indicating that they need to be regenerated. 
-First, regenerate the designs by right clicking on them and selecting “Generate Component”. 
-Rebuild the Hierarchy too as we've done before.
+.. line-block::
+    The SmartDesigns you have changed should show an “i” icon in front of them indicating
+    that they need to be regenerated.
+    First, regenerate the designs by right clicking on them and selecting “Generate Component”.
+    Rebuild the Hierarchy too as we've done before.
 
 .. figure:: images/libero-regenerate-designs.png
     :align: center
@@ -204,9 +250,13 @@ Rebuild the Hierarchy too as we've done before.
 
     Regenerate designs
 
-Next, right-click on the cape and select “Export Component Description (TCL)” to export it as a script which can be used
-in the gateware repository. I suggest creating an export directory where you can temporarily store the exported gateware
-files before getting them into the repository.
+.. line-block::
+    Next, right-click on the cape and select “Export Component Description (TCL)” to export it
+    as a script which can be used in the gateware repository.
+    I suggest creating an export directory where you can temporarily store the exported gateware files before getting them into the repository.
+
+.. notice::
+    You **must** make sure your path exist, because Libero does not currently tell you if the export is successfull or not.
 
 Now, simply copy it into the gateware at the following path.
 
@@ -217,17 +267,19 @@ Now, simply copy it into the gateware at the following path.
 Exporting The HDL
 =================
 
-To add new HDL to the gateware repository, first we need to copy it to the HDL directory at 
-`gateware/sources/FPGA-design/script_support/HDL`. You can do that by just creating a folder named blinky inside and 
-copying the HDL to it.
+.. line-block::
+    To add new HDL to the gateware repository, first we need to copy it
+    to the HDL directory at `gateware/sources/FPGA-design/script_support/HDL`.
+    You can do that by just creating a folder named blinky inside and copying the HDL to it.
 
 .. code-block:: shell
 
     mkdir ~/gateware/sources/FPGA-design/script_support/HDL/BLINKY
-    cp ~/export/gateware/blinky.v ~/gateware/sources/FPGA-design/script_support/HDL/BLINKY/
+    cp ~/gateware/work/libero/hdl/blinky.v ~/gateware/sources/FPGA-design/script_support/HDL/BLINKY/
 
-Now, to add the TCL script to import this design for the CAPE scripts, we can export the script by right-clicking on the
-HDL file in the Design Hierarchy and select ``Export Component Description``.
+.. line-block::
+    Now, to add the TCL script to import this design for the CAPE scripts,
+    we can export the script by right-clicking on the HDL file in the Design Hierarchy and select ``Export Component Description``.
 
 .. figure:: images/libero-export-hdl.png
     :align: center
@@ -236,10 +288,17 @@ HDL file in the Design Hierarchy and select ``Export Component Description``.
 
     Export HDL
 
-Now, copy the contents of this exported file to our gateware's HDL sourcing script at `gateware/sources/FPGA-design/script_support/hdl_source.tcl`.
+Now, concatenate the contents of this exported file to our gateware's HDL sourcing script at 
+`gateware/sources/FPGA-design/script_support/hdl_source.tcl` like so:
 
-First, copy the contents of the exported TCL file to the bottom of the file. Replace the ``-file`` argument 
-in the line with ``-file $project_dir/hdl/blinky.v``. Finally, source the file by add a line below line no. 11 as:
+.. code-block:: shell
+
+    cat blinky.tcl >> ~/gateware/sources/FPGA-design/script_support/hdl_source.tcl
+
+.. line-block::
+    First, copy the contents of the exported TCL file to the bottom of the file.
+    Replace the ``-file`` argument in the line with ``-file $project_dir/hdl/blinky.v``.
+    Finally, source the file by add a line below line no. 11 as:
 
 .. code-block:: tcl
 
@@ -254,20 +313,62 @@ in the line with ``-file $project_dir/hdl/blinky.v``. Finally, source the file b
     create_hdl_core -file $project_dir/hdl/blinky.v -module {blinky} -library {work} -package {} 
     # ⓶ Add the core at the end of the file
 
+Feel free to cut any extra comment lines introduced when concatenating above.
 Verify your script as above, save it and now you're good to compile your project! 
 
-Go ahead and run the python script to build the gateware and verify your changes to the gateware.
+.. important::
+
+    | Make sure you close Libero at this point.
+    | If you don't, ``build-bitstream.py`` **will** fail to properly checkout the required licenses.
+
+Now is a good time to check in your changes to git:
 
 .. code-block:: shell
 
-    python build-bitstream.py ./build-options/default.yaml # run this in the gateware di
+    cd ~/gateware
+    git add ./sources/FPGA-design/script_support/components/CAPE/DEFAULT/CAPE.tcl
+    git add ./sources/FPGA-design/script_support/hdl_source.tcl
+    git add ./sources/FPGA-design/script_support/HDL/BLINKY/blinky.v
+    git clean -df
 
-If at any point the compilation fails, you can debug the script at the mentioned line. If it compiles successfully, it will mention by saying:
+Final Verification
+******************
+
+Go ahead and run the python script to build the gateware and verify your changes:
+
+.. code-block:: shell
+
+    python build-bitstream.py ./build-options/default.yaml
+
+.. line-block::
+    If at any point the compilation fails, you can debug the script at the mentioned line.
+    If it compiles successfully, it will mention it by saying:
 
 .. code-block:: text
 
     The Execute Script command succeeded.
     The BVF_GATEWARE_025T project was closed.
 
-Now, you can commit the changes to your gateware repository fork, download the artifacts after compilation, and program 
-the gateware using the ``change_gateware.sh`` script. Have fun!
+.. line-block::
+
+    With a little luck, the script completes successfully and you can
+    now send your changes onto your gateware repository fork,
+    download the artifacts after compilation,
+    and program the gateware using the ``change_gateware.sh`` script.
+
+.. tip::
+
+    For a more direct route you can copy the generated bitstream straight to your Beagle
+    and try the result immidiately:
+    
+    .. code-block:: shell
+    
+        scp -r ./bitstream beagle@<ip or name here>:
+    On the beagle, use:
+
+    .. code-block:: shell
+    
+        sudo /usr/share/beagleboard/gateware/change-gateware.sh ./bitstream
+    
+
+Have fun!
