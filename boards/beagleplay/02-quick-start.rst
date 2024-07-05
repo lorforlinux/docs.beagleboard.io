@@ -54,8 +54,24 @@ For tethering to your PC you'll need a USB-C data cable.
 Access VSCode
 ****************
 
+You can acces VSCode in two ways:
+
+1. :ref:`beagleplay-USB-VSCode`
+2. :ref:`beagleplay-AccessPoint-VSCode`
+
+.. _beagleplay-USB-VSCode:
+USB
+====
+
 Once connected, you can browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ to access the VSCode IDE 
 to browse documents and start programming your BeaglePlay!
+
+.. _beagleplay-AccessPoint-VSCode:
+Access Point
+============
+
+By default BeaglePlay Access Point is enabled, You can connect to ``BeaglePlay-XXXX`` Access Point with password ``BeaglePlay`` and then
+browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ to access the VSCode IDE.
 
 .. note::
 
@@ -69,6 +85,9 @@ to browse documents and start programming your BeaglePlay!
     :alt: BeaglePlay VSCode IDE (192.168.7.2:3000)
 
     BeaglePlay VSCode IDE (192.168.7.2:3000)
+
+.. tip::
+     For more Wifi and Access Point related info go to :ref:`beagleplay-connect-wifi`
 
 .. _beagleplay-demos-and-tutorials:
 
