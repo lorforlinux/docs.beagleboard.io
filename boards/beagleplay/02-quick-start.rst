@@ -60,6 +60,7 @@ You can acces VSCode in two ways:
 2. :ref:`beagleplay-access-point-vscode`
 
 .. _beagleplay-USB-VSCode:
+.. _beagleplay-usb-vscode:
 
 USB
 ====
