@@ -68,10 +68,11 @@ Once connected, you can browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ 
 to browse documents and start programming your BeaglePlay!
 
 .. _beagleplay-AccessPoint-VSCode:
+
 Access Point
 ============
 
-By default BeaglePlay Access Point is enabled, You can connect to ``BeaglePlay-XXXX`` Access Point with password ``BeaglePlay`` and then
+By default BeaglePlay Access Point is enabled, You can connect to ``BeaglePlay-XXXX`` Access Point with the password ``BeaglePlay`` and then
 browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ to access the VSCode IDE.
 
 .. note::
