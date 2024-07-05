@@ -209,7 +209,7 @@ wpa_cli (XFCE)
 Another way of connecting to a WiFi access point is to edit the ``wpa_supplicant`` configuration file.
 
 
-Step 1: Open up termina
+Step 1: Open up terminal
 ========================
 
 Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
