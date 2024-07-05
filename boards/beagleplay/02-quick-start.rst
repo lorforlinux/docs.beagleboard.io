@@ -69,6 +69,7 @@ Once connected, you can browse to `192.168.7.2:3000 <http://192.168.7.2:3000>`_ 
 to browse documents and start programming your BeaglePlay!
 
 .. _beagleplay-AccessPoint-VSCode:
+.. _beagleplay-access-point-vscode:
 
 Access Point
 ============
