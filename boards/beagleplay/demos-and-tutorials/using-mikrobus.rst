@@ -39,7 +39,7 @@ BeaglePlay's Linux kernel is patched with a mikrobus driver that automatically r
 Does my add-on have ClickID?
 ============================
 
-Look for the "ID" logo on the board. It's near PWM pin on upper right hand side in the illustration shown below.
+Look for the ``'D`` logo on the board. It's near PWM pin on upper right hand side in the illustration shown below.
 
 .. figure:: images/mikrobus-linux-board-illustration.png
    :width: 940
@@ -54,34 +54,50 @@ Example of examining boot log to see a ClickID was detected.
 
 .. code:: shell-session
 
-    debian@BeaglePlay:~$ dmesg | grep mikrobus
-    [    2.096254] mikrobus:mikrobus_port_register: registering port mikrobus-0
-    [    2.096325] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
-    [    2.663698] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=opt3001, protocol=3, reg=44
-    [    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices
-    [    2.663783] mikrobus mikrobus-0: registering device : opt3001
+   debian@BeaglePlay:~$ dmesg | grep mikrobus
+   [    2.096254] mikrobus:mikrobus_port_register: registering port mikrobus-0
+   [    2.096325] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
+   [    2.663698] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=opt3001, protocol=3, reg=44
+   [    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices
+   [    2.663783] mikrobus mikrobus-0: registering device : opt3001
+
+.. important::
+   
+   Not all Click boards with ClickID have valid ``manifest`` entries.
+   If your add-on has clickID but shows the command output like below. 
+
+   .. code:: shell-session
+
+      debian@BeaglePlay:~$ dmesg | grep mikrobus
+      [    2.119771] mikrobus:mikrobus_port_register: registering port mikrobus-0 
+      [    2.119842] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
+      [    2.261113] mikrobus_manifest:mikrobus_manifest_header_validate: manifest version too new (150.189 > 0.3)
+      [    2.261130] mikrobus mikrobus-0: invalid manifest size -22
+
+   Then you can follow same steps of :ref:`beagleplay-mikrobus-without-clickid` to make your 
+   add-on detected.
 
 To use the add-on, see :ref:`beagleplay-mikrobus-using`.
-
-.. note::
-
-   Not all Click boards with ClickID have valid ``manifest`` entries.
 
 .. _beagleplay-mikrobus-without-clickid:
 
 What if my add-on doesn't have ClickID?
 ***************************************
+If add-on doesn't have clickID then it can not be detected directly.
 
-It is still possible a ``manifest`` has been created for your add-on as we have created over 100 of them. 
+.. code:: shell-session 
+
+   debian@BeaglePlay:~$ dmesg | grep mikrobus
+   [    2.123994] mikrobus:mikrobus_port_register: registering port mikrobus-0 
+   [    2.124059] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
+
+Available ``manifest`` can be installed that has been created for your add-on as we have created over 100 of them. 
 You can install the existing manifest files onto your BeaglePlay. First, make sure you have the 
 latest manifests installed in your system.
 
 .. code:: console
 
    sudo apt update
-
-.. code:: console
-
    sudo apt install bbb.io-clickid-manifests
 
 
@@ -123,12 +139,37 @@ Take a look at the list of ``manifest`` files to see if the Click or other mikro
    COLOR-2-CLICK.mnfb        HEART-RATE-7-CLICK.mnfb    PROXIMITY-9-CLICK.mnfb      WAVEFORM-CLICK.mnfb
    COLOR-7-CLICK.mnfb        HEART-RATE-CLICK.mnfb      PROXIMITY-CLICK.mnfb        WEATHER-CLICK.mnfb
 
+Below command to grant root privileges of the intended user and then enter passsword.
+This will take you to the different shell.
+
+.. code:: bash
+
+   sudo su
+
 Then, load the appropriate ``manifest`` using the ``mikrobus`` bus driver. For example, with the Ambient 2 Click, 
 you can write that ``manifest`` to the ``mikrobus-0`` ``new_device`` entry.
 
 .. code:: bash
 
    cat /lib/firmware/mikrobus/AMBIENT-2-CLICK.mnfb > /sys/bus/mikrobus/devices/mikrobus-0/new_device
+
+You can now exit this shell.
+
+.. code:: shell
+
+   exit
+
+Once done, you can check it using command ``dmesg | grep mikrobus`` which shows that
+add-on is now detected.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ dmesg | grep mikrobus
+   [    2.096254] mikrobus:mikrobus_port_register: registering port mikrobus-0
+   [    2.096325] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
+   [    2.663698] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=opt3001, protocol=3, reg=44
+   [    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices
+   [    2.663783] mikrobus mikrobus-0: registering device : opt3001
 
 .. note::
 
