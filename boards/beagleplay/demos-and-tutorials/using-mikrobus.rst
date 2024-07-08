@@ -39,7 +39,7 @@ BeaglePlay's Linux kernel is patched with a mikrobus driver that automatically r
 Does my add-on have ClickID?
 ============================
 
-Look for the ``'D`` logo on the board. It's near PWM pin on upper right hand side in the illustration shown below.
+Look for the board's ``'D`` (ID) logo. It's near the PWM pin on the upper right-hand side in the illustration below.
 
 .. figure:: images/mikrobus-linux-board-illustration.png
    :width: 940
