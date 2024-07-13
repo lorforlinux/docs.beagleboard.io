@@ -64,7 +64,7 @@ Example of examining boot log to see a ClickID was detected.
 .. note::
    
    Not all Click boards with ClickID have valid ``manifest`` entries. 
-   Then you can follow :ref:`this <beagleplay-mikrobus-clickid-inavalid-manifests>` to make your 
+   Then you can follow :ref:`beagleplay-mikrobus-clickid-inavalid-manifests` to make your 
    add-on detected.
 
 To use the add-on, see :ref:`beagleplay-mikrobus-using`.
