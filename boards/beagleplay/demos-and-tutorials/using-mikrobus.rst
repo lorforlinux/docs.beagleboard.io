@@ -69,7 +69,7 @@ Example of examining boot log to see a ClickID was detected.
 
 To use the add-on, see :ref:`beagleplay-mikrobus-using`.
 
-
+.. _beagleplay-mikrobus-without-clickid:
 
 What if my add-on doesn't have ClickID?
 ***************************************
@@ -165,6 +165,10 @@ add-on is now detected.
 
    It'll forget on reboot... need to have a boot service.
 
+.. todo::
+
+   To make it stick, ...
+
 
 .. _beagleplay-mikrobus-clickid-inavalid-manifests:
 
@@ -233,13 +237,8 @@ Now, Reboot your BeaglePlay. After rebooting, the add-on has been detected with 
 
    Patched Linux with out-of-tree Mikrobus driver: https://git.beagleboard.org/beagleboard/linux
 
-.. todo::
-
-   To make it stick, ...
-
 
 To use the add-on, see :ref:`beagleplay-mikrobus-using`.
-
 
 .. _beagleplay-mikrobus-using:
 
