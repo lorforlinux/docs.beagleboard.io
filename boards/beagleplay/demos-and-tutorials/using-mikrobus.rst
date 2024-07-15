@@ -61,20 +61,10 @@ Example of examining boot log to see a ClickID was detected.
    [    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices
    [    2.663783] mikrobus mikrobus-0: registering device : opt3001
 
-.. important::
+.. note::
    
-   Not all Click boards with ClickID have valid ``manifest`` entries.
-   If your add-on has clickID but shows the command output like below. 
-
-   .. code:: shell-session
-
-      debian@BeaglePlay:~$ dmesg | grep mikrobus
-      [    2.119771] mikrobus:mikrobus_port_register: registering port mikrobus-0 
-      [    2.119842] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
-      [    2.261113] mikrobus_manifest:mikrobus_manifest_header_validate: manifest version too new (150.189 > 0.3)
-      [    2.261130] mikrobus mikrobus-0: invalid manifest size -22
-
-   Then you can follow same steps of :ref:`beagleplay-mikrobus-without-clickid` to make your 
+   Not all Click boards with ClickID have valid ``manifest`` entries. 
+   Then you can follow :ref:`beagleplay-mikrobus-clickid-inavalid-manifests` to make your 
    add-on detected.
 
 To use the add-on, see :ref:`beagleplay-mikrobus-using`.
@@ -173,6 +163,72 @@ add-on is now detected.
 
 .. note::
 
+   It'll forget on reboot... need to have a boot service.
+
+.. todo::
+
+   To make it stick, ...
+
+
+.. _beagleplay-mikrobus-clickid-inavalid-manifests:
+
+What if my add-on has invalid manifest entries?
+************************************************
+
+Not all Click boards with ClickID have valid manifest entries. 
+If your add-on has clickID but shows the command output like below.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ dmesg | grep mikrobus
+   [    2.119771] mikrobus:mikrobus_port_register: registering port mikrobus-0
+   [    2.119842] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
+   [    2.261113] mikrobus_manifest:mikrobus_manifest_header_validate: manifest version too new (150.189 > 0.3)
+   [    2.261130] mikrobus mikrobus-0: invalid manifest size -22
+
+There are some available manifest that can be used to write in the eeprom of clickID board.
+Once you ``sudo apt update`` and ``sudo apt install bbb.io-clickid-manifests`` then you
+can see the list of manifests using command ``ls /lib/firmware/mikrobus/``. Let's take 
+the ``Accel Click - ClickID`` Board with invalid manifest entries, To get the valid manifest
+we need to write ``ACCEL-CLICK.mnfb`` to eeprom of ClickID board using the following commands.
+
+First check the file name for the add-on device. It can be in the form of ``w1_bus_master1-xx-xxxxxxx``.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ ls /sys/bus/w1/devices/
+   w1_bus_master1  w1_bus_master1-xx-xxxxxxx
+
+Then in the following command, ``/lib/firmware/mikrobus/ACCEL-CLICK.mnfb`` is the path of manifest file and 
+``/sys/bus/w1/devices/w1_bus_master1-xx-xxxxxxx/mikrobus_manifest`` is path for one wire eeprom clickID board. 
+You must replace the the file name ``w1_bus_master1-xx-xxxxxxx`` with your clickID board file in the
+below command.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ sudo dd if=/lib/firmware/mikrobus/ACCEL-CLICK.mnfb of=/sys/bus/w1/devices/w1_bus_master1-xx-xxxxxxx/mikrobus_manifest
+   0+1 records in
+   0+1 records out
+   132 bytes copied, 0.0144496 s, 9.1 kB/s
+
+Now, Reboot your BeaglePlay. After rebooting, the add-on has been detected with valid manifest entries.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ dmesg | grep mikrobus
+   [    2.126654] mikrobus:mikrobus_port_register: registering port mikrobus-0 
+   [    2.126727] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom
+   [    2.797179] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=adxl345, protocol=3, reg=1d
+   [    2.797191] mikrobus_manifest:mikrobus_manifest_parse:  Accel Click manifest parsed with 1 devices
+   [    2.797267] mikrobus mikrobus-0: registering device : adxl345
+
+.. note::
+
+   The updation has done in the eeprom of clickID board. It will not 
+   forget after reboot.
+
+.. note::
+
    We will be adding a link to the ``mikrobus-0`` device at ``/dev/play/mikrobus`` in the near
    future, but you can find it for now at ``/sys/bus/mikrobus/devices/mikrobus-0``. If you
    need to supply an ID (manifest), this is the directory where you will do it.
@@ -182,17 +238,7 @@ add-on is now detected.
    Patched Linux with out-of-tree Mikrobus driver: https://git.beagleboard.org/beagleboard/linux
 
 
-.. note::
-
-   It'll forget on reboot... need to have a boot service.
-
-.. todo::
-
-   To make it stick, ...
-
-
 To use the add-on, see :ref:`beagleplay-mikrobus-using`.
-
 
 .. _beagleplay-mikrobus-using:
 
