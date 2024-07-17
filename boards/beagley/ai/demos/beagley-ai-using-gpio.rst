@@ -161,6 +161,49 @@ Understanding the code
 
       <4> Wait 1 Second
 
+Blink an LED using Python
+*************************
+
+Using python you can write a script to blink an LED.
+
+First you need to install ``python3-libgpiod`` using below command.
+
+.. code:: console
+
+   sudo apt-get install python3-libgpiod
+
+Create a python file ``blinky.py``.
+
+.. code:: console
+
+   nano blinky.py
+
+Copy the below script and paste it to ``blinky.py`` file.
+Press ``CTRL+O`` and ``ENTER`` to save, ``CTRL+x`` to exit.
+
+.. code:: console
+
+   import gpiod
+   import time
+
+   chip=gpiod.Chip('gpiochip2')
+   lines = chip.get_line(14)
+   lines.request(consumer='beagle', type=gpiod.LINE_REQ_DIR_OUT, default_val=0)
+
+   while True:
+      lines.set_value(1)
+      time.sleep(1)
+      lines.set_value(0)
+      time.sleep(1)
+
+To run the ``blinky.py`` execute the below command.
+
+.. code:: console
+
+   python blinky.py
+
+After running the code you can see LED connected to ``GPIO14`` is blinking.
+
 Read a Button
 **************
 
