@@ -5,10 +5,14 @@ Using Arduino Zephyr Template
 
 Using this template you can run arduino code on your BeagleConnect Freedom.
 
+.. todo::
+
+    Add pin diagram for BeagleConnect Freedom that can be used in the template.
+
 Setup Arduino workspace
 ***********************
 
-If this is your first time using zephyr, `Install Zephyr SDK <https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-the-zephyr-sdk>`_  and install CC1352-FLASHER 
+If this is your first time using zephyr, `Install Zephyr SDK <https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-the-zephyr-sdk>`_  and install ``cc1352-flasher`` 
 using command ``pip install cc1352-flasher`` before following the steps below.
 
 1. Create a workspace folder:
@@ -18,7 +22,7 @@ using command ``pip install cc1352-flasher`` before following the steps below.
     mkdir arduino-workspace
     cd arduino-workspace
 
-2. Setup virtualenv
+2. Setup virtual environment
 
 .. code:: shell-session
 
@@ -49,8 +53,7 @@ Arduino Code
 ============
 
 You can find ``main.cpp`` file in the directory ``arduino-workspace/arduino-zephyr-template/src/``
-in which you can edit ``main.cpp`` with your arduino code. For now this file contains code which print ``Hello World``
-on the serial monitor. Must add ``#include <Arduino.h>`` before writing your code.
+which contains your arduino code. The default code prints ``Hello World`` on the serial monitor. 
 
 .. code:: shell-session
 
@@ -71,12 +74,17 @@ main.cpp
         delay(5000);
     }
 
-Press CTRL+O and ENTER to save, CTRL+X to exit.
+Press ``CTRL+O`` and ``ENTER`` to save, ``CTRL+X`` to exit.
 
-Build
-=====
+.. important::
+    
+    you must add ``#include <Arduino.h>`` before writing your code.
 
-Before flashing, Run the below command. 
+Build the Arduino directory
+===========================
+
+Before flashing, Run the below command to build the ``arduino-zephyr-template`` for the board 
+``beagleconnect_freedom``.
 
 .. code:: shell-session
 
@@ -86,10 +94,10 @@ Before flashing, Run the below command.
 
     If you are following the steps from the beginning then above command will work. 
     Otherwise make sure that you are in ``arduino-workspace`` directory and setup
-    virtualenv using command ``source .venv/bin/activate``.
+    virtual environment using command ``source .venv/bin/activate``.
 
-Flash
-=====
+Flash BeagleConnect Freedom
+============================
 
 Make sure that your BeagleConnect Freedom is connected with your linux system
 via USB.
@@ -98,23 +106,18 @@ via USB.
 
     west flash
 
-.. note::
-
-    If ``west flash`` gives you an error then add user to dialout group.
-
 Serial Output
 =============
-you can see the serial output coming from your BeagleConnect Freedom.
+Considering your BeagleConnect Freedom is connected to ``/dev/ttyACM0`` you can see the serial output coming from your BeagleConnect Freedom.
 
 .. code:: shell-session
 
-    cd ~
     tio /dev/ttyACM0
 
 Arduino Blink Code Running on BeagleConnect Freedom
 ***************************************************
 
-For BeagleConnect Freedom LINK LED will work as ``LED_BUILTIN`` in arduino code.
+For BeagleConnect Freedom LNK LED will work as ``LED_BUILTIN`` in arduino code.
 
 First you have to modify ``main.cpp`` located in the directory  ``arduino-workspace/arduino-zephyr-template/src/``
 created at the time of setup. 
@@ -152,7 +155,7 @@ Now, execute the build command.
 
 Make sure your BeagleConnect Freedom is connected to your linux system via USB.
 
-Finally, flash using below command. The LINK LED of BeagleConnect will start blinking after flashing
+Finally, flash using below command. The LNK LED of BeagleConnect will start blinking after flashing
 is complete.
 
 .. code:: shell-session
