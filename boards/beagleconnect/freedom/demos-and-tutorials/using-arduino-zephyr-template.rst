@@ -124,9 +124,10 @@ For BeagleConnect Freedom LNK LED will work as ``LED_BUILTIN`` in Arduino code.
 First you have to modify ``main.cpp`` located in the directory  ``arduino-workspace/arduino-zephyr-template/src/``
 created at the time of setup. 
 
-main.cpp
+
 
 .. code:: shell-session
+   :caption: main.cpp
 
     #include <Arduino.h>
     
