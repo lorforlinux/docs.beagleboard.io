@@ -109,6 +109,7 @@ via USB.
 
 Serial Output
 =============
+
 Considering your BeagleConnect Freedom is connected to ``/dev/ttyACM0`` you can see the serial output coming from your BeagleConnect Freedom.
 
 .. code:: shell-session
