@@ -158,7 +158,7 @@ Now, execute the build command.
 
 Make sure your BeagleConnect Freedom is connected to your linux system via USB.
 
-Finally, flash using below command. The LNK LED of BeagleConnect will start blinking after flashing
+Finally, flash using the command below. The ``LNK`` LED of BeagleConnect will start blinking after flashing
 is complete.
 
 .. code:: shell-session
