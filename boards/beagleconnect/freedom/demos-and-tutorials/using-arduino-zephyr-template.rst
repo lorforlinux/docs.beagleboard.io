@@ -144,7 +144,7 @@ created at the time of setup.
     delay(1000);                      // wait for a second
     }
 
-Before Build and Flash, Activate virtual environment in the ``arduino-workspace`` directory which has been created earlier.
+Before doing ``Build`` and ``Flash``, you must activate the virtual environment in the ``arduino-workspace`` directory which has been created earlier.
 
 .. code:: shell-session
 
