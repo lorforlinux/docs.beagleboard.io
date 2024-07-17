@@ -62,6 +62,7 @@ which contains your arduino code. The default code prints ``Hello World`` on the
 main.cpp
 
 .. code:: shell-session
+   :caption: main.py
 
     #include <Arduino.h>
 
