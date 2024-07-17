@@ -93,8 +93,8 @@ Before flashing, run the command below to build the ``arduino-zephyr-template`` 
 
 .. note:: 
 
-    If you are following the steps from the beginning then above command will work. 
-    Otherwise make sure that you are in ``arduino-workspace`` directory and setup
+    Only if you are following the steps from the beginning then the above command will work. 
+    Otherwise, make sure that you are in the ``arduino-workspace`` directory and setup
     virtual environment using command ``source .venv/bin/activate``.
 
 Flash BeagleConnect Freedom
