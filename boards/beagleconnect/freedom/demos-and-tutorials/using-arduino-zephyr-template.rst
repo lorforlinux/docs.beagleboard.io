@@ -79,7 +79,7 @@ Press ``CTRL+O`` and ``ENTER`` to save, ``CTRL+X`` to exit.
 
 .. important::
     
-    you must add ``#include <Arduino.h>`` before writing your code.
+    You must start your ``main.cpp`` code with ``#include <Arduino.h>``.
 
 Build the Arduino directory
 ===========================
