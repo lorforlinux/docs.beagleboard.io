@@ -198,7 +198,7 @@ Copy the script below and paste it to the ``blinky.py`` file.
 
 Press ``CTRL+O`` & ``ENTER`` to save the ``blinky.py`` script and then ``CTRL+X`` to exit.
 
-To run the ``blinky.py`` execute the below command.
+To run the ``blinky.py`` script execute the command below,
 
 .. code:: console
 
