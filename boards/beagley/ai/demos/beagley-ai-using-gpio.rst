@@ -178,10 +178,10 @@ Now, create a python file ``blinky.py`` and open it using ``nano`` editor using 
 
    nano blinky.py
 
-Copy the below script and paste it to ``blinky.py`` file.
-Press ``CTRL+O`` and ``ENTER`` to save, ``CTRL+x`` to exit.
+Copy the script below and paste it to the ``blinky.py`` file.
 
-.. code:: console
+.. code-block:: console
+   :caption: blinky.py
 
    import gpiod
    import time
@@ -195,6 +195,8 @@ Press ``CTRL+O`` and ``ENTER`` to save, ``CTRL+x`` to exit.
       time.sleep(1)
       lines.set_value(0)
       time.sleep(1)
+
+Press ``CTRL+O`` & ``ENTER`` to save the ``blinky.py`` script and then ``CTRL+X`` to exit.
 
 To run the ``blinky.py`` execute the below command.
 
