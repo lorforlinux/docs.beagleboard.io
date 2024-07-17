@@ -166,7 +166,7 @@ Blink an LED using Python
 
 Using python you can write a script to blink an LED.
 
-First you need to install ``python3-libgpiod`` using below command.
+First you need to install ``python3-libgpiod`` using the command below,
 
 .. code:: console
 
