@@ -80,8 +80,9 @@ If using an original BeagleBone or PocketBeagle, you are done.
     If using BeagleBone Black, BeagleBone Blue, BeagleBone AI, BeagleBone AI-64, BeaglePlay or other board with on-board eMMC
     flash and you desire to write the image to your on-board eMMC, you'll need to follow the
     instructions at http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC.
-    When the flashing is complete, all 4 USRx LEDs will be steady off and possibly
-    power down the board upon completion. This can take up to 45 minutes.  Power-down your board, remove the SD card and apply power again to finish.
+    During flash all 4 USRx LEDs will show sequential chaser pattern. When the flashing is complete, all 4 USRx LEDs will be
+    steady off and possibly power down the board upon completion. This can take up to 45 minutes.  Power-down your board,
+    remove the SD card and apply power again to finish.
 
 Start your Beagle
 *****************
