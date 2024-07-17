@@ -204,7 +204,7 @@ To run the ``blinky.py`` script execute the command below,
 
    python blinky.py
 
-After running the code you can see LED connected to ``GPIO14`` is blinking.
+After running the code you can see the LED connected to ``GPIO14`` or ``HAT Pin 08`` blinking.
 
 Read a Button
 **************
