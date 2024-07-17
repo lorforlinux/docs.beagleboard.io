@@ -84,7 +84,7 @@ Press ``CTRL+O`` and ``ENTER`` to save, ``CTRL+X`` to exit.
 Build the Arduino directory
 ===========================
 
-Before flashing, Run the below command to build the ``arduino-zephyr-template`` for the board 
+Before flashing, run the command below to build the ``arduino-zephyr-template`` for the board 
 ``beagleconnect_freedom``.
 
 .. code:: shell-session
