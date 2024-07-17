@@ -172,7 +172,7 @@ First you need to install ``python3-libgpiod`` using the command below,
 
    sudo apt-get install python3-libgpiod
 
-Create a python file ``blinky.py``.
+Now, create a python file ``blinky.py`` and open it using ``nano`` editor using the command below,
 
 .. code:: console
 
