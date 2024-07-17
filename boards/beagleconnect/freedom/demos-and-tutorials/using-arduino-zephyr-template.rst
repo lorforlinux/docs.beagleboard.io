@@ -59,10 +59,8 @@ which contains your arduino code. The default code prints ``Hello World`` on the
 
     nano arduino-workspace/arduino-zephyr-template/src/main.cpp
 
-main.cpp
-
-.. code:: shell-session
-   :caption: main.py
+.. code-block:: shell-session
+    :caption: main.cpp
 
     #include <Arduino.h>
 
@@ -124,10 +122,8 @@ For BeagleConnect Freedom LNK LED will work as ``LED_BUILTIN`` in Arduino code.
 First you have to modify ``main.cpp`` located in the directory  ``arduino-workspace/arduino-zephyr-template/src/``
 created at the time of setup. 
 
-
-
-.. code:: shell-session
-   :caption: main.cpp
+.. code-block:: shell-session
+    :caption: main.cpp
 
     #include <Arduino.h>
     
