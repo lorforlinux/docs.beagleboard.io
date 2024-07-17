@@ -116,10 +116,10 @@ Considering your BeagleConnect Freedom is connected to ``/dev/ttyACM0`` you can 
 
     tio /dev/ttyACM0
 
-Arduino Blink Code Running on BeagleConnect Freedom
+Arduino blink code running on BeagleConnect Freedom
 ***************************************************
 
-For BeagleConnect Freedom LNK LED will work as ``LED_BUILTIN`` in arduino code.
+For BeagleConnect Freedom LNK LED will work as ``LED_BUILTIN`` in Arduino code.
 
 First you have to modify ``main.cpp`` located in the directory  ``arduino-workspace/arduino-zephyr-template/src/``
 created at the time of setup. 
