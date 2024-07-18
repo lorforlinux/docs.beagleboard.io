@@ -9,9 +9,34 @@ it without worrying about learning new APIs and libraries.
 
 Using this template you can run arduino code on your BeagleConnect Freedom.
 
-.. todo::
+Pin Numbering For BeagleConnect Freedom
+***************************************
 
-    Add pin diagram for BeagleConnect Freedom that can be used in the template.
+You will see pins over **Mikrobus-1** and **Mikrobus-2** that can be used for arduino code.
+You can set each pin to either **read signals (input)** from things like buttons and
+sensors or **send signals (output)** to things like LEDs and motors. This lets you
+interact with and control the physical world using arduino code on BeagleConnect
+Freedom board. 
+
+Commonly used GPIOs are specified:
+
+- **D0-D18** Digital GPIO pins
+- **A0-A5** ADC GPIO pins
+- **D2** and **D6** PWM GPIO pins
+
+Reference to all GPIO pins are shown in the below images.
+
+.. figure:: ./images/BeagleConnectFreedom-Front-Annotated-Arduino-Pinout.png
+    :align: center
+    :alt: BeagleConnect Freedom MB1 pinout
+    
+    Mikrobus-1 front annotated arduino pinout
+
+.. figure:: ./images/BeagleConnectFreedom-Back-Annotated-Arduino-Pinout.png
+    :align: center
+    :alt: BeagleConnect Freedom MB2 pinout
+    
+    Mikrobus-2 back annotated arduino pinout
 
 Setup Arduino workspace
 ***********************
