@@ -164,21 +164,16 @@ Understanding the code
 Blink an LED using Python
 *************************
 
-Using python you can write a script to blink an LED.
+Using python you can blink an LED.
 
-First you need to install ``python3-libgpiod`` using the command below,
+The ``libgpiod`` should already be installed in the default image, in case it's not installed then
+install it by using the command below.
 
 .. code:: console
 
    sudo apt-get install python3-libgpiod
 
-Now, create a python file ``blinky.py`` and open it using ``nano`` editor using the command below,
-
-.. code:: console
-
-   nano blinky.py
-
-Copy the script below and paste it to the ``blinky.py`` file.
+Below is the Python code to blink an LED connected to GPIO14.
 
 .. code-block:: console
    :caption: blinky.py
@@ -186,15 +181,24 @@ Copy the script below and paste it to the ``blinky.py`` file.
    import gpiod
    import time
 
-   chip=gpiod.Chip('gpiochip2')
-   lines = chip.get_line(14)
-   lines.request(consumer='beagle', type=gpiod.LINE_REQ_DIR_OUT, default_val=0)
+   gpio14 = gpiod.find_line('GPIO14')
+   gpio14.request(consumer='beagle', type=gpiod.LINE_REQ_DIR_OUT, default_val=0)
 
    while True:
-      lines.set_value(1)
+      gpio14.set_value(1)
       time.sleep(1)
-      lines.set_value(0)
+      gpio14.set_value(0)
       time.sleep(1)
+
+To open the Python REPL, type ``python`` in the terminal. Copy the above code and paste it into the terminal.
+After running the code, the LED connected to GPIO14 will start blinking.
+
+Alternatively, you can create a Python script to achieve the same effect. Create a new file named ``blinky.py`` and
+open it using the ``nano`` editor with the following command, copy and paste the above code to the file.
+
+.. code:: console
+
+   nano blinky.py
 
 Press ``CTRL+O`` & ``ENTER`` to save the ``blinky.py`` script and then ``CTRL+X`` to exit.
 
@@ -205,6 +209,45 @@ To run the ``blinky.py`` script execute the command below,
    python blinky.py
 
 After running the code you can see the LED connected to ``GPIO14`` or ``HAT Pin 08`` blinking.
+
+Understanding the code
+======================
+
+.. callout::
+
+   .. code-block:: bash
+      
+         import gpiod <1>
+         import time <2>
+
+         gpio14 = gpiod.find_line('GPIO14') <3>
+         gpio14.request(consumer='beagle', type=gpiod.LINE_REQ_DIR_OUT, default_val=0) <4>
+
+         while True: <5>
+            gpio14.set_value(1) <6>
+            time.sleep(1) <7>
+            gpio14.set_value(0) <8>
+            time.sleep(1) <9>
+
+   .. annotations::
+
+      <1> Importing ``gpiod`` module
+
+      <2> Importing ``time`` module
+
+      <3> Linking GPIO14 pin object to gpio14 variable for better accessibility
+
+      <4> Set GPIO14 as OUTPUT pin
+
+      <5> Create infinite ``while`` loop
+
+      <6> Set the GPIO14 as 1 (HIGH)
+
+      <7> Wait 1 Second
+
+      <8> Set the GPIO14 as 0 (LOW)
+
+      <9> Wait 1 Second
 
 Read a Button
 **************
