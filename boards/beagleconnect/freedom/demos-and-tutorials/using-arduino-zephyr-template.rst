@@ -12,7 +12,7 @@ Using this template you can run arduino code on your BeagleConnect Freedom.
 Pin Numbering For BeagleConnect Freedom
 ***************************************
 
-You will see pins over **Mikrobus-1** and **Mikrobus-2** that can be used for arduino code.
+You will see pins over ``Mikrobus-1`` and ``Mikrobus-2`` that can be used for Arduino code.
 You can set each pin to either **read signals (input)** from things like buttons and
 sensors or **send signals (output)** to things like LEDs and motors. This lets you
 interact with and control the physical world using arduino code on BeagleConnect
