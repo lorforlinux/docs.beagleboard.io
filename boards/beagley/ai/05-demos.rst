@@ -9,6 +9,8 @@ Demos and tutorials
    demos/beagley-ai-using-gpio
    demos/beagley-ai-using-pwm
    demos/beagley-ai-using-rtc
+   demos/beagley-ai-using-i2c-oled-display
+   demos/beagley-ai-using-i2c-adc
    demos/beagley-ai-pca9685-motor-drivers
    demos/beagley-ai-expansion-nvme
    demos/beagley-ai-using-imx219-csi-cameras
