@@ -190,8 +190,15 @@ Below is the Python code to blink an LED connected to GPIO14.
       gpio14.set_value(0)
       time.sleep(1)
 
-To open the Python REPL, type ``python`` in the terminal. Copy the above code and paste it into the terminal.
+To open the Python REPL, type ``python`` in the terminal like below. Copy the above code and paste it into the terminal.
 After running the code, the LED connected to GPIO14 will start blinking.
+
+.. code:: console
+   
+   debian@BeagleBone:~$ python
+   Python 3.11.2 (main, May  2 2024, 11:59:08) [GCC 12.2.0] on linux
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>> 
 
 Alternatively, you can create a Python script to achieve the same effect. Create a new file named ``blinky.py`` and
 open it using the ``nano`` editor with the following command, copy and paste the above code to the file.
