@@ -4,7 +4,7 @@ Using Arduino Zephyr Template
 ##############################
 
 The `Arduino Core API module for zephyr <https://github.com/zephyrproject-rtos/gsoc-2022-arduino-core>`_ leverages the power of Zephyr under an
-Arduino-C++ style abtraction layer thus helping zephyr new-comers to start using
+Arduino-C++ style abstraction layer thus helping zephyr new-comers to start using
 it without worrying about learning new APIs and libraries.
 
 Using this template you can run arduino code on your BeagleConnect Freedom.

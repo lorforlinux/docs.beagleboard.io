@@ -58,7 +58,7 @@ You can now scan each bus as follows:
 
     i2cdetect -y -r 0
 
-The ``0`` corresponds to ``i2c-0``. we can then replace ``0`` with each bus untill we find the oled, 
+The ``0`` corresponds to ``i2c-0``. we can then replace ``0`` with each bus until we find the oled, 
 in this case, we know we are looking for a device at address ``0x3C``.
 
 .. code:: shell-session
@@ -200,7 +200,7 @@ display it as a string:
     ipAddr = ((([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")] or [[(s.connect(("8.8.8.8", 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0]
     [1]]) + ["no IP found"])[0])
 
-Additionaly in above text we can display our current IP Address using below script.
+Additionally in above text we can display our current IP Address using below script.
 You can create a new file then copy paste it and run.
 
 .. code:: shell-session
