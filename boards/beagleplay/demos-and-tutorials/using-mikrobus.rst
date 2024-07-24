@@ -336,7 +336,7 @@ How does ClickID work?
 Disabling the mikroBUS driver
 *****************************
 
-If you'd like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a deivce tree overlay at boot.
+If you'd like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a device tree overlay at boot.
 
 .. todo::
 

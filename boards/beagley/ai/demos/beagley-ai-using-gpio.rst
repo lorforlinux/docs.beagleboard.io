@@ -130,7 +130,7 @@ Let's create a script called **blinky.sh**,
 
    LED blinking
 
-- You can exit the ``blinky.sh`` progrm by pressing ``CTRL + C`` on your keyboard.
+- You can exit the ``blinky.sh`` program by pressing ``CTRL + C`` on your keyboard.
 
 Understanding the code
 ======================
