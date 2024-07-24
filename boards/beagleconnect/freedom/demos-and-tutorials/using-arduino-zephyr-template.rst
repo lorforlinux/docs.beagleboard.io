@@ -42,7 +42,7 @@ Setup Arduino workspace
 ***********************
 
 If this is your first time using zephyr, `Install Zephyr SDK <https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-the-zephyr-sdk>`_  and install ``cc1352-flasher`` 
-using command ``pip install cc1352-flasher`` before following the steps below.
+using command ``pip install cc1352-flasher`` then reboot your system before following the steps below.
 
 1. Create a workspace folder:
 
