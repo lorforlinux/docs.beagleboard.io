@@ -82,11 +82,12 @@ Arduino Code
 ============
 
 You can find ``main.cpp`` file in the directory ``arduino-workspace/arduino-zephyr-template/src/``
-which contains your arduino code. The default code prints ``Hello World`` on the serial monitor. 
+which contains your arduino code. The default code prints ``Hello World`` on the serial monitor.
+Since you are already in the ``arduino-workspace`` directory, then proceed with writing the following code.
 
 .. code:: shell-session
 
-    nano arduino-workspace/arduino-zephyr-template/src/main.cpp
+    nano arduino-zephyr-template/src/main.cpp
 
 .. code-block:: shell-session
     :caption: main.cpp
@@ -168,6 +169,10 @@ created at the time of setup.
     digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
     delay(1000);                      // wait for a second
     }
+
+.. note:: 
+
+    For specifying high and low output states, use ``HIGH`` and ``LOW``. Avoid using boolean ``1`` and ``0`` as they may not be compatible.
 
 Before doing ``Build`` and ``Flash``, you must activate the virtual environment in the ``arduino-workspace`` directory which has been created earlier.
 
