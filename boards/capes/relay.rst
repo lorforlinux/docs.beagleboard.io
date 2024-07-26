@@ -250,6 +250,8 @@ One thing to note: `sudo apt install cmake`
 
 8. ./Relay
 
+Here is a simple, Python3 file to handle a relay on the Relay Cape with the BBB.
+
 .. code-block::
 
     #!/usr/bin/python3
