@@ -1,9 +1,10 @@
-=======================
+.. _beaglev-fire-apb-axi-demo
+
 Accessing APB and AXI Peripherals Through Linux
-=======================
+###############################################
 
 AXI
-===
+***
 
 .. line-block::
     AXI is part of the ARM AMBA (Advanced Microcontroller Bus Architecture) protocol family. 
@@ -12,14 +13,14 @@ AXI
     including high-end embedded systems and complex digital circuits.
 
 APB
-===
+***
 
 .. line-block::
     APB is also part of the ARM AMBA protocol family, designed for low-power and low-latency communication with peripheral devices. 
     It is simpler and lower performance compared to AXI, making it suitable for slower peripheral devices.
 
 Accessing AXI and APB Peripherals from Linux
-============================================
+********************************************
 
 .. line-block::
     To access AXI and APB peripherals from Linux, memory-mapped I/O (MMIO) is commonly used. 
