@@ -56,7 +56,7 @@ Now, we shall access this address through a memory-mapped interface in Linux.
     | Make sure that before running an example to access AXI/APB slave, you must have a properly configured design.
     | Improperly configured designs will result in a *CPU Stall*, which might also damage your beagleboard's file system.
     | If you encounter a stall, a simple reset from the hardware buttons should be enough to get you out of there.
-    | For more information about the stalls, please read the section `on Issues faced with the interfaces <#Issues-that-can-be-faced-when-using-an-improperly-configured-AXI/APB-interface>`_
+    | For more information about the stalls, please read the section :ref:`on issues faced with the interfaces <issues-with-axi-apb>`.
 
 Accessing the Interface
 ------------------------
@@ -320,6 +320,8 @@ Once the gateware is compiled, we can access the memory-mapped interface by the 
           close(uioFd_0);
           return 0;
       }
+
+.. _issues-with-axi-apb:
 
 Issues that can be faced when using an improperly configured AXI/APB interface
 ===============================================================================
