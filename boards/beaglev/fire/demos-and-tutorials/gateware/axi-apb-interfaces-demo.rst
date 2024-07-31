@@ -78,7 +78,7 @@ The first method is quite simple.
       sudo devmem2 0x41100010 w 0x1
 
 In the second method, we can use the ``/dev/mem`` interface to access the registers inside the APB Slave. 
-Here is an example C program which demonstrates this.
+Here is an example C program which demonstrates this:
 
 .. raw:: html
 
@@ -102,7 +102,7 @@ Design Details
 
     Both the CoreAXI4Interconnect and the PF AXI LSRAM will have to be configured. 
     The AXI ID Width of both the modules will have to be matched, as well as the address space of the only slave will have to be configured. 
-    In this example, LSRAM gets an address of `0x6000_0000` to `0x6000_ffff`, and the AWID is kept to 9 bits.
+    In this example, LSRAM gets an address of `0x6000_0000` to `0x6000_ffff`, and the AWID is kept at 9 bits.
 
 .. figure:: images/axi-slave-demo.png
     :width: 1040
@@ -127,14 +127,14 @@ Finally, an entry will be added to the device tree to make a UIO device point to
 
 Once the gateware is compiled, we can access the memory-mapped interface by the same methods, and by the UIO device as well.
 
-1. Using devmem2
+1. Using devmem2:
 
    .. code-block:: shell
 
       sudo devmem2 0x60000000 w # for read
       sudo devmem2 0x60000000 w 0x1 # for write
 
-2. Using the UIO device
+2. Using the UIO device:
 
 .. raw:: html
 
@@ -159,3 +159,5 @@ Your BVF will stop responding if connected to SSH, and on serial you will see th
    [   24.145213] [<ffffffff80a67ba0>] __schedule+0x27c/0x834
 
 If this happens, please double check your design. Specifically, check the address configured for the slaves, the AXI ID wire width and other AXI parameters.
+
+In any case, this state is virtually impossible to recover from gracefully, so the **reset** button may be your last resort.
