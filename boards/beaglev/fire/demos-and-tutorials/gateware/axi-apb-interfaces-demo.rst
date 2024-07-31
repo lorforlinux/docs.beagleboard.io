@@ -7,7 +7,7 @@ AXI
 ***
 
 .. line-block::
-    AXI is part of the ARM AMBA (Advanced Microcontroller Bus Architecture) protocol family. 
+    `AXI <https://developer.arm.com/documentation/ihi0022/latest/>`_ is part of the `ARM AMBA <https://developer.arm.com/Architectures/AMBA>`_ (Advanced Microcontroller Bus Architecture) protocol family. 
     It is designed for high-performance, high-frequency system-on-chip (SoC) designs. 
     AXI provides high-speed data transfer with minimal latency and is widely used in various applications, 
     including high-end embedded systems and complex digital circuits.
@@ -16,7 +16,7 @@ APB
 ***
 
 .. line-block::
-    APB is also part of the ARM AMBA protocol family, designed for low-power and low-latency communication with peripheral devices. 
+    `APB <https://developer.arm.com/documentation/ihi0024/latest/>`_ is also part of the ARM AMBA protocol family, designed for low-power and low-latency communication with peripheral devices. 
     It is simpler and lower performance compared to AXI, making it suitable for slower peripheral devices. An APB peripheral also consumes less
     resources on the FPGA fabric compared to an AXI peripheral.
 
@@ -144,13 +144,15 @@ AXI Interfaces
 ==============
 
 The MSS includes three 64-bit AXI FICs out of which FIC0 is used for data transfers to/from the fabric. 
-FIC0 is connected as both master and slave.
+FIC0 is connected as both master and slave. For usage of AXI peripherals, an example is also provided by microchip
+in their `Polarfire SoC Linux examples <https://github.com/polarfire-soc/polarfire-soc-linux-examples>`_. The example here takes reference from
+the `AXI LSRAM example <https://github.com/polarfire-soc/polarfire-soc-linux-examples/tree/master/fpga-fabric-interfaces/lsram>`_.
 
 Design Details
 --------------
 
 .. line-block::
-    A simple design can be created by first connecting the FIC0 Initiator from the MSS to a CoreAXI4Interconnect. 
+    A simple design can be created by first connecting the FIC0 Initiator from the MSS to a `CoreAXI4Interconnect <https://www.microchip.com/en-us/products/fpgas-and-plds/ip-core-tools/coreaxi4interconnect>`_.
     Now, you can connect an AXI slave to this interconnect. We will be using the Polarfire AXI LSRAM.
 
     Both the CoreAXI4Interconnect and the PF AXI LSRAM will have to be configured. 
