@@ -33,8 +33,7 @@ APB Interfaces
 
 .. line-block::
     The MSS includes fabric interfaces for interfacing FPGA fabric with the CPU Core Complex. 
-    It provides one APB 32-bit FIC3 to provide APB interface to the FPGA fabric. 
-    FIC3 provides a master interface to the MSS, FIC3 must be connected to a slave in the fabric.
+    It provides one 32-bit APB master interface, FIC3, and can be connected to a slave in the fabric.
 
 Design Details
 --------------
