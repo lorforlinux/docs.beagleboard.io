@@ -1,4 +1,4 @@
-.. _beaglev-fire-apb-axi-demo
+.. _beaglev-fire-axi-apb-interfaces-demo:
 
 Accessing APB and AXI Peripherals Through Linux
 ###############################################
@@ -9,16 +9,14 @@ AXI
 .. line-block::
     `AXI <https://developer.arm.com/documentation/ihi0022/latest/>`_ is part of the `ARM AMBA <https://developer.arm.com/Architectures/AMBA>`_ (Advanced Microcontroller Bus Architecture) protocol family. 
     It is designed for high-performance, high-frequency system-on-chip (SoC) designs. 
-    AXI provides high-speed data transfer with minimal latency and is widely used in various applications, 
-    including high-end embedded systems and complex digital circuits.
+    AXI provides high-speed data transfer with minimal latency and is widely used in various applications, including high-end embedded systems and complex digital circuits.
 
 APB
 ***
 
 .. line-block::
     `APB <https://developer.arm.com/documentation/ihi0024/latest/>`_ is also part of the ARM AMBA protocol family, designed for low-power and low-latency communication with peripheral devices. 
-    It is simpler and lower performance compared to AXI, making it suitable for slower peripheral devices. An APB peripheral also consumes less
-    resources on the FPGA fabric compared to an AXI peripheral.
+    It is simpler and lower performance compared to AXI, making it suitable for slower peripheral devices. An APB peripheral also consumes less resources on the FPGA fabric compared to an AXI peripheral.
 
 Accessing AXI and APB Peripherals from Linux
 ********************************************
@@ -27,6 +25,9 @@ Accessing AXI and APB Peripherals from Linux
     To access AXI and APB peripherals from Linux, memory-mapped I/O (MMIO) is commonly used. 
     This involves mapping the physical addresses of the peripherals into the virtual address space of a user-space application. 
     The following sections demonstrate how to access APB peripherals using the Linux ``/dev/mem`` interface and AXI peripherals using the UIO (Userspace I/O) framework.
+
+.. note::
+    The codes for accessing the interfaces are available in the snippets here: `APB Interfaces <https://openbeagle.org/-/snippets/13>`_ and `AXI Interfaces <https://openbeagle.org/-/snippets/11>`_
 
 APB Interfaces
 ==============
@@ -41,11 +42,11 @@ Design Details
 For this example, you can try to write to the APB slave present in the Verilog Tutorial Cape gateware. 
 Select the gateware by changing `custom-fpga-design/my_custom_fpga_design.yaml` to include ``VERILOG_TUTORIAL`` as the cape option.
 
-The APB Slave has two registers, one read-only register at ``0x00``, one read-write register at 0x10, and a status register containing the last read value at ``0x20``.
+The APB Slave has two registers, one read-only register at ``0x00``, one read-write register at ``0x10``, and a status register containing the last read value at ``0x20``.
 
 .. line-block::
-    Having a look at the design, we can see that the APB slave is connected with a CoreAPB3 arbiter, which assigns it the 0xXX10_0000 address, the top two bits being ignored. 
-    Tracing to the master connected with the CoreAPB3 device, we can see that another arbiter is present, which gives our slave the ``0xX100_0000`` address. 
+    Having a look at the design, we can see that the APB slave is connected with a CoreAPB3 interconnect, which assigns it the ``0xXX10_0000`` address, the top two bits being ignored. 
+    Tracing to the master connected with the CoreAPB3 device, we can see that another interconnect is present, which gives our slave the ``0xX100_0000`` address. 
     The polarfire technical manual shows that FIC3 peripherals can start from the ``0x4000_0000`` address. 
     Therefore, the final address of our APB slave becomes ``0x4110_0000``.
 
@@ -87,7 +88,7 @@ Here is an example C program which demonstrates this.
    #include <fcntl.h>
    #include <sys/mman.h>
 
-   #define MAP_SIZE 4096   // 4096 bytes as per DTSO file
+   #define MAP_SIZE 4096
    #define BASE_ADDRESS 0x41100000
    #define OFFSET_REG1 0x00   // Read only register which contains 0xDEADBEEF
    #define OFFSET_REG2 0x10   // Read/write register
