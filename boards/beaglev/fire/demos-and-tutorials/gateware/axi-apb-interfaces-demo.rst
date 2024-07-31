@@ -17,7 +17,8 @@ APB
 
 .. line-block::
     APB is also part of the ARM AMBA protocol family, designed for low-power and low-latency communication with peripheral devices. 
-    It is simpler and lower performance compared to AXI, making it suitable for slower peripheral devices.
+    It is simpler and lower performance compared to AXI, making it suitable for slower peripheral devices. An APB peripheral also consumes less
+    resources on the FPGA fabric compared to an AXI peripheral.
 
 Accessing AXI and APB Peripherals from Linux
 ********************************************
@@ -43,12 +44,19 @@ Select the gateware by changing `custom-fpga-design/my_custom_fpga_design.yaml` 
 The APB Slave has two registers, one read-only register at 0x00, one read-write register at 0x10 and a status register containing the last read value at 0x20.
 
 .. line-block::
-    Having a look at the design, we can see that the APB slave is connected with a CoreAPB3 arbitrer, which assigns it the 0xXX10_0000 address, the top two bits being ignored. 
-    Tracing to the master connected with the CoreAPB3 device, we can see that there is another arbitrer present, which gives our slave the 0xX100_0000 address. 
+    Having a look at the design, we can see that the APB slave is connected with a CoreAPB3 arbiter, which assigns it the 0xXX10_0000 address, the top two bits being ignored. 
+    Tracing to the master connected with the CoreAPB3 device, we can see that there is another arbiter present, which gives our slave the 0xX100_0000 address. 
     From the polarfire technical manual, we know that FIC3 peripherals can start from the 0x4000_0000 address. 
     Therefore, the final address of our APB slave becomes 0x4110_0000.
 
 Now, we shall access this address through a memory-mapped interface in Linux.
+
+.. important::
+
+    | Make sure that before running an example to access AXI/APB slave, you must have a properly configured design.
+    | Improperly configured designs will result in a *CPU Stall*, which might also damage your beagleboard's file system.
+    | If you encounter a stall, a simple reset from the hardware buttons should be enough to get you out of there.
+    | For more information about the stalls, please read the section `on Issues faced with the interfaces <#Issues-that-can-be-faced-when-using-an-improperly-configured-AXI/APB-interface>`_
 
 Accessing the Interface
 ------------------------
