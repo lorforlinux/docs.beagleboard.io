@@ -54,9 +54,11 @@ Now, we shall access this address through a memory-mapped interface in Linux.
 
 .. important::
 
-    | Make sure that before running an example to access AXI/APB slave, you must have a properly configured design.
-    | Improperly configured designs will result in a *CPU Stall*, which might also damage your beagleboard's file system.
-    | If you encounter a stall, a simple reset from the hardware buttons should be enough to get you out of there.
+    | The following paragraphs will present to you several ways to test APB/AXI traffic.
+    | Normally, this isn't harmful, but reading/writing to addresses 
+    | with no gateware behind it **will** lead to you stalling a CPU.
+    | In rare cases, this stalling of a CPU *can* lead to loss of content on your eMMC, 
+    | so please make sure you have a known good backup!
     | For more information about the stalls, please read the section :ref:`on issues faced with the interfaces <issues-with-axi-apb>`.
 
 Accessing the Interface
