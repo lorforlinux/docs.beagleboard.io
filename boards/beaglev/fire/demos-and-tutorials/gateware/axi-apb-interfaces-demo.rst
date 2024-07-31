@@ -26,7 +26,7 @@ Accessing AXI and APB Peripherals from Linux
 .. line-block::
     To access AXI and APB peripherals from Linux, memory-mapped I/O (MMIO) is commonly used. 
     This involves mapping the physical addresses of the peripherals into the virtual address space of a user-space application. 
-    The following sections demonstrate how to access APB peripherals using the Linux /dev/mem interface and AXI peripherals using the UIO (Userspace I/O) framework.
+    The following sections demonstrate how to access APB peripherals using the Linux ``/dev/mem`` interface and AXI peripherals using the UIO (Userspace I/O) framework.
 
 APB Interfaces
 ==============
@@ -38,16 +38,17 @@ APB Interfaces
 
 Design Details
 --------------
-For this example, you can try to write to the APB slave present in the Verilog Tutorial Cape gateware. 
-Select the gateware by changing `custom-fpga-design/my_custom_fpga_design.yaml` to include `VERILOG_TUTORIAL` as the cape option.
 
-The APB Slave has two registers, one read-only register at 0x00, one read-write register at 0x10 and a status register containing the last read value at 0x20.
+For this example, you can try to write to the APB slave present in the Verilog Tutorial Cape gateware. 
+Select the gateware by changing `custom-fpga-design/my_custom_fpga_design.yaml` to include ``VERILOG_TUTORIAL`` as the cape option.
+
+The APB Slave has two registers, one read-only register at ``0x00``, one read-write register at 0x10, and a status register containing the last read value at ``0x20``.
 
 .. line-block::
     Having a look at the design, we can see that the APB slave is connected with a CoreAPB3 arbiter, which assigns it the 0xXX10_0000 address, the top two bits being ignored. 
-    Tracing to the master connected with the CoreAPB3 device, we can see that there is another arbiter present, which gives our slave the 0xX100_0000 address. 
-    From the polarfire technical manual, we know that FIC3 peripherals can start from the 0x4000_0000 address. 
-    Therefore, the final address of our APB slave becomes 0x4110_0000.
+    Tracing to the master connected with the CoreAPB3 device, we can see that another arbiter is present, which gives our slave the ``0xX100_0000`` address. 
+    The polarfire technical manual shows that FIC3 peripherals can start from the ``0x4000_0000`` address. 
+    Therefore, the final address of our APB slave becomes ``0x4110_0000``.
 
 Now, we shall access this address through a memory-mapped interface in Linux.
 
@@ -60,6 +61,7 @@ Now, we shall access this address through a memory-mapped interface in Linux.
 
 Accessing the Interface
 ------------------------
+
 There are two ways to access such registers. One can use the `devmem2` utility or write a C program for accessing the memory region. 
 The first method is quite simple.
 
@@ -75,7 +77,7 @@ The first method is quite simple.
 
       sudo devmem2 0x41100010 w 0x1
 
-In the second method, we can use the `/dev/mem` interface to access the registers inside the APB Slave. 
+In the second method, we can use the ``/dev/mem`` interface to access the registers inside the APB Slave. 
 Here is an example C program which demonstrates this.
 
 .. code-block:: c
@@ -141,6 +143,7 @@ Here is an example C program which demonstrates this.
 
 AXI Interfaces
 ==============
+
 The MSS includes three 64-bit AXI FICs out of which FIC0 is used for data transfers to/from the fabric. 
 FIC0 is connected as both master and slave.
 
@@ -159,7 +162,7 @@ Design Details
     :width: 1040
     :alt: AXI LSRAM slave
 
-    Example design
+    AXI LSRAM slave (example design)
 
 Finally, an entry will be added to the device tree to make a UIO device point to our LSRAM's memory region.
 
@@ -325,6 +328,7 @@ Once the gateware is compiled, we can access the memory-mapped interface by the 
 
 Issues that can be faced when using an improperly configured AXI/APB interface
 ===============================================================================
+
 A CPU stall can be faced when accessing the FIC interfaces without any slaves connected to the memory region being accessed. 
 Your BVF will stop responding if connected to SSH, and on serial you will see the following kernel messages:
 
