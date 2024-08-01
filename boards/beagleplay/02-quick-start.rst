@@ -24,7 +24,7 @@ When you purchase a brand new BeaglePlay, In the box you'll get:
 Attaching antennas
 ******************
 
-You can watch this video to see how to attach the attennas.
+You can watch this video to see how to attach the antennas.
 
 .. youtube:: 8zeIVd-JRc0
     :width: 100%
@@ -54,7 +54,7 @@ For tethering to your PC you'll need a USB-C data cable.
 Access VSCode
 ****************
 
-You can acces VSCode in two ways:
+You can access VSCode in two ways:
 
 1. :ref:`beagleplay-usb-vscode`
 2. :ref:`beagleplay-access-point-vscode`
