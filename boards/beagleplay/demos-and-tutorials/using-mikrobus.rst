@@ -314,7 +314,7 @@ and display its output in the terminal.
 
    debian@BeaglePlay:~$ watch -n 0.5 ./accelclick.sh 
 
-This is the output of your accelclick.sh script. It shows the current values of the X, Y, and Z axis of your accelerometer in raw form.
+This is the output of your accelclick.sh script. It shows the current values of your accelerometer's X, Y, and Z axis in raw form.
 
 .. code:: shell-session
 
@@ -322,7 +322,7 @@ This is the output of your accelclick.sh script. It shows the current values of 
 
    X = 3        Y = 11      Z= 284
 
-
+ 
 Using boards with Linux drivers
 *******************************
 
