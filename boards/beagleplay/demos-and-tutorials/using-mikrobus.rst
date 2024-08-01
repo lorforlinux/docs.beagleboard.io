@@ -271,7 +271,7 @@ The file corresponding to the IIO device, including raw values, can be viewed us
    dev                          in_accel_scale        in_accel_x_raw        in_accel_y_raw        in_accel_z_raw  power                         subsystem
    in_accel_sampling_frequency  in_accel_x_calibbias  in_accel_y_calibbias  in_accel_z_calibbias  name            sampling_frequency_available  uevent
 
-To view the raw values from the accel click (assuming iio:device0 is configured correctly for your MikroBUS
+To view the raw values from the accel click (assuming ``iio:device0`` is configured correctly for your MikroBUS
 click ID on the BeaglePlay board), you can use the following command:
 
 .. code:: shell-session
