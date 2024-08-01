@@ -297,7 +297,8 @@ Copy the below script and paste it to the ``accelclick.sh`` file. It reads the r
    echo "X = ${X}        Y = ${Y}      Z= ${Z}"
 
 .. note::
-   Remember to adjust the device path (iio:device0) according to your actual setup. Also, ensure that your system 
+
+   Adjust the device path ``iio:device0`` according to your setup. Also, ensure that your system 
    and hardware configuration are correctly set up to provide live accelerometer data through these paths.
 
 To make the script file executable, use the following command:
