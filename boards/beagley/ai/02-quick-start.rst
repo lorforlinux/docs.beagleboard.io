@@ -19,7 +19,7 @@ Getting started
 To get started your BeagleY-AI you need the following:
 
 1. :ref:`5V @ 3A power supply <accessories-power-supplies>`
-2. MicromicroSD card (32GB)
+2. MicroSD card (32GB)
 3. :ref:`beagley-ai-boot-media`
 
 You may need additional accessories based on the mode of operation, you can use your BeagleY-AI in different ways.
@@ -85,9 +85,9 @@ Below are all the steps required to create a bootable microSD card with latest/r
 
 .. figure:: images/imager/step5-select-storage.*
     :align: center
-    :alt: Click on ``CHOOSE STORAGE`` buddon
+    :alt: Click on ``CHOOSE STORAGE`` button
 
-    Click on ``CHOOSE STORAGE`` buddon
+    Click on ``CHOOSE STORAGE`` button
 
 .. figure:: images/imager/step6-choose-microsd-card.*
     :align: center
@@ -228,7 +228,7 @@ In ``sysconf.txt`` file you have to edit the two lines highlighted below.
 .. important::
     
     1. Make sure to remove ``#`` from ``#user_name=`` and ``#user_password=`` else the lines will be interpreted as a comment and your username & password will not be updated.
-    2. If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a :ref:`standalone-connection` setup.
+    2. If you do not change your username and password here then you will not see any output on your HDMI monitor when you do a :ref:`standalone-connection` setup.
 
 
 Once username and password are updated, you can insert the microSD card into 
@@ -275,7 +275,7 @@ or command prompt (`Windows <https://www.wikihow.com/Open-the-Command-Prompt-in-
     
     ssh debian@192.168.7.2
 
-.. important:: Here ``debian`` is the default username, make sure to replace ``debian`` with the ``username`` you selected during :ref:`beagley-ai-boot-media` prepration step.
+.. important:: Here ``debian`` is the default username, make sure to replace ``debian`` with the ``username`` you selected during :ref:`beagley-ai-boot-media` preparation step.
 
 .. tip:: If you are not able to find your beagle at ``192.168.7.2``, checkout :ref:`start-browse-to-beagle` to resolve your connection issue.
 
@@ -293,7 +293,7 @@ UART connection
 ================
 
 Your BeagleY-AI board creates a UART connection (No additional hardware required) when tethered to a Laptop/PC which you can access using ``Putty`` of ``tio``. 
-On a linux machine it may come up as ``dev/ttyACM*``, it will be different for Mac and Windows operatig systems. To find serial port for your system you can checkout 
+On a linux machine it may come up as ``dev/ttyACM*``, it will be different for Mac and Windows operating systems. To find serial port for your system you can checkout 
 `this guide <https://www.mathworks.com/help/matlab/supportpkg/find-arduino-port-on-windows-mac-and-linux.html;jsessionid=c2d3127cd10411c66f33468cbd5b>`_.
 
 .. figure:: images/uart/putty.*
@@ -336,7 +336,7 @@ Standalone connection
 
 .. important:: 
     Make sure to update your ``username`` and ``password`` during 
-    :ref:`beagley-ai-boot-media` prepration step else you'll not see any output on you HDMI monitor.
+    :ref:`beagley-ai-boot-media` preparation step else you'll not see any output on you HDMI monitor.
 
 To setup your BeagleY-AI for standalone usage, you need the following additional accessories,
 
@@ -367,7 +367,7 @@ If everything is connected properly you should see four penguins on your monitor
 
     BeagleY-AI boot penguins
 
-When prompted, login using the credentials you updated during :ref:`beagley-ai-boot-media` prepration step.
+When prompted, login using the credentials you updated during :ref:`beagley-ai-boot-media` preparation step.
 
 .. Important:: You can not update login credentials at this step, you must update them during boot media (software image) micrSD card flashing or USB tethering step!
 
