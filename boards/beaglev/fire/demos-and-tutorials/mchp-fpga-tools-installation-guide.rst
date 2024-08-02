@@ -90,10 +90,9 @@ Install the Linux Standard Base:
 Request a Libero Silver license
 ********************************
 
-- Visit `microchip's fpga and soc design tool licensing page <www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/licensing>`_
-- Click on Register a free license button and Register or login.
-- Click "Request Free License" and choose "Libero Silver 1Yr Floating License for Windows/Linux Server" from the list.
-- Enter you MAC address and click register. 
+- Visit `microchip's fpga software products page <https://www.microchipdirect.com/fpga-software-products>`_
+- Choose "Libero Silver 1Yr Floating License for Windows/Linux Server" from the list.
+- Enter your MAC address and click register. 
   
 .. note::
     
