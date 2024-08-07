@@ -190,9 +190,9 @@ reduces the power consumption to just 0.12 μW using a +3V supply, or 0.47 μW u
 .. figure:: images/hardware-design/ADC102S051.svg
     :width: 1247
     :align: center
-    :alt: ADC102S051 - 12bit Aanalog to Digital Converter (ADC)
+    :alt: ADC102S051 - 12bit Analog to Digital Converter (ADC)
 
-    ADC102S051 - 12bit Aanalog to Digital Converter (ADC)
+    ADC102S051 - 12bit Analog to Digital Converter (ADC)
 
 mikroBUS
 =========
