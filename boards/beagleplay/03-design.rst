@@ -30,7 +30,7 @@ more detail with schematic diagrams.
     :alt: BeaglePlay block diagram
 
 System on Chip (SoC)
-*********************
+********************
 
 `AM62x Sitara™ Processors <https://www.ti.com/product/AM625>`_ from Texas Instruments are 
 Human-machine-interaction SoC with Arm® Cortex®-A53-based edge AI and full-HD dual display. 
@@ -52,7 +52,7 @@ are interested to know more about the AM62x SoC you may take a look at
     AM6254 SoC block diagram
 
 Power management
-*****************
+****************
 
 Different parts of the board requires different voltages to operate and to fulfill requirements of 
 all the chips on BeaglePlay we have Low Drop Out (LDO) voltage regulators for fixed voltage output 
@@ -65,7 +65,7 @@ and Power Management Integrated Circuit (PMIC) that interface with SoC to genera
    :alt: BeaglePlay power block diagram
 
 1.0V LDO
-=========
+========
 
 TLV75801 is an adjustable 500-mA low-dropout (LDO) regulator. Consumes very low quiescent current and provides fast line and load transient
 performance. The TLV758P features an ultra-low dropout of 130 mV at 500 mA that can help improve the power efficiency of the system. 
@@ -93,7 +93,7 @@ when running low on power rails.
   optimization could be performed if concerned about sleep modes.
 
 3.3V DCDC buck
-===============
+==============
 
 TLV62595 is a high-frequency synchronous step-down converter optimized for compact solution size
 and high efficiency. The device integrates switches capable of delivering an output current up to 4 A.
@@ -117,7 +117,7 @@ gigabit Ethernet PHY. Due to the relatively high current rating (3A), a highly e
         (VDD_3V3_PG) is available at TP19 and is unused on the rest of the board.
 
 PMIC
-=====
+====
 
 The TPS65219 is a Power Management IC (PMIC) designed to supply a wide range of SoCs in both
 portable and stationary applications. The DC-DC converters are capable of 1x 3.5 A and 2x
@@ -146,7 +146,7 @@ Reference Manual `SLVUCJ2 <https://www.ti.com/lit/pdf/slvucj2>`_.
    Add specific power-up/down sequence notes here as well a highlight any limitations and known issues.
 
 General Connectivity and Expansion
-***********************************
+**********************************
 
 One of the main advantage of using a Single Board Computer (SBC) is having direct accessibility of 
 general purpose input & output (GPIO) pins and other interfaces like I2C, SPI, ADC, PWM. Your BeaglePlay 
@@ -160,7 +160,7 @@ The USB-C connector allows you to power the board and to connect the board to a 
 use the pre-installed VisualStudio Code editor by putting the address ``192.168.7.2:3000`` in your web browser.
 
 USB A & USB C
-==============
+=============
 
 Below is the schematic of full size USB A for pripheral connection and USB C for device power & tethering.
 
@@ -172,7 +172,7 @@ Below is the schematic of full size USB A for pripheral connection and USB C for
     USB-A and USB-C
 
 2ch 10bit ADC
-==============
+=============
 
 The ADC102S051 is a low-power, two-channel CMOS 10-bit analog-to-digital converter with a high-
 speed serial interface. Unlike the conventional practice of specifying performance at a single sample
@@ -190,12 +190,12 @@ reduces the power consumption to just 0.12 μW using a +3V supply, or 0.47 μW u
 .. figure:: images/hardware-design/ADC102S051.svg
     :width: 1247
     :align: center
-    :alt: ADC102S051 - 12bit Aanalog to Digital Converter (ADC)
+    :alt: ADC102S051 - 12bit Analog to Digital Converter (ADC)
 
-    ADC102S051 - 12bit Aanalog to Digital Converter (ADC)
+    ADC102S051 - 12bit Analog to Digital Converter (ADC)
 
 mikroBUS
-=========
+========
 
 mikroBUS is a standard specification by MikroElektronika that can be freely used by anyone following the guidelines. 
 It includes SPI, I2C, UART, PWM, ADC, reset, interrupt, and power (3.3V and 5V) connections to common embedded peripherals.
@@ -208,7 +208,7 @@ It includes SPI, I2C, UART, PWM, ADC, reset, interrupt, and power (3.3V and 5V) 
     mikroBUS connector schematic
 
 Grove
-======
+=====
 
 Seeed Studio Grove System is a modular, standardized connector prototyping ecosystem. The Grove System 
 takes a building block approach to assembling electronics. Compared to the jumper or solder based system, 
@@ -234,7 +234,7 @@ Qwiic, or STEMMA QT are 4pin JST SH 1.00 connectors for easy I2C connection.
     QWIIC connnector for I2C modules
 
 Buttons and LEDs
-*****************
+****************
 
 To interact with the Single Board Computers we use buttons for input and LEDs for visual feedback. 
 On your BeaglePlay board you will find 3 buttons each with a specific purpose: power, reset, and user. 
@@ -242,7 +242,7 @@ For visual feedback you will find 5 user LEDs near USB-C port and 6 more indicat
 Single Pair ethernet port. Schematic diagrams below show how these buttons and LEDs are wired.
 
 Buttons
-========
+=======
 
 Power, Reset and User buttons for turning board ON/OFF, resetting board, and boot selection or user assigned control.
 
@@ -257,7 +257,7 @@ Power, Reset and User buttons for turning board ON/OFF, resetting board, and boo
     +-------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------+
 
 LEDs
-=====
+====
 
 Power and user LEDs for status and general purpose usage.
 
@@ -269,12 +269,12 @@ Power and user LEDs for status and general purpose usage.
     BeaglePlay LEDs
 
 Wired and wireless connectivity
-********************************
+*******************************
 
 For internet connection or general connectivity between BeaglePlay and other devices.
 
 Gigabit ethernet
-=================
+================
 
 The Realtek RTL8211F-CG is a highly integrated Ethernet transceiver that is compatible with 10Base-T, 
 100Base-TX, and 1000Base-T IEEE 802.3 standards. It provides all the necessary physical layer functions 
@@ -293,7 +293,7 @@ implemented in the RTL8211F(I)-CG to provide robust transmission and reception c
     Gigabit ethernet
 
 Single pair ethernet
-=====================
+====================
 
 The DP83TD510E is an ultra-low power Ethernet physical layer transceiver compliant with the IEEE
 802.3cg 10Base-T1L specification. The PHY has very low noise coupled receiver architecture enabling
@@ -312,7 +312,7 @@ test, and loopback capabilities for ease of design or debug
     Single pair ethernet
 
 WiFi 2.4G/5G
-=============
+============
 
 The WL18x7MOD is a Wi-Fi, dual-band, 2.4- and 5-GHz module solution with two antennas supporting industrial temperature grade. 
 The device is FCC, IC, ETSI/CE, and TELEC certified for AP (with DFS support) and client. TI offers drivers for high-level
@@ -327,7 +327,7 @@ QNX, Nucleus, ThreadX, and FreeRTOS, are supported through third parties.
     WL1807MOD dual-band (2.4G/5G) WiFi
 
 BLE & SubGHz
-=============
+============
 
 The SimpleLink™ CC1352P7 device is a multiprotocol and multi-band Sub-1 GHz and 2.4-GHz wireless
 microcontroller (MCU) supporting Thread, Zigbee®, Bluetooth® 5.2 Low Energy, IEEE 802.15.4g, IPv6-enabled
@@ -352,7 +352,7 @@ applications.
     CC1352P7 Bluetooth Low Energy (BLW) and SubGHz connectivity
 
 Memory, Media and Data storage
-********************************
+******************************
 
 DDR4
 ====
@@ -375,7 +375,7 @@ eMMC/SD
     eMMC/SD storage
 
 microSD Card
-=============
+============
 
 .. figure:: images/hardware-design/micro-sd-card.svg
     :width: 1247
@@ -395,10 +395,10 @@ Board EEPROM
     Board EEPROM ID
 
 Multimedia I/O
-***************
+**************
 
 HDMI
-=====
+====
 
 .. figure:: images/hardware-design/hdmi.svg
     :width: 1247
@@ -408,7 +408,7 @@ HDMI
     HDMI output
 
 OLDI
-=====
+====
 
 .. figure:: images/hardware-design/oldi.svg
     :width: 1247
@@ -419,7 +419,7 @@ OLDI
 
 
 CSI
-====
+===
 
 .. figure:: images/hardware-design/csi.svg
     :width: 1247
@@ -429,10 +429,10 @@ CSI
     CSI camera interface
 
 RTC & Debug
-************
+***********
 
 RTC
-====
+===
 
 .. figure:: images/hardware-design/rtc.svg
     :width: 940
@@ -442,7 +442,7 @@ RTC
     Real Time Clock (RTC)
 
 UART Debug Port
-================
+===============
 
 .. figure:: images/hardware-design/debug.svg
     :width: 940
@@ -474,7 +474,7 @@ CC1352 JTAG & TagConnect
 .. _beagleplay-mechanical-specifications:
 
 Mechanical Specifications 
-**************************
+*************************
 
 Dimensions & Weight
 ===================
