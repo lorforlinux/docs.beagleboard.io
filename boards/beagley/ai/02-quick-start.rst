@@ -26,7 +26,7 @@ You may need additional accessories based on the mode of operation, you can use 
 
 1. :ref:`USB Tethering by directly connecting via USB type-c port <beagley-ai-usb-tethering>`
 2. :ref:`Headless connection via UART debug port <beagley-ai-headless>`
-3. :ref:`Standalone connection with Monitor and other peripherals attached <standalone-connection>`
+3. :ref:`Standalone connection with Monitor and other peripherals attached <beagley-ai-standalone-connection>`
 
 Easiest option is to connect the board directly to your PC or Laptop using a USB type-C to type-c cable. There is only one USB type-C port on board, if you 
 choose to use a dedicated power supply for first time setup, you may choose to access the board via any other methods listed above.
@@ -228,7 +228,7 @@ In ``sysconf.txt`` file you have to edit the two lines highlighted below.
 .. important::
     
     1. Make sure to remove ``#`` from ``#user_name=`` and ``#user_password=`` else the lines will be interpreted as a comment and your username & password will not be updated.
-    2. If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a :ref:`standalone-connection` setup.
+    2. If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a :ref:`beagley-ai-standalone-connection` setup.
 
 
 Once username and password are updated, you can insert the microSD card into 
@@ -329,7 +329,7 @@ line utility like ``tio`` on Linux of Putty on any operating system. Check :ref:
 
     Connecting Raspberry Pi debug probe to BeagleY-AI
 
-.. _standalone-connection:
+.. _beagley-ai-standalone-connection:
 
 Standalone connection
 =====================
