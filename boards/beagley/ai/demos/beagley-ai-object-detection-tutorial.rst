@@ -178,7 +178,7 @@ Paste the following code into the file:
 
        # Load labels and interpreter
        labels = load_labels(labelmap_path)
-       interpreter = load_interpreter(Interpreter(model_path))
+       interpreter = Interpreter(model_path=model_path)
        interpreter.allocate_tensors()
 
        # Get model details
