@@ -182,7 +182,6 @@ Paste the following code into the file:
        parser.add_argument('--labels', default='labelmap.txt', help='Name of the labelmap file')
        parser.add_argument('--threshold', default='0.5', help='Minimum confidence threshold')
        parser.add_argument('--resolution', default='1280x720', help='Desired webcam resolution')
-       parser.add_argument('--edgetpu', action='store_true', help='Use Coral Edge TPU Accelerator')
        args = parser.parse_args()
 
        # Configuration
@@ -190,7 +189,6 @@ Paste the following code into the file:
        labelmap_path = os.path.join(os.getcwd(), args.modeldir, args.labels)
        min_conf_threshold = float(args.threshold)
        resW, resH = map(int, args.resolution.split('x'))
-       use_tpu = args.edgetpu
 
        # Load labels and interpreter
        labels = load_labels(labelmap_path)
