@@ -79,7 +79,7 @@ Create new project
 
 Press ``CTRL+N`` to create a file and you will see a pop-up window like shown below,
 
-.. image:: FPExpress-new-project.png
+.. image:: ../images/FPExpress-new-project.png
     :width: 598
     :align: center
     :alt: FPExpress new project creation window
@@ -92,7 +92,7 @@ Follow the steps below as annotated in the image above:
 
 If your FlashPro5/6 is connected properly you'll see the window shown below:
 
-.. figure:: FPExpress-flashing.png
+.. figure:: ../images/FPExpress-flashing.png
     :width: 1240
     :align: center
     :alt: FPExpress new project flash window
@@ -122,7 +122,7 @@ the UART debug port connection. Once you are connected properly you can
 press the Reset button which will show you a progress bar like
 in the
 
-.. figure:: board-booting.png
+.. figure:: ../images/board-booting.png
     :width: 740
     :align: center
     :alt: BeagleV-Fire booting HSS with progress bar
@@ -133,7 +133,7 @@ able to access Hart Software Services (HSS) prompt. BeagleV-Fire's eMMC content 
 written by the Hart Software Services (HSS) using the ``usbdmsc`` command. The
 HSS ``usbdmsc`` command exposes the eMMC as a USB mass storage device USB type C connector.
 
-.. figure:: boot-message.png
+.. figure:: ../images/boot-message.png
     :width: 1240
     :align: center
     :alt: BeagleV-Fire boot messages with HSS prompt access
@@ -143,7 +143,7 @@ Once you see ``>>`` you can execute the commands below:
 1. ``>> mmc``
 2. ``>> usbdmsc``
 
-.. figure:: HSS-eMMC-mass-storage.png
+.. figure:: ../images/HSS-eMMC-mass-storage.png
     :width: 1240
     :align: center
     :alt: HSS commands to show eMMC as mass storage
@@ -151,7 +151,7 @@ Once you see ``>>`` you can execute the commands below:
 After executing the commands above your BeagleV-Fire's eMMC will be
 exposed as a mass storage device like shown in the image below:
 
-.. figure:: mass-storage-eMMC.png
+.. figure:: ../images/mass-storage-eMMC.png
     :width: 740
     :align: center
     :alt: BeagleV-Fire eMMC as mass storage
@@ -167,7 +167,7 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
         1. Select the ``sdcard.img`` file from your local drive storage.
         2. Click on select target.
 
-      .. figure:: eMMC-flashing-1.png
+      .. figure:: ../images/eMMC-flashing-1.png
           :width: 740
           :align: center
           :alt: Balena Etcher selecting image
@@ -177,7 +177,7 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
         1. Select ``MCC PolarFireSoC_msd`` as target.
         2. Click ``Select(1)`` to proceed.
 
-      .. figure:: eMMC-flashing-2.png
+      .. figure:: ../images/eMMC-flashing-2.png
           :width: 740
           :align: center
           :alt: Balena Etcher selecting target
@@ -186,7 +186,7 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
 
         1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV-Fire eMMC storage.
 
-      .. figure:: eMMC-flashing-3.png
+      .. figure:: ../images/eMMC-flashing-3.png
           :width: 740
           :align: center
           :alt: Balena Etcher flashing image
