@@ -366,7 +366,7 @@ TDA4VM on the BBAI-64, i.e. GPIO and PWM respectively.
         def __exit__( self, exc_type, exc_val, exc_tb ):
             self.disable()
 
-The next file is not our library but out file to run on the command line to call MotorLib for our
+The next file is not our library but our file to run on the command line to call MotorLib for our
 use case, e.g. opening a door by unbolting our locking solenoid and/or locking it back.
 
 .. code-block::
