@@ -113,6 +113,7 @@ Paste the following code into the file:
    import importlib.util
    from typing import List
    import sys
+   from tflite_runtime.interpreter import Interpreter, load_delegate
 
    video_driver_id = 3
 
@@ -159,21 +160,6 @@ Paste the following code into the file:
            print(f"Error reading label map file: {e}")
            sys.exit()
 
-   def load_interpreter(model_path: str, use_tpu: bool):
-       """Loads the TensorFlow Lite model interpreter."""
-       pkg = importlib.util.find_spec('tflite_runtime')
-       if pkg:
-           from tflite_runtime.interpreter import Interpreter, load_delegate
-       else:
-           from tensorflow.lite.python.interpreter import Interpreter
-           from tensorflow.lite.python.interpreter import load_delegate
-
-       if use_tpu:
-           return Interpreter(model_path=model_path,
-                              experimental_delegates=[load_delegate('libedgetpu.so.1.0')])
-       else:
-           return Interpreter(model_path=model_path)
-
    def main():
        # Argument parsing
        parser = argparse.ArgumentParser()
@@ -182,7 +168,6 @@ Paste the following code into the file:
        parser.add_argument('--labels', default='labelmap.txt', help='Name of the labelmap file')
        parser.add_argument('--threshold', default='0.5', help='Minimum confidence threshold')
        parser.add_argument('--resolution', default='1280x720', help='Desired webcam resolution')
-       parser.add_argument('--edgetpu', action='store_true', help='Use Coral Edge TPU Accelerator')
        args = parser.parse_args()
 
        # Configuration
@@ -190,11 +175,10 @@ Paste the following code into the file:
        labelmap_path = os.path.join(os.getcwd(), args.modeldir, args.labels)
        min_conf_threshold = float(args.threshold)
        resW, resH = map(int, args.resolution.split('x'))
-       use_tpu = args.edgetpu
 
        # Load labels and interpreter
        labels = load_labels(labelmap_path)
-       interpreter = load_interpreter(model_path, use_tpu)
+       interpreter = Interpreter(model_path=model_path)
        interpreter.allocate_tensors()
 
        # Get model details
