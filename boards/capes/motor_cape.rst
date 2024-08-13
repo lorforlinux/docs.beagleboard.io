@@ -408,3 +408,4 @@ use case, e.g. opening a door by unbolting our locking solenoid and/or locking i
         pass
 
 These are a few examples on how to use the Motor Cape and TDA4VM (Cortex-A72) supported BeagleBoneAI-64 SBC.
+
