@@ -6,7 +6,7 @@ BeagleBoard.org BeagleBone Motor Cape
 The Motor Cape, as the name suggests, is a simple Cape with two, L298P drivers on it.
 It contains the two drivers and each can be operated independently from the BeagleBone.
 
-.. image:: images/Working_On_it.png
+.. image:: images/BeagleBoneMotorCapeA2-400x281.png
    :align: center
 
 * `Order page <https://beagleboard.org/capes#motor>`_
