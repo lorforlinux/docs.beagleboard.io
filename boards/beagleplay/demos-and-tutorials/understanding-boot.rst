@@ -15,7 +15,7 @@ Distro Boot
 
 For some background on distro boot, see `the u-boot documentation on
 distro boot <https://docs.u-boot.org/en/latest/develop/distro.html>`_. There is
-also `BeaglePlay specific u-boot documentation <https://docs.u-boot.org/en/latest/board/ti/am62x_beagleplay.html>`_.
+also `BeaglePlay specific u-boot documentation <https://docs.u-boot.org/en/latest/board/beagle/am62x_beagleplay.html>`_.
 
 In :ref:`play-typical-extlinux-conf`, you can see line 1 provides a label
 and subsequent indented lines provide parameters for that boot option.

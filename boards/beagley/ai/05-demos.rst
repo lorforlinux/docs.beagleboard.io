@@ -15,7 +15,8 @@ Demos and tutorials
    demos/beagley-ai-expansion-nvme
    demos/beagley-ai-using-imx219-csi-cameras
    demos/beagley-ai-arducam-imx219-v3link-dual-camera-kit
-   
+   demos/beagley-ai-object-detection-tutorial
+
    
    
 
