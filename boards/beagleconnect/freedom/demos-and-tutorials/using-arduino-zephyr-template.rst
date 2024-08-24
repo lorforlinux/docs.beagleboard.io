@@ -4,20 +4,45 @@ Using Arduino Zephyr Template
 ##############################
 
 The `Arduino Core API module for zephyr <https://github.com/zephyrproject-rtos/gsoc-2022-arduino-core>`_ leverages the power of Zephyr under an
-Arduino-C++ style abtraction layer thus helping zephyr new-comers to start using
+Arduino-C++ style abstraction layer thus helping zephyr new-comers to start using
 it without worrying about learning new APIs and libraries.
 
 Using this template you can run arduino code on your BeagleConnect Freedom.
 
-.. todo::
+Pin Numbering For BeagleConnect Freedom
+***************************************
 
-    Add pin diagram for BeagleConnect Freedom that can be used in the template.
+You will see pins over ``Mikrobus-1`` and ``Mikrobus-2`` that can be used for Arduino code.
+You can set each pin to either **read signals (input)** for things like buttons &
+sensors or you can set them to **send signals (output)** to things like LEDs and motors. This lets you
+interact with and control the physical world using Arduino code on BeagleConnect
+Freedom board. 
+
+Commonly used GPIOs are specified:
+
+- **D0-D18** Digital GPIO pins
+- **A0-A5** ADC GPIO pins
+- **D2** and **D6** PWM GPIO pins
+
+Reference to all GPIO pins are shown in the below images.
+
+.. figure:: ./images/BeagleConnectFreedom-Front-Annotated-Arduino-Pinout.png
+    :align: center
+    :alt: BeagleConnect Freedom MB1 pinout
+    
+    Mikrobus-1 front annotated arduino pinout
+
+.. figure:: ./images/BeagleConnectFreedom-Back-Annotated-Arduino-Pinout.png
+    :align: center
+    :alt: BeagleConnect Freedom MB2 pinout
+    
+    Mikrobus-2 back annotated arduino pinout
 
 Setup Arduino workspace
 ***********************
 
 If this is your first time using zephyr, `Install Zephyr SDK <https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-the-zephyr-sdk>`_  and install ``cc1352-flasher`` 
-using command ``pip install cc1352-flasher`` before following the steps below.
+using command ``pip install cc1352-flasher`` then reboot your system before following the steps below.
 
 1. Create a workspace folder:
 
@@ -57,11 +82,12 @@ Arduino Code
 ============
 
 You can find ``main.cpp`` file in the directory ``arduino-workspace/arduino-zephyr-template/src/``
-which contains your arduino code. The default code prints ``Hello World`` on the serial monitor. 
+which contains your arduino code. The default code prints ``Hello World`` on the serial monitor.
+Since you are already in the ``arduino-workspace`` directory, then proceed with writing the following code.
 
 .. code:: shell-session
 
-    nano arduino-workspace/arduino-zephyr-template/src/main.cpp
+    nano arduino-zephyr-template/src/main.cpp
 
 .. code-block:: shell-session
     :caption: main.cpp
@@ -143,6 +169,10 @@ created at the time of setup.
     digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
     delay(1000);                      // wait for a second
     }
+
+.. note:: 
+
+    For specifying high and low output states, use ``HIGH`` and ``LOW``. Avoid using boolean ``1`` and ``0`` as they may not be compatible.
 
 Before doing ``Build`` and ``Flash``, you must activate the virtual environment in the ``arduino-workspace`` directory which has been created earlier.
 

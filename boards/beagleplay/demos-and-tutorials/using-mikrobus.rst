@@ -72,7 +72,7 @@ To use the add-on, see :ref:`beagleplay-mikrobus-using`.
 .. _beagleplay-mikrobus-without-clickid:
 
 What if my add-on doesn't have ClickID?
-***************************************
+=======================================
 If add-on doesn't have clickID then it can not be detected directly.
 
 .. code:: shell-session 
@@ -173,7 +173,7 @@ add-on is now detected.
 .. _beagleplay-mikrobus-clickid-inavalid-manifests:
 
 What if my add-on has invalid manifest entries?
-************************************************
+===============================================
 
 Not all Click boards with ClickID have valid manifest entries. 
 If your add-on has clickID but shows the command output like below.
@@ -242,6 +242,87 @@ To use the add-on, see :ref:`beagleplay-mikrobus-using`.
 
 .. _beagleplay-mikrobus-using:
 
+Accel Click Board Example
+==========================
+
+Next, let's explore how to read raw sensor values using the Accel Click board. This step will help us understand the basics of sensor data retrieval and processing.
+
+First, let's check the IIO devices available.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ ls /sys/bus/iio/devices/
+   iio:device0  iio:device1
+
+Considering the device ``iio:device0`` is the MikroBUS click ID connected to the BeaglePlay board.
+Depending on your specific setup and device configuration, you might need to adjust the path or device
+number (device0) accordingly. In this case device0 corresponds to our Accel Click, let's check its name.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ cat /sys/bus/iio/devices/iio\:device0/name
+   adxl345
+
+The file corresponding to the IIO device, including raw values, can be viewed using the following command:
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ ls /sys/bus/iio/devices/iio\:device0
+   dev                          in_accel_scale        in_accel_x_raw        in_accel_y_raw        in_accel_z_raw  power                         subsystem
+   in_accel_sampling_frequency  in_accel_x_calibbias  in_accel_y_calibbias  in_accel_z_calibbias  name            sampling_frequency_available  uevent
+
+To view the raw values from the accel click (assuming ``iio:device0`` is configured correctly for your MikroBUS
+click ID on the BeaglePlay board), you can use the following command:
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ cat /sys/bus/iio/devices/iio\:device0/in_accel_x_raw
+   3
+
+This command reads and displays the raw X-axis accelerometer data from ``iio:device0``. You can replace
+``in_accel_x_raw`` with ``in_accel_y_raw`` or ``in_accel_z_raw`` to view raw data from the Y-axis or Z-axis
+accelerometer channels respectively, depending on your requirements.
+
+
+To create a script displays accelerometer raw data values from ``iio:device0`` use ``nano accelclick.sh`` command.
+Copy the below script and paste it to the ``accelclick.sh`` file. It reads the raw X, Y, and Z axis values from 
+``/sys/bus/iio/devices/iio:device0/in_accel_x_raw``, ``/sys/bus/iio/devices/iio:device0/in_accel_y_raw``, and
+``/sys/bus/iio/devices/iio:device0/in_accel_z_raw`` respectively.
+
+.. code:: shell-session
+
+   X=$(cat /sys/bus/iio/devices/iio\:device0/in_accel_x_raw)
+   Y=$(cat /sys/bus/iio/devices/iio\:device0/in_accel_y_raw)
+   Z=$(cat /sys/bus/iio/devices/iio\:device0/in_accel_z_raw)
+   echo "X = ${X}        Y = ${Y}      Z= ${Z}"
+
+.. note::
+
+   Adjust the device path ``iio:device0`` according to your setup. Also, ensure that your system 
+   and hardware configuration are correctly set up to provide live accelerometer data through these paths.
+
+To make the script file executable, use the following command:
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ chmod +x accelclick.sh 
+
+When you run ``watch -n 0.5 ./accelclick.sh``, the watch command will execute ``./accelclick.sh`` every 0.5 seconds 
+and display its output in the terminal.
+
+.. code:: shell-session
+
+   debian@BeaglePlay:~$ watch -n 0.5 ./accelclick.sh 
+
+This is the output of your accelclick.sh script. It shows the current values of your accelerometer's X, Y, and Z axis in raw form.
+
+.. code:: shell-session
+
+   Every 0.5s: ./accelclick.sh
+
+   X = 3        Y = 11      Z= 284
+
+ 
 Using boards with Linux drivers
 *******************************
 
@@ -336,7 +417,7 @@ How does ClickID work?
 Disabling the mikroBUS driver
 *****************************
 
-If you'd like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a deivce tree overlay at boot.
+If you'd like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a device tree overlay at boot.
 
 .. todo::
 

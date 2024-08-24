@@ -19,19 +19,19 @@ Wiring/connection
 ==================
 
 Following the I2C pinout shown above let's make the connection of our OLED display with BeagleY-AI. 
-Connection for both ``128x64`` and ``128x32`` resolution displays are demostrated in the images below:
+Connection for both ``128x64`` and ``128x32`` resolution displays are demonstrated in the images below:
 
 .. figure:: ../images/i2c/oled-128x32.*
     :align: center
-    :alt: OLED diaplay 128x32
+    :alt: OLED display 128x32
 
-    OLED diaplay 128x32
+    OLED display 128x32
 
 .. figure:: ../images/i2c/oled-128x64.*
     :align: center
-    :alt: OLED diaplay 128x64
+    :alt: OLED display 128x64
 
-    OLED diaplay 128x64
+    OLED display 128x64
 
 To check if your OLED is correctly connected to your BeagleY-AI you 
 can use ``i2cdetect`` command as shown below.
@@ -171,7 +171,7 @@ Clone the ``ssd1306_linux`` github repository on your BeagleY-AI.
 
     git clone https://github.com/armlabs/ssd1306_linux.git
 
-Change directory to your clonned ``ssd1306_linux`` github repository.
+Change directory to your cloned ``ssd1306_linux`` github repository.
 
 .. code:: console
 
@@ -183,7 +183,7 @@ Execute ``make`` to build the binary to control your I2C OLED display.
 
     make 
 
-Now, you should have ``ssd1306_bin`` binary file genreated in the folder that you can use to easily 
+Now, you should have ``ssd1306_bin`` binary file generated in the folder that you can use to easily 
 write text on you I2C OLED (ssd1306) display. 
 
 Example1: Hello World!!!!

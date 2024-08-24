@@ -4,7 +4,7 @@ Design and specifications
 #########################
 
 If you want to know how BeaglePlay is designed and the detailed specifications, then
-this chapter is for you. We are going to attept to provide you a short and crisp overview
+this chapter is for you. We are going to attempt to provide you a short and crisp overview
 followed by discussing each hardware design element in detail.
 
 .. tip:: 
@@ -151,7 +151,7 @@ General Connectivity and Expansion
 One of the main advantage of using a Single Board Computer (SBC) is having direct accessibility of 
 general purpose input & output (GPIO) pins and other interfaces like I2C, SPI, ADC, PWM. Your BeaglePlay 
 board shines in this domain as well with mikroBUS connector that can take 1000s of click board from 
-`MikroElektronika <https://www.mikroe.com/>`_, Grove connector allows to connect hundereds of Grove modules 
+`MikroElektronika <https://www.mikroe.com/>`_, Grove connector allows to connect hundreds of Grove modules 
 from `Seeed Studio <https://www.seeedstudio.com/grove.html>`_, and QWIIC connector allows to connect I2C modules 
 like QWIIC modules from `SparkFun <https://www.sparkfun.com/qwiic>`_ or STEMMA QT modules from 
 `Adafruit <https://www.adafruit.com/category/1005>`_. Note that you also get one USB-A port and one USB-C port.
@@ -162,7 +162,7 @@ use the pre-installed VisualStudio Code editor by putting the address ``192.168.
 USB A & USB C
 =============
 
-Below is the schematic of full size USB A for pripheral connection and USB C for device power & tethering.
+Below is the schematic of full size USB A for peripheral connection and USB C for device power & tethering.
 
 .. figure:: images/hardware-design/usb.svg
     :width: 1247
@@ -231,7 +231,7 @@ Qwiic, or STEMMA QT are 4pin JST SH 1.00 connectors for easy I2C connection.
     :align: center
     :alt: QWIIC connnector for I2C modules
 
-    QWIIC connnector for I2C modules
+    QWIIC connector for I2C modules
 
 Buttons and LEDs
 ****************
