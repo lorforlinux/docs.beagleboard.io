@@ -222,7 +222,7 @@ html_theme_options = {
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
-        "**": ["page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
+        "**": ["todo", "page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
     },
 }
 
