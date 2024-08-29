@@ -3,8 +3,6 @@
 Using the Arducam Dual V3Link Camera Kit
 ############################################
 
-:bdg-danger:`Work in progress`
-
 .. todo:: Add further testing steps, results, and images.
 
 `The Arducam Dual V3Link Camera Kit <https://www.arducam.com/product/arducam-imx219-v3link-camera-kit-for-raspberry-pi/>`_ is an IMX219 based kit that leverages Texas Instruments' FPDLink technology to enable using two CSI cameras over a single port up to 15 meters away using twisted pair cables.

@@ -1,0 +1,12 @@
+[
+    {
+        "version": "dev",
+        "url": "https://docs.beagleboard.io/latest/"
+    },
+    {
+        "name": "1.0.0 (stable)",
+        "version": "v1.0.0",
+        "url": "https://docs.beagleboard.org/latest/",
+        "preferred": true
+    }
+]
