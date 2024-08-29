@@ -130,7 +130,7 @@ Let's create a file  ``HelloWorld.py`` to display some text on display.
 
 Now copy paste the text below, then press CTRL+O and ENTER to save, CTRL+X to exit.
 
-.. code:: shell-session
+.. code:: python
 
     from __future__ import print_function
     import qwiic_oled_display
