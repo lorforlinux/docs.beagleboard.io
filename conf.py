@@ -132,6 +132,45 @@ numfig = True
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
 
+# Version switching
+docs_url = "https://docs.beagleboard.io"
+json_url = "_static/switcher.json"
+
+# parse pages details from 'PAGES' file
+with open("PAGES") as f:
+    m = re.match(
+        (
+            r"^PAGES_URL\s*=\s*(\S+)$\n"
+            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
+            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
+            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
+            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
+            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write("Warning: Could not extract pages information\n")
+    else:
+        url, slug, user, branch, host, repo = m.groups(1)
+        slug = "latest" if slug == "main" else slug
+        pages_url = url
+        pages_slug = slug
+        gitlab_user = user
+        gitlab_version = branch
+        gitlab_url = host
+        gitlab_repo = repo
+        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
+        docs_url = "/".join((url, slug))
+
+if "docs.beagleboard.org" in docs_url:
+    version_match = "stable"
+elif "docs.beagleboard.io" in docs_url:
+    version_match = "dev"
+
+# HTML 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ["_static"]
 html_logo = "_static/images/logo.svg"
@@ -144,27 +183,6 @@ html_baseurl = "docs.beagleboard.io"
 html_css_files = [
     'css/custom.css',
 ]
-
-# Define the json_url for our version switcher.
-json_url = "_static/switcher.json"
-
-# Define the version we use for matching in the version switcher.
-version_match = os.environ.get("READTHEDOCS_VERSION")
-release = pydata_sphinx_theme.__version__
-# If READTHEDOCS_VERSION doesn't exist, we're not on RTD
-# If it is an integer, we're in a PR build and the version isn't correct.
-# If it's "latest" → change to "dev" (that's what we want the switcher to call it)
-if not version_match or version_match.isdigit() or version_match == "latest":
-    # For local development, infer the version to match from the package.
-    if "dev" in release or "rc" in release:
-        version_match = "dev"
-        # We want to keep the relative reference if we are in dev mode
-        # but we want the whole url if we are effectively in a released version
-        json_url = "_static/switcher.json"
-    else:
-        version_match = f"v{release}"
-elif version_match == "stable":
-    version_match = f"v{release}"
 
 # Pages entry without primary (left) sidebar
 
@@ -250,32 +268,6 @@ html_theme_options = {
     },
 }
 
-# parse version from 'VERSION' file
-with open("VERSION") as f:
-    m = re.match(
-        (
-            r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
-            + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
-            + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
-            + r"^VERSION_TWEAK\s*=\s*\d+$\n"
-            + r"^EXTRAVERSION\s*=\s*(.*)$"
-        ),
-        f.read(),
-        re.MULTILINE,
-    )
-
-    if not m:
-        sys.stderr.write("Warning: Could not extract docs version\n")
-        version = "Unknown"
-    else:
-        major, minor, patch, extra = m.groups(1)
-        version = ".".join((major, minor, patch))
-        release_version = ".".join((major, minor))
-        if extra:
-            version += "-" + extra
-
-release = version
-
 # Variables here holds default settings
 pages_url = "https://docs.beagleboard.io"
 pages_slug = ""
@@ -284,36 +276,6 @@ gitlab_version = "main"
 gitlab_url = "https://openbeagle.org"
 gitlab_repo = "docs.beagleboard.io"
 gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-docs_url = "https://docs.beagleboard.io"
-
-# parse pages details from 'PAGES' file
-with open("PAGES") as f:
-    m = re.match(
-        (
-            r"^PAGES_URL\s*=\s*(\S+)$\n"
-            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
-            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
-            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
-            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
-            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
-        ),
-        f.read(),
-        re.MULTILINE,
-    )
-
-    if not m:
-        sys.stderr.write("Warning: Could not extract pages information\n")
-    else:
-        url, slug, user, branch, host, repo = m.groups(1)
-        slug = "latest" if slug == "main" else slug
-        pages_url = url
-        pages_slug = slug
-        gitlab_user = user
-        gitlab_version = branch
-        gitlab_url = host
-        gitlab_repo = repo
-        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-        docs_url = "/".join((url, slug))
 
 html_context = {
     "display_gitlab": True,
