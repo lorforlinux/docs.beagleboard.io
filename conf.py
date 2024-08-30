@@ -135,6 +135,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
 # Version switching
 docs_url = "https://docs.beagleboard.io"
 json_url = "_static/switcher.json"
+version_match = "dev"
 
 # parse pages details from 'PAGES' file
 with open("PAGES") as f:
