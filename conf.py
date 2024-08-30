@@ -170,6 +170,8 @@ if "docs.beagleboard.org" in docs_url:
 elif "docs.beagleboard.io" in docs_url:
     version_match = "dev"
 
+print("Version of docs is:", version_match)
+
 # HTML 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ["_static"]
