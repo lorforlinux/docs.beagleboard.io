@@ -164,6 +164,7 @@ with open("PAGES") as f:
         gitlab_repo = repo
         gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
         docs_url = "/".join((url, slug))
+        json_url = "/".join((docs_url, json_url))
 
 if "docs.beagleboard.org" in docs_url:
     version_match = "stable"
