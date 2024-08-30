@@ -172,6 +172,7 @@ elif "docs.beagleboard.io" in docs_url:
     version_match = "dev"
 
 print("Version of docs is:", version_match)
+print("JSON URL:", json_url)
 
 # HTML 
 html_theme = 'pydata_sphinx_theme'
