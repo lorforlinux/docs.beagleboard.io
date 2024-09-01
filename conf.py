@@ -14,9 +14,9 @@ from sphinx.ext.imgconverter import ImagemagickConverter
 
 # -- Banners --
 announcement_message = "Welcome to the new site for BeagleBoard.org docs!"
-development_version_message = "This documentation is for a <strong> development version.</strong>"
-forked_version_message = "This documentation is for a <strong> forked version.</strong>"
-unknown_version_message = "This documentation is for a <strong> unknown version.</strong>"
+development_version_message = "This is a <strong>development version</strong> of docs."
+forked_version_message = "This is a <strong>forked version</strong> of docs."
+unknown_version_message = "This is an <strong>unknown version</strong> of docs."
 version_link = "https://docs.beagleboard.org"
 version_link_text = "Switch to released version"
 
