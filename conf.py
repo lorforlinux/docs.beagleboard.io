@@ -12,6 +12,14 @@ from pathlib import Path
 import pydata_sphinx_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
+# -- Banners --
+announcement_message = "Welcome to the new site for BeagleBoard.org docs!"
+development_version_message = "This documentation is for a <strong> development version.</strong>"
+forked_version_message = "This documentation is for a <strong> forked version.</strong>"
+unknown_version_message = "This documentation is for a <strong> unknown version.</strong>"
+version_link = "https://docs.beagleboard.org"
+version_link_text = "Switch to released version"
+
 # -- Project information --
 project = 'BeagleBoard Docs'
 copyright = '2024, BeagleBoard.org Foundation'
@@ -131,12 +139,8 @@ numfig = True
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
 
-# Version switching
-docs_url = "https://docs.beagleboard.io"
-json_url = "_static/switcher.json"
-version_match = "dev"
-
 # parse pages details from 'PAGES' file
+docs_url = ""
 with open("PAGES") as f:
     m = re.match(
         (
@@ -164,14 +168,6 @@ with open("PAGES") as f:
         gitlab_repo = repo
         gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
         docs_url = "/".join((url, slug))
-
-if "docs.beagleboard.org" in docs_url:
-    version_match = "stable"
-elif "docs.beagleboard.io" in docs_url:
-    version_match = "dev"
-
-print("Version of docs is:", version_match)
-print("JSON URL:", json_url)
 
 # HTML 
 html_theme = 'pydata_sphinx_theme'
@@ -252,9 +248,7 @@ html_theme_options = {
     "show_toc_level": 1,
     "navbar_align": "right",
     "show_nav_level": 1,
-    "announcement": "Welcome to new site for BeagleBoard.org docs!",
-    "show_version_warning_banner": True,
-    "navbar_center": ["version-switcher", "navbar-nav"],
+    "navbar_center": ["navbar-nav"],
     "navbar_start": ["navbar-logo"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     # "navbar_persistent": ["search-button"],
@@ -264,10 +258,6 @@ html_theme_options = {
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
         "**": ["todo", "page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
-    },
-    "switcher": {
-        "json_url": json_url,
-        "version_match": version_match,
     },
 }
 
@@ -300,7 +290,13 @@ html_context = {
     "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/",
     "oshw_details": oshw_details,
     "pdf_paths": pdf_paths,
-    "board_details": board_details
+    "board_details": board_details,
+    "announcement_message": announcement_message,
+    "development_version_message": development_version_message,
+    "forked_version_message": forked_version_message,
+    "unknown_version_message": unknown_version_message,
+    "version_link": version_link,
+    "version_link_text": version_link_text,
 }
 
 # -- Options for LaTeX output --
