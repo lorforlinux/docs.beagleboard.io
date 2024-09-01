@@ -26,7 +26,7 @@
     var todoItems = document.getElementsByClassName('admonition-todo');
     var todolist = document.getElementById('todolist')
 
-    if(todoItems.length == 0) {
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
         modalfortodoitemsparent.remove();
     } else  {
         for (var i = 0; i < todoItems.length; ++i) {
