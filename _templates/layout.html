@@ -56,9 +56,11 @@
                 </div>
             </aside>
             {% endif %}
+            {% if announcement_message != '' %}
             <aside class="bd-header-announcement" aria-label="Announcement">
                 <div class="bd-header-announcement__content">{{ announcement_message }}</div>
             </aside>
+            {% endif %}
         `;
     }
     
