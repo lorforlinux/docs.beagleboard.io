@@ -114,29 +114,29 @@ Design Details
 
 Finally, an entry will be added to the device tree to make a UIO device point to our LSRAM's memory region.
 
-.. code-block::
+.. code-block:: devicetree
 
-   &{/} {
-       fabric-bus@40000000 {
-           fpgalsram: uio@60000000 {
-               compatible = "generic-uio";
-               linux,uio-name = "fpga_lsram"; // mandatory for program. If changed, please update program as well.
-               reg = <0x0 0x60000000 0x0 0x1000>;
-               status = "enabled";
-           };
-       };
-   };
+    &{/} {
+        fabric-bus@40000000 {
+            fpgalsram: uio@60000000 {
+                compatible = "generic-uio";
+                linux,uio-name = "fpga_lsram"; // mandatory for program. If changed, please update program as well.
+                reg = <0x0 0x60000000 0x0 0x1000>;
+                status = "enabled";
+            };
+        };
+    };
 
 Once the gateware is compiled, we can access the memory-mapped interface by the same methods, and by the UIO device as well.
 
 1. Using devmem2:
 
-   .. code-block:: shell
+.. code-block:: shell
 
-      sudo devmem2 0x60000000 w # for read
-      sudo devmem2 0x60000000 w 0x1 # for write
+    sudo devmem2 0x60000000 w # for read
+    sudo devmem2 0x60000000 w 0x1 # for write
 
-2. Using the UIO device:
+1. Using the UIO device:
 
 .. raw:: html
 

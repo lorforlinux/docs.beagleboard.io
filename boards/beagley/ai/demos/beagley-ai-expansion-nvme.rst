@@ -3,8 +3,6 @@
 Booting from NVMe Drives
 ##########################
 
-:bdg-danger:`Work in progress`
-
 .. todo:: Add further testing steps, results, and images.
 
 BeagleY-AI supports a PCI-Express x1 interface which enables data rates of up to 1GB/s for high speed expansion. 
