@@ -42,7 +42,7 @@
                 <div class="bd-header-announcement__content ms-auto me-auto">
                     <div class="sidebar-message">
                         {{ current_url }}
-                        {% if '/docs.beagleboard.io/' in docs_url %}
+                        {% if 'beagleboard.io/docs.beagleboard.io' in docs_url %}
                         {{forked_version_message}}
                         {% elif 'docs.beagleboard.io' in docs_url %}
                         {{development_version_message}}
