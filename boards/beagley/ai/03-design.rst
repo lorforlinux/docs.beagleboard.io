@@ -3,8 +3,6 @@
 Design and Specifications
 #########################
 
-:bdg-danger:`Work in progress`
-
 .. todo:: Add details about all the schematic sections.
 
 If you want to know how BeagleY-AI is designed and the detailed specifications, then

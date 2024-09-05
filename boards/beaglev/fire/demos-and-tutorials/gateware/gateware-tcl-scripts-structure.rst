@@ -70,7 +70,7 @@ The component directory contains subdirectories for:
 .. figure:: images/gateware-cape-robotics-dirs.png
     :align: center
 
-Gareware TCL Scripts
+Gateware TCL Scripts
 --------------------
 
 The component directory contains the TCL scripts executed by Libero to generate the gateware.
@@ -81,4 +81,17 @@ are typically IP configuration scripts and SmartDesign stiching scripts.
 .. figure:: images/gateware-cape-robotics-files.png
     :align: center
 
+Opening the gateware as a libero project
+========================================
+
+It can be slightly difficult to explore the gateware design through the TCL files. To inspect the
+gateware design in detail easily, you can open the gateware as a Libero project. This is done by running the 
+following command in the gateware directory:
+
+.. code-block:: shell
+
+    python build-bitstream.py ./build-options/default.yaml # build option depending on the gateware
+
+You will need to have all microchip tools installed and the environment variables set up correctly. Refer 
+to the `microchip tools installation guide <beaglev-fire-mchp-fpga-tools-installation-guide>`_ for information on how to install these tools.
 

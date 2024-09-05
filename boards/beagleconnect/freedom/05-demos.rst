@@ -41,10 +41,23 @@ Demos & tutorials
             
             beginner
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
+    .. card:: 
+        :link: beagleconnect-freedom-using-arduino-zephyr-template
+        :link-type: ref
 
-   demos-and-tutorials/using-micropython
-   demos-and-tutorials/using-zephyr
-   demos-and-tutorials/using-greybus
+        **Using Arduino Zephyr Template**
+        ^^^
+        Getting started with arduino Zephyr template on your BeagleConnect Freedom board.
+        +++
+        .. admonition:: Complexity level
+            
+            beginner
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    demos-and-tutorials/using-micropython
+    demos-and-tutorials/using-zephyr
+    demos-and-tutorials/using-greybus
+    demos-and-tutorials/using-arduino-zephyr-template
