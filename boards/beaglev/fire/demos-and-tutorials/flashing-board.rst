@@ -160,9 +160,9 @@ Once your board is exposed as a mass storage device you can use
 `Balena Etcher <https://etcher.balena.io/#download-etcher>`_ to
 flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Select image
+    .. tab-item:: Select image
 
         1. Select the ``sdcard.img`` file from your local drive storage.
         2. Click on select target.
@@ -172,7 +172,7 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
           :align: center
           :alt: Balena Etcher selecting image
 
-    .. group-tab:: Select Target
+    .. tab-item:: Select Target
 
         1. Select ``MCC PolarFireSoC_msd`` as target.
         2. Click ``Select(1)`` to proceed.
@@ -182,7 +182,7 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
           :align: center
           :alt: Balena Etcher selecting target
 
-    .. group-tab:: Flash image
+    .. tab-item:: Flash image
 
         1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV-Fire eMMC storage.
 

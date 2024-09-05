@@ -32,9 +32,9 @@ Antenna guide
 
 .. warning:: uFL antenna connectors are very delicate and should be handled with care.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Connecting antenna
+   .. tab-item:: Connecting antenna
 
       To use WiFi you are **required** to connect the 2.4GHz/5GHz antenna provided 
       in BeagleV Ahead box. Below is a guide to connect the antenna to your 
@@ -46,7 +46,7 @@ Antenna guide
 
           Connecting 2.4GHz/5GHz antenna to BeagleV Ahead.
 
-   .. group-tab:: Disconnecting antenna
+   .. tab-item:: Disconnecting antenna
 
 
       If for some reason you want to disconnect the antenna from your BeagleV Ahead board 
@@ -66,9 +66,9 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
 
 .. important:: high-speed micro-B will support only USB 2.0 speed but super-speed micro-B cable will support USB 3.0 speed.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: super-speed micro-B connection (USB 3.0)
+   .. tab-item:: super-speed micro-B connection (USB 3.0)
 
       For super speed USB 3.0 connection it's recommended to use super-speed micro-B USB cable.  
       To get a super-speed micro-B cable you can checkout links below:
@@ -86,7 +86,7 @@ or a USB 3.0 super-speed micro-B cable. Connection guide for both are shown belo
           
           super-speed micro-B (USB 3.0) connection guide for BeagleV Ahead.
 
-   .. group-tab:: high-speed micro-B connection (USB 2.0)
+   .. tab-item:: high-speed micro-B connection (USB 2.0)
 
 
       For USB 2.0 connection it's recommended to use high-speed micro-B USB cable.  
@@ -153,9 +153,9 @@ To put your BeagleV Ahead board into eMMC flash mode you can follow the steps be
 Flash the latest image on eMMC
 ===============================
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. group-tab:: Linux
+    .. tab-item:: Linux
 
        First you need to install android platform tools which includes `adb` and `fastboot`.
 
@@ -192,11 +192,11 @@ Flash the latest image on eMMC
 
 
      
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
         .. todo:: add instructions for flashing in windows.
             
-    .. group-tab:: Mac
+    .. tab-item:: Mac
 
         .. todo:: add instructions for flashing in Mac.
 
@@ -252,9 +252,9 @@ When you do this, you'll be required to power the board via Barrel jack.
 Connect to WiFi
 ****************
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. group-tab:: Yocto
+    .. tab-item:: Yocto
 
         After getting access to the UART debug console you will be prompted with,
 

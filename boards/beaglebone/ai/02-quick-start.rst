@@ -65,15 +65,13 @@ the most common scenarios. NOTE: These connection scenarios are
 dependent on the software image presently on your BeagleBone® AI. When
 all else fails, follow the instructions at :ref:`upgrade-beaglebone-ai-software`.
 
--  :ref:`Tethered to a PC via USB C cable <bbai-tethered>`
--  :ref:`Standalone Desktop with powered USB hub, display, keyboard and mouse <bbai-standalone>`
--  :ref:`Wireless Connection to BeagleBone® AI <bbai-wireless>`
+- Tethered to a PC via USB C cable
+- Standalone Desktop with powered USB hub, display, keyboard and mouse
+- Wireless Connection to BeagleBone® AI
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. _bbai-tethered:
-
-    .. group-tab:: Tethered
+    .. tab-item:: Tethered
 
       **Tethered to a PC**
 
@@ -96,32 +94,32 @@ all else fails, follow the instructions at :ref:`upgrade-beaglebone-ai-software`
          :align: center
          :alt: USB connector and serial debug.
 
-      1.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
+      2.  Connect a USB type-C cable to BeagleBone® AI USB type-C port.
 
       .. image:: images/BB_AI_connectingUSBC_500px.jpg
          :width: 740
          :align: center
          :alt: Connecting serial cable.
 
-      1.  Connect the other end of the USB cable to the PC USB 3 port.
+      3.  Connect the other end of the USB cable to the PC USB 3 port.
 
       .. image:: images/BB_AI_PlugIn_500px.jpg
          :width: 740
          :align: center
          :alt: connecting to PC
 
-      1.  BeagleBone® AI will boot.
+      4.  BeagleBone® AI will boot.
 
-      2.  You will notice some of the 5 user LEDs flashing
+      5.  You will notice some of the 5 user LEDs flashing
 
-      3.  Look for a new mass storage drive to appear on the PC.
+      6.  Look for a new mass storage drive to appear on the PC.
 
       .. image:: images/BB_AI_asadrive_500px.jpg
          :width: 740
          :align: center
          :alt: BeagleBone storage drive options
 
-      1.  Open the drive and open START.HTM with your web browser.
+      7.  Open the drive and open START.HTM with your web browser.
 
       .. image:: images/BB_AI_starthtm_500px.png
          :width: 740
@@ -133,18 +131,16 @@ all else fails, follow the instructions at :ref:`upgrade-beaglebone-ai-software`
          :align: center
          :alt: Getting started
 
-      1.  Follow the instructions in the browser window.
+      8.  Follow the instructions in the browser window.
 
       .. image:: images/vscode.png
          :width: 740
          :align: center
          :alt: BeagleBone instructions
 
-      1.  Go to Visual Studio Code IDE.
-
-    .. _bbai-standalone:
+      9.  Go to Visual Studio Code IDE.
     
-    .. group-tab:: Standalone
+    .. tab-item:: Standalone
 
       **Standalone w/Display and Keyboard/Mouse**
 
@@ -159,28 +155,26 @@ all else fails, follow the instructions at :ref:`upgrade-beaglebone-ai-software`
 
       Load "am57xx-eMMC-flasher-debian-9.13-lxqt-tidl-armhf-2020-08-25-6gb.img.xz" image on the BeagleBone® AI
 
-      1. Connect a combo keyboard and mouse to BeagleBone® AI’s USB host port.
-      2. Connect a microHDMI-to-HDMI cable to BeagleBone® AI’s microHDMI port.
-      3. Connect the microHDMI-to-HDMI cable to an HDMI monitor.
-      4. Plug a 5V 3A USB type-C power supply into BeagleBone® AI’s USB type-C port.
-      5. BeagleBone® AI will boot. No need to enter any passwords.
-      6. Depending on which software image is loaded, either a Desktop or a login shell will appear on the monitor.
-      7. Follow the instructions at https://beagleboard.org/upgrade
+      10. Connect a combo keyboard and mouse to BeagleBone® AI’s USB host port.
+      11. Connect a microHDMI-to-HDMI cable to BeagleBone® AI’s microHDMI port.
+      12. Connect the microHDMI-to-HDMI cable to an HDMI monitor.
+      13. Plug a 5V 3A USB type-C power supply into BeagleBone® AI’s USB type-C port.
+      14. BeagleBone® AI will boot. No need to enter any passwords.
+      15. Depending on which software image is loaded, either a Desktop or a login shell will appear on the monitor.
+      16. Follow the instructions at https://beagleboard.org/upgrade
 
-    .. _bbai-wireless:
-
-    .. group-tab:: Wireless
+    .. tab-item:: Wireless
 
       **Wireless Connection**
 
       .. note:: Start with this image "am57xx-eMMC-flasher-debian-10.3-iot-tidl-armhf-2020-04-06-6gb.img.xz" loaded on your BeagleBone® AI.
 
-      1. Plug a 5V 3A USB type-C power supply into BeagleBone® AI’s USB type-C port.
-      2. BeagleBone® AI will boot.
-      3. Connect your PC’s WiFi to SSID "BeagleBone-XXXX" where XXXX varies for your BeagleBone® AI.
-      4. Use password "BeagleBone" to complete the WiFi connection.
-      5. Open http://192.168.8.1 in your web browser.
-      6. Follow the instructions in the browser window.
+      17. Plug a 5V 3A USB type-C power supply into BeagleBone® AI’s USB type-C port.
+      18. BeagleBone® AI will boot.
+      19. Connect your PC’s WiFi to SSID "BeagleBone-XXXX" where XXXX varies for your BeagleBone® AI.
+      20. Use password "BeagleBone" to complete the WiFi connection.
+      21. Open http://192.168.8.1 in your web browser.
+      22. Follow the instructions in the browser window.
 
 Connecting a 3 PIN Serial Debug Cable
 *************************************
