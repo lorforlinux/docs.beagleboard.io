@@ -25,9 +25,9 @@ Pinout Diagrams
 
 Choose the cape header to see respective pinout diagram.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: P8 cape header
+   .. tab-item:: P8 cape header
 
         .. figure:: images/pinout/BeagleV-Fire-P8.*
             :align: center
@@ -36,7 +36,7 @@ Choose the cape header to see respective pinout diagram.
             BeagleV-Fire P8 cape header pinout
 
 
-   .. group-tab:: P9 cape header
+   .. tab-item:: P9 cape header
 
         .. figure:: images/pinout/BeagleV-Fire-P9.*
             :align: center

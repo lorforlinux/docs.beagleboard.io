@@ -118,9 +118,9 @@ support for portable and power-sensitive applications.
 Board components location
 ==========================
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. group-tab:: Front
+    .. tab-item:: Front
 
       .. figure:: images/components-front.*
           :width: 1400
@@ -177,7 +177,7 @@ Board components location
           | USB-C port                 | Power and Device data role port                                           |
           +----------------------------+---------------------------------------------------------------------------+
 
-    .. group-tab:: Back
+    .. tab-item:: Back
 
       .. figure:: images/components-back.*
           :width: 1400
