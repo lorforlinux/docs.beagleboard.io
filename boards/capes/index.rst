@@ -50,4 +50,4 @@ Find the instructions below on using each cape:
 
    /boards/capes/cape-interface-spec
    /boards/capes/relay
-
+   /boards/capes/comms
