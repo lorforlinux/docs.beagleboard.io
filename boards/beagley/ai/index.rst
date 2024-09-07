@@ -3,8 +3,6 @@
 BeagleY-AI
 ##########
 
-:bdg-danger:`Work in progress`
-
 BeagleY-AI is an open-source single board computer based on the Texas Instruments AM67A Arm-based vision processor.
 
 .. image:: images/beagley-ai-in-hand.*

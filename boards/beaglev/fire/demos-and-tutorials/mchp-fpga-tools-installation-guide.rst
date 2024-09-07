@@ -14,7 +14,7 @@ Instructions for installing the Microchip FPGA tools on a Ubuntu 20.04 desktop.
 
    Make sure people know about the alternative and we provide links to details on that before we send them down this process.
 
-Install Libero 2022.3
+Install Libero 2023.2
 ************************
 
 - Download installer from the `Microchip's fpga and soc design tools section <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions>`_.
@@ -22,21 +22,21 @@ Install Libero 2022.3
 
 .. code-block::
 
-  unzip Libero_SoC_v2022.3_lin.zip
+  unzip Libero_SoC_v2023.2_lin.zip
 
-  cd Libero_SoC_v2022.3_lin/
+  cd Libero_SoC_v2023.2_lin/
 
   ./launch_installer.sh
 
 .. important:: 
     Do not use the default location suggested by the Libero installer. 
-    Instead of /usr/local/Microchip/Libero_SoC_v2022.3 install into ~/Microchip/Libero_SoC_v2022.3
+    Instead of /usr/local/Microchip/Libero_SoC_v2023.2 install into ~/Microchip/Libero_SoC_v2023.2
     
 Run the post installation script which will install missing packages:
 
 .. code-block::
 
-  sudo /home/<USER-NAME>/Microchip/Libero_SoC_v2022.3/Logs/req_to_install.sh
+  sudo /home/<USER-NAME>/Microchip/Libero_SoC_v2023.2/Logs/req_to_install.sh
 
 No need to run the FlashPro hardware installation scripts. This will be taken care of as part of the SoftConsole installation.
 
@@ -90,10 +90,9 @@ Install the Linux Standard Base:
 Request a Libero Silver license
 ********************************
 
-- Visit `microchip's fpga and soc design tool licensing page <www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/licensing>`_
-- Click on Register a free license button and Register or login.
-- Click "Request Free License" and choose "Libero Silver 1Yr Floating License for Windows/Linux Server" from the list.
-- Enter you MAC address and click register. 
+- Visit `microchip's fpga software products page <https://www.microchipdirect.com/fpga-software-products>`_
+- Choose "Libero Silver 1Yr Floating License for Windows/Linux Server" from the list.
+- Enter your MAC address and click register. 
   
 .. note::
     

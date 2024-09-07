@@ -25,3 +25,6 @@ Demos
     demos-and-tutorials/gateware/running-the-bitstream-builder-on-windows
     demos-and-tutorials/gateware/exploring-gateware-design-libero
     demos-and-tutorials/gateware/gateware-design-simulation-libero
+    demos-and-tutorials/gateware/comms-cape-gateware-usage
+    demos-and-tutorials/gateware/axi-apb-interfaces-demo
+

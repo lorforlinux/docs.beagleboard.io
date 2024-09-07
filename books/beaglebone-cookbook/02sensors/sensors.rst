@@ -169,8 +169,8 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
 
 The code below reads GPIO port *P9_42*, which is attached to the pushbutton. 
 
-.. tabs::
-   .. group-tab:: Python
+.. tab-set::
+   .. tab-item:: Python
 
       .. literalinclude:: ../code/02sensors/pushbutton.py
          :caption: Monitoring a pushbutton (pushbutton.py)
@@ -179,7 +179,7 @@ The code below reads GPIO port *P9_42*, which is attached to the pushbutton.
 
       :download:`pushbutton.py <../code/02sensors/pushbutton.py>`
 
-   .. group-tab:: c
+   .. tab-item:: c
 
       .. literalinclude:: ../code/02sensors/pushbutton.c
          :caption: Monitoring a pushbutton (pushbutton.c)
@@ -311,9 +311,9 @@ is wired to one of the seven analog-in ports (*P9_36*).
 The section below shows the code used to read the variable resistor.  
 Add the code to a file called *analogIn.py* and run it; then change the resistor and run it again. The voltage read will change.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Python
+   .. tab-item:: Python
 
          .. literalinclude:: ../code/02sensors/analogIn.py
             :caption: Reading an analog voltage (analogIn.py)
@@ -322,7 +322,7 @@ Add the code to a file called *analogIn.py* and run it; then change the resistor
 
          :download:`analogIn.py <../code/02sensors/analogIn.py>`
 
-   .. group-tab:: JavaScript
+   .. tab-item:: JavaScript
 
          .. literalinclude:: ../code/02sensors/analogIn.js
             :caption: Reading an analog voltage (analogIn.js)
@@ -389,9 +389,9 @@ as shown in :ref:`sensors_ultrasonic_fig`. The device outputs ~6.4 mV/in when po
 
 ``ultrasonicRange.py`` shows the code that reads the sensor at a fixed interval.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Python
+   .. tab-item:: Python
 
       .. literalinclude:: ../code/02sensors/ultrasonicRange.py
          :caption: Reading an analog voltage (ultrasonicRange.py)
@@ -400,7 +400,7 @@ as shown in :ref:`sensors_ultrasonic_fig`. The device outputs ~6.4 mV/in when po
 
       :download:`ultrasonicRange.py <../code/02sensors/ultrasonicRange.py>`
 
-   .. group-tab:: JavaScript
+   .. tab-item:: JavaScript
 
       .. literalinclude:: ../code/02sensors/ultrasonicRange.js
          :caption: Reading an analog voltage (ultrasonicRange.js)
@@ -542,9 +542,9 @@ The *2* after the *qep* returned by *show-pins* shows it's *eQEP2*.
 
 Finally, add the code below to a file named *rotaryEncoder.py* and run it.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Python
+   .. tab-item:: Python
 
       .. literalinclude:: ../code/02sensors/rotaryEncoder.py
          :caption: Reading a rotary encoder (rotaryEncoder.py)
@@ -553,7 +553,7 @@ Finally, add the code below to a file named *rotaryEncoder.py* and run it.
 
       :download:`rotaryEncoder.py <../code/02sensors/rotaryEncoder.py>`
 
-   .. group-tab:: JavaScript
+   .. tab-item:: JavaScript
 
       .. literalinclude:: ../code/02sensors/rotaryEncoder.js
          :caption: Reading a rotary encoder (rotaryEncoder.js)
@@ -812,9 +812,9 @@ https://cateee.net/lkddb/ to see them.
 Once the driver is in place, you can read it via code. 
 ``i2cTemp.py``` shows how to read the TMP101.
 
-.. tabs::
+.. tab-set::
    
-   .. group-tab:: Python
+   .. tab-item:: Python
 
       .. literalinclude:: ../code/02sensors/i2cTemp.py
          :caption: Reading an |I2C|  device (i2cTemp.py)
@@ -823,7 +823,7 @@ Once the driver is in place, you can read it via code.
 
       :download:`i2cTemp.py <../code/02sensors/i2cTemp.py>`
 
-   .. group-tab:: JavaScript
+   .. tab-item:: JavaScript
 
       .. literalinclude:: ../code/02sensors/i2cTemp.js
          :caption: Reading an |I2C|  device (i2cTemp.js)
@@ -947,9 +947,9 @@ This shows the serial numbers for all the devices.
 Finally, add the code below in to a file named *w1.py*, edit the path assigned to *w1* so 
 that the path points to your device, and then run it.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Python
+   .. tab-item:: Python
 
       .. literalinclude:: ../code/02sensors/w1.py
          :caption: Reading a temperature with a DS18B20 (w1.py)
@@ -958,7 +958,7 @@ that the path points to your device, and then run it.
 
       :download:`w1.py <../code/02sensors/w1.py>`
 
-   .. group-tab:: JavaScript
+   .. tab-item:: JavaScript
 
       .. literalinclude:: ../code/02sensors/w1.js
          :caption: Reading a temperature with a DS18B20 (w1.js)

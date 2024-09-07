@@ -12,6 +12,14 @@ from pathlib import Path
 import pydata_sphinx_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
+# -- Banners --
+announcement_message = ""
+development_version_message = "This is a <strong>development version</strong> of docs."
+forked_version_message = "This is a <strong>forked version</strong> of docs."
+unknown_version_message = "This is an <strong>unknown version</strong> of docs."
+version_link = "https://docs.beagleboard.org"
+version_link_text = "Switch to released version"
+
 # -- Project information --
 project = 'BeagleBoard Docs'
 copyright = '2024, BeagleBoard.org Foundation'
@@ -87,7 +95,6 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
-    "sphinx_tabs.tabs",
     "breathe",
     "sphinx_copybutton",
     "sphinxcontrib.youtube",
@@ -132,6 +139,37 @@ numfig = True
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
 
+# parse pages details from 'PAGES' file
+docs_url = ""
+with open("PAGES") as f:
+    m = re.match(
+        (
+            r"^PAGES_URL\s*=\s*(\S+)$\n"
+            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
+            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
+            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
+            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
+            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write("Warning: Could not extract pages information\n")
+    else:
+        url, slug, user, branch, host, repo = m.groups(1)
+        slug = "latest" if slug == "main" else slug
+        pages_url = url
+        pages_slug = slug
+        gitlab_user = user
+        gitlab_version = branch
+        gitlab_url = host
+        gitlab_repo = repo
+        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
+        docs_url = "/".join((url, slug))
+
+# HTML 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ["_static"]
 html_logo = "_static/images/logo.svg"
@@ -151,7 +189,6 @@ html_sidebars = {
     "**": ["sidebar-nav-bs", "mission"],
     "index": []
 }
-
 
 html_theme_options = {
     "external_links": [
@@ -211,8 +248,6 @@ html_theme_options = {
     "show_toc_level": 1,
     "navbar_align": "right",
     "show_nav_level": 1,
-    "announcement": "Welcome to new site for BeagleBoard.org docs!",
-    # "show_version_warning_banner": True,
     "navbar_center": ["navbar-nav"],
     "navbar_start": ["navbar-logo"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
@@ -222,35 +257,9 @@ html_theme_options = {
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
-        "**": ["page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
+        "**": ["todo", "page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
     },
 }
-
-# parse version from 'VERSION' file
-with open("VERSION") as f:
-    m = re.match(
-        (
-            r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
-            + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
-            + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
-            + r"^VERSION_TWEAK\s*=\s*\d+$\n"
-            + r"^EXTRAVERSION\s*=\s*(.*)$"
-        ),
-        f.read(),
-        re.MULTILINE,
-    )
-
-    if not m:
-        sys.stderr.write("Warning: Could not extract docs version\n")
-        version = "Unknown"
-    else:
-        major, minor, patch, extra = m.groups(1)
-        version = ".".join((major, minor, patch))
-        release_version = ".".join((major, minor))
-        if extra:
-            version += "-" + extra
-
-release = version
 
 # Variables here holds default settings
 pages_url = "https://docs.beagleboard.io"
@@ -260,36 +269,6 @@ gitlab_version = "main"
 gitlab_url = "https://openbeagle.org"
 gitlab_repo = "docs.beagleboard.io"
 gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-docs_url = "https://docs.beagleboard.io"
-
-# parse pages details from 'PAGES' file
-with open("PAGES") as f:
-    m = re.match(
-        (
-            r"^PAGES_URL\s*=\s*(\S+)$\n"
-            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
-            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
-            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
-            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
-            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
-        ),
-        f.read(),
-        re.MULTILINE,
-    )
-
-    if not m:
-        sys.stderr.write("Warning: Could not extract pages information\n")
-    else:
-        url, slug, user, branch, host, repo = m.groups(1)
-        slug = "latest" if slug == "main" else slug
-        pages_url = url
-        pages_slug = slug
-        gitlab_user = user
-        gitlab_version = branch
-        gitlab_url = host
-        gitlab_repo = repo
-        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-        docs_url = "/".join((url, slug))
 
 html_context = {
     "display_gitlab": True,
@@ -311,7 +290,13 @@ html_context = {
     "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/",
     "oshw_details": oshw_details,
     "pdf_paths": pdf_paths,
-    "board_details": board_details
+    "board_details": board_details,
+    "announcement_message": announcement_message,
+    "development_version_message": development_version_message,
+    "forked_version_message": forked_version_message,
+    "unknown_version_message": unknown_version_message,
+    "version_link": version_link,
+    "version_link_text": version_link_text,
 }
 
 # -- Options for LaTeX output --

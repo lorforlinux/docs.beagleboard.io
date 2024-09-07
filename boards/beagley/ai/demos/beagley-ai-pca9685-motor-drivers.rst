@@ -1,7 +1,5 @@
 .. _beagley-ai-pca9685-motor-drivers:
 
-:bdg-danger:`Work in progress`
-
 .. todo:: Add further testing steps, results, and images.
 
 Using PCA9685 Motor Drivers

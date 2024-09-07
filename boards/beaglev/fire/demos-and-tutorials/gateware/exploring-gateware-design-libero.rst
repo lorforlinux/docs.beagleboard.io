@@ -255,7 +255,8 @@ Exporting the Cape
     as a script which can be used in the gateware repository.
     I suggest creating an export directory where you can temporarily store the exported gateware files before getting them into the repository.
 
-.. notice::
+.. important::
+
     You **must** make sure your path exist, because Libero does not currently tell you if the export is successfull or not.
 
 Now, simply copy it into the gateware at the following path.
@@ -364,6 +365,7 @@ Go ahead and run the python script to build the gateware and verify your changes
     .. code-block:: shell
     
         scp -r ./bitstream beagle@<ip or name here>:
+        
     On the beagle, use:
 
     .. code-block:: shell

@@ -91,9 +91,9 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
     bone$ config-pin P9_16 pwm
     bone$ ./servoMotor.py
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_servoMotor_code:
 
@@ -104,7 +104,7 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
 
         :download:`servoMotor.py <../code/04motors/servoMotor.py>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _motors_servoMotor_code:
 
@@ -195,9 +195,9 @@ Wire your breadboard as shown in :ref:`motors_dcMotor_fig`.
 
 Use the code in :ref:`py_dcMotor_code` to run the motor.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_dcMotor_code:
 
@@ -208,7 +208,7 @@ Use the code in :ref:`py_dcMotor_code` to run the motor.
 
         :download:`dcMotor.py <../code/04motors/dcMotor.py>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _motors_dcMotor_code:
 

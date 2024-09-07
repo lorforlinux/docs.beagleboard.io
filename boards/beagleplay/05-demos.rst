@@ -114,7 +114,7 @@ Demos and tutorials
             intermediate
 
     .. card::
-        :link: play-kernel-development
+        :link: beagleplay-kernel-development
         :link-type: ref
 
         **Linux Kernel development**
@@ -170,7 +170,7 @@ Demos and tutorials
     demos-and-tutorials/using-oldi
     demos-and-tutorials/using-csi
     demos-and-tutorials/zephyr-cc1352-development
-    demos-and-tutorials/play-kernel-development
+    demos-and-tutorials/beagleplay-kernel-development
     demos-and-tutorials/greybus-host
     demos-and-tutorials/understanding-boot
     demos-and-tutorials/low-power-video-doorbell

@@ -3,8 +3,6 @@
 Expansion
 #########
 
-:bdg-danger:`Work in progress`
-
 Cape Headers
 *************
 
