@@ -1,6 +1,6 @@
 .. _beaglev-fire-gateware-design-simulation-libero:
 
-Simulating the Gateware Design with Libero
+Simulating Gateware Design with Libero
 ##########################################
 
 In this demonstration, we will have a look at simulating the gateware design in Libero. Through simulations, 
@@ -22,20 +22,20 @@ Modelsim requires certain libraries to be present in the system, which might not
 
 .. code-block:: bash
 
-    source setup_microchip_tools.sh
-    $LIBERO_INSTALL_DIR/ModelSimPro/linuxacoem/vsim
+   source setup_microchip_tools.sh
+   $LIBERO_INSTALL_DIR/ModelSimPro/linuxacoem/vsim
 
 If ModelSim is not working due to missing libraries, you might see an error message like:
 
 .. code-block:: bash
 
-    vsim: error while loading shared libraries: libXft.so.2: cannot open shared object file: No such file or directory
+   vsim: error while loading shared libraries: libXft.so.2: cannot open shared object file: No such file or directory
 
 To fix this, you can install the required libraries using the following command:
 
 .. code-block:: bash
 
-    sudo  apt-get install libxft2 libxft2:i386 lib32ncurses5
+   sudo  apt-get install libxft2 libxft2:i386 lib32ncurses5
 
 If you still cannot run ModelSim, you can try fixes from this `guide <https://profile.iiita.ac.in/bibhas.ghoshal/COA_2020/Lab/ModelSim%20Linux%20installation.html>`_.
 
@@ -49,37 +49,37 @@ the ``VERILOG_TUTORIAL`` gateware option. To compile the design, follow the step
 
 .. code-block:: bash
 
-    cd gateware
-    python build-bitstream.py custom-fpga-design/my_custom_fpga_design.yaml
+   cd gateware
+   python build-bitstream.py custom-fpga-design/my_custom_fpga_design.yaml
 
 #. Once the design is compiled, open the Libero SoC software and select the created project. You can find the project in the ``work/libero`` directory.
 
 #. Once the project is opened, your window should look something like this. In front of you will be the overview of the gateware design, and on the left you will have multiple tabs showing the design hierarchy, design flow, etc.
 
-.. image:: images/simulation-demo/libero-overview.png
-    :alt: Libero SoC Overview
+.. figure:: images/simulation-demo/libero-overview.png
+   :alt: Libero SoC Overview
 
 #. For the simulation, testbench files will need to be set up, which will be used to simulate the design. This can be done from the stimulus hierarchy. However, for this example we will be using the default testbench files provided by libero.
 
 #. To set up the simulation, go to the ``Design Flow`` tab and right click on the ``Simulate`` button to select ``Open Interactively``. 
 
-.. image:: images/simulation-demo/libero-start-modelsim.png
-    :alt: Simulate Button
-    :width: 60%
-    :align: center
+.. figure:: images/simulation-demo/libero-start-modelsim.png
+   :alt: Simulate Button
+   :width: 60%
+   :align: center
 
 #. Before starting modelsim, Libero will ask you to add any additional files that you want to include in the simulation. For now, let's go with the ones that came with the design and it's IPs.
 
-.. image:: images/simulation-demo/libero-add-testbench.png
-    :alt: Add Testbench
-    :width: 60%
-    :align: center
+.. figure:: images/simulation-demo/libero-add-testbench.png
+   :alt: Add Testbench
+   :width: 60%
+   :align: center
 
 #. Once the simulation is started, you will see the ModelSim window open up. 
 
-.. image:: images/simulation-demo/modelsim-structure.png
-    :alt: ModelSim Window
-    :align: center
+.. figure:: images/simulation-demo/modelsim-structure.png
+   :alt: ModelSim Window
+   :align: center
 
 Exploring ModelSim and Running the simulations
 **********************************************
@@ -100,9 +100,9 @@ You can add signals to the waveform window by right clicking on the signal in th
 Once added, you can run the simulation by clicking on the ``Run`` button in the simulation toolbar. The simulation will run for a few nano seconds as specified
 in the toolbar beside the ``Run`` button.
 
-.. image:: images/simulation-demo/modelsim-adding-waves.png
-    :alt: ModelSim Waveform
-    :align: center
+.. figure:: images/simulation-demo/modelsim-adding-waves.png
+   :alt: ModelSim Waveform
+   :align: center
 
 Once the simulation is complete, you can see the waveforms of the signals in the waveform window.
 
@@ -113,11 +113,11 @@ An example of a ``.do`` file is shown below:
 
 .. code-block:: tcl
 
-    add wave -noupdate /tb_top/clk
-    add wave -noupdate /tb_top/rst
-    add wave -noupdate /tb_top/led
+   add wave -noupdate /tb_top/clk
+   add wave -noupdate /tb_top/rst
+   add wave -noupdate /tb_top/led
 
-    run 100 ns
+   run 100 ns
 
 A default ``run.do`` script is created at the following path - ``work/libero/simulation`` - when a simulation is run. You can use this file as a starter file
 for creating your own scripts as well as for understanding how the initial simulation is set-up.
