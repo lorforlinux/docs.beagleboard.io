@@ -119,4 +119,7 @@ An example of a ``.do`` file is shown below:
 
     run 100 ns
 
+A default ``run.do`` script is created at the following path - ``work/libero/simulation`` - when a simulation is run. You can use this file as a starter file
+for creating your own scripts as well as for understanding how the initial simulation is set-up.
+
 Good luck with your simulations!
