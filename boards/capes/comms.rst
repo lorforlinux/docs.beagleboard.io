@@ -8,6 +8,7 @@ two analog 4–20 mA current loops, and two 3A 50V interfaces allowing the contr
 
 .. figure:: images/BeagleBoneCommsCapeA2-400x279.png
    :align: center
+   :alt: BeagleBone Comms Cape
 
 * `Order page <https://beagleboard.org/capes#comms>`_
 * `Schematic <https://openbeagle.org/beagleboard/capes/-/tree/master/beaglebone/comms>`_
