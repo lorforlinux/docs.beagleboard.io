@@ -1,5 +1,5 @@
 <a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
-    <i class="fa-solid fa-arrows-rotate"></i> Provide Feedback
+    <i class="fa-regular fa-message"></i> Provide Feedback
 </a>
 
 <div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
@@ -15,7 +15,7 @@
             <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i class="fa-solid fa-triangle-exclamation"></i> Issue</label>
 
             <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off" value="Feedback" checked>
-            <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i class="fa-solid fa-arrows-rotate"></i> Feedback</label>
+            <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i class="fa-regular fa-message"></i> Feedback</label>
 
             <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off" value="Idea">
             <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i class="fa-solid fa-lightbulb"></i> Idea</label>
@@ -84,7 +84,7 @@
 
     var headerlinks = document.getElementsByClassName("headerlink")
     for(let i=0; i<headerlinks.length; i++){     
-        headerlinks[i].innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>'
+        headerlinks[i].innerHTML = '<i class="fa-regular fa-message"></i>'
         headerlinks[i].title = "Provide Feedback"
         headerlinks[i].setAttribute("data-bs-toggle","modal")
         headerlinks[i].setAttribute("data-bs-target","#feedbackModal")
