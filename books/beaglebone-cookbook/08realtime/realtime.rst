@@ -60,9 +60,9 @@ Wire up the pushbutton and LED as shown in :ref:`realtime_pushLED_fig`.
 The code in :ref:`py_pushLED_code` reads GPIO port *P9_42*, which is attached to the 
 pushbutton, and turns on the LED attached to *P9_12* when the button is pushed.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_pushLED_code:
 
@@ -73,7 +73,7 @@ pushbutton, and turns on the LED attached to *P9_12* when the button is pushed.
 
         :download:`pushLED.py <../code/08realtime/pushLED.py>`
     
-    .. group-tab:: c
+    .. tab-item:: c
 
         .. _realtime_pushLED_c_code:
 
@@ -96,7 +96,7 @@ pushbutton, and turns on the LED attached to *P9_12* when the button is pushed.
 
         :download:`pushLED.c <../code/08realtime/pushLED.c>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _realtime_pushLED_code:
 

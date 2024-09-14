@@ -13,7 +13,7 @@ import pydata_sphinx_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
 # -- Banners --
-announcement_message = "Welcome to the new site for BeagleBoard.org docs!"
+announcement_message = ""
 development_version_message = "This is a <strong>development version</strong> of docs."
 forked_version_message = "This is a <strong>forked version</strong> of docs."
 unknown_version_message = "This is an <strong>unknown version</strong> of docs."
