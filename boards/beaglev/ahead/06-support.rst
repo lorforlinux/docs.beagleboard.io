@@ -3,6 +3,14 @@
 Support
 #######
 
+All support for BeagleV Ahead design is through BeagleBoard.org 
+community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/ahead>`_.
+
+Production board boot media
+****************************
+
+- `BeagleV-Ahead Rev 1.0`_
+
 .. _beaglev-ahead-certifications:
 
 Certifications and export control
@@ -63,22 +71,6 @@ Change History
     This section describes the change history of this document and board. 
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
-
-.. _beaglev-ahead-document-changes:
-
-Document Changes
-==================
-
-For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
-specific hardware and software revisions are noted below.
-
-.. table:: BeagleV Ahead document change history
-
-    +---------+------------------------------------------------------------+----------------------+-------+
-    | Rev     |   Changes                                                  | Date                 |    By |
-    +=========+============================================================+======================+=======+
-    |         |                                                            |                      |       |
-    +---------+------------------------------------------------------------+----------------------+-------+
 
 .. _beaglev-ahead-board-changes:
 

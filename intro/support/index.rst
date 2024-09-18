@@ -3,30 +3,32 @@
 Support
 #########
 
-Getting started
-***************
-
-The starting experience for all Beagles has been made to be as
-consistent as is possible. For any of the Beagle Linux-based open
-hardware computers, visit :ref:`beagleboard-getting-started`.
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :hidden:
 
-   /intro/support/getting-started
+   getting-started
+
+First, read the manual
+**********************
+
+Before reaching out for support, make sure you've gone through the process of resetting your
+board back to factory conditions.
+
+For any of the Beagle Linux-based open hardware computers, visit :ref:`beagleboard-getting-started`.
 
 .. _intro-getting-support:
 
 Getting support
 ***************
 
-BeagleBoard.org products and `open
-hardware <https://www.oshwa.org/definition/>`_ designs are supported
+BeagleBoard.org products are `open
+hardware <https://www.oshwa.org/definition/>`_ designs supported
 via the on-line community resources. We are very confident in our
 community’s ability to provide useful answers in a timely manner. If you
 don’t get a productive response within 24 hours, please escalate issues
 to Jason Kridner (contact info available on the `About
-Page <https://beagleboard.org/about>`_). In case it is needed, Jason
+Page <https://www.beagleboard.org/about>`_). In case it is needed, Jason
 will help escalate issues to suppliers, manufacturers or others. Be sure
 to provide a link to your questions on the `community
 forums <https://forum.beagleboard.org>`_ as answers will be provided
@@ -55,12 +57,18 @@ Best to be prepared with good diagnostic information to aide with support.
 -  `Beagle Tester source <https://git.beagleboard.org/jkridner/beagle-tester>`_
 
 .. figure:: images/beagle-version.png
+   :width: 940
    :align: center
    :alt: Run beagle-version
 
+   Run beagle-version
+
 .. figure:: images/beagle-version-download.png
+   :width: 1240
    :align: center
    :alt: Download beagle-version output
+
+   Download beagle-version output
 
 .. tip::
    For debugging purposes you can either share the ``beagle-version.txt`` file you just downloaded 
@@ -71,14 +79,17 @@ Community resources
 ===================
 
 Please execute the board diagnostics, review the hardware documentation,
-and consult the mailing list and IRC channel for support.
+and consult the form and live chat for support.
 BeagleBoard.org is a “community” project with free support only given to
-those who are willing to discussing their issues openly for the benefit
+those who are willing to discuss their issues openly for the benefit
 of the entire community.
 
 -  `Frequently Asked Questions <https://forum.beagleboard.org/c/faq>`_
--  `Mailing List <https://forum.beagleboard.org>`_
--  `Live Chat <https://beagleboard.org/chat>`_
+-  `Forum <https://forum.beagleboard.org>`_
+-  `Live Chat <https://www.beagleboard.org/discord>`_
+
+If you need to escalate an issue already reported over 24 hours ago on the `forum <https://forum.beagleboard.org>`_, please
+schedule a meeting to discuss it with Jason via contact information near the bottom of the `about page <https://www.beagleboard.org/about>`_.
 
 .. _consulting-resources:
 
@@ -103,21 +114,4 @@ form:
 Understanding Your Beagle
 *************************
 
--  :ref:`intro_beagle-101`
--  `Hardware <https://beagleboard.org/Support/Hardware+Support>`_
--  `Software <https://beagleboard.org/Support/Software+Support>`_
--  :ref:`books-home`
-
-   - :ref:`pru-cookbook-home`
-   - :ref:`bone-cook-book-home`
-   - `Exploring BeagleBone <https://beagleboard.org/ebb>`_
-   - `Bad to the Bone <https://beagleboard.org/bad-to-the-bone>`_
-
-Working with Cape Add-on Boards
-*******************************
-
-- :ref:`capes`
-- :ref:`beaglebone-cape-interface-spec`
-- :ref:`accessories-home`
-
-
+Spend some time getting to know your Beagle via :ref:`intro_beagle-101`

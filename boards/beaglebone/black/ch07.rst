@@ -6,7 +6,7 @@ Connectors
 This section describes each of the connectors on the board.
 
 Expansion Connectors
-------------------------
+*********************
 
 The expansion interface on the board is comprised of two 46 pin
 connectors. All signals on the expansion headers are _3.3V_ unless
@@ -21,7 +21,7 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 **NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.**
 
 
-.. figure:: media/image68.jpg
+.. figure:: images/image68.jpg
    :width: 400px
    :align: center
    :alt: Expansion Connector Location
@@ -32,7 +32,7 @@ The location and spacing of the expansion headers are the same as on the
 original BeagleBone.
 
 Connector P8
-******************
+=============
 
 *table-12* shows the pinout of the **P8** expansion header. Other signals
 can be connected to this connector based on setting the pin mux on the
@@ -577,7 +577,7 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
 
 
 Connector P9
-******************
+=============
 
 Table-13 lists the signals on connector **P9**. Other signals can be
 connected to this connector based on setting the pin mux on the
@@ -1088,7 +1088,7 @@ THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.*
   \end{landscape}
 
 Power Jack
---------------
+***********
 
 The DC power jack is located next to the RJ45 Ethernet connector as
 shown in <<figure-51>>. This uses the same power connector as is used on
@@ -1096,7 +1096,7 @@ the original BeagleBone. The connector has a 2.1mm diameter center post
 (5VDC) and a 5.5mm diameter outer dimension on the barrel (GND).
 
 
-.. figure:: media/image69.jpg
+.. figure:: images/image69.jpg
    :width: 579px
    :height: 411px
    :align: center
@@ -1109,7 +1109,7 @@ current rating may be needed if capes are plugged into the expansion
 headers. Using a higher current power supply will not damage the board.
 
 USB Client
---------------
+************
 
 The USB Client connector is accessible on the bottom side of the board
 under the row of four LEDs as shown in <<figure-52>>. It uses a 5 pin
@@ -1118,7 +1118,7 @@ is provided with the board. The cable can also be used to power the
 board.
 
 
-.. figure:: media/image71.jpg
+.. figure:: images/image71.jpg
    :width: 633px
    :height: 454px
    :align: center
@@ -1130,13 +1130,13 @@ This port is a USB Client only interface and is intended for connection
 to a PC.
 
 USB Host
-------------
+**********
 
 There is a single USB Host connector on the board and is shown in
 *Figure 53* below.
 
 
-.. figure:: media/image71.jpg
+.. figure:: images/image71.jpg
    :width: 593px
    :height: 387px
    :align: center
@@ -1147,12 +1147,12 @@ There is a single USB Host connector on the board and is shown in
 The port is USB 2.0 HS compatible and can supply up to 500mA of current. If more current or ports is needed, then a HUB can be used.
 
 Serial Header
------------------
+***************
 
 Each board has a debug serial interface that can be accessed by using a special serial cable that is plugged into the serial header as shown in *Figure 54* below.
 
 
-.. figure:: media/image71.jpg
+.. figure:: images/image71.jpg
    :width: 527px
    :height: 351px
    :align: center
@@ -1169,7 +1169,7 @@ these signals are 3.3V. In order to access these signals, a FTDI USB to
 Serial cable is recommended as shown in *Figure 55* below.
 
 
-.. figure:: media/image73.jpg
+.. figure:: images/image73.jpg
    :width: 428px
    :height: 162px
    :align: center
@@ -1213,7 +1213,7 @@ Table is the pinout of the connector as reflected in the schematic. It is the sa
      - Transmit
 
 
-.. figure:: media/image75.jpg
+.. figure:: images/image75.jpg
    :width: 373px
    :height: 387px
    :align: center
@@ -1222,13 +1222,13 @@ Table is the pinout of the connector as reflected in the schematic. It is the sa
    Serial Header
 
 HDMI
---------
+*****
 
 Access to the HDMI interface is through the HDMI connector that is
 located on the bottom side of the board as shown in *Figure 57* below.
 
 
-.. figure:: media/image71.jpg
+.. figure:: images/image71.jpg
    :width: 579px
    :height: 387px
    :align: center
@@ -1242,7 +1242,7 @@ a microHDMI to HDMI cable as shown in *Figure 58* below. The cable can
 be purchased from several different sources.
 
 
-.. figure:: media/image77.jpg
+.. figure:: images/image77.jpg
    :width: 196px
    :height: 196px
    :class: longtable
@@ -1252,14 +1252,14 @@ be purchased from several different sources.
    HDMI Cable
 
 microSD
------------
+********
 
 A microSD connector is located on the back or bottom side of the board
 as shown in *Figure 59* below. The microSD card is not supplied with the
 board.
 
 
-.. figure:: media/image71.jpg
+.. figure:: images/image71.jpg
    :width: 579px
    :height: 438px
    :align: center
@@ -1277,13 +1277,13 @@ the connector.
 Do not pull the SD card out or you could damage the connector.
 
 Ethernet
-------------
+*********
 
 The board comes with a single 10/100 Ethernet interface located next to
 the power jack as shown in Figure below.
 
 
-.. figure:: media/image71.jpg
+.. figure:: images/image71.jpg
    :width: 579px
    :height: 387px
    :align: center
@@ -1295,7 +1295,7 @@ The PHY supports AutoMDX which means either a straight or a swap cable
 can be used.
 
 JTAG Connector
-------------------
+***************
 
 A place for an optional 20 pin CTI JTAG header is provided on the board
 to facilitate the SW development and debugging of the board by using

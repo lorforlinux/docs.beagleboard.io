@@ -6,6 +6,10 @@ Capes
 .. note::
    This page is under development.
 
+.. todo::
+
+   Get OSHWA certification for all of our capes and update the documentation to reflect that
+
 .. admonition:: Contributors
 
     This work is licensed under a `Creative Commons Attribution-ShareAlike
@@ -22,7 +26,7 @@ sensors, communication peripherals, and more.
 
 Please visit `BeagleBoard.org - Cape <https://beagleboard.org/capes>`_ for the list of currently available Cape add-on boards.
 
-In the BeagleBone board family, there are many variants, such as :ref:`beagleboneblack-home`, :ref:`beaglebone-ai-home`,
+In the BeagleBone board family, there are many variants, such as :ref:`beagleboneblack-home`, :ref:`bbai-home`,
 :ref:`bbai64-home` and compatibles such as `SeeedStudio BeagleBone Green <https://beagleboard.org/green>`_,
 `SeeedStudio BeagleBone Green Wireless <https://beagleboard.org/green-wireless>`_, `SeeedStudio BeagleBone Green Gateway
 <https://wiki.seeedstudio.com/BeagleBone-Green-Gateway/>`_ and more.

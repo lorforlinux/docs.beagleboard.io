@@ -98,6 +98,7 @@ GPIO pins, but it's a slower access.
 This code will toggle ``P9_11`` on and off. Here's the setup file.
 
 .. literalinclude:: ../code/06io/setup.sh
+   :language: shell
    :caption: setup.sh
    :linenos:
 

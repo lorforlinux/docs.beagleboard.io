@@ -9,6 +9,8 @@
 \usepackage{longtable}
 \usepackage{fontspec}
 \usepackage{comment}
+\usepackage[maxfloats=256]{morefloats}
+\maxdeadcycles=1000
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \setmainfont{DejaVuSans}
 \setmonofont{FreeMono}
@@ -23,3 +25,6 @@
 
 \let\oldtabular\tabular
 \renewcommand{\tabular}{\footnotesize\oldtabular}
+
+\newcommand{\sphinxcontribyoutube}[3]{\begin{figure}\sphinxincludegraphics{{#2}.jpg}\caption{\url{#1#2#3}}\end{figure}}
+\newcommand{\sphinxcontribvimeo}[3]{\begin{figure}\sphinxincludegraphics{{#2}.jpg}\caption{\url{#1#2#3}}\end{figure}}

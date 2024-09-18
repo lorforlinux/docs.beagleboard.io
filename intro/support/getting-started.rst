@@ -23,6 +23,20 @@ The "IoT" images provide more free disk space if you don't need to use a graphic
 .. NOTE::
 	Due to sizing necessities, this download may take 30 minutes or more.
 
+1. `BeaglePlay latest image (xfce)`_
+2. `BeaglePlay latest image (home-assistant)`_
+3. `AM57xx latest image (IoT)`_ for BeagleBone AI and BeagleBone-X15
+4. `AM57xx latest image (Xfce)`_ for BeagleBone AI and BeagleBone-X15
+5. `BeagleBone AI-64 latest image (Minimal)`_
+6. `BeagleBone AI-64 latest image (TI EDGEAI)`_
+7. `BeagleBone AI-64 latest image (Xfce)`_
+8. `AM335x latest image`_ for BeagleBone Black, PocketBeagle, BeagleBone Blue, etc.
+9. `AM335x latest image (Xfce)`_ for BeagleBone Black, PocketBeagle, BeagleBone Blue, etc.
+10. `AM335x latest image (IoT)`_ for BeagleBone Black, PocketBeagle, BeagleBone Blue, etc.
+11. `BeagleConnect Freedom latest image (micropython)`_
+12. `BeagleV-Ahead latest image (Ubuntu)`_
+13. `BeagleV-Ahead latest image (Yocto)`_
+
 The Debian/Ubuntu distribution is provided for the boards. The file you download will have an .img.xz extension.
 This is a compressed sector-by-sector image of the SD card.
 
@@ -66,8 +80,9 @@ If using an original BeagleBone or PocketBeagle, you are done.
     If using BeagleBone Black, BeagleBone Blue, BeagleBone AI, BeagleBone AI-64, BeaglePlay or other board with on-board eMMC
     flash and you desire to write the image to your on-board eMMC, you'll need to follow the
     instructions at http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC.
-    When the flashing is complete, all 4 USRx LEDs will be steady off and possibly
-    power down the board upon completion. This can take up to 45 minutes.  Power-down your board, remove the SD card and apply power again to finish.
+    During flash all 4 USRx LEDs will show sequential chaser pattern. When the flashing is complete, all 4 USRx LEDs will be
+    steady off and possibly power down the board upon completion. This can take up to 45 minutes.  Power-down your board,
+    remove the SD card and apply power again to finish.
 
 Start your Beagle
 *****************
@@ -111,28 +126,33 @@ with an IP address of either 192.168.7.1 or 192.168.6.1, depending on the
 type of USB network adapter supported by your computer's operating system.
 Your Beagle will reserve 192.168.7.2 or 192.168.6.2 for itself.
 
-If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" where "XXXX"
-varies between boards. The access point password defaults to "BeagleBone".
-Your Beagle should be running a DHCP server that will provide your computer
-with an IP address in the 192.168.8.x range and reserve 192.168.8.1 for itself.
+If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" will be created where "XXXX"
+varies between boards. The access point password defaults to "BeagleBone". Your Beagle should be 
+running a DHCP server that will provide your compute with an IP address in the 192.168.8.x range 
+and reserve 192.168.8.1 for itself.
 
 If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi,
 it will utilize `mDNS <https://en.wikipedia.org/wiki/Multicast_DNS>`_ to broadcast itself
-to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local.
+to your computer. If your computer supports mDNS, you should see your Beagle as ``beaglebone.local``.
 Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same
 network will add a suffix such as beaglebone-2.local.
+
+.. _start-browse-to-beagle:
 
 Browse to your Beagle
 ============================
 
 A web server with an Visual Studio Code (IDE) should be running on your Beagle. 
-Point your browser to **http://192.168.7.2:3000** to begin development.
+Point your browser to `http://192.168.7.2:3000 <http://192.168.7.2:3000>`_ to begin development.
 
-.. image:: images/vscode.png
+.. figure:: images/vscode.png
+   :width: 920
    :align: center
-   :alt: Visual Studio Code
+   :alt: Visual Studio Code Server
 
-.. NOTE::
+   Visual Studio Code Server
+
+.. note::
     Use either `Firefox <https://www.mozilla.org/firefox>`_ or `Chrome <https://www.google.com/chrome>`_
     (Internet Explorer will NOT work), browse to the web server running on your board. It will load a presentation
     showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.
@@ -164,12 +184,12 @@ The below table summarizes the typical addresses.
 Troubleshooting
 ***************
 
-Do not use Internet Explorer.
+.. tip:: Do not use Internet Explorer.
 
 Virtual machines are not recommended when using the direct USB connection.
 It is recommended you use only network connections to your board if you are using a virtual machine.
 
-When using 'ssh' with the provided image, the username is 'debian' and the password is 'temppwd'.
+.. note:: When using 'ssh' with the provided image, the username is '`debian`' and the password is '`temppwd`'.
 
 With the latest images, it should no longer be necessary to install drivers for your operating
 system to give you network-over-USB access to your Beagle. In case you are running an older image,
@@ -221,20 +241,25 @@ Books
 
 For a complete list of books on BeagleBone, see `beagleboard.org/books <https://beagleboard.org/books>`_.
 
-`Bad to the Bone <https://bbb.io/bad-to-the-bone>`_
+|image8|
 
 Perfect for high-school seniors or freshman univerisity level text, consider using "Bad to the Bone"
 
-`BeagleBone Cookbook <https://bbb.io/cookbook>`_
+|image9|
 
 A lighter treatment suitable for a bit broader audience without the backgrounders on programming and
 electronics, consider "BeagleBone Cookbook"
 
-`Exploring BeagleBone <https://bbb.io/ebb>`_ and `Embedded Linux Primer <https://bbb.io/elp>`_
+|image10|
 
 To take things to the next level of detail, consider "Exploring BeagleBone" which can be considered
-the missing software manual and utilize "Embedded Linux Primer" as a companion textbook to provide
+the missing software manual.
+
+|image11|
+
+utilize "Embedded Linux Primer" as a companion textbook to provide
 a strong base on embedded Linux suitable for working with any hardware that will run Linux.
+
 
 .. |image0| image:: images/distros.png
    :width: 75.0%

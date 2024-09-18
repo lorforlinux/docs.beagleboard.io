@@ -207,6 +207,7 @@ function. Now, let’s create a new Python script. We will name it app1.py:
 .. _flask_app1:
 
 .. literalinclude:: ../code/06iot/flask/app1.py
+   :language: py
    :caption: app1.py
    :linenos:
 
@@ -271,6 +272,7 @@ Let’s use a new Python script named *app2.py*.
 .. _flask_app2:
 
 .. literalinclude:: ../code/06iot/flask/app2.py
+   :language: py
    :caption: A simple Flask-based web server to read a GPIO (app2.py)
    :linenos:
 
@@ -333,6 +335,7 @@ Create a new Python script and name it *app3.py*.
 .. _flask_app3:
 
 .. literalinclude:: ../code/06iot/flask/app3.py
+   :language: py
    :caption: A simple Flask-based web server to read a GPIO (app3.py)
    :linenos:
 
@@ -477,6 +480,7 @@ plots the buffer is **analogInContinuous.py**.
 .. _analog_code:
 
 .. literalinclude:: ../code/06iot/analogInContinuous.py
+   :language: py
    :caption: Code to read and plot a continuous analog input(analogInContinuous.py)
    :linenos:
 
@@ -495,7 +499,7 @@ Run it:
   bone$ ./analogInContinuous.py
   Hit ^C to stop
 
-.. TODO 
+.. todo:: 
   verify this works. fonts are taking too long to load
 
 :ref:`analog_sine_fig` is the output of a 1KHz sine wave.
@@ -587,7 +591,7 @@ A number of files get installed, including the ADC file. Now try rerunning.
 
 Here's the output of a 10KHz triangle wave. 
 
-.. TODO  
+.. todo::  
   Is this true: (The plot is wrong, but eLinux won't let me fix it.)
 
 .. _analog_tri_fig:
@@ -629,6 +633,7 @@ Then add the code in :ref:`networking_nodemailer_code` to a file named ``emailTe
 .. _networking_nodemailer_code:
 
 .. literalinclude:: ../code/06iot/emailTest.py
+   :language: py
    :caption: Sending email using nodemailer (emailtTest.py)
    :linenos:
 
@@ -657,7 +662,7 @@ See https://realpython.com/python-send-email/ for an example that sends an attac
 Sending an SMS Message
 =======================
 
-.. TODO  
+.. todo::  
   My twilio account is suspended, using yoder@rose-hulman.edu.
 
 Problem
@@ -691,9 +696,9 @@ or for Javascript:
 
 Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioTest.py`` and run it. Your text will be sent.
 
-.. tabs::
+.. tab-set::
 
-  .. group-tab:: Python
+  .. tab-item:: Python
     
     .. _networking_twilio_code:
 
@@ -704,7 +709,7 @@ Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioT
 
     :download:`twilioTest.py  <../code/06iot/twilioTest.py>`
 
-  .. group-tab:: JavaScript
+  .. tab-item:: JavaScript
 
     .. literalinclude:: ../code/06iot/twilio-test.js
         :caption: Sending SMS messages using Twilio (``twilio-test.js``)
@@ -743,6 +748,7 @@ Because your Bone is on the network, it's not hard to access the current weather
 .. _networking_weather_code:
 
 .. literalinclude:: ../code/06iot/weather.py
+   :language: py
    :caption: Code for getting current weather conditions (``weather.py``)
    :linenos:
 
@@ -857,7 +863,7 @@ Around line 15 is the *id* number.  Paste in the value returned above.
 
 :download:`twitter_delete_tweet.py <../code/06iot/twitter_delete_tweet.py>`
 
-.. TODO
+.. todo::
   Start Here.  Update for python.
 
 The code in :ref:`networking_pushbutton_code` sends a tweet whenever a button is pushed.
@@ -865,6 +871,7 @@ The code in :ref:`networking_pushbutton_code` sends a tweet whenever a button is
 .. _networking_pushbutton_code:
 
 .. literalinclude:: ../code/06iot/twitterPushbutton.js
+   :language: js
    :caption: Tweet when a button is pushed (twitterPushbutton.js)
    :linenos:
 

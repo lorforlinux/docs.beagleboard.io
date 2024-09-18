@@ -202,14 +202,14 @@ current location is the desired location then exit this procedure.
 .. code-block:: json
 
   {
-    "graph": "/run/media/nvme0n1/docker_root",
+    "graph": "/run/images/nvme0n1/docker_root",
     "storage-driver": "overlay",
     "live-restore": true
   }
 
 In the configuration above, the key/value pair
-**'"graph": "/run/media/nvme0n1/docker_root"'** defines the root location
-**'/run/media/nvme0n1/docker_root'.**
+**'"graph": "/run/images/nvme0n1/docker_root"'** defines the root location
+**'/run/images/nvme0n1/docker_root'.**
 
 4. Once the daemon.json file has been copied and updated, run the following
    commands

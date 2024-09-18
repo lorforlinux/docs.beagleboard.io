@@ -1,5 +1,3 @@
-:orphan:
-
 .. _boards:
 
 Boards
@@ -25,29 +23,34 @@ options that enable almost endless sensing and actuation expansion.
 :ref:`BeagleBoard <beagleboard-boards-home>` is a family of ARM-based, Linux-capable boards where this project
 started.
 
-.. admonition:: Contributors
+.. note::
 
     This work is licensed under a `Creative Commons Attribution-ShareAlike
     4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
 
-.. note::
+.. tip::
+    
     Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
     
     Use of either the boards or the design materials constitutes agreement to the T&C including any 
     modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
+..  toctree::
+    :maxdepth: 1
 
-   /boards/beaglebone/index
-   /boards/beaglebone/black/index
-   /boards/beaglebone/blue/index
-   /boards/beaglebone/ai/index
-   /boards/beaglebone/ai-64/index
-   /boards/pocketbeagle/original/index
-   /boards/beaglev/ahead/index
-   /boards/capes/index
-   /boards/beagleconnect/index
-   /boards/beagleboard/index
+    beagley/ai/index.rst
+    beagleplay/index
+    beaglebone/ai-64/index
+    beaglebone/ai/index
+    beaglebone/black/index
+    beaglebone/blue/index
+    beaglebone/index
+    beaglev/ahead/index
+    beaglev/fire/index
+    pocketbeagle/index
+    beagleconnect/freedom/index
+    beagleconnect/index
+    beagleboard/index
+    capes/index
+    terms-and-conditions
 

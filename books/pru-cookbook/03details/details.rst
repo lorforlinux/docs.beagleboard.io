@@ -38,11 +38,10 @@ It's all on a GitHub repository.
     bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code
     bone$ cd pru-cookbook-code
     bone$ sudo ./install.sh
-.. note::
-   #TODO#: The version of code used needs to be noted in the documentation.
 
-.. note::
-   #TODO#: Why is this documented in multiple places?
+.. todo:: The version of code used needs to be noted in the documentation.
+
+.. todo:: Why is this documented in multiple places?
 
 .. _compiling_with_clpru_and_lnkpru:
 
@@ -214,6 +213,7 @@ and then configure the pins accordingly.
 
 
 .. literalinclude:: ../code/06io/setup.sh
+   :language: Shell
    :caption: setup.sh
    :linenos:
 
@@ -330,7 +330,11 @@ Solution
 ``am335x_pru.cmd`` is the standard linker command file that tells the linker
 where to put what for the BeagleBone Black and Blue, and the Pocket. 
 The ``am57xx_pru.cmd`` does the same for the AI.
+<<<<<<< HEAD
+Both files can be found in ``/var/lib/code-server/common``.
+=======
 Both files can be found in ``/opt/source/pru-cookbook-code/common``.
+>>>>>>> bf423e10a7d607eb485449d3f53e7823264dfebb
 
 
 .. literalinclude:: ../code/03details/am335x_pru.cmd
@@ -339,7 +343,7 @@ Both files can be found in ``/opt/source/pru-cookbook-code/common``.
 
 :download:`am335x_pru.cmd <../code/03details/am335x_pru.cmd>`
 
-.. TODO does  this need updating?
+.. todo:: does  this need updating?
 
 The cmd file for the AI is about the same, with appropriate addresses for the AI.
 
@@ -463,6 +467,7 @@ If you are on the Black or Pocket you'll need to run the following script.
 
 
 .. literalinclude:: ../code/03details/servos_setup.sh
+   :language: Shell
    :caption: servos_setup.sh
    :linenos:
 
@@ -493,6 +498,7 @@ everything is already configured for you.
 If you are on the Black or Pocket you'll need to run the following script.
 
 .. literalinclude:: ../code/03details/encoder_setup.sh
+   :language: Shell
    :caption: encoder_setup.sh
    :linenos:
 

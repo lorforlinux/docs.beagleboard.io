@@ -84,7 +84,7 @@ Note that the headers have to be lifted up to connect the cameras
 .. note:: To be updated
     By default IMX219 is disabled. After connecting the camera you can enable it
     by specifying the dtb overlay file in
-    ``/run/media/mmcblk0p1/uenv.txt`` as below,
+    ``/run/images/mmcblk0p1/uenv.txt`` as below,
 
     ``name_overlays=k3-j721e-edgeai-apps.dtbo k3-j721e-sk-rpi-cam-imx219.dtbo``
 
@@ -134,8 +134,8 @@ flash it to SD card using `Balena etcher <https://www.balena.io/etcher/>`_ tool.
 
 .. todo: Images should be on https://files.debian.cc and linked from https://www.beagleboard.org/distros
 
-- To use via SD card: `bbai64-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz <https://rcn-ee.net/rootfs/bb.org/testing/2022-08-02/bullseye-xfce-edgeai-arm64/bbai64-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz>`_
-- To flash on eMMC: `bbai64-emmc-flasher-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz <https://rcn-ee.net/rootfs/bb.org/testing/2022-08-02/bullseye-xfce-edgeai-arm64/bbai64-emmc-flasher-debian-11.4-xfce-edgeai-arm64-2022-08-02-10gb.img.xz>`_
+- To use via SD card: `bbai64-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz <https://rcn-ee.com/rootfs/release/2023-08-05/bullseye-xfce-edgeai-arm64/bbai64-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz>`_
+- To flash on eMMC: `bbai64-emmc-flasher-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz <https://rcn-ee.com/rootfs/release/2023-08-05/bullseye-xfce-edgeai-arm64/bbai64-emmc-flasher-debian-11.7-xfce-edgeai-arm64-2023-08-05-10gb.img.xz>`_
 
 
 The Balena etcher tool can be installed either on Windows/Linux. Just download the

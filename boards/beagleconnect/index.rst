@@ -7,17 +7,6 @@ BeagleConnect
 
    Currently under development
 
-.. admonition:: Contributors
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
-.. note::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
-
 BeagleConnect™ is a revolutionary technology virtually eliminating low-level 
 software development for `IoT <https://en.wikipedia.org/wiki/Internet_of_things>`_ 
 and `IIoT <https://en.wikipedia.org/wiki/Industrial_internet_of_things>`_ 
@@ -44,11 +33,10 @@ BeagleConnect™ technology solves:
 * The need to connect to devices using long-range, low-power wireless, and
 * The need to produce high-volume custom hardware cost-optimized for your requirements.
 
-.. toctree::
-   :maxdepth: 2
+See:
 
-   /boards/beagleconnect/technology/index.rst
-   /boards/beagleconnect/technology/story.rst
+* :ref:`beagleconnect-overview`
+* :ref:`beagleconnect-story`
 
 BeagleConnect Experience
 *************************
@@ -84,7 +72,7 @@ microcontroller firmware. The Linux environment provides opportunities for
 high-level remote management using tools like Balena with applications deployed
 in Docker containers.
 
-#TODO: provide image illustrating remote management
+.. todo:: provide image illustrating remote management
 
 The hardware and software are fully open source, providing for scalability and a lack of vendor lock-in.
 
@@ -96,7 +84,7 @@ For home automaters, integration into WebThings…
 
    think a bit more about this section with some feedback from Cathy.
 
-.. image:: freedom/media/BeagleConnect-Boards-Angled.*
+.. image:: freedom/images/BeagleConnect-Boards-Angled.*
    :width: 598
    :align: center
    :alt: BeagleConnect Freedom

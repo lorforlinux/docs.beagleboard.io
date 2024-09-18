@@ -91,9 +91,9 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
     bone$ config-pin P9_16 pwm
     bone$ ./servoMotor.py
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_servoMotor_code:
 
@@ -104,7 +104,7 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
 
         :download:`servoMotor.py <../code/04motors/servoMotor.py>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _motors_servoMotor_code:
 
@@ -125,12 +125,12 @@ Controlling a Servo with an Rotary Encoder
 Problem
 --------
 
-You have a rotary encoder from :ref:`digital_rotaryEncoder_js` that you want to control a servo motor.
+You have a rotary encoder from from chapter 2 rotary encoder example that you want to use to control a servo motor.
 
 Solution
 ---------
 
-Combine the code from :ref:`digital_rotaryEncoder_js` and :ref:`motors_servo`.
+Combine the code from ``rotaryEncoder.js`` and ``servoMotor.js``.
 
 
 .. code-block:: bash
@@ -143,6 +143,7 @@ Combine the code from :ref:`digital_rotaryEncoder_js` and :ref:`motors_servo`.
 .. _py_servoEncoder_code:
 
 .. literalinclude:: ../code/04motors/servoEncoder.py
+   :language: py
    :caption: Code for driving a servo motor with a rotary encorder(servoEncoder.py)
    :linenos:
 
@@ -194,9 +195,9 @@ Wire your breadboard as shown in :ref:`motors_dcMotor_fig`.
 
 Use the code in :ref:`py_dcMotor_code` to run the motor.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_dcMotor_code:
 
@@ -207,7 +208,7 @@ Use the code in :ref:`py_dcMotor_code` to run the motor.
 
         :download:`dcMotor.py <../code/04motors/dcMotor.py>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _motors_dcMotor_code:
 
@@ -263,6 +264,7 @@ motor with a transistor (:ref:`motors_dcMotor_code`). The additional code specif
 .. _motors_h-bridge_code:
 
 .. literalinclude:: ../code/04motors/h-bridgeMotor.js
+   :language: js
    :caption: Code for driving a DC motor with an H-bridge (h-bridgeMotor.js)
    :linenos:
 
@@ -303,6 +305,7 @@ Use the code in :ref:`motors_stepperMotor_code_py` to drive the motor.
 .. _motors_stepperMotor_code_py:
 
 .. literalinclude:: ../code/04motors/bipolarStepperMotor.py
+   :language: py
    :caption: Driving a bipolar stepper motor (bipolarStepperMotor.py)
    :linenos:
 

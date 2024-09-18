@@ -59,9 +59,9 @@ Place the code shown in :ref:`py_internLED_code` in a file called ``internLED.py
 You can do this using VSC to edit files (as shown in :ref:`basics_vsc`) or with 
 a more traditional editor (as shown in :ref:`tips_editing_files`).
 
-.. tabs::
+.. tab-set::
 
-     .. group-tab:: Python
+     .. tab-item:: Python
           
           .. _py_internLED_code:
 
@@ -72,7 +72,7 @@ a more traditional editor (as shown in :ref:`tips_editing_files`).
 
           :download:`internLED.py <../code/03displays/internLED.py>`
 
-     .. group-tab:: C
+     .. tab-item:: C
 
           .. _c_internLED_code:
 
@@ -138,9 +138,9 @@ Notice that it looks very similar to the *internLED* code, in fact it only
 differs in the line number (18 instead of 21).  The built-in LEDs use the same
 GPIO interface as the GPIO pins.
 
-.. tabs::
+.. tab-set::
 
-     .. group-tab:: Python
+     .. tab-item:: Python
 
           .. _py_externLED_code:
 
@@ -151,7 +151,7 @@ GPIO interface as the GPIO pins.
 
           :download:`externLED.py <../code/03displays/externLED.py>`
 
-     .. group-tab:: C
+     .. tab-item:: C
 
           .. _c_externLED_code:
 
@@ -221,9 +221,9 @@ the same circuit as before (:ref:`displays_externLED_fig`). Find the code in
 
 Then run it as before.
 
-.. tabs::
+.. tab-set::
 
-     .. group-tab:: Python
+     .. tab-item:: Python
 
           .. _py_fadeLED_code:
 
@@ -234,7 +234,7 @@ Then run it as before.
 
           :download:`fadeLED.py <../code/03displays/fadeLED.py>`
 
-     .. group-tab:: JavaScript
+     .. tab-item:: JavaScript
 
           .. _js_fadeLED_code:
 
@@ -382,6 +382,7 @@ LED matrix display (matrixLEDi2c.py)
 =====================================
 
 .. literalinclude:: ../code/03displays/matrixLEDi2c.py
+   :language: py
    :caption: LED matrix display (matrixLEDi2c.py)
    :linenos:
 

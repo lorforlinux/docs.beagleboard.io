@@ -19,17 +19,6 @@ include:
 - Human Machine Interface (HMI)
 - BeagleConnect sensor gateways
 
-.. admonition:: Contributors
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
-.. note::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
-
 .. table::
    :align: center
    :widths: auto
@@ -103,7 +92,7 @@ graphics acceleration, along with an extensive set of peripherals that make the 
 for a broad range of industrial and automotive applications while offering intelligent features and optimized 
 power architecture as well.
 
-Some of these applications include:
+Some of the SoC applications include:
 
 - Industrial HMI
 - EV charging stations
@@ -129,101 +118,99 @@ support for portable and power-sensitive applications.
 Board components location
 ==========================
 
-This section describes the key components on the board, their location and function.
+.. tab-set:: 
 
-Front components location
--------------------------
+    .. tab-item:: Front
 
-.. figure:: images/components-front.*
-    :width: 1400
-    :align: center
-    :alt: BeaglePlay board front components location
+      .. figure:: images/components-front.*
+          :width: 1400
+          :align: center
+          :alt: BeaglePlay board front components location
 
-    BeaglePlay board front components location
-
-
-.. table:: BeaglePlay board front components location
-    :align: center
-        
-    +----------------------------+---------------------------------------------------------------------------+
-    | Feature                    | Description                                                               |
-    +============================+===========================================================================+
-    | RTC Battery                | BQ32002 Real Time Clock (RTC) Battery holder takes CR1220 3V battery      |
-    +----------------------------+---------------------------------------------------------------------------+
-    | User LEDs                  | Five user LEDs, :ref:`board-power-and-boot` section provides more details.|
-    |                            | These LEDs are connect to the AM6254 SoC                                  |
-    +----------------------------+---------------------------------------------------------------------------+
-    | JTAG (AM62)                | AM6254 SoC JTAG debug port                                                |
-    +----------------------------+---------------------------------------------------------------------------+
-    | mikroBUS                   | mikroBUS for MikroE Click boards or any compliant add-on                  |
-    +----------------------------+---------------------------------------------------------------------------+
-    | OLDI                       | AM6254 OpenLDI(OLDI) display port                                         |
-    +----------------------------+---------------------------------------------------------------------------+
-    | CSI                        | AM6254 Camera Serial Interface (MIPI CSI-2)                               |
-    +----------------------------+---------------------------------------------------------------------------+
-    | Grove                      | SeeedStudio Grove modules connection port                                 |
-    +----------------------------+---------------------------------------------------------------------------+
-    | QWIIC                      | SparkFun QWIIC / Adafruit STEMMA-QT port for I2C modules connectivity     |
-    +----------------------------+---------------------------------------------------------------------------+
-    | User Button                | Programmable user button, also servers as boot mode slect button          |
-    |                            | (SD Card/eMMC). Press down to select SD Card as boot medium               |
-    +----------------------------+---------------------------------------------------------------------------+
-    | SD Card                    | Use to expand storage, boot linux image or flash latest image on eMMC     |
-    +----------------------------+---------------------------------------------------------------------------+
-    | Reset button               | Press to reset BeaglePlay board (AM6254 SoC)                              |
-    +----------------------------+---------------------------------------------------------------------------+
-    | JTAG (CC1352)              | JTAG debug port for CC1352P7                                              |
-    +----------------------------+---------------------------------------------------------------------------+
-    | Power button               | Press to shut-down (OFF), hold down to boot (ON)                          |
-    +----------------------------+---------------------------------------------------------------------------+
-    | Power & Connectivity LEDs  | Indicator LEDs for Power ON, CC1352 RF, and Single-pair connectivity      |
-    +----------------------------+---------------------------------------------------------------------------+
-    | Single-pair Ethernet       | Single-pair Ethernet connectivity port with power over data line          |
-    +----------------------------+---------------------------------------------------------------------------+
-    | GigaBit Ethernet           | 1Gb/s Wired internet connectivity                                         |
-    +----------------------------+---------------------------------------------------------------------------+
-    | HDMI Output                | Full size HDMI port for connecting to external display monitors           |
-    +----------------------------+---------------------------------------------------------------------------+
-    | USB-A host port            | Port to connect USB devices like cameras, keyboard & mouse combos, etc    |
-    +----------------------------+---------------------------------------------------------------------------+
-    | USB-C port                 | Power and Device data role port                                           |
-    +----------------------------+---------------------------------------------------------------------------+
-
-Back components location
--------------------------
-
-.. figure:: images/components-back.*
-    :width: 1400
-    :align: center
-    :alt: BeaglePlay board back components location
-
-    BeaglePlay board back components location
+          BeaglePlay board front components location
 
 
-.. table:: BeaglePlay board back components location
-    :align: center
-        
-    +----------------------------+---------------------------------------------------------------------------+
-    | Feature                    | Description                                                               |
-    +============================+===========================================================================+
-    | CC1352P7                   | 2.4GHz BLE + SubG IEEE 802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna    |
-    +----------------------------+---------------------------------------------------------------------------+
-    | WL1807MOD                  | Dual band (2.4GHz & 5GHz) WiFi module with 2 x uFL antennas               |
-    +----------------------------+---------------------------------------------------------------------------+
-    | DP83TD510E                 | Single-pair IEEE 802.3cg 10BASE-T1L Ethernet PHY                          |
-    +----------------------------+---------------------------------------------------------------------------+
-    | RTL8211F                   | Gigabit IEEE 802.11 Ethernet PHY                                          |
-    +----------------------------+---------------------------------------------------------------------------+
-    | AM6254                     | Main SoC                                                                  |
-    +----------------------------+---------------------------------------------------------------------------+
-    | 16GB eMMC                  | Flash storage                                                             |
-    +----------------------------+---------------------------------------------------------------------------+
-    | 2GB DDR4                   | RAM / Memory                                                              |
-    +----------------------------+---------------------------------------------------------------------------+
-    | BQ32002                    | Real Time Clock (RTC)                                                     |
-    +----------------------------+---------------------------------------------------------------------------+
-    | TPS6521901                 | Power Management IC                                                       |
-    +----------------------------+---------------------------------------------------------------------------+
-    | IT66121                    | HDMI Transmitter                                                          |
-    +----------------------------+---------------------------------------------------------------------------+
+      .. table:: BeaglePlay board front components location
+          :align: center
+              
+          +----------------------------+---------------------------------------------------------------------------+
+          | Feature                    | Description                                                               |
+          +============================+===========================================================================+
+          | RTC Battery                | BQ32002 Real Time Clock (RTC) Battery holder takes CR1220 3V battery      |
+          +----------------------------+---------------------------------------------------------------------------+
+          | User LEDs                  | Five user LEDs, :ref:`board-power-and-boot` section provides more details.|
+          |                            | These LEDs are connect to the AM6254 SoC                                  |
+          +----------------------------+---------------------------------------------------------------------------+
+          | JTAG (AM62)                | AM6254 SoC JTAG debug port                                                |
+          +----------------------------+---------------------------------------------------------------------------+
+          | mikroBUS                   | mikroBUS for MikroE Click boards or any compliant add-on                  |
+          +----------------------------+---------------------------------------------------------------------------+
+          | OLDI                       | AM6254 OpenLDI(OLDI) display port                                         |
+          +----------------------------+---------------------------------------------------------------------------+
+          | CSI                        | AM6254 Camera Serial Interface (MIPI CSI-2)                               |
+          +----------------------------+---------------------------------------------------------------------------+
+          | Grove                      | SeeedStudio Grove modules connection port                                 |
+          +----------------------------+---------------------------------------------------------------------------+
+          | QWIIC                      | SparkFun QWIIC / Adafruit STEMMA-QT port for I2C modules connectivity     |
+          +----------------------------+---------------------------------------------------------------------------+
+          | User Button                | Programmable user button, also servers as boot mode slect button          |
+          |                            | (SD Card/eMMC). Press down to select SD Card as boot medium               |
+          +----------------------------+---------------------------------------------------------------------------+
+          | SD Card                    | Use to expand storage, boot linux image or flash latest image on eMMC     |
+          +----------------------------+---------------------------------------------------------------------------+
+          | Reset button               | Press to reset BeaglePlay board (AM6254 SoC)                              |
+          +----------------------------+---------------------------------------------------------------------------+
+          | JTAG (CC1352)              | JTAG debug port for CC1352P7                                              |
+          +----------------------------+---------------------------------------------------------------------------+
+          | Power button               | Press to shut-down (OFF), hold down to boot (ON)                          |
+          +----------------------------+---------------------------------------------------------------------------+
+          | Power & Connectivity LEDs  | Indicator LEDs for Power ON, CC1352 RF, and Single-pair connectivity      |
+          +----------------------------+---------------------------------------------------------------------------+
+          | Single-pair Ethernet       | Single-pair Ethernet connectivity port with power over data line          |
+          +----------------------------+---------------------------------------------------------------------------+
+          | GigaBit Ethernet           | 1Gb/s Wired internet connectivity                                         |
+          +----------------------------+---------------------------------------------------------------------------+
+          | HDMI Output                | Full size HDMI port for connecting to external display monitors           |
+          +----------------------------+---------------------------------------------------------------------------+
+          | USB-A host port            | Port to connect USB devices like cameras, keyboard & mouse combos, etc    |
+          +----------------------------+---------------------------------------------------------------------------+
+          | USB-C port                 | Power and Device data role port                                           |
+          +----------------------------+---------------------------------------------------------------------------+
+
+    .. tab-item:: Back
+
+      .. figure:: images/components-back.*
+          :width: 1400
+          :align: center
+          :alt: BeaglePlay board back components location
+
+          BeaglePlay board back components location
+
+
+      .. table:: BeaglePlay board back components location
+          :align: center
+              
+          +----------------------------+---------------------------------------------------------------------------+
+          | Feature                    | Description                                                               |
+          +============================+===========================================================================+
+          | CC1352P7                   | 2.4GHz BLE + SubG IEEE 802.15.4 with 1 x 2.4GHz + 1 x SubG uFL antenna    |
+          +----------------------------+---------------------------------------------------------------------------+
+          | WL1807MOD                  | Dual band (2.4GHz & 5GHz) WiFi module with 2 x uFL antennas               |
+          +----------------------------+---------------------------------------------------------------------------+
+          | DP83TD510E                 | Single-pair IEEE 802.3cg 10BASE-T1L Ethernet PHY                          |
+          +----------------------------+---------------------------------------------------------------------------+
+          | RTL8211F                   | Gigabit IEEE 802.11 Ethernet PHY                                          |
+          +----------------------------+---------------------------------------------------------------------------+
+          | AM6254                     | Main SoC                                                                  |
+          +----------------------------+---------------------------------------------------------------------------+
+          | 16GB eMMC                  | Flash storage                                                             |
+          +----------------------------+---------------------------------------------------------------------------+
+          | 2GB DDR4                   | RAM / Memory                                                              |
+          +----------------------------+---------------------------------------------------------------------------+
+          | BQ32002                    | Real Time Clock (RTC)                                                     |
+          +----------------------------+---------------------------------------------------------------------------+
+          | TPS6521901                 | Power Management IC                                                       |
+          +----------------------------+---------------------------------------------------------------------------+
+          | IT66121                    | HDMI Transmitter                                                          |
+          +----------------------------+---------------------------------------------------------------------------+
 

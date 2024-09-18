@@ -5,7 +5,10 @@ Getting Started
 
 We assume you have some experience with the Beagle and are here to learn about 
 the PRU.  This chapter discusses what Beagles are out there, how to load the 
-latest software image on your beagle, how to run the Visual Studio Code 
+latest software image on your Beagle, how to run the Visual Studio Code IDE and how to 
+blink an LED.
+=======
+latest software image on your Beagle, how to run the Visual Studio Code 
 (VS Code) IDE and how to blink an LED.
 
 If you already have your Beagle and know your way around it, you can find the
@@ -77,13 +80,13 @@ The `Blue <http://beagleboard.org/blue>`_ is a good choice if you are doing robo
 
     BeagleBone Blue
 
-The Blue has everything the Black has except it has no Ethernet or HDMI.  
+The Blue has everything the Black has except it has no Ethernet and no HDMI.  
 But it also has:
 
 * Wireless: 802.11bgn, Bluetooth 4.1 and BLE
 * Battery support: 2-cell LiPo with balancing, LED state-of-charge monitor
 * Charger input: 9-18V
-* Motor control: 8 6V servo out, 4 bidirectional DC motor out, 4 quadrature encoder in
+* Motor control: 8 6V @ 4A servo out, 4 bidirectional DC motor out, 4 quadrature encoder in
 * Sensors: 9 axis IMU (accels, gyros, magnetometer), barometer, thermometer
 * User interface: 11 user programmable LEDs, 2 user programmable buttons
 
@@ -172,7 +175,7 @@ Solution
 On your host computer open a browser and go to
 http://www.beagleboard.org/distros.
 
-.. TODO  Update links
+.. todo::  Update links
 
 This shows you two current choices of recent Debian images,
 one for the BeagleBone AI 
@@ -229,17 +232,35 @@ How do I manage and edit my files?
 Solution
 --------
 
-The image you downloaded includes `Visual Studio Code <https://code.visualstudio.com/>`_,
+The image you downloaded includes `Visual Studio Code <https://github.com/coder/code-server>`_,
 a web-based integrated development environment (IDE) as shown in 
-:ref:`start_vsc`.
+:ref:`start_bb-code-server`.
+
+.. _start_bb-code-server:
+
+.. figure:: figures/bb-code-server.png
+    :align: center
+    :alt: The Visual Studio Code IDE
+
+    Visual Studio Code IDE
+
+Just point the browser on your host computer to http://192.168.7.2:3000 
+and start exploring. You may also want to upgrade bb-code-server to pull in the latest updates.
+Another route to take is to apply this command to boot the service called bb-code-server.
+
+`sudo systemctl start bb-code-server.service`
+
+If you want the files in your home directory to appear
+in the tree structure click the settings gear and select *Show Home in Favorites* 
+as shown in :ref:`start_vsc`.
 
 .. _start_vsc:
 
 .. figure:: figures/vsc.png
     :align: center
-    :alt: The Visual Studio Code IDE
+    :alt: Vidual Studio Code showing home files
 
-    The Visual Studio Code IDE
+    Visual Studio Code Showing Home files
 
 Just point the browser on your host computer to http://192.168.7.2:3000 
 and start exploring.  
@@ -309,7 +330,7 @@ Solution
 The 'hello, world' of the embedded world is to flash an LED. :ref:`start_hello` 
 is some code that blinks the ``USR3`` LED ten times using the PRU.
 
-.. TODO The *'s and _'s in the code are messing with the formatting.
+.. todo:: The 's and _'s in the code are messing with the formatting.
 
 .. _start_hello:
 
@@ -333,7 +354,7 @@ to run it right now do the following.
 
     If the following doesn't work see 
     :ref:`compiling_with_clpru_and_lnkpru`
-    for instillation instructions.
+    for installation instructions.
 
 .. _start_running_code:
 
@@ -375,13 +396,13 @@ Running Code on the AI
 
 .. code-block:: shell-session
 
-    bone:~$ make TARGET=hello.pru1_1
-    /opt/source/pru-cookbook-code/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
+    bone$ make TARGET=hello.pru1_1
+    /var/lib/code-server/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1
     -    Stopping PRU 1_1
     CC	hello.pru1_1.c
-    "/opt/source/pru-cookbook-code/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
-    LD	/tmp/vsx-examples/hello.pru1_1.o
-    -	copying firmware file /tmp/vsx-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
+    "/var/lib/code-server/common/prugpio.h", line 4: warning #1181-D: #warning directive: "Found AI"
+    LD	/tmp/code-server-examples/hello.pru1_1.o
+    -	copying firmware file /tmp/code-server-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw
     write_init_pins.sh
     writing "none" to "/sys/class/leds/beaglebone:green:usr3/trigger"
     -    Starting PRU 1_1
@@ -389,7 +410,7 @@ Running Code on the AI
     PROC    = pru
     PRUN    = 1_1
     PRU_DIR = /dev/remoteproc/pruss1-core1
-    rm /tmp/vsx-examples/hello.pru1_1.o
+    rm /tmp/code-server-examples/hello.pru1_1.o
 
 Look quickly and you will see the ``USR3`` LED blinking.  
 

@@ -19,8 +19,8 @@ It contains four relays, each of which can be operated independently from the Be
 Installation
 ************
 
-No special configuration is required. When you plug Cape into your BeagleBoard, 
-it is automatically recognized by the Cape Universal function.
+No special configuration is required. When you plug the Relay Cape into your BeagleBoard, 
+it will automatically be recognized by the Cape Universal function.
 
 You can check to see if the Relay Cape is recognized with the following command.
 
@@ -33,7 +33,7 @@ If you see `BBORG_RELAY-00A2.kernel` in this list, it has been loaded correctly.
 
 If it is not loaded correctly, you can also load it directly 
 by adding the following to the U-Boot options 
-(which can be reflected by changing /boot/uEnv.txt).
+(which can be reflected by changing the file /boot/uEnv.txt) to reflect the text below.
 
 .. code-block::
 
@@ -54,8 +54,8 @@ The LEDs can be controlled by modifying the files in its directory.
 
     echo 1 > relay1/brightness
 
-This allows you to adjust the brightness; 
-entering 1 for brightness turns it ON, and entering 0 for OFF.
+This allows you to adjust the brightness;
+entering 1 for brightness turns it ON while entering 0 turns it OFF.
 
 The four relays can be changed individually 
 by changing the number after "relay" in /sys/class/leds/relay.
@@ -162,9 +162,11 @@ One thing to note: `sudo apt install cmake`
 .. code-block::
 
     /*
+
     Simple gpiod example of toggling a LED connected to a gpio line from
     the BeagleBone Black Wireless and Relay Cape.
     Exits with or without CTRL-C.
+
     */
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
@@ -231,7 +233,7 @@ One thing to note: `sudo apt install cmake`
 
 4. mkdir build && touch CMakeLists.txt
 
-5. In CMakeLists.txt, add these values and text
+5. In CMakeLists.txt, add these values and text via nano or your favorite editor!
 
 .. code-block::
 

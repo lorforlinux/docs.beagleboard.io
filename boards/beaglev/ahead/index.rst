@@ -3,28 +3,18 @@
 BeagleV-Ahead
 ###################
 
-.. image:: media/BeagleV-Ahead-with-hand.*
+BeagleV-Ahead is a high-performance open-source RISC-V single board computer (SBC) built around the Alibaba TH1520 SoC. It has the same P8 & P9 cape header pins as
+BeagleBone Black allowing you to stack your favourite BeagleBone cape on top to expand it's capability.
+Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable
+RISC-V enabled pocket-size computer for anybody who want's to dive deep into the new RISC-V ISA.
+
+.. image:: images/BeagleV-Ahead-with-hand.*
     :align: center
     :alt: BeagleV Ahead with hand
- 
-.. important::
-    This is a work in progress, for latest documentation please 
-    visit https://docs.beagleboard.org/latest/
-
-.. admonition:: Contributors
-
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
-
-.. note::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
 
 .. only:: html
 
-  .. grid:: 1 1 2 3
+  .. grid:: 1 1 2 2
     :margin: 4 4 0 0
     :gutter: 4
 
@@ -35,71 +25,71 @@ BeagleV-Ahead
         **1. Introduction**
         ^^^
 
-        .. image:: media/chapter-thumbnails/01-introduction.*
+        .. image:: images/chapter-thumbnails/01-introduction.*
             :align: center
             :alt: BeagleV Ahead Chapter01 thumbnail
-        
+
         +++
 
-        Introduction to BeagleV Ahead board with information on each component 
+        Introduction to BeagleV Ahead board with information on each component
         location on both front and back of the board.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-quick-start
         :link-type: ref
 
         **2. Quick start**
         ^^^
 
-        .. image:: media/chapter-thumbnails/02-quick-start.*
+        .. image:: images/chapter-thumbnails/02-quick-start.*
             :align: center
             :alt: BeagleV Ahead Chapter02 thumbnail
 
         +++
 
-        Getting started guide to enable you to start building your projects 
+        Getting started guide to enable you to start building your projects
         in no time.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-design
         :link-type: ref
 
         **3. Design & Specifications**
         ^^^
 
-        .. image:: media/chapter-thumbnails/03-design-and-specifications.*
+        .. image:: images/chapter-thumbnails/03-design-and-specifications.*
             :align: center
             :alt: BeagleV Ahead Chapter03 thumbnail
 
         +++
 
-        Hardware and mechanical design and specifications of BeagleV Ahead board 
+        Hardware and mechanical design and specifications of BeagleV Ahead board
         for those who want to know their board inside and out.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-expansion
         :link-type: ref
 
         **4. Expansion**
         ^^^
 
-        .. image:: media/chapter-thumbnails/04-connectors-and-pinouts.*
+        .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.*
             :align: center
             :alt: BeagleV Ahead Chapter04 thumbnail
 
         +++
 
-        Connector pinout diagrams with expansion details so that you can 
+        Connector pinout diagrams with expansion details so that you can
         easily debug your connections and create custom expansion hardware.
-        
-    .. grid-item-card:: 
+
+    .. grid-item-card::
         :link: beaglev-ahead-demos
         :link-type: ref
 
         **5. Demos**
         ^^^
 
-        .. image:: media/chapter-thumbnails/05-demos-and-tutorials.*
+        .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
             :align: center
             :alt: BeagleV Ahead Chapter5 thumbnail
 
@@ -107,14 +97,14 @@ BeagleV-Ahead
 
         Demos and tutorials to quickly learn about BeagleV Ahead capabilities.
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :link: beaglev-ahead-support
         :link-type: ref
 
         **6. Support**
         ^^^
 
-        .. image:: media/chapter-thumbnails/06-support-documents.*
+        .. image:: images/chapter-thumbnails/06-support-documents.*
             :align: center
             :alt: BeagleV Ahead Chapter6 thumbnail
 

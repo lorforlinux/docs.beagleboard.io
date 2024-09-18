@@ -3,10 +3,9 @@
 Introduction
 #############
 
-BeagleV Ahead is an open-source RISC-V Single Board Computer (SBC) in the form 
-factor of BeagleBone Black. It has the same P8 & P9 cape header pins as BeagleBone Black 
-allowing you to stack your favourite BeagleBone cape on top to expand it's capability. 
-Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable 
+BeagleV-Ahead is a high-performance open-source RISC-V single board computer (SBC) built around the Alibaba TH1520 SoC. It has the same P8 & P9 cape header pins as
+BeagleBone Black allowing you to stack your favourite BeagleBone cape on top to expand it's capability.
+Featuring a powerful quad-core RISC-V processor BeagleV Ahead is designed as an affordable
 RISC-V enabled pocket-size computer for anybody who want's to dive deep into the new RISC-V ISA.
 
 .. table::
@@ -14,7 +13,7 @@ RISC-V enabled pocket-size computer for anybody who want's to dive deep into the
    :widths: auto
 
    +----------------------------------------------------+---------------------------------------------------------+
-   | .. image:: media/product-pictures/front.*          | .. image:: media/product-pictures/back.*                |
+   | .. image:: images/product-pictures/front.*         | .. image:: images/product-pictures/back.*               |
    |    :width: 700                                     |       :width: 700                                       |
    |    :align: center                                  |       :align: center                                    |
    |    :alt: BeagleV Ahead front                       |       :alt: BeagleV Ahead back                          |
@@ -25,20 +24,20 @@ Pinout Diagrams
 
 Choose the cape header to see respective pinout diagram.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: P8 cape header
+   .. tab-item:: P8 cape header
 
-        .. figure:: media/pinout/BeagleV-Ahead-P8.*
+        .. figure:: images/pinout/BeagleV-Ahead-P8.*
             :align: center
             :alt: BeagleV Ahead P8 cape header pinout
 
             BeagleV Ahead P8 cape header pinout
 
 
-   .. group-tab:: P9 cape header
+   .. tab-item:: P9 cape header
 
-        .. figure:: media/pinout/BeagleV-Ahead-P9.*
+        .. figure:: images/pinout/BeagleV-Ahead-P9.*
             :align: center
             :alt: BeagleV Ahead P9 cape header pinout
 
@@ -52,6 +51,10 @@ Detailed overview
 BeagleV Ahead is build around T-Head TH1520 RISC-V SoC with quad-core 
 Xuantie C910 processor clocked at 1.85GHz with a 4 TOPS NPU, support for 
 64-bit DDR, and audio processing using a single core C906.
+
+.. todo::
+
+    remove "<To-Do>" items in the table below.
 
 .. table:: BeagleV Ahead features
         
@@ -86,14 +89,14 @@ Xuantie C910 processor clocked at 1.85GHz with a 4 TOPS NPU, support for
     +----------------------------+---------------------------------------------------------------------------+
 
 Board components location
-==========================
+**************************
 
 This section describes the key components on the board, their location and function.
 
 Front components location
--------------------------
+==========================
 
-.. figure:: media/components-front.*
+.. figure:: images/components-front.*
     :width: 1400
     :align: center
     :alt: BeagleV Ahead board front components location
@@ -139,9 +142,9 @@ Front components location
 
 
 Back components location
--------------------------
+=========================
 
-.. figure:: media/components-back.*
+.. figure:: images/components-back.*
     :width: 1400
     :align: center
     :alt: BeagleV Ahead board back components location
@@ -171,7 +174,7 @@ Back components location
     +----------------------------+---------------------------------------------------------------------------+
     | Mini HDMI                  | HDMI connector                                                            |
     +----------------------------+---------------------------------------------------------------------------+
-    | microSD                    | SDCard holder                                                             |
+    | microSD                    | Micro SD card holder                                                      |
     +----------------------------+---------------------------------------------------------------------------+
     | 4GB RAM                    | 2 x 2GB LPDDR4 RAM                                                        |
     +----------------------------+---------------------------------------------------------------------------+

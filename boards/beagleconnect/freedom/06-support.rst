@@ -3,6 +3,14 @@
 Support
 ########
 
+All support for BeagleConnect Freedom design is through BeagleBoard.org 
+community at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/bcf>`_.
+
+Production board boot media
+****************************
+
+- `BeagleConnect Freedom Rev C7`_
+
 .. _beagleconnect-certifications:
 
 Certifications and export control
@@ -59,20 +67,6 @@ Change History
     This section describes the change history of this document and board. 
     Document changes are not always a result of a board change. A board 
     change will always result in a document change.
-
-.. _beagleconnect-freedom-document-change-history:
-
-Document Changes
-******************
-
-For all changes, see https://git.beagleboard.org/docs/docs.beagleboard.io. Frozen releases tested against
-specific hardware and software revisions are noted below.
-
-    +---------+------------------------------------------------------------+----------------------+-------+
-    | Rev     |   Changes                                                  | Date                 |    By |
-    +=========+============================================================+======================+=======+
-    |         |                                                            |                      |       |
-    +---------+------------------------------------------------------------+----------------------+-------+
 
 .. _beagleconnect-freedom-board-changes:
 

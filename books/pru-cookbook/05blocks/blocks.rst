@@ -28,7 +28,7 @@ Problem
 
 I want to control where my variables are stored in memory.
 
-.. TODO Include a section on accessing DDR.
+.. todo:: Include a section on accessing DDR.
 
 Solution
 ---------
@@ -313,6 +313,7 @@ the code work.  Fortunately the Makefile always runs it.
 .. _blocks_write_init_pins:
 
 .. literalinclude:: ../code/05blocks/write_init_pins.sh
+   :language: bash
    :caption: write_init_pins.sh
    :linenos:
 
@@ -479,7 +480,7 @@ Here's what's in ``resource_table_empty.h``
 
 Bit 0 is the LSB.
 
-.. TODO fill in Blue
+.. todo:: fill in Blue
 
 .. _blocks_mapping_bits:
 
@@ -855,6 +856,7 @@ will make the period half as long.
 Here's the code (``pwm7.pru0.c``)
 
 .. literalinclude:: ../code/05blocks/pwm7.pru0.c
+   :language: c
    :caption: pwm7.pru0.c Using Both PRUs
    :linenos:
 
@@ -863,6 +865,7 @@ Here's the code (``pwm7.pru0.c``)
 Be sure to run ``pwm7_setup.sh`` to get the correct pins configured.
 
 .. literalinclude:: ../code/05blocks/pwm7_setup.sh
+   :language: Shell
    :caption: pwm7_setup.sh
    :linenos:
 
@@ -1047,6 +1050,7 @@ These values came from :ref:`blocks_mapping_bits`.
 Configure the pins with ``input_setup.sh``.
 
 .. literalinclude:: ../code/05blocks/input_setup.sh
+   :language: Shell
    :caption: input_setup.sh
    :linenos:
 
@@ -1055,6 +1059,7 @@ Configure the pins with ``input_setup.sh``.
 The following code reads the input pin and writes its value to the output pin.
 
 .. literalinclude:: ../code/05blocks/input.pru0.c
+   :language: c
    :caption: input.pru0.c
    :linenos:
 
@@ -1576,7 +1581,7 @@ Run the code as usual.
   bone$ echo -1 > /dev/rpmsg_pru30
 
 
-.. TODO get this working on the 5.10 kernel
+.. todo:: get this working on the 5.10 kernel
 
 ``/dev/rpmsg_pru30`` is a device driver that lets the ARM talk to the PRU.
 The first ``echo`` says to set the 0^th^ LED to RGB value 0xff 0 127. (Note: you can
@@ -1715,11 +1720,12 @@ That gives a good overview, but there are a few details missing.
 :ref:`blocks_rgb_python` is a functioning python program that gives a nice
 high-level view of how to drive the display. 
 
-.. TODO Test this
+.. todo:: Test this
 
 .. _blocks_rgb_python:
 
 .. literalinclude:: ../code/05blocks/rgb_python.py
+   :language: Python
    :caption: rgb_python.py - Python code for driving RGB LED matrix
    :linenos:
 
@@ -1730,6 +1736,7 @@ Be sure to run the :ref:`blocks_rgb_setup` script before running the python code
 .. _blocks_rgb_setup:
 
 .. literalinclude:: ../code/05blocks/rgb_python_setup.sh
+   :language: Shell
    :caption: rgb_python_setup.sh
    :linenos:
 

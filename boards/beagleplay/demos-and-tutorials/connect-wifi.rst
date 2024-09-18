@@ -3,17 +3,26 @@
 Connect WiFi
 #############
 
-If you have a monitor and keyboard/mouse combo connected, the easiest way is to use the :ref:`beagleplay-wifi-wpa-gui`.
+.. note::
+    A common issue experienced by users when connecting to Wireless networks are network names that include special characters 
+    such as spaces, apostrophes etc, this may make connecting to your network more difficult. It is thus recommended to 
+    rename your Wireless AP to something simpler. For Example - renaming "Boris's Wireless Network" to "BorisNet". 
+    This avoids having to add special "escape" characters in the name. This shows up especially if you try connecting to 
+    iPhone/iOS HotSpots, where the network name is the device name, which by default is something like "Dan's iPhone". 
+    Also see `this potential solution. <https://unix.stackexchange.com/questions/679862/wpa-supplicant-conf-escaping-characters/>`_.
 
-Alternatively, you can use ``wpa_cli`` over a shell connection through:
 
-* the :ref:`serial console <beagleplay-serial-console>`,
+If you have a monitor and keyboard/mouse combo connected, the easiest way is to use :ref:`beagleplay-wifi-wpa-gui`.
+
+Alternatively, you can use :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>` over a shell connection through:
+
+* The :ref:`serial console <beagleplay-serial-console>`,
 * VSCode or ``ssh`` over a USB network connection,
 * VSCode or ``ssh`` over an Ethernet connection,
 * VSCode or ``ssh`` over :ref:`BeaglePlay WiFi access point <beagleplay-wifi-access-point>`, or
-* :ref:`a local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`.
+* :ref:`A local Terminal Emulator session <beagleplay-wifi-wpa-cli-xfce>`.
 
-Once you have a shell connection, follow the :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`.
+Once you have a shell connection, follow the :ref:`wpa_cli <beagleplay-wifi-wpa-cli>` instructions.
 
 .. _beagleplay-wifi-access-point:
 
@@ -71,13 +80,13 @@ Step 1: Starting wpa_gui
 
 You can start ``wpa_gui`` either from ``Applications > Internet > wpa_gui`` or double click on the ``wpa_gui`` desktop application shortcut.
 
-.. figure:: ../images/wpa_gui_step1a.png
+.. figure:: ../images/wpa_gui_step1a.*
     :align: center
     :alt: Starting wpa_gui from Applications > Internet > wpa_gui
 
     Starting wpa_gui from Applications > Internet > wpa_gui
 
-.. figure:: ../images/wpa_gui_step1b.png
+.. figure:: ../images/wpa_gui_step1b.*
     :align: center
     :alt: Starting wpa_gui from Desktop application shortcut
 
@@ -96,7 +105,7 @@ Let's see the ``wpa_gui`` interface in detail,
     - Click on ``Scan`` to scan nearby WiFi access points.
 4. ``Manage Network`` tab shows you all the saved networks and options to manage those.
 
-.. figure:: ../images/wpa_gui_step2.png
+.. figure:: ../images/wpa_gui_step2.*
     :align: center
     :alt: wpa_gui interface
 
@@ -105,10 +114,10 @@ Let's see the ``wpa_gui`` interface in detail,
 Step 3: Scanning & Connecting to WiFi access points
 ====================================================
 
-To scan the WiFi access points around you, just click on ``Scan`` button availale under 
+To scan the WiFi access points around you, just click on ``Scan`` button available under 
 ``wpa_gui > Current Status > Scan``.
 
-.. figure:: ../images/wpa_gui_step3a.png
+.. figure:: ../images/wpa_gui_step3a.*
     :align: center
     :alt: Scanning WiFi access points
 
@@ -128,7 +137,7 @@ Now, you just have to double click on the Network you want to connect to as show
     SSIDs and BSSIDs are not fully visible in screenshot below 
     but you can change the column length to see the WiFi names better.
 
-.. figure:: ../images/wpa_gui_step3b.png
+.. figure:: ../images/wpa_gui_step3b.*
     :align: center
     :alt: Selecting WiFi access point
 
@@ -148,10 +157,9 @@ your board to WiFi (if password is correct).
 
 wpa_cli (shell)
 ****************
+In commands shown below, swap out "68:ff:7b:03:0a:8a" and "mypassword" with your network BSSID and password, respectively.
 
-Swap out "mywifi" and "mypassword" with your network SSID and password, respectively.
-
-.. code-block:: shell-session
+.. code-block:: console
 
    debian@BeaglePlay:~$ wpa_cli scan
    Selected interface 'wlan0'
@@ -163,7 +171,7 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
    debian@BeaglePlay:~$ wpa_cli add_network
    Selected interface 'wlan0'
    1
-   debian@BeaglePlay:~$ wpa_cli set_network 1 ssid '"mywifi"'
+   debian@BeaglePlay:~$ wpa_cli set_network 1 bssid 68:ff:7b:03:0a:8a
    Selected interface 'wlan0'
    OK
    debian@BeaglePlay:~$ wpa_cli set_network 1 psk '"mypassword"'
@@ -185,13 +193,13 @@ Swap out "mywifi" and "mypassword" with your network SSID and password, respecti
 
 .. important::
    The single quotes around the double quotes are needed to make sure the
-   double quotes are given to ``wpa_cli``. It expects to see them.
+   double quotes are given to :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`. It expects to see them.
 
 .. note::
-   For more information about ``wpa_cli``, see https://w1.fi/wpa_supplicant/
+   For more information about :ref:`wpa_cli instructions <beagleplay-wifi-wpa-cli>`, see https://w1.fi/wpa_supplicant/
 
-To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. This is described
-in :ref:`beagleplay-wifi-wpa-cli-xfce`.
+To make these changes persistent, you need to edit `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`. 
+This is described in *wpa_cli (XFCE)* section.
 
 .. _beagleplay-wifi-wpa-cli-xfce:
 
@@ -202,30 +210,30 @@ Another way of connecting to a WiFi access point is to edit the ``wpa_supplicant
 
 
 Step 1: Open up terminal
-=========================
+========================
 
 Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
 
-.. figure:: ../images/wpa_cli_step1a.jpg
+.. figure:: ../images/wpa_cli_step1a.*
     :align: center
     :alt: Open terminal from Applications > Terminal Emulator
 
     Open terminal from Applications > Terminal Emulator    
 
-.. figure:: ../images/wpa_cli_step1b.jpg
+.. figure:: ../images/wpa_cli_step1b.*
     :align: center
     :alt: Open terminal from Task Manager
 
     Open terminal from Task Manager
 
 Step 2: Setup credentials
-=========================
+===========================
 
 To setup credentials of your WiFi access point follow these steps,
 
 1. Execute ``sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf``, 
 which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based) text editor.
-2. Edit ``wpa_supplicant-wlan0.conf`` to add SSID (WiFi name) & PSK (WiFi password) of your WiFi access point.
+1. Edit ``wpa_supplicant-wlan0.conf`` to add SSID (WiFi name) & PSK (WiFi password) of your WiFi access point.
 
 .. code-block::
 
@@ -236,29 +244,29 @@ which will open up ``wpa_supplicant-wlan0.conf`` inside ``nano`` (terminal based
             ....
     }
 
-3. Now save the details using ``ctrl + O`` then enter.
-4. To exit out of the ``nano`` text editor use ``ctrl + X``.
+1. Now save the details using ``ctrl + O`` then enter.
+2. To exit out of the ``nano`` text editor use ``ctrl + X``.
 
-.. figure:: ../images/wpa_cli_step2a.jpg
+.. figure:: ../images/wpa_cli_step2a.*
     :align: center
     :alt: Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
     Run: $ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
-.. figure:: ../images/wpa_cli_step2b.jpg
+.. figure:: ../images/wpa_cli_step2b.*
     :align: center
     :alt: Add SSID and PSK
 
     Add SSID and PSK
 
-.. figure:: ../images/wpa_cli_step2c.jpg
+.. figure:: ../images/wpa_cli_step2c.*
     :align: center
     :alt: Save credentials and Exit
 
     Save credentials (ctrl + O) and Exit (ctrl + X)
 
 Step 3: Reconfigure wlan0
-=========================
+==========================
 
 The WiFi doesn't automatically connect to your WiFi access point 
 after you add the credentials to ``wpa_supplicant-wlan0.conf``. 
@@ -267,7 +275,7 @@ after you add the credentials to ``wpa_supplicant-wlan0.conf``.
 2. Or Reboot your device by executing ``reboot`` inside your terminal window.
 3. Execute ``ping 8.8.8.8`` to check your connection. Use ``ctrl + C`` to quit.
 
-.. code-block:: shell
+.. code-block:: console
 
     debian@BeaglePlay:~$ ping 8.8.8.8
     PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
@@ -285,14 +293,52 @@ after you add the credentials to ``wpa_supplicant-wlan0.conf``.
     rtt min/avg/max/mdev = 5.281/6.445/9.043/1.274 ms
 
 
-.. figure:: ../images/wpa_cli_step3a.jpg
+.. figure:: ../images/wpa_cli_step3a.*
     :align: center
     :alt: Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
     Connect to WiFi by running $ sudo wpa_cli -i wlan0 reconfigure
 
-.. figure:: ../images/wpa_cli_step3b.jpg
+.. figure:: ../images/wpa_cli_step3b.*
     :align: center
     :alt: To check connection try running $ ping 8.8.8.8
 
     To check connection try running $ ping 8.8.8.8 
+
+    
+Disabling the WIFI Access Point
+*******************************
+
+In certain situations, such as running HomeAssistant, you may chose to connect your BeaglePlay to the internet via Ethernet. In this case, it may be desirable to disable it's Wifi access point so that users outside the local network aren't able to connect to it.  
+
+The Wifi Access Point that BeaglePlay provides is started using `uDev rules <https://en.wikipedia.org/wiki/Udev>`_. created by the `bb-wlan0-defaults` package
+
+You can simply remove the `bb-wlan0-defaults` package:
+
+.. code-block:: shell
+
+    sudo apt remove bb-wlan0-defaults
+
+Now just reboot and the Wifi Access point should no longer start. 
+
+You can also disable it by removing the two following udev rule files:
+
+.. code-block:: shell
+
+    rm /etc/udev/rules.d/81-add-SoftAp0-interface.rules 
+    rm /etc/udev/rules.d/82-SoftAp0-start-hostpad.rules
+
+The issue with doing this latter option is that if you later update your OS, the bb-wlan0-defaults may get updated as well and re-add the rules.  
+
+Re-Enabling the WIFI Access Point
+*********************************
+
+Conversely, you can re-enable the access point by re-installing the `bb-wlan0-default` package.
+
+.. code-block:: shell
+
+    sudo apt install bb-wlan0-defaults --reinstall
+
+Now just reboot.
+
+.. todo:: Add notes on changing SSID/Password

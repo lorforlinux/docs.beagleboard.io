@@ -9,6 +9,10 @@ QWIIC, STEMMA and Grove Add-ons in Linux
 
 I'm creating a place for me to start taking notes on how to load drivers for I2C devices (mostly), but also other Grove add-ons.
 
+.. todo::
+
+   Create a simple drawing of BeaglePlay connecting to an external add-on with an interesting device on it.
+
 For simplicity sake, I'll use these definitions
 
 * **add-on**: the QWIIC, STEMMA (QT) or Grove add-on separate from your Linux computer
@@ -63,7 +67,7 @@ driver loaded. Finally, `in_illuminance0_input` comes from the
 for this type of device, a light sensor. The
 `Linux kernel ABI documentation for sysfs-bus-iio <https://www.kernel.org/doc/html/v5.19/admin-guide/abi-testing.html#abi-sys-iio-devicex-in-illuminance-input>`__ provides the definition of available data often provided by light sensor drivers.
 
-.. code-block::
+.. code-block:: bash
 
   What:		/sys/.../iio:deviceX/in_illuminance_input
   What:		/sys/.../iio:deviceX/in_illuminance_raw
@@ -125,7 +129,7 @@ Searching through the kernel sources, we can find the driver code at
 
 .. important::
 
-  Don't miss that the driver, `tsl2561` , is actually part of a a superset driver, `tsl2563` . This can make things a bit trickier to find, so you have to look
+  Don't miss that the driver, `tsl2561` , is actually part of a superset driver, `tsl2563` . This can make things a bit trickier to find, so you have to look
   within the text of the driver source, not just the filenames.
 
 

@@ -1,35 +1,129 @@
-.. _beaglebone-ai-home:
+.. _bbai-home:
 
 BeagleBone AI
 ###############
 
-.. admonition:: Contributors
+BeagleBone AI is based on the Texas Instruments `AM5729 <https://www.ti.com/product/AM5729>`_ dual-core 
+Cortex-A15 SoC with flexible BeagleBone Black header and mechanical compatibility. BeagleBone AI makes 
+it easy to explore how artificial intelligence (AI) can be used in everyday life via the TI C66x 
+digital-signal-processor (DSP) cores and embedded-vision-engine (EVE) cores supported through an 
+optimized TIDL machine learning OpenCL API with pre-installed tools. Focused on everyday 
+automation in industrial, commercial and home applications.
 
-    This work is licensed under a `Creative Commons Attribution-ShareAlike
-    4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`__
+.. image:: images/BB_AI_handheld_500px.jpg
+    :width: 740
+    :align: center
+    :alt: BeagleBone AI
 
-    All derivative works are to be attributed to `Jason Kridner of
-    BeagleBoard.org <https://beagleboard.org/about/jkridner>`__.
+.. only:: html
 
-.. note::
-    Make sure to read and accept all the terms & condition provided in the :ref:`boards-terms-and-conditions` page. 
-    
-    Use of either the boards or the design materials constitutes agreement to the T&C including any 
-    modifications done to the hardware or software solutions provided by beagleboard.org foundation.
+  .. grid:: 1 1 2 2
+    :margin: 4 4 0 0
+    :gutter: 4
+
+    .. grid-item-card::
+        :link: bbai-introduction
+        :link-type: ref
+
+        **1. Introduction**
+        ^^^
+
+        .. image:: images/chapter-thumbnails/01-introduction.*
+            :align: center
+            :alt: BeagleBone AI Chapter01 thumbnail
+        
+        +++
+
+        Introduction to BeagleBone AI board with information on each component 
+        location on both front and back of the board.
+
+    .. grid-item-card:: 
+        :link: bbai-quick-start
+        :link-type: ref
+
+        **2. Quick start**
+        ^^^
+
+        .. image:: images/chapter-thumbnails/02-quick-start.*
+            :align: center
+            :alt: BeagleBone AI Chapter02 thumbnail
+
+        +++
+
+        Getting started guide to enable you to start building your projects 
+        in no time.
+
+    .. grid-item-card:: 
+        :link: bbai-design-and-specifications
+        :link-type: ref
+
+        **3. Design & Specifications**
+        ^^^
+
+        .. image:: images/chapter-thumbnails/03-design-and-specifications.*
+            :align: center
+            :alt: BeagleBone AI Chapter03 thumbnail
+
+        +++
+
+        Hardware and mechanical design and specifications of BeagleBone AI board 
+        for those who want to know their board inside and out.
+
+    .. grid-item-card:: 
+        :link: bbai-expansion
+        :link-type: ref
+
+        **4. Expansion**
+        ^^^
+
+        .. image:: images/chapter-thumbnails/04-expansion.*
+            :align: center
+            :alt: BeagleBone AI Chapter04 thumbnail
+
+        +++
+
+        Connector pinout diagrams with expansion details so that you can 
+        easily debug your connections and create custom expansion hardware.
+        
+    .. grid-item-card::
+        :link: bbai-demos-and-tutorials
+        :link-type: ref
+
+        **5. Demos**
+        ^^^
+
+        .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
+            :align: center
+            :alt: BeagleBone AI Chapter5 thumbnail
+
+        +++
+
+        Demos and tutorials to quickly learn about BeagleBone AI capabilities.
+
+    .. grid-item-card::
+        :link: bbai-support
+        :link-type: ref
+
+        **6. Support**
+        ^^^
+
+        .. image:: images/chapter-thumbnails/06-support.*
+            :align: center
+            :alt: BeagleBone AI Chapter6 thumbnail
+
+        +++
+
+        Additional supporting information, images, documents, change history and
+        hardware & software repositories including issue trackers.
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
+   :hidden:
 
-    ch01.rst
-    ch02.rst
-    ch03.rst
-    ch04.rst
-    ch05.rst
-    ch06.rst
-    ch07.rst
-    ch08.rst
-    ch09.rst
-    ch10.rst
-    ch11.rst
-    ch12.rst
+   01-introduction
+   02-quick-start
+   03-design-and-specifications
+   04-expansion
+   05-demos-and-tutorials
+   06-support
 
