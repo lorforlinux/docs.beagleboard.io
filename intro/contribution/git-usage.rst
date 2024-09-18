@@ -53,9 +53,9 @@ You will need to install ``git`` on your computer. `git <http://git-scm.com/>`_
 is available for all major operating systems. Please use the appropriate
 installation method as described below.
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. group-tab:: Linux
+    .. tab-item:: Linux
 
         ``git`` is now packaged in all major Linux distributions. You should find it
         in your package manager.
@@ -82,16 +82,16 @@ installation method as described below.
         should do the trick for you in any recent Fedora/Mandriva or
         derivatives
 
-    .. group-tab:: Mac OS X
+    .. tab-item:: Mac OS X
 
         Download the `.dmg` disk image from
         http://code.google.com/p/git-osx-installer/
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
         .. note::
 
-           It is worthwhile to consider using Linux at least inside of a virtual machine (VM).
+            It is worthwhile to consider using Linux at least inside of a virtual machine (VM).
 
         Download the official installers from
         `Windows installers <https://git-scm.com/download/win>`_

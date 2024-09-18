@@ -67,9 +67,9 @@ different ways, but we will discuss the two most common scenarios.
 
 Each of these configurations is discussed in general terms in the following sections.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Tethered To A PC
+   .. tab-item:: Tethered To A PC
 
       In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the connected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly. 
 
@@ -128,7 +128,7 @@ Each of these configurations is discussed in general terms in the following sect
       3.  The file will be opened by your browser on the PC and you should get a display showing the Quick Start Guide.
       4.  Your board is now operational! Follow the instructions on your PC screen.
 
-   .. group-tab:: Standalone w/Display and Keyboard/Mouse
+   .. tab-item:: Standalone w/Display and Keyboard/Mouse
 
       In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in the figure below. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.
 

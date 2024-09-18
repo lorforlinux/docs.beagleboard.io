@@ -7,10 +7,6 @@ See :ref:`qwiic_stemma_grove_addons`.
 
 A link to the appropriate I2C controller can be found at ``/dev/play/qwiic/i2c``.
 
-.. todo::
-
-    The above link may changed or outdated!!
-
 OLED Display using QWIIC
 =========================
 

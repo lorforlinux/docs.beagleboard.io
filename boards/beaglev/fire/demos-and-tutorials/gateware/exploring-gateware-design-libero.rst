@@ -255,7 +255,7 @@ Exporting the Cape
     as a script which can be used in the gateware repository.
     I suggest creating an export directory where you can temporarily store the exported gateware files before getting them into the repository.
 
-.. note::
+.. important::
 
     You **must** make sure your path exist, because Libero does not currently tell you if the export is successfull or not.
 
