@@ -5,6 +5,10 @@
 Document not found
 ##################
 
+The link you followed isn't _quite_ right. Can you help us fix it by letting us know?
+
+Please use the "Provide Feedback" link in the right-hand column to let us know you landed on this page and how.
+
 .. todo::
 
-   We need a 404 document to help people handle broken links (report, find, etc.).
+   We need to configure Sphinx, Gitlab Pages and our webserver proxy to productively handle broken links.
