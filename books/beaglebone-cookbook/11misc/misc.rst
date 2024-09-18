@@ -448,11 +448,32 @@ Googling tmp006 and tmp007 shows that they are Infrared Thermopile Sensors, not 
 
 Browse over to http://kernel.org to see if there are tmp114 drivers in the newer versions of the kernel.
 The first line in the table is **mainline**.  Click on the **browse** link on the right.
+
+.. figure:: figures/kernel.org.png
+    :align: center
+    :alt: http://kernel.org 
+
 Here you will see the top level of the Linux sourse tree for the *mainline* version of the kernel.
+
+.. figure:: figures/kernel.org.drivers.png
+    :align: center
+    :alt: http://kernel.org drivers
+
 Click on **drivers** and then **iio**. Finally, since tmp114 is a temperture sensor, click on **temperature**.
+
+.. figure:: figures/kernel.org.tmp117.png
+    :align: center
+    :alt: http://kernel.org tmp117
+
 Here you see all the source code for the iio temperature drivers for the mainline version of the kernel. 
 We've seen tmp006 and tmp007 as before, tmp117 is new. Maybe it will work.  Click on **tmp117.c** to see the code.
-Looks like it also works for the tmp116 too.  Let's try convering it to work with the tmp114.
+Looks like it also works for the tmp116 too.  
+
+.. figure:: figures/kernel.org.plain.png
+    :align: center
+    :alt: http://kernel.org plain
+
+Let's try convering it to work with the tmp114.
 
 A quick way to copy the code to the bone is to right-click on the **plain** link and select *Copy link address*.
 Then, on the bone enter **wget** and paste the link.  Mine looks like the following, yours will be similar.
