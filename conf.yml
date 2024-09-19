@@ -93,4 +93,9 @@ boards:
 
 # Books
 
+books:
+  BeagleBone Cookbook:
+      path: books/beaglebone-cookbook
+      pdf: True
+
 # Projects
