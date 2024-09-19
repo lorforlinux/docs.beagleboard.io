@@ -37,4 +37,5 @@ to propose changes to this document in a merge request.
    style
    rst-cheat-sheet
    linux-upstream
+   doc-builder
    /CONTRIB

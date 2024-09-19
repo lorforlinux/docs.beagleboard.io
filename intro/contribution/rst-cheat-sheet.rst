@@ -26,6 +26,16 @@ you should keep in mind while working with rst,
     reStructuredText vs. Markdown for technical documentation 
     <https://eli.thegreenplace.net/2017/restructuredtext-vs-markdown-for-technical-documentation/>`_ 
 
+.. todo::
+
+   There are several type of entries that should be added to the cheat sheet to help provide
+   some consistency and avoid needing to refer to outside documentation.
+
+   1. `todo` entries and general admonitions like `note` and `important`
+   2. `literalinclude` usage
+   3. `tab-set` entries
+   4. `toctree` entires and policy (depth, etc.)
+   5. Using `Separated Links`_
 
 Text formatting
 ****************
@@ -366,3 +376,6 @@ More
 .. [#] `Quick reStructuredText (sourceforge) <https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets>`_
 
 .. [#] `A two-page cheatsheet for restructured text <https://github.com/ralsina/rst-cheatsheet>`_
+
+.. _Separated Links:
+   https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#external-links
