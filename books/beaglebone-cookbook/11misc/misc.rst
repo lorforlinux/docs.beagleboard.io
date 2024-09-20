@@ -439,17 +439,23 @@ The first line in the table is **mainline**.  Click on the **browse** link on th
     :align: center
     :alt: http://kernel.org 
 
+    The Linux Kernel Archives, kernel.org
+
 Here you will see the top level of the Linux sourse tree for the *mainline* version of the kernel.
 
 .. figure:: figures/kernel.org.drivers.png
     :align: center
     :alt: http://kernel.org drivers
 
+    The Linux Kernel Archives, drivers
+
 Click on **drivers** and then **iio**. Finally, since tmp114 is a temperture sensor, click on **temperature**.
 
 .. figure:: figures/kernel.org.tmp117.png
     :align: center
     :alt: http://kernel.org tmp117
+
+    The Linux Kernel Archives, tmp117 driver
 
 Here you see all the source code for the iio temperature drivers for the mainline version of the kernel. 
 We've seen tmp006 and tmp007 as before, tmp117 is new. Maybe it will work.  Click on **tmp117.c** to see the code.
@@ -458,6 +464,8 @@ Looks like it also works for the tmp116 too.
 .. figure:: figures/kernel.org.plain.png
     :align: center
     :alt: http://kernel.org plain
+
+    The Linux Kernel Archives, plain button
 
 Let's try convering it to work with the tmp114.
 
