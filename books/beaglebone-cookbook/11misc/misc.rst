@@ -13,7 +13,7 @@ BeagleConnect Freedom
 Here are some notes on how to setup and use the Connect.
 
 First get the flasher image from:
-https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image
+https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-20/
 
 Flash the eMMC (which also loads the cc1352 with 
 the correct firmware)
@@ -219,20 +219,18 @@ You can always sudo from debian, but sometimes it's nice to login as root.
 Here's how to setup root so you can login from your host without a password.
 
 .. code-block:: bash
-
+    
     host$ ssh bone
+
     bone$ sudo -i
+    
     root@bone# nano /etc/ssh/sshd_config
 
 Search for the line
 
-.. code-block:: bash
-
     #PermitRootLogin prohibit-password
 
 and change it to
-
-.. code-block:: bash
 
     PermitRootLogin yes
 
@@ -240,44 +238,32 @@ and change it to
 
 Save the file and quit the editor. Restart ssh so it will reread the file.
 
-.. code-block:: bash
-
     root@bone# systemctl restart sshd
 
 And assign a password to root.
-
-.. code-block:: bash
 
     root@bone# passwd
 
 Now open another window on your host computer and enter:
 
-.. code-block:: bash
-
     host$ ssh-copy-id root@bone
 
 and enter the root password. Test it with:
-
-.. code-block:: bash
 
     host$ ssh root@bone
 
 You should be connected without a password. 
 Now go back to the Bone and turn off the root password access.
 
-.. code-block:: bash
-
     root@bone# nano /etc/ssh/sshd_config
 
 Restore the line:
-
-.. code-block:: bash
 
     #PermitRootLogin prohibit-password
 
 and restart sshd.
 
-.. code-block:: bash
+.. code-block:: 
 
     root@bone# systemctl restart sshd
     root@bone# exit
@@ -309,7 +295,7 @@ it display on the host.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
-.. code-block:: bash
+.. code-block:: 
 
     host$ ssh -X debian@10.0.5.10
 
@@ -348,7 +334,7 @@ https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-m
 First login to the Beagle and install tcpdump. Use your Beagle's 
 IP address.  
 
-.. code-block:: bash
+.. code-block:: 
 
     host$ ssh 192.168.7.2
     bone$ sudo apt update
@@ -357,7 +343,7 @@ IP address.
 
 Next, create a named pipe and have wireshark read from it.
 
-.. code-block:: bash
+.. code-block:: 
 
     host$ mkfifo /tmp/remote
     host$ wireshark -k -i /tmp/remote
@@ -365,7 +351,7 @@ Next, create a named pipe and have wireshark read from it.
 Then, run tcpdump over ssh on your remote machine and redirect the 
 packets to the named pipe:
 
-.. code-block:: bash
+.. code-block:: 
 
     host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
@@ -448,11 +434,32 @@ Googling tmp006 and tmp007 shows that they are Infrared Thermopile Sensors, not 
 
 Browse over to http://kernel.org to see if there are tmp114 drivers in the newer versions of the kernel.
 The first line in the table is **mainline**.  Click on the **browse** link on the right.
+
+.. figure:: figures/kernel.org.png
+    :align: center
+    :alt: http://kernel.org 
+
 Here you will see the top level of the Linux sourse tree for the *mainline* version of the kernel.
+
+.. figure:: figures/kernel.org.drivers.png
+    :align: center
+    :alt: http://kernel.org drivers
+
 Click on **drivers** and then **iio**. Finally, since tmp114 is a temperture sensor, click on **temperature**.
+
+.. figure:: figures/kernel.org.tmp117.png
+    :align: center
+    :alt: http://kernel.org tmp117
+
 Here you see all the source code for the iio temperature drivers for the mainline version of the kernel. 
 We've seen tmp006 and tmp007 as before, tmp117 is new. Maybe it will work.  Click on **tmp117.c** to see the code.
-Looks like it also works for the tmp116 too.  Let's try convering it to work with the tmp114.
+Looks like it also works for the tmp116 too.  
+
+.. figure:: figures/kernel.org.plain.png
+    :align: center
+    :alt: http://kernel.org plain
+
+Let's try convering it to work with the tmp114.
 
 A quick way to copy the code to the bone is to right-click on the **plain** link and select *Copy link address*.
 Then, on the bone enter **wget** and paste the link.  Mine looks like the following, yours will be similar.
@@ -718,50 +725,10 @@ Now, sync changes with upstream:
     bone$ git fetch upstream
     bone$ git pull upstream main
 
-Using Docker (Podman)
-^^^^^^^^^^^^^^^^^^^^^
-It is probably easies to use docker (or podman) if you are already familiar with container workflow.
-The repository contains a helper script `docker-build-env.sh` which creates ephemeral container and drops you into bash inside. The project is mouted at `/build/docs.beagleboard.org`.
-
-
-.. note::
-
-    This section of docs assume that you are using rootless docker or podman. In case of rootful docker, you might run into permission issues
-
-.. code-block:: bash
-
-    ./docker-build-env.sh
-    cd /build/docs.beagleboard.org
-    make clean
-
-To generate HTML output of docs:
-
-.. code-block:: bash
-
-    make html
-
-To generate PDF output of docs:
-
-.. code-block:: bash
-
-    make latexpdf
-
-To preview docs on your local machine:
-
-.. code-block:: bash
-
-    python3 -m http.server -d _build/html/
-
-
 Downloading Sphinx
 ^^^^^^^^^^^^^^^^^^
-Skip this section if you are using docker as shown above.
-
-Run the following to download and setup Sphinx locally.
-
-.. note::
-
-  This will take a while, it loads some 6G bytes.
+Run the following to download Sphinx. Note:  This will take a while, it loads
+some 6G bytes.
 
 .. code-block:: bash
 
@@ -769,21 +736,22 @@ Run the following to download and setup Sphinx locally.
     bone$ sudo apt upgrade
     bone$ sudo apt install -y \
         make git wget \
-        doxygen librsvg2-bin\
+        doxygen graphviz librsvg2-bin\
         texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended \
         python3 python3-pip \
+        python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.svg2pdfconverter \
+        python3-pil \
         imagemagick-6.q16 librsvg2-bin webp \
         texlive-full texlive-latex-extra texlive-fonts-extra \
         fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
-
-In case of any problems, checkout `Beagleboard Forum <https://forum.beagleboard.org/>`_.
-
-Setup virtual environment for python using the `venv-build-env.sh` script at the project root.
-
-.. literalinclude:: ../../../venv-build-env.sh
-   :language: bash
-   :caption: Bash script for setting up virtual environment
-   :linenos:
+    bone$ python3 -m pip install --upgrade pip
+    bone$ pip install -U sphinx_design 
+    bone$ pip install -U sphinxcontrib-images
+    bone$ pip install -U sphinx-serve
+       
+These instructions came from `lorforlinux 
+<https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
+on the Beagleboard Slack channel.
 
 Now go to the cloned *docs.beagleboard.io* repository folder and do the following.
 To clean build directory:
@@ -810,12 +778,6 @@ To preview docs on your local machine:
 .. code-block:: bash
 
     bone$ sphinx-serve
-
-For hot reload in development:
-
-.. code-block:: bash
-
-    bone$ make livehtml
 
 Then point your browser to localhost:8081.
 
@@ -1217,7 +1179,7 @@ Home Assistant
 ==============
 
 #. Get an image here:
-    https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image
+    https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-18/
     I chose the boot from SD image.
 #. Boot the Play from the SD card 
 #. Log into the Play
