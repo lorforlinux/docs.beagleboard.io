@@ -13,7 +13,7 @@ BeagleConnect Freedom
 Here are some notes on how to setup and use the Connect.
 
 First get the flasher image from:
-https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-20/
+https://www.beagleboard.org/distros/ 
 
 Flash the eMMC (which also loads the cc1352 with 
 the correct firmware)
