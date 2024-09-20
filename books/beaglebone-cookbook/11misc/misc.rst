@@ -218,7 +218,7 @@ By default the image we are running doesn't allow a root login.
 You can always sudo from debian, but sometimes it's nice to login as root. 
 Here's how to setup root so you can login from your host without a password.
 
-.. code-block:: bash
+.. code-block:: shell-session
     
     host$ ssh bone
 
@@ -334,7 +334,7 @@ https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-m
 First login to the Beagle and install tcpdump. Use your Beagle's 
 IP address.  
 
-.. code-block:: 
+.. code-block:: shell-session
 
     host$ ssh 192.168.7.2
     bone$ sudo apt update
@@ -343,7 +343,7 @@ IP address.
 
 Next, create a named pipe and have wireshark read from it.
 
-.. code-block:: 
+.. code-block:: shell-session
 
     host$ mkfifo /tmp/remote
     host$ wireshark -k -i /tmp/remote
