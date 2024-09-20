@@ -71,7 +71,7 @@ The Bone acting like a USB drive and the files you see are located on the Bone.
 Browse to http://192.168.7.2:3000 from your 
 host computer (:ref:`basics_05gettingStarted_fig`). If the page is not found, run the following:
 
-.. code-block::
+.. code-block:: shell-session
 
     bone$ sudo systemctl start bb-code-server.service
 
