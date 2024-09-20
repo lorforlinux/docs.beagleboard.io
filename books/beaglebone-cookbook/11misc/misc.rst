@@ -1192,7 +1192,7 @@ Home Assistant
 ==============
 
 #. Get an image here:
-    https://rcn-ee.net/rootfs/debian-arm64-11-bullseye-home-assistant-v5.10-ti/2023-07-18/
+    https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image
     I chose the boot from SD image.
 #. Boot the Play from the SD card 
 #. Log into the Play
