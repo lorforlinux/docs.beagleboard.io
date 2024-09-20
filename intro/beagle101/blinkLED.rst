@@ -22,9 +22,9 @@ For this step you need to get a USB cable and attach your Beagle
 to your host computer with it.  Where you attached the cable 
 depends on which Beagle you have.  Click on the tab for your board.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Black
+    .. tab-item:: Black
 
         .. figure:: figures/image8.jpg
             :width: 632px
@@ -44,7 +44,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         For more details see: :ref:`beagleboneblack-connectivity`
 
-    .. group-tab:: Blue
+    .. tab-item:: Blue
 
         .. figure:: figures/blueconnect.jpg
             :width: 451px
@@ -53,7 +53,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         Micro USB Connection to the Blue
 
-    .. group-tab:: AI-64
+    .. tab-item:: AI-64
 
         .. figure:: figures/usb-tethering.jpg
             :width: 400px
@@ -85,7 +85,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         For more details see: :ref:`connecting-up-your-beaglebone-ai-64`
 
-    .. group-tab:: Play
+    .. tab-item:: Play
 
         .. figure:: figures/tethered-connection.jpg
             :width: 1400
@@ -96,7 +96,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         For more details see: :ref:`beagleplay-quick-start`
             
-    .. group-tab:: Pocket
+    .. tab-item:: Pocket
 
         .. figure:: figures/11fig-PB-microUSBattach1.jpg
             :align: center
@@ -131,9 +131,9 @@ are running Linux on your host,
 take the ``ssh (Linux)`` tab.  Finally take the 
 ``putty (Windows)`` tab for command line from Windows.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: VS Code
+    .. tab-item:: VS Code
 
         Recent Beagles come with the IDE Visual Studio Code 
         (https://code.visualstudio.com/) installed and 
@@ -186,7 +186,7 @@ take the ``ssh (Linux)`` tab.  Finally take the
 
             Try running ``seqLEDs.py``.
 
-    .. group-tab:: ssh (Mac)
+    .. tab-item:: ssh (Mac)
                 
         If you are running a Mac host, open a terminal widow and run 
 
@@ -196,7 +196,7 @@ take the ``ssh (Linux)`` tab.  Finally take the
 
         Use the password ``temppwd``.
   
-    .. group-tab:: ssh (Linux)
+    .. tab-item:: ssh (Linux)
 
         If you are running a Linux host, open a terminal widow and run 
 
@@ -206,7 +206,7 @@ take the ``ssh (Linux)`` tab.  Finally take the
         
         Use the password ``temppwd``.
 
-    .. group-tab:: putty (Windows)
+    .. tab-item:: putty (Windows)
 
         If you are running Window you need to run an ``ssh`` client 
         to connect to the Beagle. I suggest you use ``putty``. 
