@@ -23,7 +23,9 @@ to your host computer with it.  Where you attached the cable
 depends on which Beagle you have.  Click on the tab for your board.
 
 .. tab-set::
+.. tab-set::
 
+    .. tab-item:: Black
     .. tab-item:: Black
 
         .. figure:: figures/image8.jpg
@@ -43,6 +45,7 @@ depends on which Beagle you have.  Click on the tab for your board.
         For more details see: :ref:`beagleboneblack-connectivity`
 
     .. tab-item:: Blue
+    .. tab-item:: Blue
 
         .. figure:: figures/blueconnect.jpg
             :width: 451px
@@ -51,6 +54,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
             Micro USB Connection to the Blue
 
+    .. tab-item:: AI-64
     .. tab-item:: AI-64
 
         .. figure:: figures/usb-tethering.jpg
@@ -84,6 +88,7 @@ depends on which Beagle you have.  Click on the tab for your board.
         For more details see: :ref:`bbai64-quick-start`
 
     .. tab-item:: Play
+    .. tab-item:: Play
 
         .. figure:: figures/tethered-connection.jpg
             :width: 1400
@@ -94,6 +99,7 @@ depends on which Beagle you have.  Click on the tab for your board.
 
         For more details see: :ref:`beagleplay-quick-start`
             
+    .. tab-item:: Pocket
     .. tab-item:: Pocket
 
         .. figure:: figures/11fig-PB-microUSBattach1.jpg
@@ -189,6 +195,7 @@ are running Linux on your host, take the ``ssh (Linux)`` tab.  Finally take the
         Use the password ``temppwd``.
   
     .. tab-item:: ssh (Linux)
+    .. tab-item:: ssh (Linux)
 
         If you are running a Linux host, open a terminal widow and run 
 
@@ -198,6 +205,7 @@ are running Linux on your host, take the ``ssh (Linux)`` tab.  Finally take the
         
         Use the password ``temppwd``.
 
+    .. tab-item:: putty (Windows)
     .. tab-item:: putty (Windows)
 
         If you are running Window you need to run an ``ssh`` client 
