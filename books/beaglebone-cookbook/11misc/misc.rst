@@ -263,7 +263,7 @@ Restore the line:
 
 and restart sshd.
 
-.. code-block:: 
+.. code-block:: bash
 
     root@bone# systemctl restart sshd
     root@bone# exit
@@ -295,7 +295,7 @@ it display on the host.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh -X debian@10.0.5.10
 
@@ -351,7 +351,7 @@ Next, create a named pipe and have wireshark read from it.
 Then, run tcpdump over ssh on your remote machine and redirect the 
 packets to the named pipe:
 
-.. code-block:: 
+.. code-block:: bash
 
     host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
@@ -711,11 +711,24 @@ the **Edit on GitLab** button on the upper-right of the page. Clone the reposito
     bash$ git clone git@git.beagleboard.org:docs/docs.beagleboard.io.git
     bash$ cd docs.beagleboard.io
 
+
 Then run the following to load the **code** submodule
 
 .. code-block:: bash
 
     bash$ git submodule update --init
+
+Set up the environment for Sphinx.
+
+.. code-block:: bash
+
+    bash$ python -m venv .venv
+    bash$ source .venv/bin/activate
+    bash$ pip install -r ./requirements.txt
+    bash$ make livehtml
+
+This starts a local web server that you can point your browser to to see the formatted text.
+
 
 Now, sync changes with upstream:
 
