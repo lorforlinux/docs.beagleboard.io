@@ -13,7 +13,7 @@ BeagleConnect Freedom
 Here are some notes on how to setup and use the Connect.
 
 First get the flasher image from:
-https://www.beagleboard.org/distros/ 
+https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image 
 
 Flash the eMMC (which also loads the cc1352 with 
 the correct firmware)
