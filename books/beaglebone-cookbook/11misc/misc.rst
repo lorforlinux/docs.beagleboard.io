@@ -228,9 +228,13 @@ Here's how to setup root so you can login from your host without a password.
 
 Search for the line
 
+.. code-block:: bash
+
     #PermitRootLogin prohibit-password
 
 and change it to
+
+.. code-block:: bash
 
     PermitRootLogin yes
 
@@ -238,38 +242,52 @@ and change it to
 
 Save the file and quit the editor. Restart ssh so it will reread the file.
 
+.. code-block:: shell-session
+
     root@bone# systemctl restart sshd
 
 And assign a password to root.
+
+.. code-block:: shell-session
 
     root@bone# passwd
 
 Now open another window on your host computer and enter:
 
+.. code-block:: shell-session
+
     host$ ssh-copy-id root@bone
 
 and enter the root password. Test it with:
+
+.. code-block:: shell-session
 
     host$ ssh root@bone
 
 You should be connected without a password. 
 Now go back to the Bone and turn off the root password access.
 
+.. code-block:: shell-session
+
     root@bone# nano /etc/ssh/sshd_config
 
 Restore the line:
+
+.. code-block:: bash
 
     #PermitRootLogin prohibit-password
 
 and restart sshd.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     root@bone# systemctl restart sshd
     root@bone# exit
     bone$ exit
 
 You should now be able to go back to your host computer and login as root on the bone without a password.
+
+.. code-block:: shell-session
 
     host$ ssh root@bone
 
@@ -295,7 +313,7 @@ it display on the host.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh -X debian@10.0.5.10
 
@@ -351,7 +369,7 @@ Next, create a named pipe and have wireshark read from it.
 Then, run tcpdump over ssh on your remote machine and redirect the 
 packets to the named pipe:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
@@ -611,7 +629,7 @@ Creating a new device
 
 Once you've converted the module for the tmp114 and inserted it, you can now create a new device.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cd /sys/class/i2c-adapter/i2c-3
     bone$ sudo chgrp gpio *
@@ -635,13 +653,13 @@ You only need to do this once.
 
 Now make a new device.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ echo tmp114 0x4d > new_device
 
 Look in the demsg window and you should see:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     [Jun22 19:24] tmp114 3-004d: tmp114_identify id (0x1114)
     [  +0.000027] tmp114 3-004d: tmp114_probe id (0x1114)
@@ -649,7 +667,7 @@ Look in the demsg window and you should see:
 
 It's been found! Let's see what it knows about it.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ iio_info
     Library version: 0.24 (git tag: v0.24)
@@ -667,7 +685,7 @@ two values (**raw** and **scale**) that were read from it.  Let's read them ours
 Do an *ls* and you'll see a new directory, **3-004d**.  This is address 0x4d on bus 3,
 just what we wanted.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bone$ cd 3-004d/iio:device1
     bone$ ls
@@ -679,14 +697,14 @@ You'll have to look in the datasheet to learn how to convert the temperature.
 
 If you try to run i2cget again, you'll get an error:
 
-.. code-block:: bash
+.. code-block:: shell
 
     bone$ i2cget -y 3 0x4d 0 w
     Error: Could not set address to 0x4d: Device or resource busy
 
 This is because the module is using it.  Delete the device and you'll have access again.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bone$ echo 0x4d > /sys/class/i2c-adapter/i2c-3/delete_device
     bone$ i2cget -y 3 0x4d 0 w
@@ -714,7 +732,7 @@ Here's what you need to do to fork the repository and render a local copy of
 the documentation.  Browse to https://docs.beagleboard.org/latest/ and click on 
 the **Edit on GitLab** button on the upper-right of the page. Clone the repository.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bash$ git clone git@git.beagleboard.org:docs/docs.beagleboard.io.git
     bash$ cd docs.beagleboard.io
@@ -722,13 +740,13 @@ the **Edit on GitLab** button on the upper-right of the page. Clone the reposito
 
 Then run the following to load the **code** submodule
 
-.. code-block:: bash
+.. code-block:: shell
 
     bash$ git submodule update --init
 
 Set up the environment for Sphinx.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bash$ python -m venv .venv
     bash$ source .venv/bin/activate
