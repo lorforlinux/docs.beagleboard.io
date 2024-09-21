@@ -165,8 +165,8 @@ First edit `/etc/hosts` and add a couple of lines.
 
     host$ sudo nano /etc/hosts
 
-You may use whatever editor you want. I suggest nano since it's easy to figure 
-out. Add the following to the end of `/etc/hosts` and quit the editor.
+You may use whatever editor you want. I suggest ``nano`` since it's easy to figure 
+out. Add the following to the end of ``/etc/hosts`` and quit the editor.
 
     192.168.7.2     bone
 
@@ -175,7 +175,7 @@ Now you can connect with
     host$ ssh debian@bone
 
 Let's make it so you don't have to enter `debian`. On your host computer, 
-put the following in `~/.ssh/config` (Note: ~ is a shortcut for your home directory.)
+put the following in ``~/.ssh/config`` (Note: ~ is a shortcut for your home directory.)
 
 .. code-block:: 
 
