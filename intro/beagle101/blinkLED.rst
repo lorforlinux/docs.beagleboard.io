@@ -546,7 +546,7 @@ pressed and then turns on the LED.
     :caption: buttonEvent.sh
     :linenos:
 
-:download:`buttonEvent.sh<code/buttonEvent.sh>`
+:download:`code/buttonEvent.sh<code/buttonEvent.sh>`
 
 Try running it and pressing the **USR** button. 
 
@@ -574,4 +574,4 @@ for an event.
     :caption: buttonLED.sh
     :linenos:
 
-:download:`buttonLED.sh<code/buttonLED.sh>`
+:download:`code/buttonLED.sh<code/buttonLED.sh>`
