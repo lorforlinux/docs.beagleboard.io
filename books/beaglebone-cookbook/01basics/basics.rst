@@ -20,8 +20,6 @@ There are many different BeagleBoards. How do you pick which one to use?
 Solution
 ---------
 
-.. todo
-
 Checkout the crrent list of boards: :ref:`boards`
 
 .. _basics_out_of_the_box:
@@ -134,18 +132,22 @@ following the instructions in :ref:`basics_out_of_the_box` to log into the Bone.
 .. code-block:: bash
 
     bone$ cat /etc/dogtag
-    BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
+    BeagleBoard.org Debian Bookworm Minimal Image 2024-09-11
 
-I'm running the 2023-06-03 version.
+I'm running the **2024-09-11** version.
 
-Running the Python and JavaScript Examples
-===========================================
+Running the Python Examples
+===========================
 
 Problem
 --------
 
-You'd like to learn Python or JavaScript interact with the Bone to 
+You'd like to learn Python to interact with the Bone to 
 perform physical computing tasks without first learning Linux.
+
+.. note:: 
+
+   There are many JavaScript examples too, but they may not be as up to date as the Python examples.
 
 Solution
 ---------
@@ -155,6 +157,10 @@ http://192.168.7.2:3000 using Google Chrome or Firefox (as shown in
 :ref:`basics_out_of_the_box`). In the left 
 column, click on *examples*, then *BeagleBone* and then *Black*. 
 Several sample scripts will appear.  Go and explore them.
+
+.. todo
+   examples are no longer on the board.
+
 
 .. tip::
 
