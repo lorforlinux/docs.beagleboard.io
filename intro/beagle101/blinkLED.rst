@@ -442,20 +442,20 @@ the USR button and you'll see:
 The following script uses evtest to wait for the USR button to be pressed and 
 then turns on the LED.
 
-.. literalinclude:: buttonEvent.sh
+.. literalinclude:: code/buttonEvent.sh
     :language: Shell
     :caption: buttonEvent.sh
     :linenos:
 
-:download:`buttonEvent.sh<buttonEvent.sh>`
+:download:`code/buttonEvent.sh<code/buttonEvent.sh>`
 
 Try running it and pressing the USR button. 
 
 The next script polls the USR button and toggles the LED.
 
-.. literalinclude:: buttonLED.sh
+.. literalinclude:: code/buttonLED.sh
     :language: shell
     :caption: buttonLED.sh
     :linenos:
 
-:download:`buttonLED.sh<buttonLED.sh>`
+:download:`code/buttonLED.sh<code/buttonLED.sh>`
