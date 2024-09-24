@@ -100,7 +100,7 @@ After selecting the file you have to click on ``edit button`` and then choose ei
 1. ``Open in Web IDE``, choose this if you want to work on multiple files.
 2. ``Edit single file``, choose this if you want to make some small edits in a single file.
 
-.. image:: media/edit-button.png
+.. image:: images/edit-button.png
     :align: center
 
 .. note::
