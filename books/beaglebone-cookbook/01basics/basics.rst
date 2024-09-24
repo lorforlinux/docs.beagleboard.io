@@ -22,7 +22,7 @@ Solution
 
 .. todo
 
-Current list of boards: https://git.beagleboard.org/explore/projects/topics/boards
+Current list of boards: :ref:`boards`
 
 Discussion
 -----------
