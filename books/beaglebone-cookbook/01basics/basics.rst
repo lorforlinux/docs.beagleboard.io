@@ -22,10 +22,7 @@ Solution
 
 .. todo
 
-Current list of boards: :ref:`boards`
-
-Discussion
------------
+Checkout the crrent list of boards: :ref:`boards`
 
 .. _basics_out_of_the_box:
 
@@ -40,6 +37,11 @@ You just got your Bone, and you want to know what to do with it.
 Solution
 ---------
 
+Many of the Beagles (:ref:`beagley-all-home`, :ref:`beagleplay-home`, 
+:ref:`bbai64-home`, :ref:`bbai-home`, :ref:`beaglev-ahead-home` and
+:ref:`beaglev-fire-home`)
+have their own detailed **Quick start** guide.  Here we present
+general instructions that work for all Beagles. 
 Fortunately, you have all you need to get running: your Bone and a USB cable. 
 Plug the USB cable into your host computer (Mac, Windows, or Linux) and plug the 
 mini-USB connector side into the USB connector near the Ethernet connector on 
@@ -86,7 +88,7 @@ Wait a minute and try the URL again.
    Visual Studio Code
 
 Here, you'll find *Visual Studio Code*, a web-based integrated development environment (IDE) 
-that lets you edit and run code on your Bone!  See :ref: `basics_vsc` for more details.
+that lets you edit and run code on your Bone!  See :ref:`basics_vsc` for more details.
 
 .. WARNING:: 
     Make sure you turn off your Bone properly. 
