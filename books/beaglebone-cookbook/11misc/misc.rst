@@ -406,6 +406,59 @@ Now generate some traffic:
 
 You can see the pattern ``ca11ab1ebeef`` appears in the packets.
 
+Find what UU is in i2cdetect
+================================
+
+Problem
+-------
+
+You run ``i2cdetect`` and want to know what the **UU**'s are.
+
+.. code-block:: shell-session
+
+    bone:~$ i2cdetect -y -r 2
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:                         -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: UU -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    50: UU -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- -- 
+    70: -- -- -- -- -- -- -- -- 
+
+Solution
+--------
+
+Running ``man i2cdetect`` shows that:
+
+    "UU". Probing was skipped, because this address is currently in use by a driver. This strongly suggests that there is a chip at this address.
+
+You can quickly see what the drivers are by looking at ``/sys/bus/i2c/devices``
+
+.. code-block:: shell-session
+
+    bone:~$ cd /sys/bus/i2c/devices
+    bone:~$ ls
+    2-0030  2-0050  2-0068  4-004c  i2c-1  i2c-2  i2c-3  i2c-4  i2c-5
+
+Here on the BeagleY-AI we see there are 5 i2c buses (``i2c-1``,  ``i2c-2``, ``i2c-3``, ``i2c-4`` and  ``i2c-5``).  There are three devices on bus 2 (``2-0030``, ``2-0050`` and ``2-0068``) and one device on bus 4 (``4-004c``).  The first digit is the bus number and the last digits are the address on the bus in hex. You can see what these devices are by running:
+
+.. code-block:: shell-session
+
+    bone:~$ cat */name
+    tps65219
+    24c32
+    ds1340
+    it66122
+    OMAP I2C adapter
+    OMAP I2C adapter
+    OMAP I2C adapter
+    OMAP I2C adapter
+    OMAP I2C adapter
+
+You can the Google the names to see what they are.  For example, the ``24c32`` is a 32K EEPROM by Microchip.
+
 Converting a tmp117 to a tmp114
 ================================
 
