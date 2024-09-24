@@ -4,8 +4,8 @@ How can I contribute?
 #####################
 
 The most obvious way to contribute is using the `OpenBeagle (BeagleBoard.org GitLab server) <https://openbeagle.org>`_ to report
-bugs, suggest enhancements and providing merge requests / pull requests to fixe software, hardware designs and documentation. We 
-have made it easy to share the link and provide feedback for any heading, figure, and table.
+bugs, suggest enhancements and providing merge requests / pull requests to fix software, hardware designs and documentation. We 
+have made it easy to share the link while you are working with documentation and provide feedback for any heading, figure, and table.
 
 1. :fas:`link;pst-color-secondary` button is to copy the link of current heading, figure, or table.
 2. :fas:`message;pst-color-secondary` button is to open feedback modal for submitting issue, feedback, and idea.
@@ -17,7 +17,7 @@ have made it easy to share the link and provide feedback for any heading, figure
     Copy link and feedback button
 
 When you click on :fas:`message;pst-color-secondary` button, you will see the modal as shown in the image below. 
-With this you can easily provide us ideas, feedback, and create issues directly on OpenBeagle directly from docs site.
+With this you can easily provide us ideas, feedback, and create issues directly on OpenBeagle from docs site.
 
 .. figure:: images/feedback-modal.png
     :align: center
@@ -81,8 +81,11 @@ After clicking on the fork button, you'll be taken to a page like shown below wh
 1. Select your profile from the dropdown.
 2. Click on fork project button to initiate the forking process.
 
-.. image:: images/fork-project.png
+.. figure:: images/fork-project.png
     :align: center
+    :alt: Fork project
+
+    Fork project
 
 Select file to edit
 ====================
@@ -92,16 +95,22 @@ After successfully forking the project you have to,
 1. Make sure you are on the forked repo on your profile, it should be ``https://openbeagle.org/<user-name>/docs.beagleboard.io`` where <user-name> should be replaced with your OpenBeagle username.
 2. Select any file you want to edit from the files & folders view of the repo page.
 
-.. image:: images/repo-file-folders.png
+.. figure:: images/repo-file-folders.png
     :align: center
+    :alt: Repository files and folders
+
+    Repository files and folders
 
 After selecting the file you have to click on ``edit button`` and then choose either of the options from drop-down,
 
 1. ``Open in Web IDE``, choose this if you want to work on multiple files.
 2. ``Edit single file``, choose this if you want to make some small edits in a single file.
 
-.. image:: images/edit-button.png
+.. figure:: images/edit-button.png
     :align: center
+    :alt: Edit button
+
+    Edit button
 
 .. note::
     Choosing ``Web IDE`` will load a `Visual Studio Code Server <https://code.visualstudio.com/docs/remote/vscode-server>`_
@@ -116,11 +125,14 @@ Start editing
 If you select to open your file in ``Web IDE`` you'll see a familar interface. The GitLab Web IDE is actually a rich
 `Visual Studio Code Server <https://code.visualstudio.com/docs/remote/vscode-server>`_ hosted on OpenBeagle.
 
-.. image:: images/ide.png
+.. figure:: images/ide.png
     :align: center
+    :alt: Web IDE
+
+    Wed IDE
 
 .. tip:: We use `reStructuredText (RST) <https://en.wikipedia.org/wiki/ReStructuredText>`_ for all of our documentation projects
-   including `this GSoC site  <https://gsoc.beagleboard.io/>`_ and `main docs site <https://docs.beagleboard.org/latest/>`_.
+   including `GSoC site  <https://gsoc.beagleboard.io/>`_ and `documentation site <https://docs.beagleboard.org/latest/>`_.
    If you are new to reStructuredText you can checkout our `reStructuredText cheatsheet <https://docs.beagleboard.org/latest/
    intro/contribution/rst-cheat-sheet.html>`_ to get yourself familiar with reStructuredText.
 
@@ -137,11 +149,14 @@ If you select to open your file in ``Web IDE`` you'll see a familar interface. T
 
 Now you have to select a file and start editing. Below image shows some,
 
-1. Edits made to the `ideas/index.rst` highlighted with green bar on left side of code editor window near line numbers.
+1. Edits made to the ``conf.py`` file, changes are highlighted with green bar on left side of code editor window near line numbers.
 2. Source control button indicating (1) file updated in the repo.
 
-.. image:: images/make-edits.png
+.. figure:: images/make-edits.png
     :align: center
+    :alt: Make edits
+
+    Make edits
 
 .. tip:: Just like you do on your normal Visual Studio Code desktop application, to commit your changes you can either
     click on Source control ( :fa:`code-branch;pst-color-secondary` ) button or press ``CTRL + SHIFT + G`` to see all the edited files.
@@ -152,8 +167,11 @@ After switching to source control you have to,
 2. Click on ``Commit to main`` button (not recommended).
 3. Click on drop down button to choose ``Commit to new branch`` (recommended).
 
-.. image:: images/commit-changes.png
+.. figure:: images/commit-changes.png
     :align: center
+    :alt: Commit changes
+
+    Commit changes
 
 After clicking ``Commit to 'main'`` button you'll be prompted with a window (shown below) with three options,
 
@@ -167,24 +185,33 @@ of creating a new branch is that assigned reviewer for a pull request / merge re
 newly created branch which is not possible for your main branch because it's a `protected branch <https://docs.gitlab.com/
 ee/user/project/protected_branches.html>`_ by default.
 
-.. image:: images/commit-branch.png
+.. figure:: images/commit-branch.png
     :align: center
+    :alt: Commit branch
 
-When all done right, at the lower right side of the ``Web IDE`` you'll see a prompt showing ``Success! Your changes have been committed`` message with
-two buttons,
+    Commit branch
+
+When all done right, at the lower right side of the ``Web IDE`` you'll see a prompt showing 
+``Success! Your changes have been committed`` message with two buttons,
 
 1. ``Go to Project``
 2. ``Continue working``
 
-.. image:: images/commit-success.png
+.. figure:: images/commit-success.png
     :align: center
+    :alt: Commit success
+
+    Commit success
 
 If you click on ``Go to Project`` button, you'll see,
 1. The commit successfully applied and the green tick shown on the right side indicates that the CI build was also successful.
 2. Option to create a merge request and update your fork.
 
-.. image:: images/commit.png
+.. figure:: images/commit.png
     :align: center
+    :alt: Commit
+
+    Commit
 
 .. admonition:: Congratulations!!
 
@@ -208,8 +235,10 @@ below shows all the fields you have to update,
 .. tip:: If you are still working on some updates, you may also choose ``Mark as draft`` checkbox (below title)
     which indicates that you are seeking feedback before making your commits suitable to merge.
 
-.. image:: images/merge-request.png
-    :align: center
+.. figure:: images/merge-request.png
+    :align: Merge request
+
+    Merge request
 
 Now wait for a review and, if comments are raised, then you can continue working on the project
 until everything looks perfect and your changes are merged in upstream.
