@@ -96,6 +96,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinxext.rediraffe",
+    "notfound.extension",
     "breathe",
     "sphinx_copybutton",
     "sphinxcontrib.youtube",
@@ -142,6 +143,17 @@ for old_folder, new_folder in redirect_folders.items():
             oldpath = Path(old_folder) / newpath.relative_to(new_folder_path)
             # Add the mapping to rediraffe_redirects
             rediraffe_redirects[str(oldpath)] = str(newpath.relative_to(new_folder_path))
+
+# Specify the 404 template file
+notfound_template = '404.html'
+
+# Set the URLs prefix (adjust if your site is served from a subdirectory)
+notfound_urls_prefix = ''
+
+# Provide additional context variables if needed
+notfound_context = {
+    'title': 'Page Not Found (404)',
+}
 
 #graphviz_output_format = 'svg'
 
