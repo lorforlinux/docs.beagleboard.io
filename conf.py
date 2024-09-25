@@ -95,10 +95,53 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinxext.rediraffe",
     "breathe",
     "sphinx_copybutton",
     "sphinxcontrib.youtube",
 ]
+
+# Initialize the rediraffe_redirects dictionary
+rediraffe_redirects = {}
+rediraffe_branch_excludes = [
+    '_build',
+    '_static',
+    '_templates',
+    '.*',     # Exclude hidden directories and files starting with '.'
+    '*/_*',   # Exclude any directories starting with '_'
+    '*/.*',   # Exclude any directories starting with '.'
+]
+
+# Automatically redirect all matching files
+rediraffe_auto_redirect_perc = 100
+
+# Define the mapping from old folders to new folders
+redirect_folders = {
+    "latest": "",  # Map from 'latest/' to the root directory
+}
+
+def is_excluded(path):
+    """Check if any part of the path starts with '_' or '.'."""
+    return any(part.startswith(('_', '.')) for part in path.parts)
+
+# Loop through the files in the new folder and create redirects
+for old_folder, new_folder in redirect_folders.items():
+    # Ensure new_folder is '.' if it's empty (root directory)
+    new_folder = new_folder or '.'
+
+    # Convert new_folder to a Path object
+    new_folder_path = Path(new_folder)
+
+    # Iterate over all .rst and .md files in the new folder
+    for newpath in new_folder_path.rglob("*"):
+        # Exclude directories and files that start with '_' or '.'
+        if is_excluded(newpath.relative_to(new_folder_path)):
+            continue
+        if newpath.is_file() and newpath.suffix in [".rst"]:
+            # Build the old path by combining the old folder and the relative path of the new file
+            oldpath = Path(old_folder) / newpath.relative_to(new_folder_path)
+            # Add the mapping to rediraffe_redirects
+            rediraffe_redirects[str(oldpath)] = str(newpath.relative_to(new_folder_path))
 
 #graphviz_output_format = 'svg'
 
@@ -137,7 +180,7 @@ numfig = True
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv", '*/_*', '*/.*',]
 
 # parse pages details from 'PAGES' file
 docs_url = ""
