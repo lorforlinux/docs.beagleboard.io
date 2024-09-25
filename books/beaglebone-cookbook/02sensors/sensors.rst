@@ -107,10 +107,8 @@ Solution
       as seen in the diagram below. This corresponds
       to the SoC naming convention. For broad compatibility, BeagleY-AI re-uses the Broadcom GPIO numbering scheme used by RaspberryPi. 
 
-      The second (and arguably easier) way we will use for this tutorial is to use the **actual pin header number** (shown in dark grey)
-
-      So, for the rest of the tutorial, if we refer to **hat-08-gpio** we mean the **8th pin of the GPIO header**. Which, if you referenced
-      the image below, can see refers to **GPIO 14 (UART TX)**
+      The second (and arguably easier) way we will use for this tutorial is to use the **actual pin header number** (shown in dark grey).  So, for the rest of the tutorial, if we refer to **hat-08-gpio** we mean the **8th pin of the GPIO header**. Which, if you referenced
+      the image below, can see refers to **GPIO14 (UART TXD)**
 
       .. _sensors_hat_headers:
 
@@ -119,6 +117,8 @@ Solution
          :alt: BeagleY-AI pinout
 
          BeagleY-AI pinout
+
+      Go to https://pinout.beagleboard.io/ to see an interactive version  of the figure.
 
 Choosing the simplest solution available enables you to move on quickly to 
 addressing other system aspects. By exploring each connection type, you can 
