@@ -330,7 +330,7 @@ Solution
       This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
 
       .. todo 
-      
+
          Update for 2023-06-03
 
       .. _basics_deb1:
@@ -443,7 +443,8 @@ Problem
 --------
 
 You've modified the state of your Bone 
-in a way that you'd like to preserve or share.
+in a way that you'd like to preserve or share.  Note, this doesn't apply to boards that
+don't have onboard flash (PocketBeagle and BeagleY-AI).
 
 Solution
 ---------
@@ -482,6 +483,8 @@ Problem
 --------
 
 You want to copy the microSD card to the onboard flash.
+Note, this doesn't apply to boards that
+don't have onboard flash (PocketBeagle and BeagleY-AI).
 
 Solution
 --------

@@ -7,6 +7,12 @@ Sensors
 .. |ohm| replace:: Ω
 .. |deg| replace:: °
 
+.. note:: 
+
+   Although the examples given here are originally for the BeagleBone Black, many will also
+   work on the other Beagles too.  See the `tabs` for details on running the examples
+   on other boards.
+
 In this chapter, you will learn how to sense the physical world with BeagleBone Black. 
 Various types of electronic sensors, such as cameras and microphones, can be connected 
 to the Bone using one or more interfaces provided by the standard USB 2.0 host port, 
@@ -19,23 +25,39 @@ as shown in :ref:`sensors_host_port`.
 
 .. _sensors_host_port:
 
-.. figure:: figures/black_hardware_details.*
-   :align: center
-   :alt: USB Host Port
+.. tab-set::
 
-   The USB 2.0 host port
+   .. tab-item:: BeagleBone Black
 
-The two 46-pin cape headers (called *P8* and *P9*) along the long 
-edges of the board (:ref:`sensors_P8P9_fig`) provide connections for 
-cape add-on boards, digital and analog sensors, and more.
+      .. figure:: figures/black_hardware_details.*
+         :align: center
+         :alt: USB Host Port
 
-.. _sensors_P8P9_fig:
+         The USB 2.0 host port
 
-.. figure:: figures/P8P9_bb.png
-   :align: center
-   :alt: Cape Headers P8 and P9
+      The two 46-pin cape headers (called *P8* and *P9*) along the long 
+      edges of the board (:ref:`sensors_P8P9_fig`) provide connections for 
+      cape add-on boards, digital and analog sensors, and more.
 
-   Cape Headers P8 and P9
+      .. _sensors_P8P9_fig:
+
+      .. figure:: figures/P8P9_bb.png
+         :align: center
+         :alt: Cape Headers P8 and P9
+
+         Cape Headers P8 and P9
+
+   .. tab-item:: BeagleY-AI
+
+      .. figure:: figures/beagleY-ai-front.png
+         :align: center
+         :alt: BeagleY-AI Front View
+
+         BeagleY-AI Front View
+
+      The 40-pin hat header along the long 
+      edge of the board provides connections for 
+      cape add-on boards, digital and analog sensors, and more.
 
 The simplest kind of sensor provides a single digital status, such as off or on, 
 and can be handled by an *input mode* of one of the Bone's 65 general-purpose input/output 
