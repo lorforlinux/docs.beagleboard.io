@@ -300,7 +300,7 @@ To see the info for just one pin, use *grep*.
   gpiochip2 - 32 lines:
   gpiochip3 - 32 lines:
 
-Or, if on the BeagleJ-AI.
+Or, if on the BeagleY-AI.
 
 .. code-block:: bash
 
@@ -338,6 +338,10 @@ and you want to read their value with the Bone.
 
 Solution
 --------
+
+.. note:: 
+
+   The BeagleY-AI doesn't have ADC's, so you can skip this section.
 
 Use the Bone's analog-to-digital converters (ADCs) and a resistor 
 divider circuit to detect the resistance in the sensor.
@@ -434,6 +438,10 @@ which outputs a voltage in proportion to the distance.
 
 Solution
 --------
+
+.. note:: 
+
+   The BeagleY-AI doesn't have ADC's, so you can skip this section.
 
 To make this recipe, you will need:
 
@@ -542,6 +550,10 @@ Accurately Reading the Position of a Motor or Dial
 
 Problem
 --------
+
+.. todo::
+
+   Update for BeagleY-AI
 
 You have a motor or dial and want to detect rotation using a rotary encoder.
 
@@ -753,28 +765,54 @@ To make this recipe, you will need:
 * Two 4.7 |kohm| resistors.
 * TMP101 temperature sensor.
 
-Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
+.. tab-set::
 
-.. _sensors_i2cTemp_fig:
+   .. tab-item:: BeagleBone
 
-.. figure:: figures/i2cTemp_bb.png
-   :align: center
-   :alt: |I2C| Temp
+      Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
 
-   Wiring an |I2C| TMP101 temperature sensor
+      .. _sensors_i2cTemp_fig:
 
-There are two |I2C| buses brought out to the headers. 
-:ref:`sensors_cape_headers_i2c` 
-shows that you have wired your device to |I2C| bus *2*.
+      .. figure:: figures/i2cTemp_bb.png
+         :align: center
+         :alt: |I2C| Temp
 
-.. _sensors_cape_headers_i2c:
+         Wiring an |I2C| TMP101 temperature sensor
 
-.. figure:: figures/cape-headers-i2c.png
-   :align: center
-   :alt: Table of |I2C| outputs
+      There are two |I2C| buses brought out to the headers. 
+      :ref:`sensors_cape_headers_i2c` 
+      shows that you have wired your device to |I2C| bus *2*.
 
-   Table of |I2C| outputs
+      .. _sensors_cape_headers_i2c:
 
+      .. figure:: figures/cape-headers-i2c.png
+         :align: center
+         :alt: Table of |I2C| outputs
+
+         Table of |I2C| outputs
+
+   .. tab-item:: BeagleY-AI
+
+      Running the following on the BeagleY-AI shows it has five i2c buses.
+
+      .. code-block:: shell-session
+
+         bone$ ls /sys/bus/i2c/devices/
+         2-0030  2-0050  2-0068  4-004c  i2c-1  i2c-2  i2c-3  i2c-4  i2c-5
+
+      But running https://pinout.beagleboard.io/ show only buses 2 and 4 are exposed on the HAT header.
+      Here we'll use bus 2 whose clock appears on `hat-03` and data on `hat-05`.
+
+      Wire your **tmp101** as shown in the table.
+
+      ======== === ======
+      Function hat tmp101
+      ======== === ======
+      Ground   09  2
+      3.3V     01  5
+      data     03  6
+      clock    05  1
+      ======== === ======
 
 Once the |I2C| device is wired up, you can use a couple handy |I2C| 
 tools to test the device. Because these are Linux command-line tools, 
@@ -785,7 +823,9 @@ the value. It returns the temperature in hexadecimal and degrees C.
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
 Try warming up the TMP101 with your finger and running *i2cget* again.
 
-.. todo:: fix deg
+.. todo:: 
+   
+   fix deg
 
 .. _js_i2cTools:
 
