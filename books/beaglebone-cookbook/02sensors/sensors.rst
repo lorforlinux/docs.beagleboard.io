@@ -1018,12 +1018,7 @@ You want to measure a temperature using a Dallas Semiconductor DS18B20 temperatu
 Solution
 ---------
 
-.. I need to double-check how we provide attribution for recipes, but we'll need to have 
-.. something more than "From" followed by a link. For now, we should at least do 
-.. something like what I've changed it to. --BS
-
-.. --may A bigger question is, when do we need attribution?  
-.. I pull bits and pieces from everywhere and try to keep good records of sources.
+.. todo::  Update for BeagleY-AI
 
 The DS18B20 is an interesting temperature sensor that uses Dallas 
 Semiconductor's 1-wire interface. The data communication requires only 
@@ -1261,7 +1256,13 @@ such as the one shown in :ref:`usb_audio_dongle`.
   A USB audio dongle
 
 Drivers for the `Advanced Linux Sound Architecture <http://bit.ly/1MrAJUR>`_ (ALSA) 
-are already installed on the Bone. You can list the recording and playing devices on 
+may already installed on the Bone. If not, run the following:
+
+.. code-block:: bash
+
+   bone$ sudo apt install alsa-utils
+
+You can list the recording and playing devices on 
 your Bone by using *aplay* and *arecord*, as shown in :ref:`sensors_alsa`. BeagleBone Black 
 has audio-out on the HDMI interface. It's listed as *card 0* in 
 :ref:`sensors_alsa`. *card 1* is my USB audio adapter's audio out.
