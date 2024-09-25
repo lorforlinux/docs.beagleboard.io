@@ -188,7 +188,6 @@ with open("PAGES") as f:
     m = re.match(
         (
             r"^PAGES_URL\s*=\s*(\S+)$\n"
-            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
             + r"^GITLAB_USER\s*=\s*(\S+)$\n"
             + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
             + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
@@ -201,16 +200,14 @@ with open("PAGES") as f:
     if not m:
         sys.stderr.write("Warning: Could not extract pages information\n")
     else:
-        url, slug, user, branch, host, repo = m.groups(1)
-        slug = "latest" if slug == "main" else slug
+        url, user, branch, host, repo = m.groups(1)
         pages_url = url
-        pages_slug = slug
         gitlab_user = user
         gitlab_version = branch
         gitlab_url = host
         gitlab_repo = repo
         gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-        docs_url = "/".join((url, slug))
+        docs_url = url
 
 # HTML 
 html_theme = 'pydata_sphinx_theme'
