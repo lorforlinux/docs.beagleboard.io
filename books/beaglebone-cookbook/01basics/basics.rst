@@ -315,44 +315,56 @@ You want to find out the latest version of Debian that is available for your Bon
 Solution
 ************
 
-On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
-This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
+.. tab-set::
 
-.. todo 
-   Update for 2023-06-03
+   .. tab-item:: bb-imager
 
-.. _basics_deb1:
+      The easiest way to see what the current images are and update your SD card
+      is to use **bb-imager**.  :ref:`beagley-ai-bb-imager` gives details on how to us it.
 
-.. figure:: figures/deb1.png
-   :align: center
-   :alt: Latest Debian images
+   .. tab-item:: forum
 
-   Latest Debian images
+      Another way to see the available images is to visit the beagleboard forum. 
 
-At the time of writing, we are using the *Bullseye* image.  
-Click on its link. Scrolling up you'll find :ref:`basics_deb2`. 
-There are three types of snapshots, Minimal, IoT and Xfce Desktop. 
-IoT is the one we are running.
+      On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
+      This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
 
-.. _basics_deb2:
+      .. todo 
+      
+         Update for 2023-06-03
 
-.. figure:: figures/deb2.png
-   :align: center
-   :alt: Latest Debian images
+      .. _basics_deb1:
 
-   Latest Debian images
+      .. figure:: figures/deb1.png
+         :align: center
+         :alt: Latest Debian images
 
-These are the images you want to use if you are flashing a Rev C BeagleBone Black 
-onboard flash, or flashing a 4 GB or bigger miscroSD card. The image beginning 
-with *am335x-debian-11.3-iot-* is used for the non-AI boards. The one beginning 
-with *am57xx-debian-* is for programming the Beagle AI's.
+         Latest Debian images
 
-.. note::
-   The onboard flash is often called the *eMMC* memory. We just call it *onboard flash*, but you'll 
-   often see *eMMC* appearing in filenames of images used to update the onboard flash.
+      At the time of writing, we are using the *Bullseye* image.  
+      Click on its link. Scrolling up you'll find :ref:`basics_deb2`. 
+      There are three types of snapshots, Minimal, IoT and Xfce Desktop. 
+      IoT is the one we are running.
 
-Click the image you want to use and it will download. 
-The images are some 500M, so it might take a while.
+      .. _basics_deb2:
+
+      .. figure:: figures/deb2.png
+         :align: center
+         :alt: Latest Debian images
+
+         Latest Debian images
+
+      These are the images you want to use if you are flashing a Rev C BeagleBone Black 
+      onboard flash, or flashing a 4 GB or bigger miscroSD card. The image beginning 
+      with *am335x-debian-11.3-iot-* is used for the non-AI boards. The one beginning 
+      with *am57xx-debian-* is for programming the Beagle AI's.
+
+      .. note::
+         The onboard flash is often called the *eMMC* memory. We just call it *onboard flash*, but you'll 
+         often see *eMMC* appearing in filenames of images used to update the onboard flash.
+
+      Click the image you want to use and it will download. 
+      The images are some 500M, so it might take a while.
 
 .. _basics_install_os:
 
