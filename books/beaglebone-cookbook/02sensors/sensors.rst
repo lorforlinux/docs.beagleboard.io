@@ -800,7 +800,7 @@ To make this recipe, you will need:
          bone$ ls /sys/bus/i2c/devices/
          2-0030  2-0050  2-0068  4-004c  i2c-1  i2c-2  i2c-3  i2c-4  i2c-5
 
-      But running https://pinout.beagleboard.io/ show only buses 2 and 4 are exposed on the HAT header.
+      But running https://pinout.beagleboard.io/ show only buses 1 and 4 are exposed on the HAT header.
       Here we'll use bus 2 whose clock appears on `hat-03` and data on `hat-05`.
 
       Wire your **tmp101** as shown in the table.
@@ -832,6 +832,9 @@ Try warming up the TMP101 with your finger and running *i2cget* again.
 |I2C| tools
 ============
 
+One way to see what devices are on a given |I2C| bus is to use `i2cdetect`.
+Here is bus 2 on the BeagleBone.
+
 .. code-block:: bash
 
   bone$ i2cdetect -y -r 2
@@ -848,6 +851,23 @@ Try warming up the TMP101 with your finger and running *i2cget* again.
   bone$ i2cget -y 2 0x49
     0x18
 
+Here is bus 1 on the BeagleY-AI.
+
+.. code-block:: bash
+
+  bone$ i2cdetect -y -r 1
+    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: -- -- -- -- -- -- -- -- -- 49 -- -- -- -- -- -- 
+    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    70: -- -- -- -- -- -- -- --
+
+  bone$ i2cget -y 1 0x49
+    0x18
 
 Reading the temperature via the kernel driver
 ==============================================
@@ -855,6 +875,10 @@ Reading the temperature via the kernel driver
 The cleanest way to read the temperature from at TMP101 sensor is to use the kernel driver.
 
 Assuming the TMP101 is on bus 2 (the last digit is the bus number)
+
+.. note:: 
+
+   Switch bus 2 to bus 1 if you are using the BeagleJ-AI.
 
 .. _js_i2cKernel:
 
@@ -882,8 +906,13 @@ Assuming the TMP101 is at address 0x49
 
 .. code-block:: bash
 
-  bone$ echo tmp101 0x49 > new_device
+   bone$ echo tmp101 0x49 > new_device
 
+.. note:: 
+
+   If this returns `new_device: Permission denied`, you will need to run the following first.
+
+      bone$ sudo chown debian:gpio *
 
 This tells the kernel you have a TMP101 sensor at address 0x49. Check the log to be sure.
 
@@ -963,8 +992,7 @@ using the kernel driver. First you need to install the i2c module.
 
 .. code-block:: bash
 
-  bone$ pip install smbus
-
+  bone$ sudo apt install python3-smbus
 
 .. _js_i2ctmp101_code:
 
