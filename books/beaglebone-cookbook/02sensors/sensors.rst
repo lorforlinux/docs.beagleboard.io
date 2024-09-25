@@ -23,11 +23,12 @@ as shown in :ref:`sensors_host_port`.
    All the examples in the book assume you have cloned the Cookbook 
    repository on git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
-.. _sensors_host_port:
 
 .. tab-set::
 
    .. tab-item:: BeagleBone Black
+
+      .. _sensors_host_port:
 
       .. figure:: figures/black_hardware_details.*
          :align: center
@@ -57,7 +58,7 @@ as shown in :ref:`sensors_host_port`.
 
       The 40-pin hat header along the long 
       edge of the board provides connections for 
-      cape add-on boards, digital and analog sensors, and more.
+      hat add-on boards, digital and analog sensors, and more.
 
 The simplest kind of sensor provides a single digital status, such as off or on, 
 and can be handled by an *input mode* of one of the Bone's 65 general-purpose input/output 
@@ -81,15 +82,43 @@ You want to acquire and attach a sensor and need to understand your basic option
 Solution
 --------
 
-:ref:`sensors_cape_headers` shows many of the possibilities for connecting a sensor.
+.. tab-set::
 
-.. _sensors_cape_headers:
+   .. tab-item:: BeagleBones
+            
+      :ref:`sensors_cape_headers` shows many of the possibilities for connecting a sensor.
 
-.. figure:: figures/cape-headers.*
-   :align: center
-   :alt: Sensor Connection Modes
-   
-   Some of the many sensor connection options on the Bone
+      .. _sensors_cape_headers:
+
+      .. figure:: figures/cape-headers.*
+         :align: center
+         :alt: Sensor Connection Modes
+         
+         Some of the many sensor connection options on the Bone.
+
+   .. tab-item:: BeagleY-AI
+
+      :ref:`sensors_hat_headers` shows many of the possibilities for connecting a sensor.
+
+      You will see pins referenced in several ways. While this is confusing at first, in reality, 
+      we can pick our favorite way and stick to it.
+
+      The two main ways of referring to GPIOs is **by their number**, so GPIO2, GPIO3, GPIO4 etc. 
+      as seen in the diagram below. This corresponds
+      to the SoC naming convention. For broad compatibility, BeagleY-AI re-uses the Broadcom GPIO numbering scheme used by RaspberryPi. 
+
+      The second (and arguably easier) way we will use for this tutorial is to use the **actual pin header number** (shown in dark grey)
+
+      So, for the rest of the tutorial, if we refer to **hat-08-gpio** we mean the **8th pin of the GPIO header**. Which, if you referenced
+      the image below, can see refers to **GPIO 14 (UART TX)**
+
+      .. _sensors_hat_headers:
+
+      .. figure:: figures/pinout.png
+         :align: center
+         :alt: BeagleY-AI pinout
+
+         BeagleY-AI pinout
 
 Choosing the simplest solution available enables you to move on quickly to 
 addressing other system aspects. By exploring each connection type, you can 
