@@ -221,6 +221,11 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
 
 The code below reads GPIO port *P9_42*, which is attached to the pushbutton. 
 
+.. note:: 
+
+   If you are using a BeagleY-AI, wire the button to **GPIO23** which is **hat-16**.  
+   This also appears at **gpiochip0** and line **7**.
+
 .. tab-set::
    .. tab-item:: Python
 
@@ -282,7 +287,9 @@ You have a sensor attached to the P8 or P9 header and need to know which gpio pi
 Solution
 ---------
 
-The *gpioinfo* command displays information about all the P8 and P9 header pins. To see the info for just one pin, use *grep*.
+The *gpioinfo* command displays information about all the P8 and P9 header pins. 
+(Or the HAT header pins if you are on the BeagleY-AI.)
+To see the info for just one pin, use *grep*.
 
 .. code-block:: bash
 
@@ -293,7 +300,17 @@ The *gpioinfo* command displays information about all the P8 and P9 header pins.
   gpiochip2 - 32 lines:
   gpiochip3 - 32 lines:
 
-This shows P9_42  is on  chip 0 and pin 7.  To find the gpio number multiply 
+Or, if on the BeagleJ-AI.
+
+.. code-block:: bash
+
+  bone$ gpioinfo | grep -e chip -e GPIO23
+  gpiochip0 - 24 lines:
+      line   7:     "GPIO23"       unused   input  active-high 
+   gpiochip1 - 87 lines:
+   gpiochip2 - 73 lines:
+
+This shows P9_42 (GPIO32) is on  chip 0 and pin 7.  To find the gpio number multiply 
 the chip number by 32 and add it to the pin number.  This gives 0*32+7=7.  
 
 For P9_26 you get:
