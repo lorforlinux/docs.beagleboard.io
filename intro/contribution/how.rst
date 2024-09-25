@@ -260,7 +260,8 @@ below shows all the fields you have to update,
     which indicates that you are seeking feedback before making your commits suitable to merge.
 
 .. figure:: images/merge-request.png
-    :align: Merge request
+    :align: center 
+    :alt: Merge request
 
     Merge request
 
