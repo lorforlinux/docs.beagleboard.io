@@ -178,13 +178,14 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 .. code-block:: bash
 
   debian@beaglebone:beaglebone-cookbook/code/02sensors$ ./pushbutton.py
-  data= 0
-  data= 0
-  data= 1
-  data= 1
+  data = 0
+  data = 0
+  data = 1
+  data = 1
   ^C
 
 This process will work for any script in this book.
+(See the following sections for instructions on how to wire the pushbutton.)
 
 .. _sensors_pushbutton:
 
