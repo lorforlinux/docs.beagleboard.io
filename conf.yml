@@ -110,7 +110,7 @@ projects:
       pdf: True
    libRobotControl:
       path: projects/librobotcontrol
-      pdf: True
+      pdf: False
    SimpPRU:
       path: projects/simppru
       pdf: True
