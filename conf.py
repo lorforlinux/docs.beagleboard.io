@@ -42,6 +42,8 @@ latex_documents = []
 pdf_paths = []
 oshw_details = []
 board_details = []
+book_details = []
+project_details = []
 
 with open('conf.yml', 'r') as conf_file:
     conf_data = yaml.safe_load(conf_file)
@@ -79,7 +81,39 @@ with open('conf.yml', 'r') as conf_file:
                             oshw_details.append([board, path, oshw_id])
                 
                 # Board basic details
-                board_details.append([board, path, page, git, forum])
+                board_details.append([name, path, page, git, forum])
+        
+        # Books
+        if(type == "books"):
+            for book, data in conf_data["books"].items():
+                name = book
+                path = data['path']
+                pdf = data.get('pdf', False)
+
+                #Books PDF build details
+                if(pdf and (name in pdf_build or pdf_build_all)):
+                    pdf_paths.append(path)
+                    tex_name = '-'.join(path.split('/')[1:])
+                    latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
+
+                # Book basic details
+                book_details.append([name, path])
+
+        # Projects
+        if(type == "projects"):
+            for book, data in conf_data["projects"].items():
+                project = book
+                path = data['path']
+                pdf = data.get('pdf', False)
+
+                #Projects PDF build details
+                if(pdf and (project in pdf_build or pdf_build_all)):
+                    pdf_paths.append(path)
+                    tex_name = '-'.join(path.split('/')[1:])
+                    latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
+
+                # Project basic details
+                project_details.append([name, path])
 
 # -- General configuration --
 
@@ -348,6 +382,8 @@ html_context = {
     "oshw_details": oshw_details,
     "pdf_paths": pdf_paths,
     "board_details": board_details,
+    "book_details": book_details,
+    "project_details": project_details,
     "announcement_message": announcement_message,
     "development_version_message": development_version_message,
     "forked_version_message": forked_version_message,
