@@ -148,7 +148,7 @@ for old_folder, new_folder in redirect_folders.items():
 notfound_template = '404.html'
 
 # Set the URLs prefix (adjust if your site is served from a subdirectory)
-notfound_urls_prefix = ''
+notfound_urls_prefix = '/docs.beagleboard.io/'
 
 # Provide additional context variables if needed
 notfound_context = {
