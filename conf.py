@@ -144,17 +144,6 @@ for old_folder, new_folder in redirect_folders.items():
             # Add the mapping to rediraffe_redirects
             rediraffe_redirects[str(oldpath)] = str(newpath.relative_to(new_folder_path))
 
-# Specify the 404 template file
-notfound_template = '404.html'
-
-# Set the URLs prefix (adjust if your site is served from a subdirectory)
-notfound_urls_prefix = '/docs.beagleboard.io/'
-
-# Provide additional context variables if needed
-notfound_context = {
-    'title': 'Page Not Found (404)',
-}
-
 #graphviz_output_format = 'svg'
 
 breathe_projects = {"librobotcontrol": "projects/librobotcontrol/docs/xml"}
@@ -193,33 +182,6 @@ numfig = True
 # This pattern also affects html_static_path and html_extra_path.
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv", '*/_*', '*/.*',]
-
-# parse pages details from 'PAGES' file
-docs_url = ""
-with open("PAGES") as f:
-    m = re.match(
-        (
-            r"^PAGES_URL\s*=\s*(\S+)$\n"
-            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
-            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
-            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
-            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
-        ),
-        f.read(),
-        re.MULTILINE,
-    )
-
-    if not m:
-        sys.stderr.write("Warning: Could not extract pages information\n")
-    else:
-        url, user, branch, host, repo = m.groups(1)
-        pages_url = url
-        gitlab_user = user
-        gitlab_version = branch
-        gitlab_url = host
-        gitlab_repo = repo
-        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-        docs_url = url
 
 # HTML 
 html_theme = 'pydata_sphinx_theme'
@@ -313,14 +275,57 @@ html_theme_options = {
     },
 }
 
-# Variables here holds default settings
-pages_url = "https://docs.beagleboard.io"
+# Variables for gitlab pages
+pages_url = ""
 pages_slug = ""
-gitlab_user = "docs"
-gitlab_version = "main"
-gitlab_url = "https://openbeagle.org"
-gitlab_repo = "docs.beagleboard.io"
-gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
+gitlab_user = ""
+gitlab_version = ""
+gitlab_url = ""
+gitlab_repo = ""
+gitlab_project = ""
+
+# parse pages details from 'PAGES' file
+docs_url = ""
+with open("PAGES") as f:
+    m = re.match(
+        (
+            r"^PAGES_URL\s*=\s*(\S+)$\n"
+            + r"^GITLAB_USER\s*=\s*(\S+)$\n"
+            + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
+            + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
+            + r"^PROJECT_REPO\s*=\s*(\S+)$\n"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write("Warning: Could not extract pages information\n")
+    else:
+        url, user, branch, host, repo = m.groups(1)
+        pages_url = url
+        gitlab_user = user
+        gitlab_version = branch
+        gitlab_url = host
+        gitlab_repo = repo
+        gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
+        docs_url = url
+
+# Specify the 404 template file
+notfound_template = '404.html'
+
+# Set the URLs prefix
+if gitlab_user == 'docs':
+    notfound_urls_prefix = '/'
+elif gitlab_repo:
+    notfound_urls_prefix =  '/' + gitlab_repo.strip('/') + '/'
+else:
+    notfound_urls_prefix = ''
+
+# Provide additional context variables if needed
+notfound_context = {
+    'title': 'Page Not Found (404)',
+}
 
 html_context = {
     "display_gitlab": True,
