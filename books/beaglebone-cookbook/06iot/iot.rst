@@ -764,7 +764,7 @@ Run this by using the following commands:
 
 .. code-block:: bash
 
-  bone$ ./weather.js
+  bone$ ./weather.py
   Getting weather
   Temp:  73.72
   Humid: 31
