@@ -316,6 +316,7 @@ To make this recipe, you will need:
 Look for a small triangle at the end of the FTDI cable (:ref:`tips_FTDIconnector_fig`). 
 It's often connected to the black wire. 
 
+
 .. _tips_FTDIconnector_fig:
 
 .. figure:: figures/FTDIconnector.jpg
@@ -323,21 +324,59 @@ It's often connected to the black wire.
    :alt: FTDI Connector
 
    FTDI connector
+         
+.. tab-set::
 
-Next, look for the FTDI pins of the Bone (labeled *J1* on the Bone), shown in 
-:ref:`tips_black_hardware_details_fig`. They are next to the P9 header 
-and begin near pin 20. There is a white dot near P9_20. 
+   .. tab-item:: BeagleBone
 
-.. _tips_black_hardware_details_fig:
 
-.. figure:: figures/FTDIPins.png
-   :align: center
-   :alt: Serial Debug Pins
+      Next, look for the FTDI pins of the Bone (labeled *J1* on the Bone), shown in 
+      :ref:`tips_black_hardware_details_fig`. They are next to the P9 header 
+      and begin near pin 20. There is a white dot near P9_20. 
 
-   FTDI pins for the FTDI connector 
+      .. _tips_black_hardware_details_fig:
 
-Plug the FTDI connector into the FTDI pins, being sure to connect 
-the ``triangle`` pin on the connector to the ``white dot`` pin of the *FTDI* connector.
+      .. figure:: figures/FTDIPins.png
+         :align: center
+         :alt: Serial Debug Pins
+
+         FTDI pins for the FTDI connector 
+
+      Plug the FTDI connector into the FTDI pins, being sure to connect 
+      the ``triangle`` pin on the connector to the ``white dot`` pin of the *FTDI* connector.
+
+   .. tab-item:: BeagleY-AI FTDI Cable
+
+      When using the BeagleY-AI, if you already have an FTDI cable,
+      all you'll need is a JST SH Compatible 1mm Pitch 3 Pin to Male Headers Cable
+      (https://www.adafruit.com/product/5755).
+
+      .. figure:: figures/jst-sh-3-pin.jpg
+         :align: center
+         :alt:    JST SH to 3 Pin Male
+
+         JST SH Compatible 1mm Pitch 3 Pin to Male Headers Cable
+      
+      Attach the JST cable to the FTDI cable as shown below.
+
+      .. figure:: figures/jst-fdti.jpg
+         :align: center
+         :alt: JST to FDTI connection
+
+         JST to FDTI connection
+
+   .. tab-item:: BeagleY-AI Debug Probe
+
+      If you don't have an FTDI cable, you can use a 
+      `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
+      or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command 
+      line utility like ``tio`` on Linux or Putty on any operating system. Check :ref:`beagley-ai-headless` for more information.
+
+      .. figure:: figures/rpi-debug-probe-connection.*
+         :align: center
+         :alt: Connecting Raspberry Pi debug probe to BeagleY-AI
+
+         Connecting Raspberry Pi debug probe to BeagleY-AI
 
 Now, run the following commands on your host computer:
 
