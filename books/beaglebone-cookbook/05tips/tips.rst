@@ -1206,6 +1206,30 @@ You want to move files between the onboard flash and the microSD card.
 Solution
 ---------
 
+First, make sure your Beagle has eMMC.  Run ``lsblk``.
+
+.. code-block:: bash
+
+   beagle:~$ lsblk
+   NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+   mmcblk1      179:0    0  3.6G  0 disk 
+   └─mmcblk1p1  179:1    0  3.6G  0 part 
+   mmcblk1boot0 179:256  0    2M  1 disk 
+   mmcblk1boot1 179:512  0    2M  1 disk 
+   mmcblk0      179:768  0  7.4G  0 disk 
+   └─mmcblk0p1  179:769  0  7.4G  0 part /
+
+If the results show ``mmcblk0`` and ``mmcblk1`` like above, you have eMMC and can do the
+rest of this recipe.  If your results are like below, you don't have eMMC.
+
+.. code-block:: bash
+
+   beagle:~$ lsblk
+   NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+   mmcblk1     179:0    0  7.5G  0 disk 
+   ├─mmcblk1p1 179:1    0  256M  0 part /boot/firmware
+   └─mmcblk1p2 179:2    0  7.3G  0 part /
+
 If you booted from the microSD card, run the following command:
 
 .. code-block:: bash
