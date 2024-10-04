@@ -37,3 +37,5 @@ sphinxcontrib-youtube==1.4.1
 tornado==6.4
 urllib3==2.1.0
 pyyaml>=3.13
+sphinxext-rediraffe>=0.2.7
+sphinx-notfound-page>=1.0.4
