@@ -7,6 +7,12 @@ Sensors
 .. |ohm| replace:: Ω
 .. |deg| replace:: °
 
+.. note:: 
+
+   Although the examples given here are originally for the BeagleBone Black, many will also
+   work on the other Beagles too.  See the `tabs` for details on running the examples
+   on other boards.
+
 In this chapter, you will learn how to sense the physical world with BeagleBone Black. 
 Various types of electronic sensors, such as cameras and microphones, can be connected 
 to the Bone using one or more interfaces provided by the standard USB 2.0 host port, 
@@ -17,25 +23,42 @@ as shown in :ref:`sensors_host_port`.
    All the examples in the book assume you have cloned the Cookbook 
    repository on git.beagleboard.org. Go here :ref:`basics_repo` for instructions.
 
-.. _sensors_host_port:
 
-.. figure:: figures/black_hardware_details.*
-   :align: center
-   :alt: USB Host Port
+.. tab-set::
 
-   The USB 2.0 host port
+   .. tab-item:: BeagleBone Black
 
-The two 46-pin cape headers (called *P8* and *P9*) along the long 
-edges of the board (:ref:`sensors_P8P9_fig`) provide connections for 
-cape add-on boards, digital and analog sensors, and more.
+      .. _sensors_host_port:
 
-.. _sensors_P8P9_fig:
+      .. figure:: figures/black_hardware_details.*
+         :align: center
+         :alt: USB Host Port
 
-.. figure:: figures/P8P9_bb.png
-   :align: center
-   :alt: Cape Headers P8 and P9
+         The USB 2.0 host port
 
-   Cape Headers P8 and P9
+      The two 46-pin cape headers (called *P8* and *P9*) along the long 
+      edges of the board (:ref:`sensors_P8P9_fig`) provide connections for 
+      cape add-on boards, digital and analog sensors, and more.
+
+      .. _sensors_P8P9_fig:
+
+      .. figure:: figures/P8P9_bb.png
+         :align: center
+         :alt: Cape Headers P8 and P9
+
+         Cape Headers P8 and P9
+
+   .. tab-item:: BeagleY-AI
+
+      .. figure:: figures/beagleY-ai-front.png
+         :align: center
+         :alt: BeagleY-AI Front View
+
+         BeagleY-AI Front View
+
+      The 40-pin hat header along the long 
+      edge of the board provides connections for 
+      hat add-on boards, digital and analog sensors, and more.
 
 The simplest kind of sensor provides a single digital status, such as off or on, 
 and can be handled by an *input mode* of one of the Bone's 65 general-purpose input/output 
@@ -59,15 +82,43 @@ You want to acquire and attach a sensor and need to understand your basic option
 Solution
 --------
 
-:ref:`sensors_cape_headers` shows many of the possibilities for connecting a sensor.
+.. tab-set::
 
-.. _sensors_cape_headers:
+   .. tab-item:: BeagleBones
+            
+      :ref:`sensors_cape_headers` shows many of the possibilities for connecting a sensor.
 
-.. figure:: figures/cape-headers.*
-   :align: center
-   :alt: Sensor Connection Modes
-   
-   Some of the many sensor connection options on the Bone
+      .. _sensors_cape_headers:
+
+      .. figure:: figures/cape-headers.*
+         :align: center
+         :alt: Sensor Connection Modes
+         
+         Some of the many sensor connection options on the Bone.
+
+   .. tab-item:: BeagleY-AI
+
+      :ref:`sensors_hat_headers` shows many of the possibilities for connecting a sensor.
+
+      You will see pins referenced in several ways. While this is confusing at first, in reality, 
+      we can pick our favorite way and stick to it.
+
+      The two main ways of referring to GPIOs is **by their number**, so GPIO2, GPIO3, GPIO4 etc. 
+      as seen in the diagram below. This corresponds
+      to the SoC naming convention. For broad compatibility, BeagleY-AI re-uses the Broadcom GPIO numbering scheme used by RaspberryPi. 
+
+      The second (and arguably easier) way we will use for this tutorial is to use the **actual pin header number** (shown in dark grey).  So, for the rest of the tutorial, if we refer to **hat-08-gpio** we mean the **8th pin of the GPIO header**. Which, if you referenced
+      the image below, can see refers to **GPIO14 (UART TXD)**
+
+      .. _sensors_hat_headers:
+
+      .. figure:: figures/pinout.png
+         :align: center
+         :alt: BeagleY-AI pinout
+
+         BeagleY-AI pinout
+
+      Go to https://pinout.beagleboard.io/ to see an interactive version  of the figure.
 
 Choosing the simplest solution available enables you to move on quickly to 
 addressing other system aspects. By exploring each connection type, you can 
@@ -127,13 +178,14 @@ By default, it takes you to your home directory. Notice that the prompt has chan
 .. code-block:: bash
 
   debian@beaglebone:beaglebone-cookbook/code/02sensors$ ./pushbutton.py
-  data= 0
-  data= 0
-  data= 1
-  data= 1
+  data = 0
+  data = 0
+  data = 1
+  data = 1
   ^C
 
 This process will work for any script in this book.
+(See the following sections for instructions on how to wire the pushbutton.)
 
 .. _sensors_pushbutton:
 
@@ -168,6 +220,11 @@ or both on the Bone, as shown in :ref:`js_pushbutton_fig`.
    Diagram for wiring a pushbutton and magnetic reed switch input
 
 The code below reads GPIO port *P9_42*, which is attached to the pushbutton. 
+
+.. note:: 
+
+   If you are using a BeagleY-AI, wire the button to **GPIO23** which is **hat-16**.  
+   This also appears at **gpiochip0** and line **7**.
 
 .. tab-set::
    .. tab-item:: Python
@@ -230,7 +287,9 @@ You have a sensor attached to the P8 or P9 header and need to know which gpio pi
 Solution
 ---------
 
-The *gpioinfo* command displays information about all the P8 and P9 header pins. To see the info for just one pin, use *grep*.
+The *gpioinfo* command displays information about all the P8 and P9 header pins. 
+(Or the HAT header pins if you are on the BeagleY-AI.)
+To see the info for just one pin, use *grep*.
 
 .. code-block:: bash
 
@@ -241,7 +300,17 @@ The *gpioinfo* command displays information about all the P8 and P9 header pins.
   gpiochip2 - 32 lines:
   gpiochip3 - 32 lines:
 
-This shows P9_42  is on  chip 0 and pin 7.  To find the gpio number multiply 
+Or, if on the BeagleY-AI.
+
+.. code-block:: bash
+
+  bone$ gpioinfo | grep -e chip -e GPIO23
+  gpiochip0 - 24 lines:
+      line   7:     "GPIO23"       unused   input  active-high 
+   gpiochip1 - 87 lines:
+   gpiochip2 - 73 lines:
+
+This shows P9_42 (GPIO32) is on  chip 0 and pin 7.  To find the gpio number multiply 
 the chip number by 32 and add it to the pin number.  This gives 0*32+7=7.  
 
 For P9_26 you get:
@@ -269,6 +338,10 @@ and you want to read their value with the Bone.
 
 Solution
 --------
+
+.. note:: 
+
+   The BeagleY-AI doesn't have ADC's, so you can skip this section.
 
 Use the Bone's analog-to-digital converters (ADCs) and a resistor 
 divider circuit to detect the resistance in the sensor.
@@ -365,6 +438,10 @@ which outputs a voltage in proportion to the distance.
 
 Solution
 --------
+
+.. note:: 
+
+   The BeagleY-AI doesn't have ADC's, so you can skip this section.
 
 To make this recipe, you will need:
 
@@ -473,6 +550,10 @@ Accurately Reading the Position of a Motor or Dial
 
 Problem
 --------
+
+.. todo::
+
+   Update for BeagleY-AI
 
 You have a motor or dial and want to detect rotation using a rotary encoder.
 
@@ -684,28 +765,54 @@ To make this recipe, you will need:
 * Two 4.7 |kohm| resistors.
 * TMP101 temperature sensor.
 
-Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
+.. tab-set::
 
-.. _sensors_i2cTemp_fig:
+   .. tab-item:: BeagleBone
 
-.. figure:: figures/i2cTemp_bb.png
-   :align: center
-   :alt: |I2C| Temp
+      Wire the TMP101, as shown in :ref:`sensors_i2cTemp_fig`.
 
-   Wiring an |I2C| TMP101 temperature sensor
+      .. _sensors_i2cTemp_fig:
 
-There are two |I2C| buses brought out to the headers. 
-:ref:`sensors_cape_headers_i2c` 
-shows that you have wired your device to |I2C| bus *2*.
+      .. figure:: figures/i2cTemp_bb.png
+         :align: center
+         :alt: |I2C| Temp
 
-.. _sensors_cape_headers_i2c:
+         Wiring an |I2C| TMP101 temperature sensor
 
-.. figure:: figures/cape-headers-i2c.png
-   :align: center
-   :alt: Table of |I2C| outputs
+      There are two |I2C| buses brought out to the headers. 
+      :ref:`sensors_cape_headers_i2c` 
+      shows that you have wired your device to |I2C| bus *2*.
 
-   Table of |I2C| outputs
+      .. _sensors_cape_headers_i2c:
 
+      .. figure:: figures/cape-headers-i2c.png
+         :align: center
+         :alt: Table of |I2C| outputs
+
+         Table of |I2C| outputs
+
+   .. tab-item:: BeagleY-AI
+
+      Running the following on the BeagleY-AI shows it has five i2c buses.
+
+      .. code-block:: shell-session
+
+         bone$ ls /sys/bus/i2c/devices/
+         2-0030  2-0050  2-0068  4-004c  i2c-1  i2c-2  i2c-3  i2c-4  i2c-5
+
+      But running https://pinout.beagleboard.io/ show only buses 1 and 4 are exposed on the HAT header.
+      Here we'll use bus 2 whose clock appears on `hat-03` and data on `hat-05`.
+
+      Wire your **tmp101** as shown in the table.
+
+      ======== === ======
+      Function hat tmp101
+      ======== === ======
+      Ground   09  2
+      3.3V     01  5
+      data     03  6
+      clock    05  1
+      ======== === ======
 
 Once the |I2C| device is wired up, you can use a couple handy |I2C| 
 tools to test the device. Because these are Linux command-line tools, 
@@ -716,12 +823,17 @@ the value. It returns the temperature in hexadecimal and degrees C.
 In this example, 0x18 = 24{deg}C, which is 75.2{deg}F. (Hmmm, the office is a bit warm today.) 
 Try warming up the TMP101 with your finger and running *i2cget* again.
 
-.. todo:: fix deg
+.. todo:: 
+   
+   fix deg
 
 .. _js_i2cTools:
 
 |I2C| tools
 ============
+
+One way to see what devices are on a given |I2C| bus is to use `i2cdetect`.
+Here is bus 2 on the BeagleBone.
 
 .. code-block:: bash
 
@@ -739,6 +851,23 @@ Try warming up the TMP101 with your finger and running *i2cget* again.
   bone$ i2cget -y 2 0x49
     0x18
 
+Here is bus 1 on the BeagleY-AI.
+
+.. code-block:: bash
+
+  bone$ i2cdetect -y -r 1
+    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: -- -- -- -- -- -- -- -- -- 49 -- -- -- -- -- -- 
+    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    70: -- -- -- -- -- -- -- --
+
+  bone$ i2cget -y 1 0x49
+    0x18
 
 Reading the temperature via the kernel driver
 ==============================================
@@ -746,6 +875,10 @@ Reading the temperature via the kernel driver
 The cleanest way to read the temperature from at TMP101 sensor is to use the kernel driver.
 
 Assuming the TMP101 is on bus 2 (the last digit is the bus number)
+
+.. note:: 
+
+   Switch bus 2 to bus 1 if you are using the BeagleY-AI.
 
 .. _js_i2cKernel:
 
@@ -773,8 +906,13 @@ Assuming the TMP101 is at address 0x49
 
 .. code-block:: bash
 
-  bone$ echo tmp101 0x49 > new_device
+   bone$ echo tmp101 0x49 > new_device
 
+.. note:: 
+
+   If this returns `new_device: Permission denied`, you will need to run the following first.
+
+      bone$ sudo chown debian:gpio *
 
 This tells the kernel you have a TMP101 sensor at address 0x49. Check the log to be sure.
 
@@ -854,8 +992,7 @@ using the kernel driver. First you need to install the i2c module.
 
 .. code-block:: bash
 
-  bone$ pip install smbus
-
+  bone$ sudo apt install python3-smbus
 
 .. _js_i2ctmp101_code:
 
@@ -881,12 +1018,7 @@ You want to measure a temperature using a Dallas Semiconductor DS18B20 temperatu
 Solution
 ---------
 
-.. I need to double-check how we provide attribution for recipes, but we'll need to have 
-.. something more than "From" followed by a link. For now, we should at least do 
-.. something like what I've changed it to. --BS
-
-.. --may A bigger question is, when do we need attribution?  
-.. I pull bits and pieces from everywhere and try to keep good records of sources.
+.. todo::  Update for BeagleY-AI
 
 The DS18B20 is an interesting temperature sensor that uses Dallas 
 Semiconductor's 1-wire interface. The data communication requires only 
@@ -1124,7 +1256,13 @@ such as the one shown in :ref:`usb_audio_dongle`.
   A USB audio dongle
 
 Drivers for the `Advanced Linux Sound Architecture <http://bit.ly/1MrAJUR>`_ (ALSA) 
-are already installed on the Bone. You can list the recording and playing devices on 
+may already installed on the Bone. If not, run the following:
+
+.. code-block:: bash
+
+   bone$ sudo apt install alsa-utils
+
+You can list the recording and playing devices on 
 your Bone by using *aplay* and *arecord*, as shown in :ref:`sensors_alsa`. BeagleBone Black 
 has audio-out on the HDMI interface. It's listed as *card 0* in 
 :ref:`sensors_alsa`. *card 1* is my USB audio adapter's audio out.
