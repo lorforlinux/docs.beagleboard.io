@@ -20,7 +20,7 @@ There are many different BeagleBoards. How do you pick which one to use?
 Solution
 ---------
 
-Checkout the crrent list of boards: :ref:`boards`
+Check out the current list of boards: :ref:`boards`
 
 .. _basics_out_of_the_box:
 
@@ -329,7 +329,7 @@ Solution
       On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
       This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
 
-      .. todo 
+      .. todo::
 
          Update for 2023-06-03
 

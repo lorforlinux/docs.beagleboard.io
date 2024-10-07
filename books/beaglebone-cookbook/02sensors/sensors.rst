@@ -878,7 +878,7 @@ Assuming the TMP101 is on bus 2 (the last digit is the bus number)
 
 .. note:: 
 
-   Switch bus 2 to bus 1 if you are using the BeagleJ-AI.
+   Switch bus 2 to bus 1 if you are using the BeagleY-AI.
 
 .. _js_i2cKernel:
 
