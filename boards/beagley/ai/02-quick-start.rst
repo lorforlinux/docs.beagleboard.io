@@ -321,7 +321,7 @@ Headless connection
 
 If you want to run your BeagleY-AI in headless mode, you need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
 or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command 
-line utility like ``tio`` on Linux of Putty on any operating system. Check :ref:`beagley-ai-uart-connection` for more information.
+line utility like ``tio`` on Linux or Putty on any operating system. Check :ref:`beagley-ai-uart-connection` for more information.
 
 .. figure:: images/uart/rpi-debug-probe-connection.*
     :align: center
