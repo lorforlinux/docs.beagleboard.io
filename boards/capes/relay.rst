@@ -6,8 +6,11 @@ BeagleBoard.org BeagleBone Relay Cape
 The Relay Cape, as the name suggests, is a simple Cape with relays on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
 
-.. image:: images/BeagleBoneRelayCapeA2-400x274.png
+.. figure:: images/BeagleBoneRelayCapeA2-400x274.png
    :align: center
+   :alt: BeagleBone Relay Cape Rev. A2
+
+   BeagleBone Relay Cape Rev. A2
 
 * `Order page <https://beagleboard.org/capes#relay>`_
 * `Schematic <https://git.beagleboard.org/beagleboard/capes/-/tree/master/beaglebone/Relay>`_
@@ -43,14 +46,14 @@ by adding the following to the U-Boot options
 Usage
 *****
 
-.. code-block::
+.. code-block:: shell-session
 
     ls /sys/class/leds
 
 The directory "relay1", for instance, exists in the following directory.
 The LEDs can be controlled by modifying the files in its directory.
 
-.. code-block::
+.. code-block:: shell-session
 
     echo 1 > relay1/brightness
 
@@ -81,7 +84,7 @@ You can name this file Relay_Test.c and use gcc to handle compiling the source i
 
 `gcc Relay_Test.c -o Relay_Test`
 
-.. code-block::
+.. code-block:: c
 
     /*
 
@@ -144,7 +147,7 @@ You can name this file Relay_Test.c and use gcc to handle compiling the source i
         return 0;
     }
 
-C Source with gpiod.h and File Descriptors
+C Source with LibGPIOd-dev and File Descriptors
 ***********************************************
 
 Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod, here is another form of
@@ -158,7 +161,7 @@ One thing to note: `sudo apt install cmake`
 
 3. add the below source into the file Relay.c
 
-.. code-block::
+.. code-block:: c
 
     /*
 

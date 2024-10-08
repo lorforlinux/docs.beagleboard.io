@@ -6,8 +6,11 @@ BeagleBoard.org BeagleBone Motor Cape
 The Motor Cape, as the name suggests, is a simple Cape with two, L298P drivers on it.
 It contains the two drivers and each can be operated independently from the BeagleBone.
 
-.. image:: images/BeagleBoneMotorCapeA2-400x281.png
+.. figure:: images/BeagleBoneMotorCapeA2-400x281.png
    :align: center
+   :alt: BeagleBone Motor Cape Rev. A2
+
+   BeagleBone Motor Cape Rev. A2 
 
 * `Order page <https://beagleboard.org/capes#motor>`_
 * `Schematic <https://git.beagleboard.org/beagleboard/capes/-/tree/master/beaglebone/Motor>`_
@@ -48,14 +51,14 @@ by adding the following to the overlay options
 Usage
 *****
 
-.. code-block::
+.. code-block:: shell-session
 
     ls /sys/class/leds/
 
 The directory "m1_high", for instance, exists in the following directory.
 The GPIOs can be controlled by modifying the files in its directory called `brightness`.
 
-.. code-block::
+.. code-block:: shell-session
 
     echo 1 > /sys/class/leds/m1_high/brightness
 
@@ -74,6 +77,8 @@ Code to Get Started
 
 * For instance, a kernel that I found to work is kernel: `6.1-Beagle`
 
+
+
 Before using the Motor Cape, some installation steps are needed:
 
 1. `sudo apt update`
@@ -83,7 +88,7 @@ Before using the Motor Cape, some installation steps are needed:
 Also, a neat shell script to have access to PWM and GPIO for utilizing the Motor Cape from the
 BBAI-64 is located below. I called it set_up_pwm.sh:
 
-.. code-block::
+.. code-block:: bash
 
     # Here is our shell script that can be run with sh set_up_pwm.sh (sudo is needed)
 
@@ -108,7 +113,7 @@ You can name this file Motor_Test.c and use gcc to handle compiling the source i
 
 `gcc Motor_Test.c -o Motor_Test`
 
-.. code-block::
+.. code-block:: c
 
     // From Sean J. Miller on element14 with my twist for the BBAI-64 and Motor Cape
     // Since its conception, the links have changed and have since been lost!
@@ -196,7 +201,7 @@ Make it suit your needs. I will call this file MotorLib.py. Then, we can use all
 in another file and have our GPIO files also work since the L298 drivers use two peripherals on the
 TDA4VM on the BBAI-64, i.e. GPIO and PWM respectively. 
 
-.. code-block::
+.. code-block:: python
 
     # This is the library called MotorLib.py for the Motor Cape
     from pathlib import Path
