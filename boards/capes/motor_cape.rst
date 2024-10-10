@@ -23,7 +23,7 @@ Installation
 ************
 
 Special configuration is required. When you plug the Motor Cape into your BeagleBone-AI64, 
-it will automatically become recognized once the overlay is placed in the file.
+it will automatically become recognized.
 
 You can check to see if the Motor Cape is recognized with the following command.
 
@@ -75,8 +75,8 @@ you can find your files in your FS on the BBAI-64 via `/dev/beagle/pwm/P*`.
 Code to Get Started
 *******************
 
-* For instance, a kernel that I found to work is kernel: `6.1-Beagle`
-
+* For instance, a kernel that I found to work is kernel: `6.1.83-ti-arm64-r64`
+* An image I found to work is: `BeagleBoard.org Debian Bookworm Xfce Image 2024-07-04`
 
 
 Before using the Motor Cape, some installation steps are needed:
