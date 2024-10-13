@@ -301,7 +301,7 @@ Now, concatenate the contents of this exported file to our gateware's HDL sourci
     Replace the ``-file`` argument in the line with ``-file $project_dir/hdl/blinky.v``.
     Finally, source the file by add a line below line no. 11 as:
 
-.. code-block:: tcl
+.. code-block:: none
 
         -hdl_source {script_support/HDL/AXI4_address_shim/AXI4_address_shim.v} \
         -hdl_source {script_support/HDL/BLINKY/blinky.v} # ⓵ Source the script below line 11
