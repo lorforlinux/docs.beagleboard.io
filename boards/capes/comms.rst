@@ -1,7 +1,7 @@
 .. _industrial-comms-cape:
 
 Beaglebone Industrial Comms Cape
-#####################
+################################
 
 For industrial communication applications. Provides an array of communication protocols including one RS485, one CAN, 
 two analog 4–20 mA current loops, and two 3A 50V interfaces allowing the control of high current loads.
@@ -24,8 +24,6 @@ Electrical Specifications
 - **CAN**: `SN65HVD230 datasheet <https://www.ti.com/product/SN65HVD230>`_
 - **2x 4-20mA current loop inputs**
 - **2x 3A 50V sinks for high-current loads**
-- **I2C EEPROM**
-
 
 Mechanical Specifications
 *************************
@@ -42,29 +40,6 @@ Mechanical Specifications
    * - RoHS Compliant
      - Yes
 
-
-EEPROM
-******
-
-.. list-table::
-   :header-rows: 1
-
-   * - Feature
-     - Specification
-   * - EEPROM Support
-     - Yes
-   * - Board Name
-     - Industrial Comms Cape
-   * - Version
-     - A2
-   * - Manufacturer
-     - BeagleBoard.org
-   * - Part Number
-     - BBORG_COMMS
-   * - Pins Used
-     - (Not specified)
-
-
 Documentation
 *************
 
@@ -78,7 +53,7 @@ Documentation
    * - System Reference Manual
      - Not yet
    * - Schematics
-     - PDF, EAGLECape
+     - PDF, EAGLE
    * - PCB Files
      - PDF, EAGLE
    * - Gerber Files
@@ -101,7 +76,7 @@ Test Code
    config-pin p9.24 can
    config-pin p9.26 can
    # and then you can use something like 
-   # https://gist.github.com/jadonk/90d3462c8569d11fa3f7caf14f4769f1,
+   # https://openbeagle.org/-/snippets/15 ,
    # but replace can0 with can1
 
    # For the 4-20mA loop, the ADC overlay should already be loaded and you can
