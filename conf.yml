@@ -92,6 +92,13 @@ boards:
       oshw: PocketBeagle_US000083.svg
 
 # Books
+books:
+   BeagleBone-Cookbook:
+      path: books/beaglebone-cookbook
+      pdf: True
+   PRU-Cookbook:
+      path: books/pru-cookbook
+      pdf: True
 
 books:
   BeagleBone Cookbook:
@@ -99,3 +106,16 @@ books:
       pdf: True
 
 # Projects
+projects:
+   BB-Config:
+      path: projects/bb-config
+      pdf: True
+   BeagleConnect:
+      path: projects/beagleconnect
+      pdf: True
+   libRobotControl:
+      path: projects/librobotcontrol
+      pdf: False
+   SimpPRU:
+      path: projects/simppru
+      pdf: True
