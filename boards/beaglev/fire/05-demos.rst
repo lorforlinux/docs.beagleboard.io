@@ -27,4 +27,4 @@ Demos
     demos-and-tutorials/gateware/gateware-design-simulation-libero
     demos-and-tutorials/gateware/comms-cape-gateware-usage
     demos-and-tutorials/gateware/axi-apb-interfaces-demo
-    demos-and-tutorials/gateware/beaglev-fire-building-linux-with-buildroot
+    demos-and-tutorials/building-linux-with-buildroot
