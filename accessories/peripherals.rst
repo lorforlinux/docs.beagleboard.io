@@ -44,7 +44,7 @@ USB HUBS
 - `Inland 4 Port <http://www.microcenter.com/product/360458/4-Port_USB_20_Hub>`_
 - `Manhattan 10-port HUB <http://www.microcenter.com/product/393316/10-Port_USB_20_Hi-Speed_Desktop_Hub>`_
 - `4-Port USB Cable HUB <http://www.microcenter.com/product/354122/4-Port_USB_20_Cable_Hub>`_
-- `D-LINK DUB-H7 <http://www.dlink.com/us/en/home-solutions/connect/usb/dub-h7-7-port-usb-2-0-hub>`_
+- `D-Link 7-Port USB 2.0 Hub DUB-H7 <https://www.dlink.com/en/products/dub-h7-7-port-usb-2-0-hub>`_
 - `Trust HU-5770 7-Port Powered Hub <http://www.amazon.co.uk/TRUST-UK-HU-5770-PORT-POWERED/dp/B000HG5Q42>`_
 
 .. tip::
