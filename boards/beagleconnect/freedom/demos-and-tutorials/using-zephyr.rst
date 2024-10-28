@@ -41,6 +41,7 @@ BeagleConnect Freedom. You can directly go on to Step 5 under :ref:`zephyr_for_b
 .. todo:: note the tested version of software for BeaglePlay
 
 .. _zephyr_for_bcf:
+
 Zephyr setup for BeagleConnect Freedom
 ========================================
 
