@@ -4,7 +4,7 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block docs_body %}
+{% block extrahead %}
 <script>
     // The redirect_folders dictionary is passed from html_context
     const redirectFolders = JSON.parse('{{ redirect_folders | tojson | safe }}');
@@ -38,7 +38,10 @@
         }
     }
 </script>
+{{ super() }}
+{% endblock %}
 
+{% block docs_body %}
 <div class="document">
     <h1>{{ title }}</h1>
     <p>Oops! The page you're looking for does not exist.</p>
