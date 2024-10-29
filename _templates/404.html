@@ -3,8 +3,6 @@
 {% block extrahead %}
 
 <script>
-    document.title = "Page Loading....";
-
     // The redirect_folders dictionary is passed from html_context
     const redirectFolders = JSON.parse('{{ redirect_folders | tojson | safe }}');
 
@@ -27,9 +25,6 @@
                     if (response.ok) {
                         // Redirect is found
                         redirectFound = true;
-
-                        // Update the document title since the redirect link is found
-                        document.title = "Page Moved!";
 
                         // Update the heading with the correct information
                         const headingElement = document.getElementById('pageHeading');
@@ -99,8 +94,7 @@
                 })
                 .catch(error => {
                     console.error("Error checking the URL:", error);
-                    // In case of an error, ensure the title is properly set
-                    document.title = "Page Not Found (404)";
+                    // In case of an error, ensure the title is properly set                
                     const headingElement = document.getElementById('pageHeading');
                     if (headingElement) {
                         headingElement.textContent = "Page Not Found (404)";
@@ -114,8 +108,7 @@
     }
 
     // If no potential redirect match is found after iteration, set title to Page Not Found
-    if (!redirectFound) {
-        document.title = "Page Not Found (404)";
+    if (!redirectFound) {    
         const headingElement = document.getElementById('pageHeading');
         if (headingElement) {
             headingElement.textContent = "Page Not Found (404)";
@@ -148,7 +141,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeRedirect"></button>
             </div>
             <div class="modal-body text-center">
-                <p>We have found the page you are looking for, redirecting in...</p>
+                <p>We have found the page you are looking for, redirecting in....</p>
                 <div class="countdown display-1 fw-bold" id="countdownNumber">5</div>
             </div>
             <div class="modal-footer">
