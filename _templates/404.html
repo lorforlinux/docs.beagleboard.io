@@ -1,12 +1,10 @@
 {% extends "pydata_sphinx_theme/layout.html" %}
 
-{% block title %}
-    Page Loading...
-{% endblock %}
-
 {% block extrahead %}
 
 <script>
+    document.title = "Page Loading...";
+
     // The redirect_folders dictionary is passed from html_context
     const redirectFolders = JSON.parse('{{ redirect_folders | tojson | safe }}');
 
