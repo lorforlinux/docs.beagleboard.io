@@ -3,7 +3,7 @@
 {% block extrahead %}
 
 <script>
-    document.title = "Page Loading...";
+    document.title = "Page Loading....";
 
     // The redirect_folders dictionary is passed from html_context
     const redirectFolders = JSON.parse('{{ redirect_folders | tojson | safe }}');
@@ -42,6 +42,8 @@
                         if (redirectMessageElement) {
                             redirectMessageElement.innerHTML = `We found the correct page you are looking for <a href="${newUrl}" id="correctPageLink">here</a>.`;
                         }
+
+                        document.getElementById('redirectInfo').style.display = "block";
 
                         // If the response is OK, show the modal and initiate the countdown
                         const redirectModal = new bootstrap.Modal(document.getElementById('redirectModal'), {
@@ -86,23 +88,13 @@
                         document.getElementById('cancelRedirect').addEventListener('click', () => {
                             countdownActive = false;
                             clearInterval(countdownInterval);
-                            document.getElementById('redirectInfo').style.display = "block";
                         });
 
                         // Event listener for "Close" button in the modal header
                         document.getElementById('closeRedirect').addEventListener('click', () => {
                             countdownActive = false;
                             clearInterval(countdownInterval);
-                            document.getElementById('redirectInfo').style.display = "block";
                         });
-                    } else if (!redirectFound) {
-                        // If no redirect was found, set the title to Page Not Found
-                        document.title = "Page Not Found (404)";
-                        const headingElement = document.getElementById('pageHeading');
-                        if (headingElement) {
-                            headingElement.textContent = "Page Not Found (404)";
-                        }
-                        document.getElementById('redirectInfo').style.display = "block";
                     }
                 })
                 .catch(error => {
@@ -138,7 +130,7 @@
 {% block docs_body %}
 
 <div class="document">
-    <h1 id="pageHeading">Page Loading...</h1> <!-- Default heading -->
+    <h1 id="pageHeading">Page Loading....</h1> <!-- Default heading -->
     <div id="redirectInfo" style="display: none;">
         <p id="redirectMessage">Oops! The page you're looking for does not exist.</p>
         <p>You can return to the <a href="{{ pathto(master_doc) }}">home page</a>.</p>
@@ -152,7 +144,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title m-0 text-dark" id="redirectModalLabel">Redirecting</h5>
+                <h5 class="modal-title m-0 text-dark" id="redirectModalLabel">Page Moved - Redirecting</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeRedirect"></button>
             </div>
             <div class="modal-body text-center">
