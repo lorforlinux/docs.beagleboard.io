@@ -21,16 +21,24 @@
             // Create a new URL by replacing "/key" with the replacement value
             let newUrl = currentUrl.replace("/" + key, replacement);
 
+            // Hide content while determining the redirection
+            document.documentElement.style.display = 'none';
+
             // Make an HTTP request to check if the new URL exists
             fetch(newUrl, { method: "HEAD" })
                 .then(response => {
                     // If the response is OK (status code in the range 200–299), redirect to the new URL
                     if (response.ok) {
                         window.location.href = newUrl;
+                    } else {
+                        // If not redirecting, make the page content visible
+                        document.documentElement.style.display = 'block';
                     }
                 })
                 .catch(error => {
                     console.error("Error checking the URL:", error);
+                    // If there was an error, make the page content visible
+                    document.documentElement.style.display = 'block';
                 });
 
             // Stop after the first successful replacement
