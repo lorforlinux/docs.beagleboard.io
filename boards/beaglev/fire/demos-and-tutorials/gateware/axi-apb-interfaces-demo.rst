@@ -114,7 +114,7 @@ Design Details
 
 Finally, an entry will be added to the device tree to make a UIO device point to our LSRAM's memory region.
 
-.. code-block:: devicetree
+.. code-block:: none
 
     &{/} {
         fabric-bus@40000000 {

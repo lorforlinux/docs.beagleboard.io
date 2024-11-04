@@ -199,7 +199,7 @@ display it as a string:
 Additionally in above text we can display our current IP Address using below script.
 You can create a new file then copy paste it and run.
 
-.. code:: shell-session
+.. code:: python
 
     from __future__ import print_function
     import qwiic_oled_display
