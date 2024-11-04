@@ -13,10 +13,16 @@ The comms cape provides an array of communication protocols including
 Cape schematics, layout, and mechanicals
 ****************************************
 
-For the schematics, layout, and mechanicals of the cape, please refer to the `Comms Cape <https://openbeagle.org/beagleboard/capes/-/tree/master/beaglebone/Comms>`_ repository.
+For the schematics, layout, and mechanicals of the cape, please refer to :ref:`industrial-comms-cape`.
 
-Usage in Linux
-**************
+Usage
+*****
+
+Firstly, the comms cape gateware must be compiled and updated on the beagleV-Fire. This can be done by using the `build-bitstream.py` script in the gateware repository with the `cape_comms.yaml` build option file.
+
+.. code-block::
+
+   python3 build-bitstream.py build-options/cape_comms.yaml
 
 CAN
 ===

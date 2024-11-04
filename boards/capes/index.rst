@@ -43,6 +43,7 @@ across the corresponding Boards without changing any code at all.
 Find the instructions below on using each cape:
 
 * :ref:`bone-cape-relay`
+* :ref:`industrial-comms-cape`
 
 .. toctree::
    :maxdepth: 2
@@ -50,4 +51,5 @@ Find the instructions below on using each cape:
 
    /boards/capes/cape-interface-spec
    /boards/capes/relay
+   /boards/capes/comms
 
