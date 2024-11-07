@@ -156,9 +156,13 @@ exposed as a mass storage device like shown in the image below:
     :align: center
     :alt: BeagleV-Fire eMMC as mass storage
 
-Once your board is exposed as a mass storage device you can use
-`Balena Etcher <https://etcher.balena.io/#download-etcher>`_ to
-flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
+Once your board is exposed as a mass storage device, you can proceed to flash the ``sdcard.img`` on 
+your BeagleV-Fire's eMMC. 
+
+This document outlines two methods to flash from your local machine to BeagleV Fire's eMMC.
+
+1. First method is to use `Balena Etcher <https://etcher.balena.io/#download-etcher>`_ software.
+This software can be used to flash image in either Windows or Linux operating system. 
 
 .. tabs::
 
@@ -190,6 +194,23 @@ flash the ``sdcard.img`` on your BeagleV-Fire's eMMC.
           :width: 740
           :align: center
           :alt: Balena Etcher flashing image
+
+
+2. Second method is suitable for flashing the image using Linux machine via the command line.
+
+.. code:: console
+
+    sudo dd if=output/images/sdcard.img of=/dev/sdX bs=1M status=progress
+
+.. note:: 
+
+    You need to replace /dev/sdX with the actual device name of your eMMC.
+    Use tools like dmesg, lsblk, or GNOME Disks before and after exposing your 
+    device as a USB to identify the correct device name.
+    Be very careful not to overwrite the wrong drive, as this action is irreversible.
+
+- Once the transfer is complete, type `CTRL+C` to disconnect your device
+- Finally boot the new Linux image by typing `boot` or reset your board
 
 Congratulations! with that done you have fully updated BeagleV-Fire board
 with up to date gateware image on it's PolarFire SoC's FPGA
