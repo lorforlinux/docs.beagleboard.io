@@ -185,4 +185,4 @@ Demos and tutorials
     demos-and-tutorials/beagleplay-kernel-development
     demos-and-tutorials/greybus-host
     demos-and-tutorials/understanding-boot
-    demos-and-tutorials/low-power-video-doorbell
+    demos-and-tutorials/using-nodered
