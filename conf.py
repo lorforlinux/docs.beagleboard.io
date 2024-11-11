@@ -390,6 +390,7 @@ html_context = {
     "unknown_version_message": unknown_version_message,
     "version_link": version_link,
     "version_link_text": version_link_text,
+    "redirect_folders": redirect_folders,
 }
 
 # -- Options for LaTeX output --
