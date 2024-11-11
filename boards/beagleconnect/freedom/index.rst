@@ -1,4 +1,4 @@
-.. _beagleconnect_freedom_home:
+.. _beagleconnect-freedom-home:
 
 BeagleConnect Freedom
 #####################
