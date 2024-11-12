@@ -80,7 +80,7 @@ Create new project
 
 Press ``CTRL+N`` to create a file and you will see a pop-up window like shown below,
 
-.. image:: ../images/FPExpress-new-project.png
+.. figure:: ../images/FPExpress-new-project.png
    :width: 598
    :align: center
    :alt: FPExpress new project creation window
