@@ -14,11 +14,11 @@ to FPGA and ``sdcard.image`` to eMMC storage.
 
 .. important::
 
-    Additional hardware required:
+   Additional hardware required:
 
-    1. FlashPro5/6 programmer
-    2. `Tag connect TC2050-IDC-NL 10-Pin No-Legs Cable with Ribbon connector <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
-    3. `TC2050-CLIP-3PACK Retaining CLIP board for TC2050-NL cables <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
+   1. FlashPro5/6 programmer
+   2. `Tag connect TC2050-IDC-NL 10-Pin No-Legs Cable with Ribbon connector <https://www.tag-connect.com/product/tc2050-idc-nl-10-pin-no-legs-cable-with-ribbon-connector>`_
+   3. `TC2050-CLIP-3PACK Retaining CLIP board for TC2050-NL cables <https://www.tag-connect.com/product/tc2050-clip-3pack-retaining-clip>`_
 
 Programming & Debug tools installation
 ***************************************
@@ -36,18 +36,18 @@ which we are going to use for this tutorial. Below are the steps to install the 
 
 .. code-block:: bash
 
-    [lorforlinux@fedora Program_Debug_v2023.1_lin] $ ./launch_installer.sh
+   [lorforlinux@fedora Program_Debug_v2023.1_lin] $ ./launch_installer.sh
 
-    No additional packages to install for installer usage
+   No additional packages to install for installer usage
 
-    Requirement search complete.
+   Requirement search complete.
 
-    See /tmp/check_req_installer608695.log for information.
+   See /tmp/check_req_installer608695.log for information.
 
-    Launch of installer
-    Preparing to install
-    Extracting the JRE from the installer archive...
-    Unpacking the JRE...
+   Launch of installer
+   Preparing to install
+   Extracting the JRE from the installer archive...
+   Unpacking the JRE...
 
 .. note:: It's recommended to install under `home/user/microchip` for linux users.
 
@@ -75,14 +75,17 @@ Create new project
 ===================
 
 .. important::
-    Make sure you have your FlashPro5/6 connected before you create a new project.
+   
+   Make sure you have your FlashPro5/6 connected before you create a new project.
 
 Press ``CTRL+N`` to create a file and you will see a pop-up window like shown below,
 
 .. image:: ../images/FPExpress-new-project.png
-    :width: 598
-    :align: center
-    :alt: FPExpress new project creation window
+   :width: 598
+   :align: center
+   :alt: FPExpress new project creation window
+
+   FPExpress new project creation window
 
 Follow the steps below as annotated in the image above:
 
@@ -93,9 +96,11 @@ Follow the steps below as annotated in the image above:
 If your FlashPro5/6 is connected properly you'll see the window shown below:
 
 .. figure:: ../images/FPExpress-flashing.png
-    :width: 1240
-    :align: center
-    :alt: FPExpress new project flash window
+   :width: 1240
+   :align: center
+   :alt: FPExpress new project flash window
+
+   FPExpress new project flash window
 
 Following the annotation in the image above:
 
@@ -113,9 +118,11 @@ Flashing eMMC
 Connect to BeagleV-Fire UART debug port using a 3.3v USB to UART bridge.
 
 .. figure:: ../images/debug/BeagleV-Fire-UART-Debug.*
-    :width: 1240
-    :align: center
-    :alt: UART debug connection
+   :width: 1240
+   :align: center
+   :alt: UART debug connection
+
+   UART debug connection
 
 Now you can run ``tio <port>`` in a terminal window to access
 the UART debug port connection. Once you are connected properly you can
@@ -123,9 +130,11 @@ press the Reset button which will show you a progress bar like
 in the
 
 .. figure:: ../images/board-booting.png
-    :width: 740
-    :align: center
-    :alt: BeagleV-Fire booting HSS with progress bar
+   :width: 740
+   :align: center
+   :alt: BeagleV-Fire booting HSS with progress bar
+
+   BeagleV-Fire booting HSS with progress bar
 
 Once you see that progress bar on your screen you can start pressing any
 button (0-9/a-z) which will stop the board from fully booting and you'll be
@@ -134,9 +143,11 @@ written by the Hart Software Services (HSS) using the ``usbdmsc`` command. The
 HSS ``usbdmsc`` command exposes the eMMC as a USB mass storage device USB type C connector.
 
 .. figure:: ../images/boot-message.png
-    :width: 1240
-    :align: center
-    :alt: BeagleV-Fire boot messages with HSS prompt access
+   :width: 1240
+   :align: center
+   :alt: BeagleV-Fire boot messages with HSS prompt access
+
+   BeagleV-Fire boot messages with HSS prompt access
 
 Once you see ``>>`` you can execute the commands below:
 
@@ -144,73 +155,82 @@ Once you see ``>>`` you can execute the commands below:
 2. ``>> usbdmsc``
 
 .. figure:: ../images/HSS-eMMC-mass-storage.png
-    :width: 1240
-    :align: center
-    :alt: HSS commands to show eMMC as mass storage
+   :width: 1240
+   :align: center
+   :alt: HSS commands to show eMMC as mass storage
+
+   HSS commands to show eMMC as mass storage
 
 After executing the commands above your BeagleV-Fire's eMMC will be
 exposed as a mass storage device like shown in the image below:
 
 .. figure:: ../images/mass-storage-eMMC.png
-    :width: 740
-    :align: center
-    :alt: BeagleV-Fire eMMC as mass storage
+   :width: 740
+   :align: center
+   :alt: BeagleV-Fire eMMC as mass storage
 
-Once your board is exposed as a mass storage device, you can proceed to flash the ``sdcard.img`` on 
-your BeagleV-Fire's eMMC. 
+   BeagleV-Fire eMMC as mass storage
+
+Once your board is exposed as a mass storage device, you can proceed to flash the ``sdcard.img`` on
+your BeagleV-Fire's eMMC.
 
 This document outlines two methods to flash from your local machine to BeagleV Fire's eMMC.
 
 1. First method is to use `Balena Etcher <https://etcher.balena.io/#download-etcher>`_ software.
-This software can be used to flash image in either Windows or Linux operating system. 
+This software can be used to flash image in either Windows or Linux operating system.
 
 .. tab-set::
 
-    .. tab-item:: Select image
-
-        1. Select the ``sdcard.img`` file from your local drive storage.
-        2. Click on select target.
+   .. tab-item:: Select image
+      
+      1. Select the ``sdcard.img`` file from your local drive storage.
+      2. Click on select target.
 
       .. figure:: ../images/eMMC-flashing-1.png
-          :width: 740
-          :align: center
-          :alt: Balena Etcher selecting image
+         :width: 740
+         :align: center
+         :alt: Balena Etcher selecting image
 
-    .. tab-item:: Select Target
+         Balena Etcher selecting image
 
-        1. Select ``MCC PolarFireSoC_msd`` as target.
-        2. Click ``Select(1)`` to proceed.
+   .. tab-item:: Select Target
+
+      1. Select ``MCC PolarFireSoC_msd`` as target.
+      2. Click ``Select(1)`` to proceed.
 
       .. figure:: ../images/eMMC-flashing-2.png
-          :width: 740
-          :align: center
-          :alt: Balena Etcher selecting target
+         :width: 740
+         :align: center
+         :alt: Balena Etcher selecting target
 
-    .. tab-item:: Flash image
+         Balena Etcher selecting target
 
-        1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV-Fire eMMC storage.
+   .. tab-item:: Flash image
+
+      1. Click on ``Flash!`` to flash the ``sdcard.img`` on BeagleV-Fire eMMC storage.
 
       .. figure:: ../images/eMMC-flashing-3.png
-          :width: 740
-          :align: center
-          :alt: Balena Etcher flashing image
+         :width: 740
+         :align: center
+         :alt: Balena Etcher flashing image
 
+         Balena Etcher flashing image
 
 2. Second method is suitable for flashing the image using Linux machine via the command line.
 
 .. code:: console
 
-    sudo dd if=output/images/sdcard.img of=/dev/sdX bs=1M status=progress
+   sudo dd if=output/images/sdcard.img of=/dev/sdX bs=1M status=progress
 
-.. note:: 
+.. note::
 
-    You need to replace /dev/sdX with the actual device name of your eMMC.
-    Use tools like dmesg, lsblk, or GNOME Disks before and after exposing your 
-    device as a USB to identify the correct device name.
-    Be very careful not to overwrite the wrong drive, as this action is irreversible.
+   You need to replace /dev/sdX with the actual device name of your eMMC.
+   Use tools like dmesg, lsblk, or GNOME Disks before and after exposing your
+   device as a USB to identify the correct device name.
+   Be very careful not to overwrite the wrong drive, as this action is irreversible.
 
-- Once the transfer is complete, type `CTRL+C` to disconnect your device
-- Finally boot the new Linux image by typing `boot` or reset your board
+- Once the transfer is complete, type ``CTRL+C`` to disconnect your device
+- Finally boot the new Linux image by typing ``boot`` or reset your board
 
 Congratulations! with that done you have fully updated BeagleV-Fire board
 with up to date gateware image on it's PolarFire SoC's FPGA
