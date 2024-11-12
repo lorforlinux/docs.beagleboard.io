@@ -14,10 +14,13 @@ Instructions for installing the Microchip FPGA tools on a Ubuntu 20.04 or Ubuntu
 
    Make sure people know about the alternative and we provide links to details on that before we send them down this process.
 
-Create a folder named Microchip in your /home folder
 
-Install Libero 2023.2, 2024.1 or 2024.2 into this folder, using 2024.2 as an example
-************************
+Install Libero 
+**************
+
+.. note:: Libero 2023.2, 2024.1 or 2024.2 should work. 2024.2 is used as an example.
+
+Create a folder named Microchip in your /home folder
 
 - Download installer from the `Microchip's fpga and soc design tools section <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions>`_.
 - Install Libero
@@ -125,11 +128,11 @@ Execute tool setup script
 
 Download the script:
 
-.. literalinclude:: setup-microchip-tools.sh
+.. literalinclude:: ./setup-microchip-tools.sh
     :caption: Libero environment and license setup script
     :language: bash
 
-:download:`setup-microchip-tools.sh <setup-microchip-tools.sh>`
+:download:`setup-microchip-tools.sh <./setup-microchip-tools.sh>`
 
 Details:
 
