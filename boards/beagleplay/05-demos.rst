@@ -65,6 +65,18 @@ Demos and tutorials
             
             beginner
 
+   .. card::
+       :link: beagleplay-nodered
+       :link-type: ref
+
+       **Using NodeRed**
+       ^^^
+       Learn how to use NodeRed with BeaglePlay for rapid and easy prototyping.
+       +++
+       .. admonition:: Complexity level
+
+           beginner
+
     .. card:: 
         :link: beagleplay-rtc
         :link-type: ref
@@ -173,4 +185,4 @@ Demos and tutorials
     demos-and-tutorials/beagleplay-kernel-development
     demos-and-tutorials/greybus-host
     demos-and-tutorials/understanding-boot
-    demos-and-tutorials/low-power-video-doorbell
+    demos-and-tutorials/using-nodered
