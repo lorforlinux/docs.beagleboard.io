@@ -153,7 +153,7 @@ Solution
 However, the Bone has Secure Shell (SSH) enabled right out of the box, so you can easily 
 connect by using the following command to log in as user *debian*, (note the *$* at the end of the prompt):
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ ssh debian@192.168.7.2
    Warning: Permanently added '192.168.7.2' (ED25519) to the list of known hosts.
@@ -180,7 +180,7 @@ Default password
 
 *debian* has the default password *temppwd*. It's best to change the password:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ password
    Changing password for debian.
@@ -203,7 +203,7 @@ Solution
 The contents of the files `/etc/motd`, `/etc/issue` and `/etc/issue.net` are displayed 
 everytime you long it.  You can prevent them from being displayed by moving them elsewhere.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo mv /etc/motd /etc/motd.orig
    bone$ sudo mv /etc/issue /etc/issue.orig
@@ -234,7 +234,7 @@ shows a way that works even if you don't have a network working over USB, but it
 
 First, check to ensure that the serial port is there. On the host computer, run the following command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ ls -ls /dev/ttyACM0
    0 crw-rw---- 1 root dialout 166, 0 Jun 19 11:47 /dev/ttyACM0
@@ -244,14 +244,14 @@ First, check to ensure that the serial port is there. On the host computer, run 
 The letters *crw-rw----* show that you can't access it as a normal user. However, you can 
 access it if you are part of *dialout* group. See if you are in the *dialout* group:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ groups
    yoder adm tty uucp dialout cdrom sudo dip plugdev lpadmin sambashare
 
 Looks like I'm already in the group, but if you aren't, just add yourself to the group:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ sudo adduser $USER dialout
 
@@ -259,7 +259,7 @@ Looks like I'm already in the group, but if you aren't, just add yourself to the
 You have to run *adduser* only once. Your host computer will remember the next 
 time you boot up. Now, install and run the *screen* command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ sudo apt install screen
    host$ screen /dev/ttyACM0 115200
@@ -316,6 +316,7 @@ To make this recipe, you will need:
 Look for a small triangle at the end of the FTDI cable (:ref:`tips_FTDIconnector_fig`). 
 It's often connected to the black wire. 
 
+
 .. _tips_FTDIconnector_fig:
 
 .. figure:: figures/FTDIconnector.jpg
@@ -323,25 +324,63 @@ It's often connected to the black wire.
    :alt: FTDI Connector
 
    FTDI connector
+         
+.. tab-set::
 
-Next, look for the FTDI pins of the Bone (labeled *J1* on the Bone), shown in 
-:ref:`tips_black_hardware_details_fig`. They are next to the P9 header 
-and begin near pin 20. There is a white dot near P9_20. 
+   .. tab-item:: BeagleBone
 
-.. _tips_black_hardware_details_fig:
 
-.. figure:: figures/FTDIPins.png
-   :align: center
-   :alt: Serial Debug Pins
+      Next, look for the FTDI pins of the Bone (labeled *J1* on the Bone), shown in 
+      :ref:`tips_black_hardware_details_fig`. They are next to the P9 header 
+      and begin near pin 20. There is a white dot near P9_20. 
 
-   FTDI pins for the FTDI connector 
+      .. _tips_black_hardware_details_fig:
 
-Plug the FTDI connector into the FTDI pins, being sure to connect 
-the ``triangle`` pin on the connector to the ``white dot`` pin of the *FTDI* connector.
+      .. figure:: figures/FTDIPins.png
+         :align: center
+         :alt: Serial Debug Pins
+
+         FTDI pins for the FTDI connector 
+
+      Plug the FTDI connector into the FTDI pins, being sure to connect 
+      the ``triangle`` pin on the connector to the ``white dot`` pin of the *FTDI* connector.
+
+   .. tab-item:: BeagleY-AI FTDI Cable
+
+      When using the BeagleY-AI, if you already have an FTDI cable,
+      all you'll need is a JST SH Compatible 1mm Pitch 3 Pin to Male Headers Cable
+      (https://www.adafruit.com/product/5755).
+
+      .. figure:: figures/jst-sh-3-pin.jpg
+         :align: center
+         :alt:    JST SH to 3 Pin Male
+
+         JST SH Compatible 1mm Pitch 3 Pin to Male Headers Cable
+      
+      Attach the JST cable to the FTDI cable as shown below.
+
+      .. figure:: figures/jst-fdti.jpg
+         :align: center
+         :alt: JST to FDTI connection
+
+         JST to FDTI connection
+
+   .. tab-item:: BeagleY-AI Debug Probe
+
+      If you don't have an FTDI cable, you can use a 
+      `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
+      or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command 
+      line utility like ``tio`` on Linux or Putty on any operating system. Check :ref:`beagley-ai-headless` for more information.
+
+      .. figure:: figures/rpi-debug-probe-connection.*
+         :align: center
+         :alt: Connecting Raspberry Pi debug probe to BeagleY-AI
+
+         Connecting Raspberry Pi debug probe to BeagleY-AI
 
 Now, run the following commands on your host computer:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ ls -ls /dev/ttyUSB0
    0 crw-rw---- 1 root dialout 188, 0 Jun 19 12:43 /dev/ttyUSB0
@@ -374,7 +413,7 @@ Solution
 
 Log in to your Bone and enter the following command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ cat /etc/dogtag
    BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
@@ -399,7 +438,7 @@ Install and run a Virtual Network Computing (VNC) server:
 .. todo  
    Check this with desktop installed
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt update
    bone$ sudo apt install tightvncserver
@@ -473,7 +512,7 @@ Click Connect to start graphical access to your Bone, as shown in :ref:`tips_vnc
 .. todo  
    This isn't working as of 8-June-2023
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ bone$ sudo apt install bbb.io-xfce4-desktop
    bone$ sdo cp /etc/bbb.io/templates/fbdev.xorg.conf /etc/X11/xorg.conf
@@ -585,7 +624,7 @@ Solution
 The Bone comes with a number of editors. The simplest to learn is *nano*. 
 Just enter the following command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ nano file
 
@@ -642,7 +681,7 @@ it will automatically assign an IP address to the Bone.
 
 To find the IP address, open a terminal window and run the *ip* command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ ip a
    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -748,7 +787,7 @@ First, plug in the WiFi adapter and the 5 V external power supply and reboot.
 
 Then run *lsusb* to ensure that your Bone found the adapter:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ lsusb
    Bus 001 Device 002: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n 
@@ -768,7 +807,7 @@ Then run *lsusb* to ensure that your Bone found the adapter:
 Next, run *networkctl* to find your adapter's name. Mine is 
 called *wlan0*, but you might see other names, such as *ra0*.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ networkctl
    IDX LINK    TYPE     OPERATIONAL SETUP
@@ -786,7 +825,7 @@ called *wlan0*, but you might see other names, such as *ra0*.
 
 If no name appears, try *ip a*:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ ip a
    ...
@@ -809,7 +848,7 @@ If no name appears, try *ip a*:
 
    Next edit the configuration file */etc/wpa_supplicant/wpa_supplicant-wlan0.conf*.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
@@ -830,7 +869,7 @@ In the file you'll see:
 
 Change the *ssid* and *psk* entries for your network. Save your file, then run:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo systemctl restart systemd-networkd
    bone$  ip a
@@ -888,7 +927,7 @@ file called ``ipMasquerade.sh`` on your host computer.
 
 Then, on your host, run the following commands:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ chmod +x ipMasquerade.sh
    host$ ./ipMasquerade.sh eth0
@@ -911,7 +950,7 @@ in :ref:`tips_setDNS` to ``setDNS.sh`` on your host computer.
 
 Then, on your host, run the following commands:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ chmod +x setDNS.sh
    host$ ./setDNS.sh
@@ -940,7 +979,7 @@ Web servers typically listen to port *80*. First, look up the IP address of your
 .. todo::
    switch to ip address
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ ip a
    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -967,7 +1006,7 @@ Then run the following, using your host's IP address:
 .. todo:: 
    check this iptables, convert to ufw
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ sudo iptables -t nat -A PREROUTING -p tcp -s 0/0 \
         -d 172.31.43.210 --dport 1080 -j DNAT --to 192.168.7.2:80
@@ -997,7 +1036,7 @@ I'll summarize the initial setup here.
 
 First install and check the status:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt update
    bone$ sudo apt install ufw
@@ -1007,7 +1046,7 @@ First install and check the status:
 Now turn off everything coming in and leave on all outgoing. 
 Note, this won't take effect until *ufw* is enabled.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo ufw default deny incoming
    bone$ sudo ufw default allow outgoing
@@ -1015,14 +1054,14 @@ Note, this won't take effect until *ufw* is enabled.
 
 Don't enable yet, make sure *ssh* still has access
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo ufw allow 22
 
 
 Just to be sure, you can install *nmap* on your host computer to see what ports are currently open.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    host$ sudo apt update
    host$ sudo apt install nmap
@@ -1041,7 +1080,7 @@ Just to be sure, you can install *nmap* on your host computer to see what ports 
 Currently there are three ports visible:  22, 80 and 3000 (visual studio code). 
 Now turn on the firewall and see what happens.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo ufw enable
    Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
@@ -1062,7 +1101,7 @@ Only port 22 (ssh) is accessible now.
 
 The firewall will remain on, even after a reboot. Disable it now if you don't want it on.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo ufw disable
    Firewall stopped and disabled on system startup
@@ -1089,7 +1128,7 @@ Solution
 
 The easiest way to install more software is to use **apt**:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt update
    bone$ sudo apt install "name of software"
@@ -1102,7 +1141,7 @@ The second command fetches the software and installs it and all packages it depe
 
 How do you find out what software you can install?  Try running this:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ apt-cache pkgnames | sort > /tmp/list
    bone$ wc /tmp/list
@@ -1118,7 +1157,7 @@ list, one page at a time. Press the space bar to go to the next page. Press **q*
 
 Suppose that you would like to install an online dictionary (*dict*). Just run the following command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt install dict
 
@@ -1141,7 +1180,7 @@ Solution
 
 *apt* has a *remove* option, so you can run the following command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt remove dict
    Reading package lists... Done
@@ -1167,9 +1206,33 @@ You want to move files between the onboard flash and the microSD card.
 Solution
 ---------
 
+First, make sure your Beagle has eMMC.  Run ``lsblk``.
+
+.. code-block:: shell-session
+
+   beagle:~$ lsblk
+   NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+   mmcblk1      179:0    0  3.6G  0 disk 
+   └─mmcblk1p1  179:1    0  3.6G  0 part 
+   mmcblk1boot0 179:256  0    2M  1 disk 
+   mmcblk1boot1 179:512  0    2M  1 disk 
+   mmcblk0      179:768  0  7.4G  0 disk 
+   └─mmcblk0p1  179:769  0  7.4G  0 part /
+
+If the results show ``mmcblk0`` and ``mmcblk1`` like above, you have eMMC and can do the
+rest of this recipe.  If your results are like below, you don't have eMMC.
+
+.. code-block:: shell-session
+
+   beagle:~$ lsblk
+   NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+   mmcblk1     179:0    0  7.5G  0 disk 
+   ├─mmcblk1p1 179:1    0  256M  0 part /boot/firmware
+   └─mmcblk1p2 179:2    0  7.3G  0 part /
+
 If you booted from the microSD card, run the following command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ df -h
    Filesystem      Size  Used Avail Use% Mounted on
@@ -1198,7 +1261,7 @@ The *ls* command shows what devices are available to mount. Because *mmcblk0* is
 .. todo:: 
    update
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ cd /mnt
    bone$ sudo mkdir onboard
@@ -1219,7 +1282,7 @@ These are the contents of the onboard flash, which can be copied to and from lik
 This same process should also work if you have booted from the onboard flash. When you are done 
 with the onboard flash, you can unmount it by using this command:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo umount /mnt/onboard
 
@@ -1253,7 +1316,7 @@ things as OpenCV, the Chromium web browser, and some documentation.
 
 Here's how you can remove these:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt remove bb-node-red-installer (171M)
    bone$ sudo apt autoremove
@@ -1266,7 +1329,7 @@ Discovering big files
 
 The *du* (disk usage) command offers a quick way to discover big files:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo du -shx /*
    12M	/bin
@@ -1309,7 +1372,7 @@ of things disappeared while the command was running and thus produced some error
 The ``/var`` directory appears to be the biggest user of space at 1.9 GB. You can then run the 
 following command to see what's taking up the space in ``/var``:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo du -sh /var/*
    4.0K	/var/backups
@@ -1329,7 +1392,7 @@ following command to see what's taking up the space in ``/var``:
 
 A more interactive way to explore your disk usage is by installing *ncdu* (ncurses disk usage):
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ sudo apt install ncdu
    bone$ ncdu /
@@ -1337,7 +1400,7 @@ A more interactive way to explore your disk usage is by installing *ncdu* (ncurs
 
 After a moment, you'll see the following:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    ncdu 1.15.1 ~ Use the arrow keys to navigate, press ? for help          
    --- / ------------------------------------------------------------------
@@ -1409,7 +1472,7 @@ For this example P9_14 is used, which the table shows in gpio 50.
 
 Compile and run the code:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    bone$ gcc -o blinkLED blinkLED.c 
    bone$ ./blinkLED

@@ -91,9 +91,9 @@ hey are saved in **/boot**
 
 Here I have two kernel versions installed. 
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Bone
+    .. tab-item:: Bone
 
         On the Bone (Not the Play) the file **uEnv.txt** tells which 
         kernel to use on the next reboot. Here are the first few lines:
@@ -110,7 +110,7 @@ Here I have two kernel versions installed.
 
         Lines 3-5 list the various kernels, and the uncommented one on line 4 is the one that will be used next time. You will have to add your own uname's. Get the names from the files in /boot. Be careful, if you mistype the name your Bone won't boot.
 
-    .. group-tab:: Play
+    .. tab-item:: Play
 
         On the Play you can see which version of the kernel will boot
         next by:
@@ -425,15 +425,15 @@ Solution
 
 Run the following:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: 32-bit
+    .. tab-item:: 32-bit
 
         .. code-block:: bash
 
             host$ sudo apt install gcc-arm-linux-gnueabihf
 
-    .. group-tab:: 64-bit
+    .. tab-item:: 64-bit
 
         .. code-block:: bash
 

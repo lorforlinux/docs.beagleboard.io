@@ -109,7 +109,7 @@ Let's create a simple script to get the two times, we'll call it ``getTime.sh``,
 
    nano getTime.sh
 
-copy paste the below code in that file,
+copy and paste the below code in that file,
 
 .. code:: shell
 

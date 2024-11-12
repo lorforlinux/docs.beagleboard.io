@@ -83,17 +83,11 @@ Wire up your servo, as shown in :ref:`motors_servoMotor`.
     Driving a servo motor with the 3.3 V power supply
 
 The code for controlling the servo motor is in ``servoMotor.py``, shown 
-in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
+in :ref:`py_servoMotor_code`. 
 
-.. code-block:: bash
+.. tab-set::
 
-    bone$ cd ~/beaglebone-cookbook-code/04motors
-    bone$ config-pin P9_16 pwm
-    bone$ ./servoMotor.py
-
-.. tabs::
-
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_servoMotor_code:
 
@@ -104,7 +98,7 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
 
         :download:`servoMotor.py <../code/04motors/servoMotor.py>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _motors_servoMotor_code:
 
@@ -115,6 +109,85 @@ in :ref:`py_servoMotor_code`. You need to configure the pin for PWM.
 
         :download:`servoMotor.js <../code/04motors/servoMotor.js>`
 
+You need to configure the pin for PWM.
+
+.. tab-set::
+
+    .. tab-item:: BeagleBone
+
+        .. code-block:: bash
+
+            bone$ cd ~/beaglebone-cookbook-code/04motors
+            bone$ config-pin P9_16 pwm
+            bone$ ./servoMotor.py
+    
+    .. tab-item:: BeagleY-AI
+
+        Configuring the PWM on the BeagleY-AI takes a little more effort than on the Bone.
+        First select which PWM you want to use. https://pinout.beagleboard.io/pinout/pwm
+        shows you have many to choose from. 
+
+        .. figure:: figures/pwm.png
+            :align: center
+            :alt: BeagleY-AI PWMs
+
+            BeagleY-AI PWMs
+
+        Let's use **PWM0** on **GPIO12**.  Note this is Hat pin 32 as shown in the figure (**hat-32**).
+        The instructions at :ref:`beagley-ai-using-pwm` give details on how to configure the PWM pin. A shorter version is given here.
+
+        To enable any of the PWM Pins, we have to modify the file: ``/boot/firmware/extlinux/extlinux.conf``. We can check the available list of Device Tree Overlays using the command:
+
+        .. code:: console
+
+            debian@BeagleBone:~$ ls /boot/firmware/overlays/ | grep "beagley-ai-pwm"
+            k3-am67a-beagley-ai-pwm-ecap0-gpio12.dtbo
+            k3-am67a-beagley-ai-pwm-ecap1-gpio16.dtbo
+            k3-am67a-beagley-ai-pwm-ecap1-gpio21.dtbo
+            ...
+
+        Add the line shown below to ``/boot/firmware/extlinux/extlinux.conf`` to load the gpio12 pwm device tree overlay:
+
+        .. code:: bash
+
+            fdtoverlays /overlays/k3-am67a-beagley-ai-pwm-epwm0-ecap0-gpio12.dtbo
+
+        Your ``/boot/firmware/extlinux/extlinux.conf`` file should look something like:
+
+        .. code:: bash
+
+            label microSD (default)
+                kernel /Image
+                append console=ttyS2,115200n8 root=/dev/mmcblk1p3 ro rootfstype=ext4 resume=/dev/mmcblk1p2 rootwait net.ifnames=0 quiet
+                fdtdir /
+                fdt /ti/k3-am67a-beagley-ai.dtb
+                fdtoverlays /overlays/k3-am67a-beagley-ai-pwm-ecap0-gpio12.dtbo
+                initrd /initrd.img
+
+        Now reboot you BeagleY-AI to load the overlay:
+
+        .. code:: console
+
+            beagle$ sudo reboot
+
+        To configure HAT pin32 (GPIO12) PWM symlink pin using ``beagle-pwm-export`` execute the command below,
+
+        .. code:: console
+
+            beagle$ sudo beagle-pwm-export --pin hat-32
+
+        We've changed the PWM pin that's being used so we need to modfiy ``servoMotor.py``.  
+        Around line 16 you will see:
+
+            PWMPATH='/dev/bone/pwm/'+pwm+'/'+channel
+
+        Change it to:
+
+            PWMPATH='/dev/hat/pwm/GPIO12'
+
+        Now run your code:
+
+            beagle$ ./servoMotor.py
 
 Running the code causes the motor to move back and forth, progressing to successive  
 positions between the two extremes.  You will need to press ^C (Ctrl-C) to stop the script.
@@ -195,9 +268,9 @@ Wire your breadboard as shown in :ref:`motors_dcMotor_fig`.
 
 Use the code in :ref:`py_dcMotor_code` to run the motor.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Python
+    .. tab-item:: Python
 
         .. _py_dcMotor_code:
 
@@ -208,7 +281,7 @@ Use the code in :ref:`py_dcMotor_code` to run the motor.
 
         :download:`dcMotor.py <../code/04motors/dcMotor.py>`
 
-    .. group-tab:: JavaScript
+    .. tab-item:: JavaScript
 
         .. _motors_dcMotor_code:
 

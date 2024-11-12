@@ -13,7 +13,7 @@ BeagleConnect Freedom
 Here are some notes on how to setup and use the Connect.
 
 First get the flasher image from:
-https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image
+https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image 
 
 Flash the eMMC (which also loads the cc1352 with 
 the correct firmware)
@@ -165,8 +165,8 @@ First edit `/etc/hosts` and add a couple of lines.
 
     host$ sudo nano /etc/hosts
 
-You may use whatever editor you want. I suggest nano since it's easy to figure 
-out. Add the following to the end of `/etc/hosts` and quit the editor.
+You may use whatever editor you want. I suggest ``nano`` since it's easy to figure 
+out. Add the following to the end of ``/etc/hosts`` and quit the editor.
 
     192.168.7.2     bone
 
@@ -175,7 +175,7 @@ Now you can connect with
     host$ ssh debian@bone
 
 Let's make it so you don't have to enter `debian`. On your host computer, 
-put the following in `~/.ssh/config` (Note: ~ is a shortcut for your home directory.)
+put the following in ``~/.ssh/config`` (Note: ~ is a shortcut for your home directory.)
 
 .. code-block:: 
 
@@ -218,10 +218,12 @@ By default the image we are running doesn't allow a root login.
 You can always sudo from debian, but sometimes it's nice to login as root. 
 Here's how to setup root so you can login from your host without a password.
 
-.. code-block:: bash
-
+.. code-block:: shell-session
+    
     host$ ssh bone
+
     bone$ sudo -i
+    
     root@bone# nano /etc/ssh/sshd_config
 
 Search for the line
@@ -240,32 +242,32 @@ and change it to
 
 Save the file and quit the editor. Restart ssh so it will reread the file.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     root@bone# systemctl restart sshd
 
 And assign a password to root.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     root@bone# passwd
 
 Now open another window on your host computer and enter:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh-copy-id root@bone
 
 and enter the root password. Test it with:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh root@bone
 
 You should be connected without a password. 
 Now go back to the Bone and turn off the root password access.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     root@bone# nano /etc/ssh/sshd_config
 
@@ -277,13 +279,15 @@ Restore the line:
 
 and restart sshd.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     root@bone# systemctl restart sshd
     root@bone# exit
     bone$ exit
 
 You should now be able to go back to your host computer and login as root on the bone without a password.
+
+.. code-block:: shell-session
 
     host$ ssh root@bone
 
@@ -309,7 +313,7 @@ it display on the host.
 
 #.  First ssh to the Beagle using the `-X` flag.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh -X debian@10.0.5.10
 
@@ -348,7 +352,7 @@ https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-m
 First login to the Beagle and install tcpdump. Use your Beagle's 
 IP address.  
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh 192.168.7.2
     bone$ sudo apt update
@@ -357,7 +361,7 @@ IP address.
 
 Next, create a named pipe and have wireshark read from it.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ mkfifo /tmp/remote
     host$ wireshark -k -i /tmp/remote
@@ -365,7 +369,7 @@ Next, create a named pipe and have wireshark read from it.
 Then, run tcpdump over ssh on your remote machine and redirect the 
 packets to the named pipe:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     host$ ssh root@192.168.7.2 "tcpdump -s 0 -U -n -w - -i any not port 22" > /tmp/remote
 
@@ -401,6 +405,59 @@ Now generate some traffic:
     Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef
 
 You can see the pattern ``ca11ab1ebeef`` appears in the packets.
+
+Find what UU is in i2cdetect
+================================
+
+Problem
+-------
+
+You run ``i2cdetect`` and want to know what the **UU**'s are.
+
+.. code-block:: shell-session
+
+    bone:~$ i2cdetect -y -r 2
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:                         -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: UU -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    50: UU -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- -- 
+    70: -- -- -- -- -- -- -- -- 
+
+Solution
+--------
+
+Running ``man i2cdetect`` shows that:
+
+    "UU". Probing was skipped, because this address is currently in use by a driver. This strongly suggests that there is a chip at this address.
+
+You can quickly see what the drivers are by looking at ``/sys/bus/i2c/devices``
+
+.. code-block:: shell-session
+
+    bone:~$ cd /sys/bus/i2c/devices
+    bone:~$ ls
+    2-0030  2-0050  2-0068  4-004c  i2c-1  i2c-2  i2c-3  i2c-4  i2c-5
+
+Here on the BeagleY-AI we see there are 5 i2c buses (``i2c-1``,  ``i2c-2``, ``i2c-3``, ``i2c-4`` and  ``i2c-5``).  There are three devices on bus 2 (``2-0030``, ``2-0050`` and ``2-0068``) and one device on bus 4 (``4-004c``).  The first digit is the bus number and the last digits are the address on the bus in hex. You can see what these devices are by running:
+
+.. code-block:: shell-session
+
+    bone:~$ cat */name
+    tps65219
+    24c32
+    ds1340
+    it66122
+    OMAP I2C adapter
+    OMAP I2C adapter
+    OMAP I2C adapter
+    OMAP I2C adapter
+    OMAP I2C adapter
+
+You can the Google the names to see what they are.  For example, the ``24c32`` is a 32K EEPROM by Microchip.
 
 Converting a tmp117 to a tmp114
 ================================
@@ -448,11 +505,40 @@ Googling tmp006 and tmp007 shows that they are Infrared Thermopile Sensors, not 
 
 Browse over to http://kernel.org to see if there are tmp114 drivers in the newer versions of the kernel.
 The first line in the table is **mainline**.  Click on the **browse** link on the right.
+
+.. figure:: figures/kernel.org.png
+    :align: center
+    :alt: http://kernel.org 
+
+    The Linux Kernel Archives, kernel.org
+
 Here you will see the top level of the Linux sourse tree for the *mainline* version of the kernel.
+
+.. figure:: figures/kernel.org.drivers.png
+    :align: center
+    :alt: http://kernel.org drivers
+
+    The Linux Kernel Archives, drivers
+
 Click on **drivers** and then **iio**. Finally, since tmp114 is a temperture sensor, click on **temperature**.
+
+.. figure:: figures/kernel.org.tmp117.png
+    :align: center
+    :alt: http://kernel.org tmp117
+
+    The Linux Kernel Archives, tmp117 driver
+
 Here you see all the source code for the iio temperature drivers for the mainline version of the kernel. 
 We've seen tmp006 and tmp007 as before, tmp117 is new. Maybe it will work.  Click on **tmp117.c** to see the code.
-Looks like it also works for the tmp116 too.  Let's try convering it to work with the tmp114.
+Looks like it also works for the tmp116 too.  
+
+.. figure:: figures/kernel.org.plain.png
+    :align: center
+    :alt: http://kernel.org plain
+
+    The Linux Kernel Archives, plain button
+
+Let's try convering it to work with the tmp114.
 
 A quick way to copy the code to the bone is to right-click on the **plain** link and select *Copy link address*.
 Then, on the bone enter **wget** and paste the link.  Mine looks like the following, yours will be similar.
@@ -596,7 +682,7 @@ Creating a new device
 
 Once you've converted the module for the tmp114 and inserted it, you can now create a new device.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ cd /sys/class/i2c-adapter/i2c-3
     bone$ sudo chgrp gpio *
@@ -620,13 +706,13 @@ You only need to do this once.
 
 Now make a new device.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ echo tmp114 0x4d > new_device
 
 Look in the demsg window and you should see:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     [Jun22 19:24] tmp114 3-004d: tmp114_identify id (0x1114)
     [  +0.000027] tmp114 3-004d: tmp114_probe id (0x1114)
@@ -634,7 +720,7 @@ Look in the demsg window and you should see:
 
 It's been found! Let's see what it knows about it.
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     bone$ iio_info
     Library version: 0.24 (git tag: v0.24)
@@ -652,7 +738,7 @@ two values (**raw** and **scale**) that were read from it.  Let's read them ours
 Do an *ls* and you'll see a new directory, **3-004d**.  This is address 0x4d on bus 3,
 just what we wanted.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bone$ cd 3-004d/iio:device1
     bone$ ls
@@ -664,14 +750,14 @@ You'll have to look in the datasheet to learn how to convert the temperature.
 
 If you try to run i2cget again, you'll get an error:
 
-.. code-block:: bash
+.. code-block:: shell
 
     bone$ i2cget -y 3 0x4d 0 w
     Error: Could not set address to 0x4d: Device or resource busy
 
 This is because the module is using it.  Delete the device and you'll have access again.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bone$ echo 0x4d > /sys/class/i2c-adapter/i2c-3/delete_device
     bone$ i2cget -y 3 0x4d 0 w
@@ -699,16 +785,29 @@ Here's what you need to do to fork the repository and render a local copy of
 the documentation.  Browse to https://docs.beagleboard.org/latest/ and click on 
 the **Edit on GitLab** button on the upper-right of the page. Clone the repository.
 
-.. code-block:: bash
+.. code-block:: shell
 
     bash$ git clone git@git.beagleboard.org:docs/docs.beagleboard.io.git
     bash$ cd docs.beagleboard.io
 
+
 Then run the following to load the **code** submodule
 
-.. code-block:: bash
+.. code-block:: shell
 
     bash$ git submodule update --init
+
+Set up the environment for Sphinx.
+
+.. code-block:: shell
+
+    bash$ python -m venv .venv
+    bash$ source .venv/bin/activate
+    bash$ pip install -r ./requirements.txt
+    bash$ make livehtml
+
+This starts a local web server that you can point your browser to to see the formatted text.
+
 
 Now, sync changes with upstream:
 
@@ -718,50 +817,10 @@ Now, sync changes with upstream:
     bone$ git fetch upstream
     bone$ git pull upstream main
 
-Using Docker (Podman)
-^^^^^^^^^^^^^^^^^^^^^
-It is probably easies to use docker (or podman) if you are already familiar with container workflow.
-The repository contains a helper script `docker-build-env.sh` which creates ephemeral container and drops you into bash inside. The project is mouted at `/build/docs.beagleboard.org`.
-
-
-.. note::
-
-    This section of docs assume that you are using rootless docker or podman. In case of rootful docker, you might run into permission issues
-
-.. code-block:: bash
-
-    ./docker-build-env.sh
-    cd /build/docs.beagleboard.org
-    make clean
-
-To generate HTML output of docs:
-
-.. code-block:: bash
-
-    make html
-
-To generate PDF output of docs:
-
-.. code-block:: bash
-
-    make latexpdf
-
-To preview docs on your local machine:
-
-.. code-block:: bash
-
-    python3 -m http.server -d _build/html/
-
-
 Downloading Sphinx
 ^^^^^^^^^^^^^^^^^^
-Skip this section if you are using docker as shown above.
-
-Run the following to download and setup Sphinx locally.
-
-.. note::
-
-  This will take a while, it loads some 6G bytes.
+Run the following to download Sphinx. Note:  This will take a while, it loads
+some 6G bytes.
 
 .. code-block:: bash
 
@@ -769,21 +828,22 @@ Run the following to download and setup Sphinx locally.
     bone$ sudo apt upgrade
     bone$ sudo apt install -y \
         make git wget \
-        doxygen librsvg2-bin\
+        doxygen graphviz librsvg2-bin\
         texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended \
         python3 python3-pip \
+        python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.svg2pdfconverter \
+        python3-pil \
         imagemagick-6.q16 librsvg2-bin webp \
         texlive-full texlive-latex-extra texlive-fonts-extra \
         fonts-freefont-otf fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf
-
-In case of any problems, checkout `Beagleboard Forum <https://forum.beagleboard.org/>`_.
-
-Setup virtual environment for python using the `venv-build-env.sh` script at the project root.
-
-.. literalinclude:: ../../../venv-build-env.sh
-   :language: bash
-   :caption: Bash script for setting up virtual environment
-   :linenos:
+    bone$ python3 -m pip install --upgrade pip
+    bone$ pip install -U sphinx_design 
+    bone$ pip install -U sphinxcontrib-images
+    bone$ pip install -U sphinx-serve
+       
+These instructions came from `lorforlinux 
+<https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269>`_
+on the Beagleboard Slack channel.
 
 Now go to the cloned *docs.beagleboard.io* repository folder and do the following.
 To clean build directory:
@@ -810,12 +870,6 @@ To preview docs on your local machine:
 .. code-block:: bash
 
     bone$ sphinx-serve
-
-For hot reload in development:
-
-.. code-block:: bash
-
-    bone$ make livehtml
 
 Then point your browser to localhost:8081.
 

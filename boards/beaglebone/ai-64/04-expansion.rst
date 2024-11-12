@@ -12,9 +12,9 @@ BeagleBone AI-64 P8 & P9 cape headers are designed to be compatible with BeagleB
 Below pinout diagrams are design to simplify cape header pin usage and cape design process for AI-64. To start 
 using P8 / P9 cape header choose respective pinout diagram tab below.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: P8 cape header
+   .. tab-item:: P8 cape header
 
         .. figure:: images/pinout/BeagleBone-AI-64-P8.*
             :align: center
@@ -23,7 +23,7 @@ using P8 / P9 cape header choose respective pinout diagram tab below.
             BeagleBone AI-64 P8 cape header pinout
 
 
-   .. group-tab:: P9 cape header
+   .. tab-item:: P9 cape header
 
         .. figure:: images/pinout/BeagleBone-AI-64-P9.*
             :align: center

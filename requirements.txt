@@ -20,7 +20,7 @@ snowballstemmer==2.2.0
 Sphinx==7.2.6
 sphinx-autobuild==2021.3.14
 sphinx-copybutton==0.5.2
-pydata-sphinx-theme==0.15.2
+pydata-sphinx-theme==0.15.4
 sphinx-serve==1.0.1
 sphinx-tabs==3.4.4
 sphinx_design==0.5.0
@@ -37,3 +37,5 @@ sphinxcontrib-youtube==1.4.1
 tornado==6.4
 urllib3==2.1.0
 pyyaml>=3.13
+sphinxext-rediraffe>=0.2.7
+sphinx-notfound-page>=1.0.4

@@ -1,4 +1,4 @@
-.. _play-kernel-development:
+.. _beagleplay-kernel-development:
 
 BeaglePlay Kernel Development
 #############################
@@ -150,8 +150,6 @@ on `debugging with JTAG in CCS <https://www.ti.com/video/3874392631001?keyMatch=
 
 References
 **********
-
-- To understand more about booting code on BeaglePlay, see :ref:`play-understanding-boot`.
 
 - For more details on the Linux kernel build system, see `The kernel build system <https://www.kernel.org/doc/html/latest/kbuild/index.html>`_ on kernel.org.
 

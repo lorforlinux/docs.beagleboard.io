@@ -696,9 +696,9 @@ or for Javascript:
 
 Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioTest.py`` and run it. Your text will be sent.
 
-.. tabs::
+.. tab-set::
 
-  .. group-tab:: Python
+  .. tab-item:: Python
     
     .. _networking_twilio_code:
 
@@ -709,7 +709,7 @@ Finally, add the code in :ref:`networking_twilio_code` to a file named ``twilioT
 
     :download:`twilioTest.py  <../code/06iot/twilioTest.py>`
 
-  .. group-tab:: JavaScript
+  .. tab-item:: JavaScript
 
     .. literalinclude:: ../code/06iot/twilio-test.js
         :caption: Sending SMS messages using Twilio (``twilio-test.js``)
@@ -764,7 +764,7 @@ Run this by using the following commands:
 
 .. code-block:: bash
 
-  bone$ ./weather.js
+  bone$ ./weather.py
   Getting weather
   Temp:  73.72
   Humid: 31

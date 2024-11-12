@@ -255,7 +255,8 @@ Exporting the Cape
     as a script which can be used in the gateware repository.
     I suggest creating an export directory where you can temporarily store the exported gateware files before getting them into the repository.
 
-.. notice::
+.. important::
+
     You **must** make sure your path exist, because Libero does not currently tell you if the export is successfull or not.
 
 Now, simply copy it into the gateware at the following path.
@@ -300,7 +301,7 @@ Now, concatenate the contents of this exported file to our gateware's HDL sourci
     Replace the ``-file`` argument in the line with ``-file $project_dir/hdl/blinky.v``.
     Finally, source the file by add a line below line no. 11 as:
 
-.. code-block:: tcl
+.. code-block:: none
 
         -hdl_source {script_support/HDL/AXI4_address_shim/AXI4_address_shim.v} \
         -hdl_source {script_support/HDL/BLINKY/blinky.v} # ⓵ Source the script below line 11
@@ -364,6 +365,7 @@ Go ahead and run the python script to build the gateware and verify your changes
     .. code-block:: shell
     
         scp -r ./bitstream beagle@<ip or name here>:
+        
     On the beagle, use:
 
     .. code-block:: shell

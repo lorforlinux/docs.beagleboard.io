@@ -19,14 +19,14 @@ Getting started
 To get started your BeagleY-AI you need the following:
 
 1. :ref:`5V @ 3A power supply <accessories-power-supplies>`
-2. MicromicroSD card (32GB)
+2. MicroSD card (32GB)
 3. :ref:`beagley-ai-boot-media`
 
 You may need additional accessories based on the mode of operation, you can use your BeagleY-AI in different ways.
 
 1. :ref:`USB Tethering by directly connecting via USB type-c port <beagley-ai-usb-tethering>`
 2. :ref:`Headless connection via UART debug port <beagley-ai-headless>`
-3. :ref:`Standalone connection with Monitor and other peripherals attached <standalone-connection>`
+3. :ref:`Standalone connection with Monitor and other peripherals attached <beagley-ai-standalone-connection>`
 
 Easiest option is to connect the board directly to your PC or Laptop using a USB type-C to type-c cable. There is only one USB type-C port on board, if you 
 choose to use a dedicated power supply for first time setup, you may choose to access the board via any other methods listed above.
@@ -85,9 +85,9 @@ Below are all the steps required to create a bootable microSD card with latest/r
 
 .. figure:: images/imager/step5-select-storage.*
     :align: center
-    :alt: Click on ``CHOOSE STORAGE`` buddon
+    :alt: Click on ``CHOOSE STORAGE`` button
 
-    Click on ``CHOOSE STORAGE`` buddon
+    Click on ``CHOOSE STORAGE`` button
 
 .. figure:: images/imager/step6-choose-microsd-card.*
     :align: center
@@ -228,7 +228,7 @@ In ``sysconf.txt`` file you have to edit the two lines highlighted below.
 .. important::
     
     1. Make sure to remove ``#`` from ``#user_name=`` and ``#user_password=`` else the lines will be interpreted as a comment and your username & password will not be updated.
-    2. If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a :ref:`standalone-connection` setup.
+    2. If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a :ref:`beagley-ai-standalone-connection` setup.
 
 
 Once username and password are updated, you can insert the microSD card into 
@@ -275,7 +275,7 @@ or command prompt (`Windows <https://www.wikihow.com/Open-the-Command-Prompt-in-
     
     ssh debian@192.168.7.2
 
-.. important:: Here ``debian`` is the default username, make sure to replace ``debian`` with the ``username`` you selected during :ref:`beagley-ai-boot-media` prepration step.
+.. important:: Here ``debian`` is the default username, make sure to replace ``debian`` with the ``username`` you selected during :ref:`beagley-ai-boot-media` preparation step.
 
 .. tip:: If you are not able to find your beagle at ``192.168.7.2``, checkout :ref:`start-browse-to-beagle` to resolve your connection issue.
 
@@ -293,7 +293,7 @@ UART connection
 ================
 
 Your BeagleY-AI board creates a UART connection (No additional hardware required) when tethered to a Laptop/PC which you can access using ``Putty`` of ``tio``. 
-On a linux machine it may come up as ``dev/ttyACM*``, it will be different for Mac and Windows operatig systems. To find serial port for your system you can checkout 
+On a linux machine it may come up as ``dev/ttyACM*``, it will be different for Mac and Windows operating systems. To find serial port for your system you can checkout 
 `this guide <https://www.mathworks.com/help/matlab/supportpkg/find-arduino-port-on-windows-mac-and-linux.html;jsessionid=c2d3127cd10411c66f33468cbd5b>`_.
 
 .. figure:: images/uart/putty.*
@@ -321,7 +321,7 @@ Headless connection
 
 If you want to run your BeagleY-AI in headless mode, you need `Raspberry Pi Debug Probe <https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html>`_ 
 or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command 
-line utility like ``tio`` on Linux of Putty on any operating system. Check :ref:`beagley-ai-uart-connection` for more information.
+line utility like ``tio`` on Linux or Putty on any operating system. Check :ref:`beagley-ai-uart-connection` for more information.
 
 .. figure:: images/uart/rpi-debug-probe-connection.*
     :align: center
@@ -329,14 +329,14 @@ line utility like ``tio`` on Linux of Putty on any operating system. Check :ref:
 
     Connecting Raspberry Pi debug probe to BeagleY-AI
 
-.. _standalone-connection:
+.. _beagley-ai-standalone-connection:
 
 Standalone connection
 =====================
 
 .. important:: 
     Make sure to update your ``username`` and ``password`` during 
-    :ref:`beagley-ai-boot-media` prepration step else you'll not see any output on you HDMI monitor.
+    :ref:`beagley-ai-boot-media` preparation step else you'll not see any output on you HDMI monitor.
 
 To setup your BeagleY-AI for standalone usage, you need the following additional accessories,
 
@@ -367,7 +367,7 @@ If everything is connected properly you should see four penguins on your monitor
 
     BeagleY-AI boot penguins
 
-When prompted, login using the credentials you updated during :ref:`beagley-ai-boot-media` prepration step.
+When prompted, login using the credentials you updated during :ref:`beagley-ai-boot-media` preparation step.
 
 .. Important:: You can not update login credentials at this step, you must update them during boot media (software image) micrSD card flashing or USB tethering step!
 

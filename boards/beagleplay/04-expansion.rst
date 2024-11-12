@@ -3,8 +3,6 @@
 Expansion
 #########
 
-:bdg-danger:`Work in progress`
-
 .. todo::
 
    Add information on building expansion hardware for BeaglePlay.

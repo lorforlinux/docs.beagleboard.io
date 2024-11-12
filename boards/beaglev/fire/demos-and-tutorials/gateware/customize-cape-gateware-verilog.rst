@@ -220,7 +220,7 @@ Add the instantiation of the blinky module:
 
 .. callout::
     
-    .. code-block:: devicetree
+    .. code-block:: dts
 
         //--------P9_41_42_IOPADS
         P9_41_42_IOPADS P9_41_42_IOPADS_0(
@@ -315,7 +315,7 @@ programmed on your BeagleV-Fire.
 
 .. callout::
     
-    .. code-block:: devicetree
+    .. code-block:: dts
 
         /dts-v1/;
         /plugin/;

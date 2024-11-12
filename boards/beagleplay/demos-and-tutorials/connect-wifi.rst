@@ -114,7 +114,7 @@ Let's see the ``wpa_gui`` interface in detail,
 Step 3: Scanning & Connecting to WiFi access points
 ====================================================
 
-To scan the WiFi access points around you, just click on ``Scan`` button availale under 
+To scan the WiFi access points around you, just click on ``Scan`` button available under 
 ``wpa_gui > Current Status > Scan``.
 
 .. figure:: ../images/wpa_gui_step3a.*
@@ -209,7 +209,7 @@ wpa_cli (XFCE)
 Another way of connecting to a WiFi access point is to edit the ``wpa_supplicant`` configuration file.
 
 
-Step 1: Open up termina
+Step 1: Open up terminal
 ========================
 
 Open up a terminal window either from ``Applications > Terminal Emulator`` Or from Task Manager.
@@ -309,7 +309,7 @@ after you add the credentials to ``wpa_supplicant-wlan0.conf``.
 Disabling the WIFI Access Point
 *******************************
 
-In certain situations, such as running HomeAssistant, you may chose to connect your BeaglePlay to the internet via Ethernet. In this case, it may be desireable to disable it's Wifi access point so that users outside the local network aren't able to connect to it.  
+In certain situations, such as running HomeAssistant, you may chose to connect your BeaglePlay to the internet via Ethernet. In this case, it may be desirable to disable it's Wifi access point so that users outside the local network aren't able to connect to it.  
 
 The Wifi Access Point that BeaglePlay provides is started using `uDev rules <https://en.wikipedia.org/wiki/Udev>`_. created by the `bb-wlan0-defaults` package
 

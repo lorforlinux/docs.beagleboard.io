@@ -3,8 +3,6 @@
 Using IMX219 CSI Cameras
 ############################
 
-:bdg-danger:`Work in progress`
-
 .. todo:: Add further testing steps, results, and images.
 
 Camera connection

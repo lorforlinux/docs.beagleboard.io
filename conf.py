@@ -12,6 +12,14 @@ from pathlib import Path
 import pydata_sphinx_theme
 from sphinx.ext.imgconverter import ImagemagickConverter
 
+# -- Banners --
+announcement_message = ""
+development_version_message = "This is a <strong>development version</strong> of docs."
+forked_version_message = "This is a <strong>forked version</strong> of docs."
+unknown_version_message = "This is an <strong>unknown version</strong> of docs."
+version_link = "https://docs.beagleboard.org"
+version_link_text = "Switch to released version"
+
 # -- Project information --
 project = 'BeagleBoard Docs'
 copyright = '2024, BeagleBoard.org Foundation'
@@ -34,6 +42,8 @@ latex_documents = []
 pdf_paths = []
 oshw_details = []
 board_details = []
+book_details = []
+project_details = []
 
 with open('conf.yml', 'r') as conf_file:
     conf_data = yaml.safe_load(conf_file)
@@ -71,7 +81,39 @@ with open('conf.yml', 'r') as conf_file:
                             oshw_details.append([board, path, oshw_id])
                 
                 # Board basic details
-                board_details.append([board, path, page, git, forum])
+                board_details.append([name, path, page, git, forum])
+        
+        # Books
+        if(type == "books"):
+            for book, data in conf_data["books"].items():
+                name = book
+                path = data['path']
+                pdf = data.get('pdf', False)
+
+                #Books PDF build details
+                if(pdf and (name in pdf_build or pdf_build_all)):
+                    pdf_paths.append(path)
+                    tex_name = '-'.join(path.split('/')[1:])
+                    latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
+
+                # Book basic details
+                book_details.append([name, path])
+
+        # Projects
+        if(type == "projects"):
+            for book, data in conf_data["projects"].items():
+                project = book
+                path = data['path']
+                pdf = data.get('pdf', False)
+
+                #Projects PDF build details
+                if(pdf and (project in pdf_build or pdf_build_all)):
+                    pdf_paths.append(path)
+                    tex_name = '-'.join(path.split('/')[1:])
+                    latex_documents.append((path+"/index", tex_name+".tex", "", author, "manual"))
+
+                # Project basic details
+                project_details.append([name, path])
 
 # -- General configuration --
 
@@ -87,11 +129,54 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
-    "sphinx_tabs.tabs",
+    "sphinxext.rediraffe",
+    "notfound.extension",
     "breathe",
     "sphinx_copybutton",
     "sphinxcontrib.youtube",
 ]
+
+# Initialize the rediraffe_redirects dictionary
+rediraffe_redirects = {}
+rediraffe_branch_excludes = [
+    '_build',
+    '_static',
+    '_templates',
+    '.*',     # Exclude hidden directories and files starting with '.'
+    '*/_*',   # Exclude any directories starting with '_'
+    '*/.*',   # Exclude any directories starting with '.'
+]
+
+# Automatically redirect all matching files
+rediraffe_auto_redirect_perc = 100
+
+# Define the mapping from old folders to new folders
+redirect_folders = {
+    "latest": "",  # Map from 'latest/' to the root directory
+}
+
+def is_excluded(path):
+    """Check if any part of the path starts with '_' or '.'."""
+    return any(part.startswith(('_', '.')) for part in path.parts)
+
+# Loop through the files in the new folder and create redirects
+for old_folder, new_folder in redirect_folders.items():
+    # Ensure new_folder is '.' if it's empty (root directory)
+    new_folder = new_folder or '.'
+
+    # Convert new_folder to a Path object
+    new_folder_path = Path(new_folder)
+
+    # Iterate over all .rst and .md files in the new folder
+    for newpath in new_folder_path.rglob("*"):
+        # Exclude directories and files that start with '_' or '.'
+        if is_excluded(newpath.relative_to(new_folder_path)):
+            continue
+        if newpath.is_file() and newpath.suffix in [".rst"]:
+            # Build the old path by combining the old folder and the relative path of the new file
+            oldpath = Path(old_folder) / newpath.relative_to(new_folder_path)
+            # Add the mapping to rediraffe_redirects
+            rediraffe_redirects[str(oldpath)] = str(newpath.relative_to(new_folder_path))
 
 #graphviz_output_format = 'svg'
 
@@ -130,8 +215,9 @@ numfig = True
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv"]
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'env', ".venv", '*/_*', '*/.*',]
 
+# HTML 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ["_static"]
 html_logo = "_static/images/logo.svg"
@@ -151,7 +237,6 @@ html_sidebars = {
     "**": ["sidebar-nav-bs", "mission"],
     "index": []
 }
-
 
 html_theme_options = {
     "external_links": [
@@ -211,8 +296,6 @@ html_theme_options = {
     "show_toc_level": 1,
     "navbar_align": "right",
     "show_nav_level": 1,
-    "announcement": "Welcome to new site for BeagleBoard.org docs!",
-    # "show_version_warning_banner": True,
     "navbar_center": ["navbar-nav"],
     "navbar_start": ["navbar-logo"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
@@ -222,52 +305,25 @@ html_theme_options = {
     "footer_end": ["last-updated"],
     # "content_footer_items": ["last-updated"],
     "secondary_sidebar_items": {
-        "**": ["page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
+        "**": ["todo", "page-toc", "edit-this-page", "sourcelink","pdf", "feedback", "forum", "license-terms", "message", "oshw"]
     },
 }
 
-# parse version from 'VERSION' file
-with open("VERSION") as f:
-    m = re.match(
-        (
-            r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
-            + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
-            + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
-            + r"^VERSION_TWEAK\s*=\s*\d+$\n"
-            + r"^EXTRAVERSION\s*=\s*(.*)$"
-        ),
-        f.read(),
-        re.MULTILINE,
-    )
-
-    if not m:
-        sys.stderr.write("Warning: Could not extract docs version\n")
-        version = "Unknown"
-    else:
-        major, minor, patch, extra = m.groups(1)
-        version = ".".join((major, minor, patch))
-        release_version = ".".join((major, minor))
-        if extra:
-            version += "-" + extra
-
-release = version
-
-# Variables here holds default settings
-pages_url = "https://docs.beagleboard.io"
+# Variables for gitlab pages
+pages_url = ""
 pages_slug = ""
-gitlab_user = "docs"
-gitlab_version = "main"
-gitlab_url = "https://openbeagle.org"
-gitlab_repo = "docs.beagleboard.io"
-gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-docs_url = "https://docs.beagleboard.io"
+gitlab_user = ""
+gitlab_version = ""
+gitlab_url = ""
+gitlab_repo = ""
+gitlab_project = ""
 
 # parse pages details from 'PAGES' file
+docs_url = ""
 with open("PAGES") as f:
     m = re.match(
         (
             r"^PAGES_URL\s*=\s*(\S+)$\n"
-            + r"^PAGES_SLUG\s*=\s*(\S+)$\n"
             + r"^GITLAB_USER\s*=\s*(\S+)$\n"
             + r"^PROJECT_BRANCH\s*=\s*(\S+)$\n"
             + r"^GITLAB_HOST\s*=\s*(\S+)$\n"
@@ -280,16 +336,30 @@ with open("PAGES") as f:
     if not m:
         sys.stderr.write("Warning: Could not extract pages information\n")
     else:
-        url, slug, user, branch, host, repo = m.groups(1)
-        slug = "latest" if slug == "main" else slug
+        url, user, branch, host, repo = m.groups(1)
         pages_url = url
-        pages_slug = slug
         gitlab_user = user
         gitlab_version = branch
         gitlab_url = host
         gitlab_repo = repo
         gitlab_project = "/".join((gitlab_url, gitlab_user, gitlab_repo))
-        docs_url = "/".join((url, slug))
+        docs_url = url
+
+# Specify the 404 template file
+notfound_template = '404.html'
+
+# Set the URLs prefix
+if gitlab_user == 'docs':
+    notfound_urls_prefix = '/'
+elif gitlab_repo:
+    notfound_urls_prefix =  '/' + gitlab_repo.strip('/') + '/'
+else:
+    notfound_urls_prefix = ''
+
+# Provide additional context variables if needed
+notfound_context = {
+    'title': 'Page Not Found (404)',
+}
 
 html_context = {
     "display_gitlab": True,
@@ -311,7 +381,16 @@ html_context = {
     "my_vcs_site": "https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/",
     "oshw_details": oshw_details,
     "pdf_paths": pdf_paths,
-    "board_details": board_details
+    "board_details": board_details,
+    "book_details": book_details,
+    "project_details": project_details,
+    "announcement_message": announcement_message,
+    "development_version_message": development_version_message,
+    "forked_version_message": forked_version_message,
+    "unknown_version_message": unknown_version_message,
+    "version_link": version_link,
+    "version_link_text": version_link_text,
+    "redirect_folders": redirect_folders,
 }
 
 # -- Options for LaTeX output --

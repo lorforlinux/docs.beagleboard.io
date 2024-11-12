@@ -3,11 +3,14 @@
 BeagleBoard.org BeagleBone Relay Cape
 #####################################
 
-Relay Cape, as the name suggests, is a simple Cape with relays on it.
+The Relay Cape, as the name suggests, is a simple Cape with relays on it.
 It contains four relays, each of which can be operated independently from the BeagleBone.
 
-.. image:: images/BeagleBoneRelayCapeA2-400x274.png
+.. figure:: images/BeagleBoneRelayCapeA2-400x274.png
    :align: center
+   :alt: BeagleBone Relay Cape Rev. A2
+
+   BeagleBone Relay Cape Rev. A2
 
 * `Order page <https://beagleboard.org/capes#relay>`_
 * `Schematic <https://git.beagleboard.org/beagleboard/capes/-/tree/master/beaglebone/Relay>`_
@@ -43,14 +46,14 @@ by adding the following to the U-Boot options
 Usage
 *****
 
-.. code-block::
+.. code-block:: shell-session
 
     ls /sys/class/leds
 
 The directory "relay1", for instance, exists in the following directory.
 The LEDs can be controlled by modifying the files in its directory.
 
-.. code-block::
+.. code-block:: shell-session
 
     echo 1 > relay1/brightness
 
@@ -66,9 +69,9 @@ Code to Get Started
 Currently, using sysfs in .c files, libgpiod-dev/gpiod in .c files, and 
 python3 files with the Relay Cape work well!
 
-* For instance, a kernel that I found to work is kernel: `5.10.140-ti-r52`
+* For instance, a kernel that I found to work is kernel: `5.10.168-ti-r77`
 
-* Another idea, an image I found that works is `BeagleBoard.org Debian Bullseye Minimal Image 2022-11-01`
+* Another idea, an image I found that works is `BeagleBoard.org Debian Bookworm IoT Image 2023-10-07`
 
 There are newer images and kernels if you want to update and there are older ones in case you
 would like to go back in time to use older kernels and images for the Relay Cape. Please remember
@@ -77,16 +80,15 @@ that older firmware will work differently on the BeagleBone Black or other relat
 C Source with File Descriptors
 ******************************
 
-You can name this file GPIO.c and use gcc to handle compiling the source into a binary like so:
+You can name this file Relay_Test.c and use gcc to handle compiling the source into a binary like so:
 
-`gcc GPIO.c -o GPIO`
+`gcc Relay_Test.c -o Relay_Test`
 
-.. code-block::
+.. code-block:: c
 
     /*
 
-    This is an example of programming GPIO from C using the sysfs interface on
-    a BeagleBone Black/BeagleBone Black Wireless or other am335x board with the Relay Cape.
+    This is an example of programming a Relay on the Relay Cape for the BeagleBone Black or other am335x board with the Relay Cape.
 
     Use the Relay Cape attached to the BeagleBone Black for a change in seconds and then exit with CTRL-C.
 
@@ -148,32 +150,32 @@ You can name this file GPIO.c and use gcc to handle compiling the source into a 
 C Source with LibGPIOd-dev and File Descriptors
 ***********************************************
 
-Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod.h, here is another form of
-source that can toggle the same GPIO listed from the file descriptor. 
+Also...if you are looking to dive into the new interface, libgpiod-dev/gpiod, here is another form of
+source that can toggle the same relay listed from the file descriptor. 
 
 One thing to note: `sudo apt install cmake`
 
 1. mkdir GPIOd && cd GPIOd
 
-2. nano LibGPIO.c
+2. nano Relay.c
 
-3. add the below source into the file LibGPIO.c
+3. add the below source into the file Relay.c
 
-.. code-block::
+.. code-block:: c
 
     /*
 
     Simple gpiod example of toggling a LED connected to a gpio line from
-    the BeagleBone Black Wireless and Relay Cape.
+    the Relay Cape on the BeagleBone Black.
     Exits with or without CTRL-C.
 
     */
 
     // This source can be found here: https://github.com/tranter/blogs/blob/master/gpio/part9/example.c
-    // It has been changed by me, Seth, to handle the RelayCape and BBBW Linux based SiP SBC.
+    // It has been changed by me, Seth, to handle the Relay Cape and BBB Linux based SoC SBC.
 
-    // kernel: 5.10.140-ti-r52
-    // image : BeagleBoard.org Debian Bullseye Minimal Image 2022-11-01
+    // kernel: 5.10.168-ti-r77
+    // image : BeagleBoard.org Debian Bookworm IoT Image 2023-10-07
 
     // type gpioinfo and look for this line: line 20: "P9_41B" "relay1" output active-high [used]
     // That line shows us the info. we need to make an educated decision on what fd we will use, i.e. relay1.
@@ -237,18 +239,20 @@ One thing to note: `sudo apt install cmake`
 
 .. code-block::
 
-    cmake_minimum_required(VERSION 3.22)
+    cmake_minimum_required(VERSION 3.25.0)
 
     project(gpiod LANGUAGES C)
 
-    add_executable(LibGPIO LibGPIO.c)
+    add_executable(Relay Relay.c)
     
-    target_link_libraries(LibGPIO gpiod)
+    target_link_libraries(Relay gpiod)
 
 6. cd build && cmake ..
 
 7. make 
 
-8. ./LibGPIO
+8. ./Relay
 
-These are a few examples on how to use the RelayCape and am335x supported BeagleBone Black Wireless/BeagleBone Black SBCs.
+These are a few examples on how to use the Relay Cape and am335x supported BeagleBone Black SBC.
+
+

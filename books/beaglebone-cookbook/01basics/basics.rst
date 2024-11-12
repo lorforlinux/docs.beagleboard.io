@@ -20,12 +20,7 @@ There are many different BeagleBoards. How do you pick which one to use?
 Solution
 ---------
 
-.. todo
-
-Current list of boards: https://git.beagleboard.org/explore/projects/topics/boards
-
-Discussion
------------
+Check out the current list of boards: :ref:`boards`
 
 .. _basics_out_of_the_box:
 
@@ -40,6 +35,11 @@ You just got your Bone, and you want to know what to do with it.
 Solution
 ---------
 
+Many of the Beagles (:ref:`beagley-all-home`, :ref:`beagleplay-home`, 
+:ref:`bbai64-home`, :ref:`bbai-home`, :ref:`beaglev-ahead-home` and
+:ref:`beaglev-fire-home`)
+have their own detailed **Quick start** guide.  Here we present
+general instructions that work for all Beagles. 
 Fortunately, you have all you need to get running: your Bone and a USB cable. 
 Plug the USB cable into your host computer (Mac, Windows, or Linux) and plug the 
 mini-USB connector side into the USB connector near the Ethernet connector on 
@@ -71,7 +71,7 @@ The Bone acting like a USB drive and the files you see are located on the Bone.
 Browse to http://192.168.7.2:3000 from your 
 host computer (:ref:`basics_05gettingStarted_fig`). If the page is not found, run the following:
 
-.. code-block::
+.. code-block:: shell-session
 
     bone$ sudo systemctl start bb-code-server.service
 
@@ -86,7 +86,7 @@ Wait a minute and try the URL again.
    Visual Studio Code
 
 Here, you'll find *Visual Studio Code*, a web-based integrated development environment (IDE) 
-that lets you edit and run code on your Bone!  See :ref: `basics_vsc` for more details.
+that lets you edit and run code on your Bone!  See :ref:`basics_vsc` for more details.
 
 .. WARNING:: 
     Make sure you turn off your Bone properly. 
@@ -132,18 +132,22 @@ following the instructions in :ref:`basics_out_of_the_box` to log into the Bone.
 .. code-block:: bash
 
     bone$ cat /etc/dogtag
-    BeagleBoard.org Debian Bullseye IoT Image 2023-06-03
+    BeagleBoard.org Debian Bookworm Minimal Image 2024-09-11
 
-I'm running the 2023-06-03 version.
+I'm running the **2024-09-11** version.
 
-Running the Python and JavaScript Examples
-===========================================
+Running the Python Examples
+===========================
 
 Problem
 --------
 
-You'd like to learn Python or JavaScript interact with the Bone to 
+You'd like to learn Python to interact with the Bone to 
 perform physical computing tasks without first learning Linux.
+
+.. note:: 
+
+   There are many JavaScript examples too, but they may not be as up to date as the Python examples.
 
 Solution
 ---------
@@ -153,6 +157,10 @@ http://192.168.7.2:3000 using Google Chrome or Firefox (as shown in
 :ref:`basics_out_of_the_box`). In the left 
 column, click on *examples*, then *BeagleBone* and then *Black*. 
 Several sample scripts will appear.  Go and explore them.
+
+.. todo
+   examples are no longer on the board.
+
 
 .. tip::
 
@@ -307,44 +315,56 @@ You want to find out the latest version of Debian that is available for your Bon
 Solution
 ************
 
-On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
-This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
+.. tab-set::
 
-.. todo 
-   Update for 2023-06-03
+   .. tab-item:: bb-imager
 
-.. _basics_deb1:
+      The easiest way to see what the current images are and update your SD card
+      is to use **bb-imager**.  :ref:`beagley-ai-bb-imager` gives details on how to us it.
 
-.. figure:: figures/deb1.png
-   :align: center
-   :alt: Latest Debian images
+   .. tab-item:: forum
 
-   Latest Debian images
+      Another way to see the available images is to visit the beagleboard forum. 
 
-At the time of writing, we are using the *Bullseye* image.  
-Click on its link. Scrolling up you'll find :ref:`basics_deb2`. 
-There are three types of snapshots, Minimal, IoT and Xfce Desktop. 
-IoT is the one we are running.
+      On your host computer, open a browser and go to https://forum.beagleboard.org/tag/latest-images 
+      This shows you a list of dates of the most recent Debian images (:ref:`basics_deb1`).
 
-.. _basics_deb2:
+      .. todo::
 
-.. figure:: figures/deb2.png
-   :align: center
-   :alt: Latest Debian images
+         Update for 2023-06-03
 
-   Latest Debian images
+      .. _basics_deb1:
 
-These are the images you want to use if you are flashing a Rev C BeagleBone Black 
-onboard flash, or flashing a 4 GB or bigger miscroSD card. The image beginning 
-with *am335x-debian-11.3-iot-* is used for the non-AI boards. The one beginning 
-with *am57xx-debian-* is for programming the Beagle AI's.
+      .. figure:: figures/deb1.png
+         :align: center
+         :alt: Latest Debian images
 
-.. note::
-   The onboard flash is often called the *eMMC* memory. We just call it *onboard flash*, but you'll 
-   often see *eMMC* appearing in filenames of images used to update the onboard flash.
+         Latest Debian images
 
-Click the image you want to use and it will download. 
-The images are some 500M, so it might take a while.
+      At the time of writing, we are using the *Bullseye* image.  
+      Click on its link. Scrolling up you'll find :ref:`basics_deb2`. 
+      There are three types of snapshots, Minimal, IoT and Xfce Desktop. 
+      IoT is the one we are running.
+
+      .. _basics_deb2:
+
+      .. figure:: figures/deb2.png
+         :align: center
+         :alt: Latest Debian images
+
+         Latest Debian images
+
+      These are the images you want to use if you are flashing a Rev C BeagleBone Black 
+      onboard flash, or flashing a 4 GB or bigger miscroSD card. The image beginning 
+      with *am335x-debian-11.3-iot-* is used for the non-AI boards. The one beginning 
+      with *am57xx-debian-* is for programming the Beagle AI's.
+
+      .. note::
+         The onboard flash is often called the *eMMC* memory. We just call it *onboard flash*, but you'll 
+         often see *eMMC* appearing in filenames of images used to update the onboard flash.
+
+      Click the image you want to use and it will download. 
+      The images are some 500M, so it might take a while.
 
 .. _basics_install_os:
 
@@ -423,7 +443,8 @@ Problem
 --------
 
 You've modified the state of your Bone 
-in a way that you'd like to preserve or share.
+in a way that you'd like to preserve or share.  Note, this doesn't apply to boards that
+don't have onboard flash (PocketBeagle and BeagleY-AI).
 
 Solution
 ---------
@@ -462,6 +483,8 @@ Problem
 --------
 
 You want to copy the microSD card to the onboard flash.
+Note, this doesn't apply to boards that
+don't have onboard flash (PocketBeagle and BeagleY-AI).
 
 Solution
 --------
