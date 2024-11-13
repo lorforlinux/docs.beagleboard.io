@@ -1,9 +1,10 @@
-.wy-side-nav-search > a img.logo {
+.wy-side-nav-search>a img.logo {
     width: 340px;
     height: 66px;
 }
 
-.rst-content div.figure, .rst-content figure {
+.rst-content div.figure,
+.rst-content figure {
     text-align: center;
 }
 
@@ -36,7 +37,7 @@
     background-color: #25282b;
 }
 
-.wy-nav-top{
+.wy-nav-top {
     background-color: #25282b;
     background-color: #25282b;
 }
@@ -74,9 +75,18 @@ span.strike {
     overflow: auto;
 }
 
+/* Site horizontal spacing */
 .bd-main .bd-content .bd-article-container {
-    max-width: 100%;  /* default is 60em */
+    max-width: 100%;
+    /* default is 60em */
 }
+
+.bd-page-width {
+    max-width: 100%;
+    /* default is 88rem */
+}
+
+/* Figure headerlink */
 
 figure a.headerlink {
     position: static;
