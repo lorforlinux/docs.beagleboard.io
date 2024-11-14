@@ -124,7 +124,7 @@ Connect to BeagleV-Fire UART debug port using a 3.3v USB to UART bridge.
 
    UART debug connection
 
-Now you can run ``tio <port>`` in a terminal window to access
+Now you can run ``tio <port> -b 115200`` in a terminal window to access
 the UART debug port connection. Once you are connected properly you can
 press the Reset button which will show you a progress bar like
 in the
