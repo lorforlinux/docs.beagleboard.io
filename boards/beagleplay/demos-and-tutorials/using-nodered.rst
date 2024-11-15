@@ -13,41 +13,45 @@ Pre-requisites
 **************
 
 .. note::
-
-        If you're using the official BeaglePlay debian image then you most likely can skip the
-        :ref:`beagleplay-install-nodered` step.
+   If you're using the official BeaglePlay debian image then you most likely 
+   can skip the :ref:`beagleplay-install-nodered` step.
 
 .. _beagleplay-install-nodered:
 
 Node-RED
 ********
+
 Node-RED is pre-installed with the bb-node-red-installer package. (both xfce and cinnamon)
 Manual steps to install Node-RED can be found in the `official guide
 here <https://nodered.org/docs/getting-started/beaglebone>`_
 
 MikroE
 ********
+
 MikroE `Accel click <https://www.mikroe.com/accel-click>`_ is recommended, but many other boards
 can work. More information about the mikroBUS interface can be found
 `here <https://docs.beagleboard.org/boards/beagleplay/demos-and-tutorials/using-mikrobus.html>`_.
 
 Let's get started!
-*************************
+********************
 
 First, we want to make sure the mikroBUS™ add-on board is connected and functioning as expected.
 To do this, we make use of the `iio_info command <https://man.archlinux.org/man/iio_info.1.en>`_.
 
 Connecting mikroBUS™ add-on board
-================================
+==================================
 
-``iio_info`` is a utility for displaying information about local or remote IIO devices, in this case it's the `Accel click board <https://www.mikroe.com/accel-click>`_.
+``iio_info`` is a utility for displaying information about local or remote IIO devices, in 
+this case it's the `Accel click board <https://www.mikroe.com/accel-click>`_.
 
 .. figure:: ./iio_info_out.png
    :width: 1040
    :align: center
 
+   iio_info command output
+
 Accessing Node-RED
-=====================
+====================
 
 Once your BeaglePlay is booted up and connected to your computer, access it from your browser by typing
 ``192.168.7.2:1880`` in your address bar. Learn more about remote browser in :ref:`start-browse-to-beagle`.
@@ -80,6 +84,7 @@ with timestamps.
    :width: 1040
    :align: center
 
+   Node-RED debug logs
 
 Adding a Gauge
 ==============
@@ -88,19 +93,25 @@ Adding a Gauge
    :width: 1040
    :align: center
 
+   Node-RED base flow
+
 .. figure:: ./nodered-base-flow-output.png
    :width: 400
    :align: center
 
+   Node-RED base flow output
 
 Adding a Graph and 3 Axis
 =========================
 
 .. todo::
-        * Add flow diagram
-        * Show the output
+   
+   * Add flow diagram
+   * * Show the output
 
 .. figure:: ./nodered-complete-gauges-flow.png
    :width: 1040
    :align: center
+
+   Node-RED complete gauges flow
 
