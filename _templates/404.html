@@ -10,7 +10,6 @@
     let currentUrl = window.location.href;
 
     // Iterate over the redirect_folders key-value pairs
-    let redirectFound = false;
     for (const [key, value] of Object.entries(redirectFolders)) {
         if (currentUrl.includes("/" + key)) {
             // Determine the replacement value
@@ -23,9 +22,6 @@
             fetch(newUrl, { method: "HEAD" })
                 .then(response => {
                     if (response.ok) {
-                        // Redirect is found
-                        redirectFound = true;
-
                         // Update the heading with the correct information
                         const headingElement = document.getElementById('pageHeading');
                         if (headingElement) {
@@ -90,7 +86,8 @@
                             countdownActive = false;
                             clearInterval(countdownInterval);
                         });
-                    } else if (!redirectFound) {
+                    } else {
+                        // In case response is not OK 
                         const headingElement = document.getElementById('pageHeading');
                         if (headingElement) {
                             headingElement.textContent = "Page Not Found (404)";
@@ -107,19 +104,14 @@
                     }
                     document.getElementById('redirectInfo').style.display = "block";
                 });
-
-            // Stop after the first successful replacement check
-            break;
+        } else {
+            // In case the link test doesn't include redirectFolders
+            const headingElement = document.getElementById('pageHeading');
+            if (headingElement) {
+                headingElement.textContent = "Page Not Found (404)";
+            }
+            document.getElementById('redirectInfo').style.display = "block";
         }
-    }
-
-    // If no potential redirect match is found after iteration
-    if (!redirectFound) {
-        const headingElement = document.getElementById('pageHeading');
-        if (headingElement) {
-            headingElement.textContent = "Page Not Found (404)";
-        }
-        document.getElementById('redirectInfo').style.display = "block";
     }
 </script>
 
