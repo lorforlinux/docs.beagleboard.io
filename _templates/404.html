@@ -10,7 +10,7 @@
     let currentUrl = window.location.href;
 
     // Flag to check if valid redirect is found
-    let redirectFount = false;
+    let redirectFound = false;
 
     // Iterate over the redirect_folders key-value pairs
     for (const [key, value] of Object.entries(redirectFolders)) {
@@ -27,8 +27,8 @@
                 .then(response => {
                     if (response.ok) {
                         // Valid redirect is found
-                        let redirectFount = true;
-                        
+                        let redirectFound = true;
+
                         // Update the heading with the correct information
                         const headingElement = document.getElementById('pageHeading');
                         if (headingElement) {
@@ -75,7 +75,7 @@
                                 clearInterval(countdownInterval);
                                 window.location.href = newUrl;
                             }
-                        }, 1000);
+                        }, 1000);5.4
 
                         // Event listener for "Redirect Now" button
                         document.getElementById('redirectNow').addEventListener('click', () => {
@@ -102,7 +102,7 @@
         }
     }
 
-    if (!redirectFount) {
+    if (!redirectFound) {
         // In case the link test doesn't include redirectFolders
         const headingElement = document.getElementById('pageHeading');
         if (headingElement) {
