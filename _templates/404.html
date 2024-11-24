@@ -3,109 +3,110 @@
 {% block extrahead %}
 
 <script>
-    // The redirect_folders dictionary is passed from html_context
-    const redirectFolders = JSON.parse('{{ redirect_folders | tojson | safe }}');
+    document.addEventListener("DOMContentLoaded", function () {
+        // The redirect_folders dictionary is passed from html_context
+        const redirectFolders = JSON.parse('{{ redirect_folders | tojson | safe }}');
 
-    // Get the current URL
-    let currentUrl = window.location.href;
+        // Get the current URL
+        let currentUrl = window.location.href;
 
-    // Flag to check if valid redirect is found
-    let redirectFound = false;
+        // Flag to check if valid redirect is found
+        let redirectFound = false;
 
-    // Iterate over the redirect_folders key-value pairs
-    for (const [key, value] of Object.entries(redirectFolders)) {
-        if (currentUrl.includes("/" + key)) {
+        // Iterate over the redirect_folders key-value pairs
+        for (const [key, value] of Object.entries(redirectFolders)) {
+            if (currentUrl.includes("/" + key)) {
 
-            // Determine the replacement value
-            let replacement = value === "" ? "" : "/" + value;
+                // Determine the replacement value
+                let replacement = value === "" ? "" : "/" + value;
 
-            // Create a new URL by replacing "/key" with the replacement value
-            let newUrl = currentUrl.replace("/" + key, replacement);
+                // Create a new URL by replacing "/key" with the replacement value
+                let newUrl = currentUrl.replace("/" + key, replacement);
 
-            // Make an HTTP request to check if the new URL exists
-            fetch(newUrl, { method: "HEAD" })
-                .then(response => {
-                    if (response.ok) {
-                        // Valid redirect is found
-                        redirectFound = true;
+                // Make an HTTP request to check if the new URL exists
+                fetch(newUrl, { method: "HEAD" })
+                    .then(response => {
+                        if (response.ok) {
+                            // Valid redirect is found
+                            redirectFound = true;
 
-                        // Update the heading with the correct information
-                        const headingElement = document.getElementById('pageHeading');
-                        if (headingElement) {
-                            headingElement.textContent = "Page Moved!";
-                        }
-
-                        // Update the message with the correct link
-                        const redirectMessageElement = document.getElementById('redirectMessage');
-                        if (redirectMessageElement) {
-                            redirectMessageElement.innerHTML = `We found the correct page you are looking for <a href="${newUrl}" id="correctPageLink">here</a>.`;
-                        }
-
-                        document.getElementById('redirectInfo').style.display = "block";
-
-                        // If the response is OK, show the modal and initiate the countdown
-                        const redirectModal = new bootstrap.Modal(document.getElementById('redirectModal'), {
-                            backdrop: 'static',  // Prevents closing the modal by clicking outside
-                            keyboard: false      // Disables closing the modal with the keyboard
-                        });
-                        redirectModal.show();
-
-                        let countdownValue = 5;
-                        const countdownElement = document.getElementById('countdownNumber');
-                        if (countdownElement) {
-                            countdownElement.textContent = countdownValue;
-                        }
-
-                        // Variable to track if countdown should continue
-                        let countdownActive = true;
-
-                        // Countdown from 5 to 1
-                        const countdownInterval = setInterval(() => {
-                            if (!countdownActive) {
-                                clearInterval(countdownInterval);
-                                return;
+                            // Update the heading with the correct information
+                            const headingElement = document.getElementById('pageHeading');
+                            if (headingElement) {
+                                headingElement.textContent = "Page Moved!";
                             }
-                            countdownValue--;
+
+                            // Update the message with the correct link
+                            const redirectMessageElement = document.getElementById('redirectMessage');
+                            if (redirectMessageElement) {
+                                redirectMessageElement.innerHTML = `We found the correct page you are looking for <a href="${newUrl}" id="correctPageLink">here</a>.`;
+                            }
+
+                            document.getElementById('redirectInfo').style.display = "block";
+
+                            // If the response is OK, show the modal and initiate the countdown
+                            const redirectModal = new bootstrap.Modal(document.getElementById('redirectModal'), {
+                                backdrop: 'static',  // Prevents closing the modal by clicking outside
+                                keyboard: false      // Disables closing the modal with the keyboard
+                            });
+                            redirectModal.show();
+
+                            let countdownValue = 5;
+                            const countdownElement = document.getElementById('countdownNumber');
                             if (countdownElement) {
                                 countdownElement.textContent = countdownValue;
                             }
 
-                            // When countdown reaches 1, redirect
-                            if (countdownValue <= 1) {
-                                clearInterval(countdownInterval);
+                            // Variable to track if countdown should continue
+                            let countdownActive = true;
+
+                            // Countdown from 5 to 1
+                            const countdownInterval = setInterval(() => {
+                                if (!countdownActive) {
+                                    clearInterval(countdownInterval);
+                                    return;
+                                }
+                                countdownValue--;
+                                if (countdownElement) {
+                                    countdownElement.textContent = countdownValue;
+                                }
+
+                                // When countdown reaches 1, redirect
+                                if (countdownValue <= 1) {
+                                    clearInterval(countdownInterval);
+                                    window.location.href = newUrl;
+                                }
+                            }, 1000);
+
+                            // Event listener for "Redirect Now" button
+                            document.getElementById('redirectNow').addEventListener('click', () => {
                                 window.location.href = newUrl;
-                            }
-                        }, 1000);
+                            });
 
-                        // Event listener for "Redirect Now" button
-                        document.getElementById('redirectNow').addEventListener('click', () => {
-                            window.location.href = newUrl;
-                        });
+                            // Event listener for "Cancel" button
+                            document.getElementById('cancelRedirect').addEventListener('click', () => {
+                                countdownActive = false;
+                                clearInterval(countdownInterval);
+                            });
 
-                        // Event listener for "Cancel" button
-                        document.getElementById('cancelRedirect').addEventListener('click', () => {
-                            countdownActive = false;
-                            clearInterval(countdownInterval);
-                        });
-
-                        // Event listener for "Close" button in the modal header
-                        document.getElementById('closeRedirect').addEventListener('click', () => {
-                            countdownActive = false;
-                            clearInterval(countdownInterval);
-                        });
-                    } else {
-                        // If the response is not OK, proceed to check other redirects
-                        console.log(`No valid page found at ${newUrl}`);
-                    }
-                })
-                .catch(error => {
-                    console.error("Error checking the URL:", error);
-                });
-            break;
+                            // Event listener for "Close" button in the modal header
+                            document.getElementById('closeRedirect').addEventListener('click', () => {
+                                countdownActive = false;
+                                clearInterval(countdownInterval);
+                            });
+                        } else {
+                            // If the response is not OK, proceed to check other redirects
+                            console.log(`No valid page found at ${newUrl}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error checking the URL:", error);
+                    });
+                break;
+            }
         }
-    }
 
-    document.addEventListener("DOMContentLoaded", function () {
+
         if (!redirectFound) {
             // In case the link test doesn't include redirectFolders
             const headingElement = document.getElementById('pageHeading');
