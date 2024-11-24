@@ -27,7 +27,7 @@
                 .then(response => {
                     if (response.ok) {
                         // Valid redirect is found
-                        let redirectFound = true;
+                        redirectFound = true;
 
                         // Update the heading with the correct information
                         const headingElement = document.getElementById('pageHeading');
@@ -75,7 +75,7 @@
                                 clearInterval(countdownInterval);
                                 window.location.href = newUrl;
                             }
-                        }, 1000);5.4
+                        }, 1000);
 
                         // Event listener for "Redirect Now" button
                         document.getElementById('redirectNow').addEventListener('click', () => {
@@ -93,6 +93,9 @@
                             countdownActive = false;
                             clearInterval(countdownInterval);
                         });
+                    } else {
+                        // If the response is not OK, proceed to check other redirects
+                        console.log(`No valid page found at ${newUrl}`);
                     }
                 })
                 .catch(error => {
