@@ -9,9 +9,13 @@
     // Get the current URL
     let currentUrl = window.location.href;
 
+    // Flag to check if valid redirect is found
+    let redirectFount = false;
+
     // Iterate over the redirect_folders key-value pairs
     for (const [key, value] of Object.entries(redirectFolders)) {
         if (currentUrl.includes("/" + key)) {
+
             // Determine the replacement value
             let replacement = value === "" ? "" : "/" + value;
 
@@ -22,6 +26,9 @@
             fetch(newUrl, { method: "HEAD" })
                 .then(response => {
                     if (response.ok) {
+                        // Valid redirect is found
+                        let redirectFount = true;
+                        
                         // Update the heading with the correct information
                         const headingElement = document.getElementById('pageHeading');
                         if (headingElement) {
@@ -86,32 +93,22 @@
                             countdownActive = false;
                             clearInterval(countdownInterval);
                         });
-                    } else {
-                        // In case response is not OK 
-                        const headingElement = document.getElementById('pageHeading');
-                        if (headingElement) {
-                            headingElement.textContent = "Page Not Found (404)";
-                        }
-                        document.getElementById('redirectInfo').style.display = "block";
                     }
                 })
                 .catch(error => {
                     console.error("Error checking the URL:", error);
-                    // In case of an error, ensure the title is properly set                
-                    const headingElement = document.getElementById('pageHeading');
-                    if (headingElement) {
-                        headingElement.textContent = "Page Not Found (404)";
-                    }
-                    document.getElementById('redirectInfo').style.display = "block";
                 });
-        } else {
-            // In case the link test doesn't include redirectFolders
-            const headingElement = document.getElementById('pageHeading');
-            if (headingElement) {
-                headingElement.textContent = "Page Not Found (404)";
-            }
-            document.getElementById('redirectInfo').style.display = "block";
+            break;
         }
+    }
+
+    if (!redirectFount) {
+        // In case the link test doesn't include redirectFolders
+        const headingElement = document.getElementById('pageHeading');
+        if (headingElement) {
+            headingElement.textContent = "Page Not Found (404)";
+        }
+        document.getElementById('redirectInfo').style.display = "block";
     }
 </script>
 
