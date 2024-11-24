@@ -105,14 +105,16 @@
         }
     }
 
-    if (!redirectFound) {
-        // In case the link test doesn't include redirectFolders
-        const headingElement = document.getElementById('pageHeading');
-        if (headingElement) {
-            headingElement.textContent = "Page Not Found (404)";
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!redirectFound) {
+            // In case the link test doesn't include redirectFolders
+            const headingElement = document.getElementById('pageHeading');
+            if (headingElement) {
+                headingElement.textContent = "Page Not Found (404)";
+            }
+            document.getElementById('redirectInfo').style.display = "block";
         }
-        document.getElementById('redirectInfo').style.display = "block";
-    }
+    });
 </script>
 
 {{ super() }}
