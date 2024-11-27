@@ -77,12 +77,12 @@ span.strike {
 
 /* Site horizontal spacing */
 .bd-main .bd-content .bd-article-container {
-    max-width: 100%;
+    max-width: 120em;
     /* default is 60em */
 }
 
 .bd-page-width {
-    max-width: 100%;
+    max-width: 120rem;
     /* default is 88rem */
 }
 
@@ -91,3 +91,38 @@ span.strike {
 figure a.headerlink {
     position: static;
 }
+
+/* Primary sidebar toggle button */
+/* Sidebar styles */
+#pst-primary-sidebar {
+    transition: width 0.3s ease; /* Smooth collapse/expand transition */
+}
+
+#pst-primary-sidebar.collapsed {
+    overflow: hidden;
+    padding: 0;
+    width: 0; /* Collapse the sidebar */
+}
+
+/* Toggle button styles */
+.sidebar-toggle-btn {
+    margin-top: 44px; /* Space between sidebar and button */
+    padding: 7px; /* Set padding for the button, horizontally more */
+    background-color: #F16321; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 0 5px 5px 0; /* Rounded corners */
+    display: block; /* Ensure the button is block-level */
+    font-size: 20px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    height: 40px; /* Set a fixed height for the button */
+    width: auto; /* Width based on content */
+    line-height: 20px; /* Vertically center the text */
+}
+
+/* Optional: Adding a hover effect */
+.sidebar-toggle-btn:hover {
+    background-color: #C7480D; /* Slightly darker blue on hover */
+}
+
