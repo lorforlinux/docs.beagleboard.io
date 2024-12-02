@@ -53,64 +53,111 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Select the sidebar and create the custom toggle button
-    const sidebar = document.getElementById('pst-primary-sidebar');
-    const toggleButton = document.createElement('button');
-    toggleButton.id = 'toggle-primary-sidebar';
-    toggleButton.innerHTML = '<strong>&lt;</strong>'; // Initial content
-    toggleButton.className = 'sidebar-toggle-btn'; // Add class for styling
-
-    // Insert the button after the sidebar
-    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
-
-    // Function to check visibility of the primary sidebar toggle button
-    function checkPrimaryToggleVisibility() {
-        const primaryToggleButton = document.querySelector('.pst-navbar-icon.sidebar-toggle.primary-toggle');
-        
-        // If the primary toggle button is visible, hide the custom toggle button
-        if (primaryToggleButton && primaryToggleButton.offsetParent !== null) {
-            toggleButton.style.display = 'none'; // Hide custom button
-        } else {
-            toggleButton.style.display = 'block'; // Show custom button
-        }
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<strong>&lt;</strong>',
+            '<strong>&gt;</strong>',
+            'after'
+        );
     }
 
-    // Function to update the button visibility based on the sidebar state
-    function updateButtonVisibility() {
-        // Check if the sidebar is hidden via display: none
-        if (sidebar && window.getComputedStyle(sidebar).display === 'none') {
-            // If the sidebar is hidden, remove the button from the DOM
-            if (toggleButton) {
-                toggleButton.remove();
-            }
-        } else {
-            // Ensure the button is added back if it was removed
-            if (!document.querySelector('#toggle-primary-sidebar')) {
-                sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
-            }
-        }
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<strong>&gt;</strong>',
+            '<strong>&lt;</strong>',
+            'before'
+        );
     }
-    // Initially check visibility of the primary toggle button
-    checkPrimaryToggleVisibility();
-    updateButtonVisibility();
 
-    // Toggle sidebar collapse/expand functionality
-    toggleButton.addEventListener('click', () => {
-        sidebar.classList.toggle('collapsed');
-        
-        // Update button content based on sidebar state
-        if (sidebar.classList.contains('collapsed')) {
-            toggleButton.innerHTML = '<strong>&gt;</strong>'; // When collapsed
-        } else {
-            toggleButton.innerHTML = '<strong>&lt;</strong>'; // When expanded
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
         }
-    });
 
-    // Monitor window resize to dynamically show/hide the button
-    window.addEventListener('resize', () => {
-        checkPrimaryToggleVisibility();
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
         updateButtonVisibility();
-    });
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
 });
 
 </script>
