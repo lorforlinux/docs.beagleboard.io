@@ -97,22 +97,18 @@ figure a.headerlink {
     overflow: hidden;
     padding: 0;
     width: 0; /* Collapse the sidebar */
-    transition: width 0.4s ease;
-}
-#pst-primary-sidebar {
-    transition: width 0.4s ease;
+    transition: none;
 }
 
 #pst-secondary-sidebar.collapsed {
     overflow: hidden;
     padding: 0;
     width: 0; /* Collapse the sidebar */
-    transition: width 0.4s ease;
+    transition: none;
 }
 
 #pst-secondary-sidebar {
     padding-left: 0px;
-    transition: width 0.4s ease;
 }
 
 /* Toggle button styles */
