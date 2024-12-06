@@ -12,7 +12,7 @@ multiple architectures and platforms.
 This article will focus on giving a starting point to learning Zephyr using a Beagleboard.
 
 Why Zephyr?
-===========
+***********
 
 - **Scalable**: Zephyr is designed to be scalable, from simple embedded systems to complex IoT applications.
 - **Modular**: Zephyr is designed to be modular, allowing you to use only the components you need.
@@ -21,7 +21,7 @@ Why Zephyr?
 - **Community**: Zephyr has a large community of developers and contributors.
 
 Getting Started with Zephyr
-===========================
+****************************
 
 To get started with Zephyr, you will need to follow `Getting Started Guide by Zephyr 
 <https://docs.zephyrproject.org/latest/getting_started/index.html>`_. 
@@ -29,7 +29,7 @@ By following the guide, you will be able to set up your development environment 
 try out a zephyr sample applications.
 
 Delving into Zephyr
-===================
+*******************
 
 Once you have set up your development environment and tried out the sample applications,
 Let's delve into Zephyr by creating a simple application. We will now delve into breaking 
@@ -169,8 +169,8 @@ Result
 After flashing the application, you will see the LED blinking every second.
 
 Recommended Reading
-===================
+*******************
 
 - `Zephyr Documentation <https://docs.zephyrproject.org/latest/index.html>`_
-- `Zephyr RTOS tutorial <https://github.com/maksimdrachov/zephyr-rtos-tutorial> `_
+- `Zephyr RTOS tutorial <https://github.com/maksimdrachov/zephyr-rtos-tutorial>`_
 - `awesome zephyr RTOS <https://github.com/zephyrproject-rtos/awesome-zephyr-rtos>`_
