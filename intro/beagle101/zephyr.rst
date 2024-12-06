@@ -40,7 +40,8 @@ Here are the files in a simple Zephyr application:
 
 Let's pull blinky sample application from Zephyr repository to zephyrproject directory.
 
-.. code-block:: none
+.. code-block:: shell-session
+
     cp -r zephyrproject/zephyr/samples/basic/blinky zephyrproject/app
 
 .. code-block:: none
@@ -63,6 +64,7 @@ Let's pull blinky sample application from Zephyr repository to zephyrproject dir
 Let's take a look at the contents of the `main.c` file:
 
 .. code-block:: c
+
     #include <stdio.h>
     #include <zephyr/kernel.h>
     #include <zephyr/drivers/gpio.h>
@@ -72,6 +74,7 @@ as `stdio.h` for printf functions , `kernel.h` for kernel APIs like ms_sleep(), 
 `gpio.h` for GPIO APIs for GPIO related functions.
 
 .. code-block:: c
+
     #define LED_NODE DT_ALIAS(led0)
 
 As Zephyr uses a device tree to configure the hardware, this macro is used to get the 
@@ -79,14 +82,17 @@ device tree node for the LED by resolving the alias `led0` alias present in the 
 enabling the application to use the LED.
 
 .. code-block:: c
+
     static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 
-GPIO_DT_SPEC_GET fetches the GPIO configuration for led0.
+``GPIO_DT_SPEC_GET`` fetches the GPIO configuration for led0.
 
 .. note::
+
     build error on this line means your board is unsupported.
 
 .. code-block:: c
+
     if (!gpio_is_ready_dt(&led)) {
     return 0;
     }
@@ -94,20 +100,25 @@ GPIO_DT_SPEC_GET fetches the GPIO configuration for led0.
 This code checks if the GPIO is ready to use, if not it returns 0.
 
 .. code-block:: c
+
     ret = gpio_pin_configure_dt(&led, GPIO_OUTPUT_ACTIVE);
 
 This code configures the GPIO pin as an output pin and sets the initial state to active.
 
 .. note::
+
     There are many other options other than GPIO_OUTPUT_ACTIVE, like GPIO_OUTPUT_INACTIVE, GPIO_INPUT, etc.
     For more visit `Zephyr GPIO API <https://docs.zephyrproject.org/apidoc/latest/group__gpio__interface.html>`_,
     GPIO input/output configuration flag section.
+
 .. code-block:: c
+
     ret = gpio_pin_toggle_dt(&led);
 
-The gpio_pin_toggle_dt API helps in toggling the LED’s state
+The ``gpio_pin_toggle_dt`` API helps in toggling the LED’s state
 
 .. code-block:: c
+
     k_msleep(1000);
 
 This code makes the application sleep for 1000 milliseconds. part of the kernel API.
@@ -121,9 +132,11 @@ Building the Application
 To build the application, you need to run the following commands:
 
 .. code-block:: none
-    west build -b <board-name> . 
+
+    west build -b <board-name>. 
 
 .. note::
+
     West is a tool that helps in managing multiple repositories and build systems.
     For more information, visit `West documentation <https://docs.zephyrproject.org/latest/guides/west/index.html>`_.
 
@@ -135,10 +148,12 @@ Flashing the Application
 To flash the application, you need to run the following command:
 
 .. code-block:: none
+
     west flash
 
 .. note::
-    1. To use west flash in BeagleConnect Freedom or BeaglePlay, it requires `cc1352-flasher` tool to be installed.
+
+    1. To use west flash in BeagleConnect Freedom or BeaglePlay, it requires ``cc1352-flasher`` tool to be installed.
         .. code-block:: none
             pip3 install cc1352-flasher
     2. At the moment, BeagleBone AI-64 doesn't support west flash. Please use the 
