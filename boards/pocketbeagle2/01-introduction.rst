@@ -33,15 +33,15 @@ much as possible. There are several significant differences between the designs.
 .. table:: Table: PocketBeagle comparison
 
    +-------------------+---------------------+----------------------------+
-   | Feature           | PocketBeagle2       | PocketBeagle2              |
+   | Feature           | PocketBeagle2       | PocketBeagle classic       |
    +===================+=====================+============================+
    | SoC               | AM6232              | AM3358                     |
    +-------------------+---------------------+----------------------------+
    | Arm CPU           | Cortex-A53 (64-bit) | Cortex-A8 (32-bit)         |
    +-------------------+---------------------+----------------------------+
-   | Arm cores/MHz     | 1 x 1GHz            | 2x 1.4GHz                  |
+   | Arm cores         | 2 x 1.4GHz          | 1 x 1GHz                   |
    +-------------------+---------------------+----------------------------+
-   | RAM               | 512MB               | 512MB                      |
+   | RAM               | 512MB DDR4          | 512MB DDR3                 |
    +-------------------+---------------------+----------------------------+
 
 
@@ -81,10 +81,59 @@ This section describes the key components on the board, their location and funct
 
    .. tab-item:: Front components location
 
+      .. figure:: images/components/front.*
+         :width: 1240
+         :align: center
+         :alt: PocketBeagle2 board front components location
+   
+         PocketBeagle2 board front components location
+
+      .. table:: PocketBeagle2 board front components location table
+         :align: center
+         
+         +----------------------------+---------------------------------------------------------------------------+
+         | Feature                    | Description                                                               |
+         +============================+===========================================================================+
+         | AM6232 SoC                 | Internet of Things (IoT) and gateway SoC with dual core A53 @ 1.4GHz      |
+         +----------------------------+---------------------------------------------------------------------------+
+         | MSPM0 MCU                  | MSPM0 MCU to provide ADC and EEPROM functionality                         |
+         +----------------------------+---------------------------------------------------------------------------+
+         | U, P and C LEDs            | USR1 - USR4 (U) user LEDs, Power (P) & Charging (C) LED indicator         |
+         +----------------------------+---------------------------------------------------------------------------+
+         | USB C                      | Power and connectivity.                                                   |
+         +----------------------------+---------------------------------------------------------------------------+
+         | User button                | User action button, hold down to boot from sdCard on a board with eMMC    |
+         +----------------------------+---------------------------------------------------------------------------+
+         | Power button               | Hold down to toggle ON/OFF                                                |
+         +----------------------------+---------------------------------------------------------------------------+
+         | TPS6521903                 | Power Management Integrated Circuit (PMIC)                                |
+         +----------------------------+---------------------------------------------------------------------------+
+         | 512MB RAM                  | 512MB DDR4 RAM                                                            |
+         +----------------------------+---------------------------------------------------------------------------+
+         | 4GB eMMC (optional)        | Optional flash storage                                                    |
+         +----------------------------+---------------------------------------------------------------------------+
+         | JTAG debug port            | Tag-Connect JTAG (AM6232) debug port                                      |
+         +----------------------------+---------------------------------------------------------------------------+
+
    .. tab-item:: Back components location
 
-      .. todo:: Add PocketBeagle2 board back components details
+      .. figure:: images/components/back.*
+         :width: 1240
+         :align: center
+         :alt: PocketBeagle2 board back components location
 
-   .. tab-item:: Back components location
+         PocketBeagle2 board back components location
 
-      .. todo:: Add PocketBeagle2 board back components details
+      .. table:: PocketBeagle2 board back components location table
+         :align: center
+
+         +----------------------------+---------------------------------------------------------------------------+
+         | Feature                    | Description                                                               |
+         +============================+===========================================================================+
+         | microSD                    | Micro SD Card holder                                                      |
+         +----------------------------+---------------------------------------------------------------------------+
+         | P1 & P2 cape header        | Expansion headers for PocketBeagle capes.                                 |
+         +----------------------------+---------------------------------------------------------------------------+
+         | UART debug ports           | 3pin JST-SH 1.00mm UART debug port (RPI debug probe compatible)           |
+         +----------------------------+---------------------------------------------------------------------------+
+ 
