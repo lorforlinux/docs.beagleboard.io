@@ -3,7 +3,12 @@
 PocketBeagle2
 ###################
 
-.. todo:: Add PocketBeagle2 information
+PocketBeagle2 is an upgraded version of the widely popular PocketBeagle, designed as an ultra-compact, low-cost, 
+and powerful single-board computer (SBC). Targeted at developers, students, and hobbyists, PocketBeagle2 retains 
+the simplicity and flexibility of its predecessor while delivering enhanced performance and expanded features 
+to support modern development needs. PocketBeagle2 is ideal for creating IoT devices, robotics projects, 
+and educational applications. Its small form factor and low power consumption make it a versatile platform 
+for embedded development, whether prototyping or deploying at scale.
 
 .. image:: images/product/pocketbeagle2-45-front.jpg
    :width: 740px
