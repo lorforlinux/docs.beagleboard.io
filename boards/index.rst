@@ -38,6 +38,7 @@ started.
 ..  toctree::
     :maxdepth: 1
 
+    pocketbeagle2/index
     beagley/ai/index.rst
     beagleplay/index
     beaglebone/ai-64/index
