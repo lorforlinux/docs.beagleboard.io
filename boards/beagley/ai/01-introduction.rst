@@ -13,7 +13,7 @@ Detailed overview
 ******************
 
 BeagleY-AI is based on the Texas Instruments AM67A Arm-based vision processor.  It features a quad-core 64-bit Arm®Cortex®-A53 CPU subsystem at 1.4GHz, 
-Dual general-purpose C7x DSP with Matrix Multiply Accelerator (MMA) capable of 4 TOPs each, Arm Cortex-R5 subsystem for low-latency 
+Dual general-purpose C7x DSP with Matrix Multiply Accelerator (MMA) capable of 4 TOPS (trillion-operations per second) combined (2 TOPS each), two available 800MHz Arm Cortex-R5 subsystems for low-latency 
 I/O and control, a 50 GFlop GPU, video and vision accelerators, and other specialized processing capability.
 
 .. table:: BeagleY-AI features
