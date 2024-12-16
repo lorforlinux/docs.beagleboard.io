@@ -374,7 +374,7 @@ TDA4VM on the BBAI-64, i.e. GPIO and PWM respectively.
 The next file is not our library but our file to run on the command line to call MotorLib for our
 use case, e.g. opening a door by unbolting our locking solenoid and/or locking it back.
 
-.. code-block::
+.. code-block:: python
 
     #!/usr/bin/python3
 

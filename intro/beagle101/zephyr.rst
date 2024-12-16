@@ -154,13 +154,16 @@ To flash the application, you need to run the following command:
 .. note::
 
     1. To use west flash in BeagleConnect Freedom or BeaglePlay, it requires ``cc1352-flasher`` tool to be installed.
-        .. code-block:: none
-            pip3 install cc1352-flasher
+
+    .. code-block:: none
+
+        pip3 install cc1352-flasher
+            
     2. At the moment, BeagleBone AI-64 doesn't support west flash. Please use the 
-        `documentation <https://docs.zephyrproject.org/latest/boards/beagle/beaglebone_ai64/doc/index.html>`_ 
+        `AI-64 documentation <https://docs.zephyrproject.org/latest/boards/beagle/beaglebone_ai64/doc/index.html>`_ 
         provided by Zephyr for flashing the application.
     3. At the moment, BeagleV-Fire doesn't support west flash. Please use the 
-        `documentation <https://docs.zephyrproject.org/latest/boards/beagle/beaglev_fire/doc/index.html>`_ 
+        `BeagleV-Fire documentation <https://docs.zephyrproject.org/latest/boards/beagle/beaglev_fire/doc/index.html>`_ 
         provided by Zephyr for flashing the application.
 
 Result
