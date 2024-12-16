@@ -20,7 +20,7 @@ Export designations
 * EUHSCODE: 8543709099
 * UPC number: 841454123484
 
-.. _hardware-design:
+.. _pocketbeagle2-hardware-design:
 
 Hardware Design
 ****************
@@ -33,7 +33,7 @@ Production board boot media
 
 .. todo:: Add production image link with board revision information.
 
-.. _software-updates:
+.. _pocketbeagle2-software-updates:
 
 Software Updates
 ******************
@@ -58,9 +58,9 @@ It should look something like as shown in example below,
 .. code-block:: shell
 
    root@BeagleBone:~# cat /etc/dogtag
-   BeagleBoard.org Debian Bullseye Xfce Image 2022-01-14
+   BeagleBoard.org Debian Image 2024-02-24
 
-.. _rma-support:
+.. _pocketbeagle2-rma-support:
 
 RMA Support
 *****************
@@ -71,7 +71,7 @@ revision of the board. The serial numbers and revisions keep moving. Different b
 locations depending on when they were made. The following figures show the three locations of the serial 
 and revision number.
 
-.. _getting-help:
+.. _pocketbeagle2-getting-help:
 
 Getting Help
 **************
@@ -84,7 +84,7 @@ queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocke
 Mechanical Details
 ******************
 
-.. _dimensions-and-weight:
+.. _pocketbeagle2-dimensions-and-weight:
 
 Dimensions and Weight
 ======================
@@ -106,9 +106,9 @@ Dimensions and Weight
    +--------------------+----------------------------------------------------+
    | RoHS compliant     | Yes                                                |
    +--------------------+----------------------------------------------------+
-   | Gross Weight       | 19g                                                |
-   +--------------------+----------------------------------------------------+
    | Net Weight         | 12.7g                                              |
+   +--------------------+----------------------------------------------------+
+   | Gross Weight       | 19g                                                |
    +--------------------+----------------------------------------------------+
 
 

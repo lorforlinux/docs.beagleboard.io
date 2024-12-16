@@ -4,8 +4,8 @@ Introduction
 ###############
 
 PocketBeagle2 is based on `Texas Instrments AM6232 SoC <https://www.ti.com/product/AM623>`_, it's dual A53 cores can 
-provides more than double the performance of the classic PocketBeagle. The new design comes with pre-soldered headers, 3-pin 
-JST-SH 1.00mm uart debug port, USB-C port, MSPM0L1105, 512MB RAM, LiPo Battery charger, and optional eMMC storage.
+provides more than double the performance of the classic PocketBeagle. The new design comes with pre-soldered headers, 
+3-pin JST-SH 1.00mm uart debug port, USB-C port, MSPM0L1105, 512MB RAM, LiPo Battery charger, and optional eMMC storage.
 
 .. table::
    :align: center
@@ -28,7 +28,7 @@ The board is intended to provide functionality well beyond classic PocketBeagle,
 while still providing compatibility with PocketBeagle's expansion headers as 
 much as possible. There are several significant differences between the designs. 
 
-.. _beaglebone-comparison-table, BeagleBone comparison:
+.. _pocketbeagle-comparison-table, PocketBeagle comparison:
 
 .. table:: Table: PocketBeagle comparison
 
@@ -58,9 +58,38 @@ PocketBeagle2 Features and Specification
 This section covers the specifications and features of the board and provides a high level 
 description of the major components and interfaces that make up the board.
 
-.. _ai64-features,PocketBeagle2 features tabled:
+.. _pocketbeagle2-features,PocketBeagle2 features tabled:
 
-.. todo:: Add Table: PocketBeagle2 Features and Specification
+.. table:: Table: PocketBeagle2 Features and Specification
+
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   |                         | Feature                                                                                                                                 |
+   +=========================+=========================================================================================================================================+
+   | **Processor**           | `Texas Instruments AM6232 <https://www.ti.com/product/AM623>`_                                                                          |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **SDRAM Memory**        | LPDDR4 3200MHz (512MB) Kingston D2516AN9EXGXN-TU                                                                                        |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **Onboard Flash**       | eMMC (2GB) Kingston EMMC04G-MT32-01G10                                                                                                  |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **PMIC**                | TPS6521903                                                                                                                              |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **Debug Support**       | 3 pin 3.3V JST-SH 1.00mm UART debug port (RPI debug probe compatible)                                                                   |
+   +                         +-----------------------------------------------------------------------------------------------------------------------------------------+
+   |                         | 10-pin JTAG TAG-CONNECT footprint                                                                                                       |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **Power Source**        | USB C or Cape Header VIN (5V @ 1A)                                                                                                      |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **PCB**                 | 55 x 35 mm                                                                                                                              |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **Indicators**          | 1x Power, 1x Battery charging, and 4x User Controllable LEDs                                                                            |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **SD/MMC Connector**    | microSD (1.8/3.3V)                                                                                                                      |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **User Input**          | 1. Power Button                                                                                                                         |
+   |                         | 2. User/Boot Button                                                                                                                     |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | **Weight**              | 12.7gm                                                                                                                                  |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _pocketbeagle2-component-locations:
 
