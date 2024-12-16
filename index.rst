@@ -16,7 +16,7 @@ BeagleBoard Documentation
             <div style="background-color:#F16321; border-radius:1rem; padding:1rem">
                <h2 style="margin-top:1rem; background-color:#C7480D; border-radius:1rem; padding:1rem; color:white; text-align:center;"> Open hardware computers! </h2>
                <h4 style="margin-top:1rem; color:white; text-align:center;"> For makers, educators, and professionals </h4>
-               <h6 style="margin-top:1rem;background-color:#FFFFFF;text-align:center;border-radius:1rem;padding:1rem; color:black;">
+               <h6 style="margin-top:1rem;background-color:#FFFFFF;text-align:center;border-radius:1rem;padding:1rem;color:black;">
                   Welcome to the BeagleBoard project documentation.
                   If you are looking for help with your Beagle open-hardware development platform, you've found the right place!
                </h6>
@@ -34,7 +34,7 @@ BeagleBoard Documentation
                <div style="background-color:#E62427; border-radius:1rem; padding:1rem">
                   <h2 style="margin-top:1rem; background-color:#8C171A; border-radius:1rem; padding:1rem; color:white; text-align:center;"> BeagleV-Fire </h2>
                   <h4 style="margin-top:1rem; color:white; text-align:center;"> Perfect Blend of FPGA + RISC-V </h4>
-                  <h6 style="margin-top:1rem;background-color:#FFFFFF;text-align:center;border-radius:1rem;padding:1rem;">
+                  <h6 style="margin-top:1rem;background-color:#FFFFFF;text-align:center;border-radius:1rem;padding:1rem;color:black;">
                      For those who want cutting edge FPGA + RISC-V technology on a single board 
                      go for BeagleV-Fire, it's the perfect blend of both!
                   </h6>
@@ -45,7 +45,7 @@ BeagleBoard Documentation
                <div style="background-color:#0781BB; border-radius:1rem; padding:1rem">
                   <h2 style="margin-top:1rem; background-color:#0B4D72; border-radius:1rem; padding:1rem; color:white; text-align:center;"> BeagleV-Ahead </h2>
                   <h4 style="margin-top:1rem; color:white; text-align:center;"> RISC-V SBC with BeagleBone Black cape header</h4>
-                  <h6 style="margin-top:1rem;background-color:#FFFFFF;text-align:center;border-radius:1rem;padding:1rem;">
+                  <h6 style="margin-top:1rem;background-color:#FFFFFF;text-align:center;border-radius:1rem;padding:1rem;color:black;">
                      Powerful quad-core RISC-V processor, BeagleV®-Ahead is designed as an affordable RISC-V enabled pocket-size 
                      computer for anybody who want’s to dive deep into the new RISC-V ISA.
                   </h6>
