@@ -33,6 +33,12 @@ Block Diagram and Overview
 System on Chip (SoC)
 *********************
 
+.. figure:: images/hardware-design/soc-functional-block-diagram.png
+   :align: center
+   :alt: SoC functional block diagram
+
+   SoC functional block diagram
+
 .. figure:: images/hardware-design/soc-dcaps.png
    :align: center
    :alt: SoC decoupling capacitors
