@@ -10,19 +10,32 @@ followed by discussing each hardware design element in detail.
 Block Diagram and Overview
 **************************
 
+The below figure provides a high-level overview of the PocketBeagle2 hardware architecture, illustrating 
+the main components and their interconnections. This includes the System on Chip (SoC), power management, 
+memory, connectivity interfaces, and other peripheral components.
+
 .. figure:: images/hardware-design/block-diagram.png
+   :width: 1200px
    :align: center
    :alt: PocketBeagle2 Block Diagram
 
    PocketBeagle2 Block Diagram
 
+The following figure illustrates the I2C tree of the PocketBeagle2, showing the connections between the I2C 
+master and various I2C slave devices on the board.
+
 .. figure:: images/hardware-design/i2c-tree.png
+   :width: 1200px
    :align: center
    :alt: I2C tree
 
    I2C tree
 
+The following figure shows the power tree of the PocketBeagle2, detailing the power distribution from the 
+main power sources to various components on the board.
+
 .. figure:: images/hardware-design/power-tree.png
+   :width: 1200px
    :align: center
    :alt: Power tree
 
@@ -33,11 +46,25 @@ Block Diagram and Overview
 System on Chip (SoC)
 *********************
 
+The PocketBeagle2 is powered by the AM6232 SoC, which is a high-performance, low-power processor 
+designed for embedded applications. The AM6232 integrates dual ARM Cortex-A53 cores, a 
+Cortex-M4F core, and various peripherals to support a wide range of functionalities. It is 
+optimized for power efficiency and performance, making it suitable for applications requiring 
+robust processing capabilities while maintaining low power consumption. The AM6232 SoC functional 
+block diagram below provides a detailed view of the internal architecture of the System on Chip. It 
+highlights the various functional blocks such as the CPU cores, memory controllers, peripheral 
+interfaces, and other integrated components. This diagram is essential for understanding how 
+the SoC manages data flow and interacts with other hardware components on the PocketBeagle2 board.
+
 .. figure:: images/hardware-design/soc-functional-block-diagram.png
    :align: center
    :alt: SoC functional block diagram
 
    SoC functional block diagram
+
+Decoupling capacitors are used to filter out noise and provide a stable power supply to the SoC. They 
+help in maintaining the integrity of the power signals by smoothing out voltage fluctuations and transient 
+spikes, ensuring reliable operation of the SoC and preventing potential malfunctions due to power instability.
 
 .. figure:: images/hardware-design/soc-dcaps.png
    :align: center
@@ -45,11 +72,19 @@ System on Chip (SoC)
    
    SoC decoupling capacitors
 
+The following figure shows the DDR controller of the SoC, which manages the communication between the 
+processor and the DDR memory. It ensures efficient data transfer and memory access, playing a crucial 
+role in the overall performance of the system.
+
 .. figure:: images/hardware-design/soc-ddr-controller.png
    :align: center
    :alt: SoC DDR controller
    
    SoC DDR controller
+
+The following figure shows the power capacitors used for the SoC. These capacitors are crucial for 
+maintaining stable power delivery to the SoC, filtering out noise, and ensuring reliable operation 
+by smoothing out voltage fluctuations.
 
 .. figure:: images/hardware-design/soc-power-caps.png
    :align: center
@@ -57,11 +92,18 @@ System on Chip (SoC)
    
    SoC power capacitors
 
+The following figure shows the power distribution for the SoC, detailing how power is supplied to 
+various components within the SoC to ensure stable and efficient operation.
+
 .. figure:: images/hardware-design/soc-power.png
    :align: center
    :alt: SoC power
    
    SoC power
+
+The following figure shows the VSS (Ground) connection for the SoC. This connection is crucial 
+for providing a common reference point for all the electrical signals and ensuring the proper 
+operation of the SoC by stabilizing the voltage levels.
 
 .. figure:: images/hardware-design/soc-vss.png
    :align: center
