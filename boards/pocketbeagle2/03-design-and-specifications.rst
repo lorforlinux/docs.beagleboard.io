@@ -116,11 +116,15 @@ operation of the SoC by stabilizing the voltage levels.
 Boot Modes
 ===========
 
+The following figure shows the boot configuration of the PocketBeagle2 for emmc and sd card version of boards.
+
 .. figure:: images/hardware-design/boot-config.png
    :align: center
    :alt: Boot configuration
 
    Boot configuration
+
+The following figure illustrates the bootstrap pins connection, which are used to select the boot mode during the power-up sequence.
 
 .. figure:: images/hardware-design/bootstrap.png
    :align: center
@@ -131,65 +135,89 @@ Boot Modes
 SoC GPIOs
 ==========
 
-.. figure:: images/hardware-design/gpio-gpmc.png
-   :align: center
-   :alt: GPIO GPMC
+.. tab-set::
 
-   GPIO GPMC
+   .. tab-item:: GPIO GPMC
 
-.. figure:: images/hardware-design/gpio-mcasp0.png
-   :align: center
-   :alt: GPIO MCASP0
+      .. figure:: images/hardware-design/gpio-gpmc.png
+         :align: center
+         :alt: GPIO GPMC
 
-   GPIO MCASP0
+         GPIO GPMC
 
-.. figure:: images/hardware-design/gpio-osc0.png
-   :align: center
-   :alt: GPIO OSC0
+   .. tab-item:: GPIO MCASP0
 
-   GPIO OSC0
+      .. figure:: images/hardware-design/gpio-mcasp0.png
+         :align: center
+         :alt: GPIO MCASP0
 
-.. figure:: images/hardware-design/gpio-ospi.png
-   :align: center
-   :alt: GPIO OSPI
+         GPIO MCASP0
 
-   GPIO OSPI
+   .. tab-item:: GPIO OSC0
 
-.. figure:: images/hardware-design/gpio-rgmii1.png
-   :align: center
-   :alt: GPIO RGMII1
+      .. figure:: images/hardware-design/gpio-osc0.png
+         :align: center
+         :alt: GPIO OSC0
 
-   GPIO RGMII1
+         GPIO OSC0
 
-.. figure:: images/hardware-design/gpio-rgmii2.png
-   :align: center
-   :alt: GPIO RGMII2
+   .. tab-item:: GPIO OSPI
 
-   GPIO RGMII2
+      .. figure:: images/hardware-design/gpio-ospi.png
+         :align: center
+         :alt: GPIO OSPI
 
-.. figure:: images/hardware-design/gpio-vout0.png
-   :align: center
-   :alt: GPIO VOUT0
+         GPIO OSPI
 
-   GPIO VOUT0
+   .. tab-item:: GPIO RGMII1
 
-.. figure:: images/hardware-design/mcu-domain.png
-   :align: center
-   :alt: MCU domain
+      .. figure:: images/hardware-design/gpio-rgmii1.png
+         :align: center
+         :alt: GPIO RGMII1
 
-   MCU domain
+         GPIO RGMII1
 
-.. figure:: images/hardware-design/mcu-system.png
-   :align: center
-   :alt: MCU system
+.. tab-set::
 
-   MCU system
+   .. tab-item:: GPIO RGMII2
 
-.. figure:: images/hardware-design/wkup-domain.png
-   :align: center
-   :alt: Wakeup domain
+      .. figure:: images/hardware-design/gpio-rgmii2.png
+         :align: center
+         :alt: GPIO RGMII2
 
-   Wakeup domain
+         GPIO RGMII2
+
+   .. tab-item:: GPIO VOUT0
+
+      .. figure:: images/hardware-design/gpio-vout0.png
+         :align: center
+         :alt: GPIO VOUT0
+
+         GPIO VOUT0
+
+   .. tab-item:: MCU domain
+
+      .. figure:: images/hardware-design/mcu-domain.png
+         :align: center
+         :alt: MCU domain
+
+         MCU domain
+
+   .. tab-item:: MCU system
+
+      .. figure:: images/hardware-design/mcu-system.png
+         :align: center
+         :alt: MCU system
+
+         MCU system
+
+   .. tab-item:: Wakeup domain
+
+      .. figure:: images/hardware-design/wkup-domain.png
+         :align: center
+         :alt: Wakeup domain
+
+         Wakeup domain
 
 
 .. _pocketbeagle2-power-management:
@@ -200,6 +228,11 @@ Power Management
 PMIC
 ====
 
+The TPS6521903 is a power management integrated circuit (PMIC) designed to provide efficient power 
+management for the PocketBeagle2. It integrates multiple power rails, including buck converters and 
+LDOs, to supply the necessary voltages to various components on the board. The PMIC ensures stable 
+and reliable power delivery, optimizing power consumption and extending battery life.
+
 .. figure:: images/hardware-design/pmic.png
    :align: center
    :alt: PMIC
@@ -208,6 +241,11 @@ PMIC
 
 3V3 power
 =========
+
+The TLV62595 is a high-efficiency, synchronous step-down converter that provides a stable 
+3.3V power supply to various components on the PocketBeagle2. It features a wide input voltage 
+range, low quiescent current, and excellent transient response, making it suitable for 
+powering sensitive electronics and ensuring reliable operation.
 
 .. figure:: images/hardware-design/dc-3v3.png
    :align: center
@@ -218,6 +256,21 @@ PMIC
 Power path
 ===========
 
+The LM73100 is a power path management IC that can be used to seamlessly switch between multiple 
+power sources to generate a stable system voltage (VSYS). In this design, we have three power 
+sources: VIN_5V, USB_5V, and VBAT. Here's how each of these sources is utilized:
+
+1. VIN_5V: This is typically the main power input, which could come from an external power adapter. The LM73100 prioritizes this input when it is available, ensuring that the system is powered by this stable and higher current source.
+2. USB_5V: This input comes from a USB connection. When VIN_5V is not available, the LM73100 switches to USB_5V to power the system. This allows the device to be powered or charged via a USB connection when an external adapter is not connected.
+3. VBAT: This is the battery voltage input. When neither VIN_5V nor USB_5V is available, the LM73100 switches to VBAT to ensure that the system remains powered. This is crucial for portable devices that need to operate on battery power when no external power sources are connected.
+
+The LM73100 manages these inputs and switches between them to provide a stable VSYS output. It 
+ensures that the highest priority power source is used first, and seamlessly transitions to the 
+next available source if the current one is disconnected or falls below a certain threshold.
+
+This power path management ensures that the system remains powered without interruption, 
+providing a reliable and efficient power solution for various applications.
+
 .. figure:: images/hardware-design/power-path.png
    :align: center
    :alt: Power path
@@ -226,6 +279,33 @@ Power path
 
 Battery charging
 ================
+
+The BQ21040 is a highly integrated Li-Ion and Li-Polymer linear battery charger device 
+targeted at space-limited portable applications. The device operates from either a USB 
+port or AC adapter and supports high input voltage. It features a high-accuracy voltage 
+regulation, programmable charge current, and thermal regulation. The BQ21040 is designed 
+to charge single-cell Li-Ion and Li-Polymer batteries and includes a power path 
+management feature to power the system while charging the battery.
+
+Key Features:
+- Input voltage range: 4.5V to 28V
+- Programmable charge current up to 800mA
+- High-accuracy voltage regulation
+- Thermal regulation and protection
+- Power path management
+- Status indication for charge and fault conditions
+
+Applications:
+- Wearable devices
+- Fitness accessories
+- Portable medical devices
+- Bluetooth headsets
+- Other space-limited portable applications
+
+In the PocketBeagle2, the BQ21040 is used to manage the charging of a single-cell Li-Ion or Li-Polymer battery. 
+The BQ21040's status indication feature provides feedback on the charging status and any fault conditions, 
+making it easier to monitor the charging process. This integration of the BQ21040 in the PocketBeagle2 design 
+enhances the device's portability and reliability, making it suitable for various applications that require battery power.
 
 .. figure:: images/hardware-design/battery-charging.png
    :align: center
@@ -378,11 +458,21 @@ Described in the following sections are the memory devices found on the board.
 
    DDR power
 
-
 .. _pocketbeagle2-mspm0-adc-eeprom:
 
 MSPM0 ADC & EEPROM
 ==================
+
+The MSPM0L1105 is a versatile microcontroller that we are utilizing to emulate an 8-channel 12-bit ADC and a 4KB EEPROM. 
+This microcontroller is connected to the PocketBeagle2 via the I2C interface, allowing for efficient communication and data transfer.
+
+1. The 8-channel 12-bit ADC provides high-resolution analog-to-digital conversion, enabling precise measurement of analog signals 
+from various sensors and inputs. This is particularly useful for applications requiring accurate data acquisition and monitoring.
+2. The 4KB EEPROM emulation offers non-volatile storage for configuration data, calibration parameters, and other critical information. 
+This ensures that important data is retained even when the system is powered off, enhancing the reliability and functionality of the PocketBeagle2.
+
+By integrating the MSPM0L1105, we can leverage its capabilities to expand the analog input and storage options of the PocketBeagle2, 
+making it suitable for a wider range of applications and use cases.
 
 .. figure:: images/hardware-design/mspm0.png
    :align: center
@@ -397,6 +487,9 @@ Debug Ports
 
 Serial debug port
 =================
+
+The PocketBeagle2 features a JST-SH 1.00mm connector for UART, which is compatible with the Raspberry Pi Debug Probe. 
+This connector allows for easy and reliable serial communication for boot time debugging purposes.
 
 .. figure:: images/hardware-design/uart-debug.png
    :align: center
