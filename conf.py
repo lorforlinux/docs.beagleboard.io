@@ -132,6 +132,7 @@ extensions = [
     "sphinxext.rediraffe",
     "notfound.extension",
     "breathe",
+    "exhale",
     "sphinx_copybutton",
     "sphinxcontrib.youtube",
 ]
