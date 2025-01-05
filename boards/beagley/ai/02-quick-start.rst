@@ -56,7 +56,7 @@ We have two methods to prepare bootable microSD card, It is recommended to use :
 bb-imager
 ==========
 
-Download and install `bb-imager <https://beagley-ai.beagleboard.io/bb-imager>`_ for your operating system. 
+Download and install `bb-imager <https://www.beagleboard.org/bb-imager>`_ for your operating system. 
 Below are all the steps required to create a bootable microSD card with latest/recommended OS image for BeagleY-AI.
 
 .. figure:: images/imager/step1-choose-device.*
