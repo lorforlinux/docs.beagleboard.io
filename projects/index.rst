@@ -10,5 +10,5 @@ This is a collection of reasonably well-supported projects useful to Beagle deve
 
    /projects/simppru/index
    /projects/bb-config/index
-   /projects/librobotcontrol/docs/index
+   /projects/librobotcontrol/index
    /projects/beagleconnect/index
