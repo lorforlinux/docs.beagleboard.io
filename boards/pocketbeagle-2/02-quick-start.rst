@@ -1,4 +1,4 @@
-.. _pocketbeagle2-quick-start:
+.. _pocketbeagle-2-quick-start:
 
 Quick Start Guide
 ##################
@@ -8,14 +8,14 @@ power supply to work properly via either USB Type-C power adapter or via cape he
 
 Recommended adapters can be found at :ref:`accessories-power-supplies` section.
 
-.. _pocketbeagle2-whats-in-the-box:
+.. _pocketbeagle-2-whats-in-the-box:
 
 What’s In the Box
 *******************
 
 In the box you will find two main items,
 
-* `PocketBeagle2 <https://www.beagleboard.org/boards/pocketbeagle2>`_
+* `PocketBeagle 2 <https://www.beagleboard.org/boards/pocketbeagle-2>`_
 * Instruction card
 
 .. note:: 
@@ -26,17 +26,19 @@ In the box you will find two main items,
 .. tip:: 
    
    For board files, 3D model, and more, you can checkout 
-   `PocketBeagle2 repository on OpenBeagle <https://openbeagle.org/pocketbeagle/pocketbeagle-2>`_.
+   `PocketBeagle 2 repository on OpenBeagle <https://openbeagle.org/pocketbeagle/pocketbeagle-2>`_.
 
-.. todo:: Add picture of PocketBeagle2 box content
+.. todo:: Add picture of PocketBeagle 2 box content
 
 Methods of operation
 *********************
 
 1.  Directly tethered to a PC via USB-C port.
-2.  With techlab cape for sesors, USB host, LEDs and Buttons.
+2.  With TechLab Cape for sesors, USB host, LEDs and Buttons.
 
-.. _pocketbeagle2-main-connection-scenarios:
+.. todo:: add link to TechLab Cape
+
+.. _pocketbeagle-2-main-connection-scenarios:
 
 Main Connection Scenarios
 ============================
@@ -46,7 +48,7 @@ description of the Quick Start Guide included in the box. The board can be confi
 different ways, but we will discuss the two most common scenarios.
 
 * Tethered to a PC via the USB cable  
-* Attached to a cape like techlab cape
+* Attached to a cape like TechLab Cape
 
 .. todo:: Add connection information in detail
 

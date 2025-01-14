@@ -1,4 +1,4 @@
-.. _pocketbeagle2-home:
+.. _pocketbeagle-2-home:
 
 PocketBeagle2
 ###################
@@ -10,7 +10,7 @@ to support modern development needs. PocketBeagle2 is ideal for creating IoT dev
 and educational applications. Its small form factor and low power consumption make it a versatile platform 
 for embedded development, whether prototyping or deploying at scale.
 
-.. image:: images/product/pocketbeagle2-45-front.jpg
+.. image:: images/product/pocketbeagle-2-45-front.jpg
    :width: 740px
    :align: center
    :alt: PocketBeagle2 front at 45° angle
@@ -22,7 +22,7 @@ for embedded development, whether prototyping or deploying at scale.
     :gutter: 4
 
     .. grid-item-card::
-        :link: pocketbeagle2-introduction
+        :link: pocketbeagle-2-introduction
         :link-type: ref
 
         **1. Introduction**
@@ -38,7 +38,7 @@ for embedded development, whether prototyping or deploying at scale.
         location on both front and back of the board.
 
     .. grid-item-card:: 
-        :link: pocketbeagle2-quick-start
+        :link: pocketbeagle-2-quick-start
         :link-type: ref
 
         **2. Quick start**
@@ -54,7 +54,7 @@ for embedded development, whether prototyping or deploying at scale.
         in no time.
 
     .. grid-item-card:: 
-        :link: pocketbeagle2-design
+        :link: pocketbeagle-2-design
         :link-type: ref
 
         **3. Design & Specifications**
@@ -70,7 +70,7 @@ for embedded development, whether prototyping or deploying at scale.
         for those who want to know their board inside and out.
 
     .. grid-item-card:: 
-        :link: pocketbeagle2-expansion
+        :link: pocketbeagle-2-expansion
         :link-type: ref
 
         **4. Expansion**
@@ -86,7 +86,7 @@ for embedded development, whether prototyping or deploying at scale.
         easily debug your connections and create custom expansion hardware.
         
     .. grid-item-card::
-        :link: pocketbeagle2-demos-and-tutorials
+        :link: pocketbeagle-2-demos-and-tutorials
         :link-type: ref
 
         **5. Demos**
@@ -101,7 +101,7 @@ for embedded development, whether prototyping or deploying at scale.
         Demos and tutorials to quickly learn about PocketBeagle2 capabilities.
 
     .. grid-item-card::
-        :link: pocketbeagle2-support
+        :link: pocketbeagle-2-support
         :link-type: ref
 
         **6. Support**
