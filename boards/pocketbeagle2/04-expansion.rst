@@ -8,7 +8,7 @@ Expansion
 Pinout Diagrams
 ***************
 
-PocketBeagle2 P1 & P2 cape headers are designed to be compatible with PocketBeagle classic as much as possible. 
+PocketBeagle2 ``P1`` & ``P2`` cape headers are designed to be compatible with PocketBeagle classic as much as possible. 
 Below pinout diagrams are design to simplify cape header pin usage and cape design process for PB2. To start 
 using P1 / P2 cape header choose respective pinout diagram tab below.
 
@@ -27,7 +27,7 @@ using P1 / P2 cape header choose respective pinout diagram tab below.
 Cape Header Connectors
 **********************
 
-Beagle cape expansion interface on the PocketBeagle2 like other Beagles is comprised of two 
+Beagle cape expansion interface on PocketBeagle 2 like other Beagles is comprised of two 
 headers P1 & P2. All signals on the expansion headers are **3.3V** unless 
 otherwise indicated. **On some of the cape header pins on PocketBeagle2 multiple SoC pins are shorted and 
 only one of them should be used at a time.** Information regarding the double/shorted pins is provided 

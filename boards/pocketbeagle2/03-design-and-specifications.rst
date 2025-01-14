@@ -3,14 +3,14 @@
 Design and Specifications
 ##########################
 
-In this chapter, we delve into the intricate design and detailed specifications of the PocketBeagle2, 
+In this chapter, we delve into the intricate design and detailed specifications of PocketBeagle 2, 
 offering a thorough understanding of its hardware architecture. We begin with a high-level overview, 
 presenting block diagrams that illustrate the main components and their interconnections, including 
 the System on Chip (SoC), power management, memory, connectivity interfaces, and peripheral components. 
 These diagrams provide a visual representation of the I2C tree, power distribution, and boot configurations, 
 essential for grasping the board's functionality.
 
-The chapter then focuses on the heart of the PocketBeagle2, the AM6232 SoC. We explore its internal 
+The chapter then focuses on the heart of PocketBeagle 2, the AM6232 SoC. We explore its internal 
 architecture, highlighting the dual ARM Cortex-A53 cores, Cortex-M4F core, and various integrated 
 peripherals. Detailed figures illustrate the SoC's functional blocks, decoupling capacitors, 
 DDR controller, and power management, emphasizing the importance of each component 
@@ -26,26 +26,26 @@ delivery, such as the TPS6521903 PMIC, TLV62595 step-down converter, LM73100 pow
 and BQ21040 battery charger. Each component's role in maintaining power integrity and optimizing 
 consumption is explained, supported by relevant figures.
 
-Finally, we present the mechanical specifications of the PocketBeagle2, including its dimensions, 
+Finally, we present the mechanical specifications of PocketBeagle 2, including its dimensions, 
 weight, and PCB details. This comprehensive overview ensures that you have a complete understanding 
-of the PocketBeagle2's design, capabilities, and potential applications, making it an invaluable 
+of PocketBeagle 2's design, capabilities, and potential applications, making it an invaluable 
 resource for developers and engineers.
 
 Block Diagram and Overview
 **************************
 
-The figure below provides a high-level overview of the PocketBeagle2 hardware architecture, illustrating 
+The figure below provides a high-level overview of PocketBeagle 2 hardware architecture, illustrating 
 the main components and their interconnections. This includes the System on Chip (SoC), power management, 
 memory, connectivity interfaces, and other peripheral components. 
 
-- **System on Chip (SoC)**: At the core of the PocketBeagle2 is the AM6232 SoC, which integrates dual ARM Cortex-A53 cores, a Cortex-M4F core, and various peripherals. This SoC is optimized for power efficiency and performance, making it suitable for a wide range of embedded applications.
+- **System on Chip (SoC)**: At the core of PocketBeagle 2 is the AM6232 SoC, which integrates dual ARM Cortex-A53 cores, a Cortex-M4F core, and various peripherals. This SoC is optimized for power efficiency and performance, making it suitable for a wide range of embedded applications.
 
 - **Power Management**: The diagram highlights several power management ICs:
    - **TPS6521903 PMIC**: Manages multiple power rails, including buck converters and LDOs, to supply necessary voltages.
    - **TLV62595 Step-Down Converter**: Provides a stable 3.3V power supply with high efficiency.
    - **LM73100 Power Path Management IC**: Seamlessly switches between multiple power sources (VIN_5V, USB_5V, VBAT) to ensure stable system voltage.
 
-- **Memory Components**: The PocketBeagle2 includes:
+- **Memory Components**: PocketBeagle 2 includes:
    - **512MB LPDDR4 RAM**: Ensures efficient data transfer and memory access.
    - **Optional 4GB eMMC Storage**: Provides non-volatile storage for the operating system and user data.
 
@@ -58,7 +58,7 @@ memory, connectivity interfaces, and other peripheral components.
    - **Serial Debug Port**: Compatible with the Raspberry Pi Debug Probe for UART communication.
    - **JTAG**: For in-depth debugging and programming.
 
-This comprehensive block diagram is essential for understanding the intricate design and functionality of the PocketBeagle2, providing a visual representation of how each component interacts within the system.
+This comprehensive block diagram is essential for understanding the intricate design and functionality of PocketBeagle 2, providing a visual representation of how each component interacts within the system.
 
 .. figure:: images/hardware-design/block-diagram.png
    :width: 900px
@@ -67,7 +67,7 @@ This comprehensive block diagram is essential for understanding the intricate de
 
    PocketBeagle2 Block Diagram
 
-The following figure illustrates the I2C tree of the PocketBeagle2, showing the connections between the I2C 
+The following figure illustrates the I2C tree of PocketBeagle 2, showing the connections between the I2C 
 master and various I2C slave devices on the board. The I2C tree is crucial for understanding the communication 
 pathways and how different components interact with each other.
 
@@ -89,9 +89,9 @@ Key I2C Ports and Connections:
    * - **I2C3**
      - Available on the P2 cape header for user-defined peripherals and custom applications.
    * - **MCU_I2C0**
-     - Not connected to anything internally, thus can be used if someone wants to modify the PocketBeagle2 design to add something like a QWIIC connector.
+     - Not connected to anything internally, thus can be used if someone wants to modify PocketBeagle 2 design to add something like a QWIIC connector.
 
-These connections ensure efficient communication and control across the PocketBeagle2, enabling robust and flexible system design.
+These connections ensure efficient communication and control across PocketBeagle 2, enabling robust and flexible system design.
 
 .. figure:: images/hardware-design/i2c-tree.png
    :width: 900px
@@ -100,7 +100,7 @@ These connections ensure efficient communication and control across the PocketBe
 
    I2C tree
 
-The following figure shows the power tree of the PocketBeagle2, detailing the power distribution from the 
+The following figure shows the power tree of PocketBeagle 2, detailing the power distribution from the 
 main power sources to various components on the board. This diagram is crucial for understanding how power 
 is managed and distributed across the board to ensure stable and efficient operation.
 
@@ -124,7 +124,7 @@ Power Distribution:
 - **VDDA 0.85V**: This rail powers the analog components of the SoC, ensuring precise analog signal processing.
 - **VDD Core**: Powers the core logic of the SoC, ensuring stable operation of the processor and integrated peripherals.
 
-The power tree diagram provides a comprehensive overview of how power is distributed and managed across the PocketBeagle2, highlighting the role of each power management component in maintaining system stability and efficiency.
+The power tree diagram provides a comprehensive overview of how power is distributed and managed across PocketBeagle 2, highlighting the role of each power management component in maintaining system stability and efficiency.
 
 .. figure:: images/hardware-design/power-tree.png
    :width: 900px
@@ -138,7 +138,7 @@ The power tree diagram provides a comprehensive overview of how power is distrib
 System on Chip (SoC)
 *********************
 
-The PocketBeagle2 is powered by the AM6232 SoC, which is a high-performance, low-power processor 
+PocketBeagle 2 is powered by the AM6232 SoC, which is a high-performance, low-power processor 
 designed for embedded applications. The AM6232 integrates dual ARM Cortex-A53 cores, a 
 Cortex-M4F core, and various peripherals to support a wide range of functionalities. It is 
 optimized for power efficiency and performance, making it suitable for applications requiring 
@@ -146,7 +146,7 @@ robust processing capabilities while maintaining low power consumption. The AM62
 block diagram below provides a detailed view of the internal architecture of the System on Chip. It 
 highlights the various functional blocks such as the CPU cores, memory controllers, peripheral 
 interfaces, and other integrated components. This diagram is essential for understanding how 
-the SoC manages data flow and interacts with other hardware components on the PocketBeagle2 board.
+the SoC manages data flow and interacts with other hardware components on PocketBeagle 2 board.
 
 .. figure:: images/hardware-design/soc-functional-block-diagram.png
    :align: center
@@ -208,7 +208,7 @@ operation of the SoC by stabilizing the voltage levels.
 Boot Modes
 ===========
 
-The following figure shows the boot configuration of the PocketBeagle2 for emmc and sd card version of boards.
+The following figure shows the boot configuration of PocketBeagle 2 for emmc and sd card version of boards.
 
 .. figure:: images/hardware-design/boot-config.png
    :align: center
@@ -321,7 +321,7 @@ PMIC
 ====
 
 The TPS6521903 is a power management integrated circuit (PMIC) designed to provide efficient power 
-management for the PocketBeagle2. It integrates multiple power rails, including buck converters and 
+management for PocketBeagle. It integrates multiple power rails, including buck converters and 
 LDOs, to supply the necessary voltages to various components on the board. The PMIC ensures stable 
 and reliable power delivery, optimizing power consumption and extending battery life.
 
@@ -335,7 +335,7 @@ and reliable power delivery, optimizing power consumption and extending battery 
 =========
 
 The TLV62595 is a high-efficiency, synchronous step-down converter that provides a stable 
-3.3V power supply to various components on the PocketBeagle2. It features a wide input voltage 
+3.3V power supply to various components on PocketBeagle 2. It features a wide input voltage 
 range, low quiescent current, and excellent transient response, making it suitable for 
 powering sensitive electronics and ensuring reliable operation.
 
@@ -394,9 +394,9 @@ Applications:
 - Bluetooth headsets
 - Other space-limited portable applications
 
-In the PocketBeagle2, the BQ21040 is used to manage the charging of a single-cell Li-Ion or Li-Polymer battery. 
+On PocketBeagle 2, the BQ21040 is used to manage the charging of a single-cell Li-Ion or Li-Polymer battery. 
 The BQ21040's status indication feature provides feedback on the charging status and any fault conditions, 
-making it easier to monitor the charging process. This integration of the BQ21040 in the PocketBeagle2 design 
+making it easier to monitor the charging process. This integration of the BQ21040 in PocketBeagle 2 design 
 enhances the device's portability and reliability, making it suitable for various applications that require battery power.
 
 .. figure:: images/hardware-design/battery-charging.png
@@ -556,14 +556,14 @@ MSPM0 ADC & EEPROM
 ==================
 
 The MSPM0L1105 is a versatile microcontroller that we are utilizing to emulate an 8-channel 12-bit ADC and a 4KB EEPROM. 
-This microcontroller is connected to the PocketBeagle2 via the I2C interface, allowing for efficient communication and data transfer.
+This microcontroller is connected to PocketBeagle via the I2C interface, allowing for efficient communication and data transfer.
 
 1. The 8-channel 12-bit ADC provides high-resolution analog-to-digital conversion, enabling precise measurement of analog signals 
 from various sensors and inputs. This is particularly useful for applications requiring accurate data acquisition and monitoring.
 2. The 4KB EEPROM emulation offers non-volatile storage for configuration data, calibration parameters, and other critical information. 
-This ensures that important data is retained even when the system is powered off, enhancing the reliability and functionality of the PocketBeagle2.
+This ensures that important data is retained even when the system is powered off, enhancing the reliability and functionality of PocketBeagle 2.
 
-By integrating the MSPM0L1105, we can leverage its capabilities to expand the analog input and storage options of the PocketBeagle2, 
+By integrating the MSPM0L1105, we can leverage its capabilities to expand the analog input and storage options of PocketBeagle 2, 
 making it suitable for a wider range of applications and use cases.
 
 .. figure:: images/hardware-design/mspm0.png
@@ -580,7 +580,7 @@ Debug Ports
 Serial debug port
 =================
 
-The PocketBeagle2 features a JST-SH 1.00mm connector for UART, which is compatible with the Raspberry Pi Debug Probe. 
+PocketBeagle 2 features a JST-SH 1.00mm connector for UART, which is compatible with the Raspberry Pi Debug Probe. 
 This connector allows for easy and reliable serial communication for boot time debugging purposes.
 
 .. figure:: images/hardware-design/uart-debug.png
