@@ -1,19 +1,19 @@
 .. _pocketbeagle-2-home:
 
-PocketBeagle2
+PocketBeagle 2
 ###################
 
-PocketBeagle2 is an upgraded version of the widely popular PocketBeagle, designed as an ultra-compact, low-cost, 
-and powerful single-board computer (SBC). Targeted at developers, students, and hobbyists, PocketBeagle2 retains 
+PocketBeagle 2 is an upgraded version of the widely popular PocketBeagle, designed as an ultra-compact, low-cost, 
+and powerful single-board computer (SBC). Targeted at developers, students, and hobbyists, PocketBeagle 2 retains 
 the simplicity and flexibility of its predecessor while delivering enhanced performance and expanded features 
-to support modern development needs. PocketBeagle2 is ideal for creating IoT devices, robotics projects, 
+to support modern development needs. PocketBeagle 2 is ideal for creating IoT devices, robotics projects, 
 and educational applications. Its small form factor and low power consumption make it a versatile platform 
 for embedded development, whether prototyping or deploying at scale.
 
 .. image:: images/product/pocketbeagle-2-45-front.jpg
    :width: 740px
    :align: center
-   :alt: PocketBeagle2 front at 45° angle
+   :alt: PocketBeagle 2 front at 45° angle
 
 .. only:: html
 
@@ -30,11 +30,11 @@ for embedded development, whether prototyping or deploying at scale.
 
         .. image:: images/chapter-thumbnails/01-introduction.*
             :align: center
-            :alt: PocketBeagle2 Chapter01 thumbnail
+            :alt: PocketBeagle 2 Chapter01 thumbnail
         
         +++
 
-        Introduction to PocketBeagle2 board with information on each component 
+        Introduction to PocketBeagle 2 board with information on each component 
         location on both front and back of the board.
 
     .. grid-item-card:: 
@@ -46,7 +46,7 @@ for embedded development, whether prototyping or deploying at scale.
 
         .. image:: images/chapter-thumbnails/02-quick-start.*
             :align: center
-            :alt: PocketBeagle2 Chapter02 thumbnail
+            :alt: PocketBeagle 2 Chapter02 thumbnail
 
         +++
 
@@ -62,11 +62,11 @@ for embedded development, whether prototyping or deploying at scale.
 
         .. image:: images/chapter-thumbnails/03-design-and-specifications.*
             :align: center
-            :alt: PocketBeagle2 Chapter03 thumbnail
+            :alt: PocketBeagle 2 Chapter03 thumbnail
 
         +++
 
-        Hardware and mechanical design and specifications of PocketBeagle2 board 
+        Hardware and mechanical design and specifications of PocketBeagle 2 board 
         for those who want to know their board inside and out.
 
     .. grid-item-card:: 
@@ -78,7 +78,7 @@ for embedded development, whether prototyping or deploying at scale.
 
         .. image:: images/chapter-thumbnails/04-connectors-and-pinouts.*
             :align: center
-            :alt: PocketBeagle2 Chapter04 thumbnail
+            :alt: PocketBeagle 2 Chapter04 thumbnail
 
         +++
 
@@ -94,11 +94,11 @@ for embedded development, whether prototyping or deploying at scale.
 
         .. image:: images/chapter-thumbnails/05-demos-and-tutorials.*
             :align: center
-            :alt: PocketBeagle2 Chapter5 thumbnail
+            :alt: PocketBeagle 2 Chapter5 thumbnail
 
         +++
 
-        Demos and tutorials to quickly learn about PocketBeagle2 capabilities.
+        Demos and tutorials to quickly learn about PocketBeagle 2 capabilities.
 
     .. grid-item-card::
         :link: pocketbeagle-2-support
@@ -109,7 +109,7 @@ for embedded development, whether prototyping or deploying at scale.
 
         .. image:: images/chapter-thumbnails/06-support-documents.*
             :align: center
-            :alt: PocketBeagle2 Chapter6 thumbnail
+            :alt: PocketBeagle 2 Chapter6 thumbnail
 
         +++
 
