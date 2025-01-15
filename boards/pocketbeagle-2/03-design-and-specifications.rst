@@ -1,4 +1,4 @@
-.. _pocketbeagle2-design:
+.. _pocketbeagle-2-design:
 
 Design and Specifications
 ##########################
@@ -63,9 +63,9 @@ This comprehensive block diagram is essential for understanding the intricate de
 .. figure:: images/hardware-design/block-diagram.png
    :width: 900px
    :align: center
-   :alt: PocketBeagle2 Block Diagram
+   :alt: PocketBeagle 2 Block Diagram
 
-   PocketBeagle2 Block Diagram
+   PocketBeagle 2 Block Diagram
 
 The following figure illustrates the I2C tree of PocketBeagle 2, showing the connections between the I2C 
 master and various I2C slave devices on the board. The I2C tree is crucial for understanding the communication 
@@ -133,7 +133,7 @@ The power tree diagram provides a comprehensive overview of how power is distrib
 
    Power tree
 
-.. _pocketbeagle2-processor:
+.. _pocketbeagle-2-processor:
 
 System on Chip (SoC)
 *********************
@@ -203,7 +203,7 @@ operation of the SoC by stabilizing the voltage levels.
    
    SoC VSS (Ground) connection
 
-.. _pocketbeagle2-boot-modes:
+.. _pocketbeagle-2-boot-modes:
 
 Boot Modes
 ===========
@@ -312,7 +312,7 @@ SoC GPIOs
          Wakeup domain
 
 
-.. _pocketbeagle2-power-management:
+.. _pocketbeagle-2-power-management:
 
 Power Management
 *****************
@@ -438,7 +438,7 @@ Decoupling capacitors
 
    VDD core capacitors
 
-.. _pocketbeagle2-connectivity-and-expansion:
+.. _pocketbeagle-2-connectivity-and-expansion:
 
 General connectivity and expansion
 ************************************
@@ -515,14 +515,14 @@ LED Indicators
 
    LED indicators
 
-.. _pocketbeagle2-memory-media-storage:
+.. _pocketbeagle-2-memory-media-storage:
 
 Memory, Media, and storage 
 ***************************
 
 Described in the following sections are the memory devices found on the board.
 
-.. _pocketbeagle2-gb-embedded-mmc:
+.. _pocketbeagle-2-gb-embedded-mmc:
 
 4GB embedded MMC (optional)
 ===========================
@@ -533,7 +533,7 @@ Described in the following sections are the memory devices found on the board.
 
    4GB eMMC storage (optional)
 
-.. _pocketbeagle2-4gb-ddr4:
+.. _pocketbeagle-2-4gb-ddr4:
 
 512MB LPDDR4
 ==============
@@ -550,7 +550,7 @@ Described in the following sections are the memory devices found on the board.
 
    DDR power
 
-.. _pocketbeagle2-mspm0-adc-eeprom:
+.. _pocketbeagle-2-mspm0-adc-eeprom:
 
 MSPM0 ADC & EEPROM
 ==================
@@ -572,7 +572,7 @@ making it suitable for a wider range of applications and use cases.
 
    MSPM0L1105 as 8ch 12bit ADC & 4KB EEPROM
 
-.. _pocketbeagle2-debug-ports:
+.. _pocketbeagle-2-debug-ports:
 
 Debug Ports
 ************
@@ -636,8 +636,8 @@ Dimensions & Weight
 Board Dimensions
 =================
 
-.. figure:: images/pocketbeagle2-revA-dimensions.jpg
+.. figure:: images/pocketbeagle-2-revA-dimensions.jpg
    :align: center
-   :alt: PocketBeagle2 RevA Dimensions
+   :alt: PocketBeagle 2 RevA Dimensions
 
-   PocketBeagle2 RevA Dimensions
+   PocketBeagle 2 RevA Dimensions

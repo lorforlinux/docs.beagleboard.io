@@ -167,7 +167,7 @@ JTAG debug Cables
 TagConnect (JTAG)
 ==================
 
-Boards like :ref:`beagleconnect_freedom_home`, :ref:`beaglev-ahead-home`, :ref:`beaglev-fire-home`, and :ref:`beagleplay-home` use the TagConnect 
+Boards like :ref:`beagleconnect-freedom-home`, :ref:`beaglev-ahead-home`, :ref:`beaglev-fire-home`, and :ref:`beagleplay-home` use the TagConnect 
 interface which allows you to perform firmware updates and JTAG hardware debugging. To use the interface, the the parts below from 
 `tag-connect <https://www.tag-connect.com>`_  are required.
 

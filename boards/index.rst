@@ -38,9 +38,10 @@ started.
 ..  toctree::
     :maxdepth: 1
 
-    pocketbeagle2/index
     beagley/ai/index.rst
     beagleplay/index
+    pocketbeagle-2/index
+    pocketbeagle/index
     beaglebone/ai-64/index
     beaglebone/ai/index
     beaglebone/black/index
@@ -48,7 +49,6 @@ started.
     beaglebone/index
     beaglev/ahead/index
     beaglev/fire/index
-    pocketbeagle/index
     beagleconnect/freedom/index
     beagleconnect/index
     beagleboard/index

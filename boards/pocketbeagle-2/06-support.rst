@@ -1,12 +1,12 @@
-.. _pocketbeagle2-support:
+.. _pocketbeagle-2-support:
 
 Additional Support Information
 ##############################
 
 All support for this design is through BeagleBoard.org community 
-at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle2>`_.
+at `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle-2>`_.
 
-.. _pocketbeagle2-certifications:
+.. _pocketbeagle-2-certifications:
 
 Certifications and export control
 *********************************
@@ -20,12 +20,12 @@ Export designations
 * EUHSCODE: 8543709099
 * UPC number: 841454123484
 
-.. _pocketbeagle2-hardware-design:
+.. _pocketbeagle-2-hardware-design:
 
 Hardware Design
 ****************
 
-You can find all PocketBeagle2 hardware files 
+You can find all PocketBeagle 2 hardware files 
 `here <https://openbeagle.org/pocketbeagle/pocketbeagle-2>`_ under the `design` folder.
 
 Production board boot media
@@ -33,19 +33,19 @@ Production board boot media
 
 .. todo:: Add production image link with board revision information.
 
-.. _pocketbeagle2-software-updates:
+.. _pocketbeagle-2-software-updates:
 
 Software Updates
 ******************
 
-Follow instructions below to download the latest image for your PocketBeagle2:
+Follow instructions below to download the latest image for your PocketBeagle 2:
 
 1. Go to `BeagleBoard.org distro <https://www.beagleboard.org/distros>`_ page.
 2. :ref:`filter-software-distribution-PB2` from dropdown and download the image.
 
 .. _filter-software-distribution-PB2:
 
-.. todo:: add distros page image selection for pocketbeagle2
+.. todo:: add distros page image selection for pocketbeagle-2
 
 .. tip::
 
@@ -60,7 +60,7 @@ It should look something like as shown in example below,
    root@BeagleBone:~# cat /etc/dogtag
    BeagleBoard.org Debian Image 2024-02-24
 
-.. _pocketbeagle2-rma-support:
+.. _pocketbeagle-2-rma-support:
 
 RMA Support
 *****************
@@ -71,20 +71,20 @@ revision of the board. The serial numbers and revisions keep moving. Different b
 locations depending on when they were made. The following figures show the three locations of the serial 
 and revision number.
 
-.. _pocketbeagle2-getting-help:
+.. _pocketbeagle-2-getting-help:
 
 Getting Help
 **************
 
 If you need some up to date troubleshooting techniques, you can post your 
-queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle2>`_
+queries on link: `BeagleBoard.org forum <https://forum.beagleboard.org/tag/pocketbeagle-2>`_
 
-.. _pocketbeagle2-mechanical:
+.. _pocketbeagle-2-mechanical:
 
 Mechanical Details
 ******************
 
-.. _pocketbeagle2-dimensions-and-weight:
+.. _pocketbeagle-2-dimensions-and-weight:
 
 Dimensions and Weight
 ======================

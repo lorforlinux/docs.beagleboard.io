@@ -18,3 +18,9 @@ Glossary of Terms
    BeagleBone
       A family of BeagleBoard.org boards from the original mint-tin sized computer and registered
       trademark of the BeagleBoard.org Foundation.
+
+   BeagleConnect AP
+      It refers to the host CPUs, i.e., CPUs running Linux in most cases. It is responsible for administrating the Greybus network via the SVC.
+
+   BeagleConnect SVC
+      The SVC represents an entity within the Greybus network that configures and controls the Greybus (UniPro) network, mostly based on the instructions from the AP. All module insertion and removal events are first reported to the SVC, which in turn informs the AP about them using the SVC protocol.

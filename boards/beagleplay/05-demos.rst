@@ -65,17 +65,17 @@ Demos and tutorials
             
             beginner
 
-   .. card::
-       :link: beagleplay-nodered
-       :link-type: ref
+    .. card::
+        :link: beagleplay-nodered
+        :link-type: ref
 
-       **Using NodeRed**
-       ^^^
-       Learn how to use NodeRed with BeaglePlay for rapid and easy prototyping.
-       +++
-       .. admonition:: Complexity level
+        **Using NodeRed**
+        ^^^
+        Learn how to use NodeRed with BeaglePlay for rapid and easy prototyping.
+        +++
+        .. admonition:: Complexity level
 
-           beginner
+            beginner
 
     .. card:: 
         :link: beagleplay-rtc

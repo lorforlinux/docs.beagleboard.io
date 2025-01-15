@@ -99,7 +99,7 @@ from source using appropriate design tools.
 
 * Check out our easy-to-use Linux-based board at: :ref:`beagleplay-home`
 * Check out our highest performance (8 TOPs) board at: :ref:`bbai64-home`
-* Check out our first Zephyr-based board at: :ref:`beagleconnect_freedom_home`
+* Check out our first Zephyr-based board at: :ref:`beagleconnect-freedom-home`
 * Find all of our boards at: :ref:`boards`
 
 .. grid:: 1 1 2 4
@@ -110,14 +110,15 @@ from source using appropriate design tools.
       :link: beagley-ai-home
       :link-type: ref
 
-      **BeagleY-AI**
+      **BeagleY®-AI**
       ^^^
 
       .. image:: boards/images/beagley-ai.*
          :align: center
       +++
 
-      An industry standard form-factor 64-bit ARM computer.
+      An industry standard form-factor 64-bit ARM computer with 4 TOPS AI engine
+      and integrated ARM Cortex-R5 for low-latency I/O tasks.
 
    .. grid-item-card::
       :link: beagleplay-home
@@ -134,7 +135,7 @@ from source using appropriate design tools.
       to the connected world.
 
    .. grid-item-card::
-      :link: beagleconnect_freedom_home
+      :link: beagleconnect-freedom-home
       :link-type: ref
 
       **BeagleConnect™ Freedom**

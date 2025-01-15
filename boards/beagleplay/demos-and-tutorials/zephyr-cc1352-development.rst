@@ -14,7 +14,7 @@ source design. If you are one of those people, this is a good place to get
 started.
 
 Further, BeaglePlay is a reasonable development platform for creating Zephyr-based
-applications for :ref:`beagleconnect_freedom_home`. The same Zephyr development
+applications for :ref:`beagleconnect-freedom-home`. The same Zephyr development
 environment setup here is also described for targeting applications on that board.
 
 Install the latest software image for BeaglePlay
@@ -83,7 +83,7 @@ Background
 This `WPANUSB` application was originally developed for radio devices with a USB interface. The CC1352P7
 does not have a USB device, so the application was modified to communicate over a UART serial interface.
 
-For the :ref:`beagleconnect_freedom_home`, a USB-to-UART bridge device was used and the USB endpoints
+For the :ref:`beagleconnect-freedom-home`, a USB-to-UART bridge device was used and the USB endpoints
 were made compatible with the `WPANUSB linux driver <https://github.com/finikorg/wpanusb>`_ which we
 `augmented <https://git.beagleboard.org/beagleconnect/linux/wpanusb/>`_ to support this board. To utilize
 the existing `WPANUSB` Zephyr application and this Linux driver, we chose to encode our UART traffic with

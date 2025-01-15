@@ -6,8 +6,8 @@ Introduction to C
 .. todo:: Place-holder for tutorial on the C programming language
 
 The C programming language is powerful and flexible and sits at the heart of
-many key open source software projects, including :ref:`Linux <intro-linux>` and
-:ref:`Zephyr <intro-zephyr>`. While it is intimidating to many people, C holds a
+many key open source software projects, including `Linux`_
+and `Zephyr`_. While it is intimidating to many people, C holds a
 strong relevance in today's technology landscape and can be approached and learned
 by those without extensive previous computer knowledge.
 
@@ -32,13 +32,20 @@ While C is an extremely popular programming language, popularity shouldn't neces
 your top guide in choosing a programming language to learn. What are some of the best
 reasons to learn C?
 
-Provides Strong Foundation
-==========================
+C Provides a Strong Foundation
+==============================
 
 Many other programming languages are very similar to C, like `Java`_, `Wiring`_ or `Rust`_,
-are direct extensions of C, namely `C++`_ and `C#`_, or are written in C themselves.
+are direct extensions of C, like `C++`_ or `C#`_, or are written in C themselves.
 Learning C will set you up well to learn many programming languages and the rationales
 behind them.
+
+C Lets You Go Low
+=================
+
+The majority of operating systems, including `Linux`_ and `Zephyr`_ are written in C, so
+it is critical to know C to build a solid understanding of them. If you ever need to write
+ref:`writing-kernel-modules`, C is the obvious choice to get started.
 
 Your First C Program
 ********************
@@ -72,3 +79,9 @@ Recommended Resources
 
 .. _C#:
    https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29
+
+.. _Linux:
+   :ref:`Linux <intro-linux>`
+
+.. _Zephyr:
+   :ref:`Zephyr <intro-zephyr>`

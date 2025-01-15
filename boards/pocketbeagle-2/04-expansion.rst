@@ -1,14 +1,14 @@
-.. _pocketbeagle2-expansion:
+.. _pocketbeagle-2-expansion:
 
 Expansion
 ############
 
-.. _pocketbeagle2-pinout-diagrams:
+.. _pocketbeagle-2-pinout-diagrams:
 
 Pinout Diagrams
 ***************
 
-PocketBeagle2 ``P1`` & ``P2`` cape headers are designed to be compatible with PocketBeagle classic as much as possible. 
+PocketBeagle 2 ``P1`` & ``P2`` cape headers are designed to be compatible with PocketBeagle classic as much as possible. 
 Below pinout diagrams are design to simplify cape header pin usage and cape design process for PB2. To start 
 using P1 / P2 cape header choose respective pinout diagram tab below.
 
@@ -22,16 +22,16 @@ using P1 / P2 cape header choose respective pinout diagram tab below.
 
         .. todo: Add PB2 P2 cape header pinout
 
-.. _pocketbeagle2-connectors:
+.. _pocketbeagle-2-connectors:
 
 Cape Header Connectors
 **********************
 
 Beagle cape expansion interface on PocketBeagle 2 like other Beagles is comprised of two 
 headers P1 & P2. All signals on the expansion headers are **3.3V** unless 
-otherwise indicated. **On some of the cape header pins on PocketBeagle2 multiple SoC pins are shorted and 
+otherwise indicated. **On some of the cape header pins on PocketBeagle 2 multiple SoC pins are shorted and 
 only one of them should be used at a time.** Information regarding the double/shorted pins is provided 
-in the :ref:`pocketbeagle2-pinout-diagrams` above (simplified) and cape header pin tables below (detailed).
+in the :ref:`pocketbeagle-2-pinout-diagrams` above (simplified) and cape header pin tables below (detailed).
 
 .. danger:: 
     Do not connect 5V logic level signals to these pins or the board will be damaged.
@@ -474,7 +474,7 @@ Each row includes the gpiochipX and pinY in the format of
 `X Y`. You can use these values to directly control the GPIO pins with the 
 commands shown below.
 
-.. code:: bash
+.. code:: shell-session
 
     # to set the GPIO pin state to HIGH
     debian@BeagleBone:~$ gpioset X Y=1
