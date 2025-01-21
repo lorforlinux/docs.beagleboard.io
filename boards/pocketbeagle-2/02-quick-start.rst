@@ -63,6 +63,11 @@ and then click on the flash button to start the flashing process.
 
 Below image shows the configuration options available for the image.
 
+.. tip:: 
+
+   You can enable Skip ``Verification`` as shown in the image below, 
+   which will make the flashing process faster by skipping the verification step.
+
 .. figure:: images/distro/bb-imager-config.png
    :align: center
    :alt: Configuration options
@@ -85,7 +90,7 @@ Once the flashing is done, you will see the following screen.
 
    Flashing done
 
-Your microSD card is now ready to boot the PocketBeagle 2.
+Your microSD card is now ready to boot PocketBeagle 2.
 
 Methods of operation
 *********************

@@ -47,7 +47,6 @@ memory, connectivity interfaces, and other peripheral components.
 
 - **Memory Components**: PocketBeagle 2 includes:
    - **512MB LPDDR4 RAM**: Ensures efficient data transfer and memory access.
-   - **Optional 4GB eMMC Storage**: Provides non-volatile storage for the operating system and user data.
 
 - **Connectivity Interfaces**: The board offers various connectivity options:
    - **USB Ports**: For data transfer and power supply.
@@ -78,7 +77,7 @@ Key I2C Ports and Connections:
 
    * - I2C
      - Connection
-   * - **WAUP_I2C0**
+   * - **WKUP_I2C0**
      - Connected to the TPS6521903 PMIC for power management control and monitoring.
    * - **I2C0**
      - Connected to the MSPM0L1105 microcontroller, which emulates an 8-channel 12-bit ADC and a 4KB EEPROM.
@@ -208,7 +207,7 @@ operation of the SoC by stabilizing the voltage levels.
 Boot Modes
 ===========
 
-The following figure shows the boot configuration of PocketBeagle 2 for emmc and sd card version of boards.
+The following figure shows the boot configuration of PocketBeagle 2.
 
 .. figure:: images/hardware-design/boot-config.png
    :align: center
@@ -373,14 +372,14 @@ Battery charging
 ================
 
 The BQ21040 is a highly integrated Li-Ion and Li-Polymer linear battery charger device 
-targeted at space-limited portable applications. The device operates from either a USB 
-port or AC adapter and supports high input voltage. It features a high-accuracy voltage 
-regulation, programmable charge current, and thermal regulation. The BQ21040 is designed 
+targeted at space-limited portable applications. The device operates from USB ``VBUS`` or 
+cape header pin ``VIN`` voltage input. It features a high-accuracy voltage regulation, programmable 
+charge current, and thermal regulation. The BQ21040 is designed 
 to charge single-cell Li-Ion and Li-Polymer batteries and includes a power path 
 management feature to power the system while charging the battery.
 
 Key Features:
-- Input voltage range: 4.5V to 28V
+- Input voltage range: 4.5V minimum
 - Programmable charge current up to 800mA
 - High-accuracy voltage regulation
 - Thermal regulation and protection
@@ -522,18 +521,7 @@ Memory, Media, and storage
 
 Described in the following sections are the memory devices found on the board.
 
-.. _pocketbeagle-2-gb-embedded-mmc:
-
-4GB embedded MMC (optional)
-===========================
-
-.. figure:: images/hardware-design/emmc.png
-   :align: center
-   :alt: 4GB eMMC storage (optional)
-
-   4GB eMMC storage (optional)
-
-.. _pocketbeagle-2-4gb-ddr4:
+.. _pocketbeagle-2-512mb-ddr4:
 
 512MB LPDDR4
 ==============
@@ -560,7 +548,7 @@ This microcontroller is connected to PocketBeagle via the I2C interface, allowin
 
 1. The 8-channel 12-bit ADC provides high-resolution analog-to-digital conversion, enabling precise measurement of analog signals 
 from various sensors and inputs. This is particularly useful for applications requiring accurate data acquisition and monitoring.
-2. The 4KB EEPROM emulation offers non-volatile storage for configuration data, calibration parameters, and other critical information. 
+1. The 4KB EEPROM emulation offers non-volatile storage for configuration data, calibration parameters, and other critical information. 
 This ensures that important data is retained even when the system is powered off, enhancing the reliability and functionality of PocketBeagle 2.
 
 By integrating the MSPM0L1105, we can leverage its capabilities to expand the analog input and storage options of PocketBeagle 2, 
