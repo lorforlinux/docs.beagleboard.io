@@ -745,6 +745,11 @@ Miscellaneous
 Mechanical Specifications 
 **************************
 
+.. todo::
+
+   If there are real design elements, put those here, like clearances and other elements going
+   into design consideration. Summary information should just go in the support page.
+
 Dimensions & Weight
 ===================
 

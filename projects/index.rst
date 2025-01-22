@@ -6,7 +6,7 @@ Projects
 This is a collection of reasonably well-supported projects useful to Beagle developers.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    /projects/simppru/index
    /projects/bb-config/index

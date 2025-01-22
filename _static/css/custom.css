@@ -1,9 +1,10 @@
-.wy-side-nav-search > a img.logo {
+.wy-side-nav-search>a img.logo {
     width: 340px;
     height: 66px;
 }
 
-.rst-content div.figure, .rst-content figure {
+.rst-content div.figure,
+.rst-content figure {
     text-align: center;
 }
 
@@ -36,7 +37,7 @@
     background-color: #25282b;
 }
 
-.wy-nav-top{
+.wy-nav-top {
     background-color: #25282b;
     background-color: #25282b;
 }
@@ -74,10 +75,68 @@ span.strike {
     overflow: auto;
 }
 
+/* Site horizontal spacing */
 .bd-main .bd-content .bd-article-container {
-    max-width: 100%;  /* default is 60em */
+    max-width: 120em;
+    /* default is 60em */
 }
+
+.bd-page-width {
+    max-width: 120rem;
+    /* default is 88rem */
+}
+
+/* Figure headerlink */
 
 figure a.headerlink {
     position: static;
 }
+
+/* Primary sidebar toggle button */
+#pst-primary-sidebar.collapsed {
+    overflow: hidden;
+    padding: 0;
+    width: 0; /* Collapse the sidebar */
+    transition: none;
+}
+
+#pst-secondary-sidebar.collapsed {
+    overflow: hidden;
+    padding: 0;
+    width: 0; /* Collapse the sidebar */
+    transition: none;
+}
+
+#pst-secondary-sidebar {
+    padding-left: 0px;
+}
+
+/* Toggle button styles */
+.sidebar-toggle-btn {
+    margin-top: 44px; /* Space between sidebar and button */
+    padding: 7px; /* Set padding for the button, horizontally more */
+    background-color: #F16321; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: block; /* Ensure the button is block-level */
+    font-size: 20px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    height: 40px; /* Set a fixed height for the button */
+    width: auto; /* Width based on content */
+    line-height: 20px; /* Vertically center the text */
+}
+
+#toggle-primary-sidebar.sidebar-toggle-btn{
+    border-radius: 0 5px 5px 0; /* Rounded corners */
+}
+
+#toggle-secondary-sidebar.sidebar-toggle-btn{
+    border-radius: 5px 0 0 5px; /* Rounded corners */
+}
+
+/* Optional: Adding a hover effect */
+.sidebar-toggle-btn:hover {
+    background-color: #C7480D; /* Slightly darker blue on hover */
+}
+

@@ -13,7 +13,7 @@ Fortunately, BeagleY-AI comes with a built-in `DS1340 <https://www.analog.com/me
 Required Hardware
 **********************
 
-BeagleY provides a **1.00 mm pitch, 2-pin JST SH connector** for a coin cell battery to enable the RTC to keep time even if power is lost to the board.
+BeagleY-AI provides a **1.00 mm pitch, 2-pin JST SH connector** for a coin cell battery to enable the RTC to keep time even if power is lost to the board.
 
 These batteries are available from several vendors:
 

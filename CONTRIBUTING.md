@@ -14,21 +14,21 @@ where to start then you can checkout our contribution documents to help you with
 
 ### Code of Conduct
 
-This project and everyone participating in it is governed by the [BeagleBoard.org Code of Conduct](https://docs.beagleboard.org/latest/intro/contribution/index.html#code-of-conduct). By participating, you are expected to uphold this code. Please report unacceptable behavior to [coc@bbb.io](mailto:coc@bbb.io) or contact one of the administrators on https://forum.beagleboard.org.
+This project and everyone participating in it is governed by the [BeagleBoard.org Code of Conduct](https://docs.beagleboard.org/latest/intro/contribution/code-of-conduct.html). By participating, you are expected to uphold this code. Please report unacceptable behavior to [coc@bbb.io](mailto:coc@bbb.io) or contact one of the administrators on https://forum.beagleboard.org.
 
 ### Style and usage guidelines
 
-If you are new to Sphinx, RST, or git then you can checkout out our [Style and usage guidelines](https://docs.beagleboard.org/latest/intro/contribution/index.html#style-and-usage-guidelines).
+If you are new to Sphinx, RST, or git then you can checkout out our [How can I contribute? guide](https://docs.beagleboard.org/latest/intro/contribution/how.html).
 
 See more at https://docs.beagleboard.org/latest/intro/contribution/.
 
 ### Forking the Project
 
-You can [fork](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html) this project repository to create and submit changes to the documentation. BeagleBoard documentation is generated using [**Sphinx** ](https://www.sphinx-doc.org/en/master/) documentation tool. Sphinx uses the [**reStructuredText**](https://docutils.sourceforge.io/rst.html) (.rst) markup language by default. Some files are also written in [**Markdown**](https://docs.gitlab.com/ee/user/markdown.html) (.md) format. GitLab can render previews for both RST and MD files. So if you do not want to use any external tools to edit the documentation, you can do that within your browser and use the `Preview` button in GitLab to view how the changes will actually look like. 
+You can [fork](https://openbeagle.org/help/user/project/repository/forking_workflow.md) this project repository to create and submit changes to the documentation. BeagleBoard documentation is generated using [**Sphinx** ](https://www.sphinx-doc.org/en/master/) documentation tool. Sphinx uses the [**reStructuredText**](https://docutils.sourceforge.io/rst.html) (.rst) markup language by default. Some files are also written in [**Markdown**](https://docs.gitlab.com/ee/user/markdown.html) (.md) format. GitLab can render previews for both RST and MD files. So if you do not want to use any external tools to edit the documentation, you can do that within your browser and use the `Preview` button in GitLab to view how the changes will actually look like. 
 
 #### Using A Browser
 
-Using a browser is the easiest way to contribute to this project, if you are a beginner, or if your suggestions for changes are small. Though, some Git version control knowledge is preferrable. You can learn more about [Git and GitLab from here](https://docs.gitlab.com/ee/topics/git/).
+Using a browser is the easiest way to contribute to this project, if you are a beginner, or if your suggestions for changes are small. Though, some Git version control knowledge is preferrable. You can learn more about [Git and GitLab from here](https://openbeagle.org/help/topics/git/index.md).
 
 You can create a fork of this repository to your GitLab account using the `Forks` button found on the main page of the project. This will create a stand-alone copy of the repository for you to work with. 
 
@@ -65,4 +65,8 @@ VS Code is not limited to running from a folder as a workspace, or as a native a
 
 ## FAQ
 
-* [Frequently Asked Questions category on the BeagleBoard.org Forum](https://forum.beagleboard.org/c/faq/19)
+* [Frequently Asked Questions category on the BeagleBoard.org Forum](https://forum.beagleboard.org/c/faq)
+
+## Feedback
+
+* [Site Feedback category on the BeagleBoard.org Forum](https://forum.beagleboard.org/c/site-feedback)

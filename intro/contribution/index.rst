@@ -20,6 +20,11 @@ Example projects suitable for first contributions:
 These guidelines are mostly suggestions, not hard-set rules. Use your best judgment, and feel free
 to propose changes to this document in a merge request.
 
+.. todo::
+   We need some kind of documentation on how the build process runs and how Sphinx is
+   configured. This `conf.yml` file is just a mystery, with insufficient information on
+   the provided interface.
+
 .. toctree::
    :maxdepth: 2
 
@@ -32,4 +37,5 @@ to propose changes to this document in a merge request.
    style
    rst-cheat-sheet
    linux-upstream
+   doc-builder
    /CONTRIB

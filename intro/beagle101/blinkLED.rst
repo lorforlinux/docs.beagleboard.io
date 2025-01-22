@@ -110,9 +110,13 @@ heart beat.
 
 The Beagle is now up and running, but you didn't have to 
 load up Linux.  This is because all Beagles 
-(except PocketBeagle, see :ref:`flash-latest-image` 
-to install an image on the Pocket) have built-in flash memory 
+have built-in flash memory 
 that has the Debian distribution of Linux preinstalled.
+
+.. note:: 
+    The one exception is the PocketBeagle which has no built-in 
+    flash memory.  See :ref:`flash-latest-image` 
+    to install an image on the Pocket
 
 .. _intro-using-vs-code:
 
@@ -178,6 +182,59 @@ are running Linux on your host, take the ``ssh (Linux)`` tab.  Finally take the
 
 .. tab-set::
 
+    .. tab-item:: VS Code
+
+        Recent Beagles come with the IDE Visual Studio Code 
+        (https://code.visualstudio.com/) installed and 
+        running. To access it, open a web browser on 
+        your host computer and browse to: ``192.168.7.2:3000`` 
+        (use ``192.168.6.2:3000`` for the Mac)
+        and you will see something like:
+
+        .. figure::  figures/vscode1.png
+
+        At this point you can either run the scripts via a command 
+        line within VS Code, or run them by clicking the
+        ``RUN Code`` button.
+
+
+        Running via the command line
+
+            Open a terminal window in VS Code by dropping down the 
+            ``Terminal`` menu and selecting ``New Terminal`` (or entering 
+            ``Ctrl+Shift+```).  The terminal window appears at the 
+            bottom of the screen as shown below.
+
+            .. figure:: figures/vscode3.png
+
+            You can now enter commands and see them run as shown below.
+
+            .. figure:: figures/vscode4.png
+
+        Running via the ``RUN`` button
+
+            Use the file navigator on the left to navigate to 
+            ``examples/BeagleBone/Black/blinkInternalLED.sh`` 
+            and you will see:
+
+            .. figure:: figures/vscode2.png
+
+            This code blinks one of the USR LEDs built into the board. 
+            Click on the ``RUN Code`` triangle on the upper right of 
+            the screen (see red arrow) to run the code.  (You could also enter ``Ctrl+Alt+N``) 
+            The USR3 LED should now be blinking.  
+
+            Click on the ``Stop Code Run`` (``Ctrl+Alt+M``) square to the right of the 
+            ``Run Code`` button.
+
+            
+            
+            Time to play!  Try changing the LED number (on line 10) from 
+            3 to something else.  Click the ``Run Code`` button (no 
+            need to save the file, autosave is on by default).
+
+            Try running ``seqLEDs.py``.
+
     .. tab-item:: ssh (Mac)
                 
         If you are running a Mac host, open a terminal widow and run 
@@ -233,7 +290,7 @@ internal LEDs.
 
 .. code-block:: shell-session
 
-    bone:~$ cat blinkInternalLED.py
+    bone:~$ cat blinkInternalLED.sh
     LED="3"
     
     LEDPATH='/sys/class/leds/beaglebone:green:usr'
@@ -244,11 +301,22 @@ internal LEDs.
         echo "0" > ${LEDPATH}${LED}/brightness
         sleep 0.5
     done
-    bone:~$ ./blinkInternalLED.py
+    bone:~$ ./blinkInternalLED.sh
     ^c
+
+:download:`blinkInternalLED.sh<code/blinkInternalLED.sh>`
 
 Here you see a simple bash script that turns an LED 
 on and off.  Enter Ctrl+c to stop the script.
+
+Congratulations, you've blinked an LED.
+
+Your turn
+^^^^^^^^^
+
+Now that you have an LED blinking, try blinking a different LED. 
+Or, blink more than one LED at a time. Try slowing down, or speeding up 
+the blink rate.
 
 Blinking via Python
 ====================
@@ -273,16 +341,32 @@ Here's a script that sequences the LEDs on and off.
     while True:
         for i in range(LEDs):
             f[i].seek(0)
-            f[i].write("1")
+            f[i].write("1")     # 1 turns the LED on
             time.sleep(0.25)
         for i in range(LEDs):
             f[i].seek(0)
-            f[i].write("0")
+            f[i].write("0")     # 0 turns the LED off
             time.sleep(0.25)
     bone:~$ ./seqLEDs.py       
     ^c
-    
+
+:download:`seqLEDs.py<code/seqLEDs.py>`
+
 Again, hit Ctrl+c to stop the script.
+
+This python script is a bit more complicated that the previous bash 
+script.  Note that *LEDPATH* is the same in both scripts.  They use the 
+same interface to control the built-in LEDs.  The python script opens a 
+file for each of the LEDs and then writes a **1** to the file to turn on 
+the LED.  A **0** is writen to turn it off.  The *for* loop allows it to turn 
+on (or off) all four LEDs in sequence.
+
+Your turn
+^^^^^^^^^
+
+Try speeding up, or slowing down the sequencing by changing the *sleep* times. 
+If you have programming experience, make a single LED sequence back and forth.
+
 
 Blinking from Command Line
 ==========================
@@ -308,8 +392,8 @@ You can blink any of them.  Let's try ``usr1``.
     bone:~$ echo 1 > brightness
     bone:~$ echo 0 > brightness
 
-When you echo 1 into ``brightness`` the LED turns on. 
-Echoing a 0 turns it off. 
+When you echo **1** into ``brightness`` the LED turns on. 
+Echoing a **0** turns it off. 
 
 Blinking other LEDs
 ===================
@@ -319,7 +403,7 @@ directories and doing the same. Let's blink the USR0 LED.
 
 .. code-block:: shell-session
     
-    bone:~$ cd ../beaglebone\:green\:usr0/
+    bone:~$ cd /sys/class/leds/beaglebone\:green\:usr0/
     bone:~$ echo 1 > brightness
     bone:~$ echo 0 > brightness
 
@@ -343,10 +427,17 @@ what triggers you can set:
     bone:~$ echo none > trigger
 
 Notice ``[heartbeat]`` is in brackets.  This shows it's the 
-current trigger.  The echo changes the trigger to ``none``.
+current trigger.  The ``echo`` changes the trigger to ``none``.
 
+Your turn 
+^^^^^^^^^
 Try experimenting with some of the other triggers and see if you 
-can figure them out.
+can figure them out. Try changing the trigger on the other LEDs. 
+
+.. note:: 
+
+    The following may not work on all Beagles since it depends on which 
+    version of Debian you are running.
 
 Another way to Blink an LED
 ===========================
@@ -384,21 +475,26 @@ the ``gpioset`` command.
 The first command sets chip 1, line 22 (the usr1 LED) to 1 (on) for 
 2 seconds.  The second command turns it off for 2 seconds.
 
-Try it for the other LEDs.
+Your turn 
+^^^^^^^^^
+
+Try turning on and off the other LEDs. If you have programming experience, 
+try modifying the earler *bash* script to use `gpiod` instead of `echo`.
 
 .. note:: 
 
-    This may not work on all Beagles since it depends on which 
+    The following may not work on all Beagles since it depends on which 
     version of Debian you are running.
 
-Blinking in response  to a button
-=================================
+Blinking in response to a button event
+--------------------------------------
 
-Some Beagles have a USR button that can be used  to control the LEDs. 
-You can test the USR button with ``evtest`` 
+Some Beagles have a **USR** button that can be used  to control the LEDs. 
+You can test the **USR** button with ``evtest`` 
 
 .. code-block:: shell-session
 
+    bone:~$ sudo apt install evtest
     bone:~$ evtest
     No device specified, trying to scan all of /dev/input/event*
     Not running as root, no devices may be available.
@@ -439,8 +535,11 @@ the USR button and you'll see:
     Event: time 1692994988.641754, -------------- SYN_REPORT ------------
     Ctrl+c 
 
-The following script uses evtest to wait for the USR button to be pressed and 
-then turns on the LED.
+The value **1** means the **USR** button was pressed, the **0** means it 
+was released.  The value **2** means the button is being held.
+
+The following script uses ``evtest`` to wait for the **USR** button to be 
+pressed and then turns on the LED.
 
 .. literalinclude:: code/buttonEvent.sh
     :language: Shell
@@ -449,9 +548,26 @@ then turns on the LED.
 
 :download:`code/buttonEvent.sh<code/buttonEvent.sh>`
 
-Try running it and pressing the USR button. 
+Try running it and pressing the **USR** button. 
 
-The next script polls the USR button and toggles the LED.
+.. code-block:: shell-session
+
+    bone:~$ ./buttonEvent.sh
+    ^c
+
+The **USR3** LED should turn on when the **USR** button is pressed.
+
+Your turn
+^^^^^^^^^
+Try modifying the code to turn on a different LED.  Try blinking 2 or 3 
+LEDs when the button is pressed.  Can you toggle an LED each time the 
+button is pressed?
+
+Blinking in response to a button poll
+-------------------------------------
+
+The next script polls the USR button and toggles the LED rather that waiting 
+for an event.
 
 .. literalinclude:: code/buttonLED.sh
     :language: shell
