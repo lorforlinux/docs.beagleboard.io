@@ -102,7 +102,7 @@ description of the quick start guide included in the box. The board can be confi
 different ways, but we will discuss the two most common scenarios.
 
 1.  Directly tethered to a PC via pocketbeagle 2 USB-C port.
-2.  With `TechLab Cape <https://www.beagleboard.org/boards/techlab>_` or `GamePup Cape <https://www.beagleboard.org/boards/pocketbeagle-gamepup-cape>`_  for sensors, USB host, LEDs and Buttons.
+2.  With `TechLab Cape <https://www.beagleboard.org/boards/techlab>`_ or `GamePup Cape <https://www.beagleboard.org/boards/pocketbeagle-gamepup-cape>`_  for sensors, USB host, LEDs and Buttons.
 
 .. _pocketbeagle-2-tethered-scenario:
 
@@ -181,6 +181,7 @@ You can do this by running ``pb2-internet.sh`` file on your PocketBeagle 2 board
 First you have to create ``pb2-internet.sh`` file on PocketBeagle 2 with the following content,
 
 .. code-block:: bash
+
    #!/bin/sh -e
    #
 
@@ -231,7 +232,9 @@ On PC you have to follow OS specific steps to share internet connection with the
       - 3: enp0s20f0u2
       - 4: enp0s20f0u2i2
 
-      Out of which ``wlp0s20f3`` is the WiFi interface and ``enp0s20f0u2`` is the PocketBeagle 2 Ethernet interface. Once you know the interface names, you have to create pc-internet.sh file on PC with the following content,
+      Out of which ``wlp0s20f3`` is the WiFi interface and ``enp0s20f0u2`` is the PocketBeagle 2 Ethernet interface. 
+      
+      Once you know the interface names, you have to create ``pc-internet.sh`` file on PC with the following content,
 
       .. code-block:: bash
 
@@ -267,4 +270,8 @@ UART serial debug connection
    :alt: Serial debug
 
    Serial debug
+
+.. _pocketbeagle-2-cape-scenario:
+
+
 
