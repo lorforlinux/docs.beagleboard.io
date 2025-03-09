@@ -273,5 +273,12 @@ UART serial debug connection
 
 .. _pocketbeagle-2-cape-scenario:
 
+Cape Connection
+================
 
+In this scenario, the board is connected to a cape like `TechLab Cape <https://www.beagleboard.org/boards/techlab>`_ 
+or `GamePup Cape <https://www.beagleboard.org/boards/pocketbeagle-gamepup-cape>`_. This is the most common way to 
+use the board for sensor interfacing, USB host, LEDs and Buttons. 
+
+.. todo:: Add cape connection diagram and steps to use examples.
 
