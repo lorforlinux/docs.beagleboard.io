@@ -111,6 +111,7 @@ Flashing eMMC
 **************
 
 .. note:: To flash your BeagleV Ahead you need either a super-speed micro-B or high-speed micro-B cable as shown in section above.
+    This cable is not included in the box and must be purchased separately.
 
 Download latest software image
 ===============================
@@ -204,8 +205,9 @@ Access UART debug console
 **************************
 
 .. note:: It has been noticed that 6pin FTDI cables like `this <https://www.adafruit.com/product/70>`_ 
-    doesn't seem work with BeagleV Ahead debug port and there might be other cables/modules that will 
-    show garbage when connected to the board. 
+    doesn't seem work with BeagleV Ahead debug port and there might be other cables/modules based on PL2303
+    which give garbage values in the serial port. It is recommended to use the below listed modules for
+    accessing the UART debug console.
     
     Some tested devices that are working good includes:
 
