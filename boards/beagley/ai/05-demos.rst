@@ -13,7 +13,6 @@ Demos and tutorials
    demos/beagley-ai-using-i2c-adc
    demos/beagley-ai-pca9685-motor-drivers
    demos/expansion-nvme
-   demos/connecting-imx219-csi-cameras.rst
    demos/beagley-ai-using-imx219-csi-cameras
    demos/beagley-ai-arducam-imx219-v3link-dual-camera-kit
    demos/beagley-ai-object-detection-tutorial
