@@ -44,7 +44,9 @@ design, including the
 `materials <https://git.beagleboard.org/explore/projects/topics/boards>`__ to modify the designs
 from source using appropriate design tools.
 
-* Check out our easy-to-use Linux-based board at: :ref:`beagleplay-home`
+* Check out our tiniest single board computer: :ref:`pocketbeagle-2-home`
+* Check out our Pi form-factor computer with 4 TOPs AI engine at: :ref:`beagley-ai-home`
+* Check out our easy-to-use gateway computer at: :ref:`beagleplay-home`
 * Check out our highest performance (8 TOPs) board at: :ref:`bbai64-home`
 * Check out our first Zephyr-based board at: :ref:`beagleconnect-freedom-home`
 * Find all of our boards at: :ref:`boards`
