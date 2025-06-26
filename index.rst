@@ -54,6 +54,21 @@ from source using appropriate design tools.
    :gutter: 4
 
    .. grid-item-card::
+      :link: pocketbeagle-2-home
+      :link-type: ref
+
+      **PocketBeagle® 2**
+      ^^^
+
+      .. image:: boards/pocketbeagle-2/images/product/pocketbeagle-2-45-front.*
+         :align: center
+      +++
+
+      Tiny board with quad A53 cores, M4, PRUs and lots of I/O. Higher performance than original PocketBeagle
+      with pre-soldered headers, UART debug port, high-speed USB-C port, MSPM0L1105, 512MB RAM, and LiPo Battery
+      charger.
+
+   .. grid-item-card::
       :link: beagley-ai-home
       :link-type: ref
 
