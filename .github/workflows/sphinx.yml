@@ -20,7 +20,7 @@ jobs:
       run: |
         sudo apt-get update -y
         sudo apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
-        git submodule update --init --recursiv
+        git submodule update --init --recursive
     - name: Upgrade pip
       run: python3 -m pip install --upgrade pip
     - name: Install python dependencies
