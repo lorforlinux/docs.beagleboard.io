@@ -19,7 +19,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt-get update -y
-        sudo apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+        sudo apt-get install -y doxygen latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
         git submodule update --init --recursive
     - name: Upgrade pip
       run: python3 -m pip install --upgrade pip
