@@ -20,6 +20,11 @@ jobs:
       matrix:
         target: [html, pdf]
 
+    env:
+      GITHUB_REF: ${{ github.ref }}
+      GITHUB_REF_TYPE: ${{ github.ref_type }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+
     steps:
     - name: Checkout repository with submodules
       uses: actions/checkout@v4
@@ -56,9 +61,6 @@ jobs:
         shell: bash
 
     steps:
-    - name: List built files
-      run: ls -R public/${{ matrix.target }}
-
     - name: Download HTML docs
       uses: actions/download-artifact@v4
       with:
@@ -71,13 +73,13 @@ jobs:
         name: pdf-docs
         path: public/pdf
 
-    - name: Combine docs for publishing
+    - name: Combine artifacts
       run: |
         mkdir -p public
-        mv public/html/* public/
-        mv public/pdf/*.pdf public/
+        mv public/html/* public/ || true
+        mv public/pdf/*.pdf public/ || true
 
-    - name: Upload published site
+    - name: Upload to Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: public
