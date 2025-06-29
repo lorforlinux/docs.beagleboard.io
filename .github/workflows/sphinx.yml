@@ -51,6 +51,14 @@ jobs:
     runs-on: ubuntu-latest
     if: always() && (github.ref_type == 'branch' || github.ref_type == 'tag')
 
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
     - name: Download HTML docs
       uses: actions/download-artifact@v4
@@ -91,6 +99,5 @@ jobs:
 
     - name: Deploy to GitHub Pages
       if: github.ref_type == 'branch'
+      id: deployment
       uses: actions/deploy-pages@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
