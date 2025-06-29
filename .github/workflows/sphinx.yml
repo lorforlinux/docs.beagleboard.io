@@ -26,11 +26,9 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Setup build environment
-      run: source ./venv-build-env.sh
-
     - name: Build docs (${{ matrix.target }})
       run: |
+        source ./venv-build-env.sh
         if [ "${{ matrix.target }}" == "html" ]; then
           make html
         elif [ "${{ matrix.target }}" == "pdf" ]; then
@@ -58,9 +56,6 @@ jobs:
         shell: bash
 
     steps:
-    - name: Setup build environment
-      run: source ./venv-build-env.sh
-
     - name: Download HTML docs
       uses: actions/download-artifact@v4
       with:
@@ -107,5 +102,6 @@ jobs:
 
     - name: Cleanup
       run: |
+        source ./venv-build-env.sh
         make clean
         rm -rf public/*
