@@ -41,6 +41,8 @@ GITHUB_USER="${GITHUB_REPOSITORY%/*}"
 PROJECT_REPO="${GITHUB_REPOSITORY#*/}"
 GITHUB_HOST="github.com"
 
+do_build "$1"
+
 if [ "$GITHUB_REF_TYPE" == "branch" ]; then
     export PAGES_URL="https://${GITHUB_USER}.github.io/${PROJECT_REPO}/"
     export PROJECT_BRANCH="${GITHUB_REF_NAME}"

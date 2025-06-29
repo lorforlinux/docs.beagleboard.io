@@ -20,47 +20,47 @@ jobs:
       matrix:
         target: [html, pdf]
 
-    env:
-      GITHUB_REF: ${{ github.ref }}
-      GITHUB_REF_TYPE: ${{ github.ref_type }}
-      GITHUB_REPOSITORY: ${{ github.repository }}
-
     steps:
     - name: Checkout repository with submodules
       uses: actions/checkout@v4
       with:
         submodules: recursive
 
-    - name: Restore cache
-      uses: actions/cache@v4
-      with:
-        path: |
-          .venv
-          .cache
-        key: sphinx-build-env-docs-003
-
     - name: Setup build environment
       run: source ./venv-build-env.sh
 
     - name: Build docs (${{ matrix.target }})
-      run: ./github-build.sh ${{ matrix.target }}
-
+      run: |
+        if [ "${{ matrix.target }}" == "html" ]; then
+          make html
+        elif [ "${{ matrix.target }}" == "pdf" ]; then
+          make latexpdf
+        else
+          echo "Unknown target: ${{ matrix.target }}"
+          exit 1
+        fi
     - name: Upload ${{ matrix.target }} artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.target }}-docs
-        path: public/${{ matrix.target }}
+        name: docs-${{ matrix.target }}
+        path: ${{ matrix.target == 'html' && '_build/html/' || '_build/latex/*.pdf' }}
 
   publish:
     needs: build
-    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
+    if: always() && (github.ref_type == 'branch' || github.ref_type == 'tag')
+
+    container:
+      image: beagle/sphinx-build-env:latest
 
     defaults:
       run:
         shell: bash
 
     steps:
+    - name: Setup build environment
+      run: source ./venv-build-env.sh
+
     - name: Download HTML docs
       uses: actions/download-artifact@v4
       with:
@@ -75,17 +75,37 @@ jobs:
 
     - name: Combine artifacts
       run: |
-        mkdir -p public
         mv public/html/* public/ || true
         mv public/pdf/*.pdf public/ || true
+        rm -rf public/html public/pdf || true
+
+    - name: List published files
+      run: ls -lR public
+
+    - name: Decide where to publish
+      run: |
+        echo "GitHub ref type: ${{ github.ref_type }}"
+        if [ "${{ github.ref_type }}" == "branch" ]; then
+          echo "Publishing to GitHub Pages..."
+        elif [ "${{ github.ref_type }}" == "tag" ]; then
+          echo "Publishing to production server via rsync (TODO)..."
+          # rsync -avz _build/html/ user@server:/path/
+        fi
 
     - name: Upload to Pages artifact
+      if: github.ref_type == 'branch'
       uses: actions/upload-pages-artifact@v3
       with:
         path: public
 
     - name: Deploy to GitHub Pages
+      if: github.ref_type == 'branch'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: public
+
+    - name: Cleanup
+      run: |
+        make clean
+        rm -rf public/*
