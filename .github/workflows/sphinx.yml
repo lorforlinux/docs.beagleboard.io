@@ -51,8 +51,9 @@ jobs:
     if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
 
-    container:
-      image: beagle/sphinx-build-env:latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
     - name: Checkout repository with submodules
