@@ -56,16 +56,23 @@ jobs:
         shell: bash
 
     steps:
-    - name: Checkout repository with submodules
-      uses: actions/checkout@v4
+    - name: Download HTML docs
+      uses: actions/download-artifact@v4
       with:
-        submodules: recursive
+        name: html-docs
+        path: public/html
 
-    - name: Setup build environment
-      run: source ./venv-build-env.sh
+    - name: Download PDF docs
+      uses: actions/download-artifact@v4
+      with:
+        name: pdf-docs
+        path: public/pdf
 
-    - name: Publish docs
-      run: ./gitlab-build.sh publish
+    - name: Combine docs for publishing
+      run: |
+        mkdir -p public
+        mv public/html/* public/
+        mv public/pdf/*.pdf public/
 
     - name: Upload published site
       uses: actions/upload-pages-artifact@v3
