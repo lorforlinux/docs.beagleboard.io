@@ -29,6 +29,9 @@ jobs:
     - name: Build docs (${{ matrix.target }})
       run: |
         source ./venv-build-env.sh
+        if [ -e projects/librobotcontrol/docs ]; then
+          make librobotcontrol
+        fi
         if [ "${{ matrix.target }}" == "html" ]; then
           make html
         elif [ "${{ matrix.target }}" == "pdf" ]; then
