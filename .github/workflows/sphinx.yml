@@ -62,13 +62,13 @@ jobs:
     - name: Download HTML docs
       uses: actions/download-artifact@v4
       with:
-        name: html-docs
+        name: docs-html
         path: public/html
 
     - name: Download PDF docs
       uses: actions/download-artifact@v4
       with:
-        name: pdf-docs
+        name: docs-pdf
         path: public/pdf
 
     - name: Combine artifacts
