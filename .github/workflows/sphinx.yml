@@ -38,7 +38,7 @@ jobs:
       run: source ./venv-build-env.sh
 
     - name: Build docs (${{ matrix.target }})
-      run: ./gitlab-build.sh ${{ matrix.target }}
+      run: ./github-build.sh ${{ matrix.target }}
 
     - name: Upload ${{ matrix.target }} artifacts
       uses: actions/upload-artifact@v4
