@@ -11,6 +11,10 @@ jobs:
     container:
       image: beagle/sphinx-build-env:latest
 
+    defaults:
+      run:
+        shell: bash
+
     strategy:
       matrix:
         target: [html, pdf]
