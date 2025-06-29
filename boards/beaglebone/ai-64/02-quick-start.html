@@ -1,0 +1,1614 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Quick Start Guide &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglebone/ai-64/02-quick-start';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglebone/ai-64/02-quick-start.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Design and Specifications" href="03-design-and-specifications.html" />
+    <link rel="prev" title="Introduction" href="01-introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-design-and-specifications.html">Design and Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos-and-tutorials.html">Demos and Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="edge_ai_apps/index.html">Edge AI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/getting_started.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/running_simple_demos.html">Running Simple demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/inference_models.html">DL models for Edge Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/configuration_file.html">Demo Configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/running_advance_demos.html">Running Advance demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/docker_environment.html">Docker Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/data_flows.html">Data Flows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/performance_visualizer.html">Performance Visualization Tool</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/sdk_components.html">SDK Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/datasheet.html">Datasheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/test_report.html">Test Report</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Additional Support Information</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleBone AI-64</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Quick Start Guide</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="quick-start-guide">
+<span id="bbai64-quick-start"></span><h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Link to this heading">#</a></h1>
+<p>This section provides instructions on how to hook up your board. This Beagle requires a 5V &gt; 3A (15W)
+power supply to work properly via either USB Type-C power adapter or a barrel jack power adapter.</p>
+<p>Recommended adapters can be found at <a class="reference internal" href="../../../accessories/power-supplies.html#accessories-power-supplies"><span class="std std-ref">Power supplies</span></a> section. All the
+<a class="reference internal" href="#beaglebone-ai-64-connections-ports"><span class="std std-ref">BeagleBone AI-64 connections ports</span></a> we will use in this chapter are shown in the figure below.</p>
+<figure class="align-center" id="id3">
+<span id="beaglebone-ai-64-connections-ports"></span><a class="reference internal image-reference" href="../../../_images/ports.jpg"><img alt="../../../_images/ports.jpg" src="../../../_images/ports.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 309 </span><span class="caption-text">BeagleBone AI-64 connections ports</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="whats-in-the-box">
+<span id="id1"></span><h2>What’s In the Box<a class="headerlink" href="#whats-in-the-box" title="Link to this heading">#</a></h2>
+<p>In the box you will find two main items as shown in <a class="reference internal" href="#bbai-64-pacakage"><span class="std std-ref">BeagleBone AI-64 box content</span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.beagleboard.org/boards/beaglebone-ai-64">BeagleBone AI-64</a></p></li>
+<li><p>Instruction card</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A USB-C to USB-C cable is not included, but recommended for the tethered scenario and creates
+a developer experience where the board can be used immediately with no other equipment needed.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For board files, 3D model, and more, you can checkout <a class="reference external" href="https://openbeagle.org/beagleboard/beaglebone-ai-64">BeagleBona AI-64 repository on OpenBeagle</a>.</p>
+</div>
+<figure class="align-center" id="id4">
+<span id="bbai-64-pacakage"></span><a class="reference internal image-reference" href="../../../_images/bbai64-in-box.jpg"><img alt="../../../_images/bbai64-in-box.jpg" src="../../../_images/bbai64-in-box.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 310 </span><span class="caption-text">BeagleBone AI-64 box content</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="methods-of-operation">
+<h2>Methods of operation<a class="headerlink" href="#methods-of-operation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Tethered to a PC</p></li>
+<li><p>Standalone development platform in a PC configuration using external peripherals</p></li>
+</ol>
+<section id="main-connection-scenarios">
+<span id="id2"></span><h3>Main Connection Scenarios<a class="headerlink" href="#main-connection-scenarios" title="Link to this heading">#</a></h3>
+<p>This section describes how to connect and power the board and serves as a slightly more detailed
+description of the Quick Start Guide included in the box. The board can be configured in several
+different ways, but we will discuss the two most common scenarios.</p>
+<ul class="simple">
+<li><p>Tethered to a PC via the USB cable</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Board</span> <span class="pre">is</span> <span class="pre">accessed</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">storage</span> <span class="pre">drive</span> <span class="pre">and</span> <span class="pre">virtual</span> <span class="pre">Ethernet</span> <span class="pre">connection.</span></code></p></li>
+</ul>
+</li>
+<li><p>Standalone Desktop</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Display</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Keyboard</span> <span class="pre">and</span> <span class="pre">Mouse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">External</span> <span class="pre">5V</span> <span class="pre">&gt;</span> <span class="pre">3A</span> <span class="pre">power</span> <span class="pre">supply</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Each of these configurations is discussed in general terms in the following sections.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Tethered To A PC</label><div class="sd-tab-content docutils">
+<p>In this configuration, the board is powered by the PC via a single USB cable. The board is accessed either as a USB storage drive or via the browser on the connected PC. You need to use either Firefox or Chrome on the PC, Internet Explorer will not work properly.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../../_images/usb-tethering.jpg"><img alt="../../../_images/usb-tethering.jpg" src="../../../_images/usb-tethering.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 311 </span><span class="caption-text">Tethered Configuration</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>At least 5V &#64; 3A is required to power the board, In most cases the PC may not be able to supply
+sufficient power for the board unless the connection is made over a Type-C to Type-C cable. You
+should always use an external 5V &gt; 3A DC power supply connected to the barrel jack if you are
+unsure that the system can provide the required power or are otherwise using a USB-A to Type-C
+cable which will always require power from the DC barrel jack.</p>
+<p><strong>Connect the Cable to the Board</strong></p>
+<ol class="arabic simple">
+<li><p>Connect the type C USB cable to the board as shown in the figure below. The connector is on the top side of the board near barrel jack.</p></li>
+</ol>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../../_images/usb-c-connection.jpg"><img alt="../../../_images/usb-c-connection.jpg" src="../../../_images/usb-c-connection.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 312 </span><span class="caption-text">USB Connection to the Board</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Connect the USB-A end of the cable to your PC or laptop USB port as shown in the figure below.</p></li>
+</ol>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../_images/usb-a-connection.jpg"><img alt="../../../_images/usb-a-connection.jpg" src="../../../_images/usb-a-connection.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 313 </span><span class="caption-text">USB Connection to the PC/Laptop</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>The board will power on and the power LED will be on as shown in the figure below.</p></li>
+</ol>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/power-led.jpg"><img alt="../../../_images/power-led.jpg" src="../../../_images/power-led.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 314 </span><span class="caption-text">Board Power LED</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>When the board starts to the booting process started by the process of applying power, the LEDs will come on in sequence as shown in the figure below. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it begins to boot the Linux kernel.</p></li>
+</ol>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/led-pattern.jpg"><img alt="../../../_images/led-pattern.jpg" src="../../../_images/led-pattern.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 315 </span><span class="caption-text">Board Boot Status</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Accessing the Board as a Storage Drive</strong></p>
+<p>The board will appear around a USB Storage drive on your PC after thekernel has booted, which will take a round 10 seconds. The kernel on the board needs to boot before the port gets enumerated. Once the board appears as a storage drive, do the following:</p>
+<ol class="arabic simple">
+<li><p>Open the USB Drive folder.</p></li>
+<li><p>Click on the file named <strong>start.htm</strong></p></li>
+<li><p>The file will be opened by your browser on the PC and you should get a display showing the Quick Start Guide.</p></li>
+<li><p>Your board is now operational! Follow the instructions on your PC screen.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Standalone w/Display and Keyboard/Mouse</label><div class="sd-tab-content docutils">
+<p>In this configuration, the board works more like a PC, totally free from any connection to a PC as shown in the figure below. It allows you to create your code to make the board do whatever you need it to do. It will however require certain common PC accessories. These accessories and instructions are described in the following section.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/desktop-configuration.jpg"><img alt="../../../_images/desktop-configuration.jpg" src="../../../_images/desktop-configuration.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 316 </span><span class="caption-text">Desktop Configuration</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Ethernet cable and M.2 WiFi + Bluetooth card are optional. They can be used if network access required.</p>
+<p><strong>Required Accessories</strong></p>
+<p>In order to use the board in this configuration, you will need the following accessories:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../accessories/power-supplies.html#accessories-power-supplies"><span class="std std-ref">5V &gt; 3A power supply</span></a>.</p></li>
+<li><p><a class="reference internal" href="../../../accessories/displays.html#accessories-displays"><span class="std std-ref">Display Port or HDMI monitor</span></a>.</p></li>
+<li><p><a class="reference internal" href="../../../accessories/cables.html#accessories-cables-minidp-hdmi"><span class="std std-ref">miniDP-DP or active miniDP-HDMI cable</span></a>.</p></li>
+<li><p><a class="reference internal" href="../../../accessories/peripherals.html#accessories-peripherals"><span class="std std-ref">USB wired/wireless keyboard and mouse</span></a>.</p></li>
+</ul>
+<p><strong>Optional Accessories</strong></p>
+<ul class="simple">
+<li><p>Powered USB hub, The board has only two USB Type-A host ports, so you may need to use a powered USB Hub if you wish to add additional USB devices, such as a USB WiFi adapter.</p></li>
+<li><p>M.2 Bluetooth &amp; WiFi module, For wireless connections, a USB WiFi adapter or a recommended M.2 WiFi module can provide wireless networking.</p></li>
+</ul>
+<p><strong>Connecting Up the Board</strong></p>
+<ol class="arabic simple">
+<li><p>Connect the miniDP to DP or active miniDP to HDMI cable from your BeagleBone AI-64 to your monitor.</p></li>
+</ol>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/monitor-cable.jpg"><img alt="../../../_images/monitor-cable.jpg" src="../../../_images/monitor-cable.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 317 </span><span class="caption-text">Connect miniDP-DP or active miniDP-HDMI cable to BeagleBone AI-64</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>If you have an Display Port or HDMI monitor with HDMI-HDMI or DP-DP cable you can use adapters as shown in the figure below.</p></li>
+</ol>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/display-adapters.jpg"><img alt="../../../_images/display-adapters.jpg" src="../../../_images/display-adapters.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 318 </span><span class="caption-text">Display adapters</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>If you have wired/wireless USB keyboard and mouse such as seen in the figure below, you need to plug the receiver in the USB host port of the board as shown in the figure below.</p></li>
+</ol>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/mouse-keyboard.jpg"><img alt="../../../_images/mouse-keyboard.jpg" src="../../../_images/mouse-keyboard.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 319 </span><span class="caption-text">Keyboard and Mouse</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>Connect the Ethernet Cable</p></li>
+</ol>
+<p>If you decide you want to connect to your local area network, an Ethernet cable can be used.
+Connect the Ethernet Cable to the Ethernet port as shown in the figure below. Any
+standard 100M Ethernet cable should work.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/ethernet-cable.jpg"><img alt="../../../_images/ethernet-cable.jpg" src="../../../_images/ethernet-cable.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 320 </span><span class="caption-text">Ethernet Cable Connection</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>The final step is to plug in the DC power supply to the DC power jack as shown in the figure below.</p></li>
+</ol>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../../../_images/barrel-jack.jpg"><img alt="../../../_images/barrel-jack.jpg" src="../../../_images/barrel-jack.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 321 </span><span class="caption-text">External DC Power</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>The cable needed to connect to your display is a miniDP-DP or active miniDP-HDMI. Connect the miniDP connector end to the board at this time. The connector is on the top side of the board as shown in the figure below.</p></li>
+</ol>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../../_images/miniDP-connector.jpg"><img alt="../../../_images/miniDP-connector.jpg" src="../../../_images/miniDP-connector.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 322 </span><span class="caption-text">Connect miniDP to DP or active miniDP to HDMI Cable to the Board</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The connector is fairly robust, but we suggest that you not use the cable as a leash for your Beagle. Take proper care not to put too much stress on the connector or cable.</p>
+<ol class="arabic simple">
+<li><p>Booting the Board</p></li>
+</ol>
+<p>As soon as the power is applied to the board, it will start the booting up process. When the board starts to boot the LEDs will come on. It will take a few seconds for the status LEDs to come on, so be patient. The LEDs will be flashing in an erratic manner as it boots the Linux kernel.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../../_images/leds.jpg"><img alt="../../../_images/leds.jpg" src="../../../_images/leds.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 323 </span><span class="caption-text">BeagleBone AI-64 LEDs</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>While the four user LEDS can be over written and used as desired, they do have specific
+meanings in the image that is shipped with the board once the Linux kernel has booted.</p>
+<ul class="simple">
+<li><p><strong>USR0</strong> is the heartbeat indicator from the Linux kernel.</p></li>
+<li><p><strong>USR1</strong> turns on when the microSD card is being accessed</p></li>
+<li><p><strong>USR2</strong> is an activity indicator. It turns on when the kernel is not in the idle loop.</p></li>
+<li><p><strong>USR3</strong> turns on when the onboard eMMC is being accessed.</p></li>
+<li><p><strong>USR4</strong> is an activity indicator for WiFi.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>A Booted System</p>
+<ol class="loweralpha simple">
+<li><p>The board will have a mouse pointer appear on the screen as it enters the Linux boot step. You may have to move the physical mouse to get the mouse pointer to appear. The system can come up in the suspend mode with the monitor in a sleep mode.</p></li>
+<li><p>After a minute or two a login screen will appear. You do not have to do anything at this point.</p></li>
+<li><p>After a minute or two the desktop will appear. It should be similar to the one shown in the figure below. HOWEVER, it will change from one release to the next, so do not expect your system to look exactly like the one in the figure, but it will be very similar.</p></li>
+<li><p>And at this point you are ready to go! The figure below shows the desktop after booting.</p></li>
+</ol>
+</li>
+</ol>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../../_images/xfce-desktop.jpg"><img alt="../../../_images/xfce-desktop.jpg" src="../../../_images/xfce-desktop.jpg" style="width: 740px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 324 </span><span class="caption-text">BeagleBone XFCE Desktop Screen</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="update-software">
+<span id="bbai64-update"></span><h2>Update software<a class="headerlink" href="#update-software" title="Link to this heading">#</a></h2>
+<p>Production boards currently ship with the factory-installed 2022-01-14-8GB image. To upgrade
+from the software image on your BeagleBone AI-64 to the latest, you don’t need to completely
+reflash the board. If you do want to reflash it, visit the flashing instructions on the getting
+started page. Factory Image update (without reflashing)…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>--only-upgrade<span class="w"> </span>bb-j721e-evm-firmware<span class="w"> </span>generic-sys-mods
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</pre></div>
+</div>
+<section id="update-u-boot">
+<h3>Update U-Boot:<a class="headerlink" href="#update-u-boot" title="Link to this heading">#</a></h3>
+<p>to ensure only tiboot3.bin is in boot0, the pre-production image we tried to do more in boot0, but failed…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/opt/u-boot/bb-u-boot-beagleboneai64/install-emmc.sh
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/opt/u-boot/bb-u-boot-beagleboneai64/install-microsd.sh
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</section>
+<section id="update-kernel-and-sgx-modules">
+<h3>Update Kernel and SGX modules:<a class="headerlink" href="#update-kernel-and-sgx-modules" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bbb.io-kernel-5.10-ti-k3-j721e
+</pre></div>
+</div>
+</section>
+<section id="update-xfce">
+<h3>Update xfce:<a class="headerlink" href="#update-xfce" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bbb.io-xfce4-desktop
+</pre></div>
+</div>
+</section>
+<section id="update-ti-edge-ai-8-2-examples">
+<h3>Update ti-edge-ai 8.2 examples<a class="headerlink" href="#update-ti-edge-ai-8-2-examples" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ti-edgeai-8.2-base<span class="w"> </span>ti-vision-apps-8.2<span class="w"> </span>ti-vision-apps-eaik-firmware-8.2
+</pre></div>
+</div>
+</section>
+<section id="cleanup">
+<h3>Cleanup:<a class="headerlink" href="#cleanup" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>--purge
+</pre></div>
+</div>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="edge_ai_apps/index.html#ai-64-edgeai-home"><span class="std std-ref">Edge AI</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03-design-and-specifications.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Design and Specifications</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-in-the-box">What’s In the Box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-of-operation">Methods of operation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-connection-scenarios">Main Connection Scenarios</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-software">Update software</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-u-boot">Update U-Boot:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-kernel-and-sgx-modules">Update Kernel and SGX modules:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-xfce">Update xfce:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-ti-edge-ai-8-2-examples">Update ti-edge-ai 8.2 examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleanup">Cleanup:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglebone/ai-64/02-quick-start.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beaglebone/ai-64/02-quick-start.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+        
+        <a role="button" href="/beaglebone-ai-64.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleBone AI-64 - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleboard/beaglebone-ai-64">BeagleBone AI-64 git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglebone-ai-64">BeagleBone AI-64 board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglebone/ai-64/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/bbai64">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone AI-64
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002120.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone AI-64_US002120.svg" alt="BeagleBone AI-64 OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

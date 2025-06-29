@@ -1,0 +1,2090 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Design and Specifications &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglebone/ai-64/03-design-and-specifications';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglebone/ai-64/03-design-and-specifications.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Expansion" href="04-expansion.html" />
+    <link rel="prev" title="Quick Start Guide" href="02-quick-start.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-quick-start.html">Quick Start Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Design and Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos-and-tutorials.html">Demos and Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="edge_ai_apps/index.html">Edge AI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/getting_started.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/running_simple_demos.html">Running Simple demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/inference_models.html">DL models for Edge Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/configuration_file.html">Demo Configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/running_advance_demos.html">Running Advance demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/docker_environment.html">Docker Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/data_flows.html">Data Flows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/performance_visualizer.html">Performance Visualization Tool</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/sdk_components.html">SDK Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/datasheet.html">Datasheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge_ai_apps/test_report.html">Test Report</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Additional Support Information</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleBone AI-64</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Design and Specifications</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="design-and-specifications">
+<span id="bbai64-design"></span><h1>Design and Specifications<a class="headerlink" href="#design-and-specifications" title="Link to this heading">#</a></h1>
+<p>If you want to know how BeagleBone AI-64 is designed and the detailed specifications, then
+this chapter is for you. We are going to attept to provide you a short and crisp overview
+followed by discussing each hardware design element in detail.</p>
+<section id="block-diagram-and-overview">
+<h2>Block Diagram and Overview<a class="headerlink" href="#block-diagram-and-overview" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#beaglebone-ai-64-block-diagram"><span class="std std-ref">BeagleBone AI-64 key components</span></a> below shows the high level block
+diagram of BeagleBone AI-64 board surrounding TDA4VM SoC.</p>
+<figure class="align-center" id="id1">
+<span id="beaglebone-ai-64-block-diagram"></span><a class="reference internal image-reference" href="../../../_images/ai-64-block-diagram.svg"><img alt="BeagleBone AI-64 key components" src="../../../_images/ai-64-block-diagram.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 325 </span><span class="caption-text">BeagleBone AI-64 key components</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="system-on-chip-soc">
+<span id="processor"></span><h2>System on Chip (SoC)<a class="headerlink" href="#system-on-chip-soc" title="Link to this heading">#</a></h2>
+<p>BeagleBone AI-64 uses TI J721E-family <a class="reference external" href="https://www.ti.com/product/TDA4VM">TDA4VM</a>
+system-on-chip (SoC) which is part of the K3 Multicore SoC architecture platform
+and it is targeted for the reliability and low-latency needs of the automotive
+market provide for a great general purpose platform suitable for industrial
+automation, mobile robotics, building automation and numerous hobby projects.</p>
+<p>The SoC designed as a low power, high performance and highly integrated device
+architecture, adding significant enhancement on processing power, graphics capability,
+video and imaging processing, virtualization and coherent memory support. In addition,
+these SoCs support state of the art security and functional safety features. For the
+remaining of this section device, SoC, and processor will be used interchangeably.</p>
+<figure class="align-center" id="id2">
+<span id="soc-block-diagram"></span><a class="reference internal image-reference" href="../../../_images/soc-block-diagram.svg"><img alt="System on Chip (SoC) block diagram" src="../../../_images/soc-block-diagram.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 326 </span><span class="caption-text">System on Chip (SoC) block diagram</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Some of the main distinguished characteristics of the device are:</strong></p>
+<ul class="simple">
+<li><p>64-bit architecture with virtualization and coherent memory support, which leverages full processing capability of 64-bit Arm® Cortex®-A72</p></li>
+<li><p>Fully programmable industrial communication subsystems to enable future-proof designs for customers that need to adopt the new Gigabit Time-sensitive Networks (TSN) standards, but still need full support on legacy protocols and continuous system optimization over the product deployment</p></li>
+<li><p>Integration of vision hardware processing accelerators to facilitate extensive processing requirements in low power budget for automotive ADAS and machine vision applications</p></li>
+<li><p>Integration of a general-purpose microcontroller unit (MCU) with a dual Arm® Cortex®-R5F MCU subsystem, available for general purpose use as two cores or in lockstep, intended to help customers achieve functional safety goals for their end products</p></li>
+<li><p>Integration of a next-generation fixed and floating-point C71x Digital Signal Processor (DSP) that significantly boosts power over a broad range of general signal processing tasks for both general applications and automotive functions which also incorporates advanced techniques to improve control code efficiency and ease of programming such as branch prediction, protected pipeline, precise exception and virtual memory management</p></li>
+<li><p>Tightly coupled Matrix Multiplication Accelerator (MMA) that extends the C71x DSP architecture’s scalar and vector facilities enabling deep learning and enhance vision, analytics and wide range of general applications. The achieved total TOPS (Tera Operations Per Second) performance significantly differentiates the device for single board computer in machine vision and deep learning applications</p></li>
+<li><p>Key display features including flexibility to interface with different panel types (eDP, DSI, DPI) with multi-layer hardware composition</p></li>
+<li><p>Integration of hardware features that help applications to achieve functional safety mechanisms</p></li>
+<li><p>Robust security architecture with sandboxed DMSC controller managing all secure configurations with high performance client-server messaging scheme between secure DMSC and all cores</p></li>
+<li><p>Simplified solution for power supply management, enabling lower cost system solution (on-die bias LDOs and power good comparators for minimal power sequencing requirements consistent with low cost supply design)</p></li>
+</ul>
+<p><strong>The device is composed of the following main subsystems, across different domains of the SoC, among others:</strong></p>
+<ul class="simple">
+<li><p>One dual-core 64-bit Arm Cortex-A72 microprocessor subsystem at up to 2.0 GHz and up to 24K DMIPS (Dhrystone Million Instructions per Second)</p></li>
+<li><p>Up to three Microcontroller Units (MCU), based on dual-core Arm Cortex-R5F processor running at up to 1.0 GHz, up to 12K DMIPS</p></li>
+<li><p>Up to two TMS320C66x DSP CorePac modules running at up to 1.35 GHz, up to 40 GFLOPS</p></li>
+<li><p>One C71x floating point, vector DSP running at up to 1.0 GHz, up to 80 GFLOPS</p></li>
+<li><p>One deep-learning MMA, up to 8 TOPS (8b) at 1.0 GHz</p></li>
+<li><p>Up to two gigabit dual-core Programmable Real-Time Unit and Industrial Communication Subsystems (PRU_ICSSG)</p></li>
+<li><p>Two Navigator Subsystems (NAVSS) for data movement and control</p></li>
+<li><p>One multi-pipeline Display Subsystem (DSS) with one MIPI® Display Serial Interface Controller (DSI) and shared MIPI D-PHY Transmitter (DPHY_TX), one Embedded DisplayPort Transmitter (EDP) with shared Serializer/Deserializer (SERDES), and two MIPI Display Pixel Interface (DPI) ports</p></li>
+<li><p>Two Camera Streaming Interface Receivers (CSI_RX_IF) with dedicated MIPI D-PHYs (DPHY_RX)</p></li>
+<li><p>One Camera Streaming Interface Transmitter (CSI_TX_IF) with MIPI D-PHY Transmitter (DPHY_TX) shared with DSI</p></li>
+<li><p>One Vision Processing Accelerator (VPAC) with image signal processor</p></li>
+<li><p>One Depth and Motion Processing Accelerator (DMPAC)</p></li>
+<li><p>One dual-core multi-standard HD Video Decoder (DECODER)</p></li>
+<li><p>One dual-core multi-standard HD Video Encoder (ENCODER)</p></li>
+<li><p>One Graphics Processing Unit (GPU)</p></li>
+<li><p>One Device Management and Security Controller (DMSC)</p></li>
+</ul>
+<p><strong>The device provides a rich set of peripherals such as:</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>General connectivity peripherals, including:</dt><dd><ul>
+<li><p>Two 12-bit general purpose Analog-to-Digital Converters (ADC)</p></li>
+<li><p>Ten Inter-Integrated Circuit (I2C) interfaces</p></li>
+<li><p>Three Improved Inter-Integrated Circuit (I3C) controllers</p></li>
+<li><p>Eleven master/slave Multichannel Serial Peripheral Interfaces (MCSPI)</p></li>
+<li><p>Twelve configurable Universal Asynchronous Receiver/Transmitter (UART) interfaces</p></li>
+<li><p>Ten General-Purpose Input/Output (GPIO) modules</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>High-speed interfaces, including:</dt><dd><ul>
+<li><p>Two Gigabit Ethernet Switch (CPSW) modules</p></li>
+<li><p>Two Dual-Role-Device (DRD) Universal Serial Bus Subsystems (USBSS) with integrated PHY</p></li>
+<li><p>Four Peripheral Component Interconnect express (PCIe) Gen3 subsystems</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Flash memory interfaces, including:</dt><dd><ul>
+<li><p>One Octal SPI (OSPI) interface and one Quad SPI (QSPI) or one QSPI and one HyperBus^TM^</p></li>
+<li><p>One General Purpose Memory Controller (GPMC) with Error Location Module (ELM) and 8- or 16-bit-wide data bus width (supports parallel NOR or NAND FLASH devices)</p></li>
+<li><p>Three Multimedia Card/Secure Digital (MMCSD) controllers</p></li>
+<li><p>One Universal Flash Storage (UFS) interface</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Industrial and control interfaces, including:</dt><dd><ul>
+<li><p>Sixteen Controller Area Network (MCAN) interfaces with flexible data rate support</p></li>
+<li><p>Three Enhanced Capture (ECAP) modules</p></li>
+<li><p>Six Enhanced Pulse-Width Modulation (EPWM) subsystems</p></li>
+<li><p>Three Enhanced Quadrature Encoder Pulse (EQEP) modules</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Audio peripherals, including:</dt><dd><ul>
+<li><p>One Audio Tracking Logic (ATL)</p></li>
+<li><p>Twelve Multichannel Audio Serial Port (MCASP) modules supporting up to 16 channels with independent TX/RX clock/sync domain</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>One Video Processing Front End (VPFE) interface module</p></li>
+</ul>
+<p><strong>The device also integrates:</strong></p>
+<ul class="simple">
+<li><p>Power distribution, reset controls and clock management components</p></li>
+<li><dl class="simple">
+<dt>Power-management techniques for device power consumption minimization:</dt><dd><ul>
+<li><p>Adaptive Voltage Scaling (AVS)</p></li>
+<li><p>Dynamic Frequency Scaling (DFS)</p></li>
+<li><p>Gated clocks</p></li>
+<li><p>Multiple voltage domains</p></li>
+<li><p>Independently controlled power domains for major modules</p></li>
+<li><p>Voltage and Temperature Management (VTM) module</p></li>
+<li><p>Power-on Reset Generators (PRG)</p></li>
+<li><p>Power Sleep Controllers (PSC)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Optimized interconnect (CBASS) architecture to enable latency-critical real time network and IO applications</p></li>
+<li><dl class="simple">
+<dt>Control modules (CTRL_MMRs) mainly associated with device top-level configurations such as:</dt><dd><ul>
+<li><p>IO Pad and pin multiplexing configuration</p></li>
+<li><p>PLL control and associated High-Speed Dividers (HSDIV)</p></li>
+<li><p>Clock selection</p></li>
+<li><p>Analog function controls</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Multicore Shared Memory Controller (MSMC)</p></li>
+<li><p>DDR Subsystem (DDRSS) with Error Correcting Code (ECC), supporting LPDDR4</p></li>
+<li><p>1KB RAM with ECC support for C71x boot vectors</p></li>
+<li><p>2KB RAM with ECC support for A72 and R5F boot vectors</p></li>
+<li><p>512KB On-Chip SRAM protected by ECC</p></li>
+<li><p>One Global Time Counter (GTC) module</p></li>
+<li><p>Thirty 32-bit counter timers with compare and capture modes</p></li>
+<li><p>Debug and trace capabilities</p></li>
+</ul>
+<p><strong>The device includes different modules for functional safety requirements support:</strong></p>
+<ul class="simple">
+<li><p>MCU island with dual lock step Arm Cortex-R5F</p></li>
+<li><p>Safety enabled interconnect with implemented features to help with Freedom From Interference (FFI)</p></li>
+<li><p>Twelve Real Time Interrupt (RTI) modules with Windowed Watchdog Timer (WWDT) functionality to monitor processor cores</p></li>
+<li><p>Sixteen Dual-Clock Comparators (DCC) to monitor clocking sources during run-time</p></li>
+<li><p>Three Error Signaling Modules (ESM) to enable error monitoring</p></li>
+<li><p>Temperature monitoring sensors</p></li>
+<li><p>ECC on all critical memories</p></li>
+<li><p>Dedicated hardware Memory Cyclic Redundancy Check (MCRC) blocks</p></li>
+</ul>
+<p><strong>The device supports the following main security functionalities among others:</strong></p>
+<ul class="simple">
+<li><p>Secure Boot Management</p></li>
+<li><p>Public Key Accelerator (PKA) for large vector math operation</p></li>
+<li><p>Cryptographic acceleration (AES, 3DES, MD5, SHA1, SHA2-224, 256, 512 operation)</p></li>
+<li><p>Trusted Execution Environment (TEE)</p></li>
+<li><p>Secure storage support</p></li>
+<li><p>On-the-fly encryption and authentication support for OSPI interface</p></li>
+</ul>
+<p>The device is partitioned into three functional domains as shown in <a class="reference internal" href="#soc-block-diagram"><span class="std std-ref">System on Chip (SoC) block diagram</span></a>, each containing specific processing cores and peripherals:</p>
+<ul class="simple">
+<li><p>Wake-up (WKUP) domain</p></li>
+<li><p>Microcontroller (MCU) domain with one of the dual Cortex-R5 cluster</p></li>
+<li><p>MAIN domain</p></li>
+</ul>
+<section id="boot-modes">
+<span id="bbai64-boot-modes"></span><h3>Boot Modes<a class="headerlink" href="#boot-modes" title="Link to this heading">#</a></h3>
+<p>There are two boot modes:</p>
+<ul class="simple">
+<li><p><strong>eMMC Boot:</strong> This is the default boot mode and will allow for the fastest boot time and will enable the board to boot out of the box using the pre-flashed OS image without having to purchase an microSD card or an microSD card writer.</p></li>
+<li><p><strong>SD Boot:</strong> This mode will boot from the microSD slot. This mode can be used to override what is on the eMMC device and can be used to program the eMMC when used in the manufacturing process or for field updates.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This section needs more work and references to greater detail. Other boot modes are possible.
+Software to support USB and serial boot modes is not provided by beagleboard.org. Please contact TI for support of this feature.</p>
+</div>
+<p>A switch is provided to allow switching between the modes.</p>
+<ul class="simple">
+<li><p>Holding the boot switch down during a removal and reapplication of power without a microSD card inserted will force the boot source to be the USB port and if nothing is detected on the USB client port, it will go to the serial port for download.</p></li>
+<li><p>Without holding the switch, the board will boot try to boot from the eMMC. If it is empty, then it will try booting from the microSD slot, followed by the serial port, and then the USB port.</p></li>
+<li><p>If you hold the boot switch down during the removal and reapplication of power to the board, and you have a microSD card inserted with a bootable image, the board will boot from the microSD card.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pressing the RESET button on the board will NOT result in a change of the boot mode. You MUST remove power and reapply power to change the boot mode. The boot pins are sampled during power on reset from the PMIC to the processor.The reset button on the board is a warm reset only and will not force a boot mode change.</p>
+</div>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../../_images/boot-config.svg"><img alt="Boot config" src="../../../_images/boot-config.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 327 </span><span class="caption-text">Boot config</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../../_images/mcu-bootmode.svg"><img alt="MCU Bootmode" src="../../../_images/mcu-bootmode.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 328 </span><span class="caption-text">MCU Bootmode</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../../_images/sys-bootmode.svg"><img alt="SYS Bootmode" src="../../../_images/sys-bootmode.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 329 </span><span class="caption-text">SYS Bootmode</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="power-sources">
+<span id="bbai64-power-sources"></span><h3>Power Sources<a class="headerlink" href="#power-sources" title="Link to this heading">#</a></h3>
+<p>The board can be powered from three different sources:</p>
+<ul class="simple">
+<li><p>5V &gt; 3A power supply plugged into the barrel jack</p></li>
+<li><p>5V &gt; 3A capable device plugged into the USB Type-C connector</p></li>
+<li><p>The cape header pins</p></li>
+</ul>
+<p>The power supply is not provided with the board but can be easily
+obtained from numerous sources. A 5V &gt; 3A supply is mandatory to have with
+the board, but if there is a cape plugged into the board or you have a power
+hungry device or hub plugged into the host port, then more current may
+needed from the DC supply.</p>
+</section>
+</section>
+<section id="power-management">
+<span id="bbai64-power-management"></span><h2>Power Management<a class="headerlink" href="#power-management" title="Link to this heading">#</a></h2>
+<p>BeagleBone AI-64 power management invludes a lot of ICs from Texas Instruments,</p>
+<ol class="arabic simple">
+<li><p><strong>DC/DC converter:</strong> TPS62813 and LM5141</p></li>
+<li><p><strong>LDO:</strong> TPS74801</p></li>
+<li><p><strong>PMICs:</strong> TPS65941213 and TPS65941111</p></li>
+<li><p><strong>Power Mux:</strong> TPS2121</p></li>
+<li><p><strong>Power Switch:</strong> TPS22965</p></li>
+</ol>
+<section id="v1-dc-dc">
+<h3>1V1 DC/DC<a class="headerlink" href="#v1-dc-dc" title="Link to this heading">#</a></h3>
+<p>TPS62813 is a 3-A synchronous step-down DC/DC converter with high efficiency and ease of use.
+The TPS62813 family is based on a peak current mode control topology. The TPS62813
+is designed for automotive applications such as infotainment and advanced driver assistance systems.
+Low resistive switches allow up to 4-A continuous output current at high ambient temperature. The
+switching frequency is externally adjustable from 1.8 MHz to 4 MHz and can also be synchronized to
+an external clock in the same frequency range. In PWM/PFM mode, the TPS62813 automatically
+enter power save mode at light loads to maintain high efficiency across the whole load range. The
+TPS62813 provide 1% output voltage accuracy in PWM mode which helps design a power supply with
+high output voltage accuracy. The SS/TR pin allows setting the start-up time or forming tracking of the
+output voltage to an external source. This feature allows external sequencing of different supply rails
+and limiting the inrush current during start-up.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../../_images/1v1-3a-ddr-buck.svg"><img alt="1V1 &#64; 1A DDR power supply" src="../../../_images/1v1-3a-ddr-buck.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 330 </span><span class="caption-text">1V1 &#64; 1A DDR power supply</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="v1-2v5-ldo">
+<h3>1V1 &amp; 2V5 LDO<a class="headerlink" href="#v1-2v5-ldo" title="Link to this heading">#</a></h3>
+<p>TPS74801 is a 1.5-A low-VIN (0.8 V) adjustable low-dropout (LDO) voltage regulator with power good and enable.
+The TPS748 low-dropout (LDO) linear regulator provides an easy-to-use robust power management
+solution for a wide variety of applications. User- programmable soft-start minimizes stress on the input
+power source by reducing capacitive inrush current on start-up. The soft-start is monotonic and designed
+for powering many different types of processors and ASICs. The enable input and power-good output
+allow easy sequencing with external regulators. This complete flexibility allows a solution to be configured
+that meets the sequencing requirements of FPGAs, DSPs, and other applications with special start-up requirements.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../_images/1v1-usb3-ethernet-ldo.svg"><img alt="1V1 USB3 &amp; Ethernet power supply" src="../../../_images/1v1-usb3-ethernet-ldo.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 331 </span><span class="caption-text">1V1 USB3 &amp; Ethernet power supply</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/2v5-ethernet-ldo.svg"><img alt="2V5 Ethernet power supply" src="../../../_images/2v5-ethernet-ldo.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 332 </span><span class="caption-text">2V5 Ethernet power supply</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="v3-dc-dc">
+<h3>3V3 DC/DC<a class="headerlink" href="#v3-dc-dc" title="Link to this heading">#</a></h3>
+<p>The LM5141 is a synchronous buck controller, intended for high voltage wide VIN step-down
+converter applications. The control method is peak current mode control. Current mode control provides
+inherent line feed-forward, cycle-by-cycle current limiting, and ease of loop compensation. The LM5141
+features slew rate control to simplify the compliance with EMI requirements. The LM5141 has two selectable switching
+frequencies: 2.2 MHz and 440 kHz. Gate Drivers with Slew Rate Control that can be adjusted to reduce EMI.
+In light or no-load conditions, the LM5141 operates in skip cycle mode for improved low power efficiency.
+The LM5141 has a high voltage bias regulator with automatic switch-over to an external bias to reduce
+the IQ current from VIN. Additional features include frequency synchronization, cycle-by-cycle current
+limit, hiccup mode fault protection for sustained overload, and power good output.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/3v3-power-supply.svg"><img alt="3V3 power supply" src="../../../_images/3v3-power-supply.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 333 </span><span class="caption-text">3V3 power supply</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pmic">
+<h3>PMIC<a class="headerlink" href="#pmic" title="Link to this heading">#</a></h3>
+<p>TPS6594-Q1 is a Power Management IC (PMIC) with 5 BUCKs and 4 LDOs for Safety-Relevant Automotive Applications.
+The TPS6594-Q1 device provides four flexible multi-phase configurable BUCK regulators with 3.5 A output
+current per phase, and one additional BUCK regulator with 2 A output current. We are using two TPS6594-Q1 ICs
+TPS65941213 and TPS65941111 as PMIC-A and PMIC-B respectively as shown in AI-64 schematic snippets below.</p>
+<section id="tps65941213-pmic-a">
+<h4>TPS65941213 (PMIC-A)<a class="headerlink" href="#tps65941213-pmic-a" title="Link to this heading">#</a></h4>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/pmic-a.svg"><img alt="PMIC A" src="../../../_images/pmic-a.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 334 </span><span class="caption-text">PMIC A</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tps65941111-pmic-b">
+<h4>TPS65941111 (PMIC-B)<a class="headerlink" href="#tps65941111-pmic-b" title="Link to this heading">#</a></h4>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/pmic-b.svg"><img alt="PMIC B" src="../../../_images/pmic-b.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 335 </span><span class="caption-text">PMIC B</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="power-mux">
+<h3>Power mux<a class="headerlink" href="#power-mux" title="Link to this heading">#</a></h3>
+<p>TPS2121 is a 2.7-V to 22-V, 56-mΩ, 4.5-A, power mux with seamless switchover. The TPS212x devices are Dual-Input, Single-Output
+(DISO) Power Multiplexer (MUX) that are well suited for a variety of systems having multiple power
+sources. The devices will Automatically Detect, Select, and Seamlessly Transition between available inputs.
+Priority can be automatically given to the highest input voltage or manually assigned to a lower voltage
+input to support both ORing and Source Selection operations. A priority voltage supervisor is used to
+select an input source. An Ideal Diode operation is used to seamlessly transition between input sources. During switchover,
+the voltage drop is controlled to block reverse current before it happens and provide uninterrupted power to
+the load with minimal hold-up capacitance. Current limiting is used during startup and switchover
+to protect against overcurrent events, and also protects the device during normal operation. The
+output current limit can be adjusted with a single external resistor.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/power-mux.svg"><img alt="Power mux" src="../../../_images/power-mux.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 336 </span><span class="caption-text">Power mux</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="load-switch">
+<h3>Load switch<a class="headerlink" href="#load-switch" title="Link to this heading">#</a></h3>
+<p>TPS22965 is a 5.7-V, 6-A, 16-mΩ load switch with adj. rise time and optional output discharge.
+The TPS22965 is a single channel load switch that provides configurable rise time to minimize inrush
+current. The device contains an N-channel MOSFET that can operate over an input voltage range of 0.8 V
+to 5.7 V and can support a maximum continuous current of 6 A. The switch is controlled by an on and
+off input (ON), which is capable of interfacing directly with low-voltage control signals. In the TPS22965, a
+225-Ω on-chip load resistor is added for quick output discharge when switch is turned off</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/3v3-load-switch.svg"><img alt="3V3 load switch" src="../../../_images/3v3-load-switch.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 337 </span><span class="caption-text">3V3 load switch</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="general-connectivity-and-expansion">
+<span id="bbai64-connectivity-and-expansion"></span><h2>General connectivity and expansion<a class="headerlink" href="#general-connectivity-and-expansion" title="Link to this heading">#</a></h2>
+<section id="usb-type-c">
+<h3>USB type C<a class="headerlink" href="#usb-type-c" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/type-c.svg"><img alt="USB type c" src="../../../_images/type-c.svg" width="720" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 338 </span><span class="caption-text">USB type c</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../../../_images/type-c-cc-logic.svg"><img alt="USB type c CC logic" src="../../../_images/type-c-cc-logic.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 339 </span><span class="caption-text">USB type c CC logic</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../../_images/type-c-signals.svg"><img alt="USB type c signals" src="../../../_images/type-c-signals.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 340 </span><span class="caption-text">USB type c signals</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="usb3-host-ports">
+<h3>USB3 Host Ports<a class="headerlink" href="#usb3-host-ports" title="Link to this heading">#</a></h3>
+<p>On the board is a stacked dual USB 3.0 Type A female connector with full LS/FS/HS/SS host support.
+The ports can provide power on/off control and up to 1.5A of current at 5V. Under USB
+power, the board will not be able to supply the full 1.5A.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../../_images/dual-usb3-ports.svg"><img alt="Dual USB3 ports" src="../../../_images/dual-usb3-ports.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 341 </span><span class="caption-text">Dual USB3 ports</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../../_images/usb3-hub.svg"><img alt="USB3 hub" src="../../../_images/usb3-hub.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 342 </span><span class="caption-text">USB3 hub</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../../_images/usb3-hub-oc-protection.svg"><img alt="USB3 hub over-current protection" src="../../../_images/usb3-hub-oc-protection.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 343 </span><span class="caption-text">USB3 hub over-current protection</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cape-headers">
+<h3>Cape headers<a class="headerlink" href="#cape-headers" title="Link to this heading">#</a></h3>
+<section id="p8-cape-header">
+<h4>P8 cape header<a class="headerlink" href="#p8-cape-header" title="Link to this heading">#</a></h4>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../../_images/p8-cape-header.svg"><img alt="P8 cape header" src="../../../_images/p8-cape-header.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 344 </span><span class="caption-text">P8 cape header</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="p9-cape-header">
+<h4>P9 cape header<a class="headerlink" href="#p9-cape-header" title="Link to this heading">#</a></h4>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../../_images/p9-cape-header.svg"><img alt="P9 cape header" src="../../../_images/p9-cape-header.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 345 </span><span class="caption-text">P9 cape header</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="double-pins-shorted">
+<h4>Double pins (shorted)<a class="headerlink" href="#double-pins-shorted" title="Link to this heading">#</a></h4>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../../../_images/cape-header-double-pins.svg"><img alt="P8 &amp; P9 cape header pins that uses two pins of SoC" src="../../../_images/cape-header-double-pins.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 346 </span><span class="caption-text">P8 &amp; P9 cape header pins that uses two pins of SoC</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="fan-header">
+<h3>Fan header<a class="headerlink" href="#fan-header" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../../_images/fan-header.svg"><img alt="Fan header" src="../../../_images/fan-header.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 347 </span><span class="caption-text">Fan header</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="microsd-connector">
+<span id="bbai64-microsd-connector"></span><h3>MicroSD Connector<a class="headerlink" href="#microsd-connector" title="Link to this heading">#</a></h3>
+<p>The board is equipped with a single microSD connector to act as the
+secondary boot source for the board and, if selected as such, can be the
+primary boot source. The connector will support larger capacity microSD
+cards. The microSD card is not provided with the board. Booting from
+MMC0 will be used to flash the eMMC in the production environment or can
+be used by the user to update the SW as needed.</p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../../_images/microsd-card.svg"><img alt="MicroSD card slot" src="../../../_images/microsd-card.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 348 </span><span class="caption-text">MicroSD card slot</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mikrobus-port">
+<h3>MikroBus port<a class="headerlink" href="#mikrobus-port" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../../_images/mikrobus-port.svg"><img alt="MikroBus port" src="../../../_images/mikrobus-port.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 349 </span><span class="caption-text">MikroBus port</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pcie-key-e">
+<h3>PCIe Key E<a class="headerlink" href="#pcie-key-e" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../../_images/pcie-key-e.svg"><img alt="PCIE Key E connector" src="../../../_images/pcie-key-e.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 350 </span><span class="caption-text">PCIE Key E connector</span><a class="headerlink" href="#id26" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../../_images/pcie-vlt-4ch.svg"><img alt="PCIE Key E voltage translator (4ch)" src="../../../_images/pcie-vlt-4ch.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 351 </span><span class="caption-text">PCIE Key E voltage translator (4ch)</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../../_images/pcie-vlt-8ch.svg"><img alt="PCIE Key E voltage translator (8ch)" src="../../../_images/pcie-vlt-8ch.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 352 </span><span class="caption-text">PCIE Key E voltage translator (8ch)</span><a class="headerlink" href="#id28" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="buttons-leds">
+<h2>Buttons &amp; LEDs<a class="headerlink" href="#buttons-leds" title="Link to this heading">#</a></h2>
+<section id="reset-power-button">
+<span id="bbai64-power-reset-button"></span><h3>Reset &amp; Power Button<a class="headerlink" href="#reset-power-button" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Reset button:</strong> When pressed and released, causes a reset of the board.</p></li>
+<li><p><strong>Power button:</strong> This button takes advantage of the input to the PMIC for power down features.</p></li>
+</ol>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../../../_images/reset-power-buttons.svg"><img alt="Reset &amp; power button" src="../../../_images/reset-power-buttons.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 353 </span><span class="caption-text">Reset &amp; power button</span><a class="headerlink" href="#id29" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="boot-button">
+<h3>Boot button<a class="headerlink" href="#boot-button" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../../_images/boot-button.svg"><img alt="Boot button" src="../../../_images/boot-button.svg" width="540" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 354 </span><span class="caption-text">Boot button</span><a class="headerlink" href="#id30" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="led-indicators">
+<span id="bbai64-led-indicators"></span><h3>LED Indicators<a class="headerlink" href="#led-indicators" title="Link to this heading">#</a></h3>
+<p>There are a total of six green LEDs on the board.</p>
+<ul class="simple">
+<li><p>One green power LED indicates that power is applied and the power management IC is up.</p></li>
+<li><p>Five blue LEDs that can be controlled via the SW by setting GPIO pins.</p></li>
+</ul>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../../_images/leds.svg"><img alt="LED indicators" src="../../../_images/leds.svg" width="540" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 355 </span><span class="caption-text">LED indicators</span><a class="headerlink" href="#id31" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="gigabit-ethernet">
+<h2>Gigabit Ethernet<a class="headerlink" href="#gigabit-ethernet" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../../../_images/gb-ethernet.svg"><img alt="Gigabit ethernet" src="../../../_images/gb-ethernet.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 356 </span><span class="caption-text">Gigabit ethernet</span><a class="headerlink" href="#id32" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="../../../_images/gb-ethernet-connector.svg"><img alt="Gigabit ethernet connector" src="../../../_images/gb-ethernet-connector.svg" width="540" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 357 </span><span class="caption-text">Gigabit ethernet connector</span><a class="headerlink" href="#id33" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="memory-media-and-storage">
+<span id="bbai64-memory-media-storage"></span><h2>Memory, Media, and storage<a class="headerlink" href="#memory-media-and-storage" title="Link to this heading">#</a></h2>
+<p>Described in the following sections are the three memory devices found on the board.</p>
+<section id="gb-embedded-mmc">
+<span id="bbai64-gb-embedded-mmc"></span><h3>16GB Embedded MMC<a class="headerlink" href="#gb-embedded-mmc" title="Link to this heading">#</a></h3>
+<p>A single 16GB embedded MMC (eMMC) device is on the board. The device
+connects to the MMC1 port of the processor, allowing for 8bit wide
+access. Default boot mode for the board will be MMC1 with an option to
+change it to MMC0, the SD card slot, for booting from the SD card as a
+result of removing and reapplying the power to the board. Simply
+pressing the reset button will not change the boot mode. MMC0 cannot be
+used in 8Bit mode because the lower data pins are located on the pins
+used by the Ethernet port. This does not interfere with SD card
+operation but it does make it unsuitable for use as an eMMC port if the
+8 bit feature is needed.</p>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="../../../_images/16gb-emmc.svg"><img alt="16GB eMMC storage" src="../../../_images/16gb-emmc.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 358 </span><span class="caption-text">16GB eMMC storage</span><a class="headerlink" href="#id34" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gb-lpddr4">
+<span id="bbai64-4gb-ddr4"></span><h3>4GB LPDDR4<a class="headerlink" href="#gb-lpddr4" title="Link to this heading">#</a></h3>
+<p>A single (1024M x 16bits x 2channels) LPDDR4 4Gb memory device is used. The memory used is:</p>
+<ul class="simple">
+<li><p>Kingston Q3222PM1WDGTK-U</p></li>
+</ul>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="../../../_images/lpddr4.svg"><img alt="4GB LPDDR4 RAM" src="../../../_images/lpddr4.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 359 </span><span class="caption-text">4GB LPDDR4 RAM</span><a class="headerlink" href="#id35" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="kb-eeprom">
+<span id="bbai64-4kb-eeprom"></span><h3>4Kb EEPROM<a class="headerlink" href="#kb-eeprom" title="Link to this heading">#</a></h3>
+<p>A single 4Kb EEPROM (24FC04HT-I/OT) is provided on I2C0 that holds the board information. This information includes board name, serial number, and revision information.</p>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="../../../_images/board-id-eeprom.svg"><img alt="Board ID EEPROM" src="../../../_images/board-id-eeprom.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 360 </span><span class="caption-text">Board ID EEPROM</span><a class="headerlink" href="#id36" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="multimedia-i-o">
+<span id="bbai64-multimedia-io"></span><h2>Multimedia I/O<a class="headerlink" href="#multimedia-i-o" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="../../../_images/csi0.svg"><img alt="CSI0 MIPI camera0 input" src="../../../_images/csi0.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 361 </span><span class="caption-text">CSI0 MIPI camera0 input</span><a class="headerlink" href="#id37" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id38">
+<a class="reference internal image-reference" href="../../../_images/csi1.svg"><img alt="CSI1 MIPI camera1 input" src="../../../_images/csi1.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 362 </span><span class="caption-text">CSI1 MIPI camera1 input</span><a class="headerlink" href="#id38" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="../../../_images/dsi.svg"><img alt="DSI MIPI display output" src="../../../_images/dsi.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 363 </span><span class="caption-text">DSI MIPI display output</span><a class="headerlink" href="#id39" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id40">
+<a class="reference internal image-reference" href="../../../_images/mini-display-port.svg"><img alt="Mini display port output" src="../../../_images/mini-display-port.svg" width="1040" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 364 </span><span class="caption-text">Mini display port output</span><a class="headerlink" href="#id40" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="debug-ports">
+<span id="bbai64-debug-ports"></span><h2>Debug Ports<a class="headerlink" href="#debug-ports" title="Link to this heading">#</a></h2>
+<section id="serial-debug-ports">
+<h3>Serial debug ports<a class="headerlink" href="#serial-debug-ports" title="Link to this heading">#</a></h3>
+<p>Two serial debug ports are provided on board via 3pin micro headers,</p>
+<ol class="arabic simple">
+<li><p>WKUP_UART0: Wake-up domain serial port</p></li>
+<li><p>UART0: Main domain serial port</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to use the interfaces a
+<a class="reference external" href="https://uk.farnell.com/element14/1103004000156/beaglebone-ai-serials-cable/dp/3291081">3pin micro to 6pin dupont adaptor header</a>
+is required with a 6 pin USB to TTL adapter. The header is compatible with the one provided by FTDI and can be purchased for about
+$12 to $20 from various sources. Signals supported are TX and RX. None of the handshake signals are supported.</p>
+</div>
+<figure class="align-center" id="id41">
+<a class="reference internal image-reference" href="../../../_images/wkup-uart0-debug-port.svg"><img alt="WKUP UART0 debug port" src="../../../_images/wkup-uart0-debug-port.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 365 </span><span class="caption-text">WKUP UART0 debug port</span><a class="headerlink" href="#id41" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id42">
+<a class="reference internal image-reference" href="../../../_images/uart0-debug-port.svg"><img alt="UART0 debug port" src="../../../_images/uart0-debug-port.svg" width="740" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 366 </span><span class="caption-text">UART0 debug port</span><a class="headerlink" href="#id42" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tagconnect">
+<h3>TagConnect<a class="headerlink" href="#tagconnect" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id43">
+<a class="reference internal image-reference" href="../../../_images/tag-connect.svg"><img alt="TagConnect JTAG debug port" src="../../../_images/tag-connect.svg" width="540" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 367 </span><span class="caption-text">TagConnect JTAG debug port</span><a class="headerlink" href="#id43" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="mechanical-specifications">
+<h2>Mechanical specifications<a class="headerlink" href="#mechanical-specifications" title="Link to this heading">#</a></h2>
+<section id="dimensions-weight">
+<h3>Dimensions &amp; Weight<a class="headerlink" href="#dimensions-weight" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id44">
+<caption><span class="caption-number">Table 35 </span><span class="caption-text">Dimensions &amp; weight</span><a class="headerlink" href="#id44" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Size</p></td>
+<td><p>104 * 83* 37 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Max heigh</p></td>
+<td><p>23 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>PCB Size</p></td>
+<td><p>102.5*80*2.0 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCB Layers</p></td>
+<td><p>14 layers</p></td>
+</tr>
+<tr class="row-even"><td><p>PCB Thickness</p></td>
+<td><p>2.0 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>RoHS compliant</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Gross Weight</p></td>
+<td><p>249g</p></td>
+</tr>
+<tr class="row-odd"><td><p>Net Weight</p></td>
+<td><p>193g</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="board-dimensions">
+<h3>Board Dimensions<a class="headerlink" href="#board-dimensions" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id45">
+<a class="reference internal image-reference" href="../../../_images/board-dimensions.webp"><img alt="BeagleBone AI-64 board dimensions" src="../../../_images/board-dimensions.webp" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 368 </span><span class="caption-text">BeagleBone AI-64 board dimensions</span><a class="headerlink" href="#id45" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pcb-silkscreen">
+<h3>PCB silkscreen<a class="headerlink" href="#pcb-silkscreen" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table table-center" id="id46">
+<caption><span class="caption-number">Table 36 </span><span class="caption-text">BeagleBone AI-64 silkscreen</span><a class="headerlink" href="#id46" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Top silkscreen</p></th>
+<th class="head"><p>Bottom silkscreen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><a class="reference internal image-reference" href="../../../_images/top-silkscreen.webp"><img alt="BeagleBone AI-64 top silkscreen" class="align-center" src="../../../_images/top-silkscreen.webp" style="width: 700px;" /></a>
+</td>
+<td><a class="reference internal image-reference" href="../../../_images/bottom-silkscreen.webp"><img alt="BeagleBone AI-64 bottom silkscreen" class="align-center" src="../../../_images/bottom-silkscreen.webp" style="width: 700px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-quick-start.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick Start Guide</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04-expansion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Expansion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-diagram-and-overview">Block Diagram and Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-on-chip-soc">System on Chip (SoC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-modes">Boot Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-sources">Power Sources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-management">Power Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-dc-dc">1V1 DC/DC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-2v5-ldo">1V1 &amp; 2V5 LDO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v3-dc-dc">3V3 DC/DC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmic">PMIC</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tps65941213-pmic-a">TPS65941213 (PMIC-A)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tps65941111-pmic-b">TPS65941111 (PMIC-B)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-mux">Power mux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-switch">Load switch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-connectivity-and-expansion">General connectivity and expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-type-c">USB type C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb3-host-ports">USB3 Host Ports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cape-headers">Cape headers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-cape-header">P8 cape header</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-cape-header">P9 cape header</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#double-pins-shorted">Double pins (shorted)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fan-header">Fan header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsd-connector">MicroSD Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikrobus-port">MikroBus port</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcie-key-e">PCIe Key E</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons-leds">Buttons &amp; LEDs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-power-button">Reset &amp; Power Button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-button">Boot button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#led-indicators">LED Indicators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gigabit-ethernet">Gigabit Ethernet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-media-and-storage">Memory, Media, and storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gb-embedded-mmc">16GB Embedded MMC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gb-lpddr4">4GB LPDDR4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kb-eeprom">4Kb EEPROM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multimedia-i-o">Multimedia I/O</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-ports">Debug Ports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#serial-debug-ports">Serial debug ports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tagconnect">TagConnect</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-specifications">Mechanical specifications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensions-weight">Dimensions &amp; Weight</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#board-dimensions">Board Dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcb-silkscreen">PCB silkscreen</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglebone/ai-64/03-design-and-specifications.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beaglebone/ai-64/03-design-and-specifications.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+        
+        <a role="button" href="/beaglebone-ai-64.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleBone AI-64 - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleboard/beaglebone-ai-64">BeagleBone AI-64 git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglebone-ai-64">BeagleBone AI-64 board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglebone/ai-64/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/bbai64">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone AI-64
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002120.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone AI-64_US002120.svg" alt="BeagleBone AI-64 OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1907 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Real-Time I/O &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/beaglebone-cookbook/08realtime/realtime';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/beaglebone-cookbook/08realtime/realtime.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Capes" href="../09capes/capes.html" />
+    <link rel="prev" title="The Kernel" href="../07kernel/kernel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">BeagleBone Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pru-cookbook/index.html">PRU Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeagleBone Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Real-Time I/O</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="real-time-i-o">
+<span id="beaglebone-cookbook-realtime"></span><h1>Real-Time I/O<a class="headerlink" href="#real-time-i-o" title="Link to this heading">#</a></h1>
+<p>Sometimes, when BeagleBone Black interacts with the physical world, it needs to respond in a timely manner.
+For example, your robot has just detected that one of the driving motors needs to turn a bit faster.
+Systems that can respond quickly to a real event are known as <code class="docutils literal notranslate"><span class="pre">real-time</span></code> systems. There are two broad
+categories of real-time systems: soft and hard.</p>
+<p>In a <code class="docutils literal notranslate"><span class="pre">soft</span> <span class="pre">real-time</span></code> system, the real-time requirements should be met <code class="docutils literal notranslate"><span class="pre">most</span></code> of the time, where <code class="docutils literal notranslate"><span class="pre">most</span></code>
+depends on the system. A video playback system is a good example. The goal might be to display 60 frames
+per second, but it doesn’t matter much if you miss a frame now and then. In a 100 percent <code class="docutils literal notranslate"><span class="pre">hard</span> <span class="pre">real-time</span></code>
+system, you can never fail to respond in time. Think of an airbag deployment system on a car. You can’t even be 50 ms late.</p>
+<p>Systems running Linux generally can’t do 100 percent hard real-time processing, because Linux gets in the way.
+However, the Bone has an ARM processor running Linux and two additional 32-bit programmable real-time units
+(PRUs <a class="reference external" href="http://bit.ly/1EzTPZv">Ti AM33XX PRUSSv2</a>) available to do real-time processing. Although the PRUs can
+achieve 100 percent hard real-time, they take some effort to use.</p>
+<p>This chapter shows several ways to do real-time input/output (I/O), starting with the effortless, yet slower
+JavaScript and moving up with increasing speed (and effort) to using the PRUs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this chapter, as in the others, we assume that you are logged in as <em>debian</em> (as indicated by the <em>bone$</em> prompt).
+This gives you quick access to the general-purpose input/output (GPIO) ports but you may have to use <em>sudo</em> some times.</p>
+</div>
+<section id="i-o-with-python-and-javascript">
+<span id="realtime-javascript"></span><h2>I/O with Python and JavaScript<a class="headerlink" href="#i-o-with-python-and-javascript" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>You want to read an input pin and write it to the output as quickly as possible with JavaScript.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="../02sensors/sensors.html#sensors-pushbutton"><span class="std std-ref">Reading the Status of a Pushbutton or Magnetic Switch (Passive On/Off Sensor)</span></a> shows how to read a pushbutton switch and <a class="reference internal" href="../03displays/displays.html#displays-externalled"><span class="std std-ref">Toggling an External LED</span></a> controls an external LED.
+This recipe combines the two to read the switch and turn on the LED in response to it. To make this recipe, you will need:</p>
+<ul class="simple">
+<li><p>Breadboard and jumper wires</p></li>
+<li><p>Pushbutton switch</p></li>
+<li><p>220R resistor</p></li>
+<li><p>LED</p></li>
+</ul>
+<p>Wire up the pushbutton and LED as shown in <a class="reference internal" href="#realtime-pushled-fig"><span class="std std-ref">Diagram for wiring a pushbutton and LED with the LED attached to P9_14</span></a>.</p>
+<figure class="align-center" id="id10">
+<span id="realtime-pushled-fig"></span><img alt="Bone with pushbutton and LED" src="../../../_images/pushLED_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 703 </span><span class="caption-text">Diagram for wiring a pushbutton and LED with the LED attached to P9_14</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The code in <a class="reference internal" href="#py-pushled-code"><span class="std std-ref">Monitoring a pushbutton (pushLED.py)</span></a> reads GPIO port <em>P9_42</em>, which is attached to the
+pushbutton, and turns on the LED attached to <em>P9_12</em> when the button is pushed.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Python</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id11">
+<span id="py-pushled-code"></span><div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Monitoring a pushbutton (pushLED.py)</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
+<span class="linenos"> 2</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1"># //	pushLED.py</span>
+<span class="linenos"> 4</span><span class="c1"># //	Blinks an LED attached to P9_12 when the button at P9_42 is pressed</span>
+<span class="linenos"> 5</span><span class="c1"># //	Wiring:</span>
+<span class="linenos"> 6</span><span class="c1"># //	Setup:</span>
+<span class="linenos"> 7</span><span class="c1"># //	See:</span>
+<span class="linenos"> 8</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 9</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos">10</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">ms</span> <span class="o">=</span> <span class="mi">50</span>   <span class="c1"># Read time in ms</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="n">LED</span><span class="o">=</span><span class="s2">&quot;50&quot;</span>   <span class="c1"># Look up P9.14 using gpioinfo | grep -e chip -e P9.14.  chip 1, line 18 maps to 50</span>
+<span class="linenos">15</span><span class="n">button</span><span class="o">=</span><span class="s2">&quot;7&quot;</span> <span class="c1"># P9_42 mapps to 7</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="n">GPIOPATH</span><span class="o">=</span><span class="s2">&quot;/sys/class/gpio/&quot;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Make sure LED is exported</span>
+<span class="linenos">20</span><span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="n">LED</span><span class="p">)):</span>
+<span class="linenos">21</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;export&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">LED</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="c1"># Make it an output pin</span>
+<span class="linenos">26</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="n">LED</span><span class="o">+</span><span class="s2">&quot;/direction&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">27</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">)</span>
+<span class="linenos">28</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># Make sure button is exported</span>
+<span class="linenos">31</span><span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="n">button</span><span class="p">)):</span>
+<span class="linenos">32</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;export&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">33</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+<span class="linenos">34</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="c1"># Make it an output pin</span>
+<span class="linenos">37</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="n">button</span><span class="o">+</span><span class="s2">&quot;/direction&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">38</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span><span class="c1"># Read every ms</span>
+<span class="linenos">42</span><span class="n">fin</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="n">button</span><span class="o">+</span><span class="s2">&quot;/value&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="linenos">43</span><span class="n">fout</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="n">LED</span><span class="o">+</span><span class="s2">&quot;/value&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">46</span>    <span class="n">fin</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">fout</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">48</span>    <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="linenos">49</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/8b4c09f74978b7cb6a796ac214771ddd/pushLED.py"><code class="xref download docutils literal notranslate"><span class="pre">pushLED.py</span></code></a></p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+c</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id12">
+<span id="realtime-pushled-c-code"></span><div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Code for reading a switch and blinking an LED (pushLED.c)</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 2</span><span class="c1">//	blinkLED.c</span>
+<span class="linenos"> 3</span><span class="c1">//	Blinks the P9_14 pin based on the P9_42 pin</span>
+<span class="linenos"> 4</span><span class="c1">//	Wiring:</span>
+<span class="linenos"> 5</span><span class="c1">//	Setup:</span>
+<span class="linenos"> 6</span><span class="c1">//	See:</span>
+<span class="linenos"> 7</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 9</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<span class="linenos">11</span><span class="cp">#define MAXSTR 100</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fpbutton</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">fpLED</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">LED</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;50&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// Look up P9.14 using gpioinfo | grep -e chip -e P9.14.  chip 1, line 18 maps to 50</span>
+<span class="linenos">16</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">button</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;7&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Look up P9.42 using gpioinfo | grep -e chip -e P9.42.  chip 0, line 7 maps to 7</span>
+<span class="linenos">17</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/sys/class/gpio&quot;</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="n">MAXSTR</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">  </span><span class="c1">// Make sure LED is exported</span>
+<span class="linenos">21</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LED</span><span class="p">);</span>
+<span class="linenos">22</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">access</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">F_OK</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/export&quot;</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">fpLED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fpLED</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LED</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpLED</span><span class="p">);</span>
+<span class="linenos">27</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">28</span><span class="w"> </span>
+<span class="linenos">29</span><span class="w">  </span><span class="c1">// Make it an output LED</span>
+<span class="linenos">30</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/direction&quot;</span><span class="p">);</span>
+<span class="linenos">31</span><span class="w">  </span><span class="n">fpLED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">32</span><span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fpLED</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;out&quot;</span><span class="p">);</span>
+<span class="linenos">33</span><span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpLED</span><span class="p">);</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">  </span><span class="c1">// Make sure bbuttonutton is exported</span>
+<span class="linenos">36</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">access</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">F_OK</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/export&quot;</span><span class="p">);</span>
+<span class="linenos">39</span><span class="w">    </span><span class="n">fpbutton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fpbutton</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button</span><span class="p">);</span>
+<span class="linenos">41</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpbutton</span><span class="p">);</span>
+<span class="linenos">42</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">43</span><span class="w"> </span>
+<span class="linenos">44</span><span class="w">  </span><span class="c1">// Make it an input button</span>
+<span class="linenos">45</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/direction&quot;</span><span class="p">);</span>
+<span class="linenos">46</span><span class="w">  </span><span class="n">fpbutton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">47</span><span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fpbutton</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;in&quot;</span><span class="p">);</span>
+<span class="linenos">48</span><span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpbutton</span><span class="p">);</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="w">  </span><span class="c1">// I don&#39;t know why I can open the LED outside the loop and use fseek before</span>
+<span class="linenos">51</span><span class="w">  </span><span class="c1">//  each read, but I can&#39;t do the same for the button.  It appears it needs</span>
+<span class="linenos">52</span><span class="w">  </span><span class="c1">//  to be opened every time.</span>
+<span class="linenos">53</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LED</span><span class="p">,</span><span class="w">    </span><span class="s">&quot;/value&quot;</span><span class="p">);</span>
+<span class="linenos">54</span><span class="w">  </span><span class="n">fpLED</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">55</span><span class="w">  </span>
+<span class="linenos">56</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+<span class="linenos">57</span>
+<span class="linenos">58</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">59</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/value&quot;</span><span class="p">);</span>
+<span class="linenos">60</span><span class="w">    </span><span class="n">fpbutton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span>
+<span class="linenos">61</span><span class="w">    </span><span class="n">fseek</span><span class="p">(</span><span class="n">fpLED</span><span class="p">,</span><span class="w"> </span><span class="mf">0L</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span>
+<span class="linenos">62</span><span class="w">    </span><span class="n">fscanf</span><span class="p">(</span><span class="n">fpbutton</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">state</span><span class="p">);</span>
+<span class="linenos">63</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;state: %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+<span class="linenos">64</span><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fpLED</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+<span class="linenos">65</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpbutton</span><span class="p">);</span>
+<span class="linenos">66</span><span class="w">    </span><span class="n">usleep</span><span class="p">(</span><span class="mi">250000</span><span class="p">);</span><span class="w">   </span><span class="c1">// sleep time in microseconds</span>
+<span class="linenos">67</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">68</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>gcc<span class="w"> </span>-o<span class="w"> </span>pushLED<span class="w"> </span>pushLED.c<span class="w"> </span>-lgpiod
+bone$<span class="w"> </span>./pushLED
+<span class="m">1</span>
+<span class="m">1</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">1</span>
+^C
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/151c0fa44fcb286032db28acd0ef1cca/pushLED.c"><code class="xref download docutils literal notranslate"><span class="pre">pushLED.c</span></code></a></p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+JavaScript</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id13">
+<span id="realtime-pushled-code"></span><div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Monitoring a pushbutton (pushLED.js)</span><a class="headerlink" href="#id13" title="Link to this code">#</a></div>
+<div class="highlight-JavaScript notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env node</span>
+<span class="linenos"> 2</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1">//	pushLED.js</span>
+<span class="linenos"> 4</span><span class="c1">//	Blinks an LED attached to P9_12 when the button at P9_42 is pressed</span>
+<span class="linenos"> 5</span><span class="c1">//	Wiring:</span>
+<span class="linenos"> 6</span><span class="c1">//	Setup:</span>
+<span class="linenos"> 7</span><span class="c1">//	See:</span>
+<span class="linenos"> 8</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 9</span><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kd">const</span><span class="w"> </span><span class="nx">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="w">   </span><span class="c1">// Read time in ms</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="kd">const</span><span class="w"> </span><span class="nx">LED</span><span class="o">=</span><span class="s2">&quot;50&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// Look up P9.14 using gpioinfo | grep -e chip -e P9.14.  chip 1, line 18 maps to 50</span>
+<span class="linenos">14</span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="o">=</span><span class="s2">&quot;7&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// P9_42 mapps to 7</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="nx">GPIOPATH</span><span class="o">=</span><span class="s2">&quot;/sys/class/gpio/&quot;</span><span class="p">;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1">// Make sure LED is exported</span>
+<span class="linenos">19</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="nx">LED</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">20</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;export&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">LED</span><span class="p">);</span>
+<span class="linenos">21</span><span class="p">}</span>
+<span class="linenos">22</span><span class="c1">// Make it an output pin</span>
+<span class="linenos">23</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="nx">LED</span><span class="o">+</span><span class="s2">&quot;/direction&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;out&quot;</span><span class="p">);</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="c1">// Make sure button is exported</span>
+<span class="linenos">26</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="nx">button</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">27</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;export&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">button</span><span class="p">);</span>
+<span class="linenos">28</span><span class="p">}</span>
+<span class="linenos">29</span><span class="c1">// Make it an input pin</span>
+<span class="linenos">30</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="nx">button</span><span class="o">+</span><span class="s2">&quot;/direction&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;in&quot;</span><span class="p">);</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="c1">// Read every ms</span>
+<span class="linenos">33</span><span class="nx">setInterval</span><span class="p">(</span><span class="nx">flashLED</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">);</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="kd">function</span><span class="w"> </span><span class="nx">flashLED</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">36</span><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="nx">button</span><span class="o">+</span><span class="s2">&quot;/value&quot;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data = &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="linenos">38</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;gpio&quot;</span><span class="o">+</span><span class="nx">LED</span><span class="o">+</span><span class="s2">&quot;/value&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="linenos">39</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/f662643b8fe64af5957c140bbdceeb59/pushLED.js"><code class="xref download docutils literal notranslate"><span class="pre">pushLED.js</span></code></a></p>
+</div>
+</div>
+<p>Add the code to a file named <code class="docutils literal notranslate"><span class="pre">pushLED.py</span></code> and run it by using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>chmod<span class="w"> </span>*x<span class="w"> </span>pushLED.py
+bone$<span class="w"> </span>./pushLED.py
+Hit<span class="w"> </span>^C<span class="w"> </span>to<span class="w"> </span>stop
+<span class="m">0</span>
+<span class="m">0</span>
+<span class="m">1</span>
+<span class="m">1</span>
+^C
+</pre></div>
+</div>
+<p>Press ^C (Ctrl-C) to stop the code.</p>
+</section>
+</section>
+<section id="i-o-with-devmem2">
+<span id="realtime-devmem2"></span><h2>I/O with devmem2<a class="headerlink" href="#i-o-with-devmem2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Problem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Your C code isn’t responding fast enough to the input signal. You want to read the GPIO registers directly.</p>
+</section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The solution is to use a simple utility called <em>devmem2</em>, with which
+you can read and write registers from the command line.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This solution is much more involved than the previous ones. You need to understand binary and
+hex numbers and be able to read the <a class="reference external" href="http://bit.ly/1B4Cm45">AM335x Technical Reference Manual</a>.</p>
+</div>
+<p>First, download and install <em>devmem2</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>wget<span class="w"> </span>http://bootlin.com/pub/mirror/devmem2.c
+bone$<span class="w"> </span>gcc<span class="w"> </span>-o<span class="w"> </span>devmem2<span class="w"> </span>devmem2.c
+bone$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>devmem2<span class="w"> </span>/usr/bin
+</pre></div>
+</div>
+<p>This solution will read a pushbutton attached to <em>P9_42</em> and flash an LED attached to <em>P9_13</em>. Note that this is a
+change from the previous solutions that makes the code used here much simpler. Wire up your Bone as
+shown in <a class="reference internal" href="#realtime-pushledmmap-fig"><span class="std std-ref">Diagram for wiring a pushbutton and LED with the LED attached to P9_13</span></a>.</p>
+<figure class="align-center" id="id14">
+<span id="realtime-pushledmmap-fig"></span><img alt="Bone with pushbutton and LED wired to P9_13" src="../../../_images/pushLEDmmap_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 704 </span><span class="caption-text">Diagram for wiring a pushbutton and LED with the LED attached to P9_13</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now, flash the LED attached to <em>P9_13</em> using the Linux <em>sysfs</em> interface (<a class="reference internal" href="../11misc/misc.html#kernel-gpio-sysfs"><span class="std std-ref">Controlling GPIOs by Using SYSFS Entries</span></a>). To do this,
+first look up which GPIO number <em>P9_13</em> is attached to by referring to <a class="reference internal" href="../05tips/tips.html#tips-cape-headers-digital"><span class="std std-ref">Mapping from header pin to internal GPIO number</span></a>.
+Finding <em>P9_13</em> at GPIO 31, export GPIO 31 and make it an output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/sys/class/gpio/
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">31</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nb">export</span>
+bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>gpio31
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>direction
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>value
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>value
+</pre></div>
+</div>
+<p>The LED will turn on when <em>1</em> is echoed into <em>value</em> and off when <em>0</em> is echoed.</p>
+<p>Now that you know the LED is working, look up its memory address. This is where things get very detailed.
+First, download the <a class="reference external" href="http://bit.ly/1B4Cm45">AM335x Technical Reference Manual</a>. Look up <em>GPIO0</em> in the
+Memory Map chapter (sensors). Table 2-2 indicates that <em>GPIO0</em> starts at address <em>0x44E0_7000</em>. Then
+go to Section 25.4.1, “GPIO Registers.” This shows that <em>GPIO_DATAIN</em> has an offset of <em>0x138</em>, <em>GPIO_CLEARDATAOUT</em>
+has an offset of <em>0x190</em>, and <em>GPIO_SETDATAOUT</em> has an offset of <em>0x194</em>.</p>
+<p>This means you read from address <em>0x44E0_7000</em> + <em>0x138</em> = <em>0x44E0_7138</em> to see the status of the LED:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>devmem2<span class="w"> </span>0x44E07138
+/dev/mem<span class="w"> </span>opened.
+Memory<span class="w"> </span>mapped<span class="w"> </span>at<span class="w"> </span>address<span class="w"> </span>0xb6f8e000.
+Value<span class="w"> </span>at<span class="w"> </span>address<span class="w"> </span>0x44E07138<span class="w"> </span><span class="o">(</span>0xb6f8e138<span class="o">)</span>:<span class="w"> </span>0xC000C404
+</pre></div>
+</div>
+<p>The returned value <em>0xC000C404</em> (<em>1100 0000 0000 0000 1100 0100 0000 0100</em> in binary) has bit 31 set to <em>1</em>,
+which means the LED is on. Turn the LED off by writing <em>0x80000000</em> (<em>1000 0000 0000 0000 0000 0000 0000 0000</em> binary)
+to the <em>GPIO_CLEARDATA</em> register at <em>0x44E0_7000</em> + <em>0x190</em> = <em>0x44E0_7190</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>devmem2<span class="w"> </span>0x44E07190<span class="w"> </span>w<span class="w"> </span>0x80000000
+/dev/mem<span class="w"> </span>opened.
+Memory<span class="w"> </span>mapped<span class="w"> </span>at<span class="w"> </span>address<span class="w"> </span>0xb6fd7000.
+Value<span class="w"> </span>at<span class="w"> </span>address<span class="w"> </span>0x44E07190<span class="w"> </span><span class="o">(</span>0xb6fd7190<span class="o">)</span>:<span class="w"> </span>0x80000000
+Written<span class="w"> </span>0x80000000<span class="p">;</span><span class="w"> </span>readback<span class="w"> </span>0x0
+</pre></div>
+</div>
+<p>The LED is now off.</p>
+<p>You read the pushbutton switch in a similar way. <a class="reference internal" href="../05tips/tips.html#tips-cape-headers-digital"><span class="std std-ref">Mapping from header pin to internal GPIO number</span></a> says
+<em>P9_42</em> is GPIO 7, which means bit 7 is the state of <em>P9_42</em>. The <em>devmem2</em> in this
+example reads <em>0x0</em>, which means all bits are <em>0</em>, including GPIO 7. Section 25.4.1
+of the Technical Reference Manual instructs you to use offset <em>0x13C</em> to read
+<em>GPIO_DATAOUT</em>. Push the pushbutton and run <em>devmem2</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>devmem2<span class="w"> </span>0x44e07138
+/dev/mem<span class="w"> </span>opened.
+Memory<span class="w"> </span>mapped<span class="w"> </span>at<span class="w"> </span>address<span class="w"> </span>0xb6fe2000.
+Value<span class="w"> </span>at<span class="w"> </span>address<span class="w"> </span>0x44E07138<span class="w"> </span><span class="o">(</span>0xb6fe2138<span class="o">)</span>:<span class="w"> </span>0x4000C484
+</pre></div>
+</div>
+<p>Here, bit 7 is set in <em>0x4000C484</em>, showing the button is pushed.</p>
+<p>This is much more tedious than the previous methods, but it’s what’s necessary if you need to
+minimize the time to read an input. <a class="reference internal" href="#realtime-mmap"><span class="std std-ref">I/O with C and mmap()</span></a> shows how to read and write these addresses from C.</p>
+</section>
+</section>
+<section id="i-o-with-c-and-mmap">
+<span id="realtime-mmap"></span><h2>I/O with C and mmap()<a class="headerlink" href="#i-o-with-c-and-mmap" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Problem<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Your C code isn’t responding fast enough to the input signal.</p>
+</section>
+<section id="id5">
+<h3>Solution<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>In smaller processors that aren’t running an operating system, you can read and write a given memory address directly
+from C. With Linux running on Bone, many of the memory locations are hardware protected, so you can’t accidentally access them directly.</p>
+<p>This recipe shows how to use <em>mmap()</em> (memory map) to map the GPIO registers to an array in C. Then all you need t
+o do is access the array to read and write the registers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This solution is much more involved than the previous ones. You need to understand binary and hex numbers
+and be able to read the AM335x Technical Reference Manual.</p>
+</div>
+<p>This solution will read a pushbutton attached to <em>P9_42</em> and flash an LED attached to <em>P9_13</em>. Note that this is a
+change from the previous solutions that makes the code used here much simpler.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a class="reference internal" href="#realtime-devmem2"><span class="std std-ref">I/O with devmem2</span></a> for details on mapping
+the GPIO numbers to memory addresses.</p>
+</div>
+<p>Add the code in <a class="reference internal" href="#realtime-pushledmmap-h"><span class="std std-ref">Memory address definitions (pushLEDmmap.h)</span></a> to a file named <code class="docutils literal notranslate"><span class="pre">pushLEDmmap.h</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<span id="realtime-pushledmmap-h"></span><div class="code-block-caption"><span class="caption-number">Listing 81 </span><span class="caption-text">Memory address definitions (pushLEDmmap.h)</span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// From: http://stackoverflow.com/questions/13124271/driving-beaglebone-gpio</span>
+<span class="linenos"> 2</span><span class="c1">// -through-dev-mem</span>
+<span class="linenos"> 3</span><span class="c1">// user contributions licensed under cc by-sa 3.0 with attribution required</span>
+<span class="linenos"> 4</span><span class="c1">// http://creativecommons.org/licenses/by-sa/3.0/</span>
+<span class="linenos"> 5</span><span class="c1">// http://blog.stackoverflow.com/2009/06/attribution-required/</span>
+<span class="linenos"> 6</span><span class="c1">// Author: madscientist159 (http://stackoverflow.com/users/3000377/madscientist159)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="cp">#ifndef _BEAGLEBONE_GPIO_H_</span>
+<span class="linenos"> 9</span><span class="cp">#define _BEAGLEBONE_GPIO_H_</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="cp">#define GPIO0_START_ADDR 0x44e07000</span>
+<span class="linenos">12</span><span class="cp">#define GPIO0_END_ADDR   0x44e08000</span>
+<span class="linenos">13</span><span class="cp">#define GPIO0_SIZE (GPIO0_END_ADDR - GPIO0_START_ADDR)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="cp">#define GPIO1_START_ADDR 0x4804C000</span>
+<span class="linenos">16</span><span class="cp">#define GPIO1_END_ADDR   0x4804D000</span>
+<span class="linenos">17</span><span class="cp">#define GPIO1_SIZE (GPIO1_END_ADDR - GPIO1_START_ADDR)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="cp">#define GPIO2_START_ADDR 0x41A4C000</span>
+<span class="linenos">20</span><span class="cp">#define GPIO2_END_ADDR   0x41A4D000</span>
+<span class="linenos">21</span><span class="cp">#define GPIO2_SIZE (GPIO2_END_ADDR - GPIO2_START_ADDR)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="cp">#define GPIO3_START_ADDR 0x41A4E000</span>
+<span class="linenos">24</span><span class="cp">#define GPIO3_END_ADDR   0x41A4F000</span>
+<span class="linenos">25</span><span class="cp">#define GPIO3_SIZE (GPIO3_END_ADDR - GPIO3_START_ADDR)</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="cp">#define GPIO_DATAIN 0x138</span>
+<span class="linenos">28</span><span class="cp">#define GPIO_SETDATAOUT 0x194</span>
+<span class="linenos">29</span><span class="cp">#define GPIO_CLEARDATAOUT 0x190</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="cp">#define GPIO_03  (1&lt;&lt;3)</span>
+<span class="linenos">32</span><span class="cp">#define GPIO_07  (1&lt;&lt;7)</span>
+<span class="linenos">33</span><span class="cp">#define GPIO_31  (1&lt;&lt;31)</span>
+<span class="linenos">34</span><span class="cp">#define GPIO_60  (1&lt;&lt;28)</span>
+<span class="linenos">35</span><span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/cfe87dd5f47d53dd5c039e4462cd5aba/pushLEDmmap.h"><code class="xref download docutils literal notranslate"><span class="pre">pushLEDmmap.h</span></code></a></p>
+<p>Add the code in <a class="reference internal" href="#realtime-pushledmmap-c"><span class="std std-ref">Code for directly reading memory addresses (pushLEDmmap.c)</span></a> to a file named <code class="docutils literal notranslate"><span class="pre">pushLEDmmap.c</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<span id="realtime-pushledmmap-c"></span><div class="code-block-caption"><span class="caption-number">Listing 82 </span><span class="caption-text">Code for directly reading memory addresses (pushLEDmmap.c)</span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// From: http://stackoverflow.com/questions/13124271/driving-beaglebone-gpio</span>
+<span class="linenos"> 2</span><span class="c1">// -through-dev-mem</span>
+<span class="linenos"> 3</span><span class="c1">// user contributions licensed under cc by-sa 3.0 with attribution required</span>
+<span class="linenos"> 4</span><span class="c1">// http://creativecommons.org/licenses/by-sa/3.0/</span>
+<span class="linenos"> 5</span><span class="c1">// http://blog.stackoverflow.com/2009/06/attribution-required/</span>
+<span class="linenos"> 6</span><span class="c1">// Author: madscientist159 (http://stackoverflow.com/users/3000377/madscientist159)</span>
+<span class="linenos"> 7</span><span class="c1">//</span>
+<span class="linenos"> 8</span><span class="c1">// Read one gpio pin and write it out to another using mmap.</span>
+<span class="linenos"> 9</span><span class="c1">// Be sure to set -O3 when compiling.</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos">11</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="linenos">12</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span>
+<span class="linenos">13</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="c1"> </span>
+<span class="linenos">14</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="c1">    // Defines signal-handling functions (i.e. trap Ctrl-C)</span>
+<span class="linenos">15</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pushLEDmmap.h&quot;</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1">// Global variables</span>
+<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="n">keepgoing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">    </span><span class="c1">// Set to 0 when Ctrl-c is pressed</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c1">// Callback called when SIGINT is sent to the process (Ctrl-C)</span>
+<span class="linenos">21</span><span class="kt">void</span><span class="w"> </span><span class="nf">signal_handler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Ctrl-C pressed, cleaning up and exiting...</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">	</span><span class="n">keepgoing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">24</span><span class="p">}</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">gpio_addr</span><span class="p">;</span>
+<span class="linenos">28</span><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">gpio_datain</span><span class="p">;</span>
+<span class="linenos">29</span><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">gpio_setdataout_addr</span><span class="p">;</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">gpio_cleardataout_addr</span><span class="p">;</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="c1">// Set the signal callback for Ctrl-C</span>
+<span class="linenos">33</span><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">signal_handler</span><span class="p">);</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/mem&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">);</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mapping %X - %X (size: %X)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO0_START_ADDR</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO0_END_ADDR</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">38</span><span class="w">                                           </span><span class="n">GPIO0_SIZE</span><span class="p">);</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">gpio_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mmap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO0_SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">MAP_SHARED</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">41</span><span class="w">                        </span><span class="n">GPIO0_START_ADDR</span><span class="p">);</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="w">    </span><span class="n">gpio_datain</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="n">gpio_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">GPIO_DATAIN</span><span class="p">;</span>
+<span class="linenos">44</span><span class="w">    </span><span class="n">gpio_setdataout_addr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">gpio_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">GPIO_SETDATAOUT</span><span class="p">;</span>
+<span class="linenos">45</span><span class="w">    </span><span class="n">gpio_cleardataout_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpio_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">GPIO_CLEARDATAOUT</span><span class="p">;</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">gpio_addr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAP_FAILED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">48</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unable to map GPIO</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">49</span><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">50</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">51</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;GPIO mapped to %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio_addr</span><span class="p">);</span>
+<span class="linenos">52</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;GPIO SETDATAOUTADDR mapped to %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio_setdataout_addr</span><span class="p">);</span>
+<span class="linenos">53</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;GPIO CLEARDATAOUT mapped to %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio_cleardataout_addr</span><span class="p">);</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Start copying GPIO_07 to GPIO_31</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">56</span><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">keepgoing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">57</span><span class="w">    	</span><span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">gpio_datain</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">GPIO_07</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">58</span><span class="w">            </span><span class="o">*</span><span class="n">gpio_setdataout_addr</span><span class="o">=</span><span class="w"> </span><span class="n">GPIO_31</span><span class="p">;</span>
+<span class="linenos">59</span><span class="w">    	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">60</span><span class="w">            </span><span class="o">*</span><span class="n">gpio_cleardataout_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GPIO_31</span><span class="p">;</span>
+<span class="linenos">61</span><span class="w">    	</span><span class="p">}</span>
+<span class="linenos">62</span><span class="w">        </span><span class="c1">//usleep(1);</span>
+<span class="linenos">63</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="w">    </span><span class="n">munmap</span><span class="p">((</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">gpio_addr</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO0_SIZE</span><span class="p">);</span>
+<span class="linenos">66</span><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+<span class="linenos">67</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">68</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/75fb022ae51388f582996af76f93f89a/pushLEDmmap.c"><code class="xref download docutils literal notranslate"><span class="pre">pushLEDmmap.c</span></code></a></p>
+<p>Now, compile and run the code:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>gcc<span class="w"> </span>-O3<span class="w"> </span>pushLEDmmap.c<span class="w"> </span>-o<span class="w"> </span>pushLEDmmap
+bone$<span class="w"> </span>sudo<span class="w"> </span>./pushLEDmmap
+Mapping<span class="w"> </span>44E07000<span class="w"> </span>-<span class="w"> </span>44E08000<span class="w"> </span><span class="o">(</span>size:<span class="w"> </span><span class="m">1000</span><span class="o">)</span>
+GPIO<span class="w"> </span>mapped<span class="w"> </span>to<span class="w"> </span>0xb6fac000
+GPIO<span class="w"> </span>SETDATAOUTADDR<span class="w"> </span>mapped<span class="w"> </span>to<span class="w"> </span>0xb6fac194
+GPIO<span class="w"> </span>CLEARDATAOUT<span class="w"> </span>mapped<span class="w"> </span>to<span class="w"> </span>0xb6fac190
+Start<span class="w"> </span>copying<span class="w"> </span>GPIO_07<span class="w"> </span>to<span class="w"> </span>GPIO_31
+^C
+Ctrl-C<span class="w"> </span>pressed,<span class="w"> </span>cleaning<span class="w"> </span>up<span class="w"> </span>and<span class="w"> </span>exiting...
+</pre></div>
+</div>
+<p>The code is in a tight <em>while</em> loop that checks the status of GPIO 7 and copies it to GPIO 31.</p>
+</section>
+</section>
+<section id="tighter-delay-bounds-with-the-preempt-rt-kernel">
+<h2>Tighter Delay Bounds with the PREEMPT_RT Kernel<a class="headerlink" href="#tighter-delay-bounds-with-the-preempt-rt-kernel" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Problem<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>You want to run real-time processes on the Beagle, but the OS is slowing things down.</p>
+</section>
+<section id="id7">
+<h3>Solution<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>The Kernel can be compiled with PREEMPT_RT enabled which reduces the delay from when a thread is scheduled to when it runs.</p>
+<p>Switching to a PREEMPT_RT kernel is rather easy, but be sure to follow the steps in the
+Discussion to see how much the latencies are reduced.</p>
+<ul class="simple">
+<li><p>First see which kernel you are running:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>uname<span class="w"> </span>-a
+Linux<span class="w"> </span>breadboard-home<span class="w"> </span><span class="m">5</span>.10.120-ti-r47<span class="w"> </span><span class="c1">#1bullseye SMP PREEMPT Tue Jul 12 18:59:38 UTC 2022 armv7l GNU/Linux</span>
+</pre></div>
+</div>
+<p>I’m running a 5.10 kernel.  Remember the whole string, <em>5.10.120-ti-r47</em>, for later.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://forum.beagleboard.org/t/debian-10-x-11-x-kernel-updates/30928">kernel update</a> and look for <em>5.10</em>.</p></li>
+</ul>
+<figure class="align-center" id="id17">
+<span id="realtime-kernel-update-fig"></span><img alt="The regular and RT kernels" src="../../../_images/kernel_update.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 705 </span><span class="caption-text">The regular and RT kernels</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#realtime-kernel-update-fig"><span class="std std-ref">The regular and RT kernels</span></a> you see the reular kernel on top and the RT below.</p>
+<ul class="simple">
+<li><p>We want the RT one.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bbb.io-kernel-5.10-ti-rt-am335x
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the <em>am57xx</em> if you are using the BeagleBoard AI or AI64.</p>
+</div>
+<ul class="simple">
+<li><p>Before rebooting, edit <em>/boot/uEnv.txt</em> to start with:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0</span>
+
+<span class="c1"># uname_r=5.10.120-ti-r47</span>
+<span class="nv">uname_r</span><span class="o">=</span><span class="m">5</span>.10.120-ti-rt-r47
+<span class="c1">#uuid=</span>
+<span class="c1">#dtb=</span>
+</pre></div>
+</div>
+<p><em>uname_r</em> tells the boot loader which kernel to boot.  Here we’ve commented out the
+regular kernel and left in the RT kernel.  Next time you boot you’ll be running the RT kernel.
+Don’t reboot just yet.  Let’s gather some latency data first.</p>
+<p><a class="reference external" href="https://bootlin.com/doc/training/preempt-rt/">Bootlin’s preempt_rt workshop</a> looks
+like a good workshop on PREEMPT RT.  Their slides say:</p>
+<ul class="simple">
+<li><p>One way to implement a multi-task Real-Time Operating System is to have a preemptible system</p></li>
+<li><p>Any task can be interrupted at any point so that higher priority tasks can run</p></li>
+<li><p>Userspace preemption already exists in Linux</p></li>
+<li><p>The Linux Kernel also supports real-time scheduling policies</p></li>
+<li><p>However, code that runs in kernel mode isn’t fully preemptible</p></li>
+<li><p>The Preempt-RT patch aims at making all code running in kernel mode preemptible</p></li>
+</ul>
+<p>The workshop goes into many details on how to get real-time performance on Linux.
+Checkout their <a class="reference external" href="https://bootlin.com/doc/training/preempt-rt/preempt-rt-slides.pdf">slides</a> and
+<a class="reference external" href="https://bootlin.com/doc/training/preempt-rt/preempt-rt-labs.pdf">labs</a>. Though you can skip
+the first lab since we present a simpler way to get the RT kernel running.</p>
+</section>
+</section>
+<section id="cyclictest">
+<h2>Cyclictest<a class="headerlink" href="#cyclictest" title="Link to this heading">#</a></h2>
+<p><em>cyclictest</em> is one tool for measuring the latency from when a thread is schduled and when it runs.
+The <em>code/rt</em> directory in the git repo has some scripts for gathering latency data and plotting it.
+Here’s how to run the scripts.</p>
+<ul class="simple">
+<li><p>First look in <a class="reference internal" href="#realtime-install-fig"><span class="std std-ref">rt/install.sh</span></a> to see what to install.</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id18">
+<span id="realtime-install-fig"></span><div class="code-block-caption"><span class="caption-number">Listing 83 </span><span class="caption-text">rt/install.sh</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">rt</span><span class="o">-</span><span class="n">tests</span>
+<span class="linenos">2</span><span class="cp"># You can run gnuplot on the host</span>
+<span class="linenos">3</span><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gnuplot</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/768ef081d8c62c66c49654ff28e6c764/install.sh"><code class="xref download docutils literal notranslate"><span class="pre">rt/install.sh</span></code></a></p>
+<ul class="simple">
+<li><p>Open up another window and start something that will create a load on the Bone, then run the following:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">time</span><span class="w"> </span>sudo<span class="w"> </span>./hist.gen<span class="w"> </span>&gt;<span class="w"> </span>nort.hist
+</pre></div>
+</div>
+<p><a class="reference internal" href="#realtime-hist-gen-fig"><span class="std std-ref">hist.gen</span></a> shows what’s being run.  It defaults to 100,000 loops, so it takes a while.
+The data is saved in <em>nort.hist</em>, which stands for no RT  histogram.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<span id="realtime-hist-gen-fig"></span><div class="code-block-caption"><span class="caption-number">Listing 84 </span><span class="caption-text">hist.gen</span><a class="headerlink" href="#id19" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#!/bin/sh</span>
+<span class="linenos">2</span><span class="cp"># This code is from Julia Cartwright julia@kernel.org</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="n">cyclictest</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="n">S</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="s">&quot;${1:-100000}&quot;</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/ef63cea4c1d3cfe2b08ec2389621580c/hist.gen"><code class="xref download docutils literal notranslate"><span class="pre">rt/hist.gen</span></code></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get an error:</p>
+</div>
+<p>Unable to change scheduling policy!
+Probably missing capabilities, either run as root or increase RLIMIT_RTPRIO limits</p>
+<p>try running ./setup.sh. If that doesn’t work try:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>bash
+bone#<span class="w"> </span><span class="nb">ulimit</span><span class="w"> </span>-r<span class="w"> </span>unlimited
+bone#<span class="w"> </span>./hist.gen<span class="w"> </span>&gt;<span class="w"> </span>nort.hist
+bone#<span class="w"> </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now you are ready to reboot into the RT kernel and run the test again.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>reboot
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>After rebooting:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>uname<span class="w"> </span>-a
+Linux<span class="w"> </span>breadboard-home<span class="w"> </span><span class="m">5</span>.10.120-ti-rt-r47<span class="w"> </span><span class="c1">#1bullseye SMP PREEMPT RT Tue Jul 12 18:59:38 UTC 2022 armv7l GNU/Linux</span>
+</pre></div>
+</div>
+<p>Congratulations you are running the RT kernel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the Beagle appears to be running (the LEDs are flashing) but you are having trouble connecting
+via <em>ssh 192.168.7.2</em>, you can try connecting using the approach shown in <a class="reference internal" href="../05tips/tips.html#tips-ftdi"><span class="std std-ref">Viewing and Debugging the Kernel and u-boot Messages at Boot Time</span></a>.</p>
+</div>
+<p>Now run the script again (note it’s being saved in <em>rt.hist</em> this time.)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">time</span><span class="w"> </span>sudo<span class="w"> </span>./hist.gen<span class="w"> </span>&gt;<span class="w"> </span>rt.hist
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point yoou can edit <em>/boot/uEnt.txt</em> to boot the non RT kernel and reboot.</p>
+</div>
+<p>Now it’s time to plot the results.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>gnuplot<span class="w"> </span>hist.plt
+</pre></div>
+</div>
+<p>This will generate the file <em>cyclictest.png</em> which contains your plot.  It should look like:</p>
+<figure class="align-center" id="id20">
+<span id="realtime-cyclictest-fig"></span><img alt="Histogram of Non-RT and RT kernels running cyclictest" src="../../../_images/cyclictest.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 706 </span><span class="caption-text">Histogram of Non-RT and RT kernels running cyclictest</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Notice the NON-RT data have much longer latenices. They may not happen often (fewer than 10 times in each bin),
+but they are occurring and may be enough to miss a real-time deadline.</p>
+<p>The PREEMPT-RT times are all under a 150 us.</p>
+</section>
+<section id="i-o-with-simppru">
+<span id="realtime-simppru"></span><h2>I/O with simpPRU<a class="headerlink" href="#i-o-with-simppru" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>Problem<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>You require better timing than running C on the ARM can give you.</p>
+</section>
+<section id="id9">
+<h3>Solution<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>The AM335x processor on the Bone has an ARM processor that is running Linux, but it also has
+two 32-bit PRUs that are available for processing I/O. It takes a fair amount of understanding
+to program the PRU. Fortunately, <a class="reference external" href="https://simppru.readthedocs.io/en/latest/">simpPRU</a> is an intuitive
+language for PRU which compiles down to PRU C. This solution shows how to use it.</p>
+</section>
+</section>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<p>simpPRU</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../07kernel/kernel.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Kernel</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../09capes/capes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Capes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-with-python-and-javascript">I/O with Python and JavaScript</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-with-devmem2">I/O with devmem2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-with-c-and-mmap">I/O with C and mmap()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tighter-delay-bounds-with-the-preempt-rt-kernel">Tighter Delay Bounds with the PREEMPT_RT Kernel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclictest">Cyclictest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-with-simppru">I/O with simpPRU</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/beaglebone-cookbook/08realtime/realtime.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/beaglebone-cookbook/08realtime/realtime.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-cookbook.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.. _exhale_enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734:
+
+Enum rc_mpu_gyro_fsr_t
+======================
+
+- Defined in :ref:`file_library_include_rc_mpu.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: rc_mpu_gyro_fsr_t
+   :project: librobotcontrol

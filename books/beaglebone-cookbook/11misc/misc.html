@@ -1,0 +1,2393 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Misc &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/beaglebone-cookbook/11misc/misc';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/beaglebone-cookbook/11misc/misc.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PRU Cookbook" href="../../pru-cookbook/index.html" />
+    <link rel="prev" title="Parts and Suppliers" href="../10parts/parts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">BeagleBone Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pru-cookbook/index.html">PRU Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeagleBone Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Misc</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <span class="target" id="beaglebone-cookbook-misc"></span><section id="misc">
+<h1>Misc<a class="headerlink" href="#misc" title="Link to this heading">#</a></h1>
+<p>Here are bits and pieces of ideas that are being developed.</p>
+<section id="beagleconnect-freedom">
+<h2>BeagleConnect Freedom<a class="headerlink" href="#beagleconnect-freedom" title="Link to this heading">#</a></h2>
+<p>Here are some notes on how to setup and use the Connect.</p>
+<p>First get the flasher image from:
+<a class="reference external" href="https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image">https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image</a></p>
+<p>Flash the eMMC (which also loads the cc1352 with
+the correct firmware)</p>
+<p>Here’s Jason’s demo at the 2023 EOSS:
+<a class="reference external" href="https://youtu.be/ZT9GEs3_ZYU?t=2195">https://youtu.be/ZT9GEs3_ZYU?t=2195</a></p>
+<figure class="align-center" id="id11">
+<img alt="beagleconnect-start-gateway" src="../../../_images/gateway-start.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 734 </span><span class="caption-text">beagleconnect-start-gateway</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo beagleconnect-start-gateway</span>
+<span class="go">setting up wpanusb gateway for IEEE 802154 CHANNEL 1(906 Mhz)</span>
+<span class="go">RTNETLINK answers: File exists</span>
+<span class="go">RTNETLINK answers: Device or resource busy</span>
+<span class="go">PING 2001:db8::1(2001:db8::1) from fe80::212:4b00:29b9:9884%lowpan0 lowpan0: 56 data bytes</span>
+<span class="go">64 bytes from 2001:db8::1: icmp_seq=1 ttl=64 time=70.0 ms</span>
+<span class="go">64 bytes from 2001:db8::1: icmp_seq=2 ttl=64 time=66.6 ms</span>
+<span class="go">64 bytes from 2001:db8::1: icmp_seq=3 ttl=64 time=37.6 ms</span>
+<span class="go">64 bytes from 2001:db8::1: icmp_seq=4 ttl=64 time=37.6 ms</span>
+<span class="go">64 bytes from 2001:db8::1: icmp_seq=5 ttl=64 time=37.6 ms</span>
+
+<span class="go">--- 2001:db8::1 ping statistics ---</span>
+<span class="go">5 packets transmitted, 5 received, 0% packet loss, time 4005ms</span>
+<span class="go">rtt min/avg/max/mdev = 37.559/49.868/70.035/15.084 ms</span>
+</pre></div>
+</div>
+<section id="useful-links">
+<h3>Useful Links<a class="headerlink" href="#useful-links" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://docs.micropython.org/en/latest/zephyr/quickref.html">https://docs.micropython.org/en/latest/zephyr/quickref.html</a></p>
+<p><a class="reference external" href="https://docs.zephyrproject.org/latest/boards/arm/beagle_bcf/doc/index.html">https://docs.zephyrproject.org/latest/boards/arm/beagle_bcf/doc/index.html</a></p>
+</section>
+<section id="micropython-examples">
+<h3>micropython Examples<a class="headerlink" href="#micropython-examples" title="Link to this heading">#</a></h3>
+<p>Here is the output from running the examples from here:
+<a class="reference external" href="https://docs.beagleboard.org/latest/boards/beagleconnect/freedom/demos-and-tutorials/using-micropython.html">https://docs.beagleboard.org/latest/boards/beagleconnect/freedom/demos-and-tutorials/using-micropython.html</a></p>
+<p>Plug the BeagleConnect Freedom into the USB on the Play.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>sudo<span class="w"> </span>systemd-resolve<span class="w"> </span>--set-mdns<span class="o">=</span>yes<span class="w"> </span>--interface<span class="o">=</span>lowpan0
+<span class="gp">bone:~$ </span>avahi-browse<span class="w"> </span>-r<span class="w"> </span>-t<span class="w"> </span>_zephyr._tcp
+<span class="go">+ lowpan0 IPv6 zephyr                                        _zephyr._tcp         local</span>
+<span class="go">= lowpan0 IPv6 zephyr                                        _zephyr._tcp         local</span>
+<span class="go">hostname = [zephyr.local]</span>
+<span class="go">address = [2001:db8::1]</span>
+<span class="go">port = [12345]</span>
+<span class="go">txt = []</span>
+<span class="gp">bone:~$ </span>avahi-resolve<span class="w"> </span>-6<span class="w"> </span>-n<span class="w"> </span>zephyr.local
+<span class="go">zephyr.local    2001:db8::1</span>
+<span class="gp">bone:~$ </span>mcumgr<span class="w"> </span>conn<span class="w"> </span>add<span class="w"> </span>bcf0<span class="w"> </span><span class="nv">type</span><span class="o">=</span><span class="s2">&quot;udp&quot;</span><span class="w"> </span><span class="nv">connstring</span><span class="o">=</span><span class="s2">&quot;[2001:db8::1%lowpan0]:1337&quot;</span>
+<span class="go">Connection profile bcf0 successfully added</span>
+<span class="gp">bone:~$ </span>mcumgr<span class="w"> </span>-c<span class="w"> </span>bcf0<span class="w"> </span>image<span class="w"> </span>list
+<span class="go">Images:</span>
+<span class="go">image=0 slot=0</span>
+<span class="go">    version: hu.hu.hu</span>
+<span class="go">    bootable: true</span>
+<span class="go">    flags: active confirmed</span>
+<span class="go">    hash: 16a97391d2570eae80667cfd8c475cb051d4a4a600430b64cb52b59f5db4ce22</span>
+<span class="go">Split status: N/A (0)</span>
+<span class="gp">bone:~$ </span>mcumgr<span class="w"> </span>-c<span class="w"> </span>bcf0<span class="w"> </span>shell<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;device list&quot;</span>
+<span class="go">status=0</span>
+
+<span class="go">devices:</span>
+<span class="go">- GPIO_0 (READY)</span>
+<span class="go">- random@40028000 (READY)</span>
+<span class="go">- UART_1 (READY)</span>
+<span class="go">- UART_0 (READY)</span>
+<span class="go">- i2c@40002000 (READY)</span>
+<span class="go">- I2C_0S (READY)</span>
+<span class="go">requires: GPIO_0</span>
+<span class="go">requires: i2c@40002000</span>
+<span class="go">- flash-controller@40030000 (READY)</span>
+<span class="go">- spi@40000000 (READY)</span>
+<span class="go">requires: GPIO_0</span>
+<span class="go">- ieee802154g (READY)</span>
+<span class="go">- gd25q16c@0 (READY)</span>
+<span class="go">requires: spi@40000000</span>
+<span class="go">- leds (READY)</span>
+<span class="go">- HDC2010-HUMIDITY (READY)</span>
+<span class="go">requires: I2C_0S</span>
+<span class="go">-</span>
+<span class="gp">bone:~$ </span>mcumgr<span class="w"> </span>-c<span class="w"> </span>bcf0<span class="w"> </span>shell<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;net iface&quot;</span>
+<span class="go">status=0</span>
+
+<span class="go">Hostname: zephyr</span>
+
+
+<span class="go">Interface 0x20002de4 (IEEE 802.15.4) [1]</span>
+<span class="go">========================================</span>
+<span class="go">Link addr : 3D:9A:B9:29:00:4B:12:00</span>
+<span class="go">MTU       : 125</span>
+<span class="go">Flags     : AUTO_START,IPv6</span>
+<span class="go">IPv6 unicast addresses (max 3):</span>
+<span class="go">        fe80::3f9a:b929:4b:1200 autoconf preferred infinite</span>
+<span class="go">        2001:db8::1 manual preferred infinite</span>
+<span class="go">IPv6 multicast addresses (max 4):</span>
+<span class="go">        ff02::1</span>
+<span class="go">        ff02::1:ff4b:1200</span>
+<span class="go">        ff02::1:ff00:1</span>
+<span class="gp">bone:~$ </span>tio<span class="w"> </span>/dev/ttyACM0
+</pre></div>
+</div>
+<p>Press the <code class="docutils literal notranslate"><span class="pre">RST</span></code> button on the Connect.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">I: gd25q16c@0: SFDP v 1.6 AP ff with 2 PH</span>
+<span class="go">I: PH0: ff00 rev 1.6: 16 DW @ 30</span>
+<span class="go">I: gd25q16c@0: 2 MiBy flash</span>
+<span class="go">I: PH1: ffc8 rev 1.0: 3 DW @ 90</span>
+<span class="go">*** Booting Zephyr OS build zephyr-v3.2.0-3470-g14e193081b1f ***</span>
+<span class="go">I: Starting bootloader</span>
+<span class="go">I: Primary image: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3</span>
+<span class="go">I: Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3</span>
+<span class="go">I: Boot source: primary slot</span>
+<span class="go">I: Swap type: none</span>
+<span class="go">I: Bootloader chainload address offset: 0x20000</span>
+<span class="go">I: Jumping to the first image slot</span>
+
+
+<span class="go">[00:00:00.001,464] &lt;inf&gt; spi_nor: gd25q16c@0: SFDP v 1.6 AP ff with 2 PH</span>
+<span class="go">[00:00:00.001,464] &lt;inf&gt; spi_nor: PH0: ff00 rev 1.6: 16 DW @ 30</span>
+<span class="go">[00:00:00.001,983] &lt;inf&gt; spi_nor: gd25q16c@0: 2 MiBy flash</span>
+<span class="go">[00:00:00.002,014] &lt;inf&gt; spi_nor: PH1: ffc8 rev 1.0: 3 DW @ 90</span>
+<span class="gp">uart:~$ </span>build<span class="w"> </span>time:<span class="w"> </span>Feb<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">08</span>:09:25MicroPython<span class="w"> </span>v1.19.1<span class="w"> </span>on<span class="w"> </span><span class="m">2023</span>-02-22<span class="p">;</span><span class="w"> </span>zephyr-beagleconnect_freedom<span class="w"> </span>with<span class="w"> </span>unknown-cpu
+<span class="go">Type &quot;help()&quot; for more information.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="setting-up-shortcuts-to-make-life-easier">
+<span id="misc-shortcuts"></span><h2>Setting up shortcuts to make life easier<a class="headerlink" href="#setting-up-shortcuts-to-make-life-easier" title="Link to this heading">#</a></h2>
+<p>We’ll be ssh’ing from the host to the bone often,
+here are some shortcuts I use so instead of typing ssh <a class="reference external" href="mailto:debian&#37;&#52;&#48;192&#46;168&#46;7&#46;2">debian<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>7<span>&#46;</span>2</a>
+and a password every time. I can enter <cite>ssh bone</cite> and no password.</p>
+<p>First edit <cite>/etc/hosts</cite> and add a couple of lines.</p>
+<blockquote>
+<div><p>host$ sudo nano /etc/hosts</p>
+</div></blockquote>
+<p>You may use whatever editor you want. I suggest <code class="docutils literal notranslate"><span class="pre">nano</span></code> since it’s easy to figure
+out. Add the following to the end of <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> and quit the editor.</p>
+<blockquote>
+<div><p>192.168.7.2     bone</p>
+</div></blockquote>
+<p>Now you can connect with</p>
+<blockquote>
+<div><p>host$ ssh <a class="reference external" href="mailto:debian&#37;&#52;&#48;bone">debian<span>&#64;</span>bone</a></p>
+</div></blockquote>
+<p>Let’s make it so you don’t have to enter <cite>debian</cite>. On your host computer,
+put the following in <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> (Note: ~ is a shortcut for your home directory.)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span><span class="w"> </span><span class="n">bone</span>
+<span class="n">User</span><span class="w"> </span><span class="n">debian</span>
+<span class="n">UserKnownHostsFile</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">StrictHostKeyChecking</span><span class="w"> </span><span class="n">no</span>
+</pre></div>
+</div>
+<p>These say that whenever you login to bone, login as <cite>debian</cite>. Now you can enter.</p>
+<blockquote>
+<div><p>host$ ssh bone</p>
+</div></blockquote>
+<p>One last thing, let’s make it so you don’t have to add a password.
+Back to your host.</p>
+<blockquote>
+<div><p>host$ ssh-keygen</p>
+</div></blockquote>
+<p>Accept all the defaults and then</p>
+<blockquote>
+<div><p>host$ ssh-copy-id bone</p>
+</div></blockquote>
+<p>Now all you have to enter is</p>
+<blockquote>
+<div><p>host$ ssh bone</p>
+</div></blockquote>
+<p>and no password is required.
+If you, especially virtual machine users, get an error says “sign_and_send_pubkey: signing failed: agent refused operation”, you can solve this by entering</p>
+<blockquote>
+<div><p>host$ ssh-add</p>
+</div></blockquote>
+<p>which adds the private key identities to the authentication agent.
+Then you should be able to <cite>ssh bone</cite>  without problems.</p>
+</section>
+<section id="setting-up-a-root-login">
+<span id="root-login"></span><h2>Setting up a root login<a class="headerlink" href="#setting-up-a-root-login" title="Link to this heading">#</a></h2>
+<p>By default the image we are running doesn’t allow a root login.
+You can always sudo from debian, but sometimes it’s nice to login as root.
+Here’s how to setup root so you can login from your host without a password.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh bone</span>
+
+<span class="go">bone$ sudo -i</span>
+
+<span class="gp">root@bone# </span>nano<span class="w"> </span>/etc/ssh/sshd_config
+</pre></div>
+</div>
+<p>Search for the line</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#PermitRootLogin prohibit-password</span>
+</pre></div>
+</div>
+<p>and change it to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PermitRootLogin<span class="w"> </span>yes
+</pre></div>
+</div>
+<p>(The # symbol indicates a comment and must be removed in order for the setting to take effect.)</p>
+<p>Save the file and quit the editor. Restart ssh so it will reread the file.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">root@bone# </span>systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
+</pre></div>
+</div>
+<p>And assign a password to root.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">root@bone# </span>passwd
+</pre></div>
+</div>
+<p>Now open another window on your host computer and enter:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh-copy-id root@bone</span>
+</pre></div>
+</div>
+<p>and enter the root password. Test it with:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh root@bone</span>
+</pre></div>
+</div>
+<p>You should be connected without a password.
+Now go back to the Bone and turn off the root password access.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">root@bone# </span>nano<span class="w"> </span>/etc/ssh/sshd_config
+</pre></div>
+</div>
+<p>Restore the line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#PermitRootLogin prohibit-password</span>
+</pre></div>
+</div>
+<p>and restart sshd.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">root@bone# </span>systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
+<span class="gp">root@bone# </span><span class="nb">exit</span>
+<span class="go">bone$ exit</span>
+</pre></div>
+</div>
+<p>You should now be able to go back to your host computer and login as root on the bone without a password.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh root@bone</span>
+</pre></div>
+</div>
+<p>You have access to your bone without passwords only from you host computer. Try it from another computer and see what happens</p>
+</section>
+<section id="wireshark">
+<h2>Wireshark<a class="headerlink" href="#wireshark" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://wireshark.org">Wireshark</a> is a network protocol analyzer that can be
+run on the Beagle or the host computer to see what’s happening on the network.</p>
+<section id="running-wireshark-on-the-beagle">
+<h3>Running Wireshark on the Beagle<a class="headerlink" href="#running-wireshark-on-the-beagle" title="Link to this heading">#</a></h3>
+<p>If you have X11 installed on the Beagle and you are
+running Linux on your host you can run Wireshark on the Beagle and have
+it display on the host.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A quick way to see if you have X windows installed is to ssh to your
+Beagle.  At the prompt enter <code class="docutils literal notranslate"><span class="pre">xfce</span></code> then enter &lt;TAB&gt;&lt;TAB&gt;.  If you
+see a list of completions, you have X installed.</p>
+</div>
+<ol class="arabic simple">
+<li><p>First ssh to the Beagle using the <cite>-X</cite> flag.</p></li>
+</ol>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh -X debian@10.0.5.10</span>
+
+<span class="go">bone$ sudo apt update</span>
+<span class="go">bone$ sudo apt install wireshark</span>
+<span class="go">bone$ sudo usermod -a -G wireshark debian</span>
+<span class="go">bone$ exit</span>
+
+<span class="go">host$ ssh -X debian@10.0.5.10</span>
+<span class="go">host$ wireshark</span>
+</pre></div>
+</div>
+<p>The <cite>-X</cite> flag sets the <cite>DISPLAY</cite> variable on the Beagle so it knows
+where to display the Beagle’s graphical data on the host.  We then
+install wireshark and add debian to the wireshark group.
+We then log out and log back in again to be sure we are in the
+wireshark group. Finally we start wireshark.</p>
+<p>You should see something like <a class="reference internal" href="#wireshark-start-screen"><span class="std std-ref">Wireshark start screen</span></a>.</p>
+<figure class="align-center" id="id12">
+<span id="wireshark-start-screen"></span><img alt="Wireshark start screen" src="../../../_images/wireshark.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 735 </span><span class="caption-text">Wireshark start screen</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="running-wireshark-on-the-host">
+<h3>Running Wireshark on the host<a class="headerlink" href="#running-wireshark-on-the-host" title="Link to this heading">#</a></h3>
+<p>If you don’t have X11 installed on the Beagle, you can run wireshark
+on your host computer and capture the packets on the Beagle.
+These instructions come from:
+<a class="reference external" href="https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-machine-with-wireshark">https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-machine-with-wireshark</a></p>
+<p>First login to the Beagle and install tcpdump. Use your Beagle’s
+IP address.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh 192.168.7.2</span>
+<span class="go">bone$ sudo apt update</span>
+<span class="go">bone$ sudo apt install tcpdump</span>
+<span class="go">bone$ exit</span>
+</pre></div>
+</div>
+<p>Next, create a named pipe and have wireshark read from it.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ mkfifo /tmp/remote</span>
+<span class="go">host$ wireshark -k -i /tmp/remote</span>
+</pre></div>
+</div>
+<p>Then, run tcpdump over ssh on your remote machine and redirect the
+packets to the named pipe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh root@192.168.7.2 &quot;tcpdump -s 0 -U -n -w - -i any not port 22&quot; &gt; /tmp/remote</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For this to work you will need to follow in instructions in <a class="reference internal" href="#root-login"><span class="std std-ref">Setting up a root login</span></a>.</p>
+</div>
+</section>
+<section id="sharking-the-wpan-radio">
+<h3>Sharking the wpan radio<a class="headerlink" href="#sharking-the-wpan-radio" title="Link to this heading">#</a></h3>
+<p>Now that you have Wireshark set up, you can view traffice from the Play’s
+wpan radio. First, set up the network by running:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>beagleconnect-start-gateway
+</pre></div>
+</div>
+<p>Go to Wireshark and in the field that says <cite>Apply a display filter…</cite> enter,
+<code class="docutils literal notranslate"><span class="pre">wpan</span> <span class="pre">||</span> <span class="pre">6lowpan</span> <span class="pre">||</span> <span class="pre">ipv6</span></code>.  This will dispaly three types of packets.
+Be sure to hit Enter.</p>
+<p>Now generate some traffic:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>ping6<span class="w"> </span>-I<span class="w"> </span>lowpan0<span class="w"> </span><span class="m">2001</span>:db8::1<span class="w"> </span>-c<span class="w"> </span><span class="m">5</span><span class="w"> </span>-p<span class="w"> </span>ca11ab1ebeef
+</pre></div>
+</div>
+<figure class="align-center" id="id13">
+<span id="wireshark-ping"></span><img alt="Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef" src="../../../_images/wireshark_ping.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 736 </span><span class="caption-text">Wireshark ping6 -I lowpan0 2001:db8::1 -c 5 -p ca11ab1ebeef</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can see the pattern <code class="docutils literal notranslate"><span class="pre">ca11ab1ebeef</span></code> appears in the packets.</p>
+</section>
+</section>
+<section id="find-what-uu-is-in-i2cdetect">
+<h2>Find what UU is in i2cdetect<a class="headerlink" href="#find-what-uu-is-in-i2cdetect" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>You run <code class="docutils literal notranslate"><span class="pre">i2cdetect</span></code> and want to know what the <strong>UU</strong>’s are.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>i2cdetect<span class="w"> </span>-y<span class="w"> </span>-r<span class="w"> </span><span class="m">2</span>
+<span class="go">    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f</span>
+<span class="go">00:                         -- -- -- -- -- -- -- --</span>
+<span class="go">10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</span>
+<span class="go">20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</span>
+<span class="go">30: UU -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</span>
+<span class="go">40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</span>
+<span class="go">50: UU -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</span>
+<span class="go">60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- --</span>
+<span class="go">70: -- -- -- -- -- -- -- --</span>
+</pre></div>
+</div>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>Running <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">i2cdetect</span></code> shows that:</p>
+<blockquote>
+<div><p>“UU”. Probing was skipped, because this address is currently in use by a driver. This strongly suggests that there is a chip at this address.</p>
+</div></blockquote>
+<p>You can quickly see what the drivers are by looking at <code class="docutils literal notranslate"><span class="pre">/sys/bus/i2c/devices</span></code></p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>/sys/bus/i2c/devices
+<span class="gp">bone:~$ </span>ls
+<span class="go">2-0030  2-0050  2-0068  4-004c  i2c-1  i2c-2  i2c-3  i2c-4  i2c-5</span>
+</pre></div>
+</div>
+<p>Here on the BeagleY-AI we see there are 5 i2c buses (<code class="docutils literal notranslate"><span class="pre">i2c-1</span></code>,  <code class="docutils literal notranslate"><span class="pre">i2c-2</span></code>, <code class="docutils literal notranslate"><span class="pre">i2c-3</span></code>, <code class="docutils literal notranslate"><span class="pre">i2c-4</span></code> and  <code class="docutils literal notranslate"><span class="pre">i2c-5</span></code>).  There are three devices on bus 2 (<code class="docutils literal notranslate"><span class="pre">2-0030</span></code>, <code class="docutils literal notranslate"><span class="pre">2-0050</span></code> and <code class="docutils literal notranslate"><span class="pre">2-0068</span></code>) and one device on bus 4 (<code class="docutils literal notranslate"><span class="pre">4-004c</span></code>).  The first digit is the bus number and the last digits are the address on the bus in hex. You can see what these devices are by running:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>cat<span class="w"> </span>*/name
+<span class="go">tps65219</span>
+<span class="go">24c32</span>
+<span class="go">ds1340</span>
+<span class="go">it66122</span>
+<span class="go">OMAP I2C adapter</span>
+<span class="go">OMAP I2C adapter</span>
+<span class="go">OMAP I2C adapter</span>
+<span class="go">OMAP I2C adapter</span>
+<span class="go">OMAP I2C adapter</span>
+</pre></div>
+</div>
+<p>You can the Google the names to see what they are.  For example, the <code class="docutils literal notranslate"><span class="pre">24c32</span></code> is a 32K EEPROM by Microchip.</p>
+</section>
+</section>
+<section id="converting-a-tmp117-to-a-tmp114">
+<h2>Converting a tmp117 to a tmp114<a class="headerlink" href="#converting-a-tmp117-to-a-tmp114" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Problem<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>You have a tmp114 temperature sensor and you need a driver for it.</p>
+</section>
+<section id="id3">
+<h3>Solution<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Find a similar driver and convert it to the tmp114.</p>
+<p>Let’s first see if there is a driver for it already. Run the following on the bone using the tab key in place
+of &lt;tab&gt;.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>modinfo<span class="w"> </span>tmp&lt;tab&gt;&lt;tab&gt;
+tmp006<span class="w">  </span>tmp007<span class="w">  </span>tmp102<span class="w">  </span>tmp103<span class="w">  </span>tmp108<span class="w">  </span>tmp401<span class="w">  </span>tmp421<span class="w">  </span>tmp513
+bone$<span class="w"> </span>modinfo<span class="w"> </span>tmp
+</pre></div>
+</div>
+<p>Here you see a list of modules that match <em>tmp</em>, unfortunately <em>tmp114</em> is not there.
+Let’s see if there are any matches in <em>/lib/modules</em>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>find<span class="w"> </span>/lib/modules/<span class="w"> </span>-iname<span class="w"> </span><span class="s2">&quot;*tmp*&quot;</span>
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/iio/temperature/tmp006.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/iio/temperature/tmp007.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp103.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp421.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp108.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp513.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp401.ko.xz
+/lib/modules/5.10.168-ti-arm64-r104/kernel/drivers/hwmon/tmp102.ko.xz
+</pre></div>
+</div>
+<p>Looks like the same list, but here we can see what type of driver it is, either <em>hwmon</em> or <em>iio</em>.
+hwmon is an older <a class="reference external" href="https://docs.kernel.org/hwmon/hwmon-kernel-api.html">harware monitor</a>.
+iio is the newer, and prefered, <a class="reference external" href="https://www.kernel.org/doc/html/v4.12/driver-api/iio/index.html">Industrial IO driver</a>.
+Googling tmp006 and tmp007 shows that they are Infrared Thermopile Sensors, not the same at the <em>tmp114</em>.
+(Google it).  Let’s keep looking for a more compatible device.</p>
+<p>Browse over to <a class="reference external" href="http://kernel.org">http://kernel.org</a> to see if there are tmp114 drivers in the newer versions of the kernel.
+The first line in the table is <strong>mainline</strong>.  Click on the <strong>browse</strong> link on the right.</p>
+<figure class="align-center" id="id14">
+<img alt="http://kernel.org" src="../../../_images/kernel.org.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 737 </span><span class="caption-text">The Linux Kernel Archives, kernel.org</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here you will see the top level of the Linux sourse tree for the <em>mainline</em> version of the kernel.</p>
+<figure class="align-center" id="id15">
+<img alt="http://kernel.org drivers" src="../../../_images/kernel.org.drivers.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 738 </span><span class="caption-text">The Linux Kernel Archives, drivers</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Click on <strong>drivers</strong> and then <strong>iio</strong>. Finally, since tmp114 is a temperture sensor, click on <strong>temperature</strong>.</p>
+<figure class="align-center" id="id16">
+<img alt="http://kernel.org tmp117" src="../../../_images/kernel.org.tmp117.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 739 </span><span class="caption-text">The Linux Kernel Archives, tmp117 driver</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here you see all the source code for the iio temperature drivers for the mainline version of the kernel.
+We’ve seen tmp006 and tmp007 as before, tmp117 is new. Maybe it will work.  Click on <strong>tmp117.c</strong> to see the code.
+Looks like it also works for the tmp116 too.</p>
+<figure class="align-center" id="id17">
+<img alt="http://kernel.org plain" src="../../../_images/kernel.org.plain.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 740 </span><span class="caption-text">The Linux Kernel Archives, plain button</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Let’s try convering it to work with the tmp114.</p>
+<p>A quick way to copy the code to the bone is to right-click on the <strong>plain</strong> link and select <em>Copy link address</em>.
+Then, on the bone enter <strong>wget</strong> and paste the link.  Mine looks like the following, yours will be similar.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>wget<span class="w"> </span>https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/drivers/iio/temperature/tmp117.c?h<span class="o">=</span>v6.4-rc7
+bone$<span class="w"> </span>mv<span class="w"> </span><span class="s1">&#39;tmp117.c?h=v6.4-rc7&#39;</span><span class="w"> </span>tmp117.c
+bone$<span class="w"> </span>cp<span class="w"> </span>tmp117.c<span class="w"> </span>tmp114.c
+</pre></div>
+</div>
+<p>The <strong>mv</strong> command moves the downloaded file to a usable name and the <strong>cp</strong> copies to a new file with the new name.</p>
+<section id="compiling-the-module">
+<h4>Compiling the module<a class="headerlink" href="#compiling-the-module" title="Link to this heading">#</a></h4>
+<p>Next we need to compile the driver.  To do this we need to load the corresponding header files for the
+version of the kernel that’s beening run.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>uname<span class="w"> </span>-r
+<span class="m">5</span>.10.168-ti-arm64-r105
+</pre></div>
+</div>
+<p>Here you see which version I’m running, yours will be similar.  Now load the headers.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>linux-headers-<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
+</pre></div>
+</div>
+<p>Next create a <em>Makefile</em>.  Put the following in a file called <em>Makefile</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<span id="misc-makefile"></span><div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Makefile for compiling module (Makefile)</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">obj</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">tmp114</span><span class="p">.</span><span class="n">o</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">KDIR</span><span class="w"> </span><span class="o">?=</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">shell</span><span class="w"> </span><span class="n">uname</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">build</span>
+<span class="linenos"> 4</span><span class="nl">PWD</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">CURDIR</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="nl">all</span><span class="p">:</span>
+<span class="linenos"> 7</span><span class="w">	</span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">KDIR</span><span class="p">)</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">PWD</span><span class="p">)</span><span class="w"> </span><span class="n">modules</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="nl">clean</span><span class="p">:</span>
+<span class="linenos">10</span><span class="w">	</span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">KDIR</span><span class="p">)</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">PWD</span><span class="p">)</span><span class="w"> </span><span class="n">cleanobj</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">tmp114</span><span class="p">.</span><span class="n">o</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">KDIR</span><span class="w"> </span><span class="o">?=</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">shell</span><span class="w"> </span><span class="n">uname</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">build</span>
+<span class="linenos">13</span><span class="nl">PWD</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">CURDIR</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="nl">all</span><span class="p">:</span>
+<span class="linenos">16</span><span class="w">	</span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">KDIR</span><span class="p">)</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">PWD</span><span class="p">)</span><span class="w"> </span><span class="n">modules</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="nl">clean</span><span class="p">:</span>
+<span class="linenos">19</span><span class="w">	</span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">KDIR</span><span class="p">)</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">PWD</span><span class="p">)</span><span class="w"> </span><span class="n">clean</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/92e681e98854f1082824dd0dc313b234/Makefile"><code class="xref download docutils literal notranslate"><span class="pre">Makefile</span></code></a></p>
+<p>Now you are ready to compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>make
+make<span class="w"> </span>-C<span class="w"> </span>/lib/modules/5.10.168-ti-arm64-r105/build<span class="w"> </span><span class="nv">M</span><span class="o">=</span>/home/debian/play<span class="w"> </span>modules
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/usr/src/linux-headers-5.10.168-ti-arm64-r105&#39;</span>
+CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/home/debian/play/tmp114.o
+/home/debian/play/tmp114.c:<span class="w"> </span>In<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘tmp117_identify’:
+/home/debian/play/tmp114.c:150:7:<span class="w"> </span>error:<span class="w"> </span>implicit<span class="w"> </span>declaration<span class="w"> </span>of<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘i2c_client_get_device_id’<span class="p">;</span><span class="w"> </span>did<span class="w"> </span>you<span class="w"> </span>mean<span class="w"> </span>‘i2c_get_device_id’?<span class="w"> </span><span class="o">[</span>-Werror<span class="o">=</span>implicit-function-declaration<span class="o">]</span>
+<span class="m">150</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>i2c_client_get_device_id<span class="o">(</span>client<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="p">|</span><span class="w">       </span>^~~~~~~~~~~~~~~~~~~~~~~~
+<span class="w">    </span><span class="p">|</span><span class="w">       </span>i2c_get_device_id
+/home/debian/play/tmp114.c:150:5:<span class="w"> </span>warning:<span class="w"> </span>assignment<span class="w"> </span>to<span class="w"> </span>‘const<span class="w"> </span>struct<span class="w"> </span>i2c_device_id<span class="w"> </span>*’<span class="w"> </span>from<span class="w"> </span>‘int’<span class="w"> </span>makes<span class="w"> </span>pointer<span class="w"> </span>from<span class="w"> </span>integer<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>cast<span class="w"> </span><span class="o">[</span>-Wint-conversion<span class="o">]</span>
+<span class="m">150</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>i2c_client_get_device_id<span class="o">(</span>client<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="p">|</span><span class="w">     </span>^
+cc1:<span class="w"> </span>some<span class="w"> </span>warnings<span class="w"> </span>being<span class="w"> </span>treated<span class="w"> </span>as<span class="w"> </span>errors
+make<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>scripts/Makefile.build:286:<span class="w"> </span>/home/debian/play/tmp114.o<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">1</span>
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:1822:<span class="w"> </span>/home/debian/play<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">2</span>
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Leaving<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/usr/src/linux-headers-5.10.168-ti-arm64-r105&#39;</span>
+make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:7:<span class="w"> </span>all<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>Well, the good news is, it is compiling, that means it found the correct headers.
+But now the work begins converting to the tmp114.</p>
+</section>
+<section id="converting-to-the-tmp114">
+<h4>Converting to the tmp114<a class="headerlink" href="#converting-to-the-tmp114" title="Link to this heading">#</a></h4>
+<p>You are mostly on your own for this part, but here are some suggestions:</p>
+<ul>
+<li><p>First get it to compile without errors.  In this case, the function at line 150 isn’t defined.
+Try commenting it out and recompiling.</p></li>
+<li><p>Once it’s compiling without errors, try running it. First open another window and login to beagle.
+Then run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>dmesg<span class="w"> </span>-Hw
+</pre></div>
+</div>
+</li>
+</ul>
+<p>This will display the kernel messages.  The <strong>-H</strong> put them in <em>human</em> readable form, and the <strong>-w</strong> waits for
+more messages.</p>
+<ul class="simple">
+<li><p>Next, “insert” it in the running kernel:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>insmod<span class="w"> </span>tmp114.ko
+</pre></div>
+</div>
+<p>If all worked you shouldn’t see any messages, either after the command or in the dmesg window.
+If you want to insert the module again, you will have to remove it first.
+Remove with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>rmmod<span class="w"> </span>tmp114
+</pre></div>
+</div>
+<p>Now we need to tell the kernel we have an I<sup>2</sup>C device and which bus and which address.</p>
+</section>
+<section id="finding-your-i2c-device">
+<h4>Finding your I<sup>2</sup>C device<a class="headerlink" href="#finding-your-i2c-device" title="Link to this heading">#</a></h4>
+<p>Each I<sup>2</sup>C device appears at a certain address on a given bus.  My device is on bus 3,
+so I run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>i2cdetect<span class="w"> </span>-y<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span><span class="m">0</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="w">  </span>a<span class="w">  </span>b<span class="w">  </span>c<span class="w">  </span>d<span class="w">  </span>e<span class="w">  </span>f
+<span class="m">00</span>:<span class="w">                         </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">10</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">20</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">30</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">40</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>4d<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">50</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">60</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+<span class="m">70</span>:<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--<span class="w"> </span>--
+</pre></div>
+</div>
+<p>This shows there is a device at address <strong>0x4d</strong>. If you don’t know your bus number,
+just try a few until you find it.</p>
+<p>The temperature is in register 0 for my device and it’s 16 bits (one word),
+it is read with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w">  </span>i2cget<span class="w"> </span>-y<span class="w"> </span><span class="m">3</span><span class="w"> </span>0x4d<span class="w"> </span><span class="m">0</span><span class="w"> </span>w
+0xb510
+</pre></div>
+</div>
+<p>The tmp114 swaps the two bytes, so the real temperature is <strong>0x10b5</strong>, or so.
+You need to look up the datawsheet to learn how to comvert it.</p>
+</section>
+<section id="registers-and-ids">
+<h4>Registers and IDs<a class="headerlink" href="#registers-and-ids" title="Link to this heading">#</a></h4>
+<p>Each I<sup>2</sup>C device has a number of internal registers that interact with the device.
+The tmp114 uses different register numbers than the tmp117, so you need to change these values.
+To do this, Google for the data sheets for each and look them up.
+I found them at: <a class="reference external" href="https://www.ti.com/lit/gpn/tmp114">https://www.ti.com/lit/gpn/tmp114</a> and <a class="reference external" href="https://www.ti.com/lit/gpn/tmp117">https://www.ti.com/lit/gpn/tmp117</a>.</p>
+</section>
+<section id="creating-a-new-device">
+<h4>Creating a new device<a class="headerlink" href="#creating-a-new-device" title="Link to this heading">#</a></h4>
+<p>Once you’ve converted the module for the tmp114 and inserted it, you can now create a new device.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd /sys/class/i2c-adapter/i2c-3</span>
+<span class="go">bone$ sudo chgrp gpio *</span>
+<span class="go">bone$ sudo chmod g+w *</span>
+<span class="go">bone$ ls -ls</span>
+<span class="go">total 0</span>
+<span class="go">0 --w--w---- 1 root gpio 4096 Jun 22 18:24 delete_device</span>
+<span class="go">0 lrwxrwxrwx 1 root root    0 Jan  1  1970 device -&gt; ../../20030000.i2c</span>
+<span class="go">0 drwxrwxr-x 3 root gpio    0 Jun 22 18:20 i2c-dev</span>
+<span class="go">0 -r--rw-r-- 1 root gpio 4096 Jun 22 18:20 name</span>
+<span class="go">0 --w--w---- 1 root gpio 4096 Jun 22 18:20 new_device</span>
+<span class="go">0 lrwxrwxrwx 1 root root    0 Jan  1  1970 of_node -&gt; ../../../../../firmware/devicetree/base/bus@f0000/i2c@20030000</span>
+<span class="go">0 drwxrwxr-x 2 root gpio    0 Jun 22 18:20 power</span>
+<span class="go">0 lrwxrwxrwx 1 root root    0 Jan  1  1970 subsystem -&gt; ../../../../../bus/i2c</span>
+<span class="go">0 -rw-rw-r-- 1 root gpio 4096 Jun 22 18:20 uevent</span>
+</pre></div>
+</div>
+<p>The first line changes to the directory to where we can create the new device.
+The final <strong>3</strong> in the path is for bus <strong>3</strong>, your milage may vary.
+We then change the group to <strong>gpio</strong> and give it write permission.
+You only need to do this once.</p>
+<p>Now make a new device.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ echo tmp114 0x4d &gt; new_device</span>
+</pre></div>
+</div>
+<p>Look in the demsg window and you should see:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">[Jun22 19:24] tmp114 3-004d: tmp114_identify id (0x1114)</span>
+<span class="go">[  +0.000027] tmp114 3-004d: tmp114_probe id (0x1114)</span>
+<span class="go">[  +0.000502] i2c i2c-3: new_device: Instantiated device tmp114 at 0x4d</span>
+</pre></div>
+</div>
+<p>It’s been found! Let’s see what it knows about it.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ iio_info</span>
+<span class="go">Library version: 0.24 (git tag: v0.24)</span>
+<span class="go">...</span>
+<span class="go">        iio:device1: tmp114</span>
+<span class="go">                1 channels found:</span>
+<span class="go">                        temp:  (input)</span>
+<span class="go">                        2 channel-specific attributes found:</span>
+<span class="go">                                attr  0: raw value: 4257</span>
+<span class="go">                                attr  1: scale value: 7.812500</span>
+<span class="go">                No trigger on this device</span>
+</pre></div>
+</div>
+<p>I’ve left out some of the lines, at the bottom you see the tmp114, and
+two values (<strong>raw</strong> and <strong>scale</strong>) that were read from it.  Let’s read them ourselves.
+Do an <em>ls</em> and you’ll see a new directory, <strong>3-004d</strong>.  This is address 0x4d on bus 3,
+just what we wanted.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="m">3</span>-004d/iio:device1
+bone$<span class="w"> </span>ls
+dev<span class="w">  </span>in_temp_raw<span class="w">  </span>in_temp_scale<span class="w">  </span>name<span class="w">  </span>power<span class="w">  </span>subsystem<span class="w">  </span>uevent
+bone$<span class="w"> </span>cat<span class="w"> </span>in_temp_raw
+<span class="m">4275</span>
+</pre></div>
+</div>
+<p>You’ll have to look in the datasheet to learn how to convert the temperature.</p>
+<p>If you try to run i2cget again, you’ll get an error:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>i2cget<span class="w"> </span>-y<span class="w"> </span><span class="m">3</span><span class="w"> </span>0x4d<span class="w"> </span><span class="m">0</span><span class="w"> </span>w
+Error:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span><span class="nb">set</span><span class="w"> </span>address<span class="w"> </span>to<span class="w"> </span>0x4d:<span class="w"> </span>Device<span class="w"> </span>or<span class="w"> </span>resource<span class="w"> </span>busy
+</pre></div>
+</div>
+<p>This is because the module is using it.  Delete the device and you’ll have access again.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>0x4d<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/i2c-adapter/i2c-3/delete_device
+bone$<span class="w"> </span>i2cget<span class="w"> </span>-y<span class="w"> </span><span class="m">3</span><span class="w"> </span>0x4d<span class="w"> </span><span class="m">0</span><span class="w"> </span>w
+0x8e10
+</pre></div>
+</div>
+<p>You should also see a message in dmesg.</p>
+</section>
+</section>
+</section>
+<section id="documenting-with-sphinx">
+<h2>Documenting with Sphinx<a class="headerlink" href="#documenting-with-sphinx" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Problem<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>You want to add or update the Beagle documentation.</p>
+</section>
+<section id="id5">
+<h3>Solution<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>BeagleBoard.org uses the <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx Python Documentation Generator</a> and the
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">rst</a> markup language.</p>
+<p>Here’s what you need to do to fork the repository and render a local copy of
+the documentation.  Browse to <a class="reference external" href="https://docs.beagleboard.org/latest/">https://docs.beagleboard.org/latest/</a> and click on
+the <strong>Edit on GitLab</strong> button on the upper-right of the page. Clone the repository.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@git.beagleboard.org:docs/docs.beagleboard.io.git
+bash$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>docs.beagleboard.io
+</pre></div>
+</div>
+<p>Then run the following to load the <strong>code</strong> submodule</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash$<span class="w"> </span>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
+</pre></div>
+</div>
+<p>Set up the environment for Sphinx.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+bash$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+bash$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>./requirements.txt
+bash$<span class="w"> </span>make<span class="w"> </span>livehtml
+</pre></div>
+</div>
+<p>This starts a local web server that you can point your browser to to see the formatted text.</p>
+<p>Now, sync changes with upstream:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://git.beagleboard.org/docs/docs.beagleboard.io.git
+bone$<span class="w"> </span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+bone$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>upstream<span class="w"> </span>main
+</pre></div>
+</div>
+<section id="downloading-sphinx">
+<h4>Downloading Sphinx<a class="headerlink" href="#downloading-sphinx" title="Link to this heading">#</a></h4>
+<p>Run the following to download Sphinx. Note:  This will take a while, it loads
+some 6G bytes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>make<span class="w"> </span>git<span class="w"> </span>wget<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>doxygen<span class="w"> </span>graphviz<span class="w"> </span>librsvg2-bin<span class="se">\</span>
+<span class="w">    </span>texlive-latex-base<span class="w"> </span>texlive-latex-extra<span class="w"> </span>latexmk<span class="w"> </span>texlive-fonts-recommended<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3<span class="w"> </span>python3-pip<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-sphinx<span class="w"> </span>python3-sphinx-rtd-theme<span class="w"> </span>python3-sphinxcontrib.svg2pdfconverter<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-pil<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>imagemagick-6.q16<span class="w"> </span>librsvg2-bin<span class="w"> </span>webp<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>texlive-full<span class="w"> </span>texlive-latex-extra<span class="w"> </span>texlive-fonts-extra<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>fonts-freefont-otf<span class="w"> </span>fonts-dejavu<span class="w"> </span>fonts-dejavu-extra<span class="w"> </span>fonts-freefont-ttf
+bone$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+bone$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sphinx_design
+bone$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sphinxcontrib-images
+bone$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sphinx-serve
+</pre></div>
+</div>
+<p>These instructions came from <a class="reference external" href="https://beagleboard.slack.com/archives/C8S7EKZC2/p1684940872699269">lorforlinux</a>
+on the Beagleboard Slack channel.</p>
+<p>Now go to the cloned <em>docs.beagleboard.io</em> repository folder and do the following.
+To clean build directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>docs.beagleboard.io
+bone$<span class="w"> </span>make<span class="w"> </span>clean
+</pre></div>
+</div>
+<p>To generate HTML output of docs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>To generate PDF output of docs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>make<span class="w"> </span>latexpdf
+</pre></div>
+</div>
+<p>To preview docs on your local machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sphinx-serve
+</pre></div>
+</div>
+<p>Then point your browser to localhost:8081.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can keep the sphinx-serve running until you clean the build directory
+using make clean.
+Warnings will be hidden after first run of make html or make latexpdf,
+to see all the warnings again just run make clean before building HTML or PDF</p>
+</div>
+</section>
+<section id="creating-a-new-book">
+<h4>Creating A New Book<a class="headerlink" href="#creating-a-new-book" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Create a new book folder here:
+<a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io/-/tree/main/books">https://git.beagleboard.org/docs/docs.beagleboard.io/-/tree/main/books</a></p></li>
+<li><p>Create rst files for all the chapters in there respective folders so
+that you can easily manage media for that chapter as shown here:
+<a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io/-/tree/main/books/pru-cookbook">https://git.beagleboard.org/docs/docs.beagleboard.io/-/tree/main/books/pru-cookbook</a></p></li>
+<li><p>Create an index.rst file in the book folder and add a table of content (toc)
+for all the chapters. For example see this file:
+<a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/books/pru-cookbook/index.rst">https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/books/pru-cookbook/index.rst</a></p></li>
+<li><p>Add the bookname/index.rst reference in the main index file as well:
+<a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/books/index.rst">https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/books/index.rst</a></p></li>
+<li><p>At last you have to update the two files below to render the book in HTML and
+PDF version of the docs respectively:
+<a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index.rst">https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index.rst</a>
+<a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index-tex.rst">https://git.beagleboard.org/docs/docs.beagleboard.io/-/raw/main/index-tex.rst</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="running-sparkfun-s-qwiic-python-examples">
+<h2>Running Sparkfun’s qwiic Python Examples<a class="headerlink" href="#running-sparkfun-s-qwiic-python-examples" title="Link to this heading">#</a></h2>
+<p>Many of the Sparkfun qwiic devices have Python examples showing
+how to use them.  Unfortunately the examples assume I<sup>2</sup>C bus
+1 is used, but the qwiic bus on the Play is bus 5.
+Here is a quick hack to get the Sparkfun Python examples to use
+bus 5. I’ll show it for the Joystick, but it should work for the
+others as well.</p>
+<p>First, browse to Sparkfun’s qwiic Joystick page,
+<a class="reference external" href="https://www.sparkfun.com/products/15168">https://www.sparkfun.com/products/15168</a> and click on the
+<strong>DOCUMENTS</strong> tab and then on <strong>Python Package</strong>. Follow the pip
+instillation instructions (sudo pip install sparkfun-qwiic-joystick)</p>
+<p>Next, uninstall the current qwiic I<sup>2</sup>C package.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo pip uninstall sparkfun-qwiic-i2c</span>
+</pre></div>
+</div>
+<p>Then clone the Qwiic I<sup>2</sup>C repo:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ git clone git@github.com:sparkfun/Qwiic_I2C_Py.git</span>
+<span class="go">bone$ cd Qwiic_I2C_Py/qwiic_i2c</span>
+</pre></div>
+</div>
+<p>Edit <strong>linux_i2c.py</strong> and go to around line 62 and change it to:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">iBus = 5</span>
+</pre></div>
+</div>
+<p>Next, cd up a level to the Qwiic_I2C_Py directory and reinstall</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+bone$<span class="w"> </span>sudo<span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Finally, run one of the Joystick examples. If it isn’t using
+bus 5, try reinstalling setup.py again.</p>
+<section id="qwiic-alphanumeric-display">
+<h3>Qwiic Alphanumeric display<a class="headerlink" href="#qwiic-alphanumeric-display" title="Link to this heading">#</a></h3>
+<p>Here’s the repo I used for this display.
+<a class="github reference external" href="https://github.com/thess/qwiic_alphanumeric_py">thess/qwiic_alphanumeric_py</a></p>
+</section>
+</section>
+<section id="controlling-leds-by-using-sysfs-entries">
+<span id="kernel-leds"></span><h2>Controlling LEDs by Using SYSFS Entries<a class="headerlink" href="#controlling-leds-by-using-sysfs-entries" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Problem<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>You want to control the onboard LEDs from the command line.</p>
+</section>
+<section id="id7">
+<h3>Solution<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>On Linux, <a class="reference external" href="http://bit.ly/1AjhWUW">everything is a file</a> that is, you can access all the inputs and outputs, the LEDs,
+and so on by opening the right <code class="docutils literal notranslate"><span class="pre">file</span></code> and reading or writing to it. For example, try the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/sys/class/leds/
+bone$<span class="w"> </span>ls
+beaglebone:green:usr0<span class="w">  </span>beaglebone:green:usr2
+beaglebone:green:usr1<span class="w">  </span>beaglebone:green:usr3
+</pre></div>
+</div>
+<p>What you are seeing are four directories, one for each onboard LED. Now try this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>beaglebone<span class="se">\:</span>green<span class="se">\:</span>usr0
+bone$<span class="w"> </span>ls
+brightness<span class="w">  </span>device<span class="w">  </span>max_brightness<span class="w">  </span>power<span class="w">  </span>subsystem<span class="w">  </span>trigger<span class="w">  </span>uevent
+bone$<span class="w"> </span>cat<span class="w"> </span>trigger
+none<span class="w"> </span>nand-disk<span class="w"> </span>mmc0<span class="w"> </span>mmc1<span class="w"> </span>timer<span class="w"> </span>oneshot<span class="w"> </span><span class="o">[</span>heartbeat<span class="o">]</span>
+<span class="w">    </span>backlight<span class="w"> </span>gpio<span class="w"> </span>cpu0<span class="w"> </span>default-on<span class="w"> </span>transient
+</pre></div>
+</div>
+<p>The first command changes into the directory for LED <em>usr0</em>, which is the LED closest to the edge of the board.
+The <em>[heartbeat]</em> indicates that the default trigger (behavior) for the LED is to blink in the heartbeat pattern.
+Look at your LED.  Is it blinking in a heartbeat pattern?</p>
+<p>Then try the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>none<span class="w"> </span>&gt;<span class="w"> </span>trigger
+bone$<span class="w"> </span>cat<span class="w"> </span>trigger
+<span class="o">[</span>none<span class="o">]</span><span class="w"> </span>nand-disk<span class="w"> </span>mmc0<span class="w"> </span>mmc1<span class="w"> </span>timer<span class="w"> </span>oneshot<span class="w"> </span>heartbeat
+<span class="w">    </span>backlight<span class="w"> </span>gpio<span class="w"> </span>cpu0<span class="w"> </span>default-on<span class="w"> </span>transient
+</pre></div>
+</div>
+<p>This instructs the LED to use <em>none</em> for a trigger. Look again. It should be no longer blinking.</p>
+<p>Now, try turning it on and off:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>brightness
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>brightness
+</pre></div>
+</div>
+<p>The LED should be turning on and off with the commands.</p>
+</section>
+</section>
+<section id="controlling-gpios-by-using-sysfs-entries">
+<span id="kernel-gpio-sysfs"></span><h2>Controlling GPIOs by Using SYSFS Entries<a class="headerlink" href="#controlling-gpios-by-using-sysfs-entries" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>Problem<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>You want to control a GPIO pin from the command line.</p>
+</section>
+<section id="id9">
+<h3>Solution<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#kernel-leds"><span class="std std-ref">Controlling LEDs by Using SYSFS Entries</span></a> introduces the <em>sysfs</em>. This recipe shows how to read and write a GPIO pin.</p>
+</section>
+</section>
+<section id="reading-a-gpio-pin-via-sysfs">
+<h2>Reading a GPIO Pin via sysfs<a class="headerlink" href="#reading-a-gpio-pin-via-sysfs" title="Link to this heading">#</a></h2>
+<p>Suppose that you want to read the state of the <em>P9_42</em> GPIO pin. (<a class="reference internal" href="../02sensors/sensors.html#sensors-pushbutton"><span class="std std-ref">Reading the Status of a Pushbutton or Magnetic Switch (Passive On/Off Sensor)</span></a> shows how to wire a switch to <em>P9_42</em>.)
+First, you need to map the <em>P9</em> header location to GPIO number using <a class="reference internal" href="#kernel-gpio-map-fig"><span class="std std-ref">Mapping P9_42 header position to GPIO 7</span></a>, which shows that <em>P9_42</em> maps to GPIO 7.</p>
+<figure class="align-center" id="id19">
+<span id="kernel-gpio-map-fig"></span><img alt="Mapping Header Position to GPIO Numbers" src="../../../_images/cape-headers-digitalGPIO7.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 741 </span><span class="caption-text">Mapping P9_42 header position to GPIO 7</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Next, change to the GPIO <em>sysfs</em> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/sys/class/gpio/
+bone$<span class="w"> </span>ls
+<span class="nb">export</span><span class="w">  </span>gpiochip0<span class="w">  </span>gpiochip32<span class="w">  </span>gpiochip64<span class="w">  </span>gpiochip96<span class="w">  </span>unexport
+</pre></div>
+</div>
+<p>The <em>ls</em> command shows all the GPIO pins that have be exported. In this case, none have,
+so you see only the four GPIO controllers. Export using the <em>export</em> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nb">export</span>
+bone$<span class="w"> </span>ls
+<span class="nb">export</span><span class="w">  </span>gpio7<span class="w">  </span>gpiochip0<span class="w">  </span>gpiochip32<span class="w">  </span>gpiochip64<span class="w">  </span>gpiochip96<span class="w">  </span>unexport
+</pre></div>
+</div>
+<p>Now you can see the <code class="docutils literal notranslate"><span class="pre">gpio7</span></code> directory. Change into the <code class="docutils literal notranslate"><span class="pre">gpio7</span></code> directory and look around:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>gpio7
+bone$<span class="w"> </span>ls
+active_low<span class="w">  </span>direction<span class="w">  </span>edge<span class="w">  </span>power<span class="w">  </span>subsystem<span class="w">  </span>uevent<span class="w">  </span>value
+bone$<span class="w"> </span>cat<span class="w"> </span>direction
+<span class="k">in</span>
+bone$<span class="w"> </span>cat<span class="w"> </span>value
+<span class="m">0</span>
+</pre></div>
+</div>
+<p>Notice that the pin is already configured to be an input pin. (If it wasn’t already configured that way,
+use <em>echo in &gt; direction</em> to configure it.) You can also see that its current value is <em>0</em>—that is, it
+isn’t pressed. Try pressing and holding it and running again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>cat<span class="w"> </span>value
+<span class="m">1</span>
+</pre></div>
+</div>
+<p>The <em>1</em> informs you that the switch is pressed. When you are done with GPIO 7, you can always <em>unexport</em> it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>&gt;<span class="w"> </span>unexport
+bone$<span class="w"> </span>ls
+<span class="nb">export</span><span class="w">  </span>gpiochip0<span class="w">  </span>gpiochip32<span class="w">  </span>gpiochip64<span class="w">  </span>gpiochip96<span class="w">  </span>unexport
+</pre></div>
+</div>
+</section>
+<section id="writing-a-gpio-pin-via-sysfs">
+<h2>Writing a GPIO Pin via sysfs<a class="headerlink" href="#writing-a-gpio-pin-via-sysfs" title="Link to this heading">#</a></h2>
+<p>Now, suppose that you want to control an external LED. <a class="reference internal" href="../03displays/displays.html#displays-externalled"><span class="std std-ref">Toggling an External LED</span></a> shows
+how to wire an LED to <em>P9_14</em>. <a class="reference internal" href="#kernel-gpio-map-fig"><span class="std std-ref">Mapping P9_42 header position to GPIO 7</span></a> shows <em>P9_14</em> is GPIO 50. Following
+the approach in <a class="reference internal" href="#kernel-gpio-sysfs"><span class="std std-ref">Controlling GPIOs by Using SYSFS Entries</span></a>, enable GPIO 50 and make it an output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/sys/class/gpio/
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">50</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nb">export</span>
+bone$<span class="w"> </span>ls
+gpio50<span class="w">  </span>gpiochip0<span class="w">  </span>gpiochip32<span class="w">  </span>gpiochip64<span class="w">  </span>gpiochip96
+bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>gpio50
+bone$<span class="w"> </span>ls
+active_low<span class="w">  </span>direction<span class="w">  </span>edge<span class="w">  </span>power<span class="w">  </span>subsystem<span class="w">  </span>uevent<span class="w">  </span>value
+bone$<span class="w"> </span>cat<span class="w"> </span>direction
+<span class="k">in</span>
+</pre></div>
+</div>
+<p>By default, <em>P9_14</em> is set as an input. Switch it to an output and turn it on:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>direction
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>value
+bone$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>value
+</pre></div>
+</div>
+<p>The LED turns on when a <em>1</em> is written to <em>value</em> and turns off when a <em>0</em> is written.</p>
+</section>
+<section id="the-play-s-boot-sequence">
+<h2>The Play’s Boot Sequence<a class="headerlink" href="#the-play-s-boot-sequence" title="Link to this heading">#</a></h2>
+<p>The BeagleBoard Play is based on the Texas Instrument’s AM625 Sitara
+processor which supports many boot modes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>bootlin (<a class="reference external" href="https://bootlin.com/">https://bootlin.com/</a>) has many great Linux
+training materials for free on their site. Their embedded Linux workshop
+(<a class="reference external" href="https://bootlin.com/training/embedded-linux/">https://bootlin.com/training/embedded-linux/</a>)
+gives a detailed presentation of the Play’s boot sequence
+(<a class="reference external" href="https://bootlin.com/doc/training/embedded-linux-beagleplay/embedded-linux-beagleplay-labs.pdf">https://bootlin.com/doc/training/embedded-linux-beagleplay/embedded-linux-beagleplay-labs.pdf</a>,
+starting at page 9).
+Check it out for details on building the boot sequence
+from scratch.</p>
+</div>
+<p>Here we’ll take a high-level look at
+booting from both the user’s view and the developer’s view.</p>
+<section id="booting-for-the-user">
+<h3>Booting for the User<a class="headerlink" href="#booting-for-the-user" title="Link to this heading">#</a></h3>
+<p>The most common way for the Play to boot is the power up the board,
+if the micro SD card is present, it will boot from it, if it isn’t
+present it will boot from the built in eMMC.</p>
+<p>You can override the boot sequence by using the <strong>USR</strong> button
+(located near the micro SD cage). If the <strong>USR</strong> button is pressed
+the Play will boot from the micro SD card.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the eMMC fails to boot, it will attempt to boot from
+the UART. If the SD card fails to boot, it will try booting via
+the USB.</p>
+</div>
+</section>
+<section id="booting-for-the-developer">
+<h3>Booting for the Developer<a class="headerlink" href="#booting-for-the-developer" title="Link to this heading">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These diagrams might help:
+<a class="github reference external" href="https://github.com/u-boot/u-boot/blob/6e8fa0611f19824e200fe4725f18bce7e2000071/doc/board/ti/k3.rst">u-boot/u-boot</a></p>
+</div>
+<p>If you are developing firmware for the Play you may need to have
+access to the processor early in the booting sequence. Much can
+happen before the Linux kernel starts its boot process.
+Here are some notes on what the BeagleBoard Play does when it boots up.  Many of the booting
+details come from Chapter 5 (Initialization) of the
+AM62x Technical Reference Manual (TRM)
+(<a class="reference external" href="https://www.ti.com/product/AM625">https://www.ti.com/product/AM625</a>, <a class="reference external" href="https://www.ti.com/lit/pdf/spruiv7">https://www.ti.com/lit/pdf/spruiv7</a>).
+The following figure, taken from page 2456, shows the
+Initialization Process.</p>
+<figure class="align-center" id="id20">
+<img alt="Initialization Process" src="../../../_images/init-process.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 742 </span><span class="caption-text">Initialization Process</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We are interested in what happens in the <strong>ROM code</strong>.
+Page 2457, of the TRM, shows the different ROM Code Boot Modes.</p>
+<figure class="align-center" id="id21">
+<img alt="ROM Code Boot Modes" src="../../../_images/boot-modes.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 743 </span><span class="caption-text">ROM Code Boot Modes</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>These are selected at boot time based on the state of the BOOTMODE pins.
+The table on page 2465 shows the BOOTMODE pins.</p>
+<figure class="align-center" id="id22">
+<img alt="BOOTMODE Pin Mapping" src="../../../_images/pin-mapping.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 744 </span><span class="caption-text">BOOTMODE Pin Mapping</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Page 14 of of the Play’s schematic
+(<a class="reference external" href="https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf">https://git.beagleboard.org/beagleplay/beagleplay/-/blob/main/BeaglePlay_sch.pdf</a>)
+shows how the BOOTMODE pins are set during boot.</p>
+<figure class="align-center" id="id23">
+<img alt="bootstrap" src="../../../_images/bootstrap1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 745 </span><span class="caption-text">Bootstrap</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Therefore the following modes are selected if <strong>Button Not-pressed</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>1,</p></td>
+<td><p>PLL Config</p></td>
+<td><p>B[2:0] = 0b011</p></td>
+<td><p>: Ref Clcok -&gt; 25MHz</p></td>
+</tr>
+<tr class="row-even"><td><p>2,</p></td>
+<td><p>Primary Boot</p></td>
+<td><p>B[9:3] = 0b1001001</p></td>
+<td><p>: eMMC Boot</p></td>
+</tr>
+<tr class="row-odd"><td><p>3,</p></td>
+<td><p>Backup Boot</p></td>
+<td><p>B[13:10] = 0b1011</p></td>
+<td><p>: UART Boot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>That is, you boot off the eMMC and if that fails you boot off the UART.</p>
+<p>If <strong>Button is Pressed</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>1,</p></td>
+<td><p>PLL Config</p></td>
+<td><p>B[2:0] = 0b011</p></td>
+<td><p>: Ref Clcok -&gt; 25MHz</p></td>
+</tr>
+<tr class="row-even"><td><p>2,</p></td>
+<td><p>Primary Boot</p></td>
+<td><p>B[9:3] = 0b1001000</p></td>
+<td><p>: SD Card FS Boot</p></td>
+</tr>
+<tr class="row-odd"><td><p>3,</p></td>
+<td><p>Backup Boot</p></td>
+<td><p>B[13:10] = 0b0001</p></td>
+<td><p>: USB DFU Boot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Here you are booting off the SD card (in filesystem mode), or the USB if
+that fails.</p>
+</section>
+<section id="boot-flow">
+<h3>Boot Flow<a class="headerlink" href="#boot-flow" title="Link to this heading">#</a></h3>
+<p>There are many steps that occur after the BOOTMODE is selected
+and before the Linux Kernel boots.
+<a class="reference external" href="https://github.com/u-boot/u-boot/blob/master/doc/board/ti/am62x_sk.rst#boot-flow">Boot Flow</a>
+shows those steps for the <strong>R5</strong> processor and the arm (<strong>A53</strong>) processor. The key parts
+are <strong>tiboot3.bin</strong> and <strong>tispl.bin</strong> runnng on the <em>R5</em> and <strong>u-boot.img</strong> running
+on the <em>A53</em>.  These binary files are found on the Play in <code class="docutils literal notranslate"><span class="pre">/boot/firmware</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The files on the SD card and the eMMC are in <code class="docutils literal notranslate"><span class="pre">ext4</span></code> format.  The files used for booting
+must be in <code class="docutils literal notranslate"><span class="pre">vfat</span></code> format.  Therefore <code class="docutils literal notranslate"><span class="pre">/boot/firmware</span></code> is mounted in <code class="docutils literal notranslate"><span class="pre">vfat</span></code> as
+seen in <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp"># /etc/fstab: static file system information.</span>
+<span class="cp">#</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0p2</span><span class="w">  </span><span class="o">/</span><span class="w">  </span><span class="n">ext4</span><span class="w">  </span><span class="n">noatime</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="n">remount</span><span class="o">-</span><span class="n">ro</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">1</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0p1</span><span class="w">  </span><span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">firmware</span><span class="w"> </span><span class="n">vfat</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">debugfs</span><span class="w">  </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">debug</span><span class="w">  </span><span class="n">debugfs</span><span class="w">  </span><span class="n">mode</span><span class="o">=</span><span class="mi">755</span><span class="p">,</span><span class="n">uid</span><span class="o">=</span><span class="n">root</span><span class="p">,</span><span class="n">gid</span><span class="o">=</span><span class="n">gpio</span><span class="p">,</span><span class="n">defaults</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="source-code">
+<h3>Source Code<a class="headerlink" href="#source-code" title="Link to this heading">#</a></h3>
+<p>The source code and examples of how to compile the source is found in:
+<a class="reference external" href="https://git.beagleboard.org/beagleboard/repos-arm64/-/blob/main/bb-u-boot-beagleplay/suite/bookworm/debian/rules#L29">https://git.beagleboard.org/beagleboard/repos-arm64/-/blob/main/bb-u-boot-beagleplay/suite/bookworm/debian/rules#L29</a></p>
+</section>
+</section>
+<section id="home-assistant">
+<h2>Home Assistant<a class="headerlink" href="#home-assistant" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><dl class="simple">
+<dt>Get an image here:</dt><dd><p><a class="reference external" href="https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image">https://www.beagleboard.org/distros/beagleplay-home-assistant-webinar-demo-image</a>
+I chose the boot from SD image.</p>
+</dd>
+</dl>
+</li>
+<li><p>Boot the Play from the SD card</p></li>
+<li><p>Log into the Play</p></li>
+<li><dl>
+<dt>Find the Play’s IP address by running</dt><dd><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">bone$</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">eth0</span>
+<span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">eth0</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mtu</span><span class="w"> </span><span class="mi">1500</span><span class="w"> </span><span class="n">qdisc</span><span class="w"> </span><span class="n">mq</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">UP</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">qlen</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">    </span><span class="n">link</span><span class="o">/</span><span class="n">ether</span><span class="w"> </span><span class="mi">34</span><span class="o">:</span><span class="mi">08</span><span class="o">:</span><span class="n">e1</span><span class="o">:</span><span class="mi">85</span><span class="o">:</span><span class="mi">1</span><span class="n">b</span><span class="o">:</span><span class="n">a6</span><span class="w"> </span><span class="n">brd</span><span class="w"> </span><span class="n">ff</span><span class="o">:</span><span class="n">ff</span><span class="o">:</span><span class="n">ff</span><span class="o">:</span><span class="n">ff</span><span class="o">:</span><span class="n">ff</span><span class="o">:</span><span class="n">ff</span>
+<span class="w">    </span><span class="n">inet</span><span class="w"> </span><span class="mf">10.0.5.24</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="n">brd</span><span class="w"> </span><span class="mf">10.0.5.255</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">dynamic</span><span class="w"> </span><span class="n">noprefixroute</span><span class="w"> </span><span class="n">eth0</span>
+</pre></div>
+</div>
+<p>The address is after <code class="docutils literal notranslate"><span class="pre">inet</span></code>, in my case it’s 10.0.5.24.</p>
+</dd>
+</dl>
+</li>
+<li><p>Wait 5 or 10 minutes and then open a browser at <code class="docutils literal notranslate"><span class="pre">10.0.5.24:8123</span></code>
+using your IP address.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you get a “This site can’t be reached” error message, try running
+<code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-f</span></code> to see the log messages.</p>
+</div>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Open another browser and follow the instructions at:</dt><dd><p><a class="reference external" href="https://www.home-assistant.io/getting-started/onboarding">https://www.home-assistant.io/getting-started/onboarding</a></p>
+</dd>
+</dl>
+</li>
+</ol>
+<section id="mqtt">
+<h3>mqtt<a class="headerlink" href="#mqtt" title="Link to this heading">#</a></h3>
+<p>Here are Jason’s addons.
+<a class="reference external" href="https://git.beagleboard.org/jkridner/home-assistant-addons">https://git.beagleboard.org/jkridner/home-assistant-addons</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../10parts/parts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Parts and Suppliers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../pru-cookbook/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PRU Cookbook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beagleconnect-freedom">BeagleConnect Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-links">Useful Links</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micropython-examples">micropython Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-shortcuts-to-make-life-easier">Setting up shortcuts to make life easier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-root-login">Setting up a root login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wireshark">Wireshark</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-wireshark-on-the-beagle">Running Wireshark on the Beagle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-wireshark-on-the-host">Running Wireshark on the host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharking-the-wpan-radio">Sharking the wpan radio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-what-uu-is-in-i2cdetect">Find what UU is in i2cdetect</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-tmp117-to-a-tmp114">Converting a tmp117 to a tmp114</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-module">Compiling the module</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-the-tmp114">Converting to the tmp114</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-i2c-device">Finding your I<sup>2</sup>C device</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#registers-and-ids">Registers and IDs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-device">Creating a new device</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-with-sphinx">Documenting with Sphinx</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-sphinx">Downloading Sphinx</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-book">Creating A New Book</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-sparkfun-s-qwiic-python-examples">Running Sparkfun’s qwiic Python Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qwiic-alphanumeric-display">Qwiic Alphanumeric display</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-leds-by-using-sysfs-entries">Controlling LEDs by Using SYSFS Entries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-gpios-by-using-sysfs-entries">Controlling GPIOs by Using SYSFS Entries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-gpio-pin-via-sysfs">Reading a GPIO Pin via sysfs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-a-gpio-pin-via-sysfs">Writing a GPIO Pin via sysfs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-play-s-boot-sequence">The Play’s Boot Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booting-for-the-user">Booting for the User</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booting-for-the-developer">Booting for the Developer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-flow">Boot Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-assistant">Home Assistant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mqtt">mqtt</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/beaglebone-cookbook/11misc/misc.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/beaglebone-cookbook/11misc/misc.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-cookbook.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

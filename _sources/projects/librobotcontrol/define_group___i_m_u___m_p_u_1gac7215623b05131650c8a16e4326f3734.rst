@@ -1,0 +1,14 @@
+.. _exhale_define_group___i_m_u___m_p_u_1gac7215623b05131650c8a16e4326f3734:
+
+Define QUAT_Y
+=============
+
+- Defined in :ref:`file_library_include_rc_mpu.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: QUAT_Y
+   :project: librobotcontrol

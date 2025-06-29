@@ -1,0 +1,1804 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>BeagleY-AI Quick Start &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beagley/ai/02-quick-start';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beagley/ai/02-quick-start.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Design and Specifications" href="03-design.html" />
+    <link rel="prev" title="Introduction" href="01-introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">BeagleY-AI Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-design.html">Design and Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos.html">Demos and tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-gpio.html">Using GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-pwm.html">Pulse Width Modulation (PWM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-rtc.html">Using the on-board Real Time Clock (RTC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-i2c-oled-display.html">Using I2C OLED Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-i2c-adc.html">Using I2C ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/pca9685-motor-drivers.html">Using PCA9685 Motor Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/expansion-nvme.html">Booting from NVMe Drives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-imx219-csi-cameras.html">Using IMX219 CSI Cameras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/arducam-imx219-v3link-dual-camera-kit.html">Using the Arducam Dual V3Link Camera Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/object-detection-tutorial.html">TensorFlow Lite Object Detection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Support</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleY-AI</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">BeagleY-AI Quick Start</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="beagley-ai-quick-start">
+<span id="id1"></span><h1>BeagleY-AI Quick Start<a class="headerlink" href="#beagley-ai-quick-start" title="Link to this heading">#</a></h1>
+<figure class="align-center">
+<img alt="BeagleY-AI Pin Out Diagram" src="../../../_images/beagley-ai-pinout.svg" /></figure>
+<p>For an interactive and detailed pinout diagram, visit the <a class="reference external" href="https://pinout.beagley.ai">BeagleY-AI Pinout</a> page.</p>
+<section id="what-s-included-in-the-box">
+<h2>What’s included in the box?<a class="headerlink" href="#what-s-included-in-the-box" title="Link to this heading">#</a></h2>
+<p>When you purchase a BeagleY-AI, you’ll get the following in the box:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.beagleboard.org/boards/beagley-ai">BeagleY-AI</a> with attached antenna.</p></li>
+<li><p>Quick-start card</p></li>
+</ol>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>BeagleY-AI unboxing video</p>
+</div>
+</section>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<p>To get started your BeagleY-AI you need the following:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../accessories/power-supplies.html#accessories-power-supplies"><span class="std std-ref">5V &#64; 3A power supply</span></a></p></li>
+<li><p>MicroSD card (32GB)</p></li>
+<li><p><a class="reference internal" href="#beagley-ai-boot-media"><span class="std std-ref">Boot Media (Software image)</span></a></p></li>
+</ol>
+<p>You may need additional accessories based on the mode of operation, you can use your BeagleY-AI in different ways.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#beagley-ai-usb-tethering"><span class="std std-ref">USB Tethering by directly connecting via USB type-c port</span></a></p></li>
+<li><p><a class="reference internal" href="#beagley-ai-headless"><span class="std std-ref">Headless connection via UART debug port</span></a></p></li>
+<li><p><a class="reference internal" href="#beagley-ai-standalone-connection"><span class="std std-ref">Standalone connection with Monitor and other peripherals attached</span></a></p></li>
+</ol>
+<p>Easiest option is to connect the board directly to your PC or Laptop using a USB type-C to type-c cable. There is only one USB type-C port on board, if you
+choose to use a dedicated power supply for first time setup, you may choose to access the board via any other methods listed above.</p>
+</section>
+<section id="power-supply">
+<h2>Power Supply<a class="headerlink" href="#power-supply" title="Link to this heading">#</a></h2>
+<p>To power the board you can either connect it to a dedicated power supply like a mobile charger or a wall adapter that
+can provide 5V ≥ 3A. Checkout the <a class="reference internal" href="../../../accessories/power-supplies.html#accessories-power-supplies"><span class="std std-ref">docs power supply page</span></a> for power supply recommendations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Instead of using a <a class="reference internal" href="../../../accessories/power-supplies.html#accessories-power-supplies"><span class="std std-ref">power supply or power adapter</span></a> if you are using a <a class="reference internal" href="../../../accessories/cables.html#accessories-cables-usb"><span class="std std-ref">Type-C to Type-C cable</span></a> to connect the board to your laptop/PC then make sure it can supply at least 1000mA.</p>
+</div>
+</section>
+<section id="boot-media-software-image">
+<span id="beagley-ai-boot-media"></span><h2>Boot Media (Software image)<a class="headerlink" href="#boot-media-software-image" title="Link to this heading">#</a></h2>
+<p>We have two methods to prepare bootable microSD card, It is recommended to use <a class="reference internal" href="#beagley-ai-bb-imager"><span class="std std-ref">bb-imager</span></a>.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#beagley-ai-bb-imager"><span class="std std-ref">bb-imager</span></a></p></li>
+<li><p><a class="reference internal" href="#beagley-ai-balena-etcher"><span class="std std-ref">Balena Etcher</span></a></p></li>
+</ol>
+<section id="bb-imager">
+<span id="beagley-ai-bb-imager"></span><h3>bb-imager<a class="headerlink" href="#bb-imager" title="Link to this heading">#</a></h3>
+<p>Download and install <a class="reference external" href="https://www.beagleboard.org/bb-imager">bb-imager</a> for your operating system.
+Below are all the steps required to create a bootable microSD card with latest/recommended OS image for BeagleY-AI.</p>
+<figure class="align-center" id="id6">
+<img alt="Click on ``CHOOSE DEVICE`` button" src="../../../_images/step1-choose-device.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Click on <code class="docutils literal notranslate"><span class="pre">CHOOSE</span> <span class="pre">DEVICE</span></code> button</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<img alt="Choose ``BeagleY-AI`` board" src="../../../_images/step2-choose-beagley-ai.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Choose <code class="docutils literal notranslate"><span class="pre">BeagleY-AI</span></code> board</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<img alt="Click on ``CHOOSE OS`` button" src="../../../_images/step3-choose-os.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Click on <code class="docutils literal notranslate"><span class="pre">CHOOSE</span> <span class="pre">OS</span></code> button</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id9">
+<img alt="Select ``Recommended OS``" src="../../../_images/step4-select-recommended-os.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Select <code class="docutils literal notranslate"><span class="pre">Recommended</span> <span class="pre">OS</span></code></span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<img alt="Click on ``CHOOSE STORAGE`` button" src="../../../_images/step5-select-storage.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Click on <code class="docutils literal notranslate"><span class="pre">CHOOSE</span> <span class="pre">STORAGE</span></code> button</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id11">
+<img alt="Choose your microSD card" src="../../../_images/step6-choose-microsd-card.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Choose your microSD card</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id12">
+<img alt="Click on ``Next`` button" src="../../../_images/step7-hit-next.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Click on <code class="docutils literal notranslate"><span class="pre">Next</span></code> button</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id13">
+<img alt="Click on ``EDIT SETTINGS`` button" src="../../../_images/step8-edit-settings.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Click on <code class="docutils literal notranslate"><span class="pre">EDIT</span> <span class="pre">SETTINGS</span></code> button</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
+<img alt="Edit settings" src="../../../_images/step9-settings-save.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Edit settings</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id15">
+<img alt="Under ``SERVICES`` you can enable SSH" src="../../../_images/step9a-enable-ssh.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Under <code class="docutils literal notranslate"><span class="pre">SERVICES</span></code> you can enable SSH</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id16">
+<img alt="Under ``OPTIONS`` you can enable to play sound when flashing is finished" src="../../../_images/step9b-play-sound.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Under <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> you can enable to play sound when flashing is finished</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id17">
+<img alt="Select ``YES`` to apply settings" src="../../../_images/step10-select-yes.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Select <code class="docutils literal notranslate"><span class="pre">YES</span></code> to apply settings</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id18">
+<img alt="Select ``YES`` again to confirm sdCard formatting" src="../../../_images/step11-erase-data.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Select <code class="docutils literal notranslate"><span class="pre">YES</span></code> again to confirm sdCard formatting</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id19">
+<img alt="Provide password to Authenticate the flashing process" src="../../../_images/step12-authenticate.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Provide password to Authenticate the flashing process</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id20">
+<img alt="Download image else automatically open cached image" src="../../../_images/step13-download-started.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Download image else automatically open cached image</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id21">
+<img alt="Writing data to microSD card" src="../../../_images/step14-writing.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Writing data to microSD card</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id22">
+<img alt="Verifying flashed microSD card" src="../../../_images/step15-verifying.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Verifying flashed microSD card</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id23">
+<img alt="microSD card is ready" src="../../../_images/step16-sdcard-ready.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">microSD card is ready</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="balena-etcher">
+<span id="beagley-ai-balena-etcher"></span><h3>Balena Etcher<a class="headerlink" href="#balena-etcher" title="Link to this heading">#</a></h3>
+<p>Download and install <a class="reference external" href="https://etcher.balena.io/">Balena Etcher</a> and then download the boot media from
+<a class="reference external" href="https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-19-xfce">https://www.beagleboard.org/distros/beagley-ai-debian-12-5-2024-06-19-xfce</a>.
+Flash it on a microSD card using <a class="reference external" href="https://etcher.balena.io/">Balena Etcher</a> following the steps below:</p>
+<ol class="arabic simple">
+<li><p>Select downloaded boot media</p></li>
+<li><p>Select microSD card</p></li>
+<li><p>Flash!</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more detailed steps checkout the <a class="reference internal" href="../../../intro/support/getting-started.html#beagleboard-getting-started"><span class="std std-ref">Getting Started Guide</span></a> under support section of the documentation.</p>
+</div>
+<figure class="align-center" id="id24">
+<img alt="Flashing BeagleY-AI boot image (software image) to microSD card" src="../../../_images/balena-etcher.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Flashing BeagleY-AI boot image (software image) to microSD card</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once the microSD card is flashed you should see <code class="docutils literal notranslate"><span class="pre">BOOT</span></code> and <code class="docutils literal notranslate"><span class="pre">rootfs</span></code> mounted on your system as shown in image below,</p>
+<figure class="align-center" id="id25">
+<img alt="Flashed microSD card mounted partitions" src="../../../_images/disk.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Flashed microSD card mounted partitions</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Under <code class="docutils literal notranslate"><span class="pre">BOOT</span></code> partition open <code class="docutils literal notranslate"><span class="pre">sysconf.txt</span></code> to edit login <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>.</p>
+<figure class="align-center" id="id26">
+<img alt="sysconf file under BOOT partition" src="../../../_images/sysconf.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">sysconf file under BOOT partition</span><a class="headerlink" href="#id26" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <code class="docutils literal notranslate"><span class="pre">sysconf.txt</span></code> file you have to edit the two lines highlighted below.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">29</span># user_name - Set a user name for the user (1000)
+<span class="hll"><span class="linenos">30</span>#user_name=beagle ①
+</span><span class="linenos">31</span>
+<span class="linenos">32</span># user_password - Set a password for user (1000)
+<span class="hll"><span class="linenos">33</span>#user_password=FooBar ②
+</span></pre></div>
+</div>
+<p>① If <code class="docutils literal notranslate"><span class="pre">boris</span></code> is your username, update <code class="docutils literal notranslate"><span class="pre">#user_name=beagle</span></code> to <code class="docutils literal notranslate"><span class="pre">user_name=boris</span></code></p>
+<p>② If <code class="docutils literal notranslate"><span class="pre">bash</span></code> is your password, update <code class="docutils literal notranslate"><span class="pre">#user_password=FooBar</span></code> to <code class="docutils literal notranslate"><span class="pre">user_password=bash</span></code></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ol class="arabic simple">
+<li><p>Make sure to remove <code class="docutils literal notranslate"><span class="pre">#</span></code> from <code class="docutils literal notranslate"><span class="pre">#user_name=</span></code> and <code class="docutils literal notranslate"><span class="pre">#user_password=</span></code> else the lines will be interpreted as a comment and your username &amp; password will not be updated.</p></li>
+<li><p>If you do not change your username and passord here then you will not see any output on your HDMI monitor when you do a <a class="reference internal" href="#beagley-ai-standalone-connection"><span class="std std-ref">Standalone connection</span></a> setup.</p></li>
+</ol>
+</div>
+<p>Once username and password are updated, you can insert the microSD card into
+your BeagleY-AI as shown in the image below:</p>
+<figure class="align-center" id="id27">
+<img alt="Insert microSD card in BeagleY-AI" src="../../../_images/beagley-ai-micro-sd-card.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Insert microSD card in BeagleY-AI</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="usb-tethering">
+<span id="beagley-ai-usb-tethering"></span><h2>USB Tethering<a class="headerlink" href="#usb-tethering" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using the board with a fan or running a computationally intensive
+task you should always power the board with a dedicated power supply that can supply 5V ≥ 3A (15W+).</p>
+<p>As per USB standards these are the current at 5V that each downstream USB port type can (max) supply:</p>
+<ul class="simple">
+<li><p>USB Type-A 3.x port - 900mA (4.5W)</p></li>
+<li><p>USB Type-C 1.2 port - 1500mA (7.5W) to 3000mA (15W)</p></li>
+</ul>
+<p>Thus it’s recommended to use type-C to type-C cable.</p>
+</div>
+<p>To initially test your board, you can connect the board directly to your computer using a <code class="docutils literal notranslate"><span class="pre">type-C</span> <span class="pre">to</span> <span class="pre">type-C</span></code> cable shown in the image below.</p>
+<figure class="align-center" id="id28">
+<img alt="BeagleY-AI tethered connection" src="../../../_images/beagley-ai-tethered-connection.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">BeagleY-AI tethered connection</span><a class="headerlink" href="#id28" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="ssh-connection">
+<h3>SSH connection<a class="headerlink" href="#ssh-connection" title="Link to this heading">#</a></h3>
+<p>After connecting, you should see the power LED glow, and soon just like with other Beagles, BeagleY-AI will create a virtual wired connection on your computer.
+To access the board, open up a terminal (<a class="reference external" href="https://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu">Linux</a>/<a class="reference external" href="https://www.wikihow.com/Open-a-Terminal-Window-in-Mac">Mac</a>)
+or command prompt (<a class="reference external" href="https://www.wikihow.com/Open-the-Command-Prompt-in-Windows">Windows</a>) and use the SSH command as shown below.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>debian@192.168.7.2
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">debian</span></code> is the default username, make sure to replace <code class="docutils literal notranslate"><span class="pre">debian</span></code> with the <code class="docutils literal notranslate"><span class="pre">username</span></code> you selected during <a class="reference internal" href="#beagley-ai-boot-media"><span class="std std-ref">Boot Media (Software image)</span></a> preparation step.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are not able to find your beagle at <code class="docutils literal notranslate"><span class="pre">192.168.7.2</span></code>, checkout <a class="reference internal" href="../../../intro/support/getting-started.html#start-browse-to-beagle"><span class="std std-ref">Browse to your Beagle</span></a> to resolve your connection issue.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you have not updated your default username and password during <a class="reference internal" href="#beagley-ai-boot-media"><span class="std std-ref">Boot Media (Software image)</span></a>, you must update the default password at this step to something safer.</p>
+</div>
+<figure class="align-center" id="id29">
+<img alt="BeagleY-AI SSH connection" src="../../../_images/ssh-connection.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">BeagleY-AI SSH connection</span><a class="headerlink" href="#id29" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="uart-connection">
+<span id="beagley-ai-uart-connection"></span><h3>UART connection<a class="headerlink" href="#uart-connection" title="Link to this heading">#</a></h3>
+<p>Your BeagleY-AI board creates a UART connection (No additional hardware required) when tethered to a Laptop/PC which you can access using <code class="docutils literal notranslate"><span class="pre">Putty</span></code> of <code class="docutils literal notranslate"><span class="pre">tio</span></code>.
+On a linux machine it may come up as <code class="docutils literal notranslate"><span class="pre">dev/ttyACM*</span></code>, it will be different for Mac and Windows operating systems. To find serial port for your system you can checkout
+<a class="reference external" href="https://www.mathworks.com/help/matlab/supportpkg/find-arduino-port-on-windows-mac-and-linux.html;jsessionid=c2d3127cd10411c66f33468cbd5b">this guide</a>.</p>
+<figure class="align-center" id="id30">
+<img alt="Putty serial connection" src="../../../_images/putty.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Putty serial connection</span><a class="headerlink" href="#id30" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>If you are on linux, try <code class="docutils literal notranslate"><span class="pre">tio</span></code> with default setting using command below,</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tio /dev/ttyACM0</span>
+</pre></div>
+</div>
+<p>With this you have the access to BeagleY-AI terminal. Now, you can connect your board to <a class="reference internal" href="#beagley-ai-connecting-wifi"><span class="std std-ref">WiFi</span></a>,
+try out all the <a class="reference internal" href="05-demos.html#beagley-ai-demos"><span class="std std-ref">cool demos</span></a> and explore all the other ways to access your BeagleY-AI listed below.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#beagley-ai-connecting-wifi"><span class="std std-ref">Connecting to WiFi</span></a></p></li>
+<li><p><a class="reference internal" href="05-demos.html#beagley-ai-demos"><span class="std std-ref">Demos and tutorials</span></a></p></li>
+</ul>
+</section>
+<section id="headless-connection">
+<span id="beagley-ai-headless"></span><h3>Headless connection<a class="headerlink" href="#headless-connection" title="Link to this heading">#</a></h3>
+<p>If you want to run your BeagleY-AI in headless mode, you need <a class="reference external" href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html">Raspberry Pi Debug Probe</a>
+or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command
+line utility like <code class="docutils literal notranslate"><span class="pre">tio</span></code> on Linux or Putty on any operating system. Check <a class="reference internal" href="#beagley-ai-uart-connection"><span class="std std-ref">UART connection</span></a> for more information.</p>
+<figure class="align-center" id="id31">
+<img alt="Connecting Raspberry Pi debug probe to BeagleY-AI" src="../../../_images/rpi-debug-probe-connection.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Connecting Raspberry Pi debug probe to BeagleY-AI</span><a class="headerlink" href="#id31" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="standalone-connection">
+<span id="beagley-ai-standalone-connection"></span><h3>Standalone connection<a class="headerlink" href="#standalone-connection" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Make sure to update your <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> during
+<a class="reference internal" href="#beagley-ai-boot-media"><span class="std std-ref">Boot Media (Software image)</span></a> preparation step else you’ll not see any output on you HDMI monitor.</p>
+</div>
+<p>To setup your BeagleY-AI for standalone usage, you need the following additional accessories,</p>
+<ol class="arabic simple">
+<li><p>HDMI monitor</p></li>
+<li><p>micro HDMI to full-size HDMI cable</p></li>
+<li><p>Wireless keyboard &amp; mice combo</p></li>
+<li><p>Ethernet cable (Optional)</p></li>
+</ol>
+<p>Make sure you have the microSD card with boot media (software image) inserted in to the BeagleY-AI. Now connect,</p>
+<ol class="arabic simple">
+<li><p>microHDMI to BeagleY-AI and full size HDMI to monitor</p></li>
+<li><p>keyboard and mice combo to one of the four USB port of BeagleY-AI</p></li>
+<li><p>Power supply to USB type-c connector of BeagleY-AI</p></li>
+</ol>
+<p>The connection diagram below provides a clear representation of all the connections,</p>
+<figure class="align-center" id="id32">
+<img alt="BeagleY-AI standalone connection" src="../../../_images/standalone.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">BeagleY-AI standalone connection</span><a class="headerlink" href="#id32" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If everything is connected properly you should see four penguins on your monitor.</p>
+<figure class="align-center" id="id33">
+<img alt="BeagleY-AI boot penguins" src="../../../_images/boot-penguins.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">BeagleY-AI boot penguins</span><a class="headerlink" href="#id33" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When prompted, login using the credentials you updated during <a class="reference internal" href="#beagley-ai-boot-media"><span class="std std-ref">Boot Media (Software image)</span></a> preparation step.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can not update login credentials at this step, you must update them during boot media (software image) micrSD card flashing or USB tethering step!</p>
+</div>
+<figure class="align-center" id="id34">
+<img alt="BeagleY-AI XFCE desktop login" src="../../../_images/login.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">BeagleY-AI XFCE desktop login</span><a class="headerlink" href="#id34" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once logged in you should see the splash screen shown in the image below:</p>
+<figure class="align-center" id="id35">
+<img alt="BeagleY-AI XFCE home screen" src="../../../_images/screen-saver.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">BeagleY-AI XFCE home screen</span><a class="headerlink" href="#id35" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Test network connection by running <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">8.8.8.8</span></code></p>
+<figure class="align-center" id="id36">
+<img alt="BeagleY-AI network ping test" src="../../../_images/ping-test.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 57 </span><span class="caption-text">BeagleY-AI network ping test</span><a class="headerlink" href="#id36" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Explore and build with your new BeagleY-AI board!</p>
+<figure class="align-center" id="id37">
+<img alt="BeagleY-AI running htop" src="../../../_images/htop.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 58 </span><span class="caption-text">BeagleY-AI running htop</span><a class="headerlink" href="#id37" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="connecting-to-wifi">
+<span id="beagley-ai-connecting-wifi"></span><h2>Connecting to WiFi<a class="headerlink" href="#connecting-to-wifi" title="Link to this heading">#</a></h2>
+<p>The onboard <code class="docutils literal notranslate"><span class="pre">BM3301</span></code> can connect to any 2.5GHz wifi access point.
+We have two options to connect to WiFi,</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#beagley-ai-nmtui"><span class="std std-ref">nmtui</span></a></p></li>
+<li><p><a class="reference internal" href="#beagley-ai-iwctl"><span class="std std-ref">iwctl</span></a></p></li>
+</ol>
+<section id="nmtui">
+<span id="beagley-ai-nmtui"></span><h3>nmtui<a class="headerlink" href="#nmtui" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">NetworkManager</span></code></p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo systemctl enable NetworkManager</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Start <code class="docutils literal notranslate"><span class="pre">NetworkManager</span></code></p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo systemctl start NetworkManager</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Start <code class="docutils literal notranslate"><span class="pre">nmtui</span></code> application</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo nmtui</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To navigate, use the <code class="docutils literal notranslate"><span class="pre">arrow</span> <span class="pre">keys</span></code> or press <code class="docutils literal notranslate"><span class="pre">Tab</span></code> to step forwards and press <code class="docutils literal notranslate"><span class="pre">Shift+Tab</span></code> to step back through the options. Press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to select an option. The <code class="docutils literal notranslate"><span class="pre">Space</span> <span class="pre">bar</span></code> toggles the status of a check box.</p></li>
+<li><p>You should see a screen as shown below, here you have to press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> on <code class="docutils literal notranslate"><span class="pre">Acticate</span> <span class="pre">a</span> <span class="pre">connection</span></code> option to <a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmtui">activate wired and wireless connection options</a>.</p></li>
+</ul>
+<figure class="align-center" id="id38">
+<img alt="NetworkManager TUI" src="../../../_images/nmtui.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 59 </span><span class="caption-text">NetworkManager TUI</span><a class="headerlink" href="#id38" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There under <code class="docutils literal notranslate"><span class="pre">WiFi</span></code> section press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> on desired access point and provide password to connect. When successfully connected press <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to get out of the <code class="docutils literal notranslate"><span class="pre">nmtui</span></code> application window.</p>
+</section>
+<section id="iwctl">
+<span id="beagley-ai-iwctl"></span><h3>iwctl<a class="headerlink" href="#iwctl" title="Link to this heading">#</a></h3>
+<p>Once board is fully booted and you have access to the shell, follow the commands below to connect to any WiFi access point,</p>
+<ul class="simple">
+<li><p>To list the wireless devices attached, (you should see wlan0 listed)</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>iwctl<span class="w"> </span>device<span class="w"> </span>list
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Scan WiFi using,</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>iwctl<span class="w"> </span>station<span class="w"> </span>wlan0<span class="w"> </span>scan
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get networks using,</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>iwctl<span class="w"> </span>station<span class="w"> </span>wlan0<span class="w"> </span>get-networks
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Connect to your wifi network using,</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">iwctl</span><span class="w"> </span><span class="o">--</span><span class="n">passphrase</span><span class="w"> </span><span class="s">&quot;&lt;wifi-pass&gt;&quot;</span><span class="w"> </span><span class="n">station</span><span class="w"> </span><span class="n">wlan0</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="s">&quot;&lt;wifi-name&gt;&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check wlan0 status with,</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">iwctl</span><span class="w"> </span><span class="n">station</span><span class="w"> </span><span class="n">wlan0</span><span class="w"> </span><span class="n">show</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To list the networks with connected WiFi marked you can again use,</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">iwctl</span><span class="w"> </span><span class="n">station</span><span class="w"> </span><span class="n">wlan0</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">networks</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Test connection with ping command,</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ping</span><span class="w"> </span><span class="mf">8.8.8.8</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="attach-cooling-fan">
+<h2>Attach cooling fan<a class="headerlink" href="#attach-cooling-fan" title="Link to this heading">#</a></h2>
+<p>To attached the Raspberry Pi cooling fan to BeagleY-AI you have to follow these steps,</p>
+<ol class="arabic simple">
+<li><p>Clean the surface of BeagleY-AI with a microfiber cloth or electronics safe cleaning brush.</p></li>
+<li><p>Gently pull the pre-cut (blue) thermal pads from cooling fan surface and transfer them to the most heating parts of BegleY-AI like CPU and RAM.</p></li>
+<li><p>Connect the fan cable, then carefully place the flat part of cooling fan on BeagleY-AI. Now, gently apply force on spring loaded push pins to securely attach the cooling fan.</p></li>
+</ol>
+<figure class="align-center" id="id39">
+<img alt="Attaching cooling fan to BeagleY-AI" src="../../../_images/fan-connection.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 60 </span><span class="caption-text">Attaching cooling fan to BeagleY-AI</span><a class="headerlink" href="#id39" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="demos-and-tutorials">
+<h2>Demos and Tutorials<a class="headerlink" href="#demos-and-tutorials" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="demos/using-gpio.html#beagley-ai-using-gpio"><span class="std std-ref">Using GPIO</span></a></p></li>
+<li><p><a class="reference internal" href="demos/using-rtc.html#beagley-ai-using-rtc"><span class="std std-ref">Using the on-board Real Time Clock (RTC)</span></a></p></li>
+<li><p><a class="reference internal" href="demos/using-pwm.html#beagley-ai-using-pwm"><span class="std std-ref">Pulse Width Modulation (PWM)</span></a></p></li>
+<li><p><a class="reference internal" href="demos/using-i2c-adc.html#beagley-ai-using-i2c-adc"><span class="std std-ref">Using I2C ADC</span></a></p></li>
+<li><p><a class="reference internal" href="demos/expansion-nvme.html#beagley-ai-expansion-nvme"><span class="std std-ref">Booting from NVMe Drives</span></a></p></li>
+<li><p><a class="reference internal" href="demos/object-detection-tutorial.html#beagley-ai-object-detection-tutorial"><span class="std std-ref">TensorFlow Lite Object Detection</span></a></p></li>
+<li><p><a class="reference internal" href="demos/using-i2c-oled-display.html#beagley-ai-using-i2c-oled-display"><span class="std std-ref">Using I2C OLED Display</span></a></p></li>
+<li><p><a class="reference internal" href="demos/using-imx219-csi-cameras.html#beagley-ai-using-imx219-csi-cameras"><span class="std std-ref">Using IMX219 CSI Cameras</span></a></p></li>
+<li><p><a class="reference internal" href="demos/pca9685-motor-drivers.html#beagley-ai-pca9685-motor-drivers"><span class="std std-ref">Using PCA9685 Motor Drivers</span></a></p></li>
+<li><p><a class="reference internal" href="demos/arducam-imx219-v3link-dual-camera-kit.html#beagley-ai-arducam-imx219-v3link-dual-camera-kit"><span class="std std-ref">Using the Arducam Dual V3Link Camera Kit</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03-design.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Design and Specifications</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-included-in-the-box">What’s included in the box?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-supply">Power Supply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-media-software-image">Boot Media (Software image)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bb-imager">bb-imager</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balena-etcher">Balena Etcher</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-tethering">USB Tethering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-connection">SSH connection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uart-connection">UART connection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#headless-connection">Headless connection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-connection">Standalone connection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-wifi">Connecting to WiFi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nmtui">nmtui</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iwctl">iwctl</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attach-cooling-fan">Attach cooling fan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demos-and-tutorials">Demos and Tutorials</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beagley/ai/02-quick-start.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beagley/ai/02-quick-start.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beagley-ai.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleY-AI - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagley-ai/beagley-ai">BeagleY-AI git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beagley-ai">BeagleY-AI board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beagley/ai/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/beagley-ai">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleY-AI
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002616.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleY-AI_US002616.svg" alt="BeagleY-AI OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

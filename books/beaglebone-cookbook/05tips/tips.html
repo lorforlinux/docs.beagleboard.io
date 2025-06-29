@@ -1,0 +1,2677 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Beyond the Basics &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/beaglebone-cookbook/05tips/tips';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Internet of Things" href="../06iot/iot.html" />
+    <link rel="prev" title="Motors" href="../04motors/motors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">BeagleBone Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04motors/motors.html">Motors</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pru-cookbook/index.html">PRU Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeagleBone Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Beyond the Basics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="beyond-the-basics">
+<span id="beaglebone-cookbook-tips"></span><h1>Beyond the Basics<a class="headerlink" href="#beyond-the-basics" title="Link to this heading">#</a></h1>
+<p>In <a class="reference internal" href="../01basics/basics.html#beaglebone-cookbook-basics"><span class="std std-ref">Basics</span></a>, you learned how to set up BeagleBone Black, and
+<a class="reference internal" href="../02sensors/sensors.html#beaglebone-cookbook-sensors"><span class="std std-ref">Sensors</span></a>, <a class="reference internal" href="../03displays/displays.html#beaglebone-cookbook-displays"><span class="std std-ref">Displays and Other Outputs</span></a>,
+and <a class="reference internal" href="../04motors/motors.html#beaglebone-cookbook-motors"><span class="std std-ref">Motors</span></a> showed how to
+interface to the physical world. The remainder of the book moves into some
+more exciting advanced topics, and this chapter gets you ready for them.</p>
+<p>The recipes in this chapter assume that you are running Linux on your host
+computer (<a class="reference internal" href="#tips-pick-os"><span class="std std-ref">Selecting an OS for Your Development Host Computer</span></a>) and are comfortable with using Linux. We
+continue to assume that you are logged in as <em>debian</em> on your Bone.</p>
+<section id="running-your-bone-standalone">
+<span id="tips-hdmi"></span><h2>Running Your Bone Standalone<a class="headerlink" href="#running-your-bone-standalone" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>You want to use BeagleBone Black as a desktop computer with keyboard, mouse, and an HDMI display.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>The Bone comes with USB and a microHDMI output. All you need to do is connect your keyboard, mouse,
+and HDMI display to it.</p>
+<p>To make this recipe, you will need:</p>
+<ul class="simple">
+<li><p>Standard HDMI cable and female HDMI-to-male microHDMI adapter, or</p></li>
+<li><p>MicroHDMI-to-HDMI adapter cable</p></li>
+<li><p>HDMI monitor</p></li>
+<li><p>USB keyboard and mouse</p></li>
+<li><p>Powered USB hub</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The microHDMI adapter is nice because it allows you to use a regular HDMI cable
+with the Bone. However, it will block other ports and can damage the Bone if you
+aren’t careful. The microHDMI-to-HDMI cable won’t have these problems.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also use an HDMI-to-DVI cable
+and use your Bone with a DVI-D display.</p>
+</div>
+<p>The adapter looks something like <a class="reference internal" href="#tips-hdmi-adaptor-fig"><span class="std std-ref">Female HDMI-to-male microHDMI adapter</span></a>.</p>
+<figure class="align-center" id="id44">
+<span id="tips-hdmi-adaptor-fig"></span><img alt="HDMI Adaptor" src="../../../_images/hdmiConverter.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 670 </span><span class="caption-text">Female HDMI-to-male microHDMI adapter</span><a class="headerlink" href="#id44" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Plug the small end into the microHDMI input on the Bone and plug your HDMI cable
+into the other end of the
+adapter and your monitor. If nothing displays on your Bone, reboot.</p>
+<p>If nothing appears after the reboot, edit the <code class="docutils literal notranslate"><span class="pre">/boot/uEnv.txt</span></code> file. Search for the line containing
+<code class="docutils literal notranslate"><span class="pre">disable_uboot_overlay_video=1</span></code> and make sure it’s commented out:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">###Disable auto loading of virtual capes (emmc/video/wireless/adc)</span>
+<span class="c1">#disable_uboot_overlay_emmc=1</span>
+<span class="c1">#disable_uboot_overlay_video=1</span>
+</pre></div>
+</div>
+<p>Then reboot.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">/boot/uEnv.txt</span></code> file contains a number of configuration commands that are executed at boot time.
+The <em>#</em> character is used to add comments; that is, everything to the right of a +# is ignored by the
+Bone and is assumed to be for humans to read. In the previous example, <em>###Disable auto loading</em> is
+a comment that informs us the next line(s) are for disabling things. Two <em>disable_uboot_overlay</em>
+commands follow. Both should be commented-out and won’t be executed by the Bone.</p>
+<p>Why not just remove the line?  Later, you might decide you need more general-purpose input/output
+(GPIO) pins and don’t need the HDMI display. If so, just remove the <em>#</em> from the <code class="docutils literal notranslate"><span class="pre">disable_uboot_overlay_video=1</span></code>
+command. If you had completely removed the line earlier, you would have to look up the details somewhere to re-create it.</p>
+<p>When in doubt, comment-out don’t delete.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to re-enable the HDMI audio, just comment-out the line you added.</p>
+</div>
+<p>The Bone has only one USB port, so you will need to get either a keyboard with a USB hub or a USB hub.
+Plug the USB hub into the Bone and then plug your keyboard and mouse in to the hub.
+You now have a Beagle workstation no host computer is needed.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A powered hub is recommended because USB can supply only
+500 mA, and you’ll want to plug many things into the Bone.</p>
+</div>
+<p>This recipe disables the HDMI audio, which allows the Bone to try other resolutions.
+If this fails, see <a class="reference external" href="http://bit.ly/1GEPcOH">BeagleBoneBlack HDMI</a> for how to force the
+Bone’s resolution to match your monitor.</p>
+</section>
+</section>
+<section id="selecting-an-os-for-your-development-host-computer">
+<span id="tips-pick-os"></span><h2>Selecting an OS for Your Development Host Computer<a class="headerlink" href="#selecting-an-os-for-your-development-host-computer" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Problem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Your project needs a host computer, and you need to select an operating system (OS) for it.</p>
+</section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>For projects that require a host computer, we assume that you are running
+<a class="reference external" href="http://bit.ly/1wXOwkw">Linux Ubuntu 22.04 LTS</a>. You can be running either a native installation,
+through <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>, via a virtual
+machine such as <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a>, or in the cloud (<a class="reference external" href="https://portal.azure.com/">Microsoft Azure</a>
+or <a class="reference external" href="http://aws.amazon.com/ec2/">Amazon Elastic Compute Cloud</a>, EC2, for example).</p>
+<p>Recently I’ve been preferring <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>.</p>
+</section>
+</section>
+<section id="getting-to-the-command-shell-via-ssh">
+<span id="tips-shell"></span><h2>Getting to the Command Shell via SSH<a class="headerlink" href="#getting-to-the-command-shell-via-ssh" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Problem<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>You want to connect to the command shell of a remote Bone from your host
+computer.</p>
+</section>
+<section id="id5">
+<h3>Solution<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="../01basics/basics.html#basics-vsc-ide"><span class="std std-ref">Running Python and JavaScript Applications from Visual Studio Code</span></a> shows how to run shell commands in the Visual Studio Code <em>bash</em> tab.
+However, the Bone has Secure Shell (SSH) enabled right out of the box, so you can easily
+connect by using the following command to log in as user <em>debian</em>, (note the <em>$</em> at the end of the prompt):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ssh debian@192.168.7.2</span>
+<span class="go">Warning: Permanently added &#39;192.168.7.2&#39; (ED25519) to the list of known hosts.</span>
+<span class="go">Debian GNU/Linux 11</span>
+
+<span class="go">BeagleBoard.org Debian Bullseye IoT Image 2023-06-03</span>
+<span class="go">Support: https://bbb.io/debian</span>
+<span class="go">default username:password is [debian:temppwd]</span>
+
+
+<span class="go">The programs included with the Debian GNU/Linux system are free software;</span>
+<span class="go">the exact distribution terms for each program are described in the</span>
+<span class="go">individual files in /usr/share/doc/*/copyright.</span>
+
+<span class="go">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span>
+<span class="go">permitted by applicable law.</span>
+<span class="go">Last login: Thu Jun  8 14:02:40 2023 from 192.168.7.1</span>
+<span class="go">bone$</span>
+</pre></div>
+</div>
+</section>
+<section id="default-password">
+<span id="tips-passwords"></span><h3>Default password<a class="headerlink" href="#default-password" title="Link to this heading">#</a></h3>
+<p><em>debian</em> has the default password <em>temppwd</em>. It’s best to change the password:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ password</span>
+<span class="go">Changing password for debian.</span>
+<span class="gp gp-VirtualEnv">(current)</span> <span class="go">UNIX password:</span>
+<span class="go">Enter new UNIX password:</span>
+<span class="go">Retype new UNIX password:</span>
+<span class="go">password: password updated successfully</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="removing-the-message-of-the-day">
+<h2>Removing the <em>Message of the Day</em><a class="headerlink" href="#removing-the-message-of-the-day" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Problem<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Every time you login a long message is displayed that you don’t need to see.</p>
+</section>
+<section id="id7">
+<h3>Solution<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>The contents of the files <cite>/etc/motd</cite>, <cite>/etc/issue</cite> and <cite>/etc/issue.net</cite> are displayed
+everytime you long it.  You can prevent them from being displayed by moving them elsewhere.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo mv /etc/motd /etc/motd.orig</span>
+<span class="go">bone$ sudo mv /etc/issue /etc/issue.orig</span>
+<span class="go">bone$ sudo mv /etc/issue.net /etc/issue.net.orig</span>
+</pre></div>
+</div>
+<p>Now, the next time you <cite>ssh</cite> in they won’t be displayed.</p>
+</section>
+</section>
+<section id="getting-to-the-command-shell-via-the-virtual-serial-port">
+<span id="tips-serial"></span><h2>Getting to the Command Shell via the Virtual Serial Port<a class="headerlink" href="#getting-to-the-command-shell-via-the-virtual-serial-port" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>Problem<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>You want to connect to the command shell of a remote Bone from your host computer without using SSH.</p>
+</section>
+<section id="id9">
+<h3>Solution<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>Sometimes, you can’t connect to the Bone via SSH, but you have a network working over USB to the Bone.
+There is a way to access the command line to fix things without requiring extra hardware. (<a class="reference internal" href="#tips-ftdi"><span class="std std-ref">Viewing and Debugging the Kernel and u-boot Messages at Boot Time</span></a>
+shows a way that works even if you don’t have a network working over USB, but it requires a special serial-to-USB cable.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method doesn’t work with WSL.</p>
+</div>
+<p>First, check to ensure that the serial port is there. On the host computer, run the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ls -ls /dev/ttyACM0</span>
+<span class="go">0 crw-rw---- 1 root dialout 166, 0 Jun 19 11:47 /dev/ttyACM0</span>
+</pre></div>
+</div>
+<p><em>/dev/ttyACM0</em> is a serial port on your host computer that the Bone creates when it boots up.
+The letters <em>crw-rw—-</em> show that you can’t access it as a normal user. However, you can
+access it if you are part of <em>dialout</em> group. See if you are in the <em>dialout</em> group:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ groups</span>
+<span class="go">yoder adm tty uucp dialout cdrom sudo dip plugdev lpadmin sambashare</span>
+</pre></div>
+</div>
+<p>Looks like I’m already in the group, but if you aren’t, just add yourself to the group:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ sudo adduser $USER dialout</span>
+</pre></div>
+</div>
+<p>You have to run <em>adduser</em> only once. Your host computer will remember the next
+time you boot up. Now, install and run the <em>screen</em> command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ sudo apt install screen</span>
+<span class="go">host$ screen /dev/ttyACM0 115200</span>
+<span class="go">Debian GNU/Linux 7 beaglebone ttyGS0</span>
+
+<span class="go">default username:password is [debian:temppwd]</span>
+
+<span class="go">Support/FAQ: http://elinux.org/Beagleboard:BeagleBoneBlack_Debian</span>
+
+<span class="go">The IP Address for usb0 is: 192.168.7.2</span>
+<span class="go">beaglebone login:</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">/dev/ttyACM0</span></code> parameter specifies which serial port to connect to, and <em>115200</em>
+tells the speed of the connection. In this case, it’s 115,200 bits per second.</p>
+</section>
+</section>
+<section id="viewing-and-debugging-the-kernel-and-u-boot-messages-at-boot-time">
+<span id="tips-ftdi"></span><h2>Viewing and Debugging the Kernel and u-boot Messages at Boot Time<a class="headerlink" href="#viewing-and-debugging-the-kernel-and-u-boot-messages-at-boot-time" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3>Problem<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>You want to see the messages that are logged by BeagleBone Black as it comes to life.</p>
+</section>
+<section id="id11">
+<h3>Solution<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>There is no network in place when the Bone first boots up, so <a class="reference internal" href="#tips-shell"><span class="std std-ref">Getting to the Command Shell via SSH</span></a> and <a class="reference internal" href="#tips-serial"><span class="std std-ref">Getting to the Command Shell via the Virtual Serial Port</span></a>
+won’t work. This recipe uses some extra hardware (FTDI cable) to attach to the Bone’s console serial port.</p>
+<p>To make this recipe, you will need:</p>
+<ul class="simple">
+<li><p>3.3 V FTDI cable</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to get a 3.3 V FTDI cable (shown in <a class="reference internal" href="#tips-ftdicable-fig"><span class="std std-ref">FTDI cable</span></a>),
+because the 5 V cables won’t work.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Bone’s Serial Debug J1 connector has Pin 1 connected to ground,
+Pin 4 to receive, and Pin 5 to transmit. The other pins are not attached.</p>
+</div>
+<figure class="align-center" id="id45">
+<span id="tips-ftdicable-fig"></span><img alt="FTDI Cable" src="../../../_images/FTDIcable.webp" />
+<figcaption>
+<p><span class="caption-number">Fig. 671 </span><span class="caption-text">FTDI cable</span><a class="headerlink" href="#id45" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Look for a small triangle at the end of the FTDI cable (<a class="reference internal" href="#tips-ftdiconnector-fig"><span class="std std-ref">FTDI connector</span></a>).
+It’s often connected to the black wire.</p>
+<figure class="align-center" id="id46">
+<span id="tips-ftdiconnector-fig"></span><img alt="FTDI Connector" src="../../../_images/FTDIconnector.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 672 </span><span class="caption-text">FTDI connector</span><a class="headerlink" href="#id46" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+BeagleBone</label><div class="sd-tab-content docutils">
+<p>Next, look for the FTDI pins of the Bone (labeled <em>J1</em> on the Bone), shown in
+<a class="reference internal" href="#tips-black-hardware-details-fig"><span class="std std-ref">FTDI pins for the FTDI connector</span></a>. They are next to the P9 header
+and begin near pin 20. There is a white dot near P9_20.</p>
+<figure class="align-center" id="id47">
+<span id="tips-black-hardware-details-fig"></span><img alt="Serial Debug Pins" src="../../../_images/FTDIPins.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 673 </span><span class="caption-text">FTDI pins for the FTDI connector</span><a class="headerlink" href="#id47" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Plug the FTDI connector into the FTDI pins, being sure to connect
+the <code class="docutils literal notranslate"><span class="pre">triangle</span></code> pin on the connector to the <code class="docutils literal notranslate"><span class="pre">white</span> <span class="pre">dot</span></code> pin of the <em>FTDI</em> connector.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+BeagleY-AI FTDI Cable</label><div class="sd-tab-content docutils">
+<p>When using the BeagleY-AI, if you already have an FTDI cable,
+all you’ll need is a JST SH Compatible 1mm Pitch 3 Pin to Male Headers Cable
+(<a class="reference external" href="https://www.adafruit.com/product/5755">https://www.adafruit.com/product/5755</a>).</p>
+<figure class="align-center" id="id48">
+<img alt="JST SH to 3 Pin Male" src="../../../_images/jst-sh-3-pin.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 674 </span><span class="caption-text">JST SH Compatible 1mm Pitch 3 Pin to Male Headers Cable</span><a class="headerlink" href="#id48" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Attach the JST cable to the FTDI cable as shown below.</p>
+<figure class="align-center" id="id49">
+<img alt="JST to FDTI connection" src="../../../_images/jst-fdti.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 675 </span><span class="caption-text">JST to FDTI connection</span><a class="headerlink" href="#id49" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+BeagleY-AI Debug Probe</label><div class="sd-tab-content docutils">
+<p>If you don’t have an FTDI cable, you can use a
+<a class="reference external" href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html">Raspberry Pi Debug Probe</a>
+or similar serial (USB to UART) adapter. Connect your UART debug probe to BeagleY-AI as shown in the image below. After making the connection you can use command
+line utility like <code class="docutils literal notranslate"><span class="pre">tio</span></code> on Linux or Putty on any operating system. Check <a class="reference internal" href="../../../boards/beagley/ai/02-quick-start.html#beagley-ai-headless"><span class="std std-ref">Headless connection</span></a> for more information.</p>
+<figure class="align-center" id="id50">
+<img alt="Connecting Raspberry Pi debug probe to BeagleY-AI" src="../../../_images/rpi-debug-probe-connection1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 676 </span><span class="caption-text">Connecting Raspberry Pi debug probe to BeagleY-AI</span><a class="headerlink" href="#id50" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Now, run the following commands on your host computer:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ls -ls /dev/ttyUSB0</span>
+<span class="go">0 crw-rw---- 1 root dialout 188, 0 Jun 19 12:43 /dev/ttyUSB0</span>
+<span class="go">host$ sudo adduser $USER dialout</span>
+<span class="go">host$ screen /dev/ttyUSB0 115200</span>
+<span class="go">Debian GNU/Linux 7 beaglebone ttyO0</span>
+
+<span class="go">default username:password is [debian:temppwd]</span>
+
+<span class="go">Support/FAQ: http://elinux.org/Beagleboard:BeagleBoneBlack_Debian</span>
+
+<span class="go">The IP Address for usb0 is: 192.168.7.2</span>
+<span class="go">beaglebone login:</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your screen might initially be blank. Press Enter
+a couple times to see the login prompt.</p>
+</div>
+</section>
+</section>
+<section id="verifying-you-have-the-latest-version-of-the-os-on-your-bone-from-the-shell">
+<h2>Verifying You Have the Latest Version of the OS on Your Bone from the Shell<a class="headerlink" href="#verifying-you-have-the-latest-version-of-the-os-on-your-bone-from-the-shell" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h3>Problem<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>You are logged in to your Bone with a command prompt and want to know what version of the OS you are running.</p>
+</section>
+<section id="id13">
+<h3>Solution<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>Log in to your Bone and enter the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cat /etc/dogtag</span>
+<span class="go">BeagleBoard.org Debian Bullseye IoT Image 2023-06-03</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../01basics/basics.html#basics-latest-os"><span class="std std-ref">Verifying You Have the Latest Version of the OS on Your Bone</span></a> shows how to open the <code class="docutils literal notranslate"><span class="pre">/etc/dogtag</span></code> file to see the OS version.
+See <a class="reference internal" href="../01basics/basics.html#basics-install-os"><span class="std std-ref">Running the Latest Version of the OS on Your Bone</span></a> if you need to update your OS.</p>
+</section>
+</section>
+<section id="controlling-the-bone-remotely-with-a-vnc">
+<h2>Controlling the Bone Remotely with a VNC<a class="headerlink" href="#controlling-the-bone-remotely-with-a-vnc" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h3>Problem<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>You want to access the BeagleBone’s graphical desktop from your host computer.</p>
+</section>
+<section id="id15">
+<h3>Solution<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>Install and run a Virtual Network Computing (VNC) server:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt update</span>
+<span class="go">bone$ sudo apt install tightvncserver</span>
+<span class="go">Reading package lists... Done</span>
+<span class="go">Building dependency tree... Done</span>
+<span class="go">Reading state information... Done</span>
+<span class="go">The following additional packages will be installed:</span>
+<span class="go">...</span>
+<span class="go">update-alternatives: using /usr/bin/Xtightvnc to provide /usr/bin/Xvnc (Xvnc) in auto mode</span>
+<span class="go">update-alternatives: using /usr/bin/tightvncpasswd to provide /usr/bin/vncpasswd (vncpasswd) in auto mode</span>
+<span class="go">Processing triggers for libc-bin (2.31-13+deb11u6) ...</span>
+
+<span class="go">bone$ tightvncserver</span>
+
+<span class="go">You will require a password to access your desktops.</span>
+
+<span class="go">Password:</span>
+<span class="go">Verify:</span>
+<span class="go">Would you like to enter a view-only password (y/n)? n</span>
+<span class="go">xauth: (argv):1:  bad display name &quot;beaglebone:1&quot; in &quot;add&quot; command</span>
+
+<span class="go">New &#39;X&#39; desktop is beaglebone:1</span>
+
+<span class="go">Creating default startup script /home/debian/.vnc/xstartup</span>
+<span class="go">Starting applications specified in /home/debian/.vnc/xstartup</span>
+<span class="go">Log file is /home/debian/.vnc/beagleboard:1.log</span>
+</pre></div>
+</div>
+<p>To connect to the Bone, you will need to run a VNC client. There are many to choose from. Remmina Remote
+Desktop Client is already installed on Ubuntu. Start and select the new remote desktop file button (<a class="reference internal" href="#tips-vnc1-fig"><span class="std std-ref">Creating a new remote desktop file in Remmina Remote Desktop Client</span></a>).</p>
+<figure class="align-center" id="id51">
+<span id="tips-vnc1-fig"></span><img alt="Create a new remote desktop" src="../../../_images/vnc1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 677 </span><span class="caption-text">Creating a new remote desktop file in Remmina Remote Desktop Client</span><a class="headerlink" href="#id51" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Give your connection a name, being sure to select “Remmina VNC Plugin” Also, be sure to add <em>:1</em> after the
+server address, as shown in <a class="reference internal" href="#tips-vnc2-fig"><span class="std std-ref">Configuring the Remmina Remote Desktop Client</span></a>. This should match the <em>:1</em> that was displayed when you started <em>vncserver</em>.</p>
+<figure class="align-center" id="id52">
+<span id="tips-vnc2-fig"></span><img alt="Configuring" src="../../../_images/vnc2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 678 </span><span class="caption-text">Configuring the Remmina Remote Desktop Client</span><a class="headerlink" href="#id52" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Click Connect to start graphical access to your Bone, as shown in <a class="reference internal" href="#tips-vnc3-fig"><span class="std std-ref">The Remmina Remote Desktop Client showing the BeagleBone desktop</span></a>.</p>
+<figure class="align-center" id="id53">
+<span id="tips-vnc3-fig"></span><img alt="Desktop" src="../../../_images/vnc3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 679 </span><span class="caption-text">The Remmina Remote Desktop Client showing the BeagleBone desktop</span><a class="headerlink" href="#id53" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You might need to resize the VNC screen on your
+host to see the bottom menu bar on your Bone.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to have X Windows installed and running for the VNC to work.
+Here’s how to install it. This needs some 250M of disk space and 19 minutes to install.</p>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ bone$ sudo apt install bbb.io-xfce4-desktop</span>
+<span class="go">bone$ sdo cp /etc/bbb.io/templates/fbdev.xorg.conf /etc/X11/xorg.conf</span>
+<span class="go">bone$ startxfce4</span>
+<span class="go">/usr/bin/startxfce4: Starting X server</span>
+<span class="go">/usr/bin/startxfce4: 122: exec: xinit: not found</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="learning-typical-gnu-linux-commands">
+<h2>Learning Typical GNU/Linux Commands<a class="headerlink" href="#learning-typical-gnu-linux-commands" title="Link to this heading">#</a></h2>
+<section id="id16">
+<h3>Problem<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>There are many powerful commands to use in Linux. How do you learn about them?</p>
+</section>
+<section id="id17">
+<h3>Solution<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#tips-linux-commands"><span class="std std-ref">Common Linux commands</span></a> lists many common Linux commands.</p>
+<div class="pst-scrollable-table-container"><span id="tips-linux-commands"></span><table class="table" id="id54">
+<caption><span class="caption-number">Table 144 </span><span class="caption-text">Common Linux commands</span><a class="headerlink" href="#id54" title="Link to this table">#</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Command</p></td>
+<td><p>Action</p></td>
+</tr>
+<tr class="row-even"><td><p>pwd</p></td>
+<td><p>show current directory</p></td>
+</tr>
+<tr class="row-odd"><td><p>cd</p></td>
+<td><p>change current directory</p></td>
+</tr>
+<tr class="row-even"><td><p>ls</p></td>
+<td><p>list directory contents</p></td>
+</tr>
+<tr class="row-odd"><td><p>chmod</p></td>
+<td><p>change file permissions</p></td>
+</tr>
+<tr class="row-even"><td><p>chown</p></td>
+<td><p>change file ownership</p></td>
+</tr>
+<tr class="row-odd"><td><p>cp</p></td>
+<td><p>copy files</p></td>
+</tr>
+<tr class="row-even"><td><p>mv</p></td>
+<td><p>move files</p></td>
+</tr>
+<tr class="row-odd"><td><p>rm</p></td>
+<td><p>remove files</p></td>
+</tr>
+<tr class="row-even"><td><p>mkdir</p></td>
+<td><p>make directory</p></td>
+</tr>
+<tr class="row-odd"><td><p>rmdir</p></td>
+<td><p>remove directory</p></td>
+</tr>
+<tr class="row-even"><td><p>cat</p></td>
+<td><p>dump file contents</p></td>
+</tr>
+<tr class="row-odd"><td><p>less</p></td>
+<td><p>progressively dump file</p></td>
+</tr>
+<tr class="row-even"><td><p>vi</p></td>
+<td><p>edit file (complex)</p></td>
+</tr>
+<tr class="row-odd"><td><p>nano</p></td>
+<td><p>edit file (simple)</p></td>
+</tr>
+<tr class="row-even"><td><p>head</p></td>
+<td><p>trim dump to top</p></td>
+</tr>
+<tr class="row-odd"><td><p>tail</p></td>
+<td><p>trim dump to bottom</p></td>
+</tr>
+<tr class="row-even"><td><p>echo</p></td>
+<td><p>print/dump value</p></td>
+</tr>
+<tr class="row-odd"><td><p>env</p></td>
+<td><p>dump environment variables</p></td>
+</tr>
+<tr class="row-even"><td><p>export</p></td>
+<td><p>set environment variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>history</p></td>
+<td><p>dump command history</p></td>
+</tr>
+<tr class="row-even"><td><p>grep</p></td>
+<td><p>search dump for strings</p></td>
+</tr>
+<tr class="row-odd"><td><p>man</p></td>
+<td><p>get help on command</p></td>
+</tr>
+<tr class="row-even"><td><p>apropos</p></td>
+<td><p>show list of man pages</p></td>
+</tr>
+<tr class="row-odd"><td><p>find</p></td>
+<td><p>search for files</p></td>
+</tr>
+<tr class="row-even"><td><p>tar</p></td>
+<td><p>create/extract file archives</p></td>
+</tr>
+<tr class="row-odd"><td><p>gzip</p></td>
+<td><p>compress a file</p></td>
+</tr>
+<tr class="row-even"><td><p>gunzip</p></td>
+<td><p>decompress a file</p></td>
+</tr>
+<tr class="row-odd"><td><p>du</p></td>
+<td><p>show disk usage</p></td>
+</tr>
+<tr class="row-even"><td><p>df</p></td>
+<td><p>show disk free space</p></td>
+</tr>
+<tr class="row-odd"><td><p>mount</p></td>
+<td><p>mount disks</p></td>
+</tr>
+<tr class="row-even"><td><p>tee</p></td>
+<td><p>write dump to file in parallel</p></td>
+</tr>
+<tr class="row-odd"><td><p>hexdump</p></td>
+<td><p>readable binary dumps</p></td>
+</tr>
+<tr class="row-even"><td><p>whereis</p></td>
+<td><p>locates binary and source files</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="editing-a-text-file-from-the-gnu-linux-command-shell">
+<span id="tips-editing-files"></span><h2>Editing a Text File from the GNU/Linux Command Shell<a class="headerlink" href="#editing-a-text-file-from-the-gnu-linux-command-shell" title="Link to this heading">#</a></h2>
+<section id="id18">
+<h3>Problem<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>You want to run an editor to change a file.</p>
+</section>
+<section id="id19">
+<h3>Solution<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>The Bone comes with a number of editors. The simplest to learn is <em>nano</em>.
+Just enter the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ nano file</span>
+</pre></div>
+</div>
+<p>You are now in nano (<a class="reference internal" href="#tips-nano-fig"><span class="std std-ref">Editing a file with nano</span></a>). You can’t move around the screen
+using the mouse, so use the arrow keys. The bottom two lines of the screen
+list some useful commands. Pressing ^G (Ctrl-G) will display more useful
+commands. ^X (Ctrl-X) exits nano and gives you the option of saving the file.</p>
+<figure class="align-center" id="id55">
+<span id="tips-nano-fig"></span><img alt="nano" src="../../../_images/nano.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 680 </span><span class="caption-text">Editing a file with nano</span><a class="headerlink" href="#id55" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>By default, the file you create will be saved
+in the directory from which you opened <em>nano</em>.</p>
+</div>
+<p>Many other text editors will run on the Bone. <em>vi</em>, <em>vim</em>, <em>emacs</em>, and  even <em>eclipse</em> are all supported.
+See <a class="reference internal" href="#tips-apt"><span class="std std-ref">Installing Additional Packages from the Debian Package Feed</span></a> to learn if your favorite is one of them.</p>
+</section>
+</section>
+<section id="establishing-an-ethernet-based-internet-connection">
+<span id="networking-wired"></span><h2>Establishing an Ethernet-Based Internet Connection<a class="headerlink" href="#establishing-an-ethernet-based-internet-connection" title="Link to this heading">#</a></h2>
+<section id="id20">
+<h3>Problem<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>You want to connect your Bone to the Internet using the wired network connection.</p>
+</section>
+<section id="id21">
+<h3>Solution<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p>Plug one end of an Ethernet patch cable into the RJ45 connector on the Bone (see <a class="reference internal" href="#networking-rj45"><span class="std std-ref">The RJ45 port on the Bone</span></a>)
+and the other end into your home hub/router. The yellow and green link lights on both ends should begin to flash.</p>
+<figure class="align-center" id="id56">
+<span id="networking-rj45"></span><img alt="RJ45" src="../../../_images/internLED1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 681 </span><span class="caption-text">The RJ45 port on the Bone</span><a class="headerlink" href="#id56" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If your router is already configured to run DHCP (Dynamical Host Configuration Protocol),
+it will automatically assign an IP address to the Bone.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It might take a minute or two for your router to detect the Bone and assign the IP address.</p>
+</div>
+<p>To find the IP address, open a terminal window and run the <em>ip</em> command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ ip a</span>
+<span class="go">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span>
+<span class="go">   link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span>
+<span class="go">   inet 127.0.0.1/8 scope host lo</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">   inet6 ::1/128 scope host</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span>
+<span class="go">   link/ether c8:a0:30:a6:26:e8 brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">   inet 10.0.5.144/24 brd 10.0.5.255 scope global dynamic eth0</span>
+<span class="go">      valid_lft 80818sec preferred_lft 80818sec</span>
+<span class="go">   inet6 fe80::caa0:30ff:fea6:26e8/64 scope link</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">3: usb0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span>
+<span class="go">   link/ether c2:3f:44:bb:41:0f brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">   inet 192.168.7.2/24 brd 192.168.7.255 scope global usb0</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">   inet6 fe80::c03f:44ff:febb:410f/64 scope link</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">4: usb1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span>
+<span class="go">   link/ether 76:7e:49:46:1b:78 brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">   inet 192.168.6.2/24 brd 192.168.6.255 scope global usb1</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">   inet6 fe80::747e:49ff:fe46:1b78/64 scope link</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">5: can0: &lt;NOARP,ECHO&gt; mtu 16 qdisc no-op state DOWN group default qlen 10</span>
+<span class="go">   link/can</span>
+<span class="go">6: can1: &lt;NOARP,ECHO&gt; mtu 16 qdisc no-op state DOWN group default qlen 10</span>
+<span class="go">   link/can</span>
+</pre></div>
+</div>
+<p>My Bone is connected to the Internet in two ways: via the RJ45 connection (<em>eth0</em>) and via the USB cable (<em>usb0</em>).
+The <em>inet</em> field shows that my Internet address is <em>10.0.5.144</em> for the RJ45 connector.</p>
+<p>On my university campus, you must register your MAC address before any device will work on the network.
+The <em>HWaddr</em> field gives the MAC address. For <em>eth0</em>, it’s <em>c8:a0:30:a6:26:e8</em>.</p>
+<p>The IP address of your Bone can change. If it’s been assigned by DHCP, it can change at any time.
+The MAC address, however, never changes;  it is assigned to your ethernet device when it’s manufactured.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When a Bone is connected to some networks it becomes visible to the <code class="docutils literal notranslate"><span class="pre">world</span></code>. If you don’t secure your Bone,
+the world will soon find it. See <a class="reference internal" href="#tips-passwords"><span class="std std-ref">Default password</span></a> and <a class="reference internal" href="#tips-firewall"><span class="std std-ref">Setting Up a Firewall</span></a></p>
+</div>
+<p>On many home networks, you will be behind a firewall and won’t be as visible.</p>
+</section>
+</section>
+<section id="establishing-a-wifi-based-internet-connection">
+<span id="networking-wireless"></span><h2>Establishing a WiFi-Based Internet Connection<a class="headerlink" href="#establishing-a-wifi-based-internet-connection" title="Link to this heading">#</a></h2>
+<section id="id22">
+<h3>Problem<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>You want BeagleBone Black to talk to the Internet using a USB wireless adapter.</p>
+</section>
+<section id="id23">
+<h3>Solution<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For the correct instructions for the image you are using, go to
+<a class="reference external" href="http://forum.beagleboard.org/tag/latest-images">latest-images</a> and click on the image you are using.</p>
+</div>
+<p>I’m running Debian 11.x (Bullseye), the top one, on the BeagleBone Black.</p>
+<figure class="align-center" id="id57">
+<span id="tips-latest-images-fig"></span><img alt="Latest Image Page" src="../../../_images/latest-images.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 682 </span><span class="caption-text">Latest Beagle Images</span><a class="headerlink" href="#id57" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Scroll to the top of the page and you’ll see instructions on setting up Wifi.
+The instructions here are based on using <strong>networkctl</strong>.</p>
+<figure class="align-center" id="id58">
+<span id="tips-networkfig"></span><img alt="Network Setup Instructions" src="../../../_images/network.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 683 </span><span class="caption-text">Instructions for setting up your network.</span><a class="headerlink" href="#id58" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-todo admonition" id="id24">
+<p class="admonition-title">Todo</p>
+<p>is this up to date?</p>
+</div>
+<p>Several WiFi adapters work with the Bone. Check <a class="reference external" href="http://bit.ly/1EbEwUo">WiFi Adapters</a> for the latest list.</p>
+<p>To make this recipe, you will need:</p>
+<ul class="simple">
+<li><p>USB Wifi adapter</p></li>
+<li><p>5 V external power supply</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most adapters need at least 1 A of current to run, and USB supplies only 0.5 A, so be sure to use an
+external power supply. Otherwise, you will experience erratic behavior and random crashes.</p>
+</div>
+<p>First, plug in the WiFi adapter and the 5 V external power supply and reboot.</p>
+<p>Then run <em>lsusb</em> to ensure that your Bone found the adapter:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ lsusb</span>
+<span class="go">Bus 001 Device 002: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n</span>
+<span class="go">WLAN Adapter</span>
+<span class="go">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span>
+<span class="go">Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a well-known bug in the Bone’s 3.8 kernel series that prevents USB devices from
+being discovered when hot-plugged, which is why you should reboot. Newer kernels should address this issue.</p>
+</div>
+<div class="admonition-todo admonition" id="id25">
+<p class="admonition-title">Todo</p>
+<p>update</p>
+</div>
+<p>Next, run <em>networkctl</em> to find your adapter’s name. Mine is
+called <em>wlan0</em>, but you might see other names, such as <em>ra0</em>.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ networkctl</span>
+<span class="go">IDX LINK    TYPE     OPERATIONAL SETUP</span>
+<span class="go">1 lo      loopback carrier     unmanaged</span>
+<span class="go">2 eth0    ether    no-carrier  configuring</span>
+<span class="go">3 usb0    gadget   routable    configured</span>
+<span class="go">4 usb1    gadget   routable    configured</span>
+<span class="go">5 can0    can      off         unmanaged</span>
+<span class="go">6 can1    can      off         unmanaged</span>
+<span class="go">7 wlan0   wlan     routable    configured</span>
+<span class="go">8 SoftAp0 wlan     routable    configured</span>
+
+<span class="go">8 links listed.</span>
+</pre></div>
+</div>
+<p>If no name appears, try <em>ip a</em>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ ip a</span>
+<span class="go">...</span>
+<span class="go">2: eth0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000</span>
+<span class="go">   link/ether c8:a0:30:a6:26:e8 brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">3: usb0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span>
+<span class="go">   link/ether c2:3f:44:bb:41:0f brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">   inet 192.168.7.2/24 brd 192.168.7.255 scope global usb0</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">   inet6 fe80::c03f:44ff:febb:410f/64 scope link</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">...</span>
+<span class="go">7: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span>
+<span class="go">   link/ether 64:69:4e:7e:5c:e4 brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">   inet 10.0.7.21/24 brd 10.0.7.255 scope global dynamic wlan0</span>
+<span class="go">      valid_lft 85166sec preferred_lft 85166sec</span>
+<span class="go">   inet6 fe80::6669:4eff:fe7e:5ce4/64 scope link</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+
+
+<span class="go">Next edit the configuration file */etc/wpa_supplicant/wpa_supplicant-wlan0.conf*.</span>
+</pre></div>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf</span>
+</pre></div>
+</div>
+<p>In the file you’ll see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ctrl_interface</span><span class="o">=</span><span class="nv">DIR</span><span class="o">=</span>/run/wpa_supplicant<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span>netdev
+<span class="nv">update_config</span><span class="o">=</span><span class="m">1</span>
+<span class="c1">#country=US</span>
+
+<span class="nv">network</span><span class="o">={</span>
+<span class="w">     </span><span class="nv">ssid</span><span class="o">=</span><span class="s2">&quot;Your SSID&quot;</span>
+<span class="w">     </span><span class="nv">psk</span><span class="o">=</span><span class="s2">&quot;Your Password&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Change the <em>ssid</em> and <em>psk</em> entries for your network. Save your file, then run:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo systemctl restart systemd-networkd</span>
+<span class="go">bone$  ip a</span>
+<span class="go">bone$ ping -c2 google.com</span>
+<span class="go">PING google.com (142.250.191.206) 56(84) bytes of data.</span>
+<span class="go">64 bytes from ord38s31-in-f14.1e100.net (142.250.191.206): icmp_seq=1 ttl=115 time=19.5 ms</span>
+<span class="go">64 bytes from ord38s31-in-f14.1e100.net (142.250.191.206): icmp_seq=2 ttl=115 time=19.4 ms</span>
+
+<span class="go">--- google.com ping statistics ---</span>
+<span class="go">2 packets transmitted, 2 received, 0% packet loss, time 1001ms</span>
+<span class="go">rtt min/avg/max/mdev = 19.387/19.450/19.513/0.063 ms</span>
+</pre></div>
+</div>
+<p><em>wlan0</em> should now have an ip address and you should be on the network. If not, try rebooting.</p>
+</section>
+</section>
+<section id="sharing-the-host-s-internet-connection-over-usb">
+<span id="networking-usb"></span><h2>Sharing the Host’s Internet Connection over USB<a class="headerlink" href="#sharing-the-host-s-internet-connection-over-usb" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id26">
+<p class="admonition-title">Todo</p>
+<p>Test this</p>
+</div>
+<section id="id27">
+<h3>Problem<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p>Your host computer is connected to the Bone via the USB cable, and you want to run the network between the two.</p>
+</section>
+<section id="id28">
+<h3>Solution<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#networking-wired"><span class="std std-ref">Establishing an Ethernet-Based Internet Connection</span></a> shows how to connect BeagleBone Black to the Internet via the RJ45 Ethernet connector.
+This recipe shows a way to connect without using the RJ45 connector.</p>
+<p>A network is automatically running between the Bone and the host computer at boot time using the USB. The host’s
+IP address is <em>192.168.7.1</em> and the Bone’s is <em>192.168.7.2</em>.  Although your Bone is talking to your host, it can’t
+reach the Internet in general, nor can the Internet reach it. On one hand, this is good, because those who are up to
+no good can’t access your Bone. On the other hand, your Bone can’t reach the rest of the world.</p>
+<section id="letting-your-bone-see-the-world-setting-up-ip-masquerading">
+<h4>Letting your bone see the world: setting up IP masquerading<a class="headerlink" href="#letting-your-bone-see-the-world-setting-up-ip-masquerading" title="Link to this heading">#</a></h4>
+<p>You need to set up IP masquerading on your host and configure your Bone to use it. Here is a solution that works
+with a host computer running Linux. Add the code in <a class="reference internal" href="#tips-ipmasq-code"><span class="std std-ref">Code for IP Masquerading (ipMasquerade.sh)</span></a> to a
+file called <code class="docutils literal notranslate"><span class="pre">ipMasquerade.sh</span></code> on your host computer.</p>
+<div class="literal-block-wrapper docutils container" id="id59">
+<span id="tips-ipmasq-code"></span><div class="code-block-caption"><span class="caption-number">Listing 53 </span><span class="caption-text">Code for IP Masquerading (ipMasquerade.sh)</span><a class="headerlink" href="#id59" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span><span class="c1"># These are the commands to run on the host to set up IP </span>
+<span class="linenos"> 3</span><span class="c1">#  masquerading so the Bone can access the Internet through </span>
+<span class="linenos"> 4</span><span class="c1">#  the USB connection.</span>
+<span class="linenos"> 5</span><span class="c1"># This configures the host, run ./setDNS.sh to configure the Bone.</span>
+<span class="linenos"> 6</span><span class="c1"># Inspired by http://thoughtshubham.blogspot.com/2010/03/</span>
+<span class="linenos"> 7</span><span class="c1">#  internet-over-usb-otg-on-beagleboard.html</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">10</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> interface (such as eth0 or wlan0)&quot;</span>
+<span class="linenos">11</span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="linenos">12</span><span class="k">fi</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="nv">interface</span><span class="o">=</span><span class="nv">$1</span>
+<span class="linenos">15</span><span class="nv">hostAddr</span><span class="o">=</span><span class="m">192</span>.168.7.1
+<span class="linenos">16</span><span class="nv">beagleAddr</span><span class="o">=</span><span class="m">192</span>.168.7.2
+<span class="linenos">17</span><span class="nv">ip_forward</span><span class="o">=</span>/proc/sys/net/ipv4/ip_forward
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>cat<span class="w"> </span><span class="nv">$ip_forward</span><span class="sb">`</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
+<span class="linenos">20</span><span class="w">  </span><span class="k">then</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You need to set IP forwarding. Edit /etc/sysctl.conf using:&quot;</span>
+<span class="linenos">22</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span>$<span class="s2"> sudo nano /etc/sysctl.conf&quot;</span>
+<span class="linenos">23</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;and uncomment the line   \&quot;net.ipv4.ip_forward=1\&quot;&quot;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;to enable forwarding of packets. Then run the following:&quot;</span>
+<span class="linenos">25</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span>$<span class="s2"> sudo sysctl -p&quot;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="linenos">27</span><span class="w">  </span><span class="k">else</span>
+<span class="linenos">28</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;IP forwarding is set on host.&quot;</span>
+<span class="linenos">29</span><span class="k">fi</span>
+<span class="linenos">30</span><span class="c1"># Set up IP masquerading on the host so the bone can reach the outside world</span>
+<span class="linenos">31</span>sudo<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-s<span class="w"> </span><span class="nv">$beagleAddr</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$interface</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/a05c314341709d7e94b6090dadd1972c/ipMasquerade.sh"><code class="xref download docutils literal notranslate"><span class="pre">ipMasquerade.sh</span></code></a></p>
+<p>Then, on your host, run the following commands:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ chmod +x ipMasquerade.sh</span>
+<span class="go">host$ ./ipMasquerade.sh eth0</span>
+</pre></div>
+</div>
+<p>This will direct your host to take requests from the Bone and send them to <em>eth0</em>.
+If your host is using a wireless connection, change <em>eth0</em> to <em>wlan0</em>.</p>
+<p>Now let’s set up your host to instruct the Bone what to do. Add the code
+in <a class="reference internal" href="#tips-setdns"><span class="std std-ref">Code for setting the DNS on the Bone (setDNS.sh)</span></a> to <code class="docutils literal notranslate"><span class="pre">setDNS.sh</span></code> on your host computer.</p>
+<div class="literal-block-wrapper docutils container" id="id60">
+<span id="tips-setdns"></span><div class="code-block-caption"><span class="caption-number">Listing 54 </span><span class="caption-text">Code for setting the DNS on the Bone (setDNS.sh)</span><a class="headerlink" href="#id60" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span><span class="c1"># These are the commands to run on the host so the Bone</span>
+<span class="linenos"> 3</span><span class="c1">#  can access the Internet through the USB connection.</span>
+<span class="linenos"> 4</span><span class="c1"># Run ./ipMasquerade.sh the first time. It will set up the host.</span>
+<span class="linenos"> 5</span><span class="c1"># Run this script if the host is already set up.</span>
+<span class="linenos"> 6</span><span class="c1"># Inspired by http://thoughtshubham.blogspot.com/2010/03/internet-over-usb-otg-on-beagleboard.html</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="nv">hostAddr</span><span class="o">=</span><span class="m">192</span>.168.7.1
+<span class="linenos"> 9</span><span class="nv">beagleAddr</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">192</span><span class="p">.168.7.2</span><span class="si">}</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Save the /etc/resolv.conf on the Beagle in case we mess things up.</span>
+<span class="linenos">12</span>ssh<span class="w"> </span>root@<span class="nv">$beagleAddr</span><span class="w"> </span><span class="s2">&quot;mv -n /etc/resolv.conf /etc/resolv.conf.orig&quot;</span>
+<span class="linenos">13</span><span class="c1"># Create our own resolv.conf</span>
+<span class="linenos">14</span>cat<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; /tmp/resolv.conf</span>
+<span class="linenos">15</span><span class="s"># This is installed by ./setDNS.sh on the host</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="s">EOF</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="nv">TMP</span><span class="o">=</span>/tmp/nmcli
+<span class="linenos">20</span><span class="c1"># Look up the nameserver of the host and add it to our resolv.conf</span>
+<span class="linenos">21</span><span class="c1"># From: http://askubuntu.com/questions/197036/how-to-know-what-dns-am-i-using-in-ubuntu-12-04</span>
+<span class="linenos">22</span><span class="c1"># Use nmcli dev list for older version nmcli</span>
+<span class="linenos">23</span><span class="c1"># Use nmcli dev show for newer version nmcli</span>
+<span class="linenos">24</span>nmcli<span class="w"> </span>dev<span class="w"> </span>show<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMP</span>
+<span class="linenos">25</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">   </span><span class="c1"># $? is the return code, if not 0 something bad happened.</span>
+<span class="linenos">26</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;nmcli failed, trying older &#39;list&#39; instead of &#39;show&#39;&quot;</span>
+<span class="linenos">27</span><span class="w">    </span>nmcli<span class="w"> </span>dev<span class="w"> </span>list<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMP</span>
+<span class="linenos">28</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">29</span><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;nmcli failed again, giving up...&quot;</span>
+<span class="linenos">30</span><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="linenos">31</span><span class="w">    </span><span class="k">fi</span>
+<span class="linenos">32</span><span class="k">fi</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span>grep<span class="w"> </span>IP4.DNS<span class="w"> </span><span class="nv">$TMP</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/IP4.DNS\[.\]:/nameserver/&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/resolv.conf
+<span class="linenos">35</span>
+<span class="linenos">36</span>scp<span class="w"> </span>/tmp/resolv.conf<span class="w"> </span>root@<span class="nv">$beagleAddr</span>:/etc
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="c1"># Tell the beagle to use the host as the gateway.</span>
+<span class="linenos">39</span>ssh<span class="w"> </span>root@<span class="nv">$beagleAddr</span><span class="w"> </span><span class="s2">&quot;/sbin/route add default gw </span><span class="nv">$hostAddr</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/7f0f425d29ad7019c463d9931cde5bd0/setDNS.sh"><code class="xref download docutils literal notranslate"><span class="pre">setDNS.sh</span></code></a></p>
+<p>Then, on your host, run the following commands:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ chmod +x setDNS.sh</span>
+<span class="go">host$ ./setDNS.sh</span>
+<span class="go">host$ ssh -X root@192.168.7.2</span>
+<span class="go">bone$ ping -c2 google.com</span>
+<span class="go">PING google.com (216.58.216.96) 56(84) bytes of data.</span>
+<span class="go">64 bytes from ord30s22....net (216.58.216.96): icmp_req=1 ttl=55 time=7.49 ms</span>
+<span class="go">64 bytes from ord30s22....net (216.58.216.96): icmp_req=2 ttl=55 time=7.62 ms</span>
+
+<span class="go">--- google.com ping statistics ---</span>
+<span class="go">2 packets transmitted, 2 received, 0% packet loss, time 1002ms</span>
+<span class="go">rtt min/avg/max/mdev = 7.496/7.559/7.623/0.107 ms</span>
+</pre></div>
+</div>
+<p>This will look up what Domain Name System (DNS) servers your host is using and copy
+them to the right place on the Bone.  The <em>ping</em> command is a quick way to verify your connection.</p>
+</section>
+<section id="letting-the-world-see-your-bone-setting-up-port-forwarding">
+<h4>Letting the world see your bone: setting up port forwarding<a class="headerlink" href="#letting-the-world-see-your-bone-setting-up-port-forwarding" title="Link to this heading">#</a></h4>
+<p>Now your Bone can access the world via the USB port and your host computer, but
+what if you have a web server on your Bone that you want to access from the world?
+The solution is to use port forwarding from your host.
+Web servers typically listen to port <em>80</em>. First, look up the IP address of your host:</p>
+<div class="admonition-todo admonition" id="id29">
+<p class="admonition-title">Todo</p>
+<p>switch to ip address</p>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ ip a</span>
+<span class="go">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span>
+<span class="go">   link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span>
+<span class="go">   inet 127.0.0.1/8 scope host lo</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">   inet6 ::1/128 scope host</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1280 qdisc mq state UP group default qlen 1000</span>
+<span class="go">   link/ether 00:15:5d:7c:e8:dc brd ff:ff:ff:ff:ff:ff</span>
+<span class="go">   inet 172.31.43.210/20 brd 172.31.47.255 scope global eth0</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+<span class="go">   inet6 fe80::215:5dff:fe7c:e8dc/64 scope link</span>
+<span class="go">      valid_lft forever preferred_lft forever</span>
+</pre></div>
+</div>
+<p>It’s the number following <em>inet</em>, which in my case is <em>172.31.43.210</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are on a wireless network, find the IP address associated with <em>wlan0</em>.</p>
+</div>
+<p>Then run the following, using your host’s IP address:</p>
+<div class="admonition-todo admonition" id="id30">
+<p class="admonition-title">Todo</p>
+<p>check this iptables, convert to ufw</p>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ sudo iptables -t nat -A PREROUTING -p tcp -s 0/0 \</span>
+<span class="go">     -d 172.31.43.210 --dport 1080 -j DNAT --to 192.168.7.2:80</span>
+</pre></div>
+</div>
+<p>Now browse to your host computer at port <em>1080</em>. That is, if your host’s IP address
+is <em>123.456.789.0</em>, enter <em>123.456.789.0:1080</em>. The <em>:1080</em> specifies what port number to
+use. The request will be forwarded to the server on your Bone listening to port <em>80</em>.
+(I used <em>1080</em> here, in case your host is running a web server of its own on port <em>80</em>.)</p>
+</section>
+</section>
+</section>
+<section id="setting-up-a-firewall">
+<span id="tips-firewall"></span><h2>Setting Up a Firewall<a class="headerlink" href="#setting-up-a-firewall" title="Link to this heading">#</a></h2>
+<section id="id31">
+<h3>Problem<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p>You have put your Bone on the network and want to limit which IP addresses can access it.</p>
+</section>
+<section id="id32">
+<h3>Solution<a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.howtogeek.com/">How-To Geek</a> has a great posting on how do use <em>ufw</em>, the “uncomplicated firewall”.
+Check out <a class="reference external" href="https://www.howtogeek.com/devops/how-to-secure-your-linux-server-with-a-ufw-firewall/">How to Secure Your Linux Server with a UFW Firewall</a>.
+I’ll summarize the initial setup here.</p>
+<p>First install and check the status:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt update</span>
+<span class="go">bone$ sudo apt install ufw</span>
+<span class="go">bone$ sudo ufw status</span>
+<span class="go">Status: inactive</span>
+</pre></div>
+</div>
+<p>Now turn off everything coming in and leave on all outgoing.
+Note, this won’t take effect until <em>ufw</em> is enabled.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo ufw default deny incoming</span>
+<span class="go">bone$ sudo ufw default allow outgoing</span>
+</pre></div>
+</div>
+<p>Don’t enable yet, make sure <em>ssh</em> still has access</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo ufw allow 22</span>
+</pre></div>
+</div>
+<p>Just to be sure, you can install <em>nmap</em> on your host computer to see what ports are currently open.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">host$ sudo apt update</span>
+<span class="go">host$ sudo apt install nmap</span>
+<span class="go">host$ nmap 192.168.7.2</span>
+<span class="go">Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-09 13:37 EDT</span>
+<span class="go">Nmap scan report for bone (192.168.7.2)</span>
+<span class="go">Host is up (0.014s latency).</span>
+<span class="go">Not shown: 997 closed ports</span>
+<span class="go">PORT     STATE SERVICE</span>
+<span class="go">22/tcp   open  ssh</span>
+<span class="go">80/tcp   open  http</span>
+<span class="go">3000/tcp open  ppp</span>
+
+<span class="go">Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds</span>
+</pre></div>
+</div>
+<p>Currently there are three ports visible:  22, 80 and 3000 (visual studio code).
+Now turn on the firewall and see what happens.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo ufw enable</span>
+<span class="go">Command may disrupt existing ssh connections. Proceed with operation (y|n)? y</span>
+<span class="go">Firewall is active and enabled on system startup</span>
+
+
+<span class="go">host$ nmap 192.168.7.2</span>
+<span class="go">Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-09 13:37 EDT</span>
+<span class="go">Nmap scan report for bone (192.168.7.2)</span>
+<span class="go">Host is up (0.014s latency).</span>
+<span class="go">Not shown: 999 closed ports</span>
+<span class="go">PORT     STATE SERVICE</span>
+<span class="go">22/tcp   open  ssh</span>
+
+<span class="go">Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds</span>
+</pre></div>
+</div>
+<p>Only port 22 (ssh) is accessible now.</p>
+<p>The firewall will remain on, even after a reboot. Disable it now if you don’t want it on.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo ufw disable</span>
+<span class="go">Firewall stopped and disabled on system startup</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="https://www.howtogeek.com/devops/how-to-secure-your-linux-server-with-a-ufw-firewall/">How-To Geek article</a> for more examples.</p>
+</section>
+</section>
+<section id="installing-additional-packages-from-the-debian-package-feed">
+<span id="tips-apt"></span><h2>Installing Additional Packages from the Debian Package Feed<a class="headerlink" href="#installing-additional-packages-from-the-debian-package-feed" title="Link to this heading">#</a></h2>
+<section id="id33">
+<h3>Problem<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<p>You want to do more cool things with your BeagleBone by installing more programs.</p>
+</section>
+<section id="id34">
+<h3>Solution<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Your Bone needs to be on the network for this to work. See <a class="reference internal" href="#networking-wired"><span class="std std-ref">Establishing an Ethernet-Based Internet Connection</span></a>,
+<a class="reference internal" href="#networking-wireless"><span class="std std-ref">Establishing a WiFi-Based Internet Connection</span></a>, or <a class="reference internal" href="#networking-usb"><span class="std std-ref">Sharing the Host’s Internet Connection over USB</span></a>.</p>
+</div>
+<p>The easiest way to install more software is to use <strong>apt</strong>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt update</span>
+<span class="go">bone$ sudo apt install &quot;name of software&quot;</span>
+</pre></div>
+</div>
+<p>A <em>sudo</em> is necessary since you aren’t running as <em>root</em>. The first command downloads
+package lists from various repositories and updates them to get information on the
+newest versions of packages and their dependencies. (You need to run it only once a week or so.)
+The second command fetches the software and installs it and all packages it depends on.</p>
+<p>How do you find out what software you can install?  Try running this:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ apt-cache pkgnames | sort &gt; /tmp/list</span>
+<span class="go">bone$ wc /tmp/list</span>
+<span class="go">  67974   67974 1369852 /tmp/list</span>
+<span class="go">bone$ less /tmp/list</span>
+</pre></div>
+</div>
+<p>The first command lists all the packages that <em>apt</em> knows about and sorts them and stores
+them in <code class="docutils literal notranslate"><span class="pre">/tmp/list</span></code>. The second command shows why you want to put the list in a file.
+The <em>wc</em> command counts the number of lines, words, and characters in a file. In our case,
+there are over 67,000 packages from which we can choose! The <em>less</em> command displays the sorted
+list, one page at a time. Press the space bar to go to the next page. Press <strong>q</strong> to quit.</p>
+<p>Suppose that you would like to install an online dictionary (<em>dict</em>). Just run the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt install dict</span>
+</pre></div>
+</div>
+<p>Now you can run <em>dict</em>.</p>
+</section>
+</section>
+<section id="removing-packages-installed-with-apt">
+<span id="tips-apt-remove"></span><h2>Removing Packages Installed with apt<a class="headerlink" href="#removing-packages-installed-with-apt" title="Link to this heading">#</a></h2>
+<section id="id35">
+<h3>Problem<a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<p>You’ve been playing around and installing all sorts of
+things with <em>apt</em> and now you want to clean things up a bit.</p>
+</section>
+<section id="id36">
+<h3>Solution<a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
+<p><em>apt</em> has a <em>remove</em> option, so you can run the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt remove dict</span>
+<span class="go">Reading package lists... Done</span>
+<span class="go">Building dependency tree</span>
+<span class="go">Reading state information... Done</span>
+<span class="go">The following packages were automatically installed and are no longer required:</span>
+<span class="go">libmaa3 librecode0 recode</span>
+<span class="go">Use &#39;apt autoremove&#39; to remove them.</span>
+<span class="go">The following packages will be REMOVED:</span>
+<span class="go">dict</span>
+<span class="go">0 upgraded, 0 newly installed, 1 to remove and 27 not upgraded.</span>
+<span class="go">After this operation, 164 kB disk space will be freed.</span>
+<span class="go">Do you want to continue [Y/n]? y</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="copying-files-between-the-onboard-flash-and-the-microsd-card">
+<h2>Copying Files Between the Onboard Flash and the MicroSD Card<a class="headerlink" href="#copying-files-between-the-onboard-flash-and-the-microsd-card" title="Link to this heading">#</a></h2>
+<section id="id37">
+<h3>Problem<a class="headerlink" href="#id37" title="Link to this heading">#</a></h3>
+<p>You want to move files between the onboard flash and the microSD card.</p>
+</section>
+<section id="id38">
+<h3>Solution<a class="headerlink" href="#id38" title="Link to this heading">#</a></h3>
+<p>First, make sure your Beagle has eMMC.  Run <code class="docutils literal notranslate"><span class="pre">lsblk</span></code>.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">beagle:~$ </span>lsblk
+<span class="go">NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span>
+<span class="go">mmcblk1      179:0    0  3.6G  0 disk</span>
+<span class="go">└─mmcblk1p1  179:1    0  3.6G  0 part</span>
+<span class="go">mmcblk1boot0 179:256  0    2M  1 disk</span>
+<span class="go">mmcblk1boot1 179:512  0    2M  1 disk</span>
+<span class="go">mmcblk0      179:768  0  7.4G  0 disk</span>
+<span class="go">└─mmcblk0p1  179:769  0  7.4G  0 part /</span>
+</pre></div>
+</div>
+<p>If the results show <code class="docutils literal notranslate"><span class="pre">mmcblk0</span></code> and <code class="docutils literal notranslate"><span class="pre">mmcblk1</span></code> like above, you have eMMC and can do the
+rest of this recipe.  If your results are like below, you don’t have eMMC.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">beagle:~$ </span>lsblk
+<span class="go">NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS</span>
+<span class="go">mmcblk1     179:0    0  7.5G  0 disk</span>
+<span class="go">├─mmcblk1p1 179:1    0  256M  0 part /boot/firmware</span>
+<span class="go">└─mmcblk1p2 179:2    0  7.3G  0 part /</span>
+</pre></div>
+</div>
+<p>If you booted from the microSD card, run the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ df -h</span>
+<span class="go">Filesystem      Size  Used Avail Use% Mounted on</span>
+<span class="go">rootfs          7.2G  2.0G  4.9G  29% /</span>
+<span class="go">udev             10M     0   10M   0% /dev</span>
+<span class="go">tmpfs           100M  1.9M   98M   2% /run</span>
+<span class="go">/dev/mmcblk0p2  7.2G  2.0G  4.9G  29% /</span>
+<span class="go">tmpfs           249M     0  249M   0% /dev/shm</span>
+<span class="go">tmpfs           249M     0  249M   0% /sys/fs/cgroup</span>
+<span class="go">tmpfs           5.0M     0  5.0M   0% /run/lock</span>
+<span class="go">tmpfs           100M     0  100M   0% /run/user</span>
+<span class="go">bone$ ls /dev/mmcblk*</span>
+<span class="go">/dev/mmcblk0    /dev/mmcblk0p2  /dev/mmcblk1boot0  /dev/mmcblk1p1</span>
+<span class="go">/dev/mmcblk0p1  /dev/mmcblk1    /dev/mmcblk1boot1</span>
+</pre></div>
+</div>
+<p>The <em>df</em> command shows what partitions are already mounted.
+The line <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0p2</span>&#160; <span class="pre">7.2G</span>&#160; <span class="pre">2.0G</span>&#160; <span class="pre">4.9G</span>&#160; <span class="pre">29%</span> <span class="pre">/</span></code> shows that <em>mmcblk0</em> partition <em>p2</em>
+is mounted as <em>/</em>, the root file system. The general rule is that the media you’re booted from
+(either the onboard flash or the microSD card) will appear as <em>mmcblk0</em>.
+The second partition (<em>p2</em>) is the root of the file system.</p>
+<p>The <em>ls</em> command shows what devices are available to mount. Because <em>mmcblk0</em> is already mounted,
+<em>/dev/mmcblk1p1</em> must be the other media that we need to mount. Run the following commands to mount it:</p>
+<div class="admonition-todo admonition" id="id39">
+<p class="admonition-title">Todo</p>
+<p>update</p>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd /mnt</span>
+<span class="go">bone$ sudo mkdir onboard</span>
+<span class="go">bone$ ls onboard</span>
+<span class="go">bone$ sudo mount /dev/mmcblk1p1 onboard/</span>
+<span class="go">bone$ ls onboard</span>
+<span class="go">bin   etc     lib         mnt           proc  sbin     sys  var</span>
+<span class="go">boot  home    lost+found  nfs-uEnv.txt  root  selinux  tmp</span>
+<span class="go">dev   ID.txt  media       opt           run   srv      usr</span>
+</pre></div>
+</div>
+<p>The <em>cd</em> command takes us to a place in the file system where files are commonly mounted.
+The <em>mkdir</em> command creates a new directory (<code class="docutils literal notranslate"><span class="pre">onboard</span></code>) to be a mount point. The <em>ls</em>
+command shows there is nothing in <code class="docutils literal notranslate"><span class="pre">onboard</span></code>. The <em>mount</em> command makes the contents of
+the onboard flash accessible. The next <em>ls</em> shows there now are files in <code class="docutils literal notranslate"><span class="pre">onboard</span></code>.
+These are the contents of the onboard flash, which can be copied to and from like any other file.</p>
+<p>This same process should also work if you have booted from the onboard flash. When you are done
+with the onboard flash, you can unmount it by using this command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo umount /mnt/onboard</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="freeing-space-on-the-onboard-flash-or-microsd-card">
+<h2>Freeing Space on the Onboard Flash or MicroSD Card<a class="headerlink" href="#freeing-space-on-the-onboard-flash-or-microsd-card" title="Link to this heading">#</a></h2>
+<section id="id40">
+<h3>Problem<a class="headerlink" href="#id40" title="Link to this heading">#</a></h3>
+<p>You are starting to run out of room on your microSD card (or onboard flash) and
+have removed several packages you had previously installed (<a class="reference internal" href="#tips-apt-remove"><span class="std std-ref">Removing Packages Installed with apt</span></a>),
+but you still need to free up more space.</p>
+</section>
+<section id="id41">
+<h3>Solution<a class="headerlink" href="#id41" title="Link to this heading">#</a></h3>
+<p>To free up space, you can remove preinstalled packages or discover big files to remove.</p>
+<section id="removing-preinstalled-packages">
+<h4>Removing preinstalled packages<a class="headerlink" href="#removing-preinstalled-packages" title="Link to this heading">#</a></h4>
+<p>You might not need a few things that come preinstalled in the Debian image, including such
+things as OpenCV, the Chromium web browser, and some documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Chromium web browser is the open source version of Google’s Chrome web browser.
+Unless you are using the Bone as a desktop computer, you can probably remove it.</p>
+</div>
+<p>Here’s how you can remove these:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt remove bb-node-red-installer (171M)</span>
+<span class="go">bone$ sudo apt autoremove</span>
+<span class="go">bone$ sudo -rf /usr/share/doc               (116M)</span>
+<span class="go">bone$ sudo -rf /usr/share/man               (19M)</span>
+</pre></div>
+</div>
+</section>
+<section id="discovering-big-files">
+<h4>Discovering big files<a class="headerlink" href="#discovering-big-files" title="Link to this heading">#</a></h4>
+<p>The <em>du</em> (disk usage) command offers a quick way to discover big files:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo du -shx /*</span>
+<span class="go">12M  /bin</span>
+<span class="go">160M /boot</span>
+<span class="go">0    /dev</span>
+<span class="go">23M  /etc</span>
+<span class="go">835M /home</span>
+<span class="go">4.0K /ID.txt</span>
+<span class="go">591M /lib</span>
+<span class="go">16K  /lost+found</span>
+<span class="go">4.0K /media</span>
+<span class="go">8.0K /mnt</span>
+<span class="go">664M /opt</span>
+<span class="go">du: cannot access &#39;/proc/1454/task/1454/fd/4&#39;: No such file or directory</span>
+<span class="go">du: cannot access &#39;/proc/1454/task/1454/fdinfo/4&#39;: No such file or directory</span>
+<span class="go">du: cannot access &#39;/proc/1454/fd/3&#39;: No such file or directory</span>
+<span class="go">du: cannot access &#39;/proc/1454/fdinfo/3&#39;: No such file or directory</span>
+<span class="go">0    /proc</span>
+<span class="go">1.4M /root</span>
+<span class="go">1.4M /run</span>
+<span class="go">13M  /sbin</span>
+<span class="go">4.0K /srv</span>
+<span class="go">0    /sys</span>
+<span class="go">48K  /tmp</span>
+<span class="go">1.6G /usr</span>
+<span class="go">1.9G /var</span>
+</pre></div>
+</div>
+<p>If you booted from the microSD card, <em>du</em> lists the usage of the microSD.
+If you booted from the onboard flash, it lists the onboard flash usage.</p>
+<p>The <em>-s</em> option summarizes the results rather than displaying every file. <em>-h</em> prints
+it in _human_ form–that is, using <em>M</em> and <em>K</em> postfixes rather than showing lots of digits.
+The <em>/*</em> specifies to run it on everything in the top-level directory. It looks like a couple
+of things disappeared while the command was running and thus produced some error messages.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more help, try <em>du –help</em>.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">/var</span></code> directory appears to be the biggest user of space at 1.9 GB. You can then run the
+following command to see what’s taking up the space in <code class="docutils literal notranslate"><span class="pre">/var</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo du -sh /var/*</span>
+<span class="go">4.0K /var/backups</span>
+<span class="go">76M  /var/cache</span>
+<span class="go">93M  /var/lib</span>
+<span class="go">4.0K /var/local</span>
+<span class="go">0    /var/lock</span>
+<span class="go">751M /var/log</span>
+<span class="go">4.0K /var/mail</span>
+<span class="go">4.0K /var/opt</span>
+<span class="go">0    /var/run</span>
+<span class="go">16K  /var/spool</span>
+<span class="go">987M /var/swap</span>
+<span class="go">28K  /var/tmp</span>
+<span class="go">16K  /var/www</span>
+</pre></div>
+</div>
+<p>A more interactive way to explore your disk usage is by installing <em>ncdu</em> (ncurses disk usage):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt install ncdu</span>
+<span class="go">bone$ ncdu /</span>
+</pre></div>
+</div>
+<p>After a moment, you’ll see the following:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">ncdu 1.15.1 ~ Use the arrow keys to navigate, press ? for help</span>
+<span class="go">--- / ------------------------------------------------------------------</span>
+<span class="go">.   1.9 GiB [##########] /var</span>
+<span class="go">    1.5 GiB [########  ] /usr</span>
+<span class="go">  835.0 MiB [####      ] /home</span>
+<span class="go">  663.5 MiB [###       ] /opt</span>
+<span class="go">  590.9 MiB [###       ] /lib</span>
+<span class="go">  159.0 MiB [          ] /boot</span>
+<span class="go">.  22.8 MiB [          ] /etc</span>
+<span class="go">   12.5 MiB [          ] /sbin</span>
+<span class="go">   11.1 MiB [          ] /bin</span>
+<span class="go">.   1.4 MiB [          ] /run</span>
+<span class="go">.  40.0 KiB [          ] /tmp</span>
+<span class="go">!  16.0 KiB [          ] /lost+found</span>
+<span class="go">    8.0 KiB [          ] /mnt</span>
+<span class="go">e   4.0 KiB [          ] /srv</span>
+<span class="go">!   4.0 KiB [          ] /root</span>
+<span class="go">e   4.0 KiB [          ] /media</span>
+<span class="go">    4.0 KiB [          ]  ID.txt</span>
+<span class="go">.   0.0   B [          ] /sys</span>
+<span class="go">.   0.0   B [          ] /proc</span>
+<span class="go">    0.0   B [          ] /dev</span>
+
+<span class="go">Total disk usage:   5.6 GiB  Apparent size:   5.5 GiB  Items: 206148</span>
+</pre></div>
+</div>
+<p><em>ncdu</em> is a character-based graphics interface to <em>du</em>.  You can now use your arrow
+keys to navigate the file structure to discover where the big unused files are. Press ? for help.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful not to press the <strong>d</strong> key, because it’s used to delete a file or directory.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="using-c-to-interact-with-the-physical-world">
+<span id="misc-libsoc"></span><h2>Using C to Interact with the Physical World<a class="headerlink" href="#using-c-to-interact-with-the-physical-world" title="Link to this heading">#</a></h2>
+<section id="id42">
+<h3>Problem<a class="headerlink" href="#id42" title="Link to this heading">#</a></h3>
+<p>You want to use C on the Bone to talk to the world.</p>
+</section>
+<section id="id43">
+<h3>Solution<a class="headerlink" href="#id43" title="Link to this heading">#</a></h3>
+<p>The C solution isn’t as simple as the JavaScript or Python solution, but it does work
+and is much faster.  The approach is the same, write to the <em>/sys/class/gpio</em> files.</p>
+<div class="literal-block-wrapper docutils container" id="id61">
+<span id="misc-c-blink"></span><div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">Use C to blink an LED (blinkLED.c)</span><a class="headerlink" href="#id61" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 2</span><span class="c1">//	blinkLED.c</span>
+<span class="linenos"> 3</span><span class="c1">//	Blinks the P9_14 pin</span>
+<span class="linenos"> 4</span><span class="c1">//	Wiring:</span>
+<span class="linenos"> 5</span><span class="c1">//	Setup:</span>
+<span class="linenos"> 6</span><span class="c1">//	See:</span>
+<span class="linenos"> 7</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 9</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<span class="linenos">11</span><span class="cp">#define MAXSTR 100</span>
+<span class="linenos">12</span><span class="c1">// Look up P9.14 using gpioinfo | grep -e chip -e P9.14.  chip 1, line 18 maps to 50</span>
+<span class="linenos">13</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">pin</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;50&quot;</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/sys/class/gpio&quot;</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="n">MAXSTR</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">  </span><span class="c1">// Make sure pin is exported</span>
+<span class="linenos">20</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pin</span><span class="p">);</span>
+<span class="linenos">21</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">access</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">F_OK</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/export&quot;</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pin</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">27</span><span class="w"> </span>
+<span class="linenos">28</span><span class="w">  </span><span class="c1">// Make it an output pin</span>
+<span class="linenos">29</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/direction&quot;</span><span class="p">);</span>
+<span class="linenos">30</span><span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">31</span><span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;out&quot;</span><span class="p">);</span>
+<span class="linenos">32</span><span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">  </span><span class="c1">// Blink every .25 sec</span>
+<span class="linenos">35</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">36</span><span class="w">  </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">MAXSTR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GPIOPATH</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/value&quot;</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos">38</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">39</span><span class="w">    </span><span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">41</span><span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">);</span>
+<span class="linenos">42</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">43</span><span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+<span class="linenos">44</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">45</span><span class="w">    </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">state</span><span class="p">;</span>
+<span class="linenos">46</span><span class="w">    </span><span class="n">usleep</span><span class="p">(</span><span class="mi">250000</span><span class="p">);</span><span class="w">   </span><span class="c1">// sleep time in microseconds</span>
+<span class="linenos">47</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">48</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/218d7eef4688d001b5be8e0185194a4d/blinkLED.c"><code class="xref download docutils literal notranslate"><span class="pre">blinkLED.c</span></code></a></p>
+<p>Here, as with JavaScript and Python, the gpio pins are referred to by the Linux gpio number.
+<a class="reference internal" href="#tips-cape-headers-digital"><span class="std std-ref">Mapping from header pin to internal GPIO number</span></a> shows how the P8 and P9 Headers numbers map to the gpio number.
+For this example P9_14 is used, which the table shows in gpio 50.</p>
+<figure class="align-center" id="id62">
+<span id="tips-cape-headers-digital"></span><img alt="cape headers digital" src="../../../_images/cape-headers-digital.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 684 </span><span class="caption-text">Mapping from header pin to internal GPIO number</span><a class="headerlink" href="#id62" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Compile and run the code:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ gcc -o blinkLED blinkLED.c</span>
+<span class="go">bone$ ./blinkLED</span>
+<span class="go">^C</span>
+</pre></div>
+</div>
+<p>Hit ^C to stop the blinking.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../04motors/motors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Motors</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../06iot/iot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Internet of Things</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-your-bone-standalone">Running Your Bone Standalone</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-an-os-for-your-development-host-computer">Selecting an OS for Your Development Host Computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-the-command-shell-via-ssh">Getting to the Command Shell via SSH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-password">Default password</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-the-message-of-the-day">Removing the <em>Message of the Day</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-the-command-shell-via-the-virtual-serial-port">Getting to the Command Shell via the Virtual Serial Port</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-and-debugging-the-kernel-and-u-boot-messages-at-boot-time">Viewing and Debugging the Kernel and u-boot Messages at Boot Time</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-you-have-the-latest-version-of-the-os-on-your-bone-from-the-shell">Verifying You Have the Latest Version of the OS on Your Bone from the Shell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-the-bone-remotely-with-a-vnc">Controlling the Bone Remotely with a VNC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-typical-gnu-linux-commands">Learning Typical GNU/Linux Commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-a-text-file-from-the-gnu-linux-command-shell">Editing a Text File from the GNU/Linux Command Shell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-an-ethernet-based-internet-connection">Establishing an Ethernet-Based Internet Connection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-a-wifi-based-internet-connection">Establishing a WiFi-Based Internet Connection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-the-host-s-internet-connection-over-usb">Sharing the Host’s Internet Connection over USB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#letting-your-bone-see-the-world-setting-up-ip-masquerading">Letting your bone see the world: setting up IP masquerading</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#letting-the-world-see-your-bone-setting-up-port-forwarding">Letting the world see your bone: setting up port forwarding</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-firewall">Setting Up a Firewall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-additional-packages-from-the-debian-package-feed">Installing Additional Packages from the Debian Package Feed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-packages-installed-with-apt">Removing Packages Installed with apt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-between-the-onboard-flash-and-the-microsd-card">Copying Files Between the Onboard Flash and the MicroSD Card</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeing-space-on-the-onboard-flash-or-microsd-card">Freeing Space on the Onboard Flash or MicroSD Card</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-preinstalled-packages">Removing preinstalled packages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-big-files">Discovering big files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-c-to-interact-with-the-physical-world">Using C to Interact with the Physical World</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">Solution</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/beaglebone-cookbook/05tips/tips.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/beaglebone-cookbook/05tips/tips.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-cookbook.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.. _exhale_define_group___g_p_i_o_1ga550683401332bbba6151b80e469a1553:
+
+Define RC_GPIOEVENT_TIMEOUT
+===========================
+
+- Defined in :ref:`file_library_include_rc_gpio.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: RC_GPIOEVENT_TIMEOUT
+   :project: librobotcontrol

@@ -1,0 +1,2071 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Motors &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/beaglebone-cookbook/04motors/motors';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/beaglebone-cookbook/04motors/motors.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Beyond the Basics" href="../05tips/tips.html" />
+    <link rel="prev" title="Displays and Other Outputs" href="../03displays/displays.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">BeagleBone Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pru-cookbook/index.html">PRU Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeagleBone Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Motors</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="motors">
+<span id="beaglebone-cookbook-motors"></span><h1>Motors<a class="headerlink" href="#motors" title="Link to this heading">#</a></h1>
+<p>One of the many fun things about embedded computers is that you can move physical things with motors.
+But there are so many different kinds of motors (<code class="docutils literal notranslate"><span class="pre">servo</span></code>, <code class="docutils literal notranslate"><span class="pre">stepper</span></code>, <code class="docutils literal notranslate"><span class="pre">DC</span></code>), so how do you select the right one?</p>
+<p>The type of motor you use depends on the type of motion you want:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>R/C or hobby servo motor</dt><dd><p>Can be quickly positioned at various absolute angles, but some don’t spin. In fact, many can turn only about 180{deg}.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Stepper motor</dt><dd><p>Spins and can also rotate in precise relative angles, such as turning 45°. Stepper motors come in two types: <code class="docutils literal notranslate"><span class="pre">bipolar</span></code> (which has four wires) and <code class="docutils literal notranslate"><span class="pre">unipolar</span></code> (which has five or six wires).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DC motor</dt><dd><p>Spins either clockwise or counter-clockwise and can have the greatest speed of the three. But a DC motor can’t easily be made to turn to a given angle.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>When you know which type of motor to use, interfacing is easy. This chapter shows how to interface with each of these motors.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Motors come in many sizes and types. This chapter presents some of the more popular
+types and shows how they can interface easily to the Bone. If you need to turn on and
+off a 120 V motor, consider using something like the PowerSwitch presented in <a class="reference internal" href="../03displays/displays.html#displays-powerswitch"><span class="std std-ref">Toggling a High-Voltage External Device</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Bone has built-in 3.3 V and 5 V supplies, which can supply enough current to drive
+some small motors. Many motors, however, draw enough current that an external power
+supply is needed. Therefore, an external 5 V power supply is listed as optional in many of the recipes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All the examples in the book assume you have cloned the Cookbook repository on
+git.beagleboard.org. Go here <a class="reference internal" href="../01basics/basics.html#basics-repo"><span class="std std-ref">Cloning the Cookbook Repository</span></a> for instructions.</p>
+</div>
+<section id="controlling-a-servo-motor">
+<span id="motors-servo"></span><h2>Controlling a Servo Motor<a class="headerlink" href="#controlling-a-servo-motor" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>You want to use BeagleBone to control the absolute position of a servo motor.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>We’ll use the pulse width modulation (PWM)
+hardware of the Bone to control a servo motor.</p>
+<p>To make the recipe, you will need:</p>
+<ul class="simple">
+<li><p>Servo motor.</p></li>
+<li><p>Breadboard and jumper wires.</p></li>
+<li><p>1 kΩ resistor (optional)</p></li>
+<li><p>5 V power supply (optional)</p></li>
+</ul>
+<p>The 1 kΩ resistor isn’t required, but it provides some protection to the general-purpose
+input/output (GPIO) pin in case the servo fails and draws a large current.</p>
+<p>Wire up your servo, as shown in <a class="reference internal" href="#motors-servomotor"><span class="std std-ref">Driving a servo motor with the 3.3 V power supply</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no standard for how servo motor wires are colored. One of my servos is wired
+like <a class="reference internal" href="#motors-servomotor"><span class="std std-ref">Driving a servo motor with the 3.3 V power supply</span></a> red is 3.3 V, black is ground, and yellow is the control line.
+I have another servo that has red as 3.3 V and ground is brown, with the control line being orange.
+Generally, though, the 3.3 V is in the middle. Check the datasheet for your servo before wiring.</p>
+</div>
+<figure class="align-center" id="id11">
+<span id="motors-servomotor"></span><img alt="Servo Motor" src="../../../_images/servoMotor_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 664 </span><span class="caption-text">Driving a servo motor with the 3.3 V power supply</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The code for controlling the servo motor is in <code class="docutils literal notranslate"><span class="pre">servoMotor.py</span></code>, shown
+in <a class="reference internal" href="#py-servomotor-code"><span class="std std-ref">Code for driving a servo motor (servoMotor.py)</span></a>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Python</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id12">
+<span id="py-servomotor-code"></span><div class="code-block-caption"><span class="caption-number">Listing 44 </span><span class="caption-text">Code for driving a servo motor (servoMotor.py)</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
+<span class="linenos"> 2</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1"># //	servoMotor.py</span>
+<span class="linenos"> 4</span><span class="c1"># //	Drive a simple servo motor back and forth on P9_16 pin</span>
+<span class="linenos"> 5</span><span class="c1"># //	Wiring:</span>
+<span class="linenos"> 6</span><span class="c1"># //	Setup:  config-pin P9_16 pwm</span>
+<span class="linenos"> 7</span><span class="c1"># //	See:</span>
+<span class="linenos"> 8</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 9</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos">10</span><span class="kn">import</span> <span class="nn">signal</span>
+<span class="linenos">11</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="n">pwmPeriod</span> <span class="o">=</span> <span class="s1">&#39;20000000&#39;</span>    <span class="c1"># Period in ns, (20 ms)</span>
+<span class="linenos">14</span><span class="n">pwm</span> <span class="o">=</span>     <span class="s1">&#39;1&#39;</span> <span class="c1"># pwm to use</span>
+<span class="linenos">15</span><span class="n">channel</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span> <span class="c1"># channel to use</span>
+<span class="linenos">16</span><span class="n">PWMPATH</span><span class="o">=</span><span class="s1">&#39;/dev/bone/pwm/&#39;</span><span class="o">+</span><span class="n">pwm</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">channel</span>
+<span class="linenos">17</span><span class="n">low</span>  <span class="o">=</span> <span class="mf">0.8</span> <span class="c1"># Smallest angle (in ms)</span>
+<span class="linenos">18</span><span class="n">hi</span>   <span class="o">=</span> <span class="mf">2.4</span> <span class="c1"># Largest angle (in ms)</span>
+<span class="linenos">19</span><span class="n">ms</span>   <span class="o">=</span> <span class="mi">250</span> <span class="c1"># How often to change position, in ms</span>
+<span class="linenos">20</span><span class="n">pos</span>  <span class="o">=</span> <span class="mf">1.5</span> <span class="c1"># Current position, about middle ms)</span>
+<span class="linenos">21</span><span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># Step size to next position</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="k">def</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+<span class="linenos">24</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">28</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">)</span>
+<span class="linenos">30</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit ^C to stop&#39;</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/period&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pwmPeriod</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">35</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">36</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="linenos">37</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">40</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">41</span>    <span class="n">pos</span> <span class="o">+=</span> <span class="n">step</span>    <span class="c1"># Take a step</span>
+<span class="linenos">42</span>    <span class="k">if</span><span class="p">(</span><span class="n">pos</span> <span class="o">&gt;</span> <span class="n">hi</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="n">low</span><span class="p">):</span>
+<span class="linenos">43</span>        <span class="n">step</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos">44</span>    <span class="n">duty_cycle</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pos</span><span class="o">*</span><span class="mi">1000000</span><span class="p">))</span>    <span class="c1"># Convert ms to ns</span>
+<span class="linenos">45</span>    <span class="c1"># print(&#39;pos = &#39; + str(pos) + &#39; duty_cycle = &#39; + duty_cycle)</span>
+<span class="linenos">46</span>    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">duty_cycle</span><span class="p">)</span>
+<span class="linenos">48</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="c1"># | Pin   | pwm | channel</span>
+<span class="linenos">51</span><span class="c1"># | P9_31 | 0   | a</span>
+<span class="linenos">52</span><span class="c1"># | P9_29 | 0   | b</span>
+<span class="linenos">53</span><span class="c1"># | P9_14 | 1   | a</span>
+<span class="linenos">54</span><span class="c1"># | P9_16 | 1   | b</span>
+<span class="linenos">55</span><span class="c1"># | P8_19 | 2   | a</span>
+<span class="linenos">56</span><span class="c1"># | P8_13 | 2   | b</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/6813247c00ba731045494ead591a1d1b/servoMotor.py"><code class="xref download docutils literal notranslate"><span class="pre">servoMotor.py</span></code></a></p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+JavaScript</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id13">
+<span id="motors-servomotor-code"></span><div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">Code for driving a servo motor (servoMotor.js)</span><a class="headerlink" href="#id13" title="Link to this code">#</a></div>
+<div class="highlight-JavaScript notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env node</span>
+<span class="linenos"> 2</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1">//	servoMotor.js</span>
+<span class="linenos"> 4</span><span class="c1">//	Drive a simple servo motor back and forth on P9_16 pin</span>
+<span class="linenos"> 5</span><span class="c1">//	Wiring:</span>
+<span class="linenos"> 6</span><span class="c1">//	Setup:  config-pin P9_16 pwm</span>
+<span class="linenos"> 7</span><span class="c1">//	See:</span>
+<span class="linenos"> 8</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 9</span><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kd">const</span><span class="w"> </span><span class="nx">pwmPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;20000000&#39;</span><span class="p">;</span><span class="w">    </span><span class="c1">// Period in ns, (20 ms)</span>
+<span class="linenos">12</span><span class="kd">const</span><span class="w"> </span><span class="nx">pwm</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// pwm to use</span>
+<span class="linenos">13</span><span class="kd">const</span><span class="w"> </span><span class="nx">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// channel to use</span>
+<span class="linenos">14</span><span class="kd">const</span><span class="w"> </span><span class="nx">PWMPATH</span><span class="o">=</span><span class="s1">&#39;/dev/bone/pwm/&#39;</span><span class="o">+</span><span class="nx">pwm</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="nx">channel</span><span class="p">;</span>
+<span class="linenos">15</span><span class="kd">const</span><span class="w"> </span><span class="nx">low</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> </span><span class="c1">// Smallest angle (in ms)</span>
+<span class="linenos">16</span><span class="w">      </span><span class="nx">hi</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">2.4</span><span class="p">,</span><span class="w"> </span><span class="c1">// Largest angle (in ms)</span>
+<span class="linenos">17</span><span class="w">      </span><span class="nx">ms</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">250</span><span class="p">;</span><span class="w">  </span><span class="c1">// How often to change position, in ms</span>
+<span class="linenos">18</span><span class="kd">var</span><span class="w">   </span><span class="nx">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">  </span><span class="c1">// Current position, about middle ms)</span>
+<span class="linenos">19</span><span class="w">      </span><span class="nx">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Step size to next position</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hit ^C to stop&#39;</span><span class="p">);</span>
+<span class="linenos">22</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/period&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">pwmPeriod</span><span class="p">);</span>
+<span class="linenos">23</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="kd">var</span><span class="w"> </span><span class="nx">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(</span><span class="nx">sweep</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">);</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1">// Sweep from low to hi position and back again</span>
+<span class="linenos">28</span><span class="kd">function</span><span class="w"> </span><span class="nx">sweep</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">29</span><span class="w">    </span><span class="nx">pos</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">step</span><span class="p">;</span><span class="w">    </span><span class="c1">// Take a step</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">pos</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">hi</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">low</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">31</span><span class="w">        </span><span class="nx">step</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="linenos">32</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">33</span><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">dutyCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">pos</span><span class="o">*</span><span class="mf">1000000</span><span class="p">);</span><span class="w">    </span><span class="c1">// Convert ms to ns</span>
+<span class="linenos">34</span><span class="w">    </span><span class="c1">// console.log(&#39;pos = &#39; + pos + &#39; duty cycle = &#39; + dutyCycle);</span>
+<span class="linenos">35</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">dutyCycle</span><span class="p">);</span>
+<span class="linenos">36</span><span class="p">}</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;SIGINT&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">39</span><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">    </span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span><span class="w">             </span><span class="c1">// Stop the timer</span>
+<span class="linenos">41</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="linenos">42</span><span class="p">});</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="c1">// | Pin   | pwm | channel</span>
+<span class="linenos">45</span><span class="c1">// | P9_31 | 0   | a</span>
+<span class="linenos">46</span><span class="c1">// | P9_29 | 0   | b</span>
+<span class="linenos">47</span><span class="c1">// | P9_14 | 1   | a</span>
+<span class="linenos">48</span><span class="c1">// | P9_16 | 1   | b</span>
+<span class="linenos">49</span><span class="c1">// | P8_19 | 2   | a</span>
+<span class="linenos">50</span><span class="c1">// | P8_13 | 2   | b</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/1ce9bf82d8ad22d68c25b73f336e8aa9/servoMotor.js"><code class="xref download docutils literal notranslate"><span class="pre">servoMotor.js</span></code></a></p>
+</div>
+</div>
+<p>You need to configure the pin for PWM.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+BeagleBone</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/beaglebone-cookbook-code/04motors
+bone$<span class="w"> </span>config-pin<span class="w"> </span>P9_16<span class="w"> </span>pwm
+bone$<span class="w"> </span>./servoMotor.py
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+BeagleY-AI</label><div class="sd-tab-content docutils">
+<p>Configuring the PWM on the BeagleY-AI takes a little more effort than on the Bone.
+First select which PWM you want to use. <a class="reference external" href="https://pinout.beagleboard.io/pinout/pwm">https://pinout.beagleboard.io/pinout/pwm</a>
+shows you have many to choose from.</p>
+<figure class="align-center" id="id14">
+<img alt="BeagleY-AI PWMs" src="../../../_images/pwm.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 665 </span><span class="caption-text">BeagleY-AI PWMs</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Let’s use <strong>PWM0</strong> on <strong>GPIO12</strong>.  Note this is Hat pin 32 as shown in the figure (<strong>hat-32</strong>).
+The instructions at <a class="reference internal" href="../../../boards/beagley/ai/demos/using-pwm.html#beagley-ai-using-pwm"><span class="std std-ref">Pulse Width Modulation (PWM)</span></a> give details on how to configure the PWM pin. A shorter version is given here.</p>
+<p>To enable any of the PWM Pins, we have to modify the file: <code class="docutils literal notranslate"><span class="pre">/boot/firmware/extlinux/extlinux.conf</span></code>. We can check the available list of Device Tree Overlays using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeagleBone:~$ </span>ls<span class="w"> </span>/boot/firmware/overlays/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;beagley-ai-pwm&quot;</span>
+<span class="go">k3-am67a-beagley-ai-pwm-ecap0-gpio12.dtbo</span>
+<span class="go">k3-am67a-beagley-ai-pwm-ecap1-gpio16.dtbo</span>
+<span class="go">k3-am67a-beagley-ai-pwm-ecap1-gpio21.dtbo</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>Add the line shown below to <code class="docutils literal notranslate"><span class="pre">/boot/firmware/extlinux/extlinux.conf</span></code> to load the gpio12 pwm device tree overlay:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fdtoverlays<span class="w"> </span>/overlays/k3-am67a-beagley-ai-pwm-epwm0-ecap0-gpio12.dtbo
+</pre></div>
+</div>
+<p>Your <code class="docutils literal notranslate"><span class="pre">/boot/firmware/extlinux/extlinux.conf</span></code> file should look something like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>label<span class="w"> </span>microSD<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
+<span class="w">    </span>kernel<span class="w"> </span>/Image
+<span class="w">    </span>append<span class="w"> </span><span class="nv">console</span><span class="o">=</span>ttyS2,115200n8<span class="w"> </span><span class="nv">root</span><span class="o">=</span>/dev/mmcblk1p3<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootfstype</span><span class="o">=</span>ext4<span class="w"> </span><span class="nv">resume</span><span class="o">=</span>/dev/mmcblk1p2<span class="w"> </span>rootwait<span class="w"> </span>net.ifnames<span class="o">=</span><span class="m">0</span><span class="w"> </span>quiet
+<span class="w">    </span>fdtdir<span class="w"> </span>/
+<span class="w">    </span>fdt<span class="w"> </span>/ti/k3-am67a-beagley-ai.dtb
+<span class="w">    </span>fdtoverlays<span class="w"> </span>/overlays/k3-am67a-beagley-ai-pwm-ecap0-gpio12.dtbo
+<span class="w">    </span>initrd<span class="w"> </span>/initrd.img
+</pre></div>
+</div>
+<p>Now reboot you BeagleY-AI to load the overlay:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">beagle$ sudo reboot</span>
+</pre></div>
+</div>
+<p>To configure HAT pin32 (GPIO12) PWM symlink pin using <code class="docutils literal notranslate"><span class="pre">beagle-pwm-export</span></code> execute the command below,</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">beagle$ sudo beagle-pwm-export --pin hat-32</span>
+</pre></div>
+</div>
+<p>We’ve changed the PWM pin that’s being used so we need to modfiy <code class="docutils literal notranslate"><span class="pre">servoMotor.py</span></code>.
+Around line 16 you will see:</p>
+<blockquote>
+<div><p>PWMPATH=’/dev/bone/pwm/’+pwm+’/’+channel</p>
+</div></blockquote>
+<p>Change it to:</p>
+<blockquote>
+<div><p>PWMPATH=’/dev/hat/pwm/GPIO12’</p>
+</div></blockquote>
+<p>Now run your code:</p>
+<blockquote>
+<div><p>beagle$ ./servoMotor.py</p>
+</div></blockquote>
+</div>
+</div>
+<p>Running the code causes the motor to move back and forth, progressing to successive
+positions between the two extremes.  You will need to press ^C (Ctrl-C) to stop the script.</p>
+</section>
+</section>
+<section id="controlling-a-servo-with-an-rotary-encoder">
+<h2>Controlling a Servo with an Rotary Encoder<a class="headerlink" href="#controlling-a-servo-with-an-rotary-encoder" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Problem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>You have a rotary encoder from from chapter 2 rotary encoder example that you want to use to control a servo motor.</p>
+</section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Combine the code from <code class="docutils literal notranslate"><span class="pre">rotaryEncoder.js</span></code> and <code class="docutils literal notranslate"><span class="pre">servoMotor.js</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>config-pin<span class="w"> </span>P9_16<span class="w"> </span>pwm
+bone$<span class="w"> </span>config-pin<span class="w"> </span>P8_11<span class="w"> </span>eqep
+bone$<span class="w"> </span>config-pin<span class="w"> </span>P8_12<span class="w"> </span>eqep
+bone$<span class="w"> </span>./servoEncoder.py
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<span id="py-servoencoder-code"></span><div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">Code for driving a servo motor with a rotary encorder(servoEncoder.py)</span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
+<span class="linenos"> 2</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1"># //	servoEncoder.py</span>
+<span class="linenos"> 4</span><span class="c1"># //	Drive a simple servo motor using rotary encoder viq eQEP </span>
+<span class="linenos"> 5</span><span class="c1"># //	Wiring: Servo on P9_16, rotary encoder on P8_11 and P8_12</span>
+<span class="linenos"> 6</span><span class="c1"># //	Setup:  config-pin P9_16 pwm</span>
+<span class="linenos"> 7</span><span class="c1"># //			config-pin P8_11 eqep</span>
+<span class="linenos"> 8</span><span class="c1"># //			config-pin P8_12 eqep</span>
+<span class="linenos"> 9</span><span class="c1"># //	See:</span>
+<span class="linenos">10</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos">11</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos">12</span><span class="kn">import</span> <span class="nn">signal</span>
+<span class="linenos">13</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Set up encoder</span>
+<span class="linenos">16</span><span class="n">eQEP</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+<span class="linenos">17</span><span class="n">COUNTERPATH</span> <span class="o">=</span> <span class="s1">&#39;/dev/bone/counter/counter&#39;</span><span class="o">+</span><span class="n">eQEP</span><span class="o">+</span><span class="s1">&#39;/count0&#39;</span>
+<span class="linenos">18</span><span class="n">maxCount</span> <span class="o">=</span> <span class="s1">&#39;180&#39;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="n">ms</span> <span class="o">=</span> <span class="mi">100</span> 	<span class="c1"># Time between samples in ms</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1"># Set the eEQP maximum count</span>
+<span class="linenos">23</span><span class="n">fQEP</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">COUNTERPATH</span><span class="o">+</span><span class="s1">&#39;/ceiling&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">24</span><span class="n">fQEP</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">maxCount</span><span class="p">)</span>
+<span class="linenos">25</span><span class="n">fQEP</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1"># Enable</span>
+<span class="linenos">28</span><span class="n">fQEP</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">COUNTERPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">fQEP</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="linenos">30</span><span class="n">fQEP</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="n">fQEP</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">COUNTERPATH</span><span class="o">+</span><span class="s1">&#39;/count&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="c1"># Set up servo</span>
+<span class="linenos">35</span><span class="n">pwmPeriod</span> <span class="o">=</span> <span class="s1">&#39;20000000&#39;</span>    <span class="c1"># Period in ns, (20 ms)</span>
+<span class="linenos">36</span><span class="n">pwm</span>     <span class="o">=</span> <span class="s1">&#39;1&#39;</span>  <span class="c1"># pwm to use</span>
+<span class="linenos">37</span><span class="n">channel</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>  <span class="c1"># channel to use</span>
+<span class="linenos">38</span><span class="n">PWMPATH</span><span class="o">=</span><span class="s1">&#39;/dev/bone/pwm/&#39;</span><span class="o">+</span><span class="n">pwm</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">channel</span>
+<span class="linenos">39</span><span class="n">low</span>  <span class="o">=</span> <span class="mf">0.6</span> <span class="c1"># Smallest angle (in ms)</span>
+<span class="linenos">40</span><span class="n">hi</span>   <span class="o">=</span> <span class="mf">2.5</span> <span class="c1"># Largest angle (in ms)</span>
+<span class="linenos">41</span><span class="n">ms</span>   <span class="o">=</span> <span class="mi">250</span> <span class="c1"># How often to change position, in ms</span>
+<span class="linenos">42</span><span class="n">pos</span>  <span class="o">=</span> <span class="mf">1.5</span> <span class="c1"># Current position, about middle ms)</span>
+<span class="linenos">43</span><span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># Step size to next position</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="k">def</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+<span class="linenos">46</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">48</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="linenos">49</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">50</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">51</span><span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">)</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/period&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">54</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pwmPeriod</span><span class="p">)</span>
+<span class="linenos">55</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">56</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">57</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pwmPeriod</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)))</span>
+<span class="linenos">58</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">59</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">60</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="linenos">61</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit ^C to stop&#39;</span><span class="p">)</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="n">olddata</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos">66</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">67</span>	<span class="n">fQEP</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">68</span>	<span class="n">data</span> <span class="o">=</span> <span class="n">fQEP</span><span class="o">.</span><span class="n">read</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">69</span>	<span class="c1"># Print only if data changes</span>
+<span class="linenos">70</span>	<span class="k">if</span> <span class="n">data</span> <span class="o">!=</span> <span class="n">olddata</span><span class="p">:</span>
+<span class="linenos">71</span>		<span class="n">olddata</span> <span class="o">=</span> <span class="n">data</span>
+<span class="linenos">72</span>		<span class="c1"># print(&quot;data = &quot; + data)</span>
+<span class="linenos">73</span>		<span class="c1"># # map 0-180  to low-hi</span>
+<span class="linenos">74</span>		<span class="n">duty_cycle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">hi</span><span class="o">-</span><span class="n">low</span><span class="p">)</span><span class="o">/</span><span class="mf">180.0</span> <span class="o">+</span> <span class="n">hi</span>
+<span class="linenos">75</span>		<span class="n">duty_cycle</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty_cycle</span><span class="o">*</span><span class="mi">1000000</span><span class="p">))</span>	<span class="c1"># Convert from ms to ns</span>
+<span class="linenos">76</span>		<span class="c1"># print(&#39;duty_cycle = &#39; + duty_cycle)</span>
+<span class="linenos">77</span>		<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">78</span>		<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">duty_cycle</span><span class="p">)</span>
+<span class="linenos">79</span>		<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">80</span>	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">81</span>
+<span class="linenos">82</span><span class="c1"># Black OR Pocket</span>
+<span class="linenos">83</span><span class="c1"># eQEP0:	P9.27 and P9.42 OR P1_33 and P2_34</span>
+<span class="linenos">84</span><span class="c1"># eQEP1:	P9.33 and P9.35</span>
+<span class="linenos">85</span><span class="c1"># eQEP2:	P8.11 and P8.12 OR P2_24 and P2_33</span>
+<span class="linenos">86</span>
+<span class="linenos">87</span><span class="c1"># AI</span>
+<span class="linenos">88</span><span class="c1"># eQEP1:	P8.33 and P8.35</span>
+<span class="linenos">89</span><span class="c1"># eQEP2:	P8.11 and P8.12 or P9.19 and P9.41</span>
+<span class="linenos">90</span><span class="c1"># eQEP3:	P8.24 and P8.25 or P9.27 and P9.42</span>
+<span class="linenos">91</span>
+<span class="linenos">92</span><span class="c1"># | Pin   | pwm | channel</span>
+<span class="linenos">93</span><span class="c1"># | P9_31 | 0   | a</span>
+<span class="linenos">94</span><span class="c1"># | P9_29 | 0   | b</span>
+<span class="linenos">95</span><span class="c1"># | P9_14 | 1   | a</span>
+<span class="linenos">96</span><span class="c1"># | P9_16 | 1   | b</span>
+<span class="linenos">97</span><span class="c1"># | P8_19 | 2   | a</span>
+<span class="linenos">98</span><span class="c1"># | P8_13 | 2   | b</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/172e7c680fdca4bdf3d58c615f79ed15/servoEncoder.py"><code class="xref download docutils literal notranslate"><span class="pre">servoEncoder.py</span></code></a></p>
+</section>
+</section>
+<section id="controlling-the-speed-of-a-dc-motor">
+<span id="motors-dcspeed"></span><h2>Controlling the Speed of a DC Motor<a class="headerlink" href="#controlling-the-speed-of-a-dc-motor" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Problem<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>You have a DC motor (or a solenoid) and want a simple way to control its speed, but not the direction.</p>
+</section>
+<section id="id4">
+<h3>Solution<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>It would be nice if you could just wire the DC motor to BeagleBone Black and have it work,
+but it won’t.  Most motors require more current than the GPIO ports on the Bone can supply.
+Our solution is to use a transistor to control the current to the bone.</p>
+<p>Here we configure the encoder to returns value between 0 and 180 inclusive. This value is then
+mapped to a value between <em>min</em> (0.6 ms) and <em>max</em> (2.5 ms).  This number is converted from
+milliseconds and nanoseconds (time 1000000) and sent to the servo motor via the pwm.</p>
+<p>Here’s what you will need:</p>
+<ul class="simple">
+<li><p>3 V to 5 V DC motor</p></li>
+<li><p>Breadboard and jumper wires.</p></li>
+<li><p>1 kΩ resistor.</p></li>
+<li><p>Transistor 2N3904.</p></li>
+<li><p>Diode 1N4001.</p></li>
+<li><p>Power supply for the motor (optional)</p></li>
+</ul>
+<p>If you are using a larger motor (more current),
+you will need to use a larger transistor.</p>
+<p>Wire your breadboard as shown in <a class="reference internal" href="#motors-dcmotor-fig"><span class="std std-ref">Wiring a DC motor to spin one direction</span></a>.</p>
+<figure class="align-center" id="id16">
+<span id="motors-dcmotor-fig"></span><img alt="DC Motor" src="../../../_images/dcMotor_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 666 </span><span class="caption-text">Wiring a DC motor to spin one direction</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Use the code in <a class="reference internal" href="#py-dcmotor-code"><span class="std std-ref">Driving a DC motor in one direction (dcMotor.py)</span></a> to run the motor.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+Python</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id17">
+<span id="py-dcmotor-code"></span><div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text">Driving a DC motor in one direction (dcMotor.py)</span><a class="headerlink" href="#id17" title="Link to this code">#</a></div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
+<span class="linenos"> 2</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1"># //	dcMotor.js</span>
+<span class="linenos"> 4</span><span class="c1"># //	This is an example of driving a DC motor</span>
+<span class="linenos"> 5</span><span class="c1"># //	Wiring:</span>
+<span class="linenos"> 6</span><span class="c1"># //	Setup:  config-pin P9_16 pwm</span>
+<span class="linenos"> 7</span><span class="c1"># //	See:</span>
+<span class="linenos"> 8</span><span class="c1"># ////////////////////////////////////////</span>
+<span class="linenos"> 9</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos">10</span><span class="kn">import</span> <span class="nn">signal</span>
+<span class="linenos">11</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">def</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">)</span>
+<span class="linenos">15</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">18</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="n">pwmPeriod</span> <span class="o">=</span> <span class="s1">&#39;1000000&#39;</span>    <span class="c1"># Period in ns</span>
+<span class="linenos">22</span><span class="n">pwm</span>     <span class="o">=</span> <span class="s1">&#39;1&#39;</span>  <span class="c1"># pwm to use</span>
+<span class="linenos">23</span><span class="n">channel</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>  <span class="c1"># channel to use</span>
+<span class="linenos">24</span><span class="n">PWMPATH</span><span class="o">=</span><span class="s1">&#39;/dev/bone/pwm/&#39;</span><span class="o">+</span><span class="n">pwm</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">channel</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="n">low</span> <span class="o">=</span> <span class="mf">0.05</span>     <span class="c1"># Slowest speed (duty cycle)</span>
+<span class="linenos">27</span><span class="n">hi</span>  <span class="o">=</span> <span class="mi">1</span>        <span class="c1"># Fastest (always on)</span>
+<span class="linenos">28</span><span class="n">ms</span> <span class="o">=</span> <span class="mi">100</span>       <span class="c1"># How often to change speed, in ms</span>
+<span class="linenos">29</span><span class="n">speed</span> <span class="o">=</span> <span class="mf">0.5</span>    <span class="c1"># Current speed</span>
+<span class="linenos">30</span><span class="n">step</span> <span class="o">=</span> <span class="mf">0.05</span>    <span class="c1"># Change in speed</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">35</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/period&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">36</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pwmPeriod</span><span class="p">)</span>
+<span class="linenos">37</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">38</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos">43</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">44</span>    <span class="n">speed</span> <span class="o">+=</span> <span class="n">step</span>
+<span class="linenos">45</span>    <span class="k">if</span><span class="p">(</span><span class="n">speed</span> <span class="o">&gt;</span> <span class="n">hi</span> <span class="ow">or</span> <span class="n">speed</span> <span class="o">&lt;</span> <span class="n">low</span><span class="p">):</span>
+<span class="linenos">46</span>        <span class="n">step</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos">47</span>    <span class="n">duty_cycle</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">speed</span><span class="o">*</span><span class="mi">1000000</span><span class="p">))</span>    <span class="c1"># Convert ms to ns</span>
+<span class="linenos">48</span>    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">49</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">duty_cycle</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/d742be6b199400d54f96c36404fe71ea/dcMotor.py"><code class="xref download docutils literal notranslate"><span class="pre">dcMotor.py</span></code></a></p>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-5">
+JavaScript</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id18">
+<span id="motors-dcmotor-code"></span><div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text">Driving a DC motor in one direction (dcMotor.js)</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
+<div class="highlight-JavaScript notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env node</span>
+<span class="linenos"> 2</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 3</span><span class="c1">//	dcMotor.js</span>
+<span class="linenos"> 4</span><span class="c1">//	This is an example of driving a DC motor</span>
+<span class="linenos"> 5</span><span class="c1">//	Wiring:</span>
+<span class="linenos"> 6</span><span class="c1">//	Setup:  config-pin P9_16 pwm</span>
+<span class="linenos"> 7</span><span class="c1">//	See:</span>
+<span class="linenos"> 8</span><span class="c1">////////////////////////////////////////</span>
+<span class="linenos"> 9</span><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kd">const</span><span class="w"> </span><span class="nx">pwmPeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1000000&#39;</span><span class="p">;</span><span class="w">    </span><span class="c1">// Period in ns</span>
+<span class="linenos">12</span><span class="kd">const</span><span class="w"> </span><span class="nx">pwm</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// pwm to use</span>
+<span class="linenos">13</span><span class="kd">const</span><span class="w"> </span><span class="nx">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// channel to use</span>
+<span class="linenos">14</span><span class="kd">const</span><span class="w"> </span><span class="nx">PWMPATH</span><span class="o">=</span><span class="s1">&#39;/dev/bone/pwm/&#39;</span><span class="o">+</span><span class="nx">pwm</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="nx">channel</span><span class="p">;</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="kd">const</span><span class="w"> </span><span class="nx">low</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">     </span><span class="c1">// Slowest speed (duty cycle)</span>
+<span class="linenos">17</span><span class="w">      </span><span class="nx">hi</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">        </span><span class="c1">// Fastest (always on)</span>
+<span class="linenos">18</span><span class="w">      </span><span class="nx">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w">       </span><span class="c1">// How often to change speed, in ms</span>
+<span class="linenos">19</span><span class="kd">var</span><span class="w">   </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">    </span><span class="c1">// Current speed;</span>
+<span class="linenos">20</span><span class="w">      </span><span class="nx">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span><span class="w">    </span><span class="c1">// Change in speed</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1">// fs.writeFileSync(PWMPATH+&#39;/export&#39;, pwm);   // Export the pwm channel</span>
+<span class="linenos">23</span><span class="c1">// Set the period in ns, first 0 duty_cycle, </span>
+<span class="linenos">24</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="linenos">25</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/period&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">pwmPeriod</span><span class="p">);</span>
+<span class="linenos">26</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">pwmPeriod</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="linenos">27</span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="nx">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(</span><span class="nx">sweep</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">);</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="kd">function</span><span class="w"> </span><span class="nx">sweep</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">32</span><span class="w">    </span><span class="nx">speed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">step</span><span class="p">;</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">speed</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">hi</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">low</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">34</span><span class="w">        </span><span class="nx">step</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="linenos">35</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">36</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/duty_cycle&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">pwmPeriod</span><span class="o">*</span><span class="nx">speed</span><span class="p">));</span>
+<span class="linenos">37</span><span class="w">    </span><span class="c1">// console.log(&#39;speed = &#39; + speed);</span>
+<span class="linenos">38</span><span class="p">}</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;SIGINT&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">41</span><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">);</span>
+<span class="linenos">42</span><span class="w">    </span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span><span class="w">       </span><span class="c1">// Stop the timer</span>
+<span class="linenos">43</span><span class="w">    </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">PWMPATH</span><span class="o">+</span><span class="s1">&#39;/enable&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="linenos">44</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/10141abd0680140ffa74ad537e11aa0f/dcMotor.js"><code class="xref download docutils literal notranslate"><span class="pre">dcMotor.js</span></code></a></p>
+</div>
+</div>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<p>How do you change the direction of the motor? See <a class="reference internal" href="#motors-dcdirection"><span class="std std-ref">Controlling the Speed and Direction of a DC Motor</span></a>.</p>
+</section>
+<section id="controlling-the-speed-and-direction-of-a-dc-motor">
+<span id="motors-dcdirection"></span><h2>Controlling the Speed and Direction of a DC Motor<a class="headerlink" href="#controlling-the-speed-and-direction-of-a-dc-motor" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Problem<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>You would like your DC motor to go forward and backward.</p>
+</section>
+<section id="id6">
+<h3>Solution<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Use an H-bridge to switch the terminals on the motor so that it will run both backward
+and forward. We’ll use the <code class="docutils literal notranslate"><span class="pre">L293D</span></code> a common, single-chip H-bridge.</p>
+<p>Here’s what you will need:</p>
+<ul class="simple">
+<li><p>3 V to 5 V motor.</p></li>
+<li><p>Breadboard and jumper wires.</p></li>
+<li><p>L293D H-Bridge IC.</p></li>
+<li><p>Power supply for the motor (optional)</p></li>
+</ul>
+<p>Lay out your breadboard as shown in <a class="reference internal" href="#motors-h-bridge-fig"><span class="std std-ref">Driving a DC motor with an H-bridge</span></a>. Ensure that the L293D is positioned correctly.
+There is a notch on one end that should be pointed up.</p>
+<figure class="align-center" id="id19">
+<span id="motors-h-bridge-fig"></span><img alt="H-bridge Motor" src="../../../_images/h-bridgeMotor_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 667 </span><span class="caption-text">Driving a DC motor with an H-bridge</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The code in <a class="reference internal" href="#motors-h-bridge-code"><span class="std std-ref">Code for driving a DC motor with an H-bridge (h-bridgeMotor.js)</span></a> (<code class="docutils literal notranslate"><span class="pre">h-bridgeMotor.js</span></code>) looks much like the code for driving the DC
+motor with a transistor (<a class="reference internal" href="#motors-dcmotor-code"><span class="std std-ref">Driving a DC motor in one direction (dcMotor.js)</span></a>). The additional code specifies which direction to spin the motor.</p>
+<div class="literal-block-wrapper docutils container" id="id20">
+<span id="motors-h-bridge-code"></span><div class="code-block-caption"><span class="caption-number">Listing 49 </span><span class="caption-text">Code for driving a DC motor with an H-bridge (h-bridgeMotor.js)</span><a class="headerlink" href="#id20" title="Link to this code">#</a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env node</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">// This example uses an H-bridge to drive a DC motor in two directions</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kd">var</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;bonescript&#39;</span><span class="p">);</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kd">var</span><span class="w"> </span><span class="nx">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;P9_21&#39;</span><span class="p">;</span><span class="w">    </span><span class="c1">// Pin to use for PWM speed control</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="nx">in1</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;P9_15&#39;</span><span class="p">,</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="nx">in2</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;P9_16&#39;</span><span class="p">,</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nx">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">    </span><span class="c1">// Change in speed</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nx">min</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">    </span><span class="c1">// Min duty cycle</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nx">max</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">     </span><span class="c1">// Max duty cycle</span>
+<span class="linenos">13</span><span class="w">    </span><span class="nx">ms</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w">     </span><span class="c1">// Update time, in ms</span>
+<span class="linenos">14</span><span class="w">    </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">min</span><span class="p">;</span><span class="w">    </span><span class="c1">// Current speed;</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="nx">b</span><span class="p">.</span><span class="nx">pinMode</span><span class="p">(</span><span class="nx">enable</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">ANALOG_OUTPUT</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">doInterval</span><span class="p">);</span>
+<span class="linenos">17</span><span class="nx">b</span><span class="p">.</span><span class="nx">pinMode</span><span class="p">(</span><span class="nx">in1</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">OUTPUT</span><span class="p">);</span>
+<span class="linenos">18</span><span class="nx">b</span><span class="p">.</span><span class="nx">pinMode</span><span class="p">(</span><span class="nx">in2</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">OUTPUT</span><span class="p">);</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="kd">function</span><span class="w"> </span><span class="nx">doInterval</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">21</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x.err = &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">err</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">25</span><span class="w">    </span><span class="nx">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(</span><span class="nx">sweep</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">);</span>
+<span class="linenos">26</span><span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="nx">clockwise</span><span class="p">();</span><span class="w">        </span><span class="c1">// Start by going clockwise</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="kd">function</span><span class="w"> </span><span class="nx">sweep</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">31</span><span class="w">    </span><span class="nx">speed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">step</span><span class="p">;</span>
+<span class="linenos">32</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">speed</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">max</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">33</span><span class="w">        </span><span class="nx">step</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="linenos">34</span><span class="w">        </span><span class="nx">step</span><span class="o">&gt;</span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">clockwise</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">counterClockwise</span><span class="p">();</span>
+<span class="linenos">35</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">36</span><span class="w">    </span><span class="nx">b</span><span class="p">.</span><span class="nx">analogWrite</span><span class="p">(</span><span class="nx">enable</span><span class="p">,</span><span class="w"> </span><span class="nx">speed</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;speed = &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">);</span>
+<span class="linenos">38</span><span class="p">}</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="kd">function</span><span class="w"> </span><span class="nx">clockwise</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">41</span><span class="w">    </span><span class="nx">b</span><span class="p">.</span><span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">in1</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">HIGH</span><span class="p">);</span>
+<span class="linenos">42</span><span class="w">    </span><span class="nx">b</span><span class="p">.</span><span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">in2</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">LOW</span><span class="p">);</span>
+<span class="linenos">43</span><span class="p">}</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="kd">function</span><span class="w"> </span><span class="nx">counterClockwise</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">46</span><span class="w">    </span><span class="nx">b</span><span class="p">.</span><span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">in1</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">LOW</span><span class="p">);</span>
+<span class="linenos">47</span><span class="w">    </span><span class="nx">b</span><span class="p">.</span><span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">in2</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">HIGH</span><span class="p">);</span>
+<span class="linenos">48</span><span class="p">}</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;SIGINT&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">51</span><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">);</span>
+<span class="linenos">52</span><span class="w">    </span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span><span class="w">         </span><span class="c1">// Stop the timer</span>
+<span class="linenos">53</span><span class="w">    </span><span class="nx">b</span><span class="p">.</span><span class="nx">analogWrite</span><span class="p">(</span><span class="nx">enable</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w">     </span><span class="c1">// Turn motor off</span>
+<span class="linenos">54</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/ca4356c2403fe7e2208e5db737370eb9/h-bridgeMotor.js"><code class="xref download docutils literal notranslate"><span class="pre">h-bridgeMotor.js</span></code></a></p>
+</section>
+</section>
+<section id="driving-a-bipolar-stepper-motor">
+<h2>Driving a Bipolar Stepper Motor<a class="headerlink" href="#driving-a-bipolar-stepper-motor" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>Problem<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>You want to drive a stepper motor that has four wires.</p>
+</section>
+<section id="id8">
+<h3>Solution<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Use an L293D H-bridge. The bipolar stepper motor requires
+us to reverse the coils, so we need to use an H-bridge.</p>
+<p>Here’s what you will need:</p>
+<ul class="simple">
+<li><p>Breadboard and jumper wires.</p></li>
+<li><p>3 V to 5 V bipolar stepper motor.</p></li>
+<li><p>L293D H-Bridge IC.</p></li>
+</ul>
+<p>Wire as shown in <a class="reference internal" href="#motors-bipolar-fig"><span class="std std-ref">Bipolar stepper motor wiring</span></a>.</p>
+<figure class="align-center" id="id21">
+<span id="motors-bipolar-fig"></span><img alt="Bipolar Stepper Motor" src="../../../_images/bipolarStepperMotor_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 668 </span><span class="caption-text">Bipolar stepper motor wiring</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Use the code in <a class="reference internal" href="#motors-steppermotor-code-py"><span class="std std-ref">Driving a bipolar stepper motor (bipolarStepperMotor.py)</span></a> to drive the motor.</p>
+<div class="literal-block-wrapper docutils container" id="id22">
+<span id="motors-steppermotor-code-py"></span><div class="code-block-caption"><span class="caption-number">Listing 50 </span><span class="caption-text">Driving a bipolar stepper motor (bipolarStepperMotor.py)</span><a class="headerlink" href="#id22" title="Link to this code">#</a></div>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos"> 4</span><span class="kn">import</span> <span class="nn">signal</span>
+<span class="linenos"> 5</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Motor is attached here</span>
+<span class="linenos"> 8</span><span class="c1"># controller = [&quot;P9_11&quot;, &quot;P9_13&quot;, &quot;P9_15&quot;, &quot;P9_17&quot;]; </span>
+<span class="linenos"> 9</span><span class="c1"># controller = [&quot;30&quot;, &quot;31&quot;, &quot;48&quot;, &quot;5&quot;]</span>
+<span class="linenos">10</span><span class="c1"># controller = [&quot;P9_14&quot;, &quot;P9_16&quot;, &quot;P9_18&quot;, &quot;P9_22&quot;]; </span>
+<span class="linenos">11</span><span class="n">controller</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;50&quot;</span><span class="p">,</span> <span class="s2">&quot;51&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">]</span>
+<span class="linenos">12</span><span class="n">states</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="linenos">13</span><span class="n">statesHiTorque</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="linenos">14</span><span class="n">statesHalfStep</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="linenos">15</span>                      <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="n">curState</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Current state</span>
+<span class="linenos">18</span><span class="n">ms</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># Time between steps, in ms</span>
+<span class="linenos">19</span><span class="n">maxStep</span> <span class="o">=</span> <span class="mi">22</span>    <span class="c1"># Number of steps to turn before turning around</span>
+<span class="linenos">20</span><span class="n">minStep</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># minimum step to turn back around on</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="n">CW</span>  <span class="o">=</span>  <span class="mi">1</span>       <span class="c1"># Clockwise</span>
+<span class="linenos">23</span><span class="n">CCW</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos">24</span><span class="n">pos</span> <span class="o">=</span>  <span class="mi">0</span>       <span class="c1"># current position and direction</span>
+<span class="linenos">25</span><span class="n">direction</span> <span class="o">=</span> <span class="n">CW</span>
+<span class="linenos">26</span><span class="n">GPIOPATH</span><span class="o">=</span><span class="s2">&quot;/sys/class/gpio&quot;</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="k">def</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+<span class="linenos">29</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got SIGINT, turning motor off&#39;</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">controller</span><span class="p">))</span> <span class="p">:</span>
+<span class="linenos">31</span>        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;/gpio&quot;</span><span class="o">+</span><span class="n">controller</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/value&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">32</span>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="linenos">33</span>        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">34</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">35</span><span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">)</span>
+<span class="linenos">36</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit ^C to stop&#39;</span><span class="p">)</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="k">def</span> <span class="nf">move</span><span class="p">():</span>
+<span class="linenos">39</span>    <span class="k">global</span> <span class="n">pos</span>
+<span class="linenos">40</span>    <span class="k">global</span> <span class="n">direction</span>
+<span class="linenos">41</span>    <span class="k">global</span> <span class="n">minStep</span>
+<span class="linenos">42</span>    <span class="k">global</span> <span class="n">maxStep</span>
+<span class="linenos">43</span>    <span class="n">pos</span> <span class="o">+=</span> <span class="n">direction</span>
+<span class="linenos">44</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pos: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos</span><span class="p">))</span>
+<span class="linenos">45</span>    <span class="c1"># Switch directions if at end.</span>
+<span class="linenos">46</span>    <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">maxStep</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">minStep</span><span class="p">)</span> <span class="p">:</span>
+<span class="linenos">47</span>        <span class="n">direction</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos">48</span>    <span class="n">rotate</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="c1"># This is the general rotate</span>
+<span class="linenos">51</span><span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span> <span class="p">:</span>
+<span class="linenos">52</span>    <span class="k">global</span> <span class="n">curState</span>
+<span class="linenos">53</span>    <span class="k">global</span> <span class="n">states</span>
+<span class="linenos">54</span>	<span class="c1"># print(&quot;rotate(%d)&quot;, direction);</span>
+<span class="linenos">55</span>    <span class="c1"># Rotate the state according to the direction of rotation</span>
+<span class="linenos">56</span>    <span class="n">curState</span> <span class="o">+=</span>  <span class="n">direction</span>
+<span class="linenos">57</span>    <span class="k">if</span><span class="p">(</span><span class="n">curState</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">))</span> <span class="p">:</span>
+<span class="linenos">58</span>        <span class="n">curState</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos">59</span>    <span class="k">elif</span><span class="p">(</span><span class="n">curState</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+<span class="linenos">60</span>        <span class="n">curState</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="linenos">61</span>    <span class="n">updateState</span><span class="p">(</span><span class="n">states</span><span class="p">[</span><span class="n">curState</span><span class="p">])</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="c1"># Write the current input state to the controller</span>
+<span class="linenos">64</span><span class="k">def</span> <span class="nf">updateState</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="p">:</span>
+<span class="linenos">65</span>    <span class="k">global</span> <span class="n">controller</span>
+<span class="linenos">66</span>    <span class="nb">print</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="linenos">67</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">controller</span><span class="p">))</span> <span class="p">:</span>
+<span class="linenos">68</span>        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;/gpio&quot;</span><span class="o">+</span><span class="n">controller</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/value&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">69</span>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="linenos">70</span>        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">71</span>
+<span class="linenos">72</span><span class="c1"># Initialize motor control pins to be OUTPUTs</span>
+<span class="linenos">73</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">controller</span><span class="p">))</span> <span class="p">:</span>
+<span class="linenos">74</span>    <span class="c1"># Make sure pin is exported</span>
+<span class="linenos">75</span>    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;/gpio&quot;</span><span class="o">+</span><span class="n">controller</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+<span class="linenos">76</span>        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;/export&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">77</span>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+<span class="linenos">78</span>        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">79</span>    <span class="c1"># Make it an output pin</span>
+<span class="linenos">80</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">GPIOPATH</span><span class="o">+</span><span class="s2">&quot;/gpio&quot;</span><span class="o">+</span><span class="n">controller</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/direction&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">81</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">)</span>
+<span class="linenos">82</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">83</span>
+<span class="linenos">84</span><span class="c1"># Put the motor into a known state</span>
+<span class="linenos">85</span><span class="n">updateState</span><span class="p">(</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">86</span><span class="n">rotate</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="linenos">87</span>
+<span class="linenos">88</span><span class="c1"># Rotate</span>
+<span class="linenos">89</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">90</span>    <span class="n">move</span><span class="p">()</span>
+<span class="linenos">91</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/20bc8d6f895734aa4e3091f769836c28/bipolarStepperMotor.py"><code class="xref download docutils literal notranslate"><span class="pre">bipolarStepperMotor.py</span></code></a></p>
+<p>When you run the code, the stepper motor will rotate back and forth.</p>
+</section>
+</section>
+<section id="driving-a-unipolar-stepper-motor">
+<h2>Driving a Unipolar Stepper Motor<a class="headerlink" href="#driving-a-unipolar-stepper-motor" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Problem<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>You want to drive a stepper motor that has five or six wires.</p>
+</section>
+<section id="id10">
+<h3>Solution<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>If your stepper motor has five or six wires, it’s a <code class="docutils literal notranslate"><span class="pre">unipolar</span></code> stepper and
+is wired differently than the bipolar. Here, we’ll use
+a <code class="docutils literal notranslate"><span class="pre">ULN2003</span> <span class="pre">Darlington</span> <span class="pre">Transistor</span> <span class="pre">Array</span> <span class="pre">IC</span></code> to drive the motor.</p>
+<p>Here’s what you will need:</p>
+<ul class="simple">
+<li><p>Breadboard and jumper wires.</p></li>
+<li><p>3 V to 5 V unipolar stepper motor.</p></li>
+<li><p>ULN2003 Darlington Transistor Array IC.</p></li>
+</ul>
+<p>Wire, as shown in <a class="reference internal" href="#motors-unipolar-fig"><span class="std std-ref">Unipolar stepper motor wiring</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The IC in <a class="reference internal" href="#motors-unipolar-fig"><span class="std std-ref">Unipolar stepper motor wiring</span></a> is illustrated
+upside down from the way it is usually displayed.</p>
+<p>That is, the notch for pin 1 is on the bottom. This made drawing the diagram much cleaner.</p>
+<p>Also, notice the <code class="docutils literal notranslate"><span class="pre">banded</span></code> wire running the <em>P9_7</em> (5 V) to the UL2003A.
+The stepper motor I’m using runs better at 5 V, so I’m using the Bone’s 5 V power supply.
+The signal coming from the GPIO pins is 3.3 V, but the U2003A will step them up to 5 V to drive
+the motor.</p>
+</div>
+<figure class="align-center" id="id23">
+<span id="motors-unipolar-fig"></span><img alt="Unipolar Stepper Motor" src="../../../_images/unipolarStepperMotor_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 669 </span><span class="caption-text">Unipolar stepper motor wiring</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The code for driving the motor is in <code class="docutils literal notranslate"><span class="pre">unipolarStepperMotor.js</span></code> however, it is
+almost identical to the bipolar stepper code (<a class="reference internal" href="#motors-steppermotor-code-py"><span class="std std-ref">Driving a bipolar stepper motor (bipolarStepperMotor.py)</span></a>),
+so <a class="reference internal" href="#motors-unisteppermotor-code"><span class="std std-ref">Changes to bipolar code to drive a unipolar stepper motor (unipolarStepperMotor.js.diff)</span></a> shows only the lines that you need to change.</p>
+<div class="literal-block-wrapper docutils container" id="id24">
+<span id="motors-unisteppermotor-js-code"></span><div class="code-block-caption"><span class="caption-number">Listing 51 </span><span class="caption-text">Changes to bipolar code to drive a unipolar stepper motor (unipolarStepperMotor.py.diff)</span><a class="headerlink" href="#id24" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp"># controller = [&quot;P9_11&quot;, &quot;P9_13&quot;, &quot;P9_15&quot;, &quot;P9_17&quot;]</span>
+<span class="linenos">2</span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;30&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;31&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;48&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">]</span>
+<span class="linenos">3</span><span class="n">states</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="linenos">4</span><span class="n">curState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="c1">// Current state</span>
+<span class="linenos">5</span><span class="n">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w">       </span><span class="c1">// Time between steps, in ms</span>
+<span class="linenos">6</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="w">      </span><span class="c1">// Number of steps to turn before turning around</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/377d1bc65e43ec17ddab6ed4521d027f/unipolarStepperMotor.py.diff"><code class="xref download docutils literal notranslate"><span class="pre">unipolarStepperMotor.py.diff</span></code></a></p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<span id="motors-unisteppermotor-code"></span><div class="code-block-caption"><span class="caption-number">Listing 52 </span><span class="caption-text">Changes to bipolar code to drive a unipolar stepper motor (unipolarStepperMotor.js.diff)</span><a class="headerlink" href="#id25" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp"># var controller = [&quot;P9_11&quot;, &quot;P9_13&quot;, &quot;P9_15&quot;, &quot;P9_17&quot;];</span>
+<span class="linenos">2</span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;30&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;31&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;48&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">]</span>
+<span class="linenos">3</span><span class="n">var</span><span class="w"> </span><span class="n">states</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]];</span>
+<span class="linenos">4</span><span class="n">var</span><span class="w"> </span><span class="n">curState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// Current state</span>
+<span class="linenos">5</span><span class="n">var</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">       </span><span class="c1">// Time between steps, in ms</span>
+<span class="linenos">6</span><span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">      </span><span class="c1">// Number of steps to turn before turning around</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/f0a8dfbc285387f6831acd1b21f492e8/unipolarStepperMotor.js.diff"><code class="xref download docutils literal notranslate"><span class="pre">unipolarStepperMotor.js.diff</span></code></a></p>
+<p>The code in this example makes the following changes:</p>
+<ul class="simple">
+<li><p>The <em>states</em> are different. Here, we have two pins high at a time.</p></li>
+<li><p>The time between steps (<em>ms</em>) is shorter, and the number of steps per direction (<em>max</em>) is bigger. The unipolar stepper I’m using has many more steps per rotation, so I need more steps to make it go around.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../03displays/displays.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Displays and Other Outputs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../05tips/tips.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Beyond the Basics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-a-servo-motor">Controlling a Servo Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-a-servo-with-an-rotary-encoder">Controlling a Servo with an Rotary Encoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-the-speed-of-a-dc-motor">Controlling the Speed of a DC Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-the-speed-and-direction-of-a-dc-motor">Controlling the Speed and Direction of a DC Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driving-a-bipolar-stepper-motor">Driving a Bipolar Stepper Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driving-a-unipolar-stepper-motor">Driving a Unipolar Stepper Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Solution</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/beaglebone-cookbook/04motors/motors.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/beaglebone-cookbook/04motors/motors.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-cookbook.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

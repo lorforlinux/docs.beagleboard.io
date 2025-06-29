@@ -1,0 +1,1698 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Using mikroBUS &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beagleplay/demos-and-tutorials/using-mikrobus';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/using-mikrobus.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Using QWIIC" href="using-qwiic.html" />
+    <link rel="prev" title="Using Grove" href="using-grove.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-quick-start.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-design.html">Design and specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../05-demos.html">Demos and tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="using-serial-console.html">Using Serial Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect-wifi.html">Connect WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-grove.html">Using Grove</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Using mikroBUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-qwiic.html">Using QWIIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-nodered.html">Using Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-rtc.html">Using RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-oldi.html">Using OLDI Displays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-csi.html">Using CSI Cameras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zephyr-cc1352-development.html">Wireless MCU Zephyr Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beagleplay-kernel-development.html">BeaglePlay Kernel Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="greybus-host.html">BeagleConnect™ Greybus demo using BeagleConnect™ Freedom and BeaglePlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-boot.html">Understanding Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-power-video-doorbell.html">Smart energy efficient video doorbell</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-support.html">Support</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeaglePlay</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../05-demos.html" class="nav-link">Demos and tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Using mikroBUS</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="using-mikrobus">
+<span id="beagleplay-mikrobus"></span><h1>Using mikroBUS<a class="headerlink" href="#using-mikrobus" title="Link to this heading">#</a></h1>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Identify if mikroBUS add-on includes a ClickID with <code class="docutils literal notranslate"><span class="pre">manifest</span></code>. If not, <code class="docutils literal notranslate"><span class="pre">manifest</span></code> must be supplied.</p></li>
+<li><p>Identify if mikroBUS add-on is supported by the kernel. If not, kernel module must be added.</p></li>
+<li><p>Identify how driver exposes the data: IIO, net, etc.</p></li>
+<li><p>Connect and power</p></li>
+<li><p>Verify and utilize</p></li>
+</ol>
+<section id="using-boards-with-clickid">
+<span id="beagleplay-mikrobus-clickid"></span><h2>Using boards with ClickID<a class="headerlink" href="#using-boards-with-clickid" title="Link to this heading">#</a></h2>
+<section id="what-is-mikrobus">
+<h3>What is mikroBUS?<a class="headerlink" href="#what-is-mikrobus" title="Link to this heading">#</a></h3>
+<p>mikroBUS is an open standard for add-on boards for sensors, connectivity, displays, storage and more with over 1,400 available from just a single source, <a class="reference external" href="https://www.mikroe.com/click">MikroE</a>. With the flexibility of all of the most common embedded serial busses, UART, I2C and SPI, along with ADC, PWM and GPIO functions, it is a great solution for connecting all sorts of electronics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Learn more at <a class="reference external" href="https://www.mikroe.com/mikrobus">https://www.mikroe.com/mikrobus</a></p>
+</div>
+</section>
+<section id="what-is-clickid">
+<h3>What is ClickID?<a class="headerlink" href="#what-is-clickid" title="Link to this heading">#</a></h3>
+<p>ClickID enables mikroBUS add-on boards to be identified along with the configuration required to use it with the mikroBUS Linux driver. The configuration portion is called a <code class="docutils literal notranslate"><span class="pre">manifest</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Learn more at <a class="github reference external" href="https://github.com/MikroElektronika/click_id">MikroElektronika/click_id</a></p>
+</div>
+<p>BeaglePlay’s Linux kernel is patched with a mikrobus driver that automatically reads the ClickID and loads a driver, greatly simplifying usage.</p>
+</section>
+<section id="does-my-add-on-have-clickid">
+<h3>Does my add-on have ClickID?<a class="headerlink" href="#does-my-add-on-have-clickid" title="Link to this heading">#</a></h3>
+<p>Look for the board’s <code class="docutils literal notranslate"><span class="pre">'D</span></code> (ID) logo. It’s near the PWM pin on the upper right-hand side in the illustration below.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../../_images/mikrobus-linux-board-illustration.png"><img alt="mikroBUS clickID - BeaglePlay connection" src="../../../_images/mikrobus-linux-board-illustration.png" style="width: 940px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 198 </span><span class="caption-text">mikroBUS clickID - BeaglePlay connection</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If your add-on has ClickID, simply connect it while BeaglePlay is powered off and then apply power.</p>
+<p>Example of examining boot log to see a ClickID was detected.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mikrobus
+<span class="go">[    2.096254] mikrobus:mikrobus_port_register: registering port mikrobus-0</span>
+<span class="go">[    2.096325] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom</span>
+<span class="go">[    2.663698] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=opt3001, protocol=3, reg=44</span>
+<span class="go">[    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices</span>
+<span class="go">[    2.663783] mikrobus mikrobus-0: registering device : opt3001</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all Click boards with ClickID have valid <code class="docutils literal notranslate"><span class="pre">manifest</span></code> entries.
+Then you can follow <a class="reference internal" href="#beagleplay-mikrobus-clickid-inavalid-manifests"><span class="std std-ref">What if my add-on has invalid manifest entries?</span></a> to make your
+add-on detected.</p>
+</div>
+<p>To use the add-on, see <a class="reference internal" href="#beagleplay-mikrobus-using"><span class="std std-ref">Accel Click Board Example</span></a>.</p>
+</section>
+<section id="what-if-my-add-on-doesn-t-have-clickid">
+<span id="beagleplay-mikrobus-without-clickid"></span><h3>What if my add-on doesn’t have ClickID?<a class="headerlink" href="#what-if-my-add-on-doesn-t-have-clickid" title="Link to this heading">#</a></h3>
+<p>If add-on doesn’t have clickID then it can not be detected directly.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mikrobus
+<span class="go">[    2.123994] mikrobus:mikrobus_port_register: registering port mikrobus-0</span>
+<span class="go">[    2.124059] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom</span>
+</pre></div>
+</div>
+<p>Available <code class="docutils literal notranslate"><span class="pre">manifest</span></code> can be installed that has been created for your add-on as we have created over 100 of them.
+You can install the existing manifest files onto your BeaglePlay. First, make sure you have the
+latest manifests installed in your system.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt update</span>
+<span class="go">sudo apt install bbb.io-clickid-manifests</span>
+</pre></div>
+</div>
+<p>Take a look at the list of <code class="docutils literal notranslate"><span class="pre">manifest</span></code> files to see if the Click or other mikrobus add-on board <code class="docutils literal notranslate"><span class="pre">manifest</span></code> is installed.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/lib/firmware/mikrobus/
+<span class="go">10DOF-CLICK.mnfb          COMPASS-2-CLICK.mnfb       I2C-2-SPI-CLICK.mnfb        PWM-CLICK.mnfb</span>
+<span class="go">13DOF-2-CLICK.mnfb        COMPASS-CLICK.mnfb         I2C-MUX-CLICK.mnfb          RFID-CLICK.mnfb</span>
+<span class="go">3D-HALL-3-CLICK.mnfb      CURRENT-CLICK.mnfb         ILLUMINANCE-CLICK.mnfb      RF-METER-CLICK.mnfb</span>
+<span class="go">3D-HALL-6-CLICK.mnfb      DAC-7-CLICK.mnfb           IR-GESTURE-CLICK.mnfb       RMS-TO-DC-CLICK.mnfb</span>
+<span class="go">6DOF-IMU-2-CLICK.mnfb     DAC-CLICK.mnfb             IR-THERMO-2-CLICK.mnfb      RTC-6-CLICK.mnfb</span>
+<span class="go">6DOF-IMU-4-CLICK.mnfb     DIGIPOT-3-CLICK.mnfb       LED-DRIVER-7-CLICK.mnfb     SHT1x-CLICK.mnfb</span>
+<span class="go">6DOF-IMU-6-CLICK.mnfb     DIGIPOT-CLICK.mnfb         LIGHTRANGER-2-CLICK.mnfb    SHT-CLICK.mnfb</span>
+<span class="go">6DOF-IMU-8-CLICK.mnfb     EEPROM-2-CLICK.mnfb        LIGHTRANGER-3-CLICK.mnfb    SMOKE-CLICK.mnfb</span>
+<span class="go">9DOF-CLICK.mnfb           EEPROM-3-CLICK.mnfb        LIGHTRANGER-CLICK.mnfb      TEMP-HUM-11-CLICK.mnfb</span>
+<span class="go">ACCEL-3-CLICK.mnfb        EEPROM-CLICK.mnfb          LPS22HB-CLICK.mnfb          TEMP-HUM-12-CLICK.mnfb</span>
+<span class="go">ACCEL-5-CLICK.mnfb        ENVIRONMENT-CLICK.mnfb     LSM303AGR-CLICK.mnfb        TEMP-HUM-3-CLICK.mnfb</span>
+<span class="go">ACCEL-6-CLICK.mnfb        ETH-CLICK.mnfb             LSM6DSL-CLICK.mnfb          TEMP-HUM-4-CLICK.mnfb</span>
+<span class="go">ACCEL-8-CLICK.mnfb        ETH-WIZ-CLICK.mnfb         MAGNETIC-LINEAR-CLICK.mnfb  TEMP-HUM-7-CLICK.mnfb</span>
+<span class="go">ACCEL-CLICK.mnfb          FLASH-2-CLICK.mnfb         MAGNETIC-ROTARY-CLICK.mnfb  TEMP-HUM-9-CLICK.mnfb</span>
+<span class="go">ADC-2-CLICK.mnfb          FLASH-CLICK.mnfb           MICROSD-CLICK.mnfb          TEMP-HUM-CLICK.mnfb</span>
+<span class="go">ADC-3-CLICK.mnfb          GENERIC-SPI-CLICK.mnfb     MPU-9DOF-CLICK.mnfb         TEMP-LOG-3-CLICK.mnfb</span>
+<span class="go">ADC-5-CLICK.mnfb          GEOMAGNETIC-CLICK.mnfb     MPU-IMU-CLICK.mnfb          TEMP-LOG-4-CLICK.mnfb</span>
+<span class="go">ADC-8-CLICK.mnfb          GNSS-4-CLICK.mnfb          NO2-2-CLICK.mnfb            TEMP-LOG-6-CLICK.mnfb</span>
+<span class="go">ADC-CLICK.mnfb            GNSS-7-CLICK.mnfb          NO2-CLICK.mnfb              THERMO-12-CLICK.mnfb</span>
+<span class="go">AIR-QUALITY-2-CLICK.mnfb  GNSS-ZOE-CLICK.mnfb        OLEDB-CLICK.mnfb            THERMO-15-CLICK.mnfb</span>
+<span class="go">AIR-QUALITY-3-CLICK.mnfb  GSR-CLICK.mnfb             OLEDC-CLICK.mnfb            THERMO-17-CLICK.mnfb</span>
+<span class="go">AIR-QUALITY-5-CLICK.mnfb  GYRO-2-CLICK.mnfb          OLEDW-CLICK.mnfb            THERMO-3-CLICK.mnfb</span>
+<span class="go">ALCOHOL-2-CLICK.mnfb      GYRO-CLICK.mnfb            OZONE-2-CLICK.mnfb          THERMO-4-CLICK.mnfb</span>
+<span class="go">ALCOHOL-3-CLICK.mnfb      HALL-CURRENT-2-CLICK.mnfb  PRESSURE-11-CLICK.mnfb      THERMO-7-CLICK.mnfb</span>
+<span class="go">ALTITUDE-3-CLICK.mnfb     HALL-CURRENT-3-CLICK.mnfb  PRESSURE-3-CLICK.mnfb       THERMO-8-CLICK.mnfb</span>
+<span class="go">ALTITUDE-CLICK.mnfb       HALL-CURRENT-4-CLICK.mnfb  PRESSURE-4-CLICK.mnfb       THERMO-CLICK.mnfb</span>
+<span class="go">AMBIENT-2-CLICK.mnfb      HDC1000-CLICK.mnfb         PRESSURE-CLICK.mnfb         THERMOSTAT-3-CLICK.mnfb</span>
+<span class="go">AMBIENT-4-CLICK.mnfb      HEART-RATE-3-CLICK.mnfb    PROXIMITY-10-CLICK.mnfb     UV-3-CLICK.mnfb</span>
+<span class="go">AMBIENT-5-CLICK.mnfb      HEART-RATE-4-CLICK.mnfb    PROXIMITY-2-CLICK.mnfb      VACUUM-CLICK.mnfb</span>
+<span class="go">AMMETER-CLICK.mnfb        HEART-RATE-5-CLICK.mnfb    PROXIMITY-5-CLICK.mnfb      VOLTMETER-CLICK.mnfb</span>
+<span class="go">COLOR-2-CLICK.mnfb        HEART-RATE-7-CLICK.mnfb    PROXIMITY-9-CLICK.mnfb      WAVEFORM-CLICK.mnfb</span>
+<span class="go">COLOR-7-CLICK.mnfb        HEART-RATE-CLICK.mnfb      PROXIMITY-CLICK.mnfb        WEATHER-CLICK.mnfb</span>
+</pre></div>
+</div>
+<p>Below command to grant root privileges of the intended user and then enter passsword.
+This will take you to the different shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su
+</pre></div>
+</div>
+<p>Then, load the appropriate <code class="docutils literal notranslate"><span class="pre">manifest</span></code> using the <code class="docutils literal notranslate"><span class="pre">mikrobus</span></code> bus driver. For example, with the Ambient 2 Click,
+you can write that <code class="docutils literal notranslate"><span class="pre">manifest</span></code> to the <code class="docutils literal notranslate"><span class="pre">mikrobus-0</span></code> <code class="docutils literal notranslate"><span class="pre">new_device</span></code> entry.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/lib/firmware/mikrobus/AMBIENT-2-CLICK.mnfb<span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/mikrobus/devices/mikrobus-0/new_device
+</pre></div>
+</div>
+<p>You can now exit this shell.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>Once done, you can check it using command <code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">mikrobus</span></code> which shows that
+add-on is now detected.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mikrobus
+<span class="go">[    2.096254] mikrobus:mikrobus_port_register: registering port mikrobus-0</span>
+<span class="go">[    2.096325] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom</span>
+<span class="go">[    2.663698] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=opt3001, protocol=3, reg=44</span>
+<span class="go">[    2.663711] mikrobus_manifest:mikrobus_manifest_parse:  Ambient 2 Click manifest parsed with 1 devices</span>
+<span class="go">[    2.663783] mikrobus mikrobus-0: registering device : opt3001</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’ll forget on reboot… need to have a boot service.</p>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>To make it stick, …</p>
+</div>
+</section>
+<section id="what-if-my-add-on-has-invalid-manifest-entries">
+<span id="beagleplay-mikrobus-clickid-inavalid-manifests"></span><h3>What if my add-on has invalid manifest entries?<a class="headerlink" href="#what-if-my-add-on-has-invalid-manifest-entries" title="Link to this heading">#</a></h3>
+<p>Not all Click boards with ClickID have valid manifest entries.
+If your add-on has clickID but shows the command output like below.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mikrobus
+<span class="go">[    2.119771] mikrobus:mikrobus_port_register: registering port mikrobus-0</span>
+<span class="go">[    2.119842] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom</span>
+<span class="go">[    2.261113] mikrobus_manifest:mikrobus_manifest_header_validate: manifest version too new (150.189 &gt; 0.3)</span>
+<span class="go">[    2.261130] mikrobus mikrobus-0: invalid manifest size -22</span>
+</pre></div>
+</div>
+<p>There are some available manifest that can be used to write in the eeprom of clickID board.
+Once you <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">bbb.io-clickid-manifests</span></code> then you
+can see the list of manifests using command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/lib/firmware/mikrobus/</span></code>. Let’s take
+the <code class="docutils literal notranslate"><span class="pre">Accel</span> <span class="pre">Click</span> <span class="pre">-</span> <span class="pre">ClickID</span></code> Board with invalid manifest entries, To get the valid manifest
+we need to write <code class="docutils literal notranslate"><span class="pre">ACCEL-CLICK.mnfb</span></code> to eeprom of ClickID board using the following commands.</p>
+<p>First check the file name for the add-on device. It can be in the form of <code class="docutils literal notranslate"><span class="pre">w1_bus_master1-xx-xxxxxxx</span></code>.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/sys/bus/w1/devices/
+<span class="go">w1_bus_master1  w1_bus_master1-xx-xxxxxxx</span>
+</pre></div>
+</div>
+<p>Then in the following command, <code class="docutils literal notranslate"><span class="pre">/lib/firmware/mikrobus/ACCEL-CLICK.mnfb</span></code> is the path of manifest file and
+<code class="docutils literal notranslate"><span class="pre">/sys/bus/w1/devices/w1_bus_master1-xx-xxxxxxx/mikrobus_manifest</span></code> is path for one wire eeprom clickID board.
+You must replace the the file name <code class="docutils literal notranslate"><span class="pre">w1_bus_master1-xx-xxxxxxx</span></code> with your clickID board file in the
+below command.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/lib/firmware/mikrobus/ACCEL-CLICK.mnfb<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/sys/bus/w1/devices/w1_bus_master1-xx-xxxxxxx/mikrobus_manifest
+<span class="go">0+1 records in</span>
+<span class="go">0+1 records out</span>
+<span class="go">132 bytes copied, 0.0144496 s, 9.1 kB/s</span>
+</pre></div>
+</div>
+<p>Now, Reboot your BeaglePlay. After rebooting, the add-on has been detected with valid manifest entries.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mikrobus
+<span class="go">[    2.126654] mikrobus:mikrobus_port_register: registering port mikrobus-0</span>
+<span class="go">[    2.126727] mikrobus mikrobus-0: mikrobus port 0 eeprom empty probing default eeprom</span>
+<span class="go">[    2.797179] mikrobus_manifest:mikrobus_manifest_attach_device: parsed device 1, driver=adxl345, protocol=3, reg=1d</span>
+<span class="go">[    2.797191] mikrobus_manifest:mikrobus_manifest_parse:  Accel Click manifest parsed with 1 devices</span>
+<span class="go">[    2.797267] mikrobus mikrobus-0: registering device : adxl345</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The updation has done in the eeprom of clickID board. It will not
+forget after reboot.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will be adding a link to the <code class="docutils literal notranslate"><span class="pre">mikrobus-0</span></code> device at <code class="docutils literal notranslate"><span class="pre">/dev/play/mikrobus</span></code> in the near
+future, but you can find it for now at <code class="docutils literal notranslate"><span class="pre">/sys/bus/mikrobus/devices/mikrobus-0</span></code>. If you
+need to supply an ID (manifest), this is the directory where you will do it.</p>
+<p>Manifesto: <a class="reference external" href="https://git.beagleboard.org/beagleconnect/manifesto">https://git.beagleboard.org/beagleconnect/manifesto</a></p>
+<p>Patched Linux with out-of-tree Mikrobus driver: <a class="reference external" href="https://git.beagleboard.org/beagleboard/linux">https://git.beagleboard.org/beagleboard/linux</a></p>
+</div>
+<p>To use the add-on, see <a class="reference internal" href="#beagleplay-mikrobus-using"><span class="std std-ref">Accel Click Board Example</span></a>.</p>
+</section>
+<section id="accel-click-board-example">
+<span id="beagleplay-mikrobus-using"></span><h3>Accel Click Board Example<a class="headerlink" href="#accel-click-board-example" title="Link to this heading">#</a></h3>
+<p>Next, let’s explore how to read raw sensor values using the Accel Click board. This step will help us understand the basics of sensor data retrieval and processing.</p>
+<p>First, let’s check the IIO devices available.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/sys/bus/iio/devices/
+<span class="go">iio:device0  iio:device1</span>
+</pre></div>
+</div>
+<p>Considering the device <code class="docutils literal notranslate"><span class="pre">iio:device0</span></code> is the MikroBUS click ID connected to the BeaglePlay board.
+Depending on your specific setup and device configuration, you might need to adjust the path or device
+number (device0) accordingly. In this case device0 corresponds to our Accel Click, let’s check its name.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>cat<span class="w"> </span>/sys/bus/iio/devices/iio<span class="se">\:</span>device0/name
+<span class="go">adxl345</span>
+</pre></div>
+</div>
+<p>The file corresponding to the IIO device, including raw values, can be viewed using the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/sys/bus/iio/devices/iio<span class="se">\:</span>device0
+<span class="go">dev                          in_accel_scale        in_accel_x_raw        in_accel_y_raw        in_accel_z_raw  power                         subsystem</span>
+<span class="go">in_accel_sampling_frequency  in_accel_x_calibbias  in_accel_y_calibbias  in_accel_z_calibbias  name            sampling_frequency_available  uevent</span>
+</pre></div>
+</div>
+<p>To view the raw values from the accel click (assuming <code class="docutils literal notranslate"><span class="pre">iio:device0</span></code> is configured correctly for your MikroBUS
+click ID on the BeaglePlay board), you can use the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>cat<span class="w"> </span>/sys/bus/iio/devices/iio<span class="se">\:</span>device0/in_accel_x_raw
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>This command reads and displays the raw X-axis accelerometer data from <code class="docutils literal notranslate"><span class="pre">iio:device0</span></code>. You can replace
+<code class="docutils literal notranslate"><span class="pre">in_accel_x_raw</span></code> with <code class="docutils literal notranslate"><span class="pre">in_accel_y_raw</span></code> or <code class="docutils literal notranslate"><span class="pre">in_accel_z_raw</span></code> to view raw data from the Y-axis or Z-axis
+accelerometer channels respectively, depending on your requirements.</p>
+<p>To create a script displays accelerometer raw data values from <code class="docutils literal notranslate"><span class="pre">iio:device0</span></code> use <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">accelclick.sh</span></code> command.
+Copy the below script and paste it to the <code class="docutils literal notranslate"><span class="pre">accelclick.sh</span></code> file. It reads the raw X, Y, and Z axis values from
+<code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/in_accel_x_raw</span></code>, <code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/in_accel_y_raw</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/in_accel_z_raw</span></code> respectively.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">X=$(cat /sys/bus/iio/devices/iio\:device0/in_accel_x_raw)</span>
+<span class="go">Y=$(cat /sys/bus/iio/devices/iio\:device0/in_accel_y_raw)</span>
+<span class="go">Z=$(cat /sys/bus/iio/devices/iio\:device0/in_accel_z_raw)</span>
+<span class="go">echo &quot;X = ${X}        Y = ${Y}      Z= ${Z}&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adjust the device path <code class="docutils literal notranslate"><span class="pre">iio:device0</span></code> according to your setup. Also, ensure that your system
+and hardware configuration are correctly set up to provide live accelerometer data through these paths.</p>
+</div>
+<p>To make the script file executable, use the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>accelclick.sh
+</pre></div>
+</div>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">-n</span> <span class="pre">0.5</span> <span class="pre">./accelclick.sh</span></code>, the watch command will execute <code class="docutils literal notranslate"><span class="pre">./accelclick.sh</span></code> every 0.5 seconds
+and display its output in the terminal.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>./accelclick.sh
+</pre></div>
+</div>
+<p>This is the output of your accelclick.sh script. It shows the current values of your accelerometer’s X, Y, and Z axis in raw form.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">Every 0.5s: ./accelclick.sh</span>
+
+<span class="go">X = 3        Y = 11      Z= 284</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-boards-with-linux-drivers">
+<h2>Using boards with Linux drivers<a class="headerlink" href="#using-boards-with-linux-drivers" title="Link to this heading">#</a></h2>
+<p>Depending on the type of mikrobus add-on board, the Linux driver could be of various different types. For sensors, the most common is <a class="reference internal" href="#beagleplay-mikrobus-using-iio"><span class="std std-ref">IIO driver</span></a>.</p>
+<section id="iio-driver">
+<span id="beagleplay-mikrobus-using-iio"></span><h3>IIO driver<a class="headerlink" href="#iio-driver" title="Link to this heading">#</a></h3>
+<p>Per <a class="reference external" href="https://docs.kernel.org/driver-api/iio/intro.html">https://docs.kernel.org/driver-api/iio/intro.html</a>,</p>
+<blockquote>
+<div><p>The main purpose of the Industrial I/O subsystem (IIO) is to provide support for devices that in some sense perform either analog-to-digital conversion (ADC) or digital-to-analog conversion (DAC) or both. The aim is to fill the gap between the somewhat similar hwmon and input subsystems. Hwmon is directed at low sample rate sensors used to monitor and control the system itself, like fan speed control or temperature measurement. Input is, as its name suggests, focused on human interaction input devices (keyboard, mouse, touchscreen). In some cases there is considerable overlap between these and IIO.</p>
+<p>Devices that fall into this category include:</p>
+<ul class="simple">
+<li><p>analog to digital converters (ADCs)</p></li>
+<li><p>accelerometers</p></li>
+<li><p>capacitance to digital converters (CDCs)</p></li>
+<li><p>digital to analog converters (DACs)</p></li>
+<li><p>gyroscopes</p></li>
+<li><p>inertial measurement units (IMUs)</p></li>
+<li><p>color and light sensors</p></li>
+<li><p>magnetometers</p></li>
+<li><p>pressure sensors</p></li>
+<li><p>proximity sensors</p></li>
+<li><p>temperature sensors</p></li>
+</ul>
+</div></blockquote>
+<p>See also <a class="reference external" href="https://wiki.analog.com/software/linux/docs/iio/iio">https://wiki.analog.com/software/linux/docs/iio/iio</a>.</p>
+<p>To discover IIO driver enabled devices, use the <code class="docutils literal notranslate"><span class="pre">iio_info</span></code> command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>iio_info
+<span class="go">Library version: 0.24 (git tag: v0.24)</span>
+<span class="go">Compiled with backends: local xml ip usb</span>
+<span class="go">IIO context created with local backend.</span>
+<span class="go">Backend version: 0.24 (git tag: v0.24)</span>
+<span class="go">Backend description string: Linux BeaglePlay 5.10.168-ti-arm64-r104 #1bullseye SMP Thu Jun 8 23:07:22 UTC 2023 aarch64</span>
+<span class="go">IIO context has 2 attributes:</span>
+<span class="go">        local,kernel: 5.10.168-ti-arm64-r104</span>
+<span class="go">        uri: local:</span>
+<span class="go">IIO context has 2 devices:</span>
+<span class="go">        iio:device0: opt3001</span>
+<span class="go">                1 channels found:</span>
+<span class="go">                    illuminance:  (input)</span>
+<span class="go">                        2 channel-specific attributes found:</span>
+<span class="go">                                attr  0: input value: 163.680000</span>
+<span class="go">                                attr  1: integration_time value: 0.800000</span>
+<span class="go">                2 device-specific attributes found:</span>
+<span class="go">                                attr  0: current_timestamp_clock value: realtime</span>
+<span class="go">                                attr  1: integration_time_available value: 0.1 0.8</span>
+<span class="go">                No trigger on this device</span>
+<span class="go">        iio:device1: adc102s051</span>
+<span class="go">                2 channels found:</span>
+<span class="go">                        voltage1:  (input)</span>
+<span class="go">                        2 channel-specific attributes found:</span>
+<span class="go">                                attr  0: raw value: 4084</span>
+<span class="go">                                attr  1: scale value: 0.805664062</span>
+<span class="go">                        voltage0:  (input)</span>
+<span class="go">                        2 channel-specific attributes found:</span>
+<span class="go">                                attr  0: raw value: 2440</span>
+<span class="go">                                attr  1: scale value: 0.805664062</span>
+<span class="go">                No trigger on this device</span>
+</pre></div>
+</div>
+<p>Note that the units are standardized for the IIO interface based on the device type. If raw values are provided, a scale must be applied to get to the standardized units.</p>
+</section>
+<section id="storage-driver">
+<span id="beagleplay-mikrobus-using-storage"></span><h3>Storage driver<a class="headerlink" href="#storage-driver" title="Link to this heading">#</a></h3>
+</section>
+<section id="network-driver">
+<span id="beagleplay-mikrobus-using-net"></span><h3>Network driver<a class="headerlink" href="#network-driver" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="how-does-clickid-work">
+<span id="beagleplay-mikrobus-how"></span><h2>How does ClickID work?<a class="headerlink" href="#how-does-clickid-work" title="Link to this heading">#</a></h2>
+</section>
+<section id="disabling-the-mikrobus-driver">
+<span id="beagleplay-mikrobus-disable"></span><h2>Disabling the mikroBUS driver<a class="headerlink" href="#disabling-the-mikrobus-driver" title="Link to this heading">#</a></h2>
+<p>If you’d like to use other means to control the mikroBUS connector, you might want to disable the mikroBUS driver. This is most easily done by enabling a device tree overlay at boot.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Document kernel version that integrates this overlay and where to get update instructions.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To utilize the overlay with these instructions, make sure to have TBD version of kernel, modules and firmware installed. Use <cite>uname -a</cite> to determine the currently running kernel version. See TBD for information on how to update.</p>
+</div>
+<p>Apply overlay to disable mikrobus0 instance.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;    fdtoverlays /overlays/k3-am625-beagleplay-release-mikrobus.dtbo&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/boot/firmware/extlinux/extlinux.conf
+sudo<span class="w"> </span>shutdown<span class="w"> </span>-r<span class="w"> </span>now
+</pre></div>
+</div>
+<p>Log back in after reboot and verify the device driver did not capture the busses.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/dev/play
+<span class="go">grove  mikrobus  qwiic</span>
+<span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/dev/play/mikrobus/
+<span class="go">i2c</span>
+<span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/sys/bus/mikrobus/devices/
+<span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/proc/device-tree/chosen/overlays/
+<span class="go">k3-am625-beagleplay-release-mikrobus  name</span>
+<span class="gp">debian@BeaglePlay:~$</span>
+</pre></div>
+</div>
+<p>To re-enable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/release-mikrobus/ s/^#*/#/&#39;</span><span class="w"> </span>-i<span class="w"> </span>/boot/firmware/extlinux/extlinux.conf
+sudo<span class="w"> </span>shutdown<span class="w"> </span>-r<span class="w"> </span>now
+</pre></div>
+</div>
+<p>Verify driver is enabled again.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/sys/bus/mikrobus/devices/
+<span class="go">mikrobus-0</span>
+<span class="gp">debian@BeaglePlay:~$ </span>ls<span class="w"> </span>/proc/device-tree/chosen/overlays/
+<span class="go">ls: cannot access &#39;/proc/device-tree/chosen/overlays/&#39;: No such file or directory</span>
+<span class="gp">debian@BeaglePlay:~$</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>How do turn off the driver?</p></li>
+<li><p>How do turn on spidev?</p></li>
+<li><p>How do I enable GPIO?</p></li>
+<li><p>How do a provide a manifest?</p></li>
+</ul>
+</div>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Needs udev</p></li>
+<li><p>Needs live description</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="using-grove.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Using Grove</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="using-qwiic.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Using QWIIC</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-boards-with-clickid">Using boards with ClickID</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mikrobus">What is mikroBUS?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-clickid">What is ClickID?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-my-add-on-have-clickid">Does my add-on have ClickID?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-if-my-add-on-doesn-t-have-clickid">What if my add-on doesn’t have ClickID?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-if-my-add-on-has-invalid-manifest-entries">What if my add-on has invalid manifest entries?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accel-click-board-example">Accel Click Board Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-boards-with-linux-drivers">Using boards with Linux drivers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iio-driver">IIO driver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-driver">Storage driver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network-driver">Network driver</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-clickid-work">How does ClickID work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disabling-the-mikrobus-driver">Disabling the mikroBUS driver</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beagleplay/demos-and-tutorials/using-mikrobus.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beagleplay/demos-and-tutorials/using-mikrobus.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beagleplay.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeaglePlay - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleplay/beagleplay">BeaglePlay git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beagleplay">BeaglePlay board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beagleplay/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/beagleplay">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeaglePlay
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002174.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeaglePlay_US002174.svg" alt="BeaglePlay OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

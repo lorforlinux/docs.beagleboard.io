@@ -1,0 +1,14 @@
+.. _exhale_define_group___servo_1ga002867d4bc4044172843364e977e908d:
+
+Define RC_ESC_DJI_MIN_US
+========================
+
+- Defined in :ref:`file_library_include_rc_servo.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: RC_ESC_DJI_MIN_US
+   :project: librobotcontrol

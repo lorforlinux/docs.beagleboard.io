@@ -1,0 +1,1857 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>More Performance &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/pru-cookbook/07more/more';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/pru-cookbook/07more/more.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Moving to the BeagleBone AI" href="../08ai/ai.html" />
+    <link rel="prev" title="Accessing More I/O" href="../06io/io.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../beaglebone-cookbook/index.html">BeagleBone Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">PRU Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">PRU Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">More Performance</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="more-performance">
+<span id="pru-cookbook-more"></span><h1>More Performance<a class="headerlink" href="#more-performance" title="Link to this heading">#</a></h1>
+<p>So far in all our examples we’ve been able to meet our timing goals by writing
+our code in the C programming language. The C compiler does a surprisingly
+good job at generating code, most the time.  However there are times
+when very precise timing is needed and the compiler isn’t doing it.</p>
+<p>At these times you need to write in assembly language.  This chapter
+introduces the PRU assembler and shows how to call assembly code from
+C. Detailing on how to program in assembly are beyond the scope of this text.</p>
+<p>The following are resources used in this chapter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Resources</em></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf">PRU Optimizing C/C++ Compiler, v2.2, User’s Guide</a></p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruhv6b/spruhv6b.pdf">PRU Assembly Language Tools User’s Guide</a></p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruij2/spruij2.pdf">PRU Assembly Instruction User Guide</a></p></li>
+</ul>
+</div>
+<section id="calling-assembly-from-c">
+<h2>Calling Assembly from C<a class="headerlink" href="#calling-assembly-from-c" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>You have some C code and you want to call an assembly language routine from it.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>You need to do two things, write the assembler file and modify the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>
+to include it. For example, let’s write our own <code class="docutils literal notranslate"><span class="pre">my_delay_cycles</span></code> routine in
+in assembly.  The intrinsic <code class="docutils literal notranslate"><span class="pre">pass:[__]delay_cycles</span></code> must be passed a compile time
+constant.  Our new <code class="docutils literal notranslate"><span class="pre">delay_cycles</span></code> can take a runtime delay value.</p>
+<p><a class="reference internal" href="#more-delay-test"><span class="std std-ref">delay-test.pru0.c</span></a> is much like our other c code, but on line 10 we declare
+<code class="docutils literal notranslate"><span class="pre">my_delay_cycles</span></code> and then on lines 24 and 26 we’ll call it with an argument of 1.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<span id="more-delay-test"></span><div class="code-block-caption"><span class="caption-number">Listing 133 </span><span class="caption-text">delay-test.pru0.c</span><a class="headerlink" href="#id10" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Shows how to call an assembly routine with one parameter</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_cfg.h&gt;</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;prugpio.h&quot;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1">// The function is defined in delay.asm in same dir</span>
+<span class="linenos"> 8</span><span class="c1">// We just need to add a declaration here, the definition can be</span>
+<span class="linenos"> 9</span><span class="c1">// separately linked</span>
+<span class="linenos">10</span><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_delay_cycles</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">);</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R30</span><span class="p">;</span>
+<span class="linenos">13</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R31</span><span class="p">;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">16</span><span class="p">{</span>
+<span class="linenos">17</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P9_31</span><span class="p">;</span><span class="w">	</span><span class="c1">// Select which pin to toggle.;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">	</span><span class="cm">/* Clear SYSCFG[STANDBY_INIT] to enable OCP master port */</span>
+<span class="linenos">20</span><span class="w">	</span><span class="n">CT_CFG</span><span class="p">.</span><span class="n">SYSCFG_bit</span><span class="p">.</span><span class="n">STANDBY_INIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">23</span><span class="w">		</span><span class="n">__R30</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">gpio</span><span class="p">;</span><span class="w">		</span><span class="c1">// Set the GPIO pin to 1</span>
+<span class="linenos">24</span><span class="w">		</span><span class="n">my_delay_cycles</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">		</span><span class="n">__R30</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">gpio</span><span class="p">;</span><span class="w">		</span><span class="c1">// Clear the GPIO pin</span>
+<span class="linenos">26</span><span class="w">		</span><span class="n">my_delay_cycles</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">27</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">28</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/4fa911bd6b344329e8c8536ec80e8c33/delay-test.pru0.c"><code class="xref download docutils literal notranslate"><span class="pre">delay-test.pru0.c</span></code></a></p>
+<p><a class="reference internal" href="#more-delay"><span class="std std-ref">delay.pru0.asm</span></a> is the assembly code.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<span id="more-delay"></span><div class="code-block-caption"><span class="caption-number">Listing 134 </span><span class="caption-text">delay.pru0.asm</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">;</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">assembly</span><span class="w"> </span><span class="n">routine</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">C</span><span class="p">.</span>
+<span class="linenos">2</span><span class="p">;</span><span class="w">	</span><span class="n">Mark</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="w"> </span><span class="n">Yoder</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="o">-</span><span class="n">July</span><span class="mi">-2018</span>
+<span class="linenos">3</span><span class="w">	</span><span class="p">.</span><span class="n">global</span><span class="w"> </span><span class="n">my_delay_cycles</span>
+<span class="linenos">4</span><span class="nl">my_delay_cycles</span><span class="p">:</span>
+<span class="linenos">5</span><span class="nl">delay</span><span class="p">:</span>
+<span class="linenos">6</span><span class="w">	</span><span class="n">sub</span><span class="w">		</span><span class="n">r14</span><span class="p">,</span><span class="w">   </span><span class="n">r14</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">		</span><span class="p">;</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">r14</span>
+<span class="linenos">7</span><span class="w">	</span><span class="n">qbne</span><span class="w">	</span><span class="n">delay</span><span class="p">,</span><span class="w"> </span><span class="n">r14</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">8</span>
+<span class="linenos">9</span><span class="w">	</span><span class="n">jmp</span><span class="w">		</span><span class="n">r3</span><span class="p">.</span><span class="n">w2</span><span class="w">			</span><span class="p">;</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">address</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/4270ec1bcf118ca96de9740567ee47c3/delay.pru0.asm"><code class="xref download docutils literal notranslate"><span class="pre">delay.pru0.asm</span></code></a></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> has one addition that needs to be made to compile both <a class="reference internal" href="#more-delay-test"><span class="std std-ref">delay-test.pru0.c</span></a>
+and <a class="reference internal" href="#more-delay"><span class="std std-ref">delay.pru0.asm</span></a>. If you look in the local <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> you’ll see:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<span id="more-makefile"></span><div class="code-block-caption"><span class="caption-number">Listing 135 </span><span class="caption-text">Makefile</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">include</span><span class="w"> </span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">pru</span><span class="o">-</span><span class="n">cookbook</span><span class="o">-</span><span class="n">code</span><span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">Makefile</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/fb43e278ee27e15a0d5735a79407665d/Makefile"><code class="xref download docutils literal notranslate"><span class="pre">Makefile</span></code></a></p>
+<p>This Makefle includes a common Makefile at  <code class="docutils literal notranslate"><span class="pre">/opt/source/pru-cookbook-code/common/Makefile</span></code>, this the Makefile
+you need to edit. Edit <code class="docutils literal notranslate"><span class="pre">/opt/source/pru-cookbook-code/common/Makefile</span></code> and go to line 195.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span><span class="o">(</span>GEN_DIR<span class="o">)</span>/%.out:<span class="w"> </span><span class="k">$(</span>GEN_DIR<span class="k">)</span>/%.o<span class="w"> </span>*<span class="k">$(</span>GEN_DIR<span class="k">)</span>/<span class="k">$(</span>TARGETasm<span class="k">)</span>.o*
+<span class="go">  @mkdir -p $(GEN_DIR)</span>
+<span class="go">  @echo &#39;LD   $^&#39;</span>
+<span class="gp">  $</span><span class="o">(</span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>call<span class="w"> </span>target-to-proc,<span class="nv">$@</span><span class="k">)</span><span class="o">)</span>
+<span class="gp">  $</span><span class="o">(</span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>call<span class="w"> </span>proc-to-build-vars,<span class="nv">$@</span><span class="k">)</span><span class="o">)</span>
+<span class="go">  @$(LD) $@ $^ $(LDFLAGS)</span>
+</pre></div>
+</div>
+<p>Add <code class="docutils literal notranslate"><span class="pre">*(GEN_DIR)/$(TARGETasm).o*</span></code> as shown in bold above.  You will want to remove
+this addition once you are done with this example since it will break the other examples.</p>
+<p>The following will compile and run everything.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ config-pin P9_31 pruout</span>
+<span class="go">bone$ make TARGET=delay-test.pru0 TARGETasm=delay.pru0</span>
+<span class="go">/opt/source/pru-cookbook-code/common/Makefile:29: MODEL=TI_AM335x_BeagleBone_Black,TARGET=delay-test.pru0</span>
+<span class="go">-    Stopping PRU 0</span>
+<span class="go">-     copying firmware file /tmp/vsx-examples/delay-test.pru0.out to /lib/firmware/am335x-pru0-fw</span>
+<span class="go">write_init_pins.sh</span>
+<span class="go">-    Starting PRU 0</span>
+<span class="go">MODEL   = TI_AM335x_BeagleBone_Black</span>
+<span class="go">PROC    = pru</span>
+<span class="go">PRUN    = 0</span>
+<span class="go">PRU_DIR = /sys/class/remoteproc/remoteproc1</span>
+</pre></div>
+</div>
+<p>The resulting output is shown in <a class="reference internal" href="#more-my-delay-cycles"><span class="std std-ref">Output of my_delay_cycles()</span></a>.</p>
+<figure class="align-center" id="id13">
+<span id="more-my-delay-cycles"></span><img alt="Output of my_delay_cycles()" src="../../../_images/my_delay_cycles.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 825 </span><span class="caption-text">Output of my_delay_cycles()</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Notice the on time is about 35ns and the off time is 30ns.</p>
+</section>
+<section id="discission">
+<h3>Discission<a class="headerlink" href="#discission" title="Link to this heading">#</a></h3>
+<p>There is much to explain here.  Let’s start with <a class="reference internal" href="#more-delay"><span class="std std-ref">delay.pru0.asm</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id14">
+<caption><span class="caption-number">Table 169 </span><span class="caption-text">Line-by-line of delay.pru0.asm</span><a class="headerlink" href="#id14" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Declare <cite>my_delay_cycles</cite> to be global so the linker can find it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Label the starting point for <cite>my_delay_cycles</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Label for our delay loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>The first argument is passed in register <code class="docutils literal notranslate"><span class="pre">r14</span></code>.  Page 111 of
+<a class="reference external" href="http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf">PRU Optimizing C/C++ Compiler, v2.2, User’s Guide</a>
+gives the argument passing convention.  Registers <code class="docutils literal notranslate"><span class="pre">r14</span></code> to <code class="docutils literal notranslate"><span class="pre">r29</span></code> are used
+to pass arguments, if there are more arguments, the argument stack (<code class="docutils literal notranslate"><span class="pre">r4</span></code>)
+is used.  The other register conventions are found on page 108.
+Here we subtract 1 from <code class="docutils literal notranslate"><span class="pre">r14</span></code> and save it back into <code class="docutils literal notranslate"><span class="pre">r14</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p><cite>qbne</cite> is a quick branch if not equal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Once we’ve delayed enough we drop through the quick branch and
+hit the jump.  The upper bits of register <cite>r3</cite> has the return address,
+therefore we return to the c code.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference internal" href="#more-my-delay-cycles"><span class="std std-ref">Output of my_delay_cycles()</span></a> shows the <strong>on</strong> time is 35ns and the off time is 30ns.
+With 5ns/cycle this gives 7 cycles on and 6 off. These times make sense
+because each instruction takes a cycle and you have, set <code class="docutils literal notranslate"><span class="pre">R30</span></code>, jump to
+<code class="docutils literal notranslate"><span class="pre">my_delay_cycles</span></code>, <code class="docutils literal notranslate"><span class="pre">sub</span></code>, <code class="docutils literal notranslate"><span class="pre">qbne</span></code>, <code class="docutils literal notranslate"><span class="pre">jmp</span></code>. Plus the instruction (not seen) that
+initializes <cite>r14</cite> to the passed value.  That’s a total of six instructions.
+The extra instruction is the branch at the bottom of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+</section>
+</section>
+<section id="returning-a-value-from-assembly">
+<h2>Returning a Value from Assembly<a class="headerlink" href="#returning-a-value-from-assembly" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Problem<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Your assembly code needs to return a value.</p>
+</section>
+<section id="id3">
+<h3>Solution<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">R14</span></code> is how the return value is passed back.  <a class="reference internal" href="#more-test2"><span class="std std-ref">delay-test2.pru0.c</span></a> shows the c code.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<span id="more-test2"></span><div class="code-block-caption"><span class="caption-number">Listing 136 </span><span class="caption-text">delay-test2.pru0.c</span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Shows how to call an assembly routine with a return value</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_cfg.h&gt;</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;prugpio.h&quot;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="cp">#define	TEST	100</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1">// The function is defined in delay.asm in same dir</span>
+<span class="linenos">10</span><span class="c1">// We just need to add a declaration here, the definition can be</span>
+<span class="linenos">11</span><span class="c1">// separately linked</span>
+<span class="linenos">12</span><span class="k">extern</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">my_delay_cycles</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">);</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R30</span><span class="p">;</span>
+<span class="linenos">17</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R31</span><span class="p">;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">20</span><span class="p">{</span>
+<span class="linenos">21</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P9_31</span><span class="p">;</span><span class="w">	</span><span class="c1">// Select which pin to toggle.;</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">	</span><span class="cm">/* Clear SYSCFG[STANDBY_INIT] to enable OCP master port */</span>
+<span class="linenos">24</span><span class="w">	</span><span class="n">CT_CFG</span><span class="p">.</span><span class="n">SYSCFG_bit</span><span class="p">.</span><span class="n">STANDBY_INIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">27</span><span class="w">		</span><span class="n">__R30</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">gpio</span><span class="p">;</span><span class="w">		</span><span class="c1">// Set the GPIO pin to 1</span>
+<span class="linenos">28</span><span class="w">		</span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_delay_cycles</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">29</span><span class="w">		</span><span class="n">__R30</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">gpio</span><span class="p">;</span><span class="w">		</span><span class="c1">// Clear the GPIO pin</span>
+<span class="linenos">30</span><span class="w">		</span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_delay_cycles</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">31</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">32</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/1a1b1f8f689b2d1f09a64ce4443618e5/delay-test2.pru0.c"><code class="xref download docutils literal notranslate"><span class="pre">delay-test2.pru0.c</span></code></a></p>
+<p><a class="reference internal" href="#more-delay2"><span class="std std-ref">delay2.pru0.asm</span></a> is the assembly code.</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<span id="more-delay2"></span><div class="code-block-caption"><span class="caption-number">Listing 137 </span><span class="caption-text">delay2.pru0.asm</span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">;</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">assembly</span><span class="w"> </span><span class="n">routine</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">.</span>
+<span class="linenos"> 2</span><span class="p">;</span><span class="w">	</span><span class="n">Mark</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="w"> </span><span class="n">Yoder</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="o">-</span><span class="n">July</span><span class="mi">-2018</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="p">.</span><span class="n">cdecls</span><span class="w"> </span><span class="s">&quot;delay-test2.pru0.c&quot;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="w">	</span><span class="p">.</span><span class="n">global</span><span class="w"> </span><span class="n">my_delay_cycles</span>
+<span class="linenos"> 7</span><span class="nl">my_delay_cycles</span><span class="p">:</span>
+<span class="linenos"> 8</span><span class="nl">delay</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="w">	</span><span class="n">sub</span><span class="w">		</span><span class="n">r14</span><span class="p">,</span><span class="w">   </span><span class="n">r14</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">		</span><span class="p">;</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">r14</span>
+<span class="linenos">10</span><span class="w">	</span><span class="n">qbne</span><span class="w">	</span><span class="n">delay</span><span class="p">,</span><span class="w"> </span><span class="n">r14</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">11</span><span class="w">	</span>
+<span class="linenos">12</span><span class="w">	</span><span class="n">ldi</span><span class="w">		</span><span class="n">r14</span><span class="p">,</span><span class="w"> </span><span class="n">TEST</span><span class="w">		</span><span class="p">;</span><span class="w"> </span><span class="n">TEST</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">delay</span><span class="o">-</span><span class="n">test2</span><span class="p">.</span><span class="n">c</span>
+<span class="linenos">13</span><span class="w">							</span><span class="p">;</span><span class="w"> </span><span class="n">r14</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">register</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">	</span><span class="n">jmp</span><span class="w">		</span><span class="n">r3</span><span class="p">.</span><span class="n">w2</span><span class="w">			</span><span class="p">;</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">address</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/0297e7b43f08157a8635eb84ef372657/delay2.pru0.asm"><code class="xref download docutils literal notranslate"><span class="pre">delay2.pru0.asm</span></code></a></p>
+<p>An additional feature is shown in line 4 of <a class="reference internal" href="#more-delay2"><span class="std std-ref">delay2.pru0.asm</span></a>.  The
+<code class="docutils literal notranslate"><span class="pre">.cdecls</span> <span class="pre">&quot;delay-test2.pru0.c&quot;</span></code> says to include any defines from <code class="docutils literal notranslate"><span class="pre">delay-test2.pru0.c</span></code>
+In this example, line 6 of <a class="reference internal" href="#more-test2"><span class="std std-ref">delay-test2.pru0.c</span></a> <cite>#defines</cite> TEST and line 12 of
+<a class="reference internal" href="#more-delay2"><span class="std std-ref">delay2.pru0.asm</span></a> reference it.</p>
+</section>
+</section>
+<section id="using-the-built-in-counter-for-timing">
+<h2>Using the Built-In Counter for Timing<a class="headerlink" href="#using-the-built-in-counter-for-timing" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Problem<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>I want to count how many cycles my routine takes.</p>
+</section>
+<section id="id5">
+<h3>Solution<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Each PRU has a <code class="docutils literal notranslate"><span class="pre">CYCLE</span></code> register which counts the number of cycles since
+the PRU was enabled. They also have a <code class="docutils literal notranslate"><span class="pre">STALL</span></code> register that counts how
+many times the PRU stalled fetching an instruction.
+<a class="reference internal" href="#more-cycle"><span class="std std-ref">cycle.pru0.c - Code to count cycles.</span></a> shows they are used.</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<span id="more-cycle"></span><div class="code-block-caption"><span class="caption-number">Listing 138 </span><span class="caption-text">cycle.pru0.c - Code to count cycles.</span><a class="headerlink" href="#id17" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Access the CYCLE and STALL registers</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_cfg.h&gt;</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_ctrl.h&gt;</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;prugpio.h&quot;</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R30</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R31</span><span class="p">;</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">12</span><span class="p">{</span>
+<span class="linenos">13</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P9_31</span><span class="p">;</span><span class="w">	</span><span class="c1">// Select which pin to toggle.;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">	</span><span class="c1">// These will be kept in registers and never written to DRAM</span>
+<span class="linenos">16</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">cycle</span><span class="p">,</span><span class="w"> </span><span class="n">stall</span><span class="p">;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">	</span><span class="c1">// Clear SYSCFG[STANDBY_INIT] to enable OCP master port</span>
+<span class="linenos">19</span><span class="w">	</span><span class="n">CT_CFG</span><span class="p">.</span><span class="n">SYSCFG_bit</span><span class="p">.</span><span class="n">STANDBY_INIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">	</span>
+<span class="linenos">21</span><span class="w">	</span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">CTRL_bit</span><span class="p">.</span><span class="n">CTR_EN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">	</span><span class="c1">// Enable cycle counter</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">	</span><span class="n">__R30</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">gpio</span><span class="p">;</span><span class="w">				</span><span class="c1">// Set the GPIO pin to 1</span>
+<span class="linenos">24</span><span class="w">	</span><span class="c1">// Reset cycle counter, cycle is on the right side to force the compiler</span>
+<span class="linenos">25</span><span class="w">	</span><span class="c1">// to put it in it&#39;s own register</span>
+<span class="linenos">26</span><span class="w">	</span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">CYCLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cycle</span><span class="p">;</span>
+<span class="linenos">27</span><span class="w">	</span><span class="n">__R30</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">gpio</span><span class="p">;</span><span class="w">				</span><span class="c1">// Clear the GPIO pin</span>
+<span class="linenos">28</span><span class="w">	</span><span class="n">cycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">CYCLE</span><span class="p">;</span><span class="w">	</span><span class="c1">// Read cycle and store in a register</span>
+<span class="linenos">29</span><span class="w">	</span><span class="n">stall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">STALL</span><span class="p">;</span><span class="w">	</span><span class="c1">// Ditto for stall</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">32</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/ca31f665a240f79d9db97c7f30a6f915/cycle.pru0.c"><code class="xref download docutils literal notranslate"><span class="pre">cycle.pru0.c</span></code></a></p>
+</section>
+<section id="id6">
+<h3>Discission<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>The code is mostly the same as other examples. <code class="docutils literal notranslate"><span class="pre">cycle</span></code> and <code class="docutils literal notranslate"><span class="pre">stall</span></code> end up in registers which
+we can read using prudebug. <a class="reference internal" href="#more-cycle-lines"><span class="std std-ref">Line-by-line for cycle.pru0.c</span></a> is the Line-by-line.</p>
+<div class="pst-scrollable-table-container"><span id="more-cycle-lines"></span><table class="table" id="id18">
+<caption><span class="caption-number">Table 170 </span><span class="caption-text">Line-by-line for cycle.pru0.c</span><a class="headerlink" href="#id18" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Include needed to reference <cite>CYCLE</cite> and <cite>STALL</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Declaring <cite>cycle</cite> and <cite>stall</cite>.  The compiler will optimize these and just
+keep them in registers.  We’ll have to look at the <cite>cycle.pru0.lst</cite> file to see where
+they are stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Enables <cite>CYCLE</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Reset <cite>CYCLE</cite>. It ignores the value assigned to it and always sets it
+to 0.  <cite>cycle</cite> is on the right hand side to make the compiler give it its own
+register.</p></td>
+</tr>
+<tr class="row-even"><td><p>28, 29</p></td>
+<td><p>Reads the <cite>CYCLE</cite> and <cite>STALL</cite> values into registers.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can see where <code class="docutils literal notranslate"><span class="pre">cycle</span></code> and <code class="docutils literal notranslate"><span class="pre">stall</span></code> are stored by looking into <a class="reference internal" href="#more-cycle-list0"><span class="std std-ref">/tmp/vsx-examples/cycle.pru0.lst Lines 113..119</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<span id="more-cycle-list0"></span><div class="code-block-caption"><span class="caption-number">Listing 139 </span><span class="caption-text">/tmp/vsx-examples/cycle.pru0.lst Lines 113..119</span><a class="headerlink" href="#id19" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">113</span><span class="w">     </span><span class="mi">102</span><span class="w">        </span><span class="p">.</span><span class="n">dwpsn</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="s">&quot;cycle.pru0.c&quot;</span><span class="p">,</span><span class="n">line</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="n">column</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">is_stmt</span><span class="p">,</span><span class="n">isa</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">114</span><span class="w">     </span><span class="mi">103</span><span class="p">;</span><span class="o">----------------------------------------------------------------------</span>
+<span class="linenos">115</span><span class="w">     </span><span class="mi">104</span><span class="p">;</span><span class="w">  </span><span class="mi">23</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">CTRL_bit</span><span class="p">.</span><span class="n">CTR_EN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Enable cycle counter                </span>
+<span class="linenos">116</span><span class="w">     </span><span class="mi">105</span><span class="p">;</span><span class="o">----------------------------------------------------------------------</span>
+<span class="linenos">117</span><span class="w">     </span><span class="mi">106</span><span class="w"> </span><span class="mo">0000000</span><span class="n">c</span><span class="w"> </span><span class="mi">200080240002</span><span class="n">C0</span><span class="w">          </span><span class="n">LDI32</span><span class="w">     </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00022000</span><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="n">ALU_PRU</span><span class="p">]</span><span class="w"> </span><span class="o">|</span><span class="mi">23</span><span class="o">|</span><span class="w"> </span><span class="n">$O$C1</span>
+<span class="linenos">118</span><span class="w">     </span><span class="mi">107</span><span class="w"> </span><span class="mo">00000014</span><span class="w"> </span><span class="mf">000000F</span><span class="mi">1002081</span><span class="w">          </span><span class="n">LBBO</span><span class="w">      </span><span class="o">&amp;</span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">         </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="n">ALU_PRU</span><span class="p">]</span><span class="w"> </span><span class="o">|</span><span class="mi">23</span><span class="o">|</span><span class="w"> </span>
+<span class="linenos">119</span><span class="w">     </span><span class="mi">108</span><span class="w"> </span><span class="mo">0000001</span><span class="mi">8</span><span class="w"> </span><span class="mf">0000001F03E1</span><span class="n">E1</span><span class="w">          </span><span class="n">SET</span><span class="w">       </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00000003</span><span class="w">    </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="n">ALU_PRU</span><span class="p">]</span><span class="w"> </span><span class="o">|</span><span class="mi">23</span><span class="o">|</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/0fcdb9429658103e28675b300ba02570/cycle.pru0.lst"><code class="xref download docutils literal notranslate"><span class="pre">cycle.pru0.lst</span></code></a></p>
+<p>Here the <code class="docutils literal notranslate"><span class="pre">LDI32</span></code> instruction loads the address <code class="docutils literal notranslate"><span class="pre">0x22000</span></code> into <code class="docutils literal notranslate"><span class="pre">r0</span></code>. This is the offset to
+the <code class="docutils literal notranslate"><span class="pre">CTRL</span></code> registers. Later in the file we see <a class="reference internal" href="#more-cycle-list1"><span class="std std-ref">/tmp/vsx-examples/cycle.pru0.lst Lines 146..152</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id20">
+<span id="more-cycle-list1"></span><div class="code-block-caption"><span class="caption-number">Listing 140 </span><span class="caption-text">/tmp/vsx-examples/cycle.pru0.lst Lines 146..152</span><a class="headerlink" href="#id20" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">146</span><span class="w">     </span><span class="mi">129</span><span class="p">;</span><span class="o">----------------------------------------------------------------------</span>
+<span class="linenos">147</span><span class="w">     </span><span class="mi">130</span><span class="p">;</span><span class="w">  </span><span class="mi">30</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">cycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">CYCLE</span><span class="p">;</span><span class="w">        </span><span class="c1">// Read cycle and store in a register  </span>
+<span class="linenos">148</span><span class="w">     </span><span class="mi">131</span><span class="p">;</span><span class="o">----------------------------------------------------------------------</span>
+<span class="linenos">149</span><span class="w">     </span><span class="mi">132</span><span class="w"> </span><span class="mo">0000002</span><span class="n">c</span><span class="w"> </span><span class="mf">000000F</span><span class="mi">10</span><span class="n">C2081</span><span class="w">          </span><span class="n">LBBO</span><span class="w">      </span><span class="o">&amp;</span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="n">ALU_PRU</span><span class="p">]</span><span class="w"> </span><span class="o">|</span><span class="mi">30</span><span class="o">|</span><span class="w"> </span><span class="n">$O$C1</span>
+<span class="linenos">150</span><span class="w">     </span><span class="mi">133</span><span class="w">        </span><span class="p">.</span><span class="n">dwpsn</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="s">&quot;cycle.pru0.c&quot;</span><span class="p">,</span><span class="n">line</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="n">column</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">is_stmt</span><span class="p">,</span><span class="n">isa</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">151</span><span class="w">     </span><span class="mi">134</span><span class="p">;</span><span class="o">----------------------------------------------------------------------</span>
+<span class="linenos">152</span><span class="w">     </span><span class="mi">135</span><span class="p">;</span><span class="w">  </span><span class="mi">31</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">stall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRU0_CTRL</span><span class="p">.</span><span class="n">STALL</span><span class="p">;</span><span class="w">        </span><span class="c1">// Ditto for stall                     </span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/0fcdb9429658103e28675b300ba02570/cycle.pru0.lst"><code class="xref download docutils literal notranslate"><span class="pre">cycle.pru0.lst</span></code></a></p>
+<p>The first <code class="docutils literal notranslate"><span class="pre">LBBO</span></code> takes the contents of <code class="docutils literal notranslate"><span class="pre">r0</span></code> and adds the offset 12 to it and copies 4 bytes
+into <code class="docutils literal notranslate"><span class="pre">r1</span></code>.  This points to <code class="docutils literal notranslate"><span class="pre">CYCLE</span></code>, so <code class="docutils literal notranslate"><span class="pre">r1</span></code> has the contents of <code class="docutils literal notranslate"><span class="pre">CYCLE</span></code>.</p>
+<p>The second <code class="docutils literal notranslate"><span class="pre">LBBO</span></code> does the same, but with offset 16, which points to <code class="docutils literal notranslate"><span class="pre">STALL</span></code>,
+thus <code class="docutils literal notranslate"><span class="pre">STALL</span></code> is now  in <code class="docutils literal notranslate"><span class="pre">r0</span></code>.</p>
+<p>Now fire up <strong>prudebug</strong> and look at those registers.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo prudebug</span>
+<span class="go">PRU0&gt; r</span>
+<span class="go">r</span>
+<span class="go">r</span>
+<span class="go">Register info for PRU0</span>
+<span class="go">    Control register: 0x00000009</span>
+<span class="go">      Reset PC:0x0000  STOPPED, FREE_RUN, COUNTER_ENABLED, NOT_SLEEPING, PROC_DISABLED</span>
+
+<span class="go">    Program counter: 0x0012</span>
+<span class="go">      Current instruction: HALT</span>
+
+<span class="go">    R00: *0x00000005*    R08: 0x00000200    R16: 0x000003c6    R24: 0x00110210</span>
+<span class="go">    R01: *0x00000003*    R09: 0x00000000    R17: 0x00000000    R25: 0x00000000</span>
+<span class="go">    R02: 0x000000fc    R10: 0xfff4ea57    R18: 0x000003e6    R26: 0x6e616843</span>
+<span class="go">    R03: 0x0004272c    R11: 0x5fac6373    R19: 0x30203020    R27: 0x206c656e</span>
+<span class="go">    R04: 0xffffffff    R12: 0x59bfeafc    R20: 0x0000000a    R28: 0x00003033</span>
+<span class="go">    R05: 0x00000007    R13: 0xa4c19eaf    R21: 0x00757270    R29: 0x02100000</span>
+<span class="go">    R06: 0xefd30a00    R14: 0x00000005    R22: 0x0000001e    R30: 0xa03f9990</span>
+<span class="go">    R07: 0x00020024    R15: 0x00000003    R23: 0x00000000    R31: 0x00000000</span>
+</pre></div>
+</div>
+<p>So <code class="docutils literal notranslate"><span class="pre">cycle</span></code> is 3 and <code class="docutils literal notranslate"><span class="pre">stall</span></code> is 5. It must be one cycle to clear the GPIO and 2 cycles to read the
+<code class="docutils literal notranslate"><span class="pre">CYCLE</span></code> register and save it in the register. It’s interesting there are 5 <code class="docutils literal notranslate"><span class="pre">stall</span></code> cycles.</p>
+<p>If you switch the order of lines 30 and 31 you’ll see <code class="docutils literal notranslate"><span class="pre">cycle</span></code> is 7 and <code class="docutils literal notranslate"><span class="pre">stall</span></code> is 2. <code class="docutils literal notranslate"><span class="pre">cycle</span></code> now includes the
+time needed to read <code class="docutils literal notranslate"><span class="pre">stall</span></code> and <code class="docutils literal notranslate"><span class="pre">stall</span></code> no longer includes the time to read <code class="docutils literal notranslate"><span class="pre">cycle</span></code>.</p>
+</section>
+</section>
+<section id="xout-and-xin-transferring-between-prus">
+<h2>Xout and Xin - Transferring Between PRUs<a class="headerlink" href="#xout-and-xin-transferring-between-prus" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>Problem<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>I need to transfer data between PRUs quickly.</p>
+</section>
+<section id="id8">
+<h3>Solution<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pass:[__]xout()</span></code> and <code class="docutils literal notranslate"><span class="pre">pass:[__]xin()</span></code> intrinsics are able to transfer up to 30 registers between PRU 0 and PRU 1 quickly.
+<a class="reference internal" href="#more-xout"><span class="std std-ref">xout.pru0.c</span></a> shows how <code class="docutils literal notranslate"><span class="pre">xout()</span></code> running on PRU 0 transfers six registers to PRU 1.</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<span id="more-xout"></span><div class="code-block-caption"><span class="caption-number">Listing 141 </span><span class="caption-text">xout.pru0.c</span><a class="headerlink" href="#id21" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// From: http://git.ti.com/pru-software-support-package/pru-software-support-package/trees/master/examples/am335x/PRU_Direct_Connect0</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_intc.h&gt;</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_pru0.h&quot;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R30</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R31</span><span class="p">;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg5</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg6</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg7</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg8</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg9</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg10</span><span class="p">;</span>
+<span class="linenos">16</span><span class="p">}</span><span class="w"> </span><span class="n">bufferData</span><span class="p">;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="n">bufferData</span><span class="w"> </span><span class="n">dmemBuf</span><span class="p">;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="cm">/* PRU-to-ARM interrupt */</span>
+<span class="linenos">21</span><span class="cp">#define PRU1_PRU0_INTERRUPT (18)</span>
+<span class="linenos">22</span><span class="cp">#define PRU0_ARM_INTERRUPT (19+16)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">25</span><span class="p">{</span>
+<span class="linenos">26</span><span class="w">	</span><span class="cm">/* Clear the status of all interrupts */</span>
+<span class="linenos">27</span><span class="w">	</span><span class="n">CT_INTC</span><span class="p">.</span><span class="n">SECR0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFFFFFFFF</span><span class="p">;</span>
+<span class="linenos">28</span><span class="w">	</span><span class="n">CT_INTC</span><span class="p">.</span><span class="n">SECR1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFFFFFFFF</span><span class="p">;</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="w">	</span><span class="cm">/* Load the buffer with default values to transfer */</span>
+<span class="linenos">31</span><span class="w">	</span><span class="n">dmemBuf</span><span class="p">.</span><span class="n">reg5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDEADBEEF</span><span class="p">;</span>
+<span class="linenos">32</span><span class="w">	</span><span class="n">dmemBuf</span><span class="p">.</span><span class="n">reg6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xAAAAAAAA</span><span class="p">;</span>
+<span class="linenos">33</span><span class="w">	</span><span class="n">dmemBuf</span><span class="p">.</span><span class="n">reg7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x12345678</span><span class="p">;</span>
+<span class="linenos">34</span><span class="w">	</span><span class="n">dmemBuf</span><span class="p">.</span><span class="n">reg8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xBBBBBBBB</span><span class="p">;</span>
+<span class="linenos">35</span><span class="w">	</span><span class="n">dmemBuf</span><span class="p">.</span><span class="n">reg9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x87654321</span><span class="p">;</span>
+<span class="linenos">36</span><span class="w">	</span><span class="n">dmemBuf</span><span class="p">.</span><span class="n">reg10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xCCCCCCCC</span><span class="p">;</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">	</span><span class="cm">/* Poll until R31.30 (PRU0 interrupt) is set</span>
+<span class="linenos">39</span><span class="cm">	 * This signals PRU1 is initialized */</span>
+<span class="linenos">40</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">__R31</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">41</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="w">	</span><span class="cm">/* XFR registers R5-R10 from PRU0 to PRU1 */</span>
+<span class="linenos">44</span><span class="w">	</span><span class="cm">/* 14 is the device_id that signifies a PRU to PRU transfer */</span>
+<span class="linenos">45</span><span class="w">	</span><span class="n">__xout</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">dmemBuf</span><span class="p">);</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="w">	</span><span class="cm">/* Clear the status of the interrupt */</span>
+<span class="linenos">48</span><span class="w">	</span><span class="n">CT_INTC</span><span class="p">.</span><span class="n">SICR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRU1_PRU0_INTERRUPT</span><span class="p">;</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="w">	</span><span class="cm">/* Halt the PRU core */</span>
+<span class="linenos">51</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">52</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/6b0a9fb64e0f7e1df374f0b421aee56e/xout.pru0.c"><code class="xref download docutils literal notranslate"><span class="pre">xout.pru0.c</span></code></a></p>
+<p>PRU 1 waits at line 41 until PRU 0 signals it.  <a class="reference internal" href="#more-xin"><span class="std std-ref">xin.pru1.c</span></a> sends an
+interrupt to PRU 0 and waits for it to send the data.</p>
+<div class="literal-block-wrapper docutils container" id="id22">
+<span id="more-xin"></span><div class="code-block-caption"><span class="caption-number">Listing 142 </span><span class="caption-text">xin.pru1.c</span><a class="headerlink" href="#id22" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// From: http://git.ti.com/pru-software-support-package/pru-software-support-package/trees/master/examples/am335x/PRU_Direct_Connect1</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R30</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">__R31</span><span class="p">;</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg5</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg6</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg7</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg8</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg9</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg10</span><span class="p">;</span>
+<span class="linenos">15</span><span class="p">}</span><span class="w"> </span><span class="n">bufferData</span><span class="p">;</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="n">bufferData</span><span class="w"> </span><span class="n">dmemBuf</span><span class="p">;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="cm">/* PRU-to-ARM interrupt */</span>
+<span class="linenos">20</span><span class="cp">#define PRU1_PRU0_INTERRUPT (18)</span>
+<span class="linenos">21</span><span class="cp">#define PRU1_ARM_INTERRUPT (20+16)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">24</span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">	</span><span class="cm">/* Let PRU0 know that I am awake */</span>
+<span class="linenos">26</span><span class="w">	</span><span class="n">__R31</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRU1_PRU0_INTERRUPT</span><span class="o">+</span><span class="mi">16</span><span class="p">;</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">	</span><span class="cm">/* XFR registers R5-R10 from PRU0 to PRU1 */</span>
+<span class="linenos">29</span><span class="w">	</span><span class="cm">/* 14 is the device_id that signifies a PRU to PRU transfer */</span>
+<span class="linenos">30</span><span class="w">	</span><span class="n">__xin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">dmemBuf</span><span class="p">);</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">	</span><span class="cm">/* Halt the PRU core */</span>
+<span class="linenos">33</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">34</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/e97b4369578f59f99d194eaa0f3879ba/xin.pru1.c"><code class="xref download docutils literal notranslate"><span class="pre">xin.pru1.c</span></code></a></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">prudebug</span></code> to see registers R5-R10 are transferred from PRU 0 to PRU 1.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">PRU0&gt; r</span>
+<span class="go">Register info for PRU0</span>
+<span class="go">    Control register: 0x00000001</span>
+<span class="go">      Reset PC:0x0000  STOPPED, FREE_RUN, COUNTER_DISABLED, NOT_SLEEPING, PROC_DISABLED</span>
+
+<span class="go">    Program counter: 0x0026</span>
+<span class="go">      Current instruction: HALT</span>
+
+<span class="go">    R00: 0x00000012    *R08: 0xbbbbbbbb*    R16: 0x000003c6    R24: 0x00110210</span>
+<span class="go">    R01: 0x00020000    *R09: 0x87654321*    R17: 0x00000000    R25: 0x00000000</span>
+<span class="go">    R02: 0x000000e4    *R10: 0xcccccccc*    R18: 0x000003e6    R26: 0x6e616843</span>
+<span class="go">    R03: 0x0004272c    R11: 0x5fac6373    R19: 0x30203020    R27: 0x206c656e</span>
+<span class="go">    R04: 0xffffffff    R12: 0x59bfeafc    R20: 0x0000000a    R28: 0x00003033</span>
+<span class="go">    *R05: 0xdeadbeef*    R13: 0xa4c19eaf    R21: 0x00757270    R29: 0x02100000</span>
+<span class="go">    *R06: 0xaaaaaaaa*    R14: 0x00000005    R22: 0x0000001e    R30: 0xa03f9990</span>
+<span class="go">    *R07: 0x12345678*    R15: 0x00000003    R23: 0x00000000    R31: 0x00000000</span>
+
+<span class="go">PRU0&gt; *pru 1*</span>
+<span class="go">pru 1</span>
+<span class="go">Active PRU is PRU1.</span>
+
+<span class="go">PRU1&gt; *r*</span>
+<span class="go">r</span>
+<span class="go">Register info for PRU1</span>
+<span class="go">    Control register: 0x00000001</span>
+<span class="go">      Reset PC:0x0000  STOPPED, FREE_RUN, COUNTER_DISABLED, NOT_SLEEPING, PROC_DISABLED</span>
+
+<span class="go">    Program counter: 0x000b</span>
+<span class="go">      Current instruction: HALT</span>
+
+<span class="go">    R00: 0x00000100    *R08: 0xbbbbbbbb*    R16: 0xe9da228b    R24: 0x28113189</span>
+<span class="go">    R01: 0xe48cdb1f    *R09: 0x87654321*    R17: 0x66621777    R25: 0xddd29ab1</span>
+<span class="go">    R02: 0x000000e4    *R10: 0xcccccccc*    R18: 0x661f83ea    R26: 0xcf1cd4a5</span>
+<span class="go">    R03: 0x0004db97    R11: 0xdec387d5    R19: 0xa85adb78    R27: 0x70af2d02</span>
+<span class="go">    R04: 0xa90e496f    R12: 0xbeac3878    R20: 0x048fff22    R28: 0x7465f5f0</span>
+<span class="go">    *R05: 0xdeadbeef*    R13: 0x5777b488    R21: 0xa32977c7    R29: 0xae96b530</span>
+<span class="go">    *R06: 0xaaaaaaaa*    R14: 0xffa60550    R22: 0x99fb123e    R30: 0x52c42a0d</span>
+<span class="go">    *R07: 0x12345678*    R15: 0xdeb2142d    R23: 0xa353129d    R31: 0x00000000</span>
+</pre></div>
+</div>
+</section>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#more-zout-lines"><span class="std std-ref">xout.pru0.c Line-by-line</span></a> shows the line-by-line for <code class="docutils literal notranslate"><span class="pre">xout.pru0.c</span></code></p>
+<div class="pst-scrollable-table-container"><span id="more-zout-lines"></span><table class="table" id="id23">
+<caption><span class="caption-number">Table 171 </span><span class="caption-text">xout.pru0.c Line-by-line</span><a class="headerlink" href="#id23" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>A different resource so PRU 0 can receive a signal from PRU 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>9-16</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dmemBuf</span></code> holds the data to be sent to PRU 1.  Each will be transferred
+to its corresponding register by <code class="docutils literal notranslate"><span class="pre">xout()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>21-22</p></td>
+<td><p>Define the interrupts we’re using.</p></td>
+</tr>
+<tr class="row-odd"><td><p>27-28</p></td>
+<td><p>Clear the interrupts.</p></td>
+</tr>
+<tr class="row-even"><td><p>31-36</p></td>
+<td><p>Initialize dmemBuf with easy to recognize values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>Wait for PRU 1 to signal.</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pass:[__]xout()</span></code> does a direct transfer to PRU 1. Page 92 of
+<a class="reference external" href="http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf">PRU Optimizing C/C++ Compiler, v2.2, User’s Guide</a>
+shows how to use <cite>xout()</cite>. The first argument, 14, says to do a direct transfer to PRU 1.  If the
+first argument is 10, 11 or 12, the data is transferred to one of three scratchpad memories that
+PRU 1 can access later. The second argument, 5, says to start transferring with register <code class="docutils literal notranslate"><span class="pre">r5</span></code>
+and use as many registers as needed to transfer all of <code class="docutils literal notranslate"><span class="pre">dmemBuf</span></code>. The third argument, 0,
+says to not use remapping. (See the User’s Guide for details.)
+The final argument is the data to be transferred.</p></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>Clear the interrupt so it can go again.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference internal" href="#more-xin-lines"><span class="std std-ref">xin.pru1.c Line-by-line</span></a> shows the line-by-line for <code class="docutils literal notranslate"><span class="pre">xin.pru1.c</span></code>.</p>
+<div class="pst-scrollable-table-container"><span id="more-xin-lines"></span><table class="table" id="id24">
+<caption><span class="caption-number">Table 172 </span><span class="caption-text">xin.pru1.c Line-by-line</span><a class="headerlink" href="#id24" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8-15</p></td>
+<td><p>Place to put the received data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Signal PRU 0</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>Receive the data. The arguments are the same as <cite>xout()</cite>,
+14 says to get the data directly from PRU 0.
+5 says to start with register <cite>r5</cite>.
+<cite>dmemBuf</cite> is where to put the data.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you really need speed, considering using <code class="docutils literal notranslate"><span class="pre">pass:[__]xout()</span></code> and <code class="docutils literal notranslate"><span class="pre">pass:[__]xin()</span></code> in assembly.</p>
+<section id="copyright">
+<h4>Copyright<a class="headerlink" href="#copyright" title="Link to this heading">#</a></h4>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-number">Listing 143 </span><span class="caption-text">copyright.c</span><a class="headerlink" href="#id25" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cm">/*</span>
+<span class="linenos"> 2</span><span class="cm"> * Copyright (C) 2015 Texas Instruments Incorporated - http://www.ti.com/</span>
+<span class="linenos"> 3</span><span class="cm"> *</span>
+<span class="linenos"> 4</span><span class="cm"> *</span>
+<span class="linenos"> 5</span><span class="cm"> * Redistribution and use in source and binary forms, with or without</span>
+<span class="linenos"> 6</span><span class="cm"> * modification, are permitted provided that the following conditions</span>
+<span class="linenos"> 7</span><span class="cm"> * are met:</span>
+<span class="linenos"> 8</span><span class="cm"> *</span>
+<span class="linenos"> 9</span><span class="cm"> *	* Redistributions of source code must retain the above copyright</span>
+<span class="linenos">10</span><span class="cm"> *	  notice, this list of conditions and the following disclaimer.</span>
+<span class="linenos">11</span><span class="cm"> *</span>
+<span class="linenos">12</span><span class="cm"> *	* Redistributions in binary form must reproduce the above copyright</span>
+<span class="linenos">13</span><span class="cm"> *	  notice, this list of conditions and the following disclaimer in the</span>
+<span class="linenos">14</span><span class="cm"> *	  documentation and/or other materials provided with the</span>
+<span class="linenos">15</span><span class="cm"> *	  distribution.</span>
+<span class="linenos">16</span><span class="cm"> *</span>
+<span class="linenos">17</span><span class="cm"> *	* Neither the name of Texas Instruments Incorporated nor the names of</span>
+<span class="linenos">18</span><span class="cm"> *	  its contributors may be used to endorse or promote products derived</span>
+<span class="linenos">19</span><span class="cm"> *	  from this software without specific prior written permission.</span>
+<span class="linenos">20</span><span class="cm"> *</span>
+<span class="linenos">21</span><span class="cm"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
+<span class="linenos">22</span><span class="cm"> * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
+<span class="linenos">23</span><span class="cm"> * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</span>
+<span class="linenos">24</span><span class="cm"> * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT</span>
+<span class="linenos">25</span><span class="cm"> * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</span>
+<span class="linenos">26</span><span class="cm"> * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT</span>
+<span class="linenos">27</span><span class="cm"> * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span class="linenos">28</span><span class="cm"> * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span class="linenos">29</span><span class="cm"> * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span class="linenos">30</span><span class="cm"> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
+<span class="linenos">31</span><span class="cm"> * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="linenos">32</span><span class="cm"> */</span>
+<span class="linenos">33</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/33fb2d9f398a8e6a4500781ffb540061/copyright.c"><code class="xref download docutils literal notranslate"><span class="pre">copyright.c</span></code></a></p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../06io/io.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing More I/O</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08ai/ai.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Moving to the BeagleBone AI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-assembly-from-c">Calling Assembly from C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discission">Discission</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-a-value-from-assembly">Returning a Value from Assembly</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-built-in-counter-for-timing">Using the Built-In Counter for Timing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Discission</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xout-and-xin-transferring-between-prus">Xout and Xin - Transferring Between PRUs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright">Copyright</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/pru-cookbook/07more/more.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/pru-cookbook/07more/more.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

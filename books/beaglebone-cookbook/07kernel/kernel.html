@@ -1,0 +1,1843 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>The Kernel &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/beaglebone-cookbook/07kernel/kernel';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/beaglebone-cookbook/07kernel/kernel.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Real-Time I/O" href="../08realtime/realtime.html" />
+    <link rel="prev" title="Internet of Things" href="../06iot/iot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">BeagleBone Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pru-cookbook/index.html">PRU Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pru-cookbook/projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeagleBone Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">The Kernel</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-kernel">
+<span id="beaglebone-cookbook-kernel"></span><h1>The Kernel<a class="headerlink" href="#the-kernel" title="Link to this heading">#</a></h1>
+<p>The kernel is the heart of the Linux operating system. It’s the software that takes the
+low-level requests, such as reading or writing files, or reading and writing general-purpose
+input/output (GPIO) pins, and maps them to the hardware. When you install a new version of the
+OS (<a class="reference internal" href="../01basics/basics.html#basics-latest-os"><span class="std std-ref">Verifying You Have the Latest Version of the OS on Your Bone</span></a>), you get a certain version of the kernel.</p>
+<p>You usually won’t need to mess with the kernel, but sometimes you might want to try something new
+that requires a different kernel. This chapter shows how to switch kernels. The nice thing is you
+can have multiple kernels on your system at the same time and select from among them which to boot up.</p>
+<section id="updating-the-kernel">
+<h2>Updating the Kernel<a class="headerlink" href="#updating-the-kernel" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>You have an out-of-date kernel and want to make it current.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>Use the following command to determine which kernel you are running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>uname<span class="w"> </span>-a
+Linux<span class="w"> </span>beaglebone<span class="w"> </span><span class="m">5</span>.10.168-ti-r62<span class="w"> </span><span class="c1">#1bullseye SMP PREEMPT Tue May 23 20:15:00 UTC 2023 armv7l GNU/Linux</span>
+GNU/Linux
+</pre></div>
+</div>
+<p>The <em>5.10.168-ti-r62</em> string is the kernel version.</p>
+<p>To update to the current kernel, ensure that your Bone is on the Internet
+(<a class="reference internal" href="../05tips/tips.html#networking-usb"><span class="std std-ref">Sharing the Host’s Internet Connection over USB</span></a> or <a class="reference internal" href="../05tips/tips.html#networking-wired"><span class="std std-ref">Establishing an Ethernet-Based Internet Connection</span></a>) and then run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>apt-cache<span class="w"> </span>pkgnames<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>linux-image<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+...
+linux-image-5.10.162-ti-r59
+linux-image-5.10.162-ti-rt-r56
+linux-image-5.10.162-ti-rt-r57
+linux-image-5.10.162-ti-rt-r58
+linux-image-5.10.162-ti-rt-r59
+linux-image-5.10.168-armv7-lpae-x71
+linux-image-5.10.168-armv7-rt-x71
+linux-image-5.10.168-armv7-x71
+linux-image-5.10.168-bone71
+linux-image-5.10.168-bone-rt-r71
+linux-image-5.10.168-ti-r60
+linux-image-5.10.168-ti-r61
+linux-image-5.10.168-ti-r62
+linux-image-5.10.168-ti-rt-r60
+linux-image-5.10.168-ti-rt-r61
+linux-image-5.10.168-ti-rt-r62
+...
+
+bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>linux-image-5.10.162-ti-rt-r59
+bone$<span class="w"> </span>sudo<span class="w"> </span>reboot
+
+bone$<span class="w"> </span>uname<span class="w"> </span>-a
+Linux<span class="w"> </span>beaglebone<span class="w"> </span><span class="m">5</span>.10.162-ti-rt-r59<span class="w"> </span><span class="c1">#1 SMP PREEMPT Wed Nov 19 21:11:08 UTC 2014 armv7l</span>
+GNU/Linux
+</pre></div>
+</div>
+<p>The first command lists the versions of the kernel that are available. The second command installs one.
+After you have rebooted, the new kernel will be running.</p>
+<p>If the current kernel is doing its job adequately, you probably don’t need to update, but sometimes a new
+software package requires a more up-to-date kernel.
+Fortunately, precompiled kernels are available and ready to download.</p>
+<section id="seeing-which-kernels-are-installed">
+<h4>Seeing which kernels are installed<a class="headerlink" href="#seeing-which-kernels-are-installed" title="Link to this heading">#</a></h4>
+<p>You can have multiple kernels install at the same time. T
+hey are saved in <strong>/boot</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/boot
+bone$<span class="w"> </span>ls
+config-5.10.168-ti-r62<span class="w">      </span>initrd.img-5.10.168-ti-r63<span class="w">  </span>uboot<span class="w">                    </span>vmlinuz-5.10.168-ti-r63
+config-5.10.168-ti-r63<span class="w">      </span>SOC.sh<span class="w">                      </span>uEnv.txt
+dtbs<span class="w">                        </span>System.map-5.10.168-ti-r62<span class="w">  </span>uEnv.txt.orig
+initrd.img-5.10.168-ti-r62<span class="w">  </span>System.map-5.10.168-ti-r63<span class="w">  </span>vmlinuz-5.10.168-ti-r62
+</pre></div>
+</div>
+<p>Here I have two kernel versions installed.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Bone</label><div class="sd-tab-content docutils">
+<p>On the Bone (Not the Play) the file <strong>uEnv.txt</strong> tells which
+kernel to use on the next reboot. Here are the first few lines:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Line
+<span class="m">1</span><span class="w"> </span><span class="c1">#Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0</span>
+<span class="m">2</span>
+<span class="m">3</span><span class="w"> </span><span class="c1"># uname_r=4.14.108-ti-r137</span>
+<span class="m">4</span><span class="w"> </span><span class="nv">uname_r</span><span class="o">=</span><span class="m">4</span>.19.94-ti-r50
+<span class="m">5</span><span class="w"> </span><span class="c1"># uname_r=5.4.52-ti-r17</span>
+<span class="m">6</span><span class="w"> </span><span class="c1">#uuid=</span>
+</pre></div>
+</div>
+<p>Lines 3-5 list the various kernels, and the uncommented one on line 4 is the one that will be used next time. You will have to add your own uname’s. Get the names from the files in /boot. Be careful, if you mistype the name your Bone won’t boot.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Play</label><div class="sd-tab-content docutils">
+<p>On the Play you can see which version of the kernel will boot
+next by:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>play$<span class="w"> </span>cat<span class="w"> </span>/boot/firmware/kversion
+<span class="m">5</span>.10.168-ti-arm64-r106
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to change the version run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>linux-image-5.10.168-ti-arm64-r105<span class="w"> </span>--reinstall
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="building-and-installing-kernel-modules">
+<span id="kernel-building-modules"></span><h2>Building and Installing Kernel Modules<a class="headerlink" href="#building-and-installing-kernel-modules" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Problem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>You need to use a peripheral for which there currently is no driver, or you need to improve the
+performance of an interface previously handled in user space.</p>
+</section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The solution is to run in kernel space by building a kernel module. There are entire
+<a class="reference external" href="https://bootlin.com/doc/books/ldd3.pdf">books on writing Linux Device Drivers</a>. This recipe assumes that
+the driver has already been written and shows how to compile and install it. After you’ve
+followed the steps for this simple module, you will be able to apply them to any other module.</p>
+<p>For our example module, add the code in <a class="reference internal" href="#kernel-simple-module"><span class="std std-ref">Simple Kernel Module (hello.c)</span></a> to a file called <code class="docutils literal notranslate"><span class="pre">hello.c</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<span id="kernel-simple-module"></span><div class="code-block-caption"><span class="caption-number">Listing 74 </span><span class="caption-text">Simple Kernel Module (hello.c)</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">       /* Needed by all modules */</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">       /* Needed for KERN_INFO */</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">         /* Needed for the macros */</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">hello_start</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span><span class="w"> </span><span class="s">&quot;Loading hello module...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">10</span><span class="p">}</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">hello_end</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">13</span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span><span class="w"> </span><span class="s">&quot;Goodbye Boris</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">15</span><span class="p">}</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="n">module_init</span><span class="p">(</span><span class="n">hello_start</span><span class="p">);</span>
+<span class="linenos">18</span><span class="n">module_exit</span><span class="p">(</span><span class="n">hello_end</span><span class="p">);</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="n">MODULE_AUTHOR</span><span class="p">(</span><span class="s">&quot;Boris Houndleroy&quot;</span><span class="p">);</span>
+<span class="linenos">21</span><span class="n">MODULE_DESCRIPTION</span><span class="p">(</span><span class="s">&quot;Hello World Example&quot;</span><span class="p">);</span>
+<span class="linenos">22</span><span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/5bb42801b0477e931f9093a958c235ba/hello.c"><code class="xref download docutils literal notranslate"><span class="pre">hello.c</span></code></a></p>
+<p>When compiling on the Bone, all you need to do is load the Kernel
+Headers for the version of the kernel you’re running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>linux-headers-<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quotes around <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-r</span></code> are backtick characters. On a United States keyboard,
+the backtick key is to the left of the 1 key.</p>
+</div>
+<p>This took a little more than three minutes on my Bone. The <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-r</span></code> part of the command
+looks up what version of the kernel you are running and loads the headers for it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t have a network connection you can get the headers from the running kernel with
+the following.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span><span class="w"> </span><span class="n">modprobe</span><span class="w"> </span><span class="n">kheaders</span>
+<span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">rf</span><span class="w"> </span><span class="n">$HOME</span><span class="o">/</span><span class="n">headers</span>
+<span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">$HOME</span><span class="o">/</span><span class="n">headers</span>
+<span class="n">tar</span><span class="w"> </span><span class="o">-</span><span class="n">xvf</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">kheaders</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">xz</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$HOME</span><span class="o">/</span><span class="n">headers</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">kernel</span><span class="o">-</span><span class="k">module</span>
+<span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$HOME</span><span class="o">/</span><span class="n">headers</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span><span class="w"> </span><span class="n">modules</span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">rmmod</span><span class="w"> </span><span class="n">kheaders</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">modprobe</span> <span class="pre">kheaders</span></code> makes the <code class="docutils literal notranslate"><span class="pre">/sys/kernel/kheaders.tar.xz</span></code> appear.</p>
+</div>
+<p>Next, add the code in <a class="reference internal" href="#kernel-makefle"><span class="std std-ref">Simple Kernel Module (Makefile)</span></a> to a file called <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<span id="kernel-makefle"></span><div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Simple Kernel Module (<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>)</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">obj</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span><span class="n">o</span>
+<span class="linenos">2</span><span class="nl">KDIR</span><span class="w">  </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">shell</span><span class="w"> </span><span class="n">uname</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">build</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="nl">all</span><span class="p">:</span>
+<span class="linenos">5</span><span class="o">&lt;</span><span class="n">TAB</span><span class="o">&gt;</span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">KDIR</span><span class="p">)</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$$PWD</span>
+<span class="linenos">6</span><span class="w">	</span>
+<span class="linenos">7</span><span class="nl">clean</span><span class="p">:</span>
+<span class="linenos">8</span><span class="o">&lt;</span><span class="n">TAB</span><span class="o">&gt;</span><span class="n">rm</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span><span class="n">mod</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span><span class="n">o</span><span class="w"> </span><span class="n">modules</span><span class="p">.</span><span class="n">order</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span><span class="n">mod</span><span class="p">.</span><span class="n">o</span><span class="w"> </span><span class="n">Module</span><span class="p">.</span><span class="n">symvers</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/4b58b336440c5e16f0b7ebe823db9855/Makefile.display"><code class="xref download docutils literal notranslate"><span class="pre">Makefile.display</span></code></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace the two instances of <em>&lt;TAB&gt;</em> with a tab character (the key left of the Q key on a United States keyboard).
+The tab characters are very important to makefiles and must appear as shown.</p>
+</div>
+<p>Now, compile the kernel module by using the <em>make</em> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>make
+make<span class="w"> </span>-C<span class="w"> </span>/lib/modules/5.10.168-ti-r62/build<span class="w"> </span><span class="nv">M</span><span class="o">=</span><span class="nv">$PWD</span>
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/usr/src/linux-headers-5.10.168-ti-r62&#39;</span>
+CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.o
+MODPOST<span class="w"> </span>/home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/Module.symvers
+CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/home/debian/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.mod.o
+LD<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/home/debian/host/BeagleBoard/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.ko
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Leaving<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/usr/src/linux-headers-5.10.168-ti-r62&#39;</span>
+
+bone$<span class="w"> </span>ls
+Makefile<span class="w">        </span>hello.c<span class="w">   </span>hello.mod.c<span class="w">  </span>hello.o
+Module.symvers<span class="w">  </span>hello.ko<span class="w">  </span>hello.mod.o<span class="w">  </span>modules.order
+</pre></div>
+</div>
+<p>Notice that several files have been created.
+<code class="docutils literal notranslate"><span class="pre">hello.ko</span></code> is the one you want. Try a couple of commands with it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>modinfo<span class="w"> </span>hello.ko
+filename:<span class="w">       </span>/home/debian/host/BeagleBoard/docs.beagleboard.io/books/beaglebone-cookbook/code/07kernel/hello.ko
+license:<span class="w">        </span>GPL
+description:<span class="w">    </span>Hello<span class="w"> </span>World<span class="w"> </span>Example
+author:<span class="w">         </span>Boris<span class="w"> </span>Houndleroy
+depends:
+name:<span class="w">           </span>hello
+vermagic:<span class="w">       </span><span class="m">5</span>.10.168-ti-r62<span class="w"> </span>SMP<span class="w"> </span>preempt<span class="w"> </span>mod_unload<span class="w"> </span>modversions<span class="w"> </span>ARMv7<span class="w"> </span>p2v8
+
+bone$<span class="w"> </span>sudo<span class="w"> </span>insmod<span class="w"> </span>hello.ko
+bone$<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-4
+<span class="o">[</span><span class="w">  </span><span class="m">377</span>.944777<span class="o">]</span><span class="w"> </span>lm75<span class="w"> </span><span class="m">1</span>-004a:<span class="w"> </span>hwmon1:<span class="w"> </span>sensor<span class="w"> </span><span class="s1">&#39;tmp101&#39;</span>
+<span class="o">[</span><span class="w">  </span><span class="m">377</span>.944976<span class="o">]</span><span class="w"> </span>i2c<span class="w"> </span>i2c-1:<span class="w"> </span>new_device:<span class="w"> </span>Instantiated<span class="w"> </span>device<span class="w"> </span>tmp101<span class="w"> </span>at<span class="w"> </span>0x4a
+<span class="o">[</span><span class="m">85819</span>.772666<span class="o">]</span><span class="w"> </span>Loading<span class="w"> </span>hello<span class="w"> </span>module...
+<span class="o">[</span><span class="m">85819</span>.772687<span class="o">]</span><span class="w"> </span>Hello,<span class="w"> </span>World!
+</pre></div>
+</div>
+<p>The first command displays information about the module. The <em>insmod</em> command inserts the module into the running kernel.
+If all goes well, nothing is displayed, but the module does print something in the kernel log. The <em>dmesg</em> command displays
+the messages in the log, and the <em>tail -4</em> command shows the last four messages. The last two messages are from the module. It worked!</p>
+</section>
+</section>
+<section id="compiling-the-kernel">
+<span id="kernel-compiling"></span><h2>Compiling the Kernel<a class="headerlink" href="#compiling-the-kernel" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Problem<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>You need to download, patch, and compile the kernel from its source code.</p>
+</section>
+<section id="id4">
+<h3>Solution<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>This is easier than it sounds, thanks to some very powerful scripts.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to run this recipe on your host computer. The Bone has enough computational
+power to compile a module or two, but compiling the entire kernel takes lots of time and resources.</p>
+</div>
+</section>
+</section>
+<section id="downloading-and-compiling-the-kernel">
+<h2>Downloading and Compiling the Kernel<a class="headerlink" href="#downloading-and-compiling-the-kernel" title="Link to this heading">#</a></h2>
+<p>To download and compile the kernel, follow these steps:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://git.beagleboard.org/RobertCNelson/ti-linux-kernel-dev<span class="w"> </span><span class="c1"># ①</span>
+host$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>ti-linux-kernel-dev
+host$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>ti-linux-5.10.y<span class="w"> </span><span class="c1"># ②</span>
+host$<span class="w"> </span>./build_deb.sh<span class="w"> </span><span class="c1"># ③</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using a 64 bit Bone, <strong>git checkout ti-linux-arm64-5.10.y</strong></p>
+</div>
+<p>① The first command clones a repository with the tools to build the kernel for the Bone.</p>
+<p>② When you know which kernel to try, use <em>git checkout</em> to check it out.
+This command checks out branch <em>ti-linux-5.10.y</em>.</p>
+<p>③ <em>build_deb.sh</em> is the master builder. If needed, it will download the cross compilers
+needed to compile the kernel (<a class="reference external" href="https://gcc.gnu.org/">gcc</a> is the current cross compiler).
+If there is a kernel at <code class="docutils literal notranslate"><span class="pre">~/linux-dev</span></code>, it will use it; otherwise,
+it will download a copy to <code class="docutils literal notranslate"><span class="pre">ti-linux-kernel-dev/ignore/linux-src</span></code>.
+It will then patch the kernel so that it will run on the Bone.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>build_deb.sh</em> may ask you to install additional files. Just run <strong>sudo apt install *files*</strong> to
+install them.</p>
+</div>
+<p>After the kernel is patched, you’ll see a screen similar to <a class="reference internal" href="#kernel-config-fig"><span class="std std-ref">Kernel configuration menu</span></a>, on which you can configure the kernel.</p>
+<figure class="align-center" id="id13">
+<span id="kernel-config-fig"></span><img alt="Kernel configuration menu" src="../../../_images/KernelConfig5.10.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 702 </span><span class="caption-text">Kernel configuration menu</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can use the arrow keys to navigate. No changes need to be made, so you can just press the right
+arrow and Enter to start the kernel compiling. The entire process took about 25 minutes on my 8-core host.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ti-linux-kernel-dev/KERNEL</span></code> directory contains the source code for the kernel. The <code class="docutils literal notranslate"><span class="pre">ti-linux-kernel-dev/deploy</span></code>
+directory contains the compiled kernel and the files needed to run it.</p>
+</section>
+<section id="installing-the-kernel-on-the-bone">
+<span id="kernel-install"></span><h2>Installing the Kernel on the Bone<a class="headerlink" href="#installing-the-kernel-on-the-bone" title="Link to this heading">#</a></h2>
+<p>The <strong>./build_deb.sh</strong> script creates a single .deb file that contains all the files needed for the new kernel.
+You find it here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>ti-linux-kernel-dev/deploy
+host$<span class="w"> </span>ls<span class="w"> </span>-sh
+total<span class="w"> </span>40M
+<span class="m">7</span>.7M<span class="w"> </span>linux-headers-5.10.168-ti-r62_1xross_armhf.deb<span class="w">  </span><span class="m">8</span>.0K<span class="w"> </span>linux-upstream_1xross_armhf.buildinfo
+<span class="w"> </span>33M<span class="w"> </span>linux-image-5.10.168-ti-r62_1xross_armhf.deb<span class="w">    </span><span class="m">4</span>.0K<span class="w"> </span>linux-upstream_1xross_armhf.changes
+<span class="m">1</span>.1M<span class="w"> </span>linux-libc-dev_1xross_armhf.deb
+</pre></div>
+</div>
+<p>The <strong>linux-image-</strong> file is the one we want. It contains over 3000 files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>dpkg<span class="w"> </span>-c<span class="w"> </span>linux-image-5.10.168-ti-r62_1xross_armhf.deb<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc
+<span class="w">   </span><span class="m">3251</span><span class="w">   </span><span class="m">19506</span><span class="w">  </span><span class="m">379250</span>
+</pre></div>
+</div>
+<p>The <strong>dpkg</strong> command lists all the files in the .deb file and the wc counts all the lines in the output.
+You can see those files with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>dpkg<span class="w"> </span>-c<span class="w"> </span>linux-image-5.10.168-ti-r62_1xross_armhf.deb<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+drwxr-xr-x<span class="w"> </span>root/root<span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./
+drwxr-xr-x<span class="w"> </span>root/root<span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/
+-rw-r--r--<span class="w"> </span>root/root<span class="w">   </span><span class="m">4763113</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/System.map-5.10.168-ti-r62
+-rw-r--r--<span class="w"> </span>root/root<span class="w">    </span><span class="m">191331</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/config-5.10.168-ti-r62
+drwxr-xr-x<span class="w"> </span>root/root<span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/dtbs/
+drwxr-xr-x<span class="w"> </span>root/root<span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/dtbs/5.10.168-ti-r62/
+-rwxr-xr-x<span class="w"> </span>root/root<span class="w">     </span><span class="m">90644</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir2110.dtb
+-rwxr-xr-x<span class="w"> </span>root/root<span class="w">     </span><span class="m">91362</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir3220.dtb
+-rwxr-xr-x<span class="w"> </span>root/root<span class="w">     </span><span class="m">91633</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/dtbs/5.10.168-ti-r62/am335x-baltos-ir5221.dtb
+-rwxr-xr-x<span class="w"> </span>root/root<span class="w">     </span><span class="m">88684</span><span class="w"> </span><span class="m">2023</span>-06-12<span class="w"> </span><span class="m">12</span>:57<span class="w"> </span>./boot/dtbs/5.10.168-ti-r62/am335x-base0033.dtb
+</pre></div>
+</div>
+<p>You can see it’s putting things in the <strong>/boot</strong> directory.</p>
+<p>Note: You can also look into the other two .deb files and see what they install.</p>
+<p>Move the <strong>linux-image-</strong> file to your Bone.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>scp<span class="w"> </span>linux-image-5.10.168-ti-r62_1xross_armhf.deb<span class="w"> </span>bone:.
+</pre></div>
+</div>
+<p>You might have to use <a class="reference external" href="mailto:debian&#37;&#52;&#48;192&#46;168&#46;7&#46;2">debian<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>7<span>&#46;</span>2</a> for bone if you haven’t set everything up.</p>
+<p>Now ssh to the bone.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>ssh<span class="w"> </span>bone
+bone$<span class="w"> </span>ls<span class="w"> </span>-sh
+bin<span class="w">  </span>exercises<span class="w"> </span>linux-image-5.10.168-ti-r62_1xross_armhf.deb
+</pre></div>
+</div>
+<p>Now install it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>--install<span class="w"> </span>linux-image-5.10.168-ti-r62_1xross_armhf.deb
+</pre></div>
+</div>
+<p>Wait a while. (Mine took almore 2 minutes.) Once done check /boot.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>ls<span class="w"> </span>-sh<span class="w"> </span>/boot
+total<span class="w"> </span>40M
+160K<span class="w"> </span>config-4.19.94-ti-r50<span class="w">        </span><span class="m">4</span>.0K<span class="w"> </span>SOC.sh<span class="w">                     </span><span class="m">4</span>.0K<span class="w"> </span>uEnv.txt.orig
+180K<span class="w"> </span>config-5.10.168-ti-r62<span class="w">       </span><span class="m">3</span>.5M<span class="w"> </span>System.map-4.19.94-ti-r50<span class="w">  </span><span class="m">9</span>.7M<span class="w"> </span>vmlinuz-4.19.94-ti-r50
+<span class="m">4</span>.0K<span class="w"> </span>dtbs<span class="w">                         </span><span class="m">4</span>.1M<span class="w"> </span>System.map-5.10.168-ti-r62<span class="w"> </span><span class="m">8</span>.6M<span class="w"> </span>vmlinuz-5.10.168-ti-r62
+<span class="m">6</span>.4M<span class="w"> </span>initrd.img-4.19.94-ti-r50<span class="w">    </span><span class="m">4</span>.0K<span class="w"> </span>uboot
+<span class="m">6</span>.8M<span class="w"> </span>initrd.img-5.10.168-ti-r62<span class="w">   </span><span class="m">4</span>.0K<span class="w"> </span>uEnv.txt
+</pre></div>
+</div>
+<p>You see the new kernel files along with the old files. Check uEnv.txt.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>head<span class="w"> </span>/boot/uEnv.txt
+<span class="c1">#Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0</span>
+<span class="c1"># uname_r=4.19.94-ti-r50</span>
+<span class="nv">uname_r</span><span class="o">=</span><span class="m">5</span>.10.168-ti-r62
+</pre></div>
+</div>
+<p>I added the commented out uname_r line to make it easy to switch between versions of the kernel.</p>
+<p>Reboot and test out the new kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</section>
+<section id="installin-a-cross-compiler">
+<span id="kernel-using-cross-compiler"></span><h2>Installin a Cross Compiler<a class="headerlink" href="#installin-a-cross-compiler" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Problem<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>You want to compile on your host computer and run on the Beagle.</p>
+</section>
+<section id="id6">
+<h3>Solution<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Run the following:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+32-bit</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gcc-arm-linux-gnueabihf
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+64-bit</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gcc-aarch64-linux-gnu
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From now on use <strong>arm</strong> if you are using a 32-bit machine and
+<strong>aarch64</strong> if you are using a 64-bit machine.</p>
+</div>
+<p>This installs a cross compiler, but you need to set up a
+couple of things so that it can be found.  At the command prompt,
+enter <strong>arm-&lt;TAB&gt;&lt;TAB&gt;</strong> to see  what was installed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>arm-&lt;TAB&gt;&lt;TAB&gt;
+arm-linux-gnueabihf-addr2line<span class="w">      </span>arm-linux-gnueabihf-gcc-nm<span class="w">         </span>arm-linux-gnueabihf-ld.bfd
+arm-linux-gnueabihf-ar<span class="w">             </span>arm-linux-gnueabihf-gcc-nm-11<span class="w">      </span>arm-linux-gnueabihf-ld.gold
+arm-linux-gnueabihf-as<span class="w">             </span>arm-linux-gnueabihf-gcc-ranlib<span class="w">     </span>arm-linux-gnueabihf-lto-dump-11
+arm-linux-gnueabihf-c++filt<span class="w">        </span>arm-linux-gnueabihf-gcc-ranlib-11<span class="w">  </span>arm-linux-gnueabihf-nm
+arm-linux-gnueabihf-cpp<span class="w">            </span>arm-linux-gnueabihf-gcov<span class="w">           </span>arm-linux-gnueabihf-objcopy
+arm-linux-gnueabihf-cpp-11<span class="w">         </span>arm-linux-gnueabihf-gcov-11<span class="w">        </span>arm-linux-gnueabihf-objdump
+arm-linux-gnueabihf-dwp<span class="w">            </span>arm-linux-gnueabihf-gcov-dump<span class="w">      </span>arm-linux-gnueabihf-ranlib
+arm-linux-gnueabihf-elfedit<span class="w">        </span>arm-linux-gnueabihf-gcov-dump-11<span class="w">   </span>arm-linux-gnueabihf-readelf
+arm-linux-gnueabihf-gcc<span class="w">            </span>arm-linux-gnueabihf-gcov-tool<span class="w">      </span>arm-linux-gnueabihf-size
+arm-linux-gnueabihf-gcc-11<span class="w">         </span>arm-linux-gnueabihf-gcov-tool-11<span class="w">   </span>arm-linux-gnueabihf-strings
+arm-linux-gnueabihf-gcc-ar<span class="w">         </span>arm-linux-gnueabihf-gprof<span class="w">          </span>arm-linux-gnueabihf-strip
+arm-linux-gnueabihf-gcc-ar-11<span class="w">      </span>arm-linux-gnueabihf-ld
+</pre></div>
+</div>
+<p>What you see are all the cross-development tools.</p>
+</section>
+</section>
+<section id="setting-up-variables">
+<h2>Setting Up Variables<a class="headerlink" href="#setting-up-variables" title="Link to this heading">#</a></h2>
+<p>Now, set up a couple of variables to know which compiler you are using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>arm
+host$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CROSS_COMPILE</span><span class="o">=</span>arm-linux-gnueabihf-
+</pre></div>
+</div>
+<p>These lines set up the standard environmental variables so that you can determine which cross-development
+tools to use. Test the cross compiler by adding <a class="reference internal" href="#kernel-helloworld"><span class="std std-ref">Simple helloWorld.c to test cross compiling (helloWorld.c)</span></a> to a file named _helloWorld.c_.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<span id="kernel-helloworld"></span><div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Simple helloWorld.c to test cross compiling (helloWorld.c)</span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">4</span><span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">5</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/5932dd589035917edbbdaa9126a0c1b3/helloWorld.c"><code class="xref download docutils literal notranslate"><span class="pre">helloWorld.c</span></code></a></p>
+<p>You can then cross-compile by using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="si">${</span><span class="nv">CROSS_COMPILE</span><span class="si">}</span>gcc<span class="w"> </span>helloWorld.c
+host$<span class="w"> </span>file<span class="w"> </span>a.out
+a.out:<span class="w"> </span>ELF<span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>LSB<span class="w"> </span>executable,<span class="w"> </span>ARM,<span class="w"> </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,
+dynamically<span class="w"> </span>linked<span class="w"> </span><span class="o">(</span>uses<span class="w"> </span>shared<span class="w"> </span>libs<span class="o">)</span>,<span class="w"> </span><span class="k">for</span><span class="w"> </span>GNU/Linux<span class="w"> </span><span class="m">2</span>.6.31,
+BuildID<span class="o">[</span>sha1<span class="o">]=</span>0x10182364352b9f3cb15d1aa61395aeede11a52ad,<span class="w"> </span>not<span class="w"> </span>stripped
+</pre></div>
+</div>
+<p>The <em>file</em> command shows that <em>a.out</em> was compiled for an ARM processor.</p>
+</section>
+<section id="applying-patches">
+<span id="kernel-patches"></span><h2>Applying Patches<a class="headerlink" href="#applying-patches" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>Problem<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>You have a patch file that you need to apply to the kernel.</p>
+</section>
+<section id="id8">
+<h3>Solution<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#kernel-hello-patch"><span class="std std-ref">Simple kernel patch file (hello.patch)</span></a> shows a patch file that you can use on the kernel.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<span id="kernel-hello-patch"></span><div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Simple kernel patch file (hello.patch)</span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>From eaf4f7ea7d540bc8bb57283a8f68321ddb4401f4 Mon Sep 17 00:00:00 2001
+<span class="linenos"> 2</span>From: Jason Kridner &lt;jdk@ti.com&gt;
+<span class="linenos"> 3</span>Date: Tue, 12 Feb 2013 02:18:03 +0000
+<span class="linenos"> 4</span>Subject: [PATCH] hello: example kernel modules
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="gs">---</span>
+<span class="linenos"> 7</span><span class="w"> </span>hello/Makefile   |    7 +++++++
+<span class="linenos"> 8</span><span class="w"> </span>hello/hello.c    |   18 ++++++++++++++++++
+<span class="linenos"> 9</span><span class="w"> </span>2 files changed, 25 insertions(+), 0 deletions(-)
+<span class="linenos">10</span><span class="w"> </span>create mode 100644 hello/Makefile
+<span class="linenos">11</span><span class="w"> </span>create mode 100644 hello/hello.c
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gh">diff --git a/hello/Makefile b/hello/Makefile</span>
+<span class="linenos">14</span>new file mode 100644
+<span class="linenos">15</span><span class="gh">index 0000000..4b23da7</span>
+<span class="linenos">16</span><span class="gd">--- /dev/null</span>
+<span class="linenos">17</span><span class="gi">+++ b/hello/Makefile</span>
+<span class="linenos">18</span><span class="gu">@@ -0,0 +1,7 @@</span>
+<span class="linenos">19</span><span class="gi">+obj-m := hello.o</span>
+<span class="linenos">20</span><span class="gi">+</span>
+<span class="linenos">21</span><span class="gi">+PWD   := $(shell pwd)</span>
+<span class="linenos">22</span><span class="gi">+KDIR  := ${PWD}/..</span>
+<span class="linenos">23</span><span class="gi">+</span>
+<span class="linenos">24</span><span class="gi">+default:</span>
+<span class="linenos">25</span><span class="gi">+	make -C $(KDIR) SUBDIRS=$(PWD) modules</span>
+<span class="linenos">26</span><span class="gh">diff --git a/hello/hello.c b/hello/hello.c</span>
+<span class="linenos">27</span>new file mode 100644
+<span class="linenos">28</span><span class="gh">index 0000000..157d490</span>
+<span class="linenos">29</span><span class="gd">--- /dev/null</span>
+<span class="linenos">30</span><span class="gi">+++ b/hello/hello.c</span>
+<span class="linenos">31</span><span class="gu">@@ -0,0 +1,22 @@</span>
+<span class="linenos">32</span><span class="gi">+#include &lt;linux/module.h&gt;       /* Needed by all modules */</span>
+<span class="linenos">33</span><span class="gi">+#include &lt;linux/kernel.h&gt;       /* Needed for KERN_INFO */</span>
+<span class="linenos">34</span><span class="gi">+#include &lt;linux/init.h&gt;         /* Needed for the macros */</span>
+<span class="linenos">35</span><span class="gi">+</span>
+<span class="linenos">36</span><span class="gi">+static int __init hello_start(void)</span>
+<span class="linenos">37</span><span class="gi">+{</span>
+<span class="linenos">38</span><span class="gi">+    printk(KERN_INFO &quot;Loading hello module...\n&quot;);</span>
+<span class="linenos">39</span><span class="gi">+    printk(KERN_INFO &quot;Hello, World!\n&quot;);</span>
+<span class="linenos">40</span><span class="gi">+    return 0;</span>
+<span class="linenos">41</span><span class="gi">+}</span>
+<span class="linenos">42</span><span class="gi">+</span>
+<span class="linenos">43</span><span class="gi">+static void __exit hello_end(void)</span>
+<span class="linenos">44</span><span class="gi">+{</span>
+<span class="linenos">45</span><span class="gi">+    printk(KERN_INFO &quot;Goodbye Boris\n&quot;);</span>
+<span class="linenos">46</span><span class="gi">+}</span>
+<span class="linenos">47</span><span class="gi">+</span>
+<span class="linenos">48</span><span class="gi">+module_init(hello_start);</span>
+<span class="linenos">49</span><span class="gi">+module_exit(hello_end);</span>
+<span class="linenos">50</span><span class="gi">+</span>
+<span class="linenos">51</span><span class="gi">+MODULE_AUTHOR(&quot;Boris Houndleroy&quot;);</span>
+<span class="linenos">52</span><span class="gi">+MODULE_DESCRIPTION(&quot;Hello World Example&quot;);</span>
+<span class="linenos">53</span><span class="gi">+MODULE_LICENSE(&quot;GPL&quot;);</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/647794c39f826416bcdd82951e5f4df6/hello.patch"><code class="xref download docutils literal notranslate"><span class="pre">hello.patch</span></code></a></p>
+<p>Here’s how to use it:</p>
+<ul class="simple">
+<li><p>Install the kernel sources (<a class="reference internal" href="#kernel-compiling"><span class="std std-ref">Compiling the Kernel</span></a>).</p></li>
+<li><p>Change to the kernel directory (+cd ti-linux-kernel-dev/KERNEL+).</p></li>
+<li><p>Add <a class="reference internal" href="#kernel-hello-patch"><span class="std std-ref">Simple kernel patch file (hello.patch)</span></a> to a file named <code class="docutils literal notranslate"><span class="pre">hello.patch</span></code> in the <code class="docutils literal notranslate"><span class="pre">ti-linux-kernel-dev/KERNEL</span></code> directory.</p></li>
+<li><p>Run the following commands:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>ti-linux-kernel-dev/KERNEL
+host$<span class="w"> </span>patch<span class="w"> </span>-p1<span class="w"> </span><span class="p">&amp;</span>lt<span class="p">;</span><span class="w"> </span>hello.patch
+patching<span class="w"> </span>file<span class="w"> </span>hello/Makefile
+patching<span class="w"> </span>file<span class="w"> </span>hello/hello.c
+</pre></div>
+</div>
+<p>The output of the <em>patch</em> command apprises you of what it’s doing.
+Look in the <code class="docutils literal notranslate"><span class="pre">hello</span></code> directory to see what was created:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>hello
+host$<span class="w"> </span>ls
+hello.c<span class="w">  </span>Makefile
+</pre></div>
+</div>
+<p><a class="reference internal" href="#kernel-building-modules"><span class="std std-ref">Building and Installing Kernel Modules</span></a> shows how to build and install a module, and <a class="reference internal" href="#kernel-create-patch"><span class="std std-ref">Creating Your Own Patch File</span></a>
+shows how to create your own patch file.</p>
+</section>
+</section>
+<section id="creating-your-own-patch-file">
+<span id="kernel-create-patch"></span><h2>Creating Your Own Patch File<a class="headerlink" href="#creating-your-own-patch-file" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Problem<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>You made a few changes to the kernel, and you want to share them with your friends.</p>
+</section>
+<section id="id10">
+<h3>Solution<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>Create a patch file that contains just the changes you have made.
+Before making your changes, check out a new branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>ti-linux-kernel-dev/KERNEL
+host$<span class="w"> </span>git<span class="w"> </span>status
+<span class="c1"># On branch master</span>
+nothing<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>working<span class="w"> </span>directory<span class="w"> </span>clean<span class="o">)</span>
+</pre></div>
+</div>
+<p>Good, so far no changes have been made. Now, create a new branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hello1
+host$<span class="w"> </span>git<span class="w"> </span>status
+<span class="c1"># On branch hello1</span>
+nothing<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>working<span class="w"> </span>directory<span class="w"> </span>clean<span class="o">)</span>
+</pre></div>
+</div>
+<p>You’ve created a new branch called <code class="docutils literal notranslate"><span class="pre">hello1</span></code> and checked it out. Now, make whatever changes
+to the kernel you want. I did some work with a simple character driver that we can use as an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>ti-linux-kernel-dev/KERNEL/drivers/char/
+host$<span class="w"> </span>git<span class="w"> </span>status
+<span class="c1"># On branch hello1</span>
+<span class="c1"># Changes not staged for commit:</span>
+<span class="c1">#   (use &quot;git add file...&quot; to update what will be committed)</span>
+<span class="c1">#   (use &quot;git checkout -- file...&quot; to discard changes in working directory)</span>
+<span class="c1">#</span>
+<span class="c1">#   modified:   Kconfig</span>
+<span class="c1">#   modified:   Makefile</span>
+<span class="c1">#</span>
+<span class="c1"># Untracked files:</span>
+<span class="c1">#   (use &quot;git add file...&quot; to include in what will be committed)</span>
+<span class="c1">#</span>
+<span class="c1">#   examples/</span>
+no<span class="w"> </span>changes<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>and/or<span class="w"> </span><span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Add the files that were created and commit them:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Kconfig<span class="w"> </span>Makefile<span class="w"> </span>examples
+host$<span class="w"> </span>git<span class="w"> </span>status
+<span class="c1"># On branch hello1</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#   (use &quot;git reset HEAD file...&quot; to unstage)</span>
+<span class="c1">#</span>
+<span class="c1">#   modified:   Kconfig</span>
+<span class="c1">#   modified:   Makefile</span>
+<span class="c1">#   new file:   examples/Makefile</span>
+<span class="c1">#   new file:   examples/hello1.c</span>
+<span class="c1">#</span>
+host$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Files for hello1 kernel module&quot;</span>
+<span class="o">[</span>hello1<span class="w"> </span>99346d5<span class="o">]</span><span class="w"> </span>Files<span class="w"> </span><span class="k">for</span><span class="w"> </span>hello1<span class="w"> </span>kernel<span class="w"> </span>module
+<span class="m">4</span><span class="w"> </span>files<span class="w"> </span>changed,<span class="w"> </span><span class="m">33</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>drivers/char/examples/Makefile
+create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>drivers/char/examples/hello1.c
+</pre></div>
+</div>
+<p>Finally, create the patch file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>git<span class="w"> </span>format-patch<span class="w"> </span>master<span class="w"> </span>--stdout<span class="w"> </span><span class="p">&amp;</span>gt<span class="p">;</span><span class="w"> </span>hello1.patch
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../06iot/iot.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Internet of Things</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08realtime/realtime.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Real-Time I/O</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-kernel">Updating the Kernel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-which-kernels-are-installed">Seeing which kernels are installed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-and-installing-kernel-modules">Building and Installing Kernel Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-kernel">Compiling the Kernel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-compiling-the-kernel">Downloading and Compiling the Kernel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-kernel-on-the-bone">Installing the Kernel on the Bone</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installin-a-cross-compiler">Installin a Cross Compiler</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-variables">Setting Up Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-patches">Applying Patches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-own-patch-file">Creating Your Own Patch File</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Solution</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/beaglebone-cookbook/07kernel/kernel.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/beaglebone-cookbook/07kernel/kernel.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-cookbook.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1599 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Upgrade BeagleBone AI software &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglebone/ai/demos-and-tutorials/upgrade-beaglebone-ai-software';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglebone/ai/demos-and-tutorials/upgrade-beaglebone-ai-software.html" />
+    <link rel="icon" href="../../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Additional Support Information" href="../06-support.html" />
+    <link rel="prev" title="Demos &amp; Tutorials" href="../05-demos-and-tutorials.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-quick-start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-design-and-specifications.html">Design and specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-expansion.html">Expansion</a></li>
+
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../05-demos-and-tutorials.html">Demos &amp; Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Upgrade BeagleBone AI software</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-support.html">Additional Support Information</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeagleBone AI</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../05-demos-and-tutorials.html" class="nav-link">Demos &amp; Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Upgrade BeagleBone AI software</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="upgrade-beaglebone-ai-software">
+<span id="id1"></span><h1>Upgrade BeagleBone AI software<a class="headerlink" href="#upgrade-beaglebone-ai-software" title="Link to this heading">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This documentation is very old and your feedback is requested, ideally via
+the discussion mailing-list. Otherwise, visit /about/jkridner to contact me
+directly to provide feedback, because it is important this page be reasonably easy to use.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the boards may run warm and shutdown. Please keep significant
+ventilation on your board and update your software per these instructions.</p>
+</div>
+<p>There are 4 main steps to updating the software on BeagleBone AI:</p>
+<ol class="arabic simple">
+<li><p>Get connected to the Internet</p></li>
+<li><p>Update the boot-up scripts and Linux kernel</p></li>
+<li><p>Update distribution components</p></li>
+<li><p>Update examples in the Cloud9 IDE workspace</p></li>
+</ol>
+<p>The distribution components includes all of the on-board software utilizing Debian package management.
+This is the vast majority of the on-board software.</p>
+<p>The examples in the Cloud9 IDE workspace are managed with a version control tool called git.
+This is so that it is possible to edit, record changes and revert changes to any of the examples.
+The Cloud9 IDE is integrated with this version control and history can be seen using the “Changes” tab on the far-left.</p>
+<p>The boot-up scripts and Linux kernel updates are managed separately from rest of the system to simplified maintanence.
+Get connected to the Internet</p>
+<p>There are many ways to get BeagleBone AI onto the Internet. Ethernet, WiFi and USB-based methods are
+described below. Getting an Internet connection and performing the distribution, examples and kernel
+updates below is the fastest way to get BeagleBone AI up-to-date.
+Ethernet</p>
+<p>Just connect BeagleBone AI to your router and it will automatically DHCP an IP address for access to the Internet.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>ifconfig<span class="w"> </span>eth0
+<span class="go">eth0: flags=-28605  mtu 1500</span>
+<span class="go">        inet 192.168.0.174  netmask 255.255.255.0  broadcast 192.168.0.255</span>
+<span class="go">        inet6 fe80::8a3f:4aff:fe82:c102  prefixlen 64  scopeid 0x20</span>
+<span class="go">        ether 88:3f:4a:82:c1:02  txqueuelen 1000  (Ethernet)</span>
+<span class="go">        RX packets 17763  bytes 12611619 (12.0 MiB)</span>
+<span class="go">        RX errors 0  dropped 0  overruns 0  frame 0</span>
+<span class="go">        TX packets 7744  bytes 1010400 (986.7 KiB)</span>
+<span class="go">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span>
+<span class="go">        device interrupt 126</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$</span>
+</pre></div>
+</div>
+<section id="wifi-without-an-enterprise-login">
+<h2>WiFi (without an Enterprise Login)<a class="headerlink" href="#wifi-without-an-enterprise-login" title="Link to this heading">#</a></h2>
+<p>Utilize the connman command-line app or the cmst graphical utility to connect to your WiFi network.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>connmanctl
+<span class="go">[sudo] password for debian:temppwd</span>
+<span class="go">connmanctl&gt; scan wifi</span>
+<span class="go">Scan completed for wifi</span>
+<span class="go">connmanctl&gt; services</span>
+<span class="go">       MyWifi                  wifi_1234567890_1234567890123456_managed_psk</span>
+<span class="go">connmanctl&gt; agent on</span>
+<span class="go">Agent registered</span>
+<span class="go">connmanctl&gt; connect wifi_1234567890_1234567890123456_managed_psk⏎</span>
+<span class="go">Agent RequestInput wifi_1234567890_1234567890123456_managed_psk</span>
+<span class="go">       Passphrase = [ Type=psk, Requirement=mandatory, Alternates=[ WPS ] ]</span>
+<span class="go">       WPS = [ Type=wpspin, Requirement=alternate ]</span>
+<span class="go">Passphrase? MySecretPassphrase</span>
+<span class="go">Connected wifi_1234567890_1234567890123456_managed_psk</span>
+<span class="go">connmanctl&gt; quit</span>
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>ifconfig<span class="w"> </span>wlan0
+<span class="go">wlan0: flags=-28605  mtu 1500</span>
+<span class="go">        inet 192.168.0.193  netmask 255.255.255.0  broadcast 192.168.0.255</span>
+<span class="go">        inet6 fe80::82c5:f2ff:fe7f:722d  prefixlen 64  scopeid 0x20</span>
+<span class="go">        ether 80:c5:f2:7f:72:2d  txqueuelen 1000  (Ethernet)</span>
+<span class="go">        RX packets 24  bytes 2734 (2.6 KiB)</span>
+<span class="go">        RX errors 0  dropped 0  overruns 0  frame 0</span>
+<span class="go">        TX packets 56  bytes 10405 (10.1 KiB)</span>
+<span class="go">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$</span>
+</pre></div>
+</div>
+</section>
+<section id="wifi-with-enterprise-login">
+<h2>WiFi with Enterprise Login<a class="headerlink" href="#wifi-with-enterprise-login" title="Link to this heading">#</a></h2>
+<p>For networks utilizing 802.1x Enterprise Login requirements, such as Eduroam, the creation of an additional configuration file can enable access.</p>
+<p>Content taken from librobotcontrol documentation</p>
+<p>Many wifi networks such as those found at universities and enterprises, require a user login instead of a shared passphrase. To demonstrate how to configure connman to connect to such networks, we will use the UCSD campus-wide network as an example.</p>
+<p>Start with a normal scan and look for the desired enterprise network.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>connmanctl
+<span class="go">[sudo] password for debian:temppwd</span>
+<span class="go">connmanctl&gt; scan wifi</span>
+<span class="go">Scan completed for wifi</span>
+<span class="go">connmanctl&gt; services</span>
+<span class="go">        UCSD-PROTECTED       wifi_000f540aa884_554353442d50524f544543544544-ieee8021x</span>
+<span class="go">        ATT5363              wifi_ec1127bffa51_41545435333633_managed_psk</span>
+<span class="go">        2WIRE407             wifi_ec1127bffa51_3257495245343037_managed_psk</span>
+<span class="go">        ATT8fHHhfi           wifi_ec1127bffa51_41545438664848686669_managed_psk</span>
+<span class="go">connmanctl&gt; quit</span>
+</pre></div>
+</div>
+<p>Note how the type of network is listed as ieee8021x indicating that it uses Network
+Access Control instead of a typical passkey (psk) as you would find in a consumer home network.</p>
+<p>Make a new file in the /var/lib/connman/ directory with a name matching what is listed
+during the scan. For this example, the name would be 000f540aa884_554353442d50524f544543544544-ieee8021x.config</p>
+<p>Fill in this file as follows, replacing the service name, SSID, Identity, and Passphrase with
+your own details. Your enterprise network may also use an authentication method other than
+PEAP and MSCHAPV2. Consult the IT help desk for your enterprise for details on that configuration.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>nano<span class="w"> </span>/var/lib/connman/wifi_000f540aa884_554353442d50524f544543544544-ieee8021x.config
+<span class="go">[sudo] password for debian:temppwd</span>
+
+<span class="go">Enter your information into the new config file like so:</span>
+
+<span class="go">[service_wifi_000f540aa884_554353442d50524f544543544544_managed_ieee8021x]</span>
+<span class="go">Type = wifi</span>
+<span class="go">SSID = 554353442d50524f544543544544</span>
+<span class="go">EAP = peap</span>
+<span class="go">Phase2 = MSCHAPV2</span>
+<span class="go">Identity= USERNAME</span>
+<span class="go">Passphrase= PASSWORD</span>
+
+<span class="go">Restart the connman service and check if the connection was successful</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>connman
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>ifconfig<span class="w"> </span>wlan0
+<span class="go">wlan0: flags=-28605  mtu 1500</span>
+<span class="go">        inet 192.168.0.193  netmask 255.255.255.0  broadcast 192.168.0.255</span>
+<span class="go">        inet6 fe80::82c5:f2ff:fe7f:722d  prefixlen 64  scopeid 0x20</span>
+<span class="go">        ether 80:c5:f2:7f:72:2d  txqueuelen 1000  (Ethernet)</span>
+<span class="go">        RX packets 24  bytes 2734 (2.6 KiB)</span>
+<span class="go">        RX errors 0  dropped 0  overruns 0  frame 0</span>
+<span class="go">        TX packets 56  bytes 10405 (10.1 KiB)</span>
+<span class="go">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$</span>
+</pre></div>
+</div>
+</section>
+<section id="usb-via-internet-connection-sharing">
+<h2>USB via Internet Connection Sharing<a class="headerlink" href="#usb-via-internet-connection-sharing" title="Link to this heading">#</a></h2>
+<p>You need to first establish a shell connection different than the USB network connection
+you plan on using to get to the Internet.</p>
+<p>In your host operating system, you’ll need to share your Internet connection back to the
+board. With an Ubuntu host, use the utility “nm-connection-editor”.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ip addr flush dev usb0</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo dhclient usb0</span>
+</pre></div>
+</div>
+<p>Notes: How to find MAC address and correct connection?</p>
+<p>Notes: On Ubuntu, the IPv4 Settings terminology “Shared to other computers” is what you apply to
+the connection to your board (ie., downlink) not to your Internet-connected WiFi or Ethernet (ie., uplink).
+Update the boot-up scripts and Linux kernel</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">debian@beaglebone:/var/lib/cloud9$ </span><span class="nb">cd</span><span class="w"> </span>/opt/scripts
+<span class="gp">debian@beaglebone:/opt/scripts$ </span>git<span class="w"> </span>pull
+<span class="go">Already up-to-date.</span>
+<span class="gp">debian@beaglebone:/opt/scripts$ </span>sudo<span class="w"> </span>tools/update_kernel.sh
+<span class="go">[sudo] password for debian:temppwd</span>
+<span class="go">info: checking archive</span>
+<span class="go">2019-09-06 02:29:22 URL:https://rcn-ee.com/repos/latest/stretch-armhf/LATEST-ti [168/168] -&gt; &quot;LATEST-ti&quot; [1]</span>
+<span class="go">-----------------------------</span>
+<span class="go">Kernel Options:</span>
+<span class="go">ABI:1 LTS41 4.1.30-ti-r70</span>
+<span class="go">ABI:1 LTS44 4.4.155-ti-r155</span>
+<span class="go">ABI:1 LTS49 4.9.147-ti-r121</span>
+<span class="go">ABI:1 LTS414 4.14.108-ti-r116</span>
+<span class="go">ABI:1 LTS419 4.19.59-ti-r26</span>
+<span class="go">-----------------------------</span>
+<span class="go">Kernel version options:</span>
+<span class="go">-----------------------------</span>
+<span class="go">LTS44: --lts-4_4</span>
+<span class="go">LTS49: --lts-4_9</span>
+<span class="go">LTS414: --lts-4_14</span>
+<span class="go">LTS419: --lts-4_19</span>
+<span class="go">STABLE: --stable</span>
+<span class="go">TESTING: --testing</span>
+<span class="go">-----------------------------</span>
+<span class="go">info: you are running: [4.14.108-ti-r113], latest is: [4.14.108-ti-r116] updating...</span>
+<span class="go">Ign:1 http://deb.debian.org/debian stretch InRelease</span>
+<span class="go">Get:2 http://deb.debian.org/debian stretch-updates InRelease [91.0 kB]</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="gp gp-VirtualEnv">(Reading database ... 109903 files and directories currently installed.)</span>
+<span class="go">Preparing to unpack .../ti-sgx-jacinto6evm-modules-4.14.108-ti-r116_1stretch_armhf.deb ...</span>
+<span class="go">Unpacking ti-sgx-jacinto6evm-modules-4.14.108-ti-r116 (1stretch) ...</span>
+<span class="go">Setting up ti-sgx-jacinto6evm-modules-4.14.108-ti-r116 (1stretch) ...</span>
+<span class="go">update-initramfs: Generating /boot/initrd.img-4.14.108-ti-r116</span>
+<span class="gp">debian@beaglebone:/opt/scripts$ </span>sudo<span class="w"> </span>shutdown<span class="w"> </span>-r<span class="w"> </span>now
+
+<span class="go">Update distribution components</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<span class="go">[sudo] password for debian:temppwd</span>
+<span class="go">Ign:1 http://deb.debian.org/debian stretch InRelease</span>
+<span class="go">Hit:2 http://deb.debian.org/debian stretch-updates InRelease</span>
+<span class="go">Hit:3 http://deb.debian.org/debian-security stretch/updates InRelease</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="go">  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libpq5 linux-cpupower linux-libc-dev nginx nginx-common nginx-full tzdata</span>
+<span class="go">23 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.</span>
+<span class="go">Need to get 10.3 MB of archives.</span>
+<span class="go">After this operation, 41.0 kB of additional disk space will be used.</span>
+<span class="go">Do you want to continue? [Y/n] y</span>
+<span class="go">Get:1 http://deb.debian.org/debian stretch-updates/main armhf tzdata all 2019b-0+deb9u1 [275 kB]</span>
+<span class="go">Get:2 http://repos.rcn-ee.com/debian stretch/main armhf bonescript armhf 0.7.3-git20190822.0-0rcnee1~stretch+20190903 [5,463 kB]</span>
+<span class="go">Get:3 http://deb.debian.org/debian-security stretch/updates/main armhf libcpupower1 armhf 4.9.168-1+deb9u5 [637 kB]</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="go">.</span>
+<span class="go">Setting up libiio-utils (0.16-1rcnee0~stretch+20190812) ...</span>
+<span class="go">Setting up libnginx-mod-http-echo (1.10.3-1+deb9u3) ...</span>
+<span class="go">Setting up linux-cpupower (4.9.168-1+deb9u5) ...</span>
+<span class="go">Setting up nginx-full (1.10.3-1+deb9u3) ...</span>
+<span class="go">[ ok ] Upgrading binary: nginx.</span>
+<span class="go">Setting up nginx (1.10.3-1+deb9u3) ...</span>
+<span class="go">Processing triggers for initramfs-tools (0.130) ...</span>
+<span class="go">update-initramfs: Generating /boot/initrd.img-4.14.108-ti-r116</span>
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ti-tidl<span class="w"> </span>mjpg-streamer-opencv-python
+
+<span class="go">Update examples in the Cloud9 IDE workspace</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span><span class="nb">cd</span><span class="w"> </span>/var/lib/cloud9
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>git<span class="w"> </span>pull
+<span class="go">Already up-to-date.</span>
+<span class="gp">debian@beaglebone:/var/lib/cloud9$</span>
+
+<span class="go">Test installed versions</span>
+
+<span class="gp">debian@beaglebone:/var/lib/cloud9$ </span>sudo<span class="w"> </span>/opt/scripts/tools/version.sh
+<span class="go">[sudo] password for debian:temppwd</span>
+<span class="go">git:/opt/scripts/:[5b2e16aa1e5c0f627f1d48a6dd1c13b446b9f53b]</span>
+<span class="go">model:[BeagleBoard.org_BeagleBone_AI]</span>
+<span class="go">dogtag:[BeagleBoard.org Debian Image 2019-08-02]</span>
+<span class="go">kernel:[4.14.108-ti-r116]</span>
+<span class="go">nodejs:[v6.17.0]</span>
+<span class="go">pkg check: to individually upgrade run: [sudo apt install --only-upgrade ]</span>
+<span class="go">pkg:[bb-cape-overlays]:[4.4.20190812.0-0rcnee0~stretch+20190812]</span>
+<span class="go">pkg:[bb-wl18xx-firmware]:[1.20190227.1-0rcnee0~stretch+20190227]</span>
+<span class="go">pkg:[kmod]:[23-2rcnee1~stretch+20171005]</span>
+<span class="go">pkg:[librobotcontrol]:[1.0.4-git20190227.1-0rcnee0~stretch+20190327]</span>
+<span class="go">pkg:[firmware-ti-connectivity]:[20180825+dfsg-1rcnee1~stretch+20181217]</span>
+<span class="go">groups:[debian : debian adm kmem dialout cdrom floppy audio dip video plugdev users systemd-journal i2c bluetooth netdev gpio pwm eqep remoteproc admin spi tisdk weston-launch xenomai cloud9ide]</span>
+<span class="go">cmdline:[console=ttyS0,115200n8 root=/dev/mmcblk1p1 ro rootfstype=ext4 rootwait coherent_pool=1M net.ifnames=0 rng_core.default_quality=100 quiet]</span>
+<span class="go">dmesg | grep remote</span>
+<span class="go">[    2.945344] remoteproc remoteproc0: 4b234000.pru is available</span>
+<span class="go">[    2.946253] remoteproc remoteproc1: 4b238000.pru is available</span>
+<span class="go">[    2.962679] remoteproc remoteproc2: 4b2b4000.pru is available</span>
+<span class="go">[    2.965359] remoteproc remoteproc3: 4b2b8000.pru is available</span>
+<span class="go">[    6.569222] remoteproc remoteproc4: 58820000.ipu is available</span>
+<span class="go">[    6.598088] remoteproc remoteproc5: 55020000.ipu is available</span>
+<span class="go">[    6.606271] remoteproc remoteproc6: 40800000.dsp is available</span>
+<span class="go">[    6.627725] remoteproc remoteproc7: 41000000.dsp is available</span>
+<span class="go">[    6.634220] remoteproc remoteproc4: powering up 58820000.ipu</span>
+<span class="go">[    6.634239] remoteproc remoteproc4: Booting fw image dra7-ipu1-fw.xem4, size 6867360</span>
+<span class="go">[    6.662443] remoteproc remoteproc4: registered virtio0 (type 7)</span>
+<span class="go">[    6.662449] remoteproc remoteproc4: remote processor 58820000.ipu is now up</span>
+<span class="go">[    6.676794] remoteproc remoteproc5: powering up 55020000.ipu</span>
+<span class="go">[    6.676819] remoteproc remoteproc5: Booting fw image dra7-ipu2-fw.xem4, size 3751356</span>
+<span class="go">[    6.842752] Modules linked in: omap_remoteproc virtio_rpmsg_bus rpmsg_core usb_f_ecm usb_f_mass_storage iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat nf_conntrack usb_f_rndis u_ether libcomposite iptable_mangle iptable_filter cmemk(O) uio_pdrv_genirq uio spidev pruss_soc_bus pru_rproc pruss pruss_intc ip_tables x_tables</span>
+<span class="go">[    6.843887] Modules linked in: omap_remoteproc virtio_rpmsg_bus rpmsg_core usb_f_ecm usb_f_mass_storage iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat nf_conntrack usb_f_rndis u_ether libcomposite iptable_mangle iptable_filter cmemk(O) uio_pdrv_genirq uio spidev pruss_soc_bus pru_rproc pruss pruss_intc ip_tables x_tables</span>
+<span class="go">[    6.849561] Modules linked in: omap_remoteproc virtio_rpmsg_bus rpmsg_core usb_f_ecm usb_f_mass_storage iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat nf_conntrack usb_f_rndis u_ether libcomposite iptable_mangle iptable_filter cmemk(O) uio_pdrv_genirq uio spidev pruss_soc_bus pru_rproc pruss pruss_intc ip_tables x_tables</span>
+<span class="go">[    6.919311] remoteproc remoteproc5: registered virtio1 (type 7)</span>
+<span class="go">[    6.919319] remoteproc remoteproc5: remote processor 55020000.ipu is now up</span>
+<span class="go">[    6.926824] remoteproc remoteproc7: powering up 41000000.dsp</span>
+<span class="go">[    6.926842] remoteproc remoteproc7: Booting fw image dra7-dsp2-fw.xe66, size 20998684</span>
+<span class="go">[    6.936607] remoteproc remoteproc6: powering up 40800000.dsp</span>
+<span class="go">[    6.936623] remoteproc remoteproc6: Booting fw image dra7-dsp1-fw.xe66, size 20998684</span>
+<span class="go">[    7.001835] remoteproc remoteproc7: registered virtio2 (type 7)</span>
+<span class="go">[    7.001842] remoteproc remoteproc7: remote processor 41000000.dsp is now up</span>
+<span class="go">[    7.011099] remoteproc remoteproc6: registered virtio3 (type 7)</span>
+<span class="go">[    7.011106] remoteproc remoteproc6: remote processor 40800000.dsp is now up</span>
+<span class="go">dmesg | grep pru</span>
+<span class="go">[    2.941572] pruss 4b200000.pruss: creating PRU cores and other child platform devices</span>
+<span class="go">[    2.945344] remoteproc remoteproc0: 4b234000.pru is available</span>
+<span class="go">[    2.945394] pru-rproc 4b234000.pru: PRU rproc node /ocp/pruss_soc_bus@4b226004/pruss@0/pru@34000 probed successfully</span>
+<span class="go">[    2.946253] remoteproc remoteproc1: 4b238000.pru is available</span>
+<span class="go">[    2.946307] pru-rproc 4b238000.pru: PRU rproc node /ocp/pruss_soc_bus@4b226004/pruss@0/pru@38000 probed successfully</span>
+<span class="go">[    2.947598] pruss 4b280000.pruss: creating PRU cores and other child platform devices</span>
+<span class="go">[    2.962679] remoteproc remoteproc2: 4b2b4000.pru is available</span>
+<span class="go">[    2.962733] pru-rproc 4b2b4000.pru: PRU rproc node /ocp/pruss_soc_bus@4b2a6004/pruss@0/pru@34000 probed successfully</span>
+<span class="go">[    2.965359] remoteproc remoteproc3: 4b2b8000.pru is available</span>
+<span class="go">[    2.965409] pru-rproc 4b2b8000.pru: PRU rproc node /ocp/pruss_soc_bus@4b2a6004/pruss@0/pru@38000 probed successfully</span>
+<span class="go">[    6.842752] Modules linked in: omap_remoteproc virtio_rpmsg_bus rpmsg_core usb_f_ecm usb_f_mass_storage iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat nf_conntrack usb_f_rndis u_ether libcomposite iptable_mangle iptable_filter cmemk(O) uio_pdrv_genirq uio spidev pruss_soc_bus pru_rproc pruss pruss_intc ip_tables x_tables</span>
+<span class="go">[    6.843887] Modules linked in: omap_remoteproc virtio_rpmsg_bus rpmsg_core usb_f_ecm usb_f_mass_storage iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat nf_conntrack usb_f_rndis u_ether libcomposite iptable_mangle iptable_filter cmemk(O) uio_pdrv_genirq uio spidev pruss_soc_bus pru_rproc pruss pruss_intc ip_tables x_tables</span>
+<span class="go">[    6.849561] Modules linked in: omap_remoteproc virtio_rpmsg_bus rpmsg_core usb_f_ecm usb_f_mass_storage iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat nf_conntrack usb_f_rndis u_ether libcomposite iptable_mangle iptable_filter cmemk(O) uio_pdrv_genirq uio spidev pruss_soc_bus pru_rproc pruss pruss_intc ip_tables x_tables</span>
+<span class="go">[    9.175815] pruss_uio_shmem 4b200000.pruss_shmem: Allocating gdev</span>
+<span class="go">[    9.175825] pruss_uio_shmem 4b200000.pruss_shmem: Allocating info</span>
+<span class="go">[    9.175832] pruss_uio_shmem 4b200000.pruss_shmem: Requesting resource</span>
+<span class="go">[    9.175853] pruss_uio_shmem 4b200000.pruss_shmem: Mapping resource</span>
+<span class="go">[    9.179197] pruss_uio_shmem 4b200000.pruss_shmem: Registering with uio driver</span>
+<span class="go">[    9.179745] pruss_uio_shmem 4b200000.pruss_shmem: Saving platform data</span>
+<span class="go">[    9.179858] pruss_uio_shmem 4b280000.pruss_shmem: Allocating gdev</span>
+<span class="go">[    9.179864] pruss_uio_shmem 4b280000.pruss_shmem: Allocating info</span>
+<span class="go">[    9.179870] pruss_uio_shmem 4b280000.pruss_shmem: Requesting resource</span>
+<span class="go">[    9.179886] pruss_uio_shmem 4b280000.pruss_shmem: Mapping resource</span>
+<span class="go">[    9.179899] pruss_uio_shmem 4b280000.pruss_shmem: Registering with uio driver</span>
+<span class="go">[    9.180137] pruss_uio_shmem 4b280000.pruss_shmem: Saving platform data</span>
+<span class="go">dmesg | grep pinctrl-single</span>
+<span class="go">[    0.914771] pinctrl-single 4a003400.pinmux: 282 pins at pa fc003400 size 1128</span>
+<span class="go">dmesg | grep gpio-of-helper</span>
+<span class="go">lsusb</span>
+<span class="go">Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub</span>
+<span class="go">Bus 001 Device 002: ID 046d:0825 Logitech, Inc. Webcam C270</span>
+<span class="go">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span>
+<span class="go">END</span>
+<span class="gp">debian@beaglebone:/var/lib/cloud9$</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../05-demos-and-tutorials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demos &amp; Tutorials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../06-support.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Additional Support Information</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wifi-without-an-enterprise-login">WiFi (without an Enterprise Login)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wifi-with-enterprise-login">WiFi with Enterprise Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-via-internet-connection-sharing">USB via Internet Connection Sharing</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglebone/ai/demos-and-tutorials/upgrade-beaglebone-ai-software.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/boards/beaglebone/ai/demos-and-tutorials/upgrade-beaglebone-ai-software.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-ai.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleBone AI - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleboard/beaglebone-ai">BeagleBone AI git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglebone-ai">BeagleBone AI board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglebone/ai/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/bbai">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone AI
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us000169.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone AI_US000169.svg" alt="BeagleBone AI OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

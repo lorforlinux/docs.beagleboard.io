@@ -1,0 +1,14 @@
+.. _exhale_function_group___i2_c_1ga1808f0485c4943981c62cd8825421fbc:
+
+Function rc_i2c_lock_bus
+========================
+
+- Defined in :ref:`file_library_include_rc_i2c.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: rc_i2c_lock_bus(int)
+   :project: librobotcontrol

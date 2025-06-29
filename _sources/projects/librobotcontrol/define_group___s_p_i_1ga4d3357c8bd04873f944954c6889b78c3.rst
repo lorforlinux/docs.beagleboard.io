@@ -1,0 +1,14 @@
+.. _exhale_define_group___s_p_i_1ga4d3357c8bd04873f944954c6889b78c3:
+
+Define RC_CAPE_SS2_GPIO
+=======================
+
+- Defined in :ref:`file_library_include_rc_spi.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: RC_CAPE_SS2_GPIO
+   :project: librobotcontrol

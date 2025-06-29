@@ -1,0 +1,1598 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/pru-cookbook/02start/start';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/pru-cookbook/02start/start.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Running a Program; Configuring Pins" href="../03details/details.html" />
+    <link rel="prev" title="Case Studies - Introduction" href="../01case/case.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../beaglebone-cookbook/index.html">BeagleBone Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">PRU Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">PRU Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Getting Started</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="getting-started">
+<span id="pru-cookbook-start"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<p>We assume you have some experience with the Beagle and are here to learn about
+the PRU.  This chapter discusses what Beagles are out there, how to load the
+latest software image on your Beagle, how to run the Visual Studio Code IDE and how to
+blink an LED.
+=======
+latest software image on your Beagle, how to run the Visual Studio Code
+(VS Code) IDE and how to blink an LED.</p>
+<p>If you already have your Beagle and know your way around it, you can find the
+code at <a class="reference external" href="https://git.beagleboard.org/beagleboard/pru-cookbook-code">https://git.beagleboard.org/beagleboard/pru-cookbook-code</a> and book
+contents at <a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io">https://git.beagleboard.org/docs/docs.beagleboard.io</a> under the
+books/pru-cookbook directory.</p>
+<section id="selecting-a-beagle">
+<h2>Selecting a Beagle<a class="headerlink" href="#selecting-a-beagle" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>Which Beagle should you use?</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="http://beagleboard.org/boards">http://beagleboard.org/boards</a> lists the many Beagles from which to choose.
+Here we’ll give examples for the venerable <a class="reference external" href="http://beagleboard.org/black">BeagleBone Black</a>,
+the robotics <a class="reference external" href="http://beagleboard.org/blue">BeagleBone Blue</a>,
+tiny <a class="reference external" href="http://beagleboard.org/pocket">PockeBeagle</a> and the powerful <a class="reference external" href="http://beagleboard.org/ai">AI</a>.
+All the examples should also run on the other Beagles too.</p>
+</section>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>BeagleBone Black<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>If you aren’t sure which Beagle to use, it’s hard to go wrong with the
+<a class="reference external" href="http://beagleboard.org/black">BeagleBone Black</a>.  It’s the most popular
+member of the open hardware Beagle family.</p>
+<figure class="align-center" id="id18">
+<span id="start-black"></span><img alt="BeableBone Black" src="../../../_images/product_detail_black_sm.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 778 </span><span class="caption-text">BeagleBone Black</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Black has:</p>
+<ul class="simple">
+<li><p>AM335x 1GHz ARM® Cortex-A8 processor</p></li>
+<li><p>512MB DDR3 RAM</p></li>
+<li><p>4GB 8-bit eMMC on-board flash storage</p></li>
+<li><p>3D graphics accelerator</p></li>
+<li><p>NEON floating-point accelerator</p></li>
+<li><p>2x PRU 32-bit microcontrollers</p></li>
+<li><p>USB client for power &amp; communications</p></li>
+<li><p>USB host</p></li>
+<li><p>Ethernet</p></li>
+<li><p>HDMI</p></li>
+<li><p>2x 46 pin headers</p></li>
+</ul>
+<p>See <a class="reference external" href="http://beagleboard.org/black">http://beagleboard.org/black</a> for more details.</p>
+</section>
+<section id="id3">
+<h4>BeagleBone Blue<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>The <a class="reference external" href="http://beagleboard.org/blue">Blue</a> is a good choice if you are doing robotics.</p>
+<figure class="align-center" id="id19">
+<span id="start-blue"></span><img alt="BeagleBone Blue" src="../../../_images/beagle-blue.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 779 </span><span class="caption-text">BeagleBone Blue</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Blue has everything the Black has except it has no Ethernet and no HDMI.
+But it also has:</p>
+<ul class="simple">
+<li><p>Wireless: 802.11bgn, Bluetooth 4.1 and BLE</p></li>
+<li><p>Battery support: 2-cell LiPo with balancing, LED state-of-charge monitor</p></li>
+<li><p>Charger input: 9-18V</p></li>
+<li><p>Motor control: 8 6V &#64; 4A servo out, 4 bidirectional DC motor out, 4 quadrature encoder in</p></li>
+<li><p>Sensors: 9 axis IMU (accels, gyros, magnetometer), barometer, thermometer</p></li>
+<li><p>User interface: 11 user programmable LEDs, 2 user programmable buttons</p></li>
+</ul>
+<p>In addition you can mount the Blue on the
+<a class="reference external" href="https://www.renaissancerobotics.com/eduMIP.html">EduMIP kit</a> as shown in
+<a class="reference internal" href="#start-edumip"><span class="std std-ref">BeagleBone Blue EduMIP Kit</span></a> to get a balancing robot.</p>
+<figure class="align-center" id="id20">
+<span id="start-edumip"></span><img alt="BeagleBone Blue EduMIP Kit" src="../../../_images/edumip.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 780 </span><span class="caption-text">BeagleBone Blue EduMIP Kit</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference external" href="https://www.hackster.io/53815/controlling-edumip-with-ni-labview-2005f8">https://www.hackster.io/53815/controlling-edumip-with-ni-labview-2005f8</a>
+shows how to assemble the robot and control it from
+<a class="reference external" href="http://www.ni.com/en-us/shop/labview.html">LabVIEW</a>.</p>
+</section>
+<section id="pocketbeagle">
+<h4>PocketBeagle<a class="headerlink" href="#pocketbeagle" title="Link to this heading">#</a></h4>
+<p>The <a class="reference external" href="http://beagleboard.org/pocket">PocketBeagle</a> is the smallest member of the
+Beagle family.  It is an ultra-tiny-yet-complete Beagle that is software
+compatible with the other Beagles.</p>
+<figure class="align-center" id="id21">
+<span id="start-pocket"></span><img alt="PocketBeagle" src="../../../_images/PocketBeagle-size-compare-small1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 781 </span><span class="caption-text">PocketBeagle</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Pocket is based on the same processor as the Black and Blue and has:</p>
+<ul class="simple">
+<li><p>8 analog inputs</p></li>
+<li><p>44 digital I/Os and</p></li>
+<li><p>numerous digital interface peripherals</p></li>
+</ul>
+<p>See <a class="reference external" href="http://beagleboard.org/pocket">http://beagleboard.org/pocket</a> for more details.</p>
+</section>
+<section id="beaglebone-ai">
+<h4>BeagleBone AI<a class="headerlink" href="#beaglebone-ai" title="Link to this heading">#</a></h4>
+<p>If you want to do deep learning, try the  <a class="reference external" href="http://beagleboard.org/ai">BeagleBone AI</a>.</p>
+<figure class="align-center" id="id22">
+<span id="start-ai"></span><img alt="BeableBone AI" src="../../../_images/BB_AI_BeautyAngle_800px1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 782 </span><span class="caption-text">BeagleBone AI</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The AI has:</p>
+<ul class="simple">
+<li><p>Dual Arm® Cortex®-A15 microprocessor subsystem</p></li>
+<li><p>2 C66x floating-point VLIW DSPs</p></li>
+<li><p>2.5MB of on-chip L3 RAM</p></li>
+<li><p>2x dual Arm® Cortex®-M4 co-processors</p></li>
+<li><p>4x Embedded Vision Engines (EVEs)</p></li>
+<li><p>2x dual-core Programmable Real-Time Unit and Industrial Communication SubSystem (PRU-ICSS)</p></li>
+<li><p>2D-graphics accelerator (BB2D) subsystem</p></li>
+<li><p>Dual-core PowerVR® SGX544™ 3D GPU</p></li>
+<li><p>IVA-HD subsystem (4K &#64; 15fps encode and decode support for H.264, 1080p60 for others)</p></li>
+<li><p>BeagleBone Black mechanical and header compatibility</p></li>
+<li><p>1GB RAM and 16GB on-board eMMC flash with high-speed interface</p></li>
+<li><p>USB type-C for power and superspeed dual-role controller; and USB type-A host</p></li>
+<li><p>Gigabit Ethernet, 2.4/5GHz WiFi, and Bluetooth</p></li>
+<li><p>microHDMI</p></li>
+<li><p>Zero-download out-of-box software experience with Debian GNU/Linux</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="installing-the-latest-os-on-your-bone">
+<h2>Installing the Latest OS on Your Bone<a class="headerlink" href="#installing-the-latest-os-on-your-bone" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Problem<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>You want to find the latest version of Debian that is available for your Bone.</p>
+</section>
+<section id="id7">
+<h3>Solution<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>On your host computer open a browser and go to
+<a class="reference external" href="http://www.beagleboard.org/distros">http://www.beagleboard.org/distros</a>.</p>
+<div class="admonition-todo admonition" id="id8">
+<p class="admonition-title">Todo</p>
+<p>Update links</p>
+</div>
+<p>This shows you two current choices of recent Debian images,
+one for the BeagleBone AI
+(<a class="reference external" href="https://debian.beagleboard.org/images/am57xx-debian-10.3-iot-tidl-armhf-2020-04-06-6gb.img.xz">AM5729 Debian 10.3 2020-04-06 8GB SD IoT TIDL</a>) and
+one for all the other Beagles (
+<a class="reference external" href="https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz">AM3358 Debian 10.3 2020-04-06 4GB SD IoT</a>).
+Download the one for your Beagle.</p>
+<figure class="align-center" id="id23">
+<img alt="Latest Debian images" src="../../../_images/latest-images1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 783 </span><span class="caption-text">Latest Debian images</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It contains all the packages we’ll need.</p>
+</section>
+</section>
+<section id="flashing-a-micro-sd-card">
+<h2>Flashing a Micro SD Card<a class="headerlink" href="#flashing-a-micro-sd-card" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Problem<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>I’ve downloaded the image and need to flash my micro SD card.</p>
+</section>
+<section id="id10">
+<h3>Solution<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>Get a micro SD card that has at least 4GB and preferably 8GB.</p>
+<p>There are many ways to flash the card, but the best seems to be Etcher by
+<a class="reference external" href="https://www.balena.io/">https://www.balena.io/</a>.  Go to <a class="reference external" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a> and download the version for your host
+computer.  Fire up Etcher, select the image you just downloaded (no need to
+uncompress it, Etcher does it for you), select the SD card and hit the <em>Flash</em>
+button and wait for it to finish.</p>
+<figure class="align-center" id="id24">
+<span id="start-etcher"></span><img alt="Ether" src="../../../_images/etcher.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 784 </span><span class="caption-text">Etcher</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once the SD is flashed, insert it in the Beagle and power it up.</p>
+</section>
+</section>
+<section id="visual-studio-code-ide">
+<h2>Visual Studio Code IDE<a class="headerlink" href="#visual-studio-code-ide" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h3>Problem<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>How do I manage and edit my files?</p>
+</section>
+<section id="id12">
+<h3>Solution<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>The image you downloaded includes <a class="reference external" href="https://github.com/coder/code-server">Visual Studio Code</a>,
+a web-based integrated development environment (IDE) as shown in
+<a class="reference internal" href="#start-bb-code-server"><span class="std std-ref">Visual Studio Code IDE</span></a>.</p>
+<figure class="align-center" id="id25">
+<span id="start-bb-code-server"></span><img alt="The Visual Studio Code IDE" src="../../../_images/bb-code-server.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 785 </span><span class="caption-text">Visual Studio Code IDE</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Just point the browser on your host computer to <a class="reference external" href="http://192.168.7.2:3000">http://192.168.7.2:3000</a>
+and start exploring. You may also want to upgrade bb-code-server to pull in the latest updates.
+Another route to take is to apply this command to boot the service called bb-code-server.</p>
+<p><cite>sudo systemctl start bb-code-server.service</cite></p>
+<p>If you want the files in your home directory to appear
+in the tree structure click the settings gear and select <em>Show Home in Favorites</em>
+as shown in <a class="reference internal" href="#start-vsc"><span class="std std-ref">Visual Studio Code Showing Home files</span></a>.</p>
+<figure class="align-center" id="id26">
+<span id="start-vsc"></span><img alt="Vidual Studio Code showing home files" src="../../../_images/vsc.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 786 </span><span class="caption-text">Visual Studio Code Showing Home files</span><a class="headerlink" href="#id26" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Just point the browser on your host computer to <a class="reference external" href="http://192.168.7.2:3000">http://192.168.7.2:3000</a>
+and start exploring.</p>
+<p>If you want to edit files beyond your home directory you can link to the root file system by:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span><span class="nb">cd</span>
+<span class="gp">bone:~$ </span>ln<span class="w"> </span>-s<span class="w"> </span>/<span class="w"> </span>root
+<span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>root
+<span class="gp">bone:~$ </span>ls
+<span class="go">bbb-uEnv.txt  boot  etc   ID.txt  lost+found  mnt           opt   root  sbin  sys  usr</span>
+<span class="go">bin           dev   home  lib     media       nfs-uEnv.txt  proc  run   srv   tmp  var</span>
+</pre></div>
+</div>
+<p>Now you can reach all the files from VS Code.</p>
+</section>
+</section>
+<section id="getting-example-code">
+<h2>Getting Example Code<a class="headerlink" href="#getting-example-code" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h3>Problem<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>You are ready to start playing with the examples and need to find the code.</p>
+</section>
+<section id="id14">
+<h3>Solution<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>You can find the code on the PRU Cookbook Code project on git.beagleboard.org:
+<a class="reference external" href="https://git.beagleboard.org/beagleboard/pru-cookbook-code">https://git.beagleboard.org/beagleboard/pru-cookbook-code</a>. Just clone
+it on your Beagle.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>/opt/source
+<span class="gp">bone:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://git.beagleboard.org/beagleboard/pru-cookbook-code
+<span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>pru-cookbook-code
+<span class="gp">bone:~$ </span>sudo<span class="w"> </span>./install.sh
+<span class="gp">bone:~$ </span>ls<span class="w"> </span>-F
+<span class="go">01case/   03details/  05blocks/  07more/  README.md</span>
+<span class="go">02start/  04details/  06io/      08ai/</span>
+</pre></div>
+</div>
+<p>Each chapter has its own directory that has all of the code.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>02start/
+<span class="gp">bone:~$ </span>ls
+<span class="go">hello.pru0.c  hello.pru1_1.c  Makefile  setup.sh</span>
+<span class="go">ai.notes         hello2.pru1_1.c  hello2.pru2_1.c  Makefile</span>
+<span class="go">hello2.pru0.c    hello2.pru1.c    hello.pru0.c     setup2.sh*</span>
+<span class="go">hello2.pru1_0.c  hello2.pru2_0.c  hello.pru1_1.c   setup.sh*</span>
+</pre></div>
+</div>
+<p>Go and explore.</p>
+</section>
+</section>
+<section id="blinking-an-led">
+<h2>Blinking an LED<a class="headerlink" href="#blinking-an-led" title="Link to this heading">#</a></h2>
+<section id="id15">
+<h3>Problem<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>You want to make sure everything is set up by blinking an LED.</p>
+</section>
+<section id="id16">
+<h3>Solution<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>The ‘hello, world’ of the embedded world is to flash an LED. <a class="reference internal" href="#start-hello"><span class="std std-ref">hello.pru0.c</span></a>
+is some code that blinks the <code class="docutils literal notranslate"><span class="pre">USR3</span></code> LED ten times using the PRU.</p>
+<div class="admonition-todo admonition" id="id17">
+<p class="admonition-title">Todo</p>
+<p>The ‘s and _’s in the code are messing with the formatting.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id27">
+<span id="start-hello"></span><div class="code-block-caption"><span class="caption-number">Listing 90 </span><span class="caption-text">hello.pru0.c</span><a class="headerlink" href="#id27" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_cfg.h&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;prugpio.h&quot;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__R30</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="k">volatile</span><span class="w"> </span><span class="k">register</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__R31</span><span class="p">;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="n">gpio1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">GPIO1</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">	</span>
+<span class="linenos">14</span><span class="w">	</span><span class="cm">/* Clear SYSCFG[STANDBY_INIT] to enable OCP master port */</span>
+<span class="linenos">15</span><span class="w">	</span><span class="n">CT_CFG</span><span class="p">.</span><span class="n">SYSCFG_bit</span><span class="p">.</span><span class="n">STANDBY_INIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="w">	</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">		</span><span class="n">gpio1</span><span class="p">[</span><span class="n">GPIO_SETDATAOUT</span><span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">USR3</span><span class="p">;</span><span class="w">	</span><span class="c1">// The the USR3 LED on</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">		</span><span class="n">__delay_cycles</span><span class="p">(</span><span class="mi">500000000</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span><span class="w">    	</span><span class="c1">// Wait 1/2 second</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">		</span><span class="n">gpio1</span><span class="p">[</span><span class="n">GPIO_CLEARDATAOUT</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">USR3</span><span class="p">;</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">		</span><span class="n">__delay_cycles</span><span class="p">(</span><span class="mi">500000000</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span><span class="w"> </span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">27</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">28</span><span class="p">}</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1">// Turns off triggers</span>
+<span class="linenos">31</span><span class="cp">#pragma DATA_SECTION(init_pins, &quot;.init_pins&quot;)</span>
+<span class="linenos">32</span><span class="cp">#pragma RETAIN(init_pins)</span>
+<span class="linenos">33</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">init_pins</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="linenos">34</span><span class="w">	</span><span class="s">&quot;/sys/class/leds/beaglebone:green:usr3/trigger</span><span class="se">\0</span><span class="s">none</span><span class="se">\0</span><span class="s">&quot;</span><span class="w"> </span>\
+<span class="linenos">35</span><span class="w">	</span><span class="s">&quot;</span><span class="se">\0\0</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/a8a806febe9696dfa50e6780534cdf7f/hello.pru0.c"><code class="xref download docutils literal notranslate"><span class="pre">hello.pru0.c</span></code></a></p>
+<p>Later chapters will go into details of how this code works, but if you want
+to run it right now do the following.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>/opt/source
+<span class="gp">bone:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://git.beagleboard.org/beagleboard/pru-cookbook-code
+<span class="gp">bone:~$ </span><span class="nb">cd</span><span class="w"> </span>pru-cookbook-code/02start
+<span class="gp">bone:~$ </span>sudo<span class="w"> </span>../install.sh
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the following doesn’t work see
+<a class="reference internal" href="../03details/details.html#compiling-with-clpru-and-lnkpru"><span class="std std-ref">Compiling with clpru and lnkpru</span></a>
+for installation instructions.</p>
+</div>
+<section id="running-code-on-the-black-or-pocket">
+<span id="start-running-code"></span><h4>Running Code on the Black or Pocket<a class="headerlink" href="#running-code-on-the-black-or-pocket" title="Link to this heading">#</a></h4>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>make<span class="w"> </span><span class="nv">TARGET</span><span class="o">=</span>hello.pru0
+<span class="go">/opt/source/pru-cookbook-code/common/Makefile:27: MODEL=TI_AM335x_BeagleBone_Green_Wireless,TARGET=hello.pru0,COMMON=/opt/source/pru-cookbook-code/common</span>
+<span class="go">-    Stopping PRU 0</span>
+<span class="go">CC  hello.pru0.c</span>
+<span class="go">&quot;/opt/source/pru-cookbook-code/common/prugpio.h&quot;, line 53: warning #1181-D: #warning directive: &quot;Found else&quot;</span>
+<span class="go">LD  /tmp/vsx-examples/hello.pru0.o</span>
+<span class="go">-   copying firmware file /tmp/vsx-examples/hello.pru0.out to /lib/firmware/am335x-pru0-fw</span>
+<span class="go">-    Starting PRU 0</span>
+<span class="go">write_init_pins.sh</span>
+<span class="go">writing &quot;none&quot; to &quot;/sys/class/leds/beaglebone:green:usr3/trigger&quot;</span>
+<span class="go">MODEL   = TI_AM335x_BeagleBone_Green_Wireless</span>
+<span class="go">PROC    = pru</span>
+<span class="go">PRUN    = 0</span>
+<span class="go">PRU_DIR = /sys/class/remoteproc/remoteproc1</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you get the following error:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">cp: cannot create regular file &#39;/lib/firmware/am335x-pru0-fw&#39;: Permission denied</span>
+</pre></div>
+</div>
+<p>Run the following command to set the permissions.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">bone:~$ </span>sudo<span class="w"> </span>chown<span class="w"> </span>debian:debian<span class="w"> </span>/lib/firmware/am335x-pru*
+</pre></div>
+</div>
+</div>
+</section>
+<section id="running-code-on-the-ai">
+<h4>Running Code on the AI<a class="headerlink" href="#running-code-on-the-ai" title="Link to this heading">#</a></h4>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ make TARGET=hello.pru1_1</span>
+<span class="go">/var/lib/code-server/common/Makefile:28: MODEL=BeagleBoard.org_BeagleBone_AI,TARGET=hello.pru1_1</span>
+<span class="go">-    Stopping PRU 1_1</span>
+<span class="go">CC  hello.pru1_1.c</span>
+<span class="go">&quot;/var/lib/code-server/common/prugpio.h&quot;, line 4: warning #1181-D: #warning directive: &quot;Found AI&quot;</span>
+<span class="go">LD  /tmp/code-server-examples/hello.pru1_1.o</span>
+<span class="go">-   copying firmware file /tmp/code-server-examples/hello.pru1_1.out to /lib/firmware/am57xx-pru1_1-fw</span>
+<span class="go">write_init_pins.sh</span>
+<span class="go">writing &quot;none&quot; to &quot;/sys/class/leds/beaglebone:green:usr3/trigger&quot;</span>
+<span class="go">-    Starting PRU 1_1</span>
+<span class="go">MODEL   = BeagleBoard.org_BeagleBone_AI</span>
+<span class="go">PROC    = pru</span>
+<span class="go">PRUN    = 1_1</span>
+<span class="go">PRU_DIR = /dev/remoteproc/pruss1-core1</span>
+<span class="go">rm /tmp/code-server-examples/hello.pru1_1.o</span>
+</pre></div>
+</div>
+<p>Look quickly and you will see the <code class="docutils literal notranslate"><span class="pre">USR3</span></code> LED blinking.</p>
+<p>Later sections give more details on how all this works.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../01case/case.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Case Studies - Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../03details/details.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Running a Program; Configuring Pins</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-beagle">Selecting a Beagle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">BeagleBone Black</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">BeagleBone Blue</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pocketbeagle">PocketBeagle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#beaglebone-ai">BeagleBone AI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-latest-os-on-your-bone">Installing the Latest OS on Your Bone</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flashing-a-micro-sd-card">Flashing a Micro SD Card</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-ide">Visual Studio Code IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-example-code">Getting Example Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blinking-an-led">Blinking an LED</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code-on-the-black-or-pocket">Running Code on the Black or Pocket</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code-on-the-ai">Running Code on the AI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/pru-cookbook/02start/start.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/pru-cookbook/02start/start.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

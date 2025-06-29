@@ -1,0 +1,2672 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Expansion &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglev/fire/04-expansion';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglev/fire/04-expansion.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Demos" href="05-demos.html" />
+    <link rel="prev" title="Design &amp; specifications" href="03-design.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-design.html">Design &amp; specifications</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Expansion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos.html">Demos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/upgrade-gateware.html">Upgrade BeagleV-Fire Gateware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/flashing-board.html">Flashing gateware and Linux image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/mchp-fpga-tools-installation-guide.html">Microchip FPGA Tools Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/index.html">Gateware Design Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/how-to-find-out-whats-on-the-board.html">How to retrieve BeagleV-Fire’s gateware version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/gateware-full-flow.html">Gateware Full Build Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/gateware-tcl-scripts-structure.html">Gateware TCL Scripts Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/customize-cape-gateware-verilog.html">Customize BeagleV-Fire Cape Gateware Using Verilog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/deploy-and-program-picorv-softcore.html">How to use PicoRV Softcore on BeagleV-Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/running-the-bitstream-builder-on-windows.html">How to build the BeagleV-Fire Gateware on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/exploring-gateware-design-libero.html">Exploring Gateware Design with Libero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/gateware-design-simulation-libero.html">Simulating Gateware Design with Libero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/comms-cape-gateware-usage.html">Comms Cape Gateware for BeagleV-Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/gateware/axi-apb-interfaces-demo.html">Accessing APB and AXI Peripherals Through Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/building-linux-with-buildroot.html">Building Linux for BeagleV-Fire using Buildroot</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Support</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleV-Fire</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Expansion</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="expansion">
+<span id="beaglev-fire-expansion"></span><h1>Expansion<a class="headerlink" href="#expansion" title="Link to this heading">#</a></h1>
+<section id="cape-headers">
+<h2>Cape Headers<a class="headerlink" href="#cape-headers" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add information for custom hardware building and debugging.</p>
+</div>
+<p>The expansion interface on the board is comprised of two headers P8 (46 pin) &amp; P9 (46 pin).
+All signals on the expansion headers are <strong>3.3V</strong> unless otherwise indicated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not connect 5V logic level signals to these pins or the board will be damaged.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE BOARD.
+IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.</p>
+</div>
+<p><strong>NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.</strong></p>
+<section id="connector-p8">
+<h3>Connector P8<a class="headerlink" href="#connector-p8" title="Link to this heading">#</a></h3>
+<p>The following tables show the pinout of the <strong>P8</strong> expansion header. The
+gateware image is responsible for setting the function of each pin. Refer to
+the processor documentation for more information on these pins and
+detailed descriptions of all of the pins listed. In some cases there may
+not be enough signals to complete a group of signals that may be
+required to implement a total interface.</p>
+<p>The column heading is the pin number on the expansion header.</p>
+<p>The <strong>Name</strong> row is the pin name on the processor.</p>
+<p>The <strong>BALL</strong> row is the pin number on the processor.</p>
+<p>The rows below <strong>BALL</strong> are the gateware setting for each pin.</p>
+<p><strong>NOTES</strong>:</p>
+<p><strong>DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE
+BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.</strong></p>
+<p><strong>NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.</strong></p>
+<section id="p8-01-p8-02">
+<h4>P8.01-P8.02<a class="headerlink" href="#p8-01-p8-02" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>P8.01</p></th>
+<th class="head"><p>P8.02</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-03-p8-05">
+<h4>P8.03-P8.05<a class="headerlink" href="#p8-03-p8-05" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.03</p></th>
+<th class="head"><p>P8.04</p></th>
+<th class="head"><p>P8.05</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO6NB0</p></td>
+<td><p>HSIO6PB0/CCC_NE_CLKIN_N_11</p></td>
+<td><p>HSIO12NB0</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>V22</p></td>
+<td><p>W22</p></td>
+<td><p>V19</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[0]</p></td>
+<td><p>MSS GPIO_2[1]</p></td>
+<td><p>MSS GPIO_2[2]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 0</p></td>
+<td><p>User LED 1</p></td>
+<td><p>User LED 2</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[0]</p></td>
+<td><p>MSS GPIO_2[1]</p></td>
+<td><p>MSS GPIO_2[2]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 0</p></td>
+<td><p>User LED 1</p></td>
+<td><p>User LED 2</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[0]</p></td>
+<td><p>MSS GPIO_2[1]</p></td>
+<td><p>MSS GPIO_2[2]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 0</p></td>
+<td><p>User LED 1</p></td>
+<td><p>User LED 2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-06-p8-09">
+<h4>P8.06-P8.09<a class="headerlink" href="#p8-06-p8-09" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.06</p></th>
+<th class="head"><p>P8.07</p></th>
+<th class="head"><p>P8.08</p></th>
+<th class="head"><p>P8.09</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO12PB0/CLKIN_N_9/CCC_NE_CLKIN_N_9</p></td>
+<td><p>HSIO30NB0</p></td>
+<td><p>HSIO30PB0/CLKIN_N_3/CCC_NW_CLKIN_N_3</p></td>
+<td><p>HSIO8NB0</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>V20</p></td>
+<td><p>V15</p></td>
+<td><p>V14</p></td>
+<td><p>V21</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[3]</p></td>
+<td><p>MSS GPIO_2[4]</p></td>
+<td><p>MSS GPIO_2[5]</p></td>
+<td><p>MSS GPIO_2[6]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 3</p></td>
+<td><p>User LED 4</p></td>
+<td><p>User LED 5</p></td>
+<td><p>User LED 6</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[3]</p></td>
+<td><p>MSS GPIO_2[4]</p></td>
+<td><p>MSS GPIO_2[5]</p></td>
+<td><p>MSS GPIO_2[6]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 3</p></td>
+<td><p>User LED 4</p></td>
+<td><p>User LED 5</p></td>
+<td><p>User LED 6</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[3]</p></td>
+<td><p>MSS GPIO_2[4]</p></td>
+<td><p>MSS GPIO_2[5]</p></td>
+<td><p>MSS GPIO_2[6]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 3</p></td>
+<td><p>User LED 4</p></td>
+<td><p>User LED 5</p></td>
+<td><p>User LED 6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-10-p8-13">
+<h4>P8.10-P8.13<a class="headerlink" href="#p8-10-p8-13" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.10</p></th>
+<th class="head"><p>P8.11</p></th>
+<th class="head"><p>P8.12</p></th>
+<th class="head"><p>P8.13</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO8PB0/CCC_NE_CLKIN_N_10/CCC_NE_PLL0_OUT0</p></td>
+<td><p>HSIO7NB0</p></td>
+<td><p>HSIO7PB0/CCC_NE_PLL0_OUT1</p></td>
+<td><p>GPIO47PB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>W21</p></td>
+<td><p>Y21</p></td>
+<td><p>Y20</p></td>
+<td><p>B10</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[7]</p></td>
+<td><p>MSS GPIO_2[8]</p></td>
+<td><p>MSS GPIO_2[9]</p></td>
+<td><p>core_pwm[1] &#64; 0x41500000</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 7</p></td>
+<td><p>User LED 8</p></td>
+<td><p>User LED 9</p></td>
+<td><p>PWM_2:1</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[7]</p></td>
+<td><p>MSS GPIO_2[8]</p></td>
+<td><p>MSS GPIO_2[9]</p></td>
+<td><p>MSS GPIO_2[10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 7</p></td>
+<td><p>User LED 8</p></td>
+<td><p>User LED 9</p></td>
+<td><p>User LED 10</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[7]</p></td>
+<td><p>MSS GPIO_2[8]</p></td>
+<td><p>MSS GPIO_2[9]</p></td>
+<td><p>core_pwm[1] &#64; 0x41500000</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 7</p></td>
+<td><p>User LED 8</p></td>
+<td><p>User LED 9</p></td>
+<td><p>PWM_2:1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-14-p8-16">
+<h4>P8.14-P8.16<a class="headerlink" href="#p8-14-p8-16" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.14</p></th>
+<th class="head"><p>P8.15</p></th>
+<th class="head"><p>P8.16</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO47NB1</p></td>
+<td><p>HSIO34NB0</p></td>
+<td><p>HSIO34PB0/CCC_NW_CLKIN_N_1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>B9</p></td>
+<td><p>T12</p></td>
+<td><p>U12</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[11]</p></td>
+<td><p>MSS GPIO_2[12]</p></td>
+<td><p>MSS GPIO_2[13]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 11</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[11]</p></td>
+<td><p>MSS GPIO_2[12]</p></td>
+<td><p>MSS GPIO_2[13]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 11</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[11]</p></td>
+<td><p>MSS GPIO_2[12]</p></td>
+<td><p>MSS GPIO_2[13]</p></td>
+</tr>
+<tr class="row-odd"><td><p>User LED 11</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-17-p8-19">
+<h4>P8.17-P8.19<a class="headerlink" href="#p8-17-p8-19" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.17</p></th>
+<th class="head"><p>P8.18</p></th>
+<th class="head"><p>P8.19</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO29PB0</p></td>
+<td><p>HSIO15PB0/DQS/CCC_NE_PLL1_OUT0</p></td>
+<td><p>HSIO19NB0</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>W13</p></td>
+<td><p>T16</p></td>
+<td><p>W18</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[14]</p></td>
+<td><p>MSS GPIO_2[15]</p></td>
+<td><p>core_pwm[0] &#64; 0x41500000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>PWM_2:0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[14]</p></td>
+<td><p>MSS GPIO_2[15]</p></td>
+<td><p>MSS GPIO_2[16]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[14]</p></td>
+<td><p>MSS GPIO_2[15]</p></td>
+<td><p>core_pwm[0] &#64; 0x41500000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>PWM_2:0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-20-p8-22">
+<h4>P8.20-P8.22<a class="headerlink" href="#p8-20-p8-22" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.20</p></th>
+<th class="head"><p>P8.21</p></th>
+<th class="head"><p>P8.22</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO15NB0/DQS</p></td>
+<td><p>HSIO9PB0/DQS/CCC_NE_PLL0_OUT0</p></td>
+<td><p>HSIO9NB0/DQS</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>R16</p></td>
+<td><p>AA21</p></td>
+<td><p>AA22</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[17]</p></td>
+<td><p>MSS GPIO_2[18]</p></td>
+<td><p>MSS GPIO_2[19]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[17]</p></td>
+<td><p>MSS GPIO_2[18]</p></td>
+<td><p>MSS GPIO_2[19]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[17]</p></td>
+<td><p>MSS GPIO_2[18]</p></td>
+<td><p>MSS GPIO_2[19]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-23-p8-26">
+<h4>P8.23-P8.26<a class="headerlink" href="#p8-23-p8-26" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.23</p></th>
+<th class="head"><p>P8.24</p></th>
+<th class="head"><p>P8.25</p></th>
+<th class="head"><p>P8.26</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO18PB0/CLKIN_N_7</p></td>
+<td><p>HSIO18NB0</p></td>
+<td><p>HSIO16PB0</p></td>
+<td><p>GPIO49NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>AB18</p></td>
+<td><p>AA18</p></td>
+<td><p>V17</p></td>
+<td><p>A12</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[20]</p></td>
+<td><p>MSS GPIO_2[21]</p></td>
+<td><p>MSS GPIO_2[22]</p></td>
+<td><p>MSS GPIO_2[23]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GOIOS</p></td>
+<td><p>MSS GPIO_2[20]</p></td>
+<td><p>MSS GPIO_2[21]</p></td>
+<td><p>MSS GPIO_2[22]</p></td>
+<td><p>MSS GPIO_2[23]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[20]</p></td>
+<td><p>MSS GPIO_2[21]</p></td>
+<td><p>MSS GPIO_2[22]</p></td>
+<td><p>MSS GPIO_2[23]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-27-p8-29">
+<h4>P8.27-P8.29<a class="headerlink" href="#p8-27-p8-29" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.27</p></th>
+<th class="head"><p>P8.28</p></th>
+<th class="head"><p>P8.29</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO49PB1/CLKIN_S_5</p></td>
+<td><p>GPIO51NB1</p></td>
+<td><p>GPIO51PB1/CLKIN_S_6</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>A13</p></td>
+<td><p>B14</p></td>
+<td><p>B13</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[24]</p></td>
+<td><p>MSS GPIO_2[25]</p></td>
+<td><p>MSS GPIO_2[26]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[24]</p></td>
+<td><p>MSS GPIO_2[25]</p></td>
+<td><p>MSS GPIO_2[26]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[24]</p></td>
+<td><p>MSS GPIO_2[25]</p></td>
+<td><p>MSS GPIO_2[26]</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-30-p8-32">
+<h4>P8.30-P8.32<a class="headerlink" href="#p8-30-p8-32" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.30</p></th>
+<th class="head"><p>P8.31</p></th>
+<th class="head"><p>P8.32</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO50NB1/DQS</p></td>
+<td><p>GPIO50PB1/DQS</p></td>
+<td><p>GPIO53NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>D14</p></td>
+<td><p>D13</p></td>
+<td><p>B15</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS GPIO_2[27]</p></td>
+<td><p>core_gpio[0] &#64; 0x41100000</p></td>
+<td><p>core_gpio[1] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS GPIO_2[27]</p></td>
+<td><p>core_gpio[0] &#64; 0x41100000</p></td>
+<td><p>core_gpio[1] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS GPIO_2[27]</p></td>
+<td><p>core_gpio[0] &#64; 0x41100000</p></td>
+<td><p>core_gpio[1] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-33-p8-35">
+<h4>P8.33-P8.35<a class="headerlink" href="#p8-33-p8-35" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.33</p></th>
+<th class="head"><p>P8.34</p></th>
+<th class="head"><p>P8.35</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO53PB1/CLKIN_S_7</p></td>
+<td><p>GPIO52NB1/LPRB_B</p></td>
+<td><p>GPIO52PB1/LPRB_A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>A15</p></td>
+<td><p>C15</p></td>
+<td><p>C14</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[2] &#64; 0x41100000</p></td>
+<td><p>core_gpio[3] &#64; 0x41100000</p></td>
+<td><p>core_gpio[4] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[2] &#64; 0x41100000</p></td>
+<td><p>core_gpio[3] &#64; 0x41100000</p></td>
+<td><p>core_gpio[4] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[2] &#64; 0x41100000</p></td>
+<td><p>core_gpio[3] &#64; 0x41100000</p></td>
+<td><p>core_gpio[4] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-36-p8-38">
+<h4>P8.36-P8.38<a class="headerlink" href="#p8-36-p8-38" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.36</p></th>
+<th class="head"><p>P8.37</p></th>
+<th class="head"><p>P8.38</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO37NB1</p></td>
+<td><p>GPIO37PB1/CCC_SW_CLKIN_S_1</p></td>
+<td><p>GPIO3NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>B4</p></td>
+<td><p>C4</p></td>
+<td><p>C17</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[5] &#64; 0x41100000</p></td>
+<td><p>core_gpio[6] &#64; 0x41100000</p></td>
+<td><p>core_gpio[7] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[5] &#64; 0x41100000</p></td>
+<td><p>core_gpio[6] &#64; 0x41100000</p></td>
+<td><p>core_gpio[7] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[5] &#64; 0x41100000</p></td>
+<td><p>core_gpio[6] &#64; 0x41100000</p></td>
+<td><p>core_gpio[7] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-39-p8-41">
+<h4>P8.39-P8.41<a class="headerlink" href="#p8-39-p8-41" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.39</p></th>
+<th class="head"><p>P8.40</p></th>
+<th class="head"><p>P8.41</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO3PB1/CCC_SE_CLKIN_S_10/CCC_SE_PLL1_OUT0</p></td>
+<td><p>GPIO5NB1</p></td>
+<td><p>GPIO5PB1/CCC_SE_CLKIN_S_11</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>B17</p></td>
+<td><p>B18</p></td>
+<td><p>A18</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[8] &#64; 0x41100000</p></td>
+<td><p>core_gpio[9] &#64; 0x41100000</p></td>
+<td><p>core_gpio[10] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[8] &#64; 0x41100000</p></td>
+<td><p>core_gpio[9] &#64; 0x41100000</p></td>
+<td><p>core_gpio[10] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[8] &#64; 0x41100000</p></td>
+<td><p>core_gpio[9] &#64; 0x41100000</p></td>
+<td><p>core_gpio[10] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-42-p8-44">
+<h4>P8.42-P8.44<a class="headerlink" href="#p8-42-p8-44" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.42</p></th>
+<th class="head"><p>P8.43</p></th>
+<th class="head"><p>P8.44</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO36NB1</p></td>
+<td><p>GPIO36PB1/CCC_SW_CLKIN_S_0</p></td>
+<td><p>GPIO42NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>D6</p></td>
+<td><p>D7</p></td>
+<td><p>D8</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[11] &#64; 0x41100000</p></td>
+<td><p>core_gpio[12] &#64; 0x41100000</p></td>
+<td><p>core_gpio[13] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[11] &#64; 0x41100000</p></td>
+<td><p>core_gpio[12] &#64; 0x41100000</p></td>
+<td><p>core_gpio[13] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[11] &#64; 0x41100000</p></td>
+<td><p>core_gpio[12] &#64; 0x41100000</p></td>
+<td><p>core_gpio[13] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p8-45-p8-46">
+<h4>P8.45-P8.46<a class="headerlink" href="#p8-45-p8-46" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P8.45</p></th>
+<th class="head"><p>P8.46</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO42PB1</p></td>
+<td><p>GPIO4PB1/CCC_SE_PLL1_OUT1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>D9</p></td>
+<td><p>D18</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[14] &#64; 0x41100000</p></td>
+<td><p>core_gpio[15] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[14] &#64; 0x41100000</p></td>
+<td><p>core_gpio[15] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[14] &#64; 0x41100000</p></td>
+<td><p>core_gpio[15] &#64; 0x41100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="connector-p9">
+<h3>Connector P9<a class="headerlink" href="#connector-p9" title="Link to this heading">#</a></h3>
+<p>The following tables show the pinout of the <strong>P9</strong> expansion header. The
+gateware image is responsible for setting the function of each pin. Refer to
+the processor documentation for more information on these pins and
+detailed descriptions of all of the pins listed. In some cases there may
+not be enough signals to complete a group of signals that may be
+required to implement a total interface.</p>
+<p>The column heading is the pin number on the expansion header.</p>
+<p>The <strong>Name</strong> row is the pin name on the processor.</p>
+<p>The <strong>BALL</strong> row is the pin number on the processor.</p>
+<p>The rows below <strong>BALL</strong> are the gateware setting for each pin.</p>
+<p><strong>NOTES</strong>:</p>
+<p><strong>DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE
+BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.</strong></p>
+<p><strong>NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.</strong></p>
+<section id="p9-01-p9-05">
+<h4>P9.01-P9.05<a class="headerlink" href="#p9-01-p9-05" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.01</p></th>
+<th class="head"><p>P9.02</p></th>
+<th class="head"><p>P9.03</p></th>
+<th class="head"><p>P9.04</p></th>
+<th class="head"><p>P9.05</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>VCC_3V3</p></td>
+<td><p>VCC_3V3</p></td>
+<td><p>VDD_5V</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-06-p9-10">
+<h4>P9.06-P9.10<a class="headerlink" href="#p9-06-p9-10" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.06</p></th>
+<th class="head"><p>P9.07</p></th>
+<th class="head"><p>P9.08</p></th>
+<th class="head"><p>P9.10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VDD_5V</p></td>
+<td><p>SYS_5V</p></td>
+<td><p>SYS_5V</p></td>
+<td><p>SYS_RSTN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.09</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>HSIO19PB0</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>W19</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-11-p9-13">
+<h4>P9.11-P9.13<a class="headerlink" href="#p9-11-p9-13" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.11</p></th>
+<th class="head"><p>P9.12</p></th>
+<th class="head"><p>P9.13</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO38NB1/DQS</p></td>
+<td><p>GPIO38PB1/DQS/CCC_SW_PLL1_OUT0</p></td>
+<td><p>GPIO2NB1/DQS</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>B5</p></td>
+<td><p>C5</p></td>
+<td><p>D19</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MMUART4</p></td>
+<td><p>core_gpio[1] &#64; 0x41200000</p></td>
+<td><p>MMUART4</p></td>
+</tr>
+<tr class="row-odd"><td><p>UART4 RX</p></td>
+<td><p>GPIO</p></td>
+<td><p>UART4 TX</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[0] &#64; 0x41200000</p></td>
+<td><p>core_gpio[1] &#64; 0x41200000</p></td>
+<td><p>core_gpio[2] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>~</p></td>
+<td><p>core_gpio[0] &#64; 0x41200000</p></td>
+<td><p>core_gpio[7] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-14-p9-16">
+<h4>P9.14-P9.16<a class="headerlink" href="#p9-14-p9-16" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.14</p></th>
+<th class="head"><p>P9.15</p></th>
+<th class="head"><p>P9.16</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO39PB1/CLKIN_S_2/CCC_SW_CLKIN_S_2/CCC_SW_PLL1_OUT0</p></td>
+<td><p>GPIO40NB1</p></td>
+<td><p>GPIO40PB1/CCC_SW_PLL1_OUT1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>C6</p></td>
+<td><p>A5</p></td>
+<td><p>A6</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_pwm[0] &#64; 0x41400000</p></td>
+<td><p>core_gpio[4] &#64; 0x41200000</p></td>
+<td><p>core_pwm[1] &#64; 0x41400000</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWM_1:0</p></td>
+<td><p>GPIO</p></td>
+<td><p>PWM_1:1</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GOIOS</p></td>
+<td><p>core_gpio[3] &#64; 0x41200000</p></td>
+<td><p>core_gpio[4] &#64; 0x41200000</p></td>
+<td><p>core_gpio[5] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_pwm[0] &#64; 0x41400000</p></td>
+<td><p>core_gpio[1] &#64; 0x41200000</p></td>
+<td><p>core_pwm[1] &#64; 0x41400000</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWM_1:0</p></td>
+<td><p>GPIO</p></td>
+<td><p>PWM_1:1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-17-p9-19">
+<h4>P9.17-P9.19<a class="headerlink" href="#p9-17-p9-19" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.17</p></th>
+<th class="head"><p>P9.18</p></th>
+<th class="head"><p>P9.19</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO44NB1/DQS</p></td>
+<td><p>GPIO44PB1/DQS/CCC_SW_PLL0_OUT0</p></td>
+<td><p>GPIO45PB1/CCC_SW_PLL0_OUT0</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>C9</p></td>
+<td><p>C10</p></td>
+<td><p>A10</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+<td><p>MSS I2C0</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>~</p></td>
+<td><p>I2C0 SCL</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[6] &#64; 0x41200000</p></td>
+<td><p>core_gpio[7] &#64; 0x41200000</p></td>
+<td><p>MSS I2C0</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>I2C0 SCL</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+<td><p>MSS I2C0</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>~</p></td>
+<td><p>I2C0 SCL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-20-p9-22">
+<h4>P9.20-P9.22<a class="headerlink" href="#p9-20-p9-22" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.20</p></th>
+<th class="head"><p>P9.21</p></th>
+<th class="head"><p>P9.22</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO45NB1</p></td>
+<td><p>GPIO43NB1</p></td>
+<td><p>GPIO43PB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>A11</p></td>
+<td><p>B8</p></td>
+<td><p>A8</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>MSS I2C0</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2C0 SDA</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>MSS I2C0</p></td>
+<td><p>core_gpio[8] &#64; 0x41200000</p></td>
+<td><p>core_gpio[8] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2C0 SDA</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>MSS I2C0</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2C0 SDA</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-23-p9-25">
+<h4>P9.23-P9.25<a class="headerlink" href="#p9-23-p9-25" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.23</p></th>
+<th class="head"><p>P9.24</p></th>
+<th class="head"><p>P9.25</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO48NB1</p></td>
+<td><p>GPIO48PB1/CLKIN_S_4</p></td>
+<td><p>GPIO41NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>C12</p></td>
+<td><p>B12</p></td>
+<td><p>B7</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[10] &#64; 0x41200000</p></td>
+<td><p>~</p></td>
+<td><p>core_gpio[12] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>~</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[10] &#64; 0x41200000</p></td>
+<td><p>core_gpio[11] &#64; 0x41200000</p></td>
+<td><p>core_gpio[12] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[2] &#64; 0x41200000</p></td>
+<td><p>~</p></td>
+<td><p>core_gpio[3] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>~</p></td>
+<td><p>GPIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-26-p9-28">
+<h4>P9.26-P9.28<a class="headerlink" href="#p9-26-p9-28" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.26</p></th>
+<th class="head"><p>P9.27</p></th>
+<th class="head"><p>P9.28</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO41PB1/CLKIN_S_3/CCC_SW_CLKIN_S_3</p></td>
+<td><p>GPIO46NB1</p></td>
+<td><p>GPIO46PB1/CCC_SW_PLL0_OUT1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>A7</p></td>
+<td><p>D11</p></td>
+<td><p>C11</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>~</p></td>
+<td><p>core_gpio[14] &#64; 0x41200000</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>GPIO</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[13] &#64; 0x41200000</p></td>
+<td><p>core_gpio[14] &#64; 0x41200000</p></td>
+<td><p>core_gpio[15] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>~</p></td>
+<td><p>~</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-29-p9-31">
+<h4>P9.29-P9.31<a class="headerlink" href="#p9-29-p9-31" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.29</p></th>
+<th class="head"><p>P9.30</p></th>
+<th class="head"><p>P9.31</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO1PB1/CLKIN_S_9/CCC_SE_CLKIN_S_9</p></td>
+<td><p>GPIO1NB1</p></td>
+<td><p>GPIO4NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>F17</p></td>
+<td><p>F16</p></td>
+<td><p>E18</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>~</p></td>
+<td><p>core_gpio[17] &#64; 0x41200000</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>GPIO</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[16] &#64; 0x41200000</p></td>
+<td><p>core_gpio[17] &#64; 0x41200000</p></td>
+<td><p>core_gpio[18] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>~</p></td>
+<td><p>core_gpio[5] &#64; 0x41200000</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>GPIO</p></td>
+<td><p>~</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-32-p9-40">
+<h4>P9.32-P9.40<a class="headerlink" href="#p9-32-p9-40" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.32</p></th>
+<th class="head"><p>P9.34</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VDD_ADC</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.33</p></th>
+<th class="head"><p>P9.35</p></th>
+<th class="head"><p>P9.36</p></th>
+<th class="head"><p>P9.37</p></th>
+<th class="head"><p>P9.38</p></th>
+<th class="head"><p>P9.39</p></th>
+<th class="head"><p>P9.40</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AIN4</p></td>
+<td><p>AIN6</p></td>
+<td><p>AIN5</p></td>
+<td><p>AIN2</p></td>
+<td><p>AIN3</p></td>
+<td><p>AIN0</p></td>
+<td><p>AIN1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-41-p9-42">
+<h4>P9.41-P9.42<a class="headerlink" href="#p9-41-p9-42" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>P9.41</p></th>
+<th class="head"><p>P9.42</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>GPIO0PB1/CLKIN_S_8/CCC_SE_CLKIN_S_8/CCC_SE_PLL0_OUT0</p></td>
+<td><p>GPIO0NB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>BALL</p></td>
+<td><p>E15</p></td>
+<td><p>E14</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>DEFAULT</p></td>
+<td><p>core_gpio[19] &#64; 0x41200000</p></td>
+<td><p>core_pwm[0] &#64; 0x41000000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>PWM_0:0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GPIOS</p></td>
+<td><p>core_gpio[19] &#64; 0x41200000</p></td>
+<td><p>core_gpio[20] &#64; 0x41200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>GPIO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>ROBOTICS</p></td>
+<td><p>core_gpio[19] &#64; 0x41200000</p></td>
+<td><p>~</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO</p></td>
+<td><p>~</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="p9-43-p9-46">
+<h4>P9.43-P9.46<a class="headerlink" href="#p9-43-p9-46" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.43</p></th>
+<th class="head"><p>P9.44</p></th>
+<th class="head"><p>P9.45</p></th>
+<th class="head"><p>P9.46</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03-design.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Design &amp; specifications</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-demos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Demos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cape-headers">Cape Headers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connector-p8">Connector P8</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-01-p8-02">P8.01-P8.02</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-03-p8-05">P8.03-P8.05</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-06-p8-09">P8.06-P8.09</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-10-p8-13">P8.10-P8.13</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-14-p8-16">P8.14-P8.16</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-17-p8-19">P8.17-P8.19</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-20-p8-22">P8.20-P8.22</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-23-p8-26">P8.23-P8.26</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-27-p8-29">P8.27-P8.29</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-30-p8-32">P8.30-P8.32</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-33-p8-35">P8.33-P8.35</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-36-p8-38">P8.36-P8.38</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-39-p8-41">P8.39-P8.41</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-42-p8-44">P8.42-P8.44</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p8-45-p8-46">P8.45-P8.46</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connector-p9">Connector P9</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-01-p9-05">P9.01-P9.05</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-06-p9-10">P9.06-P9.10</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-11-p9-13">P9.11-P9.13</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-14-p9-16">P9.14-P9.16</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-17-p9-19">P9.17-P9.19</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-20-p9-22">P9.20-P9.22</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-23-p9-25">P9.23-P9.25</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-26-p9-28">P9.26-P9.28</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-29-p9-31">P9.29-P9.31</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-32-p9-40">P9.32-P9.40</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-41-p9-42">P9.41-P9.42</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#p9-43-p9-46">P9.43-P9.46</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglev/fire/04-expansion.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beaglev/fire/04-expansion.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglev-fire.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleV-Fire - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beaglev-fire/beaglev-fire">BeagleV-Fire git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglev-fire">BeagleV-Fire board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglev/fire/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/fire">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleV Fire
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002572.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleV Fire_US002572.svg" alt="BeagleV Fire OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

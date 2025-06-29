@@ -1,0 +1,1869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Running a Program; Configuring Pins &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/pru-cookbook/03details/details';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/pru-cookbook/03details/details.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Debugging and Benchmarking" href="../04debug/debug.html" />
+    <link rel="prev" title="Getting Started" href="../02start/start.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../beaglebone-cookbook/index.html">BeagleBone Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">PRU Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02start/start.html">Getting Started</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04debug/debug.html">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">PRU Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Running a Program; Configuring Pins</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="running-a-program-configuring-pins">
+<span id="pru-cookbook-details"></span><h1>Running a Program; Configuring Pins<a class="headerlink" href="#running-a-program-configuring-pins" title="Link to this heading">#</a></h1>
+<p>There are a lot of details in compiling and running PRU code.
+Fortunately those details are captured in a common <cite>Makefile</cite> that is
+used throughout this book. This chapter shows how to use the <cite>Makefile</cite> to
+compile code and also start and stop the PRUs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following are resources used in this chapter:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ti.com/tool/PRU-CGT">PRU Code Generation Tools - Compiler</a></p></li>
+<li><p><a class="reference external" href="http://git.ti.com/pru-software-support-package">PRU Software Support Package</a></p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf">PRU Optimizing C/C++ Compiler</a></p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruhv6b/spruhv6b.pdf">PRU Assembly Language Tools</a></p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/pdf/spruhz6l">AM572x Technical Reference Manual</a> (AI)</p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/pdf/spruh73">AM335x Technical Reference Manual</a> (All others)</p></li>
+</ul>
+</div>
+<section id="getting-example-code">
+<h2>Getting Example Code<a class="headerlink" href="#getting-example-code" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>I want to get the files used in this book.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>It’s all on a GitHub repository.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd /opt/source</span>
+<span class="go">bone$ git clone https://git.beagleboard.org/beagleboard/pru-cookbook-code</span>
+<span class="go">bone$ cd pru-cookbook-code</span>
+<span class="go">bone$ sudo ./install.sh</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>The version of code used needs to be noted in the documentation.</p>
+</div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Why is this documented in multiple places?</p>
+</div>
+</section>
+</section>
+<section id="compiling-with-clpru-and-lnkpru">
+<span id="id3"></span><h2>Compiling with clpru and lnkpru<a class="headerlink" href="#compiling-with-clpru-and-lnkpru" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Problem<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>You need details on the c compiler, linker and other tools for the PRU.</p>
+</section>
+<section id="id5">
+<h3>Solution<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>The PRU compiler and linker are already installed on many images.
+They are called <code class="docutils literal notranslate"><span class="pre">clpru</span></code> and <code class="docutils literal notranslate"><span class="pre">lnkpru</span></code>.  Do the following to see if <code class="docutils literal notranslate"><span class="pre">clpru</span></code> is installed.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ which clpru</span>
+<span class="go">/usr/bin/clpru</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">clpru</span></code> isn’t installed, follow the instructions at
+<a class="reference external" href="https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#TI_PRU_Code_Generation_Tools">https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#TI_PRU_Code_Generation_Tools</a>
+to install it.</p>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo apt update</span>
+<span class="go">bone$ sudo apt install ti-pru-cgt-installer</span>
+</pre></div>
+</div>
+<p>Details on each can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruhv7b/spruhv7b.pdf">PRU Optimizing C/C++ Compiler</a></p></li>
+<li><p><a class="reference external" href="http://www.ti.com/lit/ug/spruhv6b/spruhv6b.pdf">PRU Assembly Language Tools</a></p></li>
+</ul>
+<p>In fact there are PRU versions of many of the standard code generation tools.</p>
+<section id="code-tools">
+<h4>code tools<a class="headerlink" href="#code-tools" title="Link to this heading">#</a></h4>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ ls /usr/bin/*pru</span>
+<span class="go">/usr/bin/abspru    /usr/bin/clistpru  /usr/bin/hexpru      /usr/bin/ofdpru</span>
+<span class="go">/usr/bin/acpiapru  /usr/bin/clpru     /usr/bin/ilkpru      /usr/bin/optpru</span>
+<span class="go">/usr/bin/arpru     /usr/bin/dempru    /usr/bin/libinfopru  /usr/bin/rc_test_encoders_pru</span>
+<span class="go">/usr/bin/asmpru    /usr/bin/dispru    /usr/bin/lnkpru      /usr/bin/strippru</span>
+<span class="go">/usr/bin/cgpru     /usr/bin/embedpru  /usr/bin/nmpru       /usr/bin/xrefpru</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="http://www.ti.com/lit/ug/spruhv6b/spruhv6b.pdf">PRU Assembly Language Tools</a> for more details.</p>
+</section>
+</section>
+</section>
+<section id="making-sure-the-prus-are-configured">
+<h2>Making sure the PRUs are configured<a class="headerlink" href="#making-sure-the-prus-are-configured" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Problem<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>When running the Makefile for the PRU you get and error about <code class="docutils literal notranslate"><span class="pre">/dev/remoteproc</span></code> is missing.</p>
+</section>
+<section id="id10">
+<h3>Solution<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">/boot/uEnv.txt</span></code> and enble pru_rproc by doing the following.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo vi /boot/uEnv.txt</span>
+</pre></div>
+</div>
+<p>Around line 40 you will see:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">##pru_rproc (4.19.x-ti kernel)</span>
+<span class="go">uboot_overlay_pru=AM335X-PRU-RPROC-4-19-TI-00A0.dtbo</span>
+</pre></div>
+</div>
+<p>Uncomment the <code class="docutils literal notranslate"><span class="pre">uboot_overlay</span></code> line as shown and then reboot.
+<code class="docutils literal notranslate"><span class="pre">/dev/remoteproc</span></code> should now be there.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ sudo reboot</span>
+<span class="go">bone$ ls -ls /dev/remoteproc/</span>
+<span class="go">total 0</span>
+<span class="go">0 lrwxrwxrwx 1 root root 33 Jul 29 16:12 pruss-core0 -&gt; /sys/class/remoteproc/remoteproc1</span>
+<span class="go">0 lrwxrwxrwx 1 root root 33 Jul 29 16:12 pruss-core1 -&gt; /sys/class/remoteproc/remoteproc2</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="compiling-and-running">
+<h2>Compiling and Running<a class="headerlink" href="#compiling-and-running" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h3>Problem<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>I want to compile and run an example.</p>
+</section>
+<section id="id12">
+<h3>Solution<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>Change to the directory of the code you want to run.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd pru-cookbook-code/06io</span>
+<span class="go">bone$ ls</span>
+<span class="go">gpio.pru0.c  Makefile  setup.sh</span>
+</pre></div>
+</div>
+<p>Source the setup file.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ source setup.sh</span>
+<span class="go">TARGET=gpio.pru0</span>
+<span class="go">PocketBeagle Found</span>
+<span class="go">P2_05</span>
+<span class="go">Current mode for P2_05 is:     gpio</span>
+<span class="go">Current mode for P2_05 is:     gpio</span>
+</pre></div>
+</div>
+<p>Now you are ready to compile and run.  This is automated for you in the Makefile</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ make</span>
+<span class="go">/opt/source/pru-cookbook-code/common/Makefile:27: MODEL=TI_AM335x_BeagleBone_Green_Wireless,TARGET=gpio.pru0,COMMON=/opt/source/pru-cookbook-code/common</span>
+<span class="go">-    Stopping PRU 0</span>
+<span class="go">CC  gpio.pru0.c</span>
+<span class="go">&quot;/opt/source/pru-cookbook-code/common/prugpio.h&quot;, line 53: warning #1181-D: #warning directive: &quot;Found else&quot;</span>
+<span class="go">LD  /tmp/vsx-examples/gpio.pru0.o</span>
+<span class="go">-   copying firmware file /tmp/vsx-examples/gpio.pru0.out to /lib/firmware/am335x-pru0-fw</span>
+<span class="go">-    Starting PRU 0</span>
+<span class="go">write_init_pins.sh</span>
+<span class="go">MODEL   = TI_AM335x_BeagleBone_Green_Wireless</span>
+<span class="go">PROC    = pru</span>
+<span class="go">PRUN    = 0</span>
+<span class="go">PRU_DIR = /sys/class/remoteproc/remoteproc1</span>
+<span class="go">rm /tmp/vsx-examples/gpio.pru0.o</span>
+</pre></div>
+</div>
+<p>Congratulations, your are now running a PRU.  If you have an LED attached to
+<code class="docutils literal notranslate"><span class="pre">P9_11</span></code> on the Black, or <code class="docutils literal notranslate"><span class="pre">P2_05</span></code> on the Pocket, it should be blinking.</p>
+</section>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> file sets the <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> to the file you want to compile.
+Set it to the filename, without the <code class="docutils literal notranslate"><span class="pre">.c</span></code> extension (<code class="docutils literal notranslate"><span class="pre">gpio.pru0</span></code>).
+The file extension <code class="docutils literal notranslate"><span class="pre">.pru0</span></code> specifies the number of the PRU you are using
+(either <code class="docutils literal notranslate"><span class="pre">1_0</span></code>, <code class="docutils literal notranslate"><span class="pre">1_1</span></code>, <code class="docutils literal notranslate"><span class="pre">2_0</span></code>, <code class="docutils literal notranslate"><span class="pre">2_1</span></code> on the AI or <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code> on the others)</p>
+<p>You can override the <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> on the command line.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cp gpio.pru0.c gpio.pru1.c</span>
+<span class="go">bone$ export TARGET=gpio.pru1</span>
+</pre></div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> doesn’t have the <code class="docutils literal notranslate"><span class="pre">.c</span></code> on the end.</p>
+<p>You can also specify them when running <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cp gpio.pru0.c gpio.pru1.c</span>
+<span class="go">bone$ make TARGET=gpio.pru1</span>
+</pre></div>
+</div>
+<p>The setup file also contains instructions to figure out which Beagle you are running
+and then configure the pins accordingly.</p>
+<div class="literal-block-wrapper docutils container" id="id32">
+<div class="code-block-caption"><span class="caption-number">Listing 91 </span><span class="caption-text">setup.sh</span><a class="headerlink" href="#id32" title="Link to this code">#</a></div>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="nb">export</span><span class="w"> </span><span class="nv">TARGET</span><span class="o">=</span>gpio.pru0
+<span class="linenos"> 4</span><span class="nb">echo</span><span class="w"> </span><span class="nv">TARGET</span><span class="o">=</span><span class="nv">$TARGET</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># Configure the PRU pins based on which Beagle is running</span>
+<span class="linenos"> 7</span><span class="nv">machine</span><span class="o">=</span><span class="k">$(</span>awk<span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span>/proc/device-tree/model<span class="k">)</span>
+<span class="linenos"> 8</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$machine</span>
+<span class="linenos"> 9</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Black&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P9_11&quot;</span>
+<span class="linenos">12</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Blue&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">13</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">14</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">15</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PocketBeagle&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">16</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P2_05&quot;</span>
+<span class="linenos">18</span><span class="k">else</span>
+<span class="linenos">19</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Not Found&quot;</span>
+<span class="linenos">20</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">21</span><span class="k">fi</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="k">for</span><span class="w"> </span>pin<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$pins</span>
+<span class="linenos">24</span><span class="k">do</span>
+<span class="linenos">25</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">26</span><span class="w">    </span>config-pin<span class="w"> </span><span class="nv">$pin</span><span class="w"> </span>gpio
+<span class="linenos">27</span><span class="w">    </span>config-pin<span class="w"> </span>-q<span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">28</span><span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/d9c7aae43218e1d9a55b18f6c4ef69ce/setup.sh"><code class="xref download docutils literal notranslate"><span class="pre">setup.sh</span></code></a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2-5</p></td>
+<td><p>Set which PRU to use and which file to compile.</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Figure out which type of Beagle we have.</p></td>
+</tr>
+<tr class="row-even"><td><p>9-21</p></td>
+<td><p>Based on the type, set the <cite>pins</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>23-28</p></td>
+<td><p>Configure (set the pin mux) for each of the pins.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The BeagleBone AI has it’s pins preconfigured at boot time, so there’s no
+need to use <code class="docutils literal notranslate"><span class="pre">config-pin</span></code>.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> stops the PRU, compiles the file and moves it where it will
+be loaded, and then restarts the PRU.</p>
+</section>
+</section>
+<section id="stopping-and-starting-the-pru">
+<h2>Stopping and Starting the PRU<a class="headerlink" href="#stopping-and-starting-the-pru" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h3>Problem<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>I want to stop and start the PRU.</p>
+</section>
+<section id="id14">
+<h3>Solution<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>It’s easy, if you already have <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> set up:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ make stop</span>
+<span class="go">-    Stopping PRU 0</span>
+<span class="go">stop</span>
+<span class="go">bone$ make start</span>
+<span class="go">-    Starting PRU 0</span>
+<span class="go">start</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../04debug/debug.html#dmesg-hw"><span class="std std-ref">dmesg Hw</span></a> to see how to tell if the PRU
+is stopped.</p>
+<p>This assumes <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> is set to the PRU you are using.
+If you want to control the other PRU use:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cp gpio.pru0.c gpio.pru1.c</span>
+<span class="go">bone$ make TARGET=gpio.pru1</span>
+<span class="go">bone$ make TARGET=gpio.pru1 stop</span>
+<span class="go">bone$ make TARGET=gpio.pru1 start</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="the-standard-makefile">
+<span id="details-makefile"></span><h2>The Standard Makefile<a class="headerlink" href="#the-standard-makefile" title="Link to this heading">#</a></h2>
+<section id="id15">
+<h3>Problem<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>There are all sorts of options that need to be set when compiling
+a program.  How can I be sure to get them all right?</p>
+</section>
+<section id="id16">
+<h3>Solution<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>The surest way to make sure everything is right is to use our
+standard <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
+</section>
+<section id="id17">
+<h3>Discussion<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>It’s assumed you already know how Makefiles work.  If not, there are
+many resources online that can bring you up to speed.
+Here is the local <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> used throughout this book.</p>
+<div class="literal-block-wrapper docutils container" id="id33">
+<div class="code-block-caption"><span class="caption-number">Listing 92 </span><span class="caption-text">Local Makefile</span><a class="headerlink" href="#id33" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">include</span><span class="w"> </span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">pru</span><span class="o">-</span><span class="n">cookbook</span><span class="o">-</span><span class="n">code</span><span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">Makefile</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/646fde47139f605441e304fef76ba7e4/Makefile"><code class="xref download docutils literal notranslate"><span class="pre">Makefile</span></code></a></p>
+<p>Each of the local Makefiles refer to the same standard Makefile. The details
+of how the Makefile works is beyond the scope of this cookbook.</p>
+<p>Fortunately you shouldn’t have to modify the <cite>Makefile</cite>.</p>
+</section>
+</section>
+<section id="the-linker-command-file-am335x-pru-cmd">
+<span id="detail-linker"></span><h2>The Linker Command File - am335x_pru.cmd<a class="headerlink" href="#the-linker-command-file-am335x-pru-cmd" title="Link to this heading">#</a></h2>
+<section id="id18">
+<h3>Problem<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>The linker needs to be told where in memory to place the code and variables.</p>
+</section>
+<section id="id19">
+<h3>Solution<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">am335x_pru.cmd</span></code> is the standard linker command file that tells the linker
+where to put what for the BeagleBone Black and Blue, and the Pocket.
+The <code class="docutils literal notranslate"><span class="pre">am57xx_pru.cmd</span></code> does the same for the AI.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Both files can be found in <code class="docutils literal notranslate"><span class="pre">/var/lib/code-server/common</span></code>.
+=======
+Both files can be found in <code class="docutils literal notranslate"><span class="pre">/opt/source/pru-cookbook-code/common</span></code>.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; bf423e10a7d607eb485449d3f53e7823264dfebb</p>
+<div class="literal-block-wrapper docutils container" id="id34">
+<div class="code-block-caption"><span class="caption-number">Listing 93 </span><span class="caption-text">am335x_pru.cmd</span><a class="headerlink" href="#id34" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cm">/****************************************************************************/</span>
+<span class="linenos"> 2</span><span class="cm">/*  AM335x_PRU.cmd                                                          */</span>
+<span class="linenos"> 3</span><span class="cm">/*  Copyright (c) 2015  Texas Instruments Incorporated                      */</span>
+<span class="linenos"> 4</span><span class="cm">/*                                                                          */</span>
+<span class="linenos"> 5</span><span class="cm">/*    Description: This file is a linker command file that can be used for  */</span>
+<span class="linenos"> 6</span><span class="cm">/*                 linking PRU programs built with the C compiler and       */</span>
+<span class="linenos"> 7</span><span class="cm">/*                 the resulting .out file on an AM335x device.             */</span>
+<span class="linenos"> 8</span><span class="cm">/****************************************************************************/</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="o">-</span><span class="n">cr</span><span class="w">								</span><span class="cm">/* Link using C conventions */</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="cm">/* Specify the System Memory Map */</span>
+<span class="linenos">13</span><span class="n">MEMORY</span>
+<span class="linenos">14</span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">      </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span>
+<span class="linenos">16</span><span class="w">	</span><span class="nl">PRU_IMEM</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00002000</span><span class="w">  </span><span class="cm">/* 8kB PRU0 Instruction RAM */</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">      </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">	</span><span class="cm">/* RAM */</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">	</span><span class="nl">PRU_DMEM_0_1</span><span class="w">	</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00002000</span><span class="w"> </span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">24</span><span class="w"> </span><span class="cm">/* 8kB PRU Data RAM 0_1 */</span>
+<span class="linenos">23</span><span class="w">	</span><span class="nl">PRU_DMEM_1_0</span><span class="w">	</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00002000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00002000</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">25</span><span class="w"> </span><span class="cm">/* 8kB PRU Data RAM 1_0 */</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">	  </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span>
+<span class="linenos">26</span><span class="w">	</span><span class="nl">PRU_SHAREDMEM</span><span class="w">	</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00010000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00003000</span><span class="w"> </span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">28</span><span class="w"> </span><span class="cm">/* 12kB Shared RAM */</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">	</span><span class="nl">DDR</span><span class="w">			    </span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x80000000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000100</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">31</span>
+<span class="linenos">29</span><span class="w">	</span><span class="nl">L3OCMC</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x40000000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00010000</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">30</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">	</span><span class="cm">/* Peripherals */</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">	</span><span class="nl">PRU_CFG</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00026000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000044</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">4</span>
+<span class="linenos">35</span><span class="w">	</span><span class="nl">PRU_ECAP</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00030000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000060</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">3</span>
+<span class="linenos">36</span><span class="w">	</span><span class="nl">PRU_IEP</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0002E000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0000031C</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">26</span>
+<span class="linenos">37</span><span class="w">	</span><span class="nl">PRU_INTC</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00020000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00001504</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">38</span><span class="w">	</span><span class="nl">PRU_UART</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00028000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000038</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">7</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="w">	</span><span class="nl">DCAN0</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x481CC000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000001E8</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">14</span>
+<span class="linenos">41</span><span class="w">	</span><span class="nl">DCAN1</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x481D0000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000001E8</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">15</span>
+<span class="linenos">42</span><span class="w">	</span><span class="nl">DMTIMER2</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48040000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0000005C</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">1</span>
+<span class="linenos">43</span><span class="w">	</span><span class="nl">PWMSS0</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48300000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000002C4</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">18</span>
+<span class="linenos">44</span><span class="w">	</span><span class="nl">PWMSS1</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48302000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000002C4</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">19</span>
+<span class="linenos">45</span><span class="w">	</span><span class="nl">PWMSS2</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48304000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000002C4</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">20</span>
+<span class="linenos">46</span><span class="w">	</span><span class="nl">GEMAC</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x4A100000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0000128C</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">9</span>
+<span class="linenos">47</span><span class="w">	</span><span class="nl">I2C1</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x4802A000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000000D8</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">2</span>
+<span class="linenos">48</span><span class="w">	</span><span class="nl">I2C2</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x4819C000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000000D8</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">17</span>
+<span class="linenos">49</span><span class="w">	</span><span class="nl">MBX0</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x480C8000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000140</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">22</span>
+<span class="linenos">50</span><span class="w">	</span><span class="nl">MCASP0_DMA</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x46000000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000100</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">8</span>
+<span class="linenos">51</span><span class="w">	</span><span class="nl">MCSPI0</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48030000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000001A4</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">6</span>
+<span class="linenos">52</span><span class="w">	</span><span class="nl">MCSPI1</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x481A0000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x000001A4</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">16</span>
+<span class="linenos">53</span><span class="w">	</span><span class="nl">MMCHS0</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48060000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000300</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">5</span>
+<span class="linenos">54</span><span class="w">	</span><span class="nl">SPINLOCK</span><span class="w">		</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x480CA000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000880</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">23</span>
+<span class="linenos">55</span><span class="w">	</span><span class="nl">TPCC</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x49000000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00001098</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">29</span>
+<span class="linenos">56</span><span class="w">	</span><span class="nl">UART1</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48022000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000088</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">11</span>
+<span class="linenos">57</span><span class="w">	</span><span class="nl">UART2</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48024000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000088</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">12</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="w">	</span><span class="nl">RSVD10</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48318000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000100</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">10</span>
+<span class="linenos">60</span><span class="w">	</span><span class="nl">RSVD13</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x48310000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000100</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">13</span>
+<span class="linenos">61</span><span class="w">	</span><span class="nl">RSVD21</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00032400</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000100</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">21</span>
+<span class="linenos">62</span><span class="w">	</span><span class="nl">RSVD27</span><span class="w">			</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00032000</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00000100</span><span class="w">	</span><span class="n">CREGISTER</span><span class="o">=</span><span class="mi">27</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span><span class="p">}</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="cm">/* Specify the sections allocation into memory */</span>
+<span class="linenos">67</span><span class="n">SECTIONS</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">68</span><span class="w">	</span><span class="cm">/* Forces _c_int00 to the start of PRU IRAM. Not necessary when loading</span>
+<span class="linenos">69</span><span class="cm">	   an ELF file, but useful when loading a binary */</span>
+<span class="linenos">70</span><span class="w">	</span><span class="p">.</span><span class="n">text</span><span class="o">:</span><span class="n">_c_int00</span><span class="o">*</span><span class="w">	</span><span class="o">&gt;</span><span class="w">  </span><span class="mh">0x0</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">71</span>
+<span class="linenos">72</span><span class="w">	</span><span class="p">.</span><span class="n">text</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_IMEM</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">73</span><span class="w">	</span><span class="p">.</span><span class="n">stack</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">74</span><span class="w">	</span><span class="p">.</span><span class="n">bss</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">75</span><span class="w">	</span><span class="p">.</span><span class="n">cio</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">76</span><span class="w">	</span><span class="p">.</span><span class="n">data</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">77</span><span class="w">	</span><span class="p">.</span><span class="k">switch</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">78</span><span class="w">	</span><span class="p">.</span><span class="n">sysmem</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">79</span><span class="w">	</span><span class="p">.</span><span class="n">cinit</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">80</span><span class="w">	</span><span class="p">.</span><span class="n">rodata</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">81</span><span class="w">	</span><span class="p">.</span><span class="n">rofardata</span><span class="w">	</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">82</span><span class="w">	</span><span class="p">.</span><span class="n">farbss</span><span class="w">		</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">83</span><span class="w">	</span><span class="p">.</span><span class="n">fardata</span><span class="w">	</span><span class="o">&gt;</span><span class="w">  </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">84</span>
+<span class="linenos">85</span><span class="w">	</span><span class="p">.</span><span class="n">resource_table</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">86</span><span class="w">	</span><span class="p">.</span><span class="n">init_pins</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">PRU_DMEM_0_1</span><span class="p">,</span><span class="w"> </span><span class="n">PAGE</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">87</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/0f3dff64b87757769f5e48111da30425/am335x_pru.cmd"><code class="xref download docutils literal notranslate"><span class="pre">am335x_pru.cmd</span></code></a></p>
+<div class="admonition-todo admonition" id="id20">
+<p class="admonition-title">Todo</p>
+<p>does  this need updating?</p>
+</div>
+<p>The cmd file for the AI is about the same, with appropriate addresses for the AI.</p>
+</section>
+<section id="id21">
+<h3>Discussion<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p>The important things to notice in the file are given in the following table.</p>
+<section id="am335x-pru-cmd-important-things">
+<h4>AM335x_PRU.cmd important things<a class="headerlink" href="#am335x-pru-cmd-important-things" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>This is where the instructions are stored. See page 206 of the
+<a class="reference external" href="https://www.ti.com/lit/ug/spruh73p/spruh73p.pdf">AM335x Technical Reference Manual rev. P</a>
+Or see page 417 of
+<a class="reference external" href="http://www.ti.com/lit/pdf/spruhz6l">AM572x Technical Reference Manual</a> for the AI.</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>This is where PRU 0’s DMEM 0 is mapped.  It’s also where PRU 1’s
+DMEM 1 is mapped.</p></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>The reverse to above.  PRU 0’s DMEM 1 appears here and PRU 1’s DMEM 0
+is here.</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>The shared memory for both PRU’s appears here.</p></td>
+</tr>
+<tr class="row-even"><td><p>72</p></td>
+<td><p>The <cite>.text</cite> section is where the code goes.  It’s mapped to <cite>IMEM</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p>73</p></td>
+<td><p>The ((stack)) is then mapped to DMEM 0. Notice that DMEM 0 is one bank</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>of memory for PRU 0 and another for PRU1, so they both get their own stacks.</p></td>
+</tr>
+<tr class="row-odd"><td><p>74</p></td>
+<td><p>The <cite>.bss</cite> section is where the <strong>heap</strong> goes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Why is it important to understand this file?  If you are going to store things
+in DMEM, you need to be sure to start at address 0x0200 since the <strong>stack</strong> and
+the <strong>heap</strong> are in the locations below 0x0200.</p>
+</section>
+</section>
+</section>
+<section id="loading-firmware">
+<h2>Loading Firmware<a class="headerlink" href="#loading-firmware" title="Link to this heading">#</a></h2>
+<section id="id23">
+<h3>Problem<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p>I have my PRU code all compiled and need to load it on the PRU.</p>
+</section>
+<section id="id24">
+<h3>Solution<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>It’s a simple three step process.</p>
+<ul class="simple">
+<li><p>Stop the PRU</p></li>
+<li><p>Write the <code class="docutils literal notranslate"><span class="pre">.out</span></code> file to the right place in <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code></p></li>
+<li><p>Start the PRU.</p></li>
+</ul>
+<p>This is all handled in the <a class="reference internal" href="#details-makefile"><span class="std std-ref">The Standard Makefile</span></a>.</p>
+</section>
+<section id="id25">
+<h3>Discussion<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p>The PRUs appear in the Linux file space at <code class="docutils literal notranslate"><span class="pre">/dev/remoteproc/</span></code>.</p>
+<section id="finding-the-prus">
+<h4>Finding the PRUs<a class="headerlink" href="#finding-the-prus" title="Link to this heading">#</a></h4>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd /dev/remoteproc/</span>
+<span class="go">bone$ ls</span>
+<span class="go">pruss-core0  pruss-core1</span>
+</pre></div>
+</div>
+<p>Or if you are on the AI:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd /dev/remoteproc/</span>
+<span class="go">bone$ ls</span>
+<span class="go">dsp1  dsp2  ipu1  ipu2  pruss1-core0  pruss1-core1  pruss2-core0  pruss2-core1</span>
+</pre></div>
+</div>
+<p>You see there that the AI has two pairs of PRUs, plus a couple of DSPs and other goodies.</p>
+<p>Here we see PRU 0 and PRU 1 in the path.  Let’s follow PRU 0.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cd pruss-core0</span>
+<span class="go">bone$ ls</span>
+<span class="go">device  firmware  name  power  state  subsystem  uevent</span>
+</pre></div>
+</div>
+<p>Here we see the files that control PRU 0.  <code class="docutils literal notranslate"><span class="pre">firmware</span></code> tells where in <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code>
+to look for the code to run on the PRU.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">bone$ cat firmware</span>
+<span class="go">am335x-pru0-fw</span>
+</pre></div>
+</div>
+<p>Therefore you copy your <code class="docutils literal notranslate"><span class="pre">.out</span></code> file to <code class="docutils literal notranslate"><span class="pre">/lib/firmware/am335x-pru0-fw</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="configuring-pins-for-controlling-servos">
+<span id="details-configure-servos"></span><h2>Configuring Pins for Controlling Servos<a class="headerlink" href="#configuring-pins-for-controlling-servos" title="Link to this heading">#</a></h2>
+<section id="id26">
+<h3>Problem<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p>You want to <strong>configure</strong> the pins so the PRU outputs are accessible.</p>
+</section>
+<section id="id27">
+<h3>Solution<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p>It depends on which Beagle you are running on.  If you are on the AI or Blue,
+everything is already configured for you.
+If you are on the Black or Pocket you’ll need to run the following script.</p>
+<div class="literal-block-wrapper docutils container" id="id35">
+<div class="code-block-caption"><span class="caption-number">Listing 94 </span><span class="caption-text">servos_setup.sh</span><a class="headerlink" href="#id35" title="Link to this code">#</a></div>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span><span class="c1"># Configure the PRU pins based on which Beagle is running</span>
+<span class="linenos"> 3</span><span class="nv">machine</span><span class="o">=</span><span class="k">$(</span>awk<span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span>/proc/device-tree/model<span class="k">)</span>
+<span class="linenos"> 4</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$machine</span>
+<span class="linenos"> 5</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Black&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P8_27 P8_28 P8_29 P8_30 P8_39 P8_40 P8_41 P8_42&quot;</span>
+<span class="linenos"> 8</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Blue&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">11</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PocketBeagle&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P2_35 P1_35 P1_02 P1_04&quot;</span>
+<span class="linenos">14</span><span class="k">else</span>
+<span class="linenos">15</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Not Found&quot;</span>
+<span class="linenos">16</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">17</span><span class="k">fi</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="k">for</span><span class="w"> </span>pin<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$pins</span>
+<span class="linenos">20</span><span class="k">do</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">22</span><span class="w">    </span>config-pin<span class="w"> </span><span class="nv">$pin</span><span class="w"> </span>pruout
+<span class="linenos">23</span><span class="w">    </span>config-pin<span class="w"> </span>-q<span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">24</span><span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/754e6233757ec9f3d53fb0fd619e560e/servos_setup.sh"><code class="xref download docutils literal notranslate"><span class="pre">servos_setup.sh</span></code></a></p>
+</section>
+<section id="id28">
+<h3>Discussion<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p>The first part of the code looks in <code class="docutils literal notranslate"><span class="pre">/proc/device-tree/model</span></code> to see which Beagle is running. Based on that it
+assigns <code class="docutils literal notranslate"><span class="pre">pins</span></code> a list of pins to configure.  Then the last part of the script loops through each of the pins and configures it.</p>
+</section>
+</section>
+<section id="configuring-pins-for-controlling-encoders">
+<span id="details-configure-encoders"></span><h2>Configuring Pins for Controlling Encoders<a class="headerlink" href="#configuring-pins-for-controlling-encoders" title="Link to this heading">#</a></h2>
+<section id="id29">
+<h3>Problem<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p>You want to <strong>configure</strong> the pins so the PRU inputs are accessible.</p>
+</section>
+<section id="id30">
+<h3>Solution<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p>It depends on which Beagle you are running on.  If you are on the AI or Blue,
+everything is already configured for you.
+If you are on the Black or Pocket you’ll need to run the following script.</p>
+<div class="literal-block-wrapper docutils container" id="id36">
+<div class="code-block-caption"><span class="caption-number">Listing 95 </span><span class="caption-text">encoder_setup.sh</span><a class="headerlink" href="#id36" title="Link to this code">#</a></div>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span><span class="c1"># Configure the pins based on which Beagle is running</span>
+<span class="linenos"> 3</span><span class="nv">machine</span><span class="o">=</span><span class="k">$(</span>awk<span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span>/proc/device-tree/model<span class="k">)</span>
+<span class="linenos"> 4</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$machine</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># Configure eQEP pins</span>
+<span class="linenos"> 7</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Black&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P9_92 P9_27 P8_35 P8_33 P8_12 P8_11 P8_41 P8_42&quot;</span>
+<span class="linenos">10</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Blue&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">13</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PocketBeagle&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">14</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P1_31 P2_34 P2_10 P2_24 P2_33&quot;</span>
+<span class="linenos">16</span><span class="k">else</span>
+<span class="linenos">17</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Not Found&quot;</span>
+<span class="linenos">18</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">19</span><span class="k">fi</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="k">for</span><span class="w"> </span>pin<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$pins</span>
+<span class="linenos">22</span><span class="k">do</span>
+<span class="linenos">23</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">24</span><span class="w">    </span>config-pin<span class="w"> </span><span class="nv">$pin</span><span class="w"> </span>qep
+<span class="linenos">25</span><span class="w">    </span>config-pin<span class="w"> </span>-q<span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">26</span><span class="k">done</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1">##########################################</span>
+<span class="linenos">29</span><span class="c1"># Configure PRU pins</span>
+<span class="linenos">30</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Black&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">31</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">32</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P8_16 P8_15&quot;</span>
+<span class="linenos">33</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Blue&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">34</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">35</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">36</span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$machine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PocketBeagle&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">37</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Found&quot;</span>
+<span class="linenos">38</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;P2_09 P2_18&quot;</span>
+<span class="linenos">39</span><span class="k">else</span>
+<span class="linenos">40</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; Not Found&quot;</span>
+<span class="linenos">41</span><span class="w">    </span><span class="nv">pins</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos">42</span><span class="k">fi</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="k">for</span><span class="w"> </span>pin<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$pins</span>
+<span class="linenos">45</span><span class="k">do</span>
+<span class="linenos">46</span><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">47</span><span class="w">    </span>config-pin<span class="w"> </span><span class="nv">$pin</span><span class="w"> </span>pruin
+<span class="linenos">48</span><span class="w">    </span>config-pin<span class="w"> </span>-q<span class="w"> </span><span class="nv">$pin</span>
+<span class="linenos">49</span><span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/4d01bb7bc4b2a9e5ffa8859bdde1f860/encoder_setup.sh"><code class="xref download docutils literal notranslate"><span class="pre">encoder_setup.sh</span></code></a></p>
+</section>
+<section id="id31">
+<h3>Discussion<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p>This works like the servo setup except some of the pins are configured as
+to the hardware eQEPs and other to the PRU inputs.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../02start/start.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../04debug/debug.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Debugging and Benchmarking</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-example-code">Getting Example Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-with-clpru-and-lnkpru">Compiling with clpru and lnkpru</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tools">code tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-sure-the-prus-are-configured">Making sure the PRUs are configured</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-and-running">Compiling and Running</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopping-and-starting-the-pru">Stopping and Starting the PRU</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-standard-makefile">The Standard Makefile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linker-command-file-am335x-pru-cmd">The Linker Command File - am335x_pru.cmd</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#am335x-pru-cmd-important-things">AM335x_PRU.cmd important things</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware">Loading Firmware</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-prus">Finding the PRUs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-pins-for-controlling-servos">Configuring Pins for Controlling Servos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-pins-for-controlling-encoders">Configuring Pins for Controlling Encoders</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Discussion</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/pru-cookbook/03details/details.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/pru-cookbook/03details/details.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

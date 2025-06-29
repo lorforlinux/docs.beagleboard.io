@@ -1,0 +1,1704 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Typedef rc_filter_t &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/librobotcontrol/typedef_group___s_i_s_o___filter_1ga6655489c061812b4e934ffb82b0c36e7';</script>
+    <link rel="canonical" href="docs.beagleboard.io/projects/librobotcontrol/typedef_group___s_i_s_o___filter_1ga6655489c061812b4e934ffb82b0c36e7.html" />
+    <link rel="icon" href="../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Typedef rc_governor_t" href="typedef_group___c_p_u_1gadb4ecff92db47862ed35791742c8d5ed.html" />
+    <link rel="prev" title="Typedef rc_button_state_t" href="typedef_group___deprecated___functions_1gacd97ce644bca8c9044230265c359ec36.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../simppru/index.html">simpPRU</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/basics.html">simpPRU Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/build.html">Build from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/install.html">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/language.html">Language Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/io.html">IO Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/usage-simppru.html">Usage(simppru)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simppru/usage-simppru-console.html">Usage(simppru-console)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../simppru/examples/index.html">simpPRU Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/delay.html">Delay example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/digital_read.html">Digital read example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/digital_write.html">Digital write example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/hcsr04_example_rpmsg.html">HCSR04 Distance Sensor example (sending distance data to ARM using RPMSG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/hcsr04_sensor.html">Ultrasonic range sensor example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/button_click_rpmsg.html">Sending state of button using RPMSG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/led_blink_button.html">LED blink on button press example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/led_blink_for.html">LED blink using for loop example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/led_blink_while.html">LED blink using while loop example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/led_blink.html">LED blink example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/led_blink_counter.html">LED blink using hardware counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/read_counter.html">Read hardware counter example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/rpmsg_example.html">Using RPMSG to communicate with ARM core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../simppru/examples/rpmsg_pru_calculator.html">Using RPMSG to implement a simple calculator on PRU</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../bb-config/index.html">BB-Config</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bb-config/detail.html">BB-Config Detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bb-config/build.html">Build from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bb-config/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bb-config/version.html">Version</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Robot Control Library</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structrc__bmp__data__t.html">Struct rc_bmp_data_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__filter__t.html">Struct rc_filter_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__kalman__t.html">Struct rc_kalman_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__matrix__t.html">Struct rc_matrix_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__mpu__config__t.html">Struct rc_mpu_config_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__mpu__data__t.html">Struct rc_mpu_data_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__ringbuf__t.html">Struct rc_ringbuf_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structrc__vector__t.html">Struct rc_vector_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html">Enum rc_bmp_filter_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html">Enum rc_bmp_oversample_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___deprecated___functions_1ga51c3bcf729f597af98fdd8b5bd02b861.html">Enum rc_button_state_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html">Enum rc_governor_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html">Enum rc_led_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___mavlink___u_d_p_1gabd72babc1252535d3259ae1786219e6c.html">Enum rc_mav_connection_state_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___model_1ga0dced877b06779ded01b834b878ffd18.html">Enum rc_model_category_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html">Enum rc_model_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html">Enum rc_mpu_accel_dlpf_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___i_m_u___m_p_u_1ga6a40bfb1b31c95c07c440ee1a7c464b8.html">Enum rc_mpu_accel_fsr_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html">Enum rc_mpu_gyro_dlpf_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734.html">Enum rc_mpu_gyro_fsr_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html">Enum rc_mpu_orientation_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html">Enum rc_pinmux_mode_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_group__start__stop_1gac4ff093ea579df8514825b1e601d38f9.html">Enum rc_state_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___a_d_c_1gad20c60485531eac778c3338e792e9564.html">Function rc_adc_batt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___a_d_c_1ga77e5f8ce291493b3010dd52169397b81.html">Function rc_adc_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___a_d_c_1ga690731a8b428a249955a285efe2993be.html">Function rc_adc_dc_jack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___a_d_c_1ga77b71e3c4570353ebd5628a1d309a93c.html">Function rc_adc_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___a_d_c_1gacc67034024931ec50e8c2e9eab324823.html">Function rc_adc_read_raw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___a_d_c_1ga8cfd99e3960aefbe78b9ead5d07bdb87.html">Function rc_adc_read_volt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1ga2cc933b6834e5f7020bf6c265ddb0c3f.html">Function rc_algebra_fit_ellipsoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1ga1918b5344deff62db7d7210f2f663f62.html">Function rc_algebra_invert_matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1gafaf0af53942a159aafb90da77edeefe7.html">Function rc_algebra_invert_matrix_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1gaaca27264e06f3115185bcb8a91d72b4d.html">Function rc_algebra_lin_system_solve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1ga9ba2bdb386795e79ccead5ac58f1f058.html">Function rc_algebra_lin_system_solve_qr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1ga688b3c72b1b7054f102cb4a57c0eaf56.html">Function rc_algebra_lup_decomp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1ga09e6028ba76c3251d3d6e6c065dfd28a.html">Function rc_algebra_qr_decomp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___algebra_1ga8f79a63de0c4a4deba0f1a7d8e898131.html">Function rc_algebra_set_zero_tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___barometer___b_m_p_1ga680a0698cb7fb61ed319bb2fe52dee0a.html">Function rc_bmp_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___barometer___b_m_p_1ga4ca096ccaca80e2e1649455ee1c37668.html">Function rc_bmp_power_off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___barometer___b_m_p_1ga3b753ebd1995f34fab0bb17413b8cf59.html">Function rc_bmp_read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___barometer___b_m_p_1ga7bee8a599c37e1069f9a2c43dd87d078.html">Function rc_bmp_set_sea_level_pressure_pa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___button_1gac178ded5fabaffbfcafe5ba0af1a986f.html">Function rc_button_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___button_1ga1df19b70e734eab3bbe12bffc113d352.html">Function rc_button_get_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___button_1ga41f81ca0e9540e20108aef704ecf9b27.html">Function rc_button_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___button_1ga4bf2fefee3bfa0bf1bbe397e1364084f.html">Function rc_button_set_callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___button_1gaa08e5493475afbef7dbe4243fcd5d9bd.html">Function rc_button_wait_for_event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga3eb2f5e788c7668816d57f717ba31af9.html">Function rc_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___c_p_u_1ga51d61a1d3e6d7ac5745fb4abcf64c8c6.html">Function rc_cpu_get_freq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___c_p_u_1gafd0605f3358f89365e074b3b1b68ba72.html">Function rc_cpu_print_freq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___c_p_u_1ga1050db24e4bd335cb9493e520960fd96.html">Function rc_cpu_set_governor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga94522d2b4de3f1b3fb77fcdac3529fb4.html">Function rc_disable_motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1gab4f9f1be589ce6820d2a067c13a5d72d.html">Function rc_disable_signal_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1gae732159200205ecd620a236fd26efc64.html">Function rc_dsm_bind_routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga5d9b24c350fc02665e29b7f60ded2009.html">Function rc_dsm_calibrate_routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga0986542f2b906f0554cfa24758074802.html">Function rc_dsm_ch_normalized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga1b5b914ce58df71073d8c006df3013a9.html">Function rc_dsm_ch_raw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga33527618f58ee29845e1d8a6c259053e.html">Function rc_dsm_channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga1fca540c523b53efcfb6303989da7d27.html">Function rc_dsm_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1gaa01b151a1a15db2e2464f4bce7865615.html">Function rc_dsm_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1gae6cb399cc5156c90490667888315e4c5.html">Function rc_dsm_is_connection_active</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1gaf9d71e76484ebf43285357b3a008c2a3.html">Function rc_dsm_is_new_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1gad6f6b4f9b9cf7d7ad75ac34eee90efdf.html">Function rc_dsm_nanos_since_last_packet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga7952852574a68703ce4148204c7f9dab.html">Function rc_dsm_resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga37e5fcbedbc9a3cfca6ebf25b25dfd9c.html">Function rc_dsm_set_callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___d_s_m_1ga3b008eae5d070932d0ff47710aee0ba6.html">Function rc_dsm_set_disconnect_callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga598e856712f77f826a9049aa58a1609a.html">Function rc_enable_motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1gaafc5000de8ff00ed83848ef29981ffc9.html">Function rc_enable_signal_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder_1ga5b8902c2eb888a6754c3be90a1252847.html">Function rc_encoder_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___e_q_e_p_1ga39b1cdb1ac72f494520d1c94dc76f5bd.html">Function rc_encoder_eqep_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___e_q_e_p_1ga2b1aecc107f7533b02546da6ebb86183.html">Function rc_encoder_eqep_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___e_q_e_p_1ga359178d11a27ff55b816c81dd8902f89.html">Function rc_encoder_eqep_read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___e_q_e_p_1gab2ad6cab734fd79e7a65fa4594be6caa.html">Function rc_encoder_eqep_write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder_1gaaf0a9f73c0b51506d3e5120e7d169292.html">Function rc_encoder_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___p_r_u_1gafd2258e8cc0a8a51a1b1fdaf19ee12e0.html">Function rc_encoder_pru_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___p_r_u_1gae6b0bf3229ed39e186da8aee86015362.html">Function rc_encoder_pru_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___p_r_u_1ga7b86821e44af6bee87d30f168ed204a7.html">Function rc_encoder_pru_read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder___p_r_u_1ga3df8e4696276e1994784e73921e847d3.html">Function rc_encoder_pru_write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder_1ga1ff413ebeccaf443223feb5375d44ca6.html">Function rc_encoder_read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___encoder_1gacd639268601451b68762bd3c17ffaa3d.html">Function rc_encoder_write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaac5ec6f7e44f3462bcd18b6f307b6d4c.html">Function rc_filter_alloc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga30c826f6a4c74e641310a0c06d9f1c6c.html">Function rc_filter_alloc_from_arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaf6c1857225c1d1fcd31791f529108fc7.html">Function rc_filter_butterworth_highpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaca562d0297b5794c2819ea86f4df6313.html">Function rc_filter_butterworth_lowpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga9f1b40be4cba4f2a2ea7fd9c9da4d161.html">Function rc_filter_c2d_tustin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga4287249f7189f02bd6e8f2a8b8730e63.html">Function rc_filter_double_integrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga916a77192e69202bd709ec5b1e68f3e0.html">Function rc_filter_duplicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga9b5d0ba2693f5b5346c08ab9ce029eaa.html">Function rc_filter_empty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gae6ec99be7a22f8d4280daf18b1eacd18.html">Function rc_filter_enable_saturation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga8b48866c76a96cb49d3ffa6fe19011ae.html">Function rc_filter_enable_soft_start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga78e1746c63b164f6a9fab2069b92c48d.html">Function rc_filter_first_order_highpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga9fb8529bf9c4b0d34d6b55fca115b5d3.html">Function rc_filter_first_order_lowpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gad7b1abf89fc93d78bdcbd3b08842c468.html">Function rc_filter_free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaa670c91acf8c6d633938ea51905a0ab7.html">Function rc_filter_get_saturation_flag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gabb90ee0db26d85eac94747ff79d954d4.html">Function rc_filter_integrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga61567f5e88cbd1593c01dfd25669b5b1.html">Function rc_filter_march</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaf6a559a80489a453ebe745ea331ef7eb.html">Function rc_filter_moving_average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaed3aa6d5f0e96fccbfcf55cba8b4ed32.html">Function rc_filter_multiply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gadd253075d8bbd3b19169731407d54ab9.html">Function rc_filter_multiply_three</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga5ad8b3d3bf6412a9f59c26ed0453008f.html">Function rc_filter_normalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga1803dedd16ea27c59031bddeb084e893.html">Function rc_filter_pid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga9c184be395a2727266979010c6bca4c6.html">Function rc_filter_prefill_inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga35c8a9b189a6e2845b6dcad47451ac9e.html">Function rc_filter_prefill_outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gaf5d5aba736c2ba22e4f295c2cee8afd7.html">Function rc_filter_previous_input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga140687c148aa3bb47073c9a64afd467f.html">Function rc_filter_previous_output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1gac6dff1f36b8e4ef7db264dd2332d3866.html">Function rc_filter_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga4544fbb000ae45030f1cfd0f0aaff311.html">Function rc_filter_reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_i_s_o___filter_1ga60fcedd8b3e6d15b1c1fcc09c0cf28c4.html">Function rc_filter_third_order_complement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga7daa1bb0150daa663bcc8d1bbf337bff.html">Function rc_get_encoder_pos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gacb2b167ad28c965cd5f8a903e3918953.html">Function rc_get_mode_button</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gaf57e2092949d739b47796c2b4849126b.html">Function rc_get_pause_button</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___other___math_1ga734b2c1319085da9f4eecbc586e5c8be.html">Function rc_get_random_double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___other___math_1ga45db375c3247f66f93ff8f58fa2d1e3f.html">Function rc_get_random_float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1ga08307c9805692eb084112cbcae4b744f.html">Function rc_get_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___g_p_i_o_1ga8edd69a7211101ee33ae83e57a3a5fbf.html">Function rc_gpio_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___g_p_i_o_1gaedc0a575c976ea28a9e4ebfd0721d4da.html">Function rc_gpio_get_value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___g_p_i_o_1ga8276c43b1cb0aad4f7b4d08deeb7e893.html">Function rc_gpio_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___g_p_i_o_1gae91096fc94aae166e79b8fef8c39e70d.html">Function rc_gpio_init_event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___g_p_i_o_1ga6069b9e7fc628dcce428fb6d6e6d1b42.html">Function rc_gpio_poll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___g_p_i_o_1ga4e6ac0b2ba9a6d0b2f65e266679ac379.html">Function rc_gpio_set_value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga3a7aaf542ae1a744b866dc8d80bc76eb.html">Function rc_i2c_close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga5991bbf06e3885f27fb3bd6437045d01.html">Function rc_i2c_get_fd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga9193b779bf9a882b52e0cc0e4f19a725.html">Function rc_i2c_get_lock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga13bff99d5498c9075ba9eb7f895c8d8d.html">Function rc_i2c_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga1808f0485c4943981c62cd8825421fbc.html">Function rc_i2c_lock_bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga35ac5d6999db8b38e716dd9779e1b7b5.html">Function rc_i2c_read_byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga000ca38f3c197bc31470ecb7d39f2f21.html">Function rc_i2c_read_bytes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga3da85595b7b515f21e85a7f89977e19a.html">Function rc_i2c_read_word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga4ca235d3695b43c1aebe9a185f65d158.html">Function rc_i2c_read_words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga75bc1c065943678d28549fbdb58f042e.html">Function rc_i2c_send_byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1gaf0e2a0307bb6261b7baff3d0cd11ca9b.html">Function rc_i2c_send_bytes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga86a0268633508028f79a2f426780d6ad.html">Function rc_i2c_set_device_address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga770d8daa3419de17d0a48cab69a7e050.html">Function rc_i2c_unlock_bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1gaf539635446623450c66c8a5c5c3a35d7.html">Function rc_i2c_write_byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga394c75e014b477c4add6dc9c13549651.html">Function rc_i2c_write_bytes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1gaac6d948ad325e5d4e0e8066935f05e74.html">Function rc_i2c_write_word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i2_c_1ga1f61db3f379afb7b4930b61da527e286.html">Function rc_i2c_write_words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gaeaca25d4f1c4c4217acb1d148a92734a.html">Function rc_initialize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1gaa1396714a36d70df657215770a947f41.html">Function rc_kalman_alloc_ekf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1gaef5414ac19de6879ebc973080ef9937e.html">Function rc_kalman_alloc_lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1ga80ea8020dd1c094fd8c68d1e113635e2.html">Function rc_kalman_empty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1gab6cb032f310a746c267f40b5943f0a78.html">Function rc_kalman_free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1ga19b1abb2679b0d44ec9b49d07ada3b7b.html">Function rc_kalman_reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1gaa4f40b5e155334765875814996558ebd.html">Function rc_kalman_update_ekf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___kalman_1gaf96115115c3ce643cc4bbd4e86af423d.html">Function rc_kalman_update_lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1gac636ff375209b0261865875e168af8f6.html">Function rc_kill_existing_process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___l_e_d_1gaac222f4de3501de92c48161da7c99a28.html">Function rc_led_blink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___l_e_d_1gabe4fe5d68e716e8557ba2b349a374abe.html">Function rc_led_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___l_e_d_1ga8857a1c1e553cb0292578d55a04013ee.html">Function rc_led_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___l_e_d_1ga20951fe9916766c41ee7e54a051de2eb.html">Function rc_led_set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___l_e_d_1ga311eb21ddeb4f28316eceff6ed2670e0.html">Function rc_led_stop_blink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___l_e_d_1gaa619eeb445ee54ce60b33584f9c0f055.html">Function rc_led_stop_blink_all</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1ga855a2fced34e4dfaaea9cb6a2bc7fc07.html">Function rc_make_pid_file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga4a1850971139797c1f8fae553e77e5fe.html">Function rc_matrix_add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga5f6447a3fd6ca7abc752ebc7e5671ba4.html">Function rc_matrix_add_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gaaefaab4215ca5fc77ccc905fb0b1f2ab.html">Function rc_matrix_alloc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gaffe9ca5086de7856a51bc458880a4685.html">Function rc_matrix_determinant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga1e6fdd2b113e47901ec765ab8a088dfa.html">Function rc_matrix_diagonal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga8c723819a991789c9ddf5d2121cc0ebc.html">Function rc_matrix_duplicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga20f3099c4fbf44d4dc8fb7af99a53646.html">Function rc_matrix_empty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga0e16d72aaad4b8f522f459c2cee2a874.html">Function rc_matrix_free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga3b702b772126773969500b3cb1465d00.html">Function rc_matrix_identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga27552eede0fb1b2368f36525b54793ad.html">Function rc_matrix_left_multiply_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga58f7c5e2aa2f0b7383faf53f840ad9e9.html">Function rc_matrix_multiply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gac58e4907ae2340ea0a3ea4081542a26e.html">Function rc_matrix_outer_product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga5a6b08be1c38d7840260125a75f1b06d.html">Function rc_matrix_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gaf403b7b6e6af997ef732ae0310558e62.html">Function rc_matrix_print_sci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gaf040aafb6a95b1303668089d9e30a95a.html">Function rc_matrix_random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gadef5caad52f670b91ea558f1f38edb8e.html">Function rc_matrix_right_multiply_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga8282c41c5e2cf2338c3584a58c9d0597.html">Function rc_matrix_row_vec_times_matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga1c5f00892b9b782efa3cc4f276e4fa54.html">Function rc_matrix_subtract_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga662571d4eb799084eb9d499cbd6a617c.html">Function rc_matrix_symmetrize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga4f3c2a5dcea5a1dcbbf0f54419d9f490.html">Function rc_matrix_times_col_vec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga6eaf9454dd32905cca456f5d7273430b.html">Function rc_matrix_times_scalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gab15796534f320083f8315aa5a613b495.html">Function rc_matrix_transpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gab6a7fd781178a95dea4df4182be453ca.html">Function rc_matrix_transpose_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1gacd0d1d6481b2764116db63f63669efe6.html">Function rc_matrix_zero_out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___matrix_1ga00058fd197b0d55e6e795116f9fd8a94.html">Function rc_matrix_zeros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gaac23755eb2decdffeb10e323c187f8e4.html">Function rc_mav_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gad6c089a076ddeb77d761c6489531f2c5.html">Function rc_mav_get_att_pos_mocap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga97e5bd30d068ffbe12f2fcbb0e6dd64e.html">Function rc_mav_get_attitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga49a628a2282323c9796b2f43f4a98547.html">Function rc_mav_get_attitude_quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gaf5a423f5b50ffda12777036c51bdde59.html">Function rc_mav_get_connection_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gaa802ee877ed05abb23d9c1544a848e36.html">Function rc_mav_get_global_position_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gaab1ea57b789494eef034c7bb328e5069.html">Function rc_mav_get_gps_raw_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga38d02695ebcac8cfe5f5d897edcd1806.html">Function rc_mav_get_heartbeat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gaa800ef6d58a11e95334caa1b70158128.html">Function rc_mav_get_local_position_ned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gae98fc2dfc74c5f31676176b3c849f306.html">Function rc_mav_get_manual_control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gae42341f2b190346aec1cbbbbb5e923d2.html">Function rc_mav_get_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gac034339ac7198af377ef48479d17cf79.html">Function rc_mav_get_scaled_pressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gaac33a61cab40627181d202e37ba4e215.html">Function rc_mav_get_servo_output_raw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga5ce092c8e49ddeed85bbe29545ac14ac.html">Function rc_mav_get_set_position_target_global_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga4a5aef28f0090b060776b5fd5ac27cff.html">Function rc_mav_get_set_position_target_local_ned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1ga2faf866150189d6cae6d10bdeaf918f3.html">Function rc_mav_get_sys_id_of_last_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gaac49f7fe8ebf1c23e75f166c07379b77.html">Function rc_mav_get_sys_id_of_last_msg_any</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga70c65f5c08039efda11bf3b4eec75efe.html">Function rc_mav_get_sys_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gae703626957d212997b5859b12a895763.html">Function rc_mav_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1ga0ec72fef2c32b68dc92b4f2518489e30.html">Function rc_mav_is_new_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1ga97435d7bc76da024cdcfc44182f47dc5.html">Function rc_mav_msg_id_of_last_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gafb096857c163a2d7f0088e443f9d10cc.html">Function rc_mav_ns_since_last_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gae41a56b1a692b5f386a4de4b2637474b.html">Function rc_mav_ns_since_last_msg_any</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1ga62e9c30f45e5b230073f5db3414f18df.html">Function rc_mav_print_msg_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga257baee53ad95ce27475529f8237554e.html">Function rc_mav_send_att_pos_mocap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga84c9f6d27465287d95dd984f7b52f8f7.html">Function rc_mav_send_attitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gac2ccb2ea1eb33cb041ff09851540d97c.html">Function rc_mav_send_attitude_quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga91956f6a73784f004d5ff3d6fb654f92.html">Function rc_mav_send_global_position_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga9dc569703b0cf330073760b474e91686.html">Function rc_mav_send_gps_raw_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gab1bf3775e06f67b83a27997382fd9771.html">Function rc_mav_send_heartbeat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gaf12c75e5507e17504f0b4ad680ca4f7f.html">Function rc_mav_send_heartbeat_abbreviated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga98c7840ca93d553a25f1418cca3ab588.html">Function rc_mav_send_local_position_ned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gaefad3f0cc158339c77a5af40c6bbb14d.html">Function rc_mav_send_manual_control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gaf1913ebc763bdd67e482999ddbb4ec59.html">Function rc_mav_send_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gad46b2a5a673c11f09558f5a56c1af756.html">Function rc_mav_send_scaled_pressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga82547517a4c24bef3173a3600af019a4.html">Function rc_mav_send_servo_output_raw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga47bcae1e543d1bc81a7b31f6037a5c7b.html">Function rc_mav_send_set_position_target_global_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1gafd0655c58819b4489a960dd0a7be029b.html">Function rc_mav_send_set_position_target_local_ned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___helpers_1ga4ec7432fd683fac5546ef0b1cceee29c.html">Function rc_mav_send_sys_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gaff8a157cb1014c743d859126c79a5cc4.html">Function rc_mav_set_callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gae924d503d9962eb5909d79143229a671.html">Function rc_mav_set_callback_all</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1ga1e99e47d80ff89b2a9061a3c66b7bedd.html">Function rc_mav_set_callback_connection_lost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1gafdbeaf28fa59faee349a7cf13ce7d185.html">Function rc_mav_set_dest_ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___mavlink___u_d_p_1ga14a1576c0f909bdf20b8b2df4bf7b068.html">Function rc_mav_set_system_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___model_1ga2462cef7a649d311b8c36cf981311576.html">Function rc_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___model_1ga69bd004f98a1d1b63ae6eec277bee8de.html">Function rc_model_category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___model_1ga631eb124ce4692d27c76872bbd10b1ef.html">Function rc_model_category_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___model_1ga5d2b6e9b770eb62108cf1b8e2b45b3de.html">Function rc_model_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1ga470369dde3e084f0a2a5c99db61f9494.html">Function rc_motor_brake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1gaaf8b9bcd4a449da3194bfdbe87b9c7ce.html">Function rc_motor_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1ga0a02d33c26c19955c7921b1ce74d6250.html">Function rc_motor_free_spin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1ga0c7c5572a57bf2787529013c4da7c535.html">Function rc_motor_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1gaf65e329bc17712d20acae1fd1e3d1ec1.html">Function rc_motor_init_freq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1gaeaf337ad16953c9f9412d96a600eccc1.html">Function rc_motor_set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___motor_1ga7ee2b29b8ed1185a31abf8d7e45603fb.html">Function rc_motor_standby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga4e8129a1487b883a09d0faca51e9cefc.html">Function rc_mpu_block_until_dmp_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gad05213553d56f99b8eb6b9d1550a8f54.html">Function rc_mpu_block_until_tap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gaf73fe81d7e008d88bd771b7caa3a5774.html">Function rc_mpu_calibrate_accel_routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gaf8c13bf4226e20d34cff4684aabcec84.html">Function rc_mpu_calibrate_gyro_routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gaf5876ad10af2349544402bcabbda52c7.html">Function rc_mpu_calibrate_mag_routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gae9407993b646234f68afebb87cd28a19.html">Function rc_mpu_default_config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gae3ae7dd8f0c290d8f9ac9c6a69327833.html">Function rc_mpu_initialize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga821d32a9eb36bc93ee13bfccd905f1b3.html">Function rc_mpu_initialize_dmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga777e3c81f90402b1c99606bf114d7891.html">Function rc_mpu_is_accel_calibrated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga374163633cd359f32ee8fbbdcfbe79eb.html">Function rc_mpu_is_gyro_calibrated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga6fc082951f72dc30574d9c29f8d3dd95.html">Function rc_mpu_is_mag_calibrated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga47993ca1c387a0e707985c9a09cae70e.html">Function rc_mpu_nanos_since_last_dmp_interrupt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga678d425e1301470b292489394bdfab0e.html">Function rc_mpu_nanos_since_last_tap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga9ea43ad39e211ebcd15d363d4ae2e6a4.html">Function rc_mpu_power_off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga03825c847b7d7a6e438d46a7ce036f49.html">Function rc_mpu_read_accel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gaa88bb803a709b03140ed84219902a911.html">Function rc_mpu_read_gyro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga2116ae35b53681f41a1cd2eddbe2a76e.html">Function rc_mpu_read_mag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga3ff0843047de580f03d8ac93bb6d2971.html">Function rc_mpu_read_temp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gaba623f8719fc11e424f0167f8fd82a2a.html">Function rc_mpu_set_config_to_default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1ga340011e6dcadc61b5fc48c1d35c5e053.html">Function rc_mpu_set_dmp_callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___i_m_u___m_p_u_1gaf21c39167283328db1d837fbd5f66d68.html">Function rc_mpu_set_tap_callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga3a88fd73655701445020f0acaa7c1c36.html">Function rc_nanos_since_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1gad990f90d9cda158a8652753055265836.html">Function rc_nanos_since_epoch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga3baaf2bc695f9a2eb4c72fb26fcf10ad.html">Function rc_nanos_thread_time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga5404c174657b11b7131d4b9bcc9f6603.html">Function rc_nanosleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1gaa4e42cb59e9789b957067dbf27f011dd.html">Function rc_normalize_quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga007606ce5feff517b932961c3d649641.html">Function rc_normalize_quaternion_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___pinmux_1ga709e2f08ee353f2052eed1ebf98bfce3.html">Function rc_pinmux_set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___pinmux_1ga663f1266e6d7fe3120a7b4cea6deb761.html">Function rc_pinmux_set_default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1gabfb6fa5439346ca03f4404ba65f753d4.html">Function rc_poly_add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1ga7a8ede505de3ba460edfb4c687fed29f.html">Function rc_poly_add_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1ga7c59fde73d5f31222746da5f730864e8.html">Function rc_poly_butter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1ga0ec56458baca9a38093d74a444513fdd.html">Function rc_poly_conv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1gabbae3c7a60135300ec4b7765eb956bbe.html">Function rc_poly_differentiate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1gaa30b88e21671748ce4008e25dc6f200d.html">Function rc_poly_divide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1gae1ebd34a90a744787f2f2becaaeada2f.html">Function rc_poly_power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1ga99d2b3a3b9405b3d01c2be85ef2b731b.html">Function rc_poly_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1ga0b4a09e13b28b40bbb2a0f9ddcf9a4f9.html">Function rc_poly_subtract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___polynomial_1ga50a9d83172575f86fa60622d57c816e4.html">Function rc_poly_subtract_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1ga82b35235986818b68c56251fbd6ad27b.html">Function rc_print_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_r_u_1ga8846ad12152eb6e33d0eac565511cdc4.html">Function rc_pru_shared_mem_ptr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_r_u_1gae905a61d9704f8d9c182d6ffb52f7e31.html">Function rc_pru_start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_r_u_1ga3be81bb51981b5ef5c58be99d3c5f2c1.html">Function rc_pru_stop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__pthread_1gacb19576a13ed2ac57ade65d30f88a100.html">Function rc_pthread_create</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__pthread_1ga6162f63afb3524554088127d6d1cf306.html">Function rc_pthread_get_process_niceness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__pthread_1ga723748e011ec8c27fc449826f7cde5a1.html">Function rc_pthread_print_properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__pthread_1ga7da79c8d772ef7ca141f04ea05d18667.html">Function rc_pthread_set_process_niceness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__pthread_1gac3a1d2d4543ed61cc6fdb0352471c0a7.html">Function rc_pthread_set_properties_self</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__pthread_1gae88a3ac02e86a18eb24a8ac0e698f12c.html">Function rc_pthread_timed_join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_w_m_1ga240440f5a906dc1500babd232577467c.html">Function rc_pwm_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_w_m_1gac88a84e4882918f6f6bc3acc3d398485.html">Function rc_pwm_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_w_m_1ga284056b0966590d13146dbd88203e1ee.html">Function rc_pwm_set_duty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___p_w_m_1ga1adbb8d2062f6a150c9106f9bfb05691.html">Function rc_pwm_set_duty_ns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1gae6ff0571c5b14a9c9866ccf659ede2be.html">Function rc_quaternion_conjugate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1gaaab45e4c36c48a2255e219f135d2d7f2.html">Function rc_quaternion_conjugate_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga65878fab307c0efb6be64a728a7e8a88.html">Function rc_quaternion_conjugate_array_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga2f6a22394f69065da0db6814ab4cc809.html">Function rc_quaternion_conjugate_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga54339e7a6a4b46357555def9fefd12be.html">Function rc_quaternion_from_tb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga3b9219ba650ccbc10c07c82170c20708.html">Function rc_quaternion_from_tb_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga979a8b5919c153ccdd9cf1611bb5da95.html">Function rc_quaternion_imaginary_part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga69f6fc81fa687d8341bd78dff1e8357e.html">Function rc_quaternion_multiply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga3eb5aa585f53cd592b50125402e704ab.html">Function rc_quaternion_multiply_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga98fb13ca78450b2aadcc478bfc4d2751.html">Function rc_quaternion_norm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1gab18662b737183d141f470eb9026fcbb3.html">Function rc_quaternion_norm_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga1ad0d9273c7a78b4efac1066abe01b46.html">Function rc_quaternion_rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga5b00276788aa94a2d2de69166ec98ef4.html">Function rc_quaternion_rotate_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga4dcacf759d45c9c92782253338c1269b.html">Function rc_quaternion_rotate_vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1gade96084808dcf21c49b17326f60d6866.html">Function rc_quaternion_rotate_vector_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga1fbbeb418f6e71f2eefd7dc57c9bfbc8.html">Function rc_quaternion_to_rotation_matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga563e33eda488bf7b8676bf6104905754.html">Function rc_quaternion_to_tb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___quaternion_1ga71af2d1badbd962b3b1801da720f9935.html">Function rc_quaternion_to_tb_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1ga0f06d321e00e3963aa0d672ab0d06fe5.html">Function rc_remove_pid_file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1ga081c474a7a3e607a73080f5b7d6de94c.html">Function rc_ringbuf_alloc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1ga18cecd9dd70482175791871b0ed7d833.html">Function rc_ringbuf_empty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1gacc048f71fcf6c35008c4a42a4c646d79.html">Function rc_ringbuf_free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1ga178409422c694dab381ab6fd51918801.html">Function rc_ringbuf_get_value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1gaa82925c4c7ea0996b4861c89c131afb3.html">Function rc_ringbuf_insert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1gaa9da5cc641aed10a6212df49f72669c3.html">Function rc_ringbuf_reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___ring___buffer_1ga0c8d29b891fc18f77dac6cdd6dbe1e24.html">Function rc_ringbuf_std_dev</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___other___math_1ga0db783667dde7eb053dd7ac01bf6f9d9.html">Function rc_saturate_double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___other___math_1ga2977f271b49fb61945c338cb37d56731.html">Function rc_saturate_float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1ga31a88ee18f8eab9a0a8fa6ba4aa8d838.html">Function rc_servo_cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1gabcde569afc59522a776c00a3cf38de7f.html">Function rc_servo_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1ga3ac90f23a6793e0a1b841c83565101ef.html">Function rc_servo_power_rail_en</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1ga4348b72e1177d53a3f6b69b7bdf54f28.html">Function rc_servo_send_esc_pulse_normalized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1ga2ac626f7389c25bd8bdf4cf8129a0a1b.html">Function rc_servo_send_oneshot_pulse_normalized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1gaa3227ad3e226810d64a7266f27f39c3b.html">Function rc_servo_send_pulse_normalized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1gadbf994173e0b530fe448e94694659b51.html">Function rc_servo_send_pulse_us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___servo_1ga677c306864d60dcc65011f38b00407da.html">Function rc_servo_set_esc_range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga36c3930aab37bbd21da8e6af7c089564.html">Function rc_set_encoder_pos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga84f1d49c1d91952eef4c387be83d632a.html">Function rc_set_mode_pressed_func</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gab441caef4f7dbca88ba6dc6e2de43d0e.html">Function rc_set_mode_released_func</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga46825ef8f2e7440fd8eb6a6091e4bc8c.html">Function rc_set_motor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gafa9dbe705e47e02b258fcf28eb90ef9a.html">Function rc_set_motor_all</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga9a8237bc23adeed7b4b6fb60c6f29030.html">Function rc_set_motor_brake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gab1ff045cb6b21571281c7897bdddae8c.html">Function rc_set_motor_brake_all</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga9124f05ee50943f91bbbff072b59e95b.html">Function rc_set_motor_free_spin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1ga7e8bfd9137513b09d3f57402229dd8fb.html">Function rc_set_motor_free_spin_all</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gab302c0cf8a3e9ec8173db5a7e1684b9d.html">Function rc_set_pause_pressed_func</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___deprecated___functions_1gac564786c0002958d4c5e2484fbd7440f.html">Function rc_set_pause_released_func</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__start__stop_1ga693e5b9f051bb14507d1d9eb246f616e.html">Function rc_set_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1ga45a54cb26f96590a895a95648aae7318.html">Function rc_spi_close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1ga58fa9de20b3fa7894bbf45629b007180.html">Function rc_spi_get_fd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1ga01facb1d65f98568feacb6175b68e1b5.html">Function rc_spi_init_auto_slave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1ga5696955033457ffaa734170468893835.html">Function rc_spi_init_manual_slave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1gaf99da1c0fc5da1ae1555dba2ed90bf62.html">Function rc_spi_manual_select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1ga4977a424108cf6f6f69f33dac358ad87.html">Function rc_spi_read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1gad113f7b75a8b6f4bee912ed83b400b49.html">Function rc_spi_transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___s_p_i_1gad5fc840c000c6cd57321af90efb60fa2.html">Function rc_spi_write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1gac83f639344338367d9fe1f64a4abaa9e.html">Function rc_timespec_add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga5b1b51b1c32db7f93eb9ee533f38cb2a.html">Function rc_timespec_diff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga6aa951c4e4a6de2063a43352fefbc681.html">Function rc_timespec_to_micros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1gaef74db6b357f3f2887017ba9b83abc47.html">Function rc_timespec_to_millis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga0c853519eb782093e0fb73451c5dd21b.html">Function rc_timeval_to_micros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1gac42dc3c312df8d517745ff6822fbcfa5.html">Function rc_timeval_to_millis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga781cf847ae0bed0830453bf6efc49b2b.html">Function rc_uart_bytes_available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga0f2bcf51362f3dee7a59ac349658e6f5.html">Function rc_uart_close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga8b822bc3eb5fac46087ddadcaac512f8.html">Function rc_uart_flush</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga8a6b4cb93f5bd79cc1153dba9e3f306d.html">Function rc_uart_get_fd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga5afe8a87edb3d5435cf5ff54bcd3f88b.html">Function rc_uart_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga68fa9e4b06e7194ab8bd418d888be9bd.html">Function rc_uart_read_bytes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1gaaf5b34313af1275c9729656ccf710f0e.html">Function rc_uart_read_line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___u_a_r_t_1ga094e0075844d5e6cc5bf5f26d86006f4.html">Function rc_uart_write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__time_1ga5477dde3014bc26b5ae6f0c773a8a340.html">Function rc_usleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga11722701079a6c31a88c1b2b5535c034.html">Function rc_vector_alloc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga01bee4c05bf391b3fb30b1b9fa8f7ff0.html">Function rc_vector_cross_product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gad5781a23708133bb5beb334812909911.html">Function rc_vector_dot_product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga5aade05352c44f0eed9835a2e555254f.html">Function rc_vector_duplicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gab57c25942cfd30fce131175c5f86c42e.html">Function rc_vector_empty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gab26ea389839dc7cae224a3709316db03.html">Function rc_vector_fibonnaci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga866d0dd17fd2d052ffe0edb1ebbcf6ca.html">Function rc_vector_free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga7330ebf6a505a5c6308cfcaa1a20d192.html">Function rc_vector_from_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga3e4b086af44400fa2fa56af2618bfe81.html">Function rc_vector_max</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga30235b23358cd30512cdd0b6af542939.html">Function rc_vector_mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gaf5cf5dee22ee0807725e86463b3cb415.html">Function rc_vector_min</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga9bf6cb90765b922cb3d205505e274014.html">Function rc_vector_norm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga93c2070da0f5b606113068dabcf64606.html">Function rc_vector_ones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gafbd986c3f1759de97760c2e65245fc45.html">Function rc_vector_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga6ea0298241c1b0207aea04cd331041d9.html">Function rc_vector_print_sci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga9d6baef58e77a3f6f17cd76d3967dcce.html">Function rc_vector_projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga61b0bc1f274f79017342393a2cf4c768.html">Function rc_vector_random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gaf6c966e3fa47561f3fac9a029b2d0d1d.html">Function rc_vector_std_dev</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gac3f3fc91990f70fb98f33d7f1d14b7d6.html">Function rc_vector_subtract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga2c8a002edae139b24bde39eff021cf8e.html">Function rc_vector_sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1ga4af34fe82269a8a963c1a6b7850df8dc.html">Function rc_vector_sum_inplace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gaa5d747b5b351afd5ad7eb736360ed564.html">Function rc_vector_times_scalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gae1568a79b72531a1c30e36d5be1ecb7e.html">Function rc_vector_zero_out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group___vector_1gaaf406d1cf903d34a2fb175d947b7b9fd.html">Function rc_vector_zeros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__version_1gac119ac7fd33dc5333f30c8a5be77d088.html">Function rc_version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__version_1gaf914d53437071a5c53f0e176f338967b.html">Function rc_version_print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_group__version_1ga159e40ac380f3c671d53f6a3ce105bbc.html">Function rc_version_string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_group___vector_1ga408c35375eaaf1ca251b040b1deeed0c.html">Variable zero_tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1ga369266c24eacffb87046522897a570d5.html">Define _GNU_SOURCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1ga70c57aae3eb654e205459b4362c8089a.html">Define ARRAY_SIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga620fd778e99de4cd0694906cf86b8679.html">Define BLUE_GP0_PIN_3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga4a35af044eda979b1f5318ac9f08a8e4.html">Define BLUE_GP0_PIN_4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga0a0c000e69a1a5917b3348d4ec79e5f1.html">Define BLUE_GP0_PIN_5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga85d61b0c0781dbe9c124775642280d7c.html">Define BLUE_GP0_PIN_6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1gac1b9410b9d028a187f1e7b5cfe86fecb.html">Define BLUE_GP1_PIN_3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga8e2ce430cb6a8093dd73d607b3545776.html">Define BLUE_GP1_PIN_4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga2aeb018aa4456b63f1fcd0529cfe5919.html">Define BLUE_SPI_PIN_6_SS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1gad25bca44f765036156ec0635878cf330.html">Define BLUE_SPI_PIN_6_SS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga9b068a5397804231d862e14613a93855.html">Define CAPE_SPI_PIN_6_SS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga6ee698bce0fc08bf80feab295433408e.html">Define CAPE_SPI_PIN_6_SS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga212460e743fecb084d717bb2180c5a56.html">Define DEG_TO_RAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1ga212460e743fecb084d717bb2180c5a56.html">Define DEG_TO_RAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga0340173eb755ceffc99cd49a7957779c.html">Define DSM_HEADER_PIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga1078273b65a944f3966c004fcbe7cb2c.html">Define G_TO_MS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1gabbc4402e601da8eb44c6eb93972e3865.html">Define GPIOEVENT_REQUEST_BOTH_EDGES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga072e5b4fd404b3da0e6142a644b7258e.html">Define GPIOEVENT_REQUEST_FALLING_EDGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga39491f397e67f54b1404830ba9681b34.html">Define GPIOEVENT_REQUEST_RISING_EDGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1gaae8e11a0b9bcbf652c9a7fd12b770adb.html">Define GPIOHANDLE_REQUEST_ACTIVE_LOW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1gafeb58cf7a68b24d3255fe1b8c8373e02.html">Define GPIOHANDLE_REQUEST_INPUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga5ff88a7dc221cc7642369b556ff54a10.html">Define GPIOHANDLE_REQUEST_OPEN_DRAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga73b9fbb881242ae610a21cabd9f42c8a.html">Define GPIOHANDLE_REQUEST_OPEN_SOURCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga6ddf08e5c5c8f8069633e0f478710eb8.html">Define GPIOHANDLE_REQUEST_OUTPUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga63a60fad14697ef50a83d1d81ccd4cf7.html">Define GPS_HEADER_PIN_3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga3f02822b10822c09b1910ca7d63b6d70.html">Define GPS_HEADER_PIN_4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i2_c_1ga6458dbf193a0eef0470fc1b08400bfcd.html">Define I2C_BUFFER_SIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i2_c_1gaaab763f09f8ba3ae6c2b68f735875dd3.html">Define I2C_MAX_BUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1gac6afabdc09a49a433ee19d8a9486056d.html">Define min</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1gafafb8c645e39f6ea3b1ff7ec312f1768.html">Define MS2_TO_G</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1ga598a3330b3c21701223ee0ca14316eca.html">Define PI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga3cff338e3722c1c1a36de82d2a953bd3.html">Define QUAT_W</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga470e1c82469f8e4f20d039de634a5360.html">Define QUAT_X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1gac7215623b05131650c8a16e4326f3734.html">Define QUAT_Y</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga4ed90c13353e0d8ceb2f74ea3070fe11.html">Define QUAT_Z</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga89e47af0449640d4f15191aba5ca24c6.html">Define RAD_TO_DEG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1ga89e47af0449640d4f15191aba5ca24c6.html">Define RAD_TO_DEG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1ga7449e345bf0e406de395e00409aefa60.html">Define RC_BB_SPI1_SS1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1gaeb78a6fe5496819d7b74e5c478f25129.html">Define RC_BB_SPI1_SS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1ga8e6fd8878e0ffeb200ff6b284f667408.html">Define RC_BLUE_SS1_GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1ga6e8439d473e02b4fc3d08c439cd91f9b.html">Define RC_BLUE_SS2_GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1gac2886e480777eb0ce0baecd2e5592dab.html">Define RC_BTN_DEBOUNCE_DEFAULT_US</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1ga5a92946286884f8206133062462b9ace.html">Define RC_BTN_PIN_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1ga113e5457cf1411e79c4d71bce30208f4.html">Define RC_BTN_PIN_PAUSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1gad2b3429314eca389f651f0dbc73a7e65.html">Define RC_BTN_POLARITY_NORM_HIGH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1gae2c14dbc3c893ff1bd3633a82f7557fa.html">Define RC_BTN_POLARITY_NORM_LOW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1gae98cebb8d3a2f11ba06d0b768976be01.html">Define RC_BTN_STATE_PRESSED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___button_1gad0185157ad6d07de06974de1cb3dc7fc.html">Define RC_BTN_STATE_RELEASED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1gabfec138c2dc754642a6e05c5c468b152.html">Define RC_CAPE_SS1_GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1ga4d3357c8bd04873f944954c6889b78c3.html">Define RC_CAPE_SS2_GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1gabfd4d610026dcb9cc609193970cbfb59.html">Define RC_ESC_DEFAULT_MAX_US</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1gafa615e1123aff2a159a28740a28955e9.html">Define RC_ESC_DEFAULT_MIN_US</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1ga77951a75da229e6ad3cc2994a421c1ef.html">Define RC_ESC_DJI_MAX_US</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1ga002867d4bc4044172843364e977e908d.html">Define RC_ESC_DJI_MIN_US</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_i_s_o___filter_1gaaba65c89772d2ad4b3f64b2142dab928.html">Define RC_FILTER_INITIALIZER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga5638f91f59e46a96ec9d25ac1d784731.html">Define RC_GPIOEVENT_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga31e8e245cae90b7ebcd29884aba1fc38.html">Define RC_GPIOEVENT_FALLING_EDGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1gaf1eca2351fc1868c867a7604667b33ec.html">Define RC_GPIOEVENT_RISING_EDGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___g_p_i_o_1ga550683401332bbba6151b80e469a1553.html">Define RC_GPIOEVENT_TIMEOUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___kalman_1ga0da30f3b8e8ab0e1b5107153a7587b93.html">Define RC_KALMAN_INITIALIZER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group__version_1gadec84f7cc8e80f521840cd5c40135400.html">Define RC_LIB_VERSION_HEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group__version_1ga9bef724dfc9ba2cf66463e6b2fe6669e.html">Define RC_LIB_VERSION_MAJOR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group__version_1ga5a549de0b39fdb82f713bf03c1d4100e.html">Define RC_LIB_VERSION_MINOR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group__version_1gaababe2ce4930b8a230191bf7e503bfff.html">Define RC_LIB_VERSION_PATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___matrix_1ga1fe4da792f1d95eb45f773a26b7c40d7.html">Define RC_MATRIX_INITIALIZER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___mavlink___u_d_p_1gafeda7b0e4928e58ce27c55513543d3ec.html">Define RC_MAV_DEFAULT_CONNECTION_TIMEOUT_US</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___mavlink___u_d_p_1gae531bf5a921b5f0a306cb0d1d45530e8.html">Define RC_MAV_DEFAULT_UDP_PORT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___d_s_m_1ga44ac46fe10a1a4713e1c071c4247e04e.html">Define RC_MAX_DSM_CHANNELS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___motor_1gacee0f846fc4c42ff926ebb78ffe76193.html">Define RC_MOTOR_DEFAULT_PWM_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga3e2efff91b74fdc636b66c102954c6f3.html">Define RC_MPU_ALT_I2C_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga9b1480bd20368f330d0974dfc13068e4.html">Define RC_MPU_DEFAULT_I2C_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group__start__stop_1gabf72a3607c241faf7f4b9094253af7a1.html">Define RC_PID_DIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group__start__stop_1ga1717e01e4309df6c7c93a48084f5ffb9.html">Define RC_PID_FILE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___ring___buffer_1ga57868cd0e7c34de812f7c394ef4c1429.html">Define RC_RINGBUF_INITIALIZER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1gafc9f63116bb9cc27e44b0f6b2082d66a.html">Define RC_SERVO_CH_ALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1ga4c2f94d5932ba7de01baa9dae43f91b2.html">Define RC_SERVO_CH_MAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___servo_1ga2b4c5c8c32bac51565fab764ca15384e.html">Define RC_SERVO_CH_MIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1gad7d52effae6be8581575cb70888bb411.html">Define RC_SPI_BITS_PER_WORD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1ga02d8e63bbc1fdc32659c570124b0bc32.html">Define RC_SPI_MAX_SPEED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___s_p_i_1ga48151cf037500b4e44aa38290c1e433d.html">Define RC_SPI_MIN_SPEED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___vector_1gab72eb22064075a2bc691904c5a6f64a4.html">Define RC_VECTOR_INITIALIZER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1ga87bafaba040021ce4b52467163cf26c0.html">Define SPI_HEADER_PIN_3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1gabadb724a2565c0eab46f351d6327e284.html">Define SPI_HEADER_PIN_4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1gafb8db3be066633c87774d9e777bded3d.html">Define SPI_HEADER_PIN_5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga3f30e426aa6d616ce2e7dfb43528e6ba.html">Define TB_PITCH_X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga20b89150035ff9b018a5391942f6e9b8.html">Define TB_ROLL_Y</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___i_m_u___m_p_u_1ga2c32a6323af47fd805660d077066dff3.html">Define TB_YAW_Z</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___useful___includes_1ga3b947f4b635461030ff2d87833e5049e.html">Define TWO_PI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1gab9ac569dfd6b4e57b64eaed3de9f5f22.html">Define UART1_HEADER_PIN_3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_group___pinmux_1gaddde976f296c8441aed21f2b8c18ad70.html">Define UART1_HEADER_PIN_4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___barometer___b_m_p_1ga951a9ec75b5fdb4e5c9fa434519f0d81.html">Typedef rc_bmp_data_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___barometer___b_m_p_1ga0c1e58655b2c790a462f18965bc19122.html">Typedef rc_bmp_filter_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___barometer___b_m_p_1ga8276e0656f1d49902a501346b7b13235.html">Typedef rc_bmp_oversample_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___deprecated___functions_1gacd97ce644bca8c9044230265c359ec36.html">Typedef rc_button_state_t</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Typedef rc_filter_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___c_p_u_1gadb4ecff92db47862ed35791742c8d5ed.html">Typedef rc_governor_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___kalman_1ga017973a86246a2d4010769032eb4c487.html">Typedef rc_kalman_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___l_e_d_1gaf6fd3e28b201e81f3b956eeef26c67f4.html">Typedef rc_led_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___matrix_1ga6bd107307a14a51a08d403be656ab96d.html">Typedef rc_matrix_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___mavlink___u_d_p_1ga2cb3464a2bdfc1b31db19d49579d277f.html">Typedef rc_mav_connection_state_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___model_1ga41f66cec218efa4b65db31b42141f9b9.html">Typedef rc_model_category_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___model_1ga57736fbe17cf8772118b55e9ef5dabdc.html">Typedef rc_model_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1ga67aef07b529a348f39c70ab54f24a41f.html">Typedef rc_mpu_accel_dlpf_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1gaecc9aeb723d5624f481f0b84300def1e.html">Typedef rc_mpu_accel_fsr_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1gac1d585f2574f8e168500ccd5a2fed25b.html">Typedef rc_mpu_config_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1ga23217491b572ff0a667f3930bbc071ac.html">Typedef rc_mpu_data_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1gad28c075affcb5b38b3b76e8d82dee71a.html">Typedef rc_mpu_gyro_dlpf_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1ga5a333af7df9b252ef7df6b3baf3c291b.html">Typedef rc_mpu_gyro_fsr_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___i_m_u___m_p_u_1gaf301b579b9db3414f4895e9ef377d1b0.html">Typedef rc_mpu_orientation_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___pinmux_1ga3ba8bb1b646fde66a88ca607a099a6d3.html">Typedef rc_pinmux_mode_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___ring___buffer_1gaf61cd5a7161a167d96a7cc71b5c57ba4.html">Typedef rc_ringbuf_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group__start__stop_1gab1eedb24971a9e7fdbcaa1ac0c09c01a.html">Typedef rc_state_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group___vector_1ga2312cf039ede3986f1cb5116626bb130.html">Typedef rc_vector_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group__time_1ga1cccab7444210b21d232130957e966dc.html">Typedef timespec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_group__time_1gaf202bc421ccfd5a434f6dcf438491e39.html">Typedef timeval</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../beagleconnect/index.html">BeagleConnect™ Technology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../beagleconnect/introduction.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagleconnect/beagleplay-bcf.html">BeaglePlay + BeagleConnect Freedom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagleconnect/beaglebone-bcf.html">BeagleBone + BeagleConnect Freedom</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Projects</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Robot Control Library</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Typedef rc_filter_t</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="typedef-rc-filter-t">
+<span id="exhale-typedef-group-s-i-s-o-filter-1ga6655489c061812b4e934ffb82b0c36e7"></span><h1>Typedef rc_filter_t<a class="headerlink" href="#typedef-rc-filter-t" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_library_include_rc_math_filter.h.html#file-library-include-rc-math-filter-h"><span class="std std-ref">File filter.h</span></a></p></li>
+</ul>
+<section id="typedef-documentation">
+<h2>Typedef Documentation<a class="headerlink" href="#typedef-documentation" title="Link to this heading">#</a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv411rc_filter_t">
+<span id="_CPPv311rc_filter_t"></span><span id="_CPPv211rc_filter_t"></span><span id="rc_filter_t"></span><span class="target" id="group___s_i_s_o___filter_1ga6655489c061812b4e934ffb82b0c36e7"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="structrc__filter__t.html#_CPPv411rc_filter_t" title="rc_filter_t"><span class="n"><span class="pre">rc_filter_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rc_filter_t</span></span></span><br /></dt>
+<dd><p>Struct containing configuration and state of a SISO filter. </p>
+<p>Also points to dynamically allocated memory which make it necessary to use the allocation and free function in this API for proper use. The user can read and modify values directly from ths struct. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="typedef_group___deprecated___functions_1gacd97ce644bca8c9044230265c359ec36.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Typedef rc_button_state_t</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="typedef_group___c_p_u_1gadb4ecff92db47862ed35791742c8d5ed.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Typedef rc_governor_t</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typedef-documentation">Typedef Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv411rc_filter_t"><code class="docutils literal notranslate"><span class="pre">rc_filter_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/projects/librobotcontrol/typedef_group___s_i_s_o___filter_1ga6655489c061812b4e934ffb82b0c36e7.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/projects/librobotcontrol/typedef_group___s_i_s_o___filter_1ga6655489c061812b4e934ffb82b0c36e7.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

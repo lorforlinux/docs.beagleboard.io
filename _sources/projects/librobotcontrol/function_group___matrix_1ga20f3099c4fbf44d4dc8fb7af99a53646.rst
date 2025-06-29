@@ -1,0 +1,14 @@
+.. _exhale_function_group___matrix_1ga20f3099c4fbf44d4dc8fb7af99a53646:
+
+Function rc_matrix_empty
+========================
+
+- Defined in :ref:`file_library_include_rc_math_matrix.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: rc_matrix_empty(void)
+   :project: librobotcontrol

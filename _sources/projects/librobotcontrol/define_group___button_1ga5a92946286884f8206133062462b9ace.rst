@@ -1,0 +1,14 @@
+.. _exhale_define_group___button_1ga5a92946286884f8206133062462b9ace:
+
+Define RC_BTN_PIN_MODE
+======================
+
+- Defined in :ref:`file_library_include_rc_button.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: RC_BTN_PIN_MODE
+   :project: librobotcontrol

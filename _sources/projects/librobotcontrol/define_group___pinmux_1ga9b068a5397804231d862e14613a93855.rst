@@ -1,0 +1,14 @@
+.. _exhale_define_group___pinmux_1ga9b068a5397804231d862e14613a93855:
+
+Define CAPE_SPI_PIN_6_SS1
+=========================
+
+- Defined in :ref:`file_library_include_rc_pinmux.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: CAPE_SPI_PIN_6_SS1
+   :project: librobotcontrol

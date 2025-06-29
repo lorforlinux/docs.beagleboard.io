@@ -1,0 +1,2030 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Design and Specifications &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beagley/ai/03-design';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beagley/ai/03-design.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Expansion" href="04-expansion.html" />
+    <link rel="prev" title="BeagleY-AI Quick Start" href="02-quick-start.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-quick-start.html">BeagleY-AI Quick Start</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Design and Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos.html">Demos and tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-gpio.html">Using GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-pwm.html">Pulse Width Modulation (PWM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-rtc.html">Using the on-board Real Time Clock (RTC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-i2c-oled-display.html">Using I2C OLED Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-i2c-adc.html">Using I2C ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/pca9685-motor-drivers.html">Using PCA9685 Motor Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/expansion-nvme.html">Booting from NVMe Drives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/using-imx219-csi-cameras.html">Using IMX219 CSI Cameras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/arducam-imx219-v3link-dual-camera-kit.html">Using the Arducam Dual V3Link Camera Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/object-detection-tutorial.html">TensorFlow Lite Object Detection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Support</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleY-AI</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Design and Specifications</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="design-and-specifications">
+<span id="beagley-ai-design"></span><h1>Design and Specifications<a class="headerlink" href="#design-and-specifications" title="Link to this heading">#</a></h1>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add details about all the schematic sections.</p>
+</div>
+<p>If you want to know how BeagleY-AI is designed and the detailed specifications, then
+this chapter is for you. We are going to attempt to provide you a short and crisp overview
+followed by discussing each hardware design element in detail.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For board files, 3D model, and more, you can checkout the <a class="reference external" href="https://openbeagle.org/beagley-ai/beagley-ai">BeagleY-AI repository on OpenBeagle</a>.</p>
+</div>
+<section id="block-diagram-and-overview">
+<h2>Block Diagram and Overview<a class="headerlink" href="#block-diagram-and-overview" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-block-diagram.png"><img alt="BeagleY-AI block diagram" src="../../../_images/beagley-ai-block-diagram.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 61 </span><span class="caption-text">BeagleY-AI block diagram</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="processor">
+<h2>Processor<a class="headerlink" href="#processor" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id8">
+<img alt="AM67A block diagram" src="../../../_images/am67a.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 62 </span><span class="caption-text">AM67A block diagram</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The AM67A processor from Texas Instruments is a highly integrated SoC with an Automotive pedigree. It may be referenced by TI documentation
+by it’s superset J722s/TDA4AEN.</p>
+<p>It’s primary compute cluster revolves around 4xARM Cortex-A53 Cores running at 1.4Ghz.</p>
+<p>An MCU subsystem consisting of an ARM Cortex-R5F running at up to 800Mhz is also available for user applications and is especially useful
+for real-time IO applications.</p>
+<p>For very advanced users, two additional R5 cores are also present, but they are normally reserved for Device and Run-time Management of the SoC typically.</p>
+<p>2x C7x DSPs with MMA support are intended for use as Deep Learning Accelerators for things like AI Vision, with up to 2TOPS each.</p>
+<p>An Imagination BXS-4-64 GPU rounds out the compute cluster, with a dedicated video encoder/decoder available for multimedia tasks.</p>
+<p>The SoC features advanced high speed connectivity, including USB3.1, PCIe and more.</p>
+<p>Secure Boot is also available with the ability burn One-Time-Programmable (OTP) eFUSES by energizing the VPP test pads.</p>
+</section>
+<section id="boot-modes">
+<h2>Boot Modes<a class="headerlink" href="#boot-modes" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-boot-modes.png"><img alt="BeagleY-AI boot modes" src="../../../_images/beagley-ai-boot-modes.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text">BeagleY-AI boot modes</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The default boot mode for BeagleY-AI is the SD Card Interface. If no SD card is present, the BootROM on the AM67A SoC is going to try booting from Ethernet.</p>
+<p>It is also possible to load U-Boot from the SD card and then load your main file system from another source, such as <a class="reference internal" href="demos/expansion-nvme.html#beagley-ai-expansion-nvme"><span class="std std-ref">Booting from NVMe Drives</span></a>.</p>
+</section>
+<section id="power">
+<h2>Power<a class="headerlink" href="#power" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-pdn.png"><img alt="BeagleY-AI power distribution network" src="../../../_images/beagley-ai-pdn.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">BeagleY-AI power distribution network</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI’s power architecture is split between the TPS65219 PMIC which handles the main logic rails and a dedicated TPS62872 high current buck regulator for the SoC core rail which defaults to 0.85V on boot.</p>
+<p>Both PMIC and VDD_CORE regulators are highly configurable but will boot the board to “sane” defaults out of box. For advanced users, it is possible to adjust both the VDD_CORE rail as well as IO rails (voltages, timings, behavior, etc.) for applications such as low power modes where
+you may want to trade clock speeds for power efficiency by running the SoC Core at 0.75V for example. Be careful, as changes here could result in unexpected behavior, the board not booting or even hardware damage, so tread carefully.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the time of writing, dynamic voltage switching is not supported by the AM67A SoC.</p>
+</div>
+</section>
+<section id="clocks-and-resets">
+<h2>Clocks and Resets<a class="headerlink" href="#clocks-and-resets" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-reset-cntrls-mcu-osc.png"><img alt="BeagleY-AI SoC Reset, Cntrls, and Clk" src="../../../_images/beagley-ai-reset-cntrls-mcu-osc.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">BeagleY-AI SoC Reset, Cntrls, and Clk</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY’s main clock source is a 25Mhz Crystal Oscillator connected to MCU_OSC0 pins.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-wkup-reset-cntrls-osc.png"><img alt="BeagleY-AI wkup reset cntrls osc" src="../../../_images/beagley-ai-wkup-reset-cntrls-osc.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">BeagleY-AI wkup reset cntrls osc</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A 32.768Khz “Slow Clock” Crystal is used on the WKUP_LFOSC0 domain.</p>
+<section id="usb-c-power-data-port">
+<h3>USB-C Power/Data Port<a class="headerlink" href="#usb-c-power-data-port" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-usb-c.png"><img alt="BeagleY-AI USB-C" src="../../../_images/beagley-ai-usb-c.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">BeagleY-AI USB-C</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The board is powered via USB-C, using 5.1 kΩ resistors to signal itself as a power sink (UFP) and enable 5V output.
+It assumes 500 mA by default (per USB-C’s “Power Sinking Device” rules) but requires 5V &#64; 3A for stable operation.
+The USB-C source dictates available current (via CC-line signaling), which the board does not validate. Users must
+ensure their charger explicitly supports 3A. While USB-PD supplies default to 5V, they may not deliver 3A unless the
+source advertises it, risking instability or port damage if undersourced.</p>
+<p>The USB-C port also functions as a USB 2.0 device, providing serial console access, Ethernet gadget connectivity,
+and USB Mass Storage (UMS) emulation. A Type-C to Type-C cable is recommended to avoid power limitations, and
+unpowered hubs should be avoided. single-cable design simplifies connectivity but relies on proper power sourcing.
+Inadequate behavior may result in brownouts/resets or other unexpected behavior.</p>
+</section>
+<section id="pmic">
+<h3>PMIC<a class="headerlink" href="#pmic" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-pmic.png"><img alt="BeagleY-AI PMIC" src="../../../_images/beagley-ai-pmic.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">BeagleY-AI PMIC</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hcps-high-current-power-stage">
+<h3>HCPS (High Current Power Stage)<a class="headerlink" href="#hcps-high-current-power-stage" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-vdd-core-hcps.png"><img alt="BeagleY-AI VDD core High Current Power Stage (HCPS)" src="../../../_images/beagley-ai-vdd-core-hcps.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">BeagleY-AI VDD core High Current Power Stage (HCPS)</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="analog-rail-decoupling">
+<h3>Analog Rail Decoupling<a class="headerlink" href="#analog-rail-decoupling" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-analog-power1.png"><img alt="BeagleY-AI SoC analog power1" src="../../../_images/beagley-ai-soc-analog-power1.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">BeagleY-AI SoC analog power rail decoupling capacitors</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-io-ddr-power2.png"><img alt="BeagleY-AI AI SoC IO and DDR power2" src="../../../_images/beagley-ai-soc-io-ddr-power2.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">BeagleY-AI AI SoC IO and DDR decoupling capacitors</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="digital-rail-decoupling">
+<h3>Digital Rail Decoupling<a class="headerlink" href="#digital-rail-decoupling" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-digital-power3.png"><img alt="BeagleY-AI SoC digital power3" src="../../../_images/beagley-ai-soc-digital-power3.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">BeagleY-AI SoC VDD &amp; VDDR_CORE decoupling capacitors</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Other power sections are nested within their specific interface section.</p>
+</div>
+</section>
+<section id="ldos">
+<h3>LDOs<a class="headerlink" href="#ldos" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-vsys-3v3.png"><img alt="BeagleY-AI VSYS 3V3" src="../../../_images/beagley-ai-vsys-3v3.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">BeagleY-AI VSYS 3V3</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>While the 3.3V VDD_IO rail is provided by the PMIC, the actual “high current” VSYS 3.3V rail used on the expansion header and elsewhere
+in the system is provided by a discrete TPS62A06DRLR regulator.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ethernet-power-3v3-to-2v5.png"><img alt="BeagleY-AI ethernet power 3V3 to 2V5" src="../../../_images/beagley-ai-ethernet-power-3v3-to-2v5.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">BeagleY-AI ethernet power 3V3 to 2V5</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The 2V5 Rail used by the Ethernet PHY is generated a discrete TPS74801 regulator.
+This regulator is fed by the 3V3 VSYS regulator.</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-3v3-2v5-to-1v1-ldo.png"><img alt="BeagleY-AI 3V3/V5 to 1V1 LDO" src="../../../_images/beagley-ai-3v3-2v5-to-1v1-ldo.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">BeagleY-AI 3V3/V5 to 1V1 LDO</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The 1V1 Rail used by the PHY and USB 3.1 Hub is generated a discrete TPS74801 regulator.
+By default, this regulator is fed by the 3V3 VSYS regulator previously discussed.</p>
+</section>
+</section>
+<section id="memory">
+<h2>Memory<a class="headerlink" href="#memory" title="Link to this heading">#</a></h2>
+<section id="ram-lpddr4">
+<h3>RAM (LPDDR4)<a class="headerlink" href="#ram-lpddr4" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ddr.png"><img alt="BeagleY-AI DDR" src="../../../_images/beagley-ai-ddr.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">BeagleY-AI DDR</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI has 4GB of Kingston x32 LPDDR4 Memory.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Add Final DDR Part Number</p>
+</div>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-ddr0.png"><img alt="BeagleY-AI SoC DDR0 connections" src="../../../_images/beagley-ai-soc-ddr0.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">BeagleY-AI SoC DDR0 connections</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ddr-caps.png"><img alt="BeagleY-AI DDR caps" src="../../../_images/beagley-ai-ddr-caps.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">BeagleY-AI DDR caps</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ddr-power.png"><img alt="BeagleY-AI DDR power" src="../../../_images/beagley-ai-ddr-power.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">BeagleY-AI DDR power</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="eeprom">
+<h3>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-board-id-eeprom.png"><img alt="BeagleY-AI board id eeprom" src="../../../_images/beagley-ai-board-id-eeprom.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">BeagleY-AI board id eeprom</span><a class="headerlink" href="#id26" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features an on-board FT24C32A 32Kbit I2C EEPROM for storing things like board information, manufacture date, etc.</p>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Add details about specific EEPROM contents and formatting.</p>
+</div>
+</section>
+<section id="microsd-card">
+<h3>microSD Card<a class="headerlink" href="#microsd-card" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-micro-sd-card-interface.png"><img alt="BeagleY-AI microSD card interface" src="../../../_images/beagley-ai-micro-sd-card-interface.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 81 </span><span class="caption-text">BeagleY-AI microSD card interface</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The microSD card is the primary boot interface for BeagleY-AI, it corresponds to the MMC1 interface on the AM67A SoC.</p>
+<p>To enable UHS-1 SD card functionality (and speeds!), a load switch is provided which allows the SoC MMC1 PHY to switch the SD Card IO voltage to 1.8V.</p>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>Explain UHS-1 in more detail and add link to TRM for boot modes and resistor swap options for advanced users.</p>
+</div>
+</section>
+</section>
+<section id="general-expansion">
+<h2>General Expansion<a class="headerlink" href="#general-expansion" title="Link to this heading">#</a></h2>
+<section id="pin-header">
+<h3>40pin Header<a class="headerlink" href="#pin-header" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-user-expansion-connector.png"><img alt="BeagleY-AI user expansion connector" src="../../../_images/beagley-ai-user-expansion-connector.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 82 </span><span class="caption-text">BeagleY-AI user expansion connector</span><a class="headerlink" href="#id28" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features a 40-pin GPIO Header which aims to enable compatibility with a lot of existing Raspberry Pi HAT add-on boards.
+See <a class="reference external" href="https://pinout.beagleboard.io/">pinout.beagleboard.io</a> for a more comprehensive view of the 40 pin GPIO header,
+available pin functions and tested accessories!</p>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>Add link to docs on building expansion accessories.</p>
+</div>
+</section>
+<section id="i2c">
+<h3>I2C<a class="headerlink" href="#i2c" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-iic-tree.png"><img alt="BeagleY-AI I2C tree" src="../../../_images/beagley-ai-iic-tree.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 83 </span><span class="caption-text">BeagleY-AI I2C tree</span><a class="headerlink" href="#id29" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>By default, 5 different I2C interfaces are exposed, all of which feature external 2.2KΩ pull-up resistors. 3 of the interfaces are used by the CSI, DSI and OLDI ports for Cameras &amp; Displays.
+The remaining 2 ports are exposed on the 40pin GPIO expansion connector.</p>
+<p>The MCU_I2C0 interface is intended as the primary external I2C interface for BeagleY-AI and matches physical pins 3 and 5 of the header. Most HATs will use these pins.</p>
+<p>While WKUP_I2C0 is also exposed on the 40pin Header (physical pins 27 &amp; 28), that bus is shared with several on-board devices, namely the PMIC, VDD_CORE regulator, Board ID EEPROM and RTC. As such,
+it is highly advisable to leave these pins unused unless you are sure you know what you are doing. These pins are normally only pinned out as a “HAT EEPROM detect” for RPi HATs that provide such functionality (of which there are very few)</p>
+<p>See <a class="reference external" href="https://pinout.beagleboard.io/pinout/i2c">pinout.beagleboard.io/pinout/i2c</a>  for a more visual explanation.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-iic-voltage-level-translator.png"><img alt="BeagleY-AI voltage level translator" src="../../../_images/beagley-ai-iic-voltage-level-translator.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 84 </span><span class="caption-text">BeagleY-AI voltage level translator</span><a class="headerlink" href="#id30" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="usb">
+<h3>USB<a class="headerlink" href="#usb" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-usb3-hub.png"><img alt="BeagleY-AI USB3 hub" src="../../../_images/beagley-ai-usb3-hub.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 85 </span><span class="caption-text">BeagleY-AI USB3 hub</span><a class="headerlink" href="#id31" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features a USB3.1 HUB that provides 4 total USB3.1 Ports from a single USB3.1 Gen-1 (5 Gbps) SERDES0
+lane.</p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-usb-hub-config.png"><img alt="BeagleY-AI USB hub config" src="../../../_images/beagley-ai-usb-hub-config.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 86 </span><span class="caption-text">BeagleY-AI USB hub config</span><a class="headerlink" href="#id32" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-serdes0.png"><img alt="BeagleY-AI SoC SERDES0" src="../../../_images/beagley-ai-soc-serdes0.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 87 </span><span class="caption-text">BeagleY-AI SoC SERDES0</span><a class="headerlink" href="#id33" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-usb0-and-usb1.png"><img alt="BeagleY-AI SoC USB0 and USB1" src="../../../_images/beagley-ai-soc-usb0-and-usb1.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text">BeagleY-AI SoC USB0 and USB1</span><a class="headerlink" href="#id34" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-dual-usb-1.png"><img alt="BeagleY-AI USB-A Connector 1" src="../../../_images/beagley-ai-dual-usb-1.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 89 </span><span class="caption-text">BeagleY-AI USB-A Connector 1</span><a class="headerlink" href="#id35" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-dual-usb-2.png"><img alt="BeagleY-AI USB-A Connector 2" src="../../../_images/beagley-ai-dual-usb-2.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 90 </span><span class="caption-text">BeagleY-AI USB-A Connector 2</span><a class="headerlink" href="#id36" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-dual-usb-current-limiter.png"><img alt="BeagleY-AI dual USB current limiter" src="../../../_images/beagley-ai-dual-usb-current-limiter.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 91 </span><span class="caption-text">BeagleY-AI dual USB current limiter</span><a class="headerlink" href="#id37" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features a dedicated USB current limiter that will prevent the Type-A ports from drawing
+power in excess of 2.8A.</p>
+<figure class="align-center" id="id38">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-usb-vbus-resistor-divider-circuit.png"><img alt="BeagleY-AI USB VBUS resistor divider circuit" src="../../../_images/beagley-ai-usb-vbus-resistor-divider-circuit.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 92 </span><span class="caption-text">BeagleY-AI USB VBUS resistor divider circuit</span><a class="headerlink" href="#id38" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pci-express">
+<h3>PCI Express<a class="headerlink" href="#pci-express" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-pcie-connector.png"><img alt="BeagleY-AI PCIE connector" src="../../../_images/beagley-ai-pcie-connector.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 93 </span><span class="caption-text">BeagleY-AI PCIE connector</span><a class="headerlink" href="#id39" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features an RPi 5 compatible PCIe connector rated for PCIe Gen2 x1 (5GT/s) connected to SERDES1 on AM67A.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Just like the Raspberry Pi 5, while the AM67A SoC is capable of PCIe Gen3 (8GT/s), the choice of cable/connector means that some devices may not be able to run at full Gen 3 speeds and will need to be limited to Gen 2 for stable operation.</p>
+</div>
+<figure class="align-center" id="id40">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-serdes1.png"><img alt="BeagleY-AI SoC SERDES1" src="../../../_images/beagley-ai-soc-serdes1.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 94 </span><span class="caption-text">BeagleY-AI SoC SERDES1</span><a class="headerlink" href="#id40" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rtc-real-time-clock">
+<h3>RTC (Real-time Clock)<a class="headerlink" href="#rtc-real-time-clock" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id41">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-iic-ext-rtc.png"><img alt="BeagleY-AI I2C ext RTC" src="../../../_images/beagley-ai-iic-ext-rtc.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 95 </span><span class="caption-text">BeagleY-AI I2C ext RTC</span><a class="headerlink" href="#id41" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI has an on-board I2C RTC that can be powered by an external RTC for accurate time-keeping even when the board is powered off.
+For more information, see the corresponding docs page - <a class="reference internal" href="demos/using-rtc.html#beagley-ai-using-rtc"><span class="std std-ref">Using the on-board Real Time Clock (RTC)</span></a></p>
+</section>
+<section id="fan-header">
+<h3>Fan Header<a class="headerlink" href="#fan-header" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id42">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-fan-connector.png"><img alt="BeagleY-AI fan connector" src="../../../_images/beagley-ai-fan-connector.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 96 </span><span class="caption-text">BeagleY-AI fan connector</span><a class="headerlink" href="#id42" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features a Raspberry Pi 5 compatible Fan connector. The fan is software PWM controller in Linux by default
+to maintain a balance between cooling and noise depending on SoC temperature.</p>
+</section>
+</section>
+<section id="networking">
+<h2>Networking<a class="headerlink" href="#networking" title="Link to this heading">#</a></h2>
+<section id="wifi-bluetooth-le">
+<h3>WiFi / Bluetooth LE<a class="headerlink" href="#wifi-bluetooth-le" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id43">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-wifi-module.png"><img alt="BeagleY-AI WiFi module" src="../../../_images/beagley-ai-wifi-module.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 97 </span><span class="caption-text">BeagleY-AI WiFi module</span><a class="headerlink" href="#id43" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id44">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-mmc-012.png"><img alt="BeagleY-AI SoC MMC0, MMC1, and MMC2" src="../../../_images/beagley-ai-soc-mmc-012.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 98 </span><span class="caption-text">BeagleY-AI SoC MMC0, MMC1, and MMC2</span><a class="headerlink" href="#id44" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features a Beagle BM3301 Wireless module based on the Texas Instruments CC3301 which features 2.4Ghz WiFi6 (802.11AX) and BLE 5.4</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>5Ghz WiFi Bands and Bluetooth Classic are not supported by the CC3301.</p>
+</div>
+</section>
+<section id="ethernet">
+<h3>Ethernet<a class="headerlink" href="#ethernet" title="Link to this heading">#</a></h3>
+<p>BeagleY-AI is equipped with a 1 Gb (10/100/1000) DP83867 Ethernet PHY connected over RGMII.</p>
+<figure class="align-center" id="id45">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ethernet-dp83867.png"><img alt="BeagleY-AI ethernet DP83867" src="../../../_images/beagley-ai-ethernet-dp83867.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 99 </span><span class="caption-text">BeagleY-AI ethernet DP83867</span><a class="headerlink" href="#id45" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id46">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ethernet-connector.png"><img alt="BeagleY-AI ethernet connector" src="../../../_images/beagley-ai-ethernet-connector.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 100 </span><span class="caption-text">BeagleY-AI ethernet connector</span><a class="headerlink" href="#id46" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI uses an RJ45 ethernet connector with integrated magnetics.</p>
+<figure class="align-center" id="id47">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-rgmii.png"><img alt="BeagleY-AI SoC RGMII" src="../../../_images/beagley-ai-soc-rgmii.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 101 </span><span class="caption-text">BeagleY-AI SoC RGMII</span><a class="headerlink" href="#id47" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id48">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-rgmii-rst.png"><img alt="BeagleY-AI SoC RGMII1 RST" src="../../../_images/beagley-ai-rgmii-rst.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 102 </span><span class="caption-text">BeagleY-AI SoC RGMII1 RST</span><a class="headerlink" href="#id48" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id49">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ethernet-phy-caps.png"><img alt="BeagleY-AI ethernet PHY caps" src="../../../_images/beagley-ai-ethernet-phy-caps.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 103 </span><span class="caption-text">BeagleY-AI Ethernet PHY caps</span><a class="headerlink" href="#id49" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id50">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ethernet-phy-misc.png"><img alt="BeagleY-AI ethernet phy misc" src="../../../_images/beagley-ai-ethernet-phy-misc.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 104 </span><span class="caption-text">BeagleY-AI Ethernet PHY misc</span><a class="headerlink" href="#id50" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id51">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-ethernet-phy-protection.png"><img alt="BeagleY-AI ethernet phy protection" src="../../../_images/beagley-ai-ethernet-phy-protection.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 105 </span><span class="caption-text">BeagleY-AI Ethernet PHY protection</span><a class="headerlink" href="#id51" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id52">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-poe-header.png"><img alt="BeagleY-AI PoE header" src="../../../_images/beagley-ai-poe-header.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 106 </span><span class="caption-text">BeagleY-AI PoE header</span><a class="headerlink" href="#id52" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Optional PoE (Power over Ethernet) can also be used with compatible 3rd party HATs designed for the Raspberry Pi 5.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only Pi 5 PoE HATs are compatible, as Pi 4 and previous designs have the PoE pins in a different location.</p>
+</div>
+</section>
+</section>
+<section id="cameras-displays">
+<h2>Cameras &amp; Displays<a class="headerlink" href="#cameras-displays" title="Link to this heading">#</a></h2>
+<p>BeagleY-AI is capable of driving up to 3 Displays (HDMI, OLDI/LVDS &amp; DSI) simultaneously.</p>
+<ul class="simple">
+<li><p>HDMI via DPI Converter up to 1920 x 1080 &#64;60FPS</p></li>
+<li><p>OLDI/LVDS up to 3840 x 1080 &#64;60FPS (Dual Link, 150-Mhz Pixel Clock)</p></li>
+<li><p>DSI up to 3840 x 1080 at 60fps (4 Lane MIPI® D-PHY, 300-MHz Pixel Clock)</p></li>
+</ul>
+<p>It also features 2 CSI interfaces and can support up to 8 Cameras using Virtual Channels and V3Link.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CSI1/DSI0 22-pin port is muxed between the two interfaces like the RPi 5, meaning that you must chose if it’s used as a Display or Camera port. The CSI0 22-pin connector can only be used as a Camera port.</p>
+</div>
+<section id="hdmi-dpi">
+<h3>HDMI (DPI)<a class="headerlink" href="#hdmi-dpi" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id53">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-rgb888-to-hdmi.png"><img alt="BeagleY-AI RGB888 to HDMI" src="../../../_images/beagley-ai-rgb888-to-hdmi.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 107 </span><span class="caption-text">BeagleY-AI RGB888 to HDMI</span><a class="headerlink" href="#id53" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI has a single HDMI 1.4 port capable of up to 1080p &#64;60FPS with Audio. This is achieved
+using an external Parallel RGB (DPI) to HDMI converter from ITE.</p>
+<p>Because the DPI interface is used up by the HDMI converter, it does mean that DPI is not available on the 40Pin GPIO header.</p>
+<figure class="align-center" id="id54">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-vout.png"><img alt="BeagleY-AI SoC VOUT" src="../../../_images/beagley-ai-soc-vout.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 108 </span><span class="caption-text">BeagleY-AI SoC VOUT</span><a class="headerlink" href="#id54" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id55">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-hdmi-addr-protection.png"><img alt="BeagleY-AI HDMI addr protection" src="../../../_images/beagley-ai-hdmi-addr-protection.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 109 </span><span class="caption-text">BeagleY-AI HDMI addr protection</span><a class="headerlink" href="#id55" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id56">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-hdmi-power.png"><img alt="BeagleY-AI HDMI power" src="../../../_images/beagley-ai-hdmi-power.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 110 </span><span class="caption-text">BeagleY-AI HDMI power</span><a class="headerlink" href="#id56" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id57">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-hdmi-reset.png"><img alt="BeagleY-AI HDMI reset" src="../../../_images/beagley-ai-hdmi-reset.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 111 </span><span class="caption-text">BeagleY-AI HDMI reset</span><a class="headerlink" href="#id57" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="oldi-lvds">
+<h3>OLDI (LVDS)<a class="headerlink" href="#oldi-lvds" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id58">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-oldi.png"><img alt="BeagleY-AI SoC OLDI" src="../../../_images/beagley-ai-soc-oldi.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 112 </span><span class="caption-text">BeagleY-AI SoC OLDI</span><a class="headerlink" href="#id58" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The OLDI connector on BeagleY-AI has the same pinout as the one used by Beagle Play, meaning the same displays
+are compatible.</p>
+</section>
+<section id="dsi">
+<h3>DSI<a class="headerlink" href="#dsi" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id59">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-dsi.png"><img alt="BeagleY-AI SoC DSI connections" src="../../../_images/beagley-ai-soc-dsi.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 113 </span><span class="caption-text">BeagleY-AI SoC DSI0 TX connections</span><a class="headerlink" href="#id59" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The DSI0 port is shared withe CSI1 and selectable via a MUX switch to maintain Pi functionality. It features the same
+pinout found on the 22-pin DSI connector on RPi5 and BeagleBone AI-64 and enables connectivity to existing supported DSI displays.</p>
+<figure class="align-center" id="id60">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-rpi-dsi-csi.png"><img alt="BeagleY-AI RPI DSI/CSI" src="../../../_images/beagley-ai-rpi-dsi-csi.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 114 </span><span class="caption-text">BeagleY-AI RPI DSI/CSI</span><a class="headerlink" href="#id60" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Please note that DSI is only available on the second of the two 22-pin “CSI” connectors.</p>
+</section>
+<section id="csi">
+<h3>CSI<a class="headerlink" href="#csi" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id61">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-rpi-csi.png"><img alt="BeagleY-AI RPI CSI" src="../../../_images/beagley-ai-rpi-csi.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 115 </span><span class="caption-text">BeagleY-AI RPI CSI</span><a class="headerlink" href="#id61" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To maintain a Pi compatible form factor, BeagleY-AI only exposes 2 of the 4 physical CSI interfaces of the AM67A SoC.
+Each CSI interfaces is MIPI® CSI-2 v1.3 + MIPI® D-PHY 1.2 with 4 Data Lanes running at up to 2.5Gbps/lane.
+The interface also supports up to 16 Virtual Channels for multi-camera applications using FPDLink or V3Link.</p>
+<figure class="align-center" id="id62">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-csi-0123.png"><img alt="BeagleY-AI SoC CSI1, CSI2, and CSI3" src="../../../_images/beagley-ai-soc-csi-0123.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 116 </span><span class="caption-text">BeagleY-AI SoC CSI1, CSI2, and CSI3</span><a class="headerlink" href="#id62" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="buttons-and-leds">
+<h2>Buttons and LEDs<a class="headerlink" href="#buttons-and-leds" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id63">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-leds.png"><img alt="BeagleY-AI LEDs" src="../../../_images/beagley-ai-leds.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 117 </span><span class="caption-text">BeagleY-AI LEDs</span><a class="headerlink" href="#id63" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BeagleY-AI features a single dual-color (Red/Green) LED for Power/Status indication.</p>
+</section>
+<section id="debug-ports">
+<h2>Debug Ports<a class="headerlink" href="#debug-ports" title="Link to this heading">#</a></h2>
+<section id="jtag-tag-connect">
+<h3>JTAG Tag-Connect<a class="headerlink" href="#jtag-tag-connect" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id64">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-tag-connect.png"><img alt="BeagleY-AI Tag-Connect" src="../../../_images/beagley-ai-tag-connect.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 118 </span><span class="caption-text">BeagleY-AI Tag-Connect</span><a class="headerlink" href="#id64" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>JTAG is available on the BeagleY-AI via a 10pin Tag-Connect header located on the bottom of the board between the USB 3.0 ports.</p>
+<p>Because of the density of the board and tight fit of the USB connectors, the standard retention clip provided by Tag-Connect will not fit.
+A recommended 3D printable adapter is <a class="reference external" href="https://www.printables.com/model/879533-beagley-ai-tagconnect-clip-10pin">available on Printables</a></p>
+</section>
+<section id="uart">
+<h3>UART<a class="headerlink" href="#uart" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id65">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-debug-uart-port.png"><img alt="BeagleY-AI debug UART port" src="../../../_images/beagley-ai-debug-uart-port.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 119 </span><span class="caption-text">BeagleY-AI debug UART port</span><a class="headerlink" href="#id65" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>By default, BeagleY-AI exposes the UART port used by UBoot &amp; Linux on a Pi Debugger compatible JST 3pin header. The UART port used for debug
+can also be changed in software to use a UART available on the 40Pin GPIO header.</p>
+</section>
+<section id="pmic-nvm-tag-connect">
+<h3>PMIC NVM Tag-Connect<a class="headerlink" href="#pmic-nvm-tag-connect" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id66">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-pmic-nvm-programming.png"><img alt="BeagleY-AI PMIC NVM programming interface" src="../../../_images/beagley-ai-pmic-nvm-programming.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 120 </span><span class="caption-text">BeagleY-AI PMIC NVM programming interface</span><a class="headerlink" href="#id66" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A PMIC programming header is present on the BeagleY-AI in the form of a 10pin Tag-Connect header located on the bottom of the board between the Ethernet and USB 3.0 ports.
+Ensure you do not connect JTAG to this port as the pinout and interface is different. PMIC NVM programming should not be performed unless
+you know what you’re doing. The port is mainly intended for use during manufacturing.</p>
+</section>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id67">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-general-io.png"><img alt="BeagleY-AI general IO" src="../../../_images/beagley-ai-general-io.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 121 </span><span class="caption-text">BeagleY-AI general IO</span><a class="headerlink" href="#id67" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id68">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-mcu-general-io.png"><img alt="BeagleY-AI MCU general IO" src="../../../_images/beagley-ai-mcu-general-io.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 122 </span><span class="caption-text">BeagleY-AI MCU general IO</span><a class="headerlink" href="#id68" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id69">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-ospi.png"><img alt="BeagleY-AI SoC OSPI0" src="../../../_images/beagley-ai-soc-ospi.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 123 </span><span class="caption-text">BeagleY-AI SoC OSPI0</span><a class="headerlink" href="#id69" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id70">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-efuse-vmon-jtag-rsvd.png"><img alt="BeagleY-AI SoC eFUSE, VMON, Debug, and RSVD" src="../../../_images/beagley-ai-soc-efuse-vmon-jtag-rsvd.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 124 </span><span class="caption-text">BeagleY-AI SoC eFUSE, VMON, Debug, and RSVD</span><a class="headerlink" href="#id70" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id71">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-gpmc.png"><img alt="BeagleY-AI SoC GPMC0" src="../../../_images/beagley-ai-soc-gpmc.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 125 </span><span class="caption-text">BeagleY-AI SoC GPMC0</span><a class="headerlink" href="#id71" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id72">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-supply-noise-kelvin-sensing.png"><img alt="BeagleY-AI SoC supply noise kelvin sensing" src="../../../_images/beagley-ai-soc-supply-noise-kelvin-sensing.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 126 </span><span class="caption-text">BeagleY-AI SoC supply noise kelvin sensing</span><a class="headerlink" href="#id72" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id73">
+<a class="reference internal image-reference" href="../../../_images/beagley-ai-soc-ground.png"><img alt="BeagleY-AI SoC ground connections" src="../../../_images/beagley-ai-soc-ground.png" style="width: 1040px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 127 </span><span class="caption-text">BeagleY-AI SoC ground connections</span><a class="headerlink" href="#id73" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mechanical-specifications">
+<h2>Mechanical Specifications<a class="headerlink" href="#mechanical-specifications" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>If there are real design elements, put those here, like clearances and other elements going
+into design consideration. Summary information should just go in the support page.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id74">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Dimensions &amp; weight</span><a class="headerlink" href="#id74" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Size</p></td>
+<td><p>85 x 56 x 20 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Max heigh</p></td>
+<td><p>20mm</p></td>
+</tr>
+<tr class="row-even"><td><p>PCB Size</p></td>
+<td><p>85 x 56 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCB Layers</p></td>
+<td><p>14 layers</p></td>
+</tr>
+<tr class="row-even"><td><p>PCB Thickness</p></td>
+<td><p>1.6mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>RoHS compliant</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Gross Weight</p></td>
+<td><p>110 g</p></td>
+</tr>
+<tr class="row-odd"><td><p>Net Weight</p></td>
+<td><p>50 g</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-quick-start.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">BeagleY-AI Quick Start</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04-expansion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Expansion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-diagram-and-overview">Block Diagram and Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processor">Processor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-modes">Boot Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power">Power</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clocks-and-resets">Clocks and Resets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-c-power-data-port">USB-C Power/Data Port</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmic">PMIC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hcps-high-current-power-stage">HCPS (High Current Power Stage)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-rail-decoupling">Analog Rail Decoupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-rail-decoupling">Digital Rail Decoupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ldos">LDOs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ram-lpddr4">RAM (LPDDR4)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom">EEPROM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsd-card">microSD Card</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-expansion">General Expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pin-header">40pin Header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c">I2C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pci-express">PCI Express</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rtc-real-time-clock">RTC (Real-time Clock)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fan-header">Fan Header</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networking">Networking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wifi-bluetooth-le">WiFi / Bluetooth LE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet">Ethernet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cameras-displays">Cameras &amp; Displays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi-dpi">HDMI (DPI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oldi-lvds">OLDI (LVDS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dsi">DSI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#csi">CSI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons-and-leds">Buttons and LEDs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-ports">Debug Ports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag-tag-connect">JTAG Tag-Connect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uart">UART</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmic-nvm-tag-connect">PMIC NVM Tag-Connect</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscellaneous">Miscellaneous</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-specifications">Mechanical Specifications</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beagley/ai/03-design.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beagley/ai/03-design.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beagley-ai.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleY-AI - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagley-ai/beagley-ai">BeagleY-AI git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beagley-ai">BeagleY-AI board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beagley/ai/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/beagley-ai">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleY-AI
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002616.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleY-AI_US002616.svg" alt="BeagleY-AI OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

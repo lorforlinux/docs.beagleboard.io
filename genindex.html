@@ -1,0 +1,2486 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="canonical" href="docs.beagleboard.io/genindex.html" />
+    <link rel="icon" href="_static/boris.svg"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___useful___includes_1ga369266c24eacffb87046522897a570d5.html#c._GNU_SOURCE">_GNU_SOURCE (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___useful___includes_1ga70c57aae3eb654e205459b4362c8089a.html#c.ARRAY_SIZE">ARRAY_SIZE (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-BeagleBoard.org"><strong>BeagleBoard.org</strong></a>
+</li>
+      <li><a href="glossary.html#term-BeagleBoard.org-Foundation"><strong>BeagleBoard.org Foundation</strong></a>
+</li>
+      <li><a href="glossary.html#term-BeagleBone"><strong>BeagleBone</strong></a>
+</li>
+      <li><a href="glossary.html#term-BeagleConnect-AP"><strong>BeagleConnect AP</strong></a>
+</li>
+      <li><a href="glossary.html#term-BeagleConnect-SVC"><strong>BeagleConnect SVC</strong></a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga620fd778e99de4cd0694906cf86b8679.html#c.BLUE_GP0_PIN_3">BLUE_GP0_PIN_3 (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga4a35af044eda979b1f5318ac9f08a8e4.html#c.BLUE_GP0_PIN_4">BLUE_GP0_PIN_4 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga0a0c000e69a1a5917b3348d4ec79e5f1.html#c.BLUE_GP0_PIN_5">BLUE_GP0_PIN_5 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga85d61b0c0781dbe9c124775642280d7c.html#c.BLUE_GP0_PIN_6">BLUE_GP0_PIN_6 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1gac1b9410b9d028a187f1e7b5cfe86fecb.html#c.BLUE_GP1_PIN_3">BLUE_GP1_PIN_3 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga8e2ce430cb6a8093dd73d607b3545776.html#c.BLUE_GP1_PIN_4">BLUE_GP1_PIN_4 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga2aeb018aa4456b63f1fcd0529cfe5919.html#c.BLUE_SPI_PIN_6_SS1">BLUE_SPI_PIN_6_SS1 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1gad25bca44f765036156ec0635878cf330.html#c.BLUE_SPI_PIN_6_SS2">BLUE_SPI_PIN_6_SS2 (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga9b068a5397804231d862e14613a93855.html#c.CAPE_SPI_PIN_6_SS1">CAPE_SPI_PIN_6_SS1 (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga6ee698bce0fc08bf80feab295433408e.html#c.CAPE_SPI_PIN_6_SS2">CAPE_SPI_PIN_6_SS2 (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga212460e743fecb084d717bb2180c5a56.html#c.DEG_TO_RAD">DEG_TO_RAD (C macro)</a>, <a href="projects/librobotcontrol/define_group___useful___includes_1ga212460e743fecb084d717bb2180c5a56.html#c.DEG_TO_RAD">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga0340173eb755ceffc99cd49a7957779c.html#c.DSM_HEADER_PIN">DSM_HEADER_PIN (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga1078273b65a944f3966c004fcbe7cb2c.html#c.G_TO_MS2">G_TO_MS2 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1gabbc4402e601da8eb44c6eb93972e3865.html#c.GPIOEVENT_REQUEST_BOTH_EDGES">GPIOEVENT_REQUEST_BOTH_EDGES (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga072e5b4fd404b3da0e6142a644b7258e.html#c.GPIOEVENT_REQUEST_FALLING_EDGE">GPIOEVENT_REQUEST_FALLING_EDGE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga39491f397e67f54b1404830ba9681b34.html#c.GPIOEVENT_REQUEST_RISING_EDGE">GPIOEVENT_REQUEST_RISING_EDGE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1gaae8e11a0b9bcbf652c9a7fd12b770adb.html#c.GPIOHANDLE_REQUEST_ACTIVE_LOW">GPIOHANDLE_REQUEST_ACTIVE_LOW (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1gafeb58cf7a68b24d3255fe1b8c8373e02.html#c.GPIOHANDLE_REQUEST_INPUT">GPIOHANDLE_REQUEST_INPUT (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga5ff88a7dc221cc7642369b556ff54a10.html#c.GPIOHANDLE_REQUEST_OPEN_DRAIN">GPIOHANDLE_REQUEST_OPEN_DRAIN (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga73b9fbb881242ae610a21cabd9f42c8a.html#c.GPIOHANDLE_REQUEST_OPEN_SOURCE">GPIOHANDLE_REQUEST_OPEN_SOURCE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga6ddf08e5c5c8f8069633e0f478710eb8.html#c.GPIOHANDLE_REQUEST_OUTPUT">GPIOHANDLE_REQUEST_OUTPUT (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga63a60fad14697ef50a83d1d81ccd4cf7.html#c.GPS_HEADER_PIN_3">GPS_HEADER_PIN_3 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga3f02822b10822c09b1910ca7d63b6d70.html#c.GPS_HEADER_PIN_4">GPS_HEADER_PIN_4 (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i2_c_1ga6458dbf193a0eef0470fc1b08400bfcd.html#c.I2C_BUFFER_SIZE">I2C_BUFFER_SIZE (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i2_c_1gaaab763f09f8ba3ae6c2b68f735875dd3.html#c.I2C_MAX_BUS">I2C_MAX_BUS (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___useful___includes_1gac6afabdc09a49a433ee19d8a9486056d.html#c.min">min (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1gafafb8c645e39f6ea3b1ff7ec312f1768.html#c.MS2_TO_G">MS2_TO_G (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___useful___includes_1ga598a3330b3c21701223ee0ca14316eca.html#c.PI">PI (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga3cff338e3722c1c1a36de82d2a953bd3.html#c.QUAT_W">QUAT_W (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga470e1c82469f8e4f20d039de634a5360.html#c.QUAT_X">QUAT_X (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1gac7215623b05131650c8a16e4326f3734.html#c.QUAT_Y">QUAT_Y (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga4ed90c13353e0d8ceb2f74ea3070fe11.html#c.QUAT_Z">QUAT_Z (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga89e47af0449640d4f15191aba5ca24c6.html#c.RAD_TO_DEG">RAD_TO_DEG (C macro)</a>, <a href="projects/librobotcontrol/define_group___useful___includes_1ga89e47af0449640d4f15191aba5ca24c6.html#c.RAD_TO_DEG">[1]</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___a_d_c_1gad20c60485531eac778c3338e792e9564.html#_CPPv411rc_adc_battv">rc_adc_batt (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___a_d_c_1ga77e5f8ce291493b3010dd52169397b81.html#_CPPv414rc_adc_cleanupv">rc_adc_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___a_d_c_1ga690731a8b428a249955a285efe2993be.html#_CPPv414rc_adc_dc_jackv">rc_adc_dc_jack (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___a_d_c_1ga77b71e3c4570353ebd5628a1d309a93c.html#_CPPv411rc_adc_initv">rc_adc_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___a_d_c_1gacc67034024931ec50e8c2e9eab324823.html#_CPPv415rc_adc_read_rawi">rc_adc_read_raw (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___a_d_c_1ga8cfd99e3960aefbe78b9ead5d07bdb87.html#_CPPv416rc_adc_read_volti">rc_adc_read_volt (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1ga2cc933b6834e5f7020bf6c265ddb0c3f.html#_CPPv424rc_algebra_fit_ellipsoid11rc_matrix_tP11rc_vector_tP11rc_vector_t">rc_algebra_fit_ellipsoid (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1ga1918b5344deff62db7d7210f2f663f62.html#_CPPv424rc_algebra_invert_matrix11rc_matrix_tP11rc_matrix_t">rc_algebra_invert_matrix (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1gafaf0af53942a159aafb90da77edeefe7.html#_CPPv432rc_algebra_invert_matrix_inplaceP11rc_matrix_t">rc_algebra_invert_matrix_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1gaaca27264e06f3115185bcb8a91d72b4d.html#_CPPv427rc_algebra_lin_system_solve11rc_matrix_t11rc_vector_tP11rc_vector_t">rc_algebra_lin_system_solve (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1ga9ba2bdb386795e79ccead5ac58f1f058.html#_CPPv430rc_algebra_lin_system_solve_qr11rc_matrix_t11rc_vector_tP11rc_vector_t">rc_algebra_lin_system_solve_qr (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1ga688b3c72b1b7054f102cb4a57c0eaf56.html#_CPPv421rc_algebra_lup_decomp11rc_matrix_tP11rc_matrix_tP11rc_matrix_tP11rc_matrix_t">rc_algebra_lup_decomp (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1ga09e6028ba76c3251d3d6e6c065dfd28a.html#_CPPv420rc_algebra_qr_decomp11rc_matrix_tP11rc_matrix_tP11rc_matrix_t">rc_algebra_qr_decomp (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___algebra_1ga8f79a63de0c4a4deba0f1a7d8e898131.html#_CPPv429rc_algebra_set_zero_toleranced">rc_algebra_set_zero_tolerance (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1ga7449e345bf0e406de395e00409aefa60.html#c.RC_BB_SPI1_SS1">RC_BB_SPI1_SS1 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1gaeb78a6fe5496819d7b74e5c478f25129.html#c.RC_BB_SPI1_SS2">RC_BB_SPI1_SS2 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1ga8e6fd8878e0ffeb200ff6b284f667408.html#c.RC_BLUE_SS1_GPIO">RC_BLUE_SS1_GPIO (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1ga6e8439d473e02b4fc3d08c439cd91f9b.html#c.RC_BLUE_SS2_GPIO">RC_BLUE_SS2_GPIO (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__bmp__data__t.html#_CPPv413rc_bmp_data_t">rc_bmp_data_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___barometer___b_m_p_1ga951a9ec75b5fdb4e5c9fa434519f0d81.html#_CPPv413rc_bmp_data_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__bmp__data__t.html#_CPPv4N13rc_bmp_data_t5alt_mE">rc_bmp_data_t::alt_m (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__bmp__data__t.html#_CPPv4N13rc_bmp_data_t11pressure_paE">rc_bmp_data_t::pressure_pa (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__bmp__data__t.html#_CPPv4N13rc_bmp_data_t6temp_cE">rc_bmp_data_t::temp_c (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html#_CPPv415rc_bmp_filter_t">rc_bmp_filter_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___barometer___b_m_p_1ga0c1e58655b2c790a462f18965bc19122.html#_CPPv415rc_bmp_filter_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html#_CPPv4N15rc_bmp_filter_t13BMP_FILTER_16E">rc_bmp_filter_t::BMP_FILTER_16 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html#_CPPv4N15rc_bmp_filter_t12BMP_FILTER_2E">rc_bmp_filter_t::BMP_FILTER_2 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html#_CPPv4N15rc_bmp_filter_t12BMP_FILTER_4E">rc_bmp_filter_t::BMP_FILTER_4 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html#_CPPv4N15rc_bmp_filter_t12BMP_FILTER_8E">rc_bmp_filter_t::BMP_FILTER_8 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1gaeb510aa4d795638333965014857548ba.html#_CPPv4N15rc_bmp_filter_t14BMP_FILTER_OFFE">rc_bmp_filter_t::BMP_FILTER_OFF (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___barometer___b_m_p_1ga680a0698cb7fb61ed319bb2fe52dee0a.html#_CPPv411rc_bmp_init19rc_bmp_oversample_t15rc_bmp_filter_t">rc_bmp_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html#_CPPv419rc_bmp_oversample_t">rc_bmp_oversample_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___barometer___b_m_p_1ga8276e0656f1d49902a501346b7b13235.html#_CPPv419rc_bmp_oversample_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html#_CPPv4N19rc_bmp_oversample_t16BMP_OVERSAMPLE_1E">rc_bmp_oversample_t::BMP_OVERSAMPLE_1 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html#_CPPv4N19rc_bmp_oversample_t17BMP_OVERSAMPLE_16E">rc_bmp_oversample_t::BMP_OVERSAMPLE_16 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html#_CPPv4N19rc_bmp_oversample_t16BMP_OVERSAMPLE_2E">rc_bmp_oversample_t::BMP_OVERSAMPLE_2 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html#_CPPv4N19rc_bmp_oversample_t16BMP_OVERSAMPLE_4E">rc_bmp_oversample_t::BMP_OVERSAMPLE_4 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___barometer___b_m_p_1ga77c3a80e64c3a0701f07f83ab2a18804.html#_CPPv4N19rc_bmp_oversample_t16BMP_OVERSAMPLE_8E">rc_bmp_oversample_t::BMP_OVERSAMPLE_8 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___barometer___b_m_p_1ga4ca096ccaca80e2e1649455ee1c37668.html#_CPPv416rc_bmp_power_offv">rc_bmp_power_off (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___barometer___b_m_p_1ga3b753ebd1995f34fab0bb17413b8cf59.html#_CPPv411rc_bmp_readP13rc_bmp_data_t">rc_bmp_read (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___barometer___b_m_p_1ga7bee8a599c37e1069f9a2c43dd87d078.html#_CPPv432rc_bmp_set_sea_level_pressure_pad">rc_bmp_set_sea_level_pressure_pa (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1gac2886e480777eb0ce0baecd2e5592dab.html#c.RC_BTN_DEBOUNCE_DEFAULT_US">RC_BTN_DEBOUNCE_DEFAULT_US (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1ga5a92946286884f8206133062462b9ace.html#c.RC_BTN_PIN_MODE">RC_BTN_PIN_MODE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1ga113e5457cf1411e79c4d71bce30208f4.html#c.RC_BTN_PIN_PAUSE">RC_BTN_PIN_PAUSE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1gad2b3429314eca389f651f0dbc73a7e65.html#c.RC_BTN_POLARITY_NORM_HIGH">RC_BTN_POLARITY_NORM_HIGH (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1gae2c14dbc3c893ff1bd3633a82f7557fa.html#c.RC_BTN_POLARITY_NORM_LOW">RC_BTN_POLARITY_NORM_LOW (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1gae98cebb8d3a2f11ba06d0b768976be01.html#c.RC_BTN_STATE_PRESSED">RC_BTN_STATE_PRESSED (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___button_1gad0185157ad6d07de06974de1cb3dc7fc.html#c.RC_BTN_STATE_RELEASED">RC_BTN_STATE_RELEASED (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___button_1gac178ded5fabaffbfcafe5ba0af1a986f.html#_CPPv417rc_button_cleanupv">rc_button_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___button_1ga1df19b70e734eab3bbe12bffc113d352.html#_CPPv419rc_button_get_stateii">rc_button_get_state (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___button_1ga41f81ca0e9540e20108aef704ecf9b27.html#_CPPv414rc_button_initiici">rc_button_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___button_1ga4bf2fefee3bfa0bf1bbe397e1364084f.html#_CPPv423rc_button_set_callbacksiiPFvvEPFvvE">rc_button_set_callbacks (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___deprecated___functions_1ga51c3bcf729f597af98fdd8b5bd02b861.html#_CPPv417rc_button_state_t">rc_button_state_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___deprecated___functions_1gacd97ce644bca8c9044230265c359ec36.html#_CPPv417rc_button_state_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___deprecated___functions_1ga51c3bcf729f597af98fdd8b5bd02b861.html#_CPPv4N17rc_button_state_t7PRESSEDE">rc_button_state_t::PRESSED (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___deprecated___functions_1ga51c3bcf729f597af98fdd8b5bd02b861.html#_CPPv4N17rc_button_state_t8RELEASEDE">rc_button_state_t::RELEASED (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___button_1gaa08e5493475afbef7dbe4243fcd5d9bd.html#_CPPv424rc_button_wait_for_eventiii">rc_button_wait_for_event (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1gabfec138c2dc754642a6e05c5c468b152.html#c.RC_CAPE_SS1_GPIO">RC_CAPE_SS1_GPIO (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1ga4d3357c8bd04873f944954c6889b78c3.html#c.RC_CAPE_SS2_GPIO">RC_CAPE_SS2_GPIO (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___c_p_u_1ga51d61a1d3e6d7ac5745fb4abcf64c8c6.html#_CPPv415rc_cpu_get_freqv">rc_cpu_get_freq (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___c_p_u_1gafd0605f3358f89365e074b3b1b68ba72.html#_CPPv417rc_cpu_print_freqv">rc_cpu_print_freq (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___c_p_u_1ga1050db24e4bd335cb9493e520960fd96.html#_CPPv419rc_cpu_set_governor13rc_governor_t">rc_cpu_set_governor (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1gab4f9f1be589ce6820d2a067c13a5d72d.html#_CPPv425rc_disable_signal_handlerv">rc_disable_signal_handler (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1gae732159200205ecd620a236fd26efc64.html#_CPPv419rc_dsm_bind_routinev">rc_dsm_bind_routine (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga5d9b24c350fc02665e29b7f60ded2009.html#_CPPv424rc_dsm_calibrate_routinev">rc_dsm_calibrate_routine (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga0986542f2b906f0554cfa24758074802.html#_CPPv420rc_dsm_ch_normalizedi">rc_dsm_ch_normalized (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga1b5b914ce58df71073d8c006df3013a9.html#_CPPv413rc_dsm_ch_rawi">rc_dsm_ch_raw (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga33527618f58ee29845e1d8a6c259053e.html#_CPPv415rc_dsm_channelsv">rc_dsm_channels (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga1fca540c523b53efcfb6303989da7d27.html#_CPPv414rc_dsm_cleanupv">rc_dsm_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1gaa01b151a1a15db2e2464f4bce7865615.html#_CPPv411rc_dsm_initv">rc_dsm_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1gae6cb399cc5156c90490667888315e4c5.html#_CPPv427rc_dsm_is_connection_activev">rc_dsm_is_connection_active (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1gaf9d71e76484ebf43285357b3a008c2a3.html#_CPPv418rc_dsm_is_new_datav">rc_dsm_is_new_data (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1gad6f6b4f9b9cf7d7ad75ac34eee90efdf.html#_CPPv430rc_dsm_nanos_since_last_packetv">rc_dsm_nanos_since_last_packet (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga7952852574a68703ce4148204c7f9dab.html#_CPPv417rc_dsm_resolutionv">rc_dsm_resolution (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga37e5fcbedbc9a3cfca6ebf25b25dfd9c.html#_CPPv419rc_dsm_set_callbackPFvvE">rc_dsm_set_callback (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___d_s_m_1ga3b008eae5d070932d0ff47710aee0ba6.html#_CPPv430rc_dsm_set_disconnect_callbackPFvvE">rc_dsm_set_disconnect_callback (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1gaafc5000de8ff00ed83848ef29981ffc9.html#_CPPv424rc_enable_signal_handlerv">rc_enable_signal_handler (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder_1ga5b8902c2eb888a6754c3be90a1252847.html#_CPPv418rc_encoder_cleanupv">rc_encoder_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___e_q_e_p_1ga39b1cdb1ac72f494520d1c94dc76f5bd.html#_CPPv423rc_encoder_eqep_cleanupv">rc_encoder_eqep_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___e_q_e_p_1ga2b1aecc107f7533b02546da6ebb86183.html#_CPPv420rc_encoder_eqep_initv">rc_encoder_eqep_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___e_q_e_p_1ga359178d11a27ff55b816c81dd8902f89.html#_CPPv420rc_encoder_eqep_readi">rc_encoder_eqep_read (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___e_q_e_p_1gab2ad6cab734fd79e7a65fa4594be6caa.html#_CPPv421rc_encoder_eqep_writeii">rc_encoder_eqep_write (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder_1gaaf0a9f73c0b51506d3e5120e7d169292.html#_CPPv415rc_encoder_initv">rc_encoder_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___p_r_u_1gafd2258e8cc0a8a51a1b1fdaf19ee12e0.html#_CPPv422rc_encoder_pru_cleanupv">rc_encoder_pru_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___p_r_u_1gae6b0bf3229ed39e186da8aee86015362.html#_CPPv419rc_encoder_pru_initv">rc_encoder_pru_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___p_r_u_1ga7b86821e44af6bee87d30f168ed204a7.html#_CPPv419rc_encoder_pru_readv">rc_encoder_pru_read (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder___p_r_u_1ga3df8e4696276e1994784e73921e847d3.html#_CPPv420rc_encoder_pru_writei">rc_encoder_pru_write (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder_1ga1ff413ebeccaf443223feb5375d44ca6.html#_CPPv415rc_encoder_readi">rc_encoder_read (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___encoder_1gacd639268601451b68762bd3c17ffaa3d.html#_CPPv416rc_encoder_writeii">rc_encoder_write (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1gabfd4d610026dcb9cc609193970cbfb59.html#c.RC_ESC_DEFAULT_MAX_US">RC_ESC_DEFAULT_MAX_US (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1gafa615e1123aff2a159a28740a28955e9.html#c.RC_ESC_DEFAULT_MIN_US">RC_ESC_DEFAULT_MIN_US (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1ga77951a75da229e6ad3cc2994a421c1ef.html#c.RC_ESC_DJI_MAX_US">RC_ESC_DJI_MAX_US (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1ga002867d4bc4044172843364e977e908d.html#c.RC_ESC_DJI_MIN_US">RC_ESC_DJI_MIN_US (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaac5ec6f7e44f3462bcd18b6f307b6d4c.html#_CPPv415rc_filter_allocP11rc_filter_t11rc_vector_t11rc_vector_td">rc_filter_alloc (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga30c826f6a4c74e641310a0c06d9f1c6c.html#_CPPv427rc_filter_alloc_from_arraysP11rc_filter_tdPdiPdi">rc_filter_alloc_from_arrays (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaf6c1857225c1d1fcd31791f529108fc7.html#_CPPv430rc_filter_butterworth_highpassP11rc_filter_tidd">rc_filter_butterworth_highpass (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaca562d0297b5794c2819ea86f4df6313.html#_CPPv429rc_filter_butterworth_lowpassP11rc_filter_tidd">rc_filter_butterworth_lowpass (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga9f1b40be4cba4f2a2ea7fd9c9da4d161.html#_CPPv420rc_filter_c2d_tustinP11rc_filter_td11rc_vector_t11rc_vector_td">rc_filter_c2d_tustin (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga4287249f7189f02bd6e8f2a8b8730e63.html#_CPPv427rc_filter_double_integratorP11rc_filter_td">rc_filter_double_integrator (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga916a77192e69202bd709ec5b1e68f3e0.html#_CPPv419rc_filter_duplicateP11rc_filter_t11rc_filter_t">rc_filter_duplicate (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga9b5d0ba2693f5b5346c08ab9ce029eaa.html#_CPPv415rc_filter_emptyv">rc_filter_empty (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gae6ec99be7a22f8d4280daf18b1eacd18.html#_CPPv427rc_filter_enable_saturationP11rc_filter_tdd">rc_filter_enable_saturation (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga8b48866c76a96cb49d3ffa6fe19011ae.html#_CPPv427rc_filter_enable_soft_startP11rc_filter_td">rc_filter_enable_soft_start (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga78e1746c63b164f6a9fab2069b92c48d.html#_CPPv430rc_filter_first_order_highpassP11rc_filter_tdd">rc_filter_first_order_highpass (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga9fb8529bf9c4b0d34d6b55fca115b5d3.html#_CPPv429rc_filter_first_order_lowpassP11rc_filter_tdd">rc_filter_first_order_lowpass (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gad7b1abf89fc93d78bdcbd3b08842c468.html#_CPPv414rc_filter_freeP11rc_filter_t">rc_filter_free (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaa670c91acf8c6d633938ea51905a0ab7.html#_CPPv429rc_filter_get_saturation_flagP11rc_filter_t">rc_filter_get_saturation_flag (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_i_s_o___filter_1gaaba65c89772d2ad4b3f64b2142dab928.html#c.RC_FILTER_INITIALIZER">RC_FILTER_INITIALIZER (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gabb90ee0db26d85eac94747ff79d954d4.html#_CPPv420rc_filter_integratorP11rc_filter_td">rc_filter_integrator (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga61567f5e88cbd1593c01dfd25669b5b1.html#_CPPv415rc_filter_marchP11rc_filter_td">rc_filter_march (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaf6a559a80489a453ebe745ea331ef7eb.html#_CPPv424rc_filter_moving_averageP11rc_filter_tid">rc_filter_moving_average (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaed3aa6d5f0e96fccbfcf55cba8b4ed32.html#_CPPv418rc_filter_multiply11rc_filter_t11rc_filter_tP11rc_filter_t">rc_filter_multiply (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gadd253075d8bbd3b19169731407d54ab9.html#_CPPv424rc_filter_multiply_three11rc_filter_t11rc_filter_t11rc_filter_tP11rc_filter_t">rc_filter_multiply_three (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga5ad8b3d3bf6412a9f59c26ed0453008f.html#_CPPv419rc_filter_normalizeP11rc_filter_t">rc_filter_normalize (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga1803dedd16ea27c59031bddeb084e893.html#_CPPv413rc_filter_pidP11rc_filter_tddddd">rc_filter_pid (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga9c184be395a2727266979010c6bca4c6.html#_CPPv424rc_filter_prefill_inputsP11rc_filter_td">rc_filter_prefill_inputs (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga35c8a9b189a6e2845b6dcad47451ac9e.html#_CPPv425rc_filter_prefill_outputsP11rc_filter_td">rc_filter_prefill_outputs (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gaf5d5aba736c2ba22e4f295c2cee8afd7.html#_CPPv424rc_filter_previous_inputP11rc_filter_ti">rc_filter_previous_input (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga140687c148aa3bb47073c9a64afd467f.html#_CPPv425rc_filter_previous_outputP11rc_filter_ti">rc_filter_previous_output (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1gac6dff1f36b8e4ef7db264dd2332d3866.html#_CPPv415rc_filter_print11rc_filter_t">rc_filter_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga4544fbb000ae45030f1cfd0f0aaff311.html#_CPPv415rc_filter_resetP11rc_filter_t">rc_filter_reset (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv411rc_filter_t">rc_filter_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___s_i_s_o___filter_1ga6655489c061812b4e934ffb82b0c36e7.html#_CPPv411rc_filter_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t3denE">rc_filter_t::den (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t2dtE">rc_filter_t::dt (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t4gainE">rc_filter_t::gain (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t6in_bufE">rc_filter_t::in_buf (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t11initializedE">rc_filter_t::initialized (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t12newest_inputE">rc_filter_t::newest_input (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t13newest_outputE">rc_filter_t::newest_output (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t3numE">rc_filter_t::num (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t5orderE">rc_filter_t::order (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t7out_bufE">rc_filter_t::out_buf (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t6sat_enE">rc_filter_t::sat_en (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t8sat_flagE">rc_filter_t::sat_flag (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t7sat_maxE">rc_filter_t::sat_max (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t7sat_minE">rc_filter_t::sat_min (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t5ss_enE">rc_filter_t::ss_en (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t8ss_stepsE">rc_filter_t::ss_steps (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__filter__t.html#_CPPv4N11rc_filter_t4stepE">rc_filter_t::step (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_i_s_o___filter_1ga60fcedd8b3e6d15b1c1fcc09c0cf28c4.html#_CPPv432rc_filter_third_order_complementP11rc_filter_tP11rc_filter_tddd">rc_filter_third_order_complement (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___other___math_1ga734b2c1319085da9f4eecbc586e5c8be.html#_CPPv420rc_get_random_doublev">rc_get_random_double (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___other___math_1ga45db375c3247f66f93ff8f58fa2d1e3f.html#_CPPv419rc_get_random_floatv">rc_get_random_float (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1ga08307c9805692eb084112cbcae4b744f.html#_CPPv412rc_get_statev">rc_get_state (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html#_CPPv413rc_governor_t">rc_governor_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___c_p_u_1gadb4ecff92db47862ed35791742c8d5ed.html#_CPPv413rc_governor_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html#_CPPv4N13rc_governor_t19RC_GOV_CONSERVATIVEE">rc_governor_t::RC_GOV_CONSERVATIVE (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html#_CPPv4N13rc_governor_t15RC_GOV_ONDEMANDE">rc_governor_t::RC_GOV_ONDEMAND (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html#_CPPv4N13rc_governor_t18RC_GOV_PERFORMANCEE">rc_governor_t::RC_GOV_PERFORMANCE (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html#_CPPv4N13rc_governor_t16RC_GOV_POWERSAVEE">rc_governor_t::RC_GOV_POWERSAVE (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___c_p_u_1gae01956f5eeb47330ee0e1326b0e6e4d5.html#_CPPv4N13rc_governor_t16RC_GOV_SCHEDUTILE">rc_governor_t::RC_GOV_SCHEDUTIL (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___g_p_i_o_1ga8edd69a7211101ee33ae83e57a3a5fbf.html#_CPPv415rc_gpio_cleanupii">rc_gpio_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___g_p_i_o_1gaedc0a575c976ea28a9e4ebfd0721d4da.html#_CPPv417rc_gpio_get_valueii">rc_gpio_get_value (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___g_p_i_o_1ga8276c43b1cb0aad4f7b4d08deeb7e893.html#_CPPv412rc_gpio_initiii">rc_gpio_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___g_p_i_o_1gae91096fc94aae166e79b8fef8c39e70d.html#_CPPv418rc_gpio_init_eventiiii">rc_gpio_init_event (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___g_p_i_o_1ga6069b9e7fc628dcce428fb6d6e6d1b42.html#_CPPv412rc_gpio_polliiiP8uint64_t">rc_gpio_poll (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___g_p_i_o_1ga4e6ac0b2ba9a6d0b2f65e266679ac379.html#_CPPv417rc_gpio_set_valueiii">rc_gpio_set_value (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga5638f91f59e46a96ec9d25ac1d784731.html#c.RC_GPIOEVENT_ERROR">RC_GPIOEVENT_ERROR (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga31e8e245cae90b7ebcd29884aba1fc38.html#c.RC_GPIOEVENT_FALLING_EDGE">RC_GPIOEVENT_FALLING_EDGE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1gaf1eca2351fc1868c867a7604667b33ec.html#c.RC_GPIOEVENT_RISING_EDGE">RC_GPIOEVENT_RISING_EDGE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___g_p_i_o_1ga550683401332bbba6151b80e469a1553.html#c.RC_GPIOEVENT_TIMEOUT">RC_GPIOEVENT_TIMEOUT (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga3a7aaf542ae1a744b866dc8d80bc76eb.html#_CPPv412rc_i2c_closei">rc_i2c_close (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga5991bbf06e3885f27fb3bd6437045d01.html#_CPPv413rc_i2c_get_fdi">rc_i2c_get_fd (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga9193b779bf9a882b52e0cc0e4f19a725.html#_CPPv415rc_i2c_get_locki">rc_i2c_get_lock (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga13bff99d5498c9075ba9eb7f895c8d8d.html#_CPPv411rc_i2c_initi7uint8_t">rc_i2c_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga1808f0485c4943981c62cd8825421fbc.html#_CPPv415rc_i2c_lock_busi">rc_i2c_lock_bus (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga35ac5d6999db8b38e716dd9779e1b7b5.html#_CPPv416rc_i2c_read_bytei7uint8_tP7uint8_t">rc_i2c_read_byte (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga000ca38f3c197bc31470ecb7d39f2f21.html#_CPPv417rc_i2c_read_bytesi7uint8_t6size_tP7uint8_t">rc_i2c_read_bytes (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga3da85595b7b515f21e85a7f89977e19a.html#_CPPv416rc_i2c_read_wordi7uint8_tP8uint16_t">rc_i2c_read_word (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga4ca235d3695b43c1aebe9a185f65d158.html#_CPPv417rc_i2c_read_wordsi7uint8_t6size_tP8uint16_t">rc_i2c_read_words (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga75bc1c065943678d28549fbdb58f042e.html#_CPPv416rc_i2c_send_bytei7uint8_t">rc_i2c_send_byte (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1gaf0e2a0307bb6261b7baff3d0cd11ca9b.html#_CPPv417rc_i2c_send_bytesi6size_tP7uint8_t">rc_i2c_send_bytes (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga86a0268633508028f79a2f426780d6ad.html#_CPPv425rc_i2c_set_device_addressi7uint8_t">rc_i2c_set_device_address (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga770d8daa3419de17d0a48cab69a7e050.html#_CPPv417rc_i2c_unlock_busi">rc_i2c_unlock_bus (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1gaf539635446623450c66c8a5c5c3a35d7.html#_CPPv417rc_i2c_write_bytei7uint8_t7uint8_t">rc_i2c_write_byte (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga394c75e014b477c4add6dc9c13549651.html#_CPPv418rc_i2c_write_bytesi7uint8_t6size_tP7uint8_t">rc_i2c_write_bytes (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1gaac6d948ad325e5d4e0e8066935f05e74.html#_CPPv417rc_i2c_write_wordi7uint8_t8uint16_t">rc_i2c_write_word (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___i2_c_1ga1f61db3f379afb7b4930b61da527e286.html#_CPPv418rc_i2c_write_wordsi7uint8_t6size_tP8uint16_t">rc_i2c_write_words (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1gaa1396714a36d70df657215770a947f41.html#_CPPv419rc_kalman_alloc_ekfP11rc_kalman_t11rc_matrix_t11rc_matrix_t11rc_matrix_t">rc_kalman_alloc_ekf (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1gaef5414ac19de6879ebc973080ef9937e.html#_CPPv419rc_kalman_alloc_linP11rc_kalman_t11rc_matrix_t11rc_matrix_t11rc_matrix_t11rc_matrix_t11rc_matrix_t11rc_matrix_t">rc_kalman_alloc_lin (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1ga80ea8020dd1c094fd8c68d1e113635e2.html#_CPPv415rc_kalman_emptyv">rc_kalman_empty (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1gab6cb032f310a746c267f40b5943f0a78.html#_CPPv414rc_kalman_freeP11rc_kalman_t">rc_kalman_free (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___kalman_1ga0da30f3b8e8ab0e1b5107153a7587b93.html#c.RC_KALMAN_INITIALIZER">RC_KALMAN_INITIALIZER (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1ga19b1abb2679b0d44ec9b49d07ada3b7b.html#_CPPv415rc_kalman_resetP11rc_kalman_t">rc_kalman_reset (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv411rc_kalman_t">rc_kalman_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___kalman_1ga017973a86246a2d4010769032eb4c487.html#_CPPv411rc_kalman_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t1FE">rc_kalman_t::F (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t1GE">rc_kalman_t::G (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t1HE">rc_kalman_t::H (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t11initializedE">rc_kalman_t::initialized (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t1PE">rc_kalman_t::P (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t2PiE">rc_kalman_t::Pi (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t1QE">rc_kalman_t::Q (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t1RE">rc_kalman_t::R (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t4stepE">rc_kalman_t::step (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t5x_estE">rc_kalman_t::x_est (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__kalman__t.html#_CPPv4N11rc_kalman_t5x_preE">rc_kalman_t::x_pre (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1gaa4f40b5e155334765875814996558ebd.html#_CPPv420rc_kalman_update_ekfP11rc_kalman_t11rc_matrix_t11rc_matrix_t11rc_vector_t11rc_vector_t11rc_vector_t">rc_kalman_update_ekf (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___kalman_1gaf96115115c3ce643cc4bbd4e86af423d.html#_CPPv420rc_kalman_update_linP11rc_kalman_t11rc_vector_t11rc_vector_t">rc_kalman_update_lin (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1gac636ff375209b0261865875e168af8f6.html#_CPPv424rc_kill_existing_processf">rc_kill_existing_process (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___l_e_d_1gaac222f4de3501de92c48161da7c99a28.html#_CPPv412rc_led_blink8rc_led_tff">rc_led_blink (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___l_e_d_1gabe4fe5d68e716e8557ba2b349a374abe.html#_CPPv414rc_led_cleanupv">rc_led_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___l_e_d_1ga8857a1c1e553cb0292578d55a04013ee.html#_CPPv410rc_led_get8rc_led_t">rc_led_get (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___l_e_d_1ga20951fe9916766c41ee7e54a051de2eb.html#_CPPv410rc_led_set8rc_led_ti">rc_led_set (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___l_e_d_1ga311eb21ddeb4f28316eceff6ed2670e0.html#_CPPv417rc_led_stop_blink8rc_led_t">rc_led_stop_blink (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___l_e_d_1gaa619eeb445ee54ce60b33584f9c0f055.html#_CPPv421rc_led_stop_blink_allv">rc_led_stop_blink_all (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv48rc_led_t">rc_led_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___l_e_d_1gaf6fd3e28b201e81f3b956eeef26c67f4.html#_CPPv48rc_led_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t13RC_LED_BAT100E">rc_led_t::RC_LED_BAT100 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t12RC_LED_BAT25E">rc_led_t::RC_LED_BAT25 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t12RC_LED_BAT50E">rc_led_t::RC_LED_BAT50 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t12RC_LED_BAT75E">rc_led_t::RC_LED_BAT75 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t12RC_LED_GREENE">rc_led_t::RC_LED_GREEN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t10RC_LED_REDE">rc_led_t::RC_LED_RED (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t11RC_LED_USR0E">rc_led_t::RC_LED_USR0 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t11RC_LED_USR1E">rc_led_t::RC_LED_USR1 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t11RC_LED_USR2E">rc_led_t::RC_LED_USR2 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t11RC_LED_USR3E">rc_led_t::RC_LED_USR3 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___l_e_d_1ga2f019f99f0f9379dd8a677d3f017baf4.html#_CPPv4N8rc_led_t11RC_LED_WIFIE">rc_led_t::RC_LED_WIFI (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group__version_1gadec84f7cc8e80f521840cd5c40135400.html#c.RC_LIB_VERSION_HEX">RC_LIB_VERSION_HEX (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group__version_1ga9bef724dfc9ba2cf66463e6b2fe6669e.html#c.RC_LIB_VERSION_MAJOR">RC_LIB_VERSION_MAJOR (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group__version_1ga5a549de0b39fdb82f713bf03c1d4100e.html#c.RC_LIB_VERSION_MINOR">RC_LIB_VERSION_MINOR (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group__version_1gaababe2ce4930b8a230191bf7e503bfff.html#c.RC_LIB_VERSION_PATCH">RC_LIB_VERSION_PATCH (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1ga855a2fced34e4dfaaea9cb6a2bc7fc07.html#_CPPv416rc_make_pid_filev">rc_make_pid_file (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga4a1850971139797c1f8fae553e77e5fe.html#_CPPv413rc_matrix_add11rc_matrix_t11rc_matrix_tP11rc_matrix_t">rc_matrix_add (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga5f6447a3fd6ca7abc752ebc7e5671ba4.html#_CPPv421rc_matrix_add_inplaceP11rc_matrix_t11rc_matrix_t">rc_matrix_add_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gaaefaab4215ca5fc77ccc905fb0b1f2ab.html#_CPPv415rc_matrix_allocP11rc_matrix_tii">rc_matrix_alloc (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gaffe9ca5086de7856a51bc458880a4685.html#_CPPv421rc_matrix_determinant11rc_matrix_t">rc_matrix_determinant (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga1e6fdd2b113e47901ec765ab8a088dfa.html#_CPPv418rc_matrix_diagonalP11rc_matrix_t11rc_vector_t">rc_matrix_diagonal (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga8c723819a991789c9ddf5d2121cc0ebc.html#_CPPv419rc_matrix_duplicate11rc_matrix_tP11rc_matrix_t">rc_matrix_duplicate (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga20f3099c4fbf44d4dc8fb7af99a53646.html#_CPPv415rc_matrix_emptyv">rc_matrix_empty (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga0e16d72aaad4b8f522f459c2cee2a874.html#_CPPv414rc_matrix_freeP11rc_matrix_t">rc_matrix_free (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga3b702b772126773969500b3cb1465d00.html#_CPPv418rc_matrix_identityP11rc_matrix_ti">rc_matrix_identity (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___matrix_1ga1fe4da792f1d95eb45f773a26b7c40d7.html#c.RC_MATRIX_INITIALIZER">RC_MATRIX_INITIALIZER (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga27552eede0fb1b2368f36525b54793ad.html#_CPPv431rc_matrix_left_multiply_inplace11rc_matrix_tP11rc_matrix_t">rc_matrix_left_multiply_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga58f7c5e2aa2f0b7383faf53f840ad9e9.html#_CPPv418rc_matrix_multiply11rc_matrix_t11rc_matrix_tP11rc_matrix_t">rc_matrix_multiply (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gac58e4907ae2340ea0a3ea4081542a26e.html#_CPPv423rc_matrix_outer_product11rc_vector_t11rc_vector_tP11rc_matrix_t">rc_matrix_outer_product (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga5a6b08be1c38d7840260125a75f1b06d.html#_CPPv415rc_matrix_print11rc_matrix_t">rc_matrix_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gaf403b7b6e6af997ef732ae0310558e62.html#_CPPv419rc_matrix_print_sci11rc_matrix_t">rc_matrix_print_sci (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gaf040aafb6a95b1303668089d9e30a95a.html#_CPPv416rc_matrix_randomP11rc_matrix_tii">rc_matrix_random (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gadef5caad52f670b91ea558f1f38edb8e.html#_CPPv432rc_matrix_right_multiply_inplaceP11rc_matrix_t11rc_matrix_t">rc_matrix_right_multiply_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga8282c41c5e2cf2338c3584a58c9d0597.html#_CPPv430rc_matrix_row_vec_times_matrix11rc_vector_t11rc_matrix_tP11rc_vector_t">rc_matrix_row_vec_times_matrix (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga1c5f00892b9b782efa3cc4f276e4fa54.html#_CPPv426rc_matrix_subtract_inplaceP11rc_matrix_t11rc_matrix_t">rc_matrix_subtract_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga662571d4eb799084eb9d499cbd6a617c.html#_CPPv420rc_matrix_symmetrizeP11rc_matrix_t">rc_matrix_symmetrize (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__matrix__t.html#_CPPv411rc_matrix_t">rc_matrix_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___matrix_1ga6bd107307a14a51a08d403be656ab96d.html#_CPPv411rc_matrix_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__matrix__t.html#_CPPv4N11rc_matrix_t4colsE">rc_matrix_t::cols (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__matrix__t.html#_CPPv4N11rc_matrix_t1dE">rc_matrix_t::d (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__matrix__t.html#_CPPv4N11rc_matrix_t11initializedE">rc_matrix_t::initialized (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__matrix__t.html#_CPPv4N11rc_matrix_t4rowsE">rc_matrix_t::rows (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga4f3c2a5dcea5a1dcbbf0f54419d9f490.html#_CPPv423rc_matrix_times_col_vec11rc_matrix_t11rc_vector_tP11rc_vector_t">rc_matrix_times_col_vec (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga6eaf9454dd32905cca456f5d7273430b.html#_CPPv422rc_matrix_times_scalarP11rc_matrix_td">rc_matrix_times_scalar (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gab15796534f320083f8315aa5a613b495.html#_CPPv419rc_matrix_transpose11rc_matrix_tP11rc_matrix_t">rc_matrix_transpose (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gab6a7fd781178a95dea4df4182be453ca.html#_CPPv427rc_matrix_transpose_inplaceP11rc_matrix_t">rc_matrix_transpose_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1gacd0d1d6481b2764116db63f63669efe6.html#_CPPv418rc_matrix_zero_outP11rc_matrix_t">rc_matrix_zero_out (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___matrix_1ga00058fd197b0d55e6e795116f9fd8a94.html#_CPPv415rc_matrix_zerosP11rc_matrix_tii">rc_matrix_zeros (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gaac23755eb2decdffeb10e323c187f8e4.html#_CPPv414rc_mav_cleanupv">rc_mav_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___mavlink___u_d_p_1gabd72babc1252535d3259ae1786219e6c.html#_CPPv425rc_mav_connection_state_t">rc_mav_connection_state_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___mavlink___u_d_p_1ga2cb3464a2bdfc1b31db19d49579d277f.html#_CPPv425rc_mav_connection_state_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___mavlink___u_d_p_1gabd72babc1252535d3259ae1786219e6c.html#_CPPv4N25rc_mav_connection_state_t21MAV_CONNECTION_ACTIVEE">rc_mav_connection_state_t::MAV_CONNECTION_ACTIVE (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___mavlink___u_d_p_1gabd72babc1252535d3259ae1786219e6c.html#_CPPv4N25rc_mav_connection_state_t19MAV_CONNECTION_LOSTE">rc_mav_connection_state_t::MAV_CONNECTION_LOST (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___mavlink___u_d_p_1gabd72babc1252535d3259ae1786219e6c.html#_CPPv4N25rc_mav_connection_state_t22MAV_CONNECTION_WAITINGE">rc_mav_connection_state_t::MAV_CONNECTION_WAITING (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___mavlink___u_d_p_1gafeda7b0e4928e58ce27c55513543d3ec.html#c.RC_MAV_DEFAULT_CONNECTION_TIMEOUT_US">RC_MAV_DEFAULT_CONNECTION_TIMEOUT_US (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___mavlink___u_d_p_1gae531bf5a921b5f0a306cb0d1d45530e8.html#c.RC_MAV_DEFAULT_UDP_PORT">RC_MAV_DEFAULT_UDP_PORT (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gad6c089a076ddeb77d761c6489531f2c5.html#_CPPv424rc_mav_get_att_pos_mocapP23mavlink_att_pos_mocap_t">rc_mav_get_att_pos_mocap (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga97e5bd30d068ffbe12f2fcbb0e6dd64e.html#_CPPv419rc_mav_get_attitudeP18mavlink_attitude_t">rc_mav_get_attitude (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga49a628a2282323c9796b2f43f4a98547.html#_CPPv430rc_mav_get_attitude_quaternionP29mavlink_attitude_quaternion_t">rc_mav_get_attitude_quaternion (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gaf5a423f5b50ffda12777036c51bdde59.html#_CPPv427rc_mav_get_connection_statev">rc_mav_get_connection_state (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gaa802ee877ed05abb23d9c1544a848e36.html#_CPPv430rc_mav_get_global_position_intP29mavlink_global_position_int_t">rc_mav_get_global_position_int (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gaab1ea57b789494eef034c7bb328e5069.html#_CPPv422rc_mav_get_gps_raw_intP21mavlink_gps_raw_int_t">rc_mav_get_gps_raw_int (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga38d02695ebcac8cfe5f5d897edcd1806.html#_CPPv420rc_mav_get_heartbeatP19mavlink_heartbeat_t">rc_mav_get_heartbeat (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gaa800ef6d58a11e95334caa1b70158128.html#_CPPv429rc_mav_get_local_position_nedP28mavlink_local_position_ned_t">rc_mav_get_local_position_ned (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gae98fc2dfc74c5f31676176b3c849f306.html#_CPPv425rc_mav_get_manual_controlP24mavlink_manual_control_t">rc_mav_get_manual_control (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gae42341f2b190346aec1cbbbbb5e923d2.html#_CPPv414rc_mav_get_msgiP17mavlink_message_t">rc_mav_get_msg (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gac034339ac7198af377ef48479d17cf79.html#_CPPv426rc_mav_get_scaled_pressureP25mavlink_scaled_pressure_t">rc_mav_get_scaled_pressure (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gaac33a61cab40627181d202e37ba4e215.html#_CPPv427rc_mav_get_servo_output_rawP26mavlink_servo_output_raw_t">rc_mav_get_servo_output_raw (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga5ce092c8e49ddeed85bbe29545ac14ac.html#_CPPv441rc_mav_get_set_position_target_global_intP40mavlink_set_position_target_global_int_t">rc_mav_get_set_position_target_global_int (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga4a5aef28f0090b060776b5fd5ac27cff.html#_CPPv440rc_mav_get_set_position_target_local_nedP39mavlink_set_position_target_local_ned_t">rc_mav_get_set_position_target_local_ned (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1ga2faf866150189d6cae6d10bdeaf918f3.html#_CPPv429rc_mav_get_sys_id_of_last_msgi">rc_mav_get_sys_id_of_last_msg (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gaac49f7fe8ebf1c23e75f166c07379b77.html#_CPPv433rc_mav_get_sys_id_of_last_msg_anyv">rc_mav_get_sys_id_of_last_msg_any (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga70c65f5c08039efda11bf3b4eec75efe.html#_CPPv421rc_mav_get_sys_statusP20mavlink_sys_status_t">rc_mav_get_sys_status (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gae703626957d212997b5859b12a895763.html#_CPPv411rc_mav_init7uint8_tPKc8uint16_t8uint64_t">rc_mav_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1ga0ec72fef2c32b68dc92b4f2518489e30.html#_CPPv417rc_mav_is_new_msgi">rc_mav_is_new_msg (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1ga97435d7bc76da024cdcfc44182f47dc5.html#_CPPv425rc_mav_msg_id_of_last_msgv">rc_mav_msg_id_of_last_msg (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gafb096857c163a2d7f0088e443f9d10cc.html#_CPPv424rc_mav_ns_since_last_msgi">rc_mav_ns_since_last_msg (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gae41a56b1a692b5f386a4de4b2637474b.html#_CPPv428rc_mav_ns_since_last_msg_anyv">rc_mav_ns_since_last_msg_any (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1ga62e9c30f45e5b230073f5db3414f18df.html#_CPPv421rc_mav_print_msg_namei">rc_mav_print_msg_name (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga84c9f6d27465287d95dd984f7b52f8f7.html#_CPPv420rc_mav_send_attitudeffffff">rc_mav_send_attitude (C++ function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gac2ccb2ea1eb33cb041ff09851540d97c.html#_CPPv431rc_mav_send_attitude_quaternionfffffff">rc_mav_send_attitude_quaternion (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga91956f6a73784f004d5ff3d6fb654f92.html#_CPPv431rc_mav_send_global_position_int7int32_t7int32_t7int32_t7int32_t7int16_t7int16_t7int16_t8uint16_t">rc_mav_send_global_position_int (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga9dc569703b0cf330073760b474e91686.html#_CPPv423rc_mav_send_gps_raw_int7int32_t7int32_t7int32_t8uint16_t8uint16_t8uint16_t8uint16_t7uint8_t7uint8_t7int32_t8uint32_t8uint32_t8uint32_t8uint32_t">rc_mav_send_gps_raw_int (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gab1bf3775e06f67b83a27997382fd9771.html#_CPPv421rc_mav_send_heartbeat8uint32_t7uint8_t7uint8_t7uint8_t7uint8_t">rc_mav_send_heartbeat (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gaf12c75e5507e17504f0b4ad680ca4f7f.html#_CPPv433rc_mav_send_heartbeat_abbreviatedv">rc_mav_send_heartbeat_abbreviated (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga98c7840ca93d553a25f1418cca3ab588.html#_CPPv430rc_mav_send_local_position_nedffffff">rc_mav_send_local_position_ned (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gaefad3f0cc158339c77a5af40c6bbb14d.html#_CPPv426rc_mav_send_manual_control7int16_t7int16_t7int16_t7int16_t8uint16_t7uint8_t">rc_mav_send_manual_control (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gaf1913ebc763bdd67e482999ddbb4ec59.html#_CPPv415rc_mav_send_msg17mavlink_message_t">rc_mav_send_msg (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gad46b2a5a673c11f09558f5a56c1af756.html#_CPPv427rc_mav_send_scaled_pressureff7int16_t">rc_mav_send_scaled_pressure (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga82547517a4c24bef3173a3600af019a4.html#_CPPv428rc_mav_send_servo_output_raw8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t7uint8_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t">rc_mav_send_servo_output_raw (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga47bcae1e543d1bc81a7b31f6037a5c7b.html#_CPPv442rc_mav_send_set_position_target_global_int7int32_t7int32_tfffffffff8uint16_t7uint8_t7uint8_t7uint8_t">rc_mav_send_set_position_target_global_int (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1gafd0655c58819b4489a960dd0a7be029b.html#_CPPv441rc_mav_send_set_position_target_local_nedfffffffffff8uint16_t7uint8_t7uint8_t7uint8_t">rc_mav_send_set_position_target_local_ned (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___helpers_1ga4ec7432fd683fac5546ef0b1cceee29c.html#_CPPv422rc_mav_send_sys_status8uint32_t8uint32_t8uint32_t8uint16_t8uint16_t7int16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t8uint16_t6int8_t">rc_mav_send_sys_status (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gaff8a157cb1014c743d859126c79a5cc4.html#_CPPv419rc_mav_set_callbackiPFvvE">rc_mav_set_callback (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gae924d503d9962eb5909d79143229a671.html#_CPPv423rc_mav_set_callback_allPFvvE">rc_mav_set_callback_all (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1ga1e99e47d80ff89b2a9061a3c66b7bedd.html#_CPPv435rc_mav_set_callback_connection_lostPFvvE">rc_mav_set_callback_connection_lost (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1gafdbeaf28fa59faee349a7cf13ce7d185.html#_CPPv418rc_mav_set_dest_ipPKc">rc_mav_set_dest_ip (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___mavlink___u_d_p_1ga14a1576c0f909bdf20b8b2df4bf7b068.html#_CPPv420rc_mav_set_system_id7uint8_t">rc_mav_set_system_id (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___d_s_m_1ga44ac46fe10a1a4713e1c071c4247e04e.html#c.RC_MAX_DSM_CHANNELS">RC_MAX_DSM_CHANNELS (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___model_1ga2462cef7a649d311b8c36cf981311576.html#_CPPv48rc_modelv">rc_model (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___model_1ga69bd004f98a1d1b63ae6eec277bee8de.html#_CPPv417rc_model_categoryv">rc_model_category (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___model_1ga631eb124ce4692d27c76872bbd10b1ef.html#_CPPv423rc_model_category_printv">rc_model_category_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1ga0dced877b06779ded01b834b878ffd18.html#_CPPv419rc_model_category_t">rc_model_category_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___model_1ga41f66cec218efa4b65db31b42141f9b9.html#_CPPv419rc_model_category_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1ga0dced877b06779ded01b834b878ffd18.html#_CPPv4N19rc_model_category_t19CATEGORY_BEAGLEBONEE">rc_model_category_t::CATEGORY_BEAGLEBONE (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1ga0dced877b06779ded01b834b878ffd18.html#_CPPv4N19rc_model_category_t11CATEGORY_PCE">rc_model_category_t::CATEGORY_PC (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1ga0dced877b06779ded01b834b878ffd18.html#_CPPv4N19rc_model_category_t12CATEGORY_RPIE">rc_model_category_t::CATEGORY_RPI (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1ga0dced877b06779ded01b834b878ffd18.html#_CPPv4N19rc_model_category_t16CATEGORY_UNKNOWNE">rc_model_category_t::CATEGORY_UNKNOWN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___model_1ga5d2b6e9b770eb62108cf1b8e2b45b3de.html#_CPPv414rc_model_printv">rc_model_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv410rc_model_t">rc_model_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___model_1ga57736fbe17cf8772118b55e9ef5dabdc.html#_CPPv410rc_model_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t14MODEL_BB_BLACKE">rc_model_t::MODEL_BB_BLACK (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t17MODEL_BB_BLACK_RCE">rc_model_t::MODEL_BB_BLACK_RC (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t16MODEL_BB_BLACK_WE">rc_model_t::MODEL_BB_BLACK_W (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t19MODEL_BB_BLACK_W_RCE">rc_model_t::MODEL_BB_BLACK_W_RC (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t13MODEL_BB_BLUEE">rc_model_t::MODEL_BB_BLUE (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t14MODEL_BB_GREENE">rc_model_t::MODEL_BB_GREEN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t16MODEL_BB_GREEN_WE">rc_model_t::MODEL_BB_GREEN_W (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t15MODEL_BB_POCKETE">rc_model_t::MODEL_BB_POCKET (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t8MODEL_PCE">rc_model_t::MODEL_PC (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t10MODEL_RPI0E">rc_model_t::MODEL_RPI0 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t12MODEL_RPI0_WE">rc_model_t::MODEL_RPI0_W (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t12MODEL_RPI2_BE">rc_model_t::MODEL_RPI2_B (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t12MODEL_RPI3_BE">rc_model_t::MODEL_RPI3_B (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t17MODEL_RPI3_B_PLUSE">rc_model_t::MODEL_RPI3_B_PLUS (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t11MODEL_RPI_BE">rc_model_t::MODEL_RPI_B (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t16MODEL_RPI_B_PLUSE">rc_model_t::MODEL_RPI_B_PLUS (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t12MODEL_RPI_CME">rc_model_t::MODEL_RPI_CM (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t13MODEL_RPI_CM3E">rc_model_t::MODEL_RPI_CM3 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___model_1gaca9da3be6195163a8e412e6f5b8106d3.html#_CPPv4N10rc_model_t13MODEL_UNKNOWNE">rc_model_t::MODEL_UNKNOWN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1ga470369dde3e084f0a2a5c99db61f9494.html#_CPPv414rc_motor_brakei">rc_motor_brake (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1gaaf8b9bcd4a449da3194bfdbe87b9c7ce.html#_CPPv416rc_motor_cleanupv">rc_motor_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___motor_1gacee0f846fc4c42ff926ebb78ffe76193.html#c.RC_MOTOR_DEFAULT_PWM_FREQ">RC_MOTOR_DEFAULT_PWM_FREQ (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1ga0a02d33c26c19955c7921b1ce74d6250.html#_CPPv418rc_motor_free_spini">rc_motor_free_spin (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1ga0c7c5572a57bf2787529013c4da7c535.html#_CPPv413rc_motor_initv">rc_motor_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1gaf65e329bc17712d20acae1fd1e3d1ec1.html#_CPPv418rc_motor_init_freqi">rc_motor_init_freq (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1gaeaf337ad16953c9f9412d96a600eccc1.html#_CPPv412rc_motor_setid">rc_motor_set (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___motor_1ga7ee2b29b8ed1185a31abf8d7e45603fb.html#_CPPv416rc_motor_standbyi">rc_motor_standby (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv419rc_mpu_accel_dlpf_t">rc_mpu_accel_dlpf_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1ga67aef07b529a348f39c70ab54f24a41f.html#_CPPv419rc_mpu_accel_dlpf_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t13ACCEL_DLPF_10E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_10 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t14ACCEL_DLPF_184E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_184 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t13ACCEL_DLPF_20E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_20 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t13ACCEL_DLPF_41E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_41 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t14ACCEL_DLPF_460E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_460 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t12ACCEL_DLPF_5E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_5 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t13ACCEL_DLPF_92E">rc_mpu_accel_dlpf_t::ACCEL_DLPF_92 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1gae212fc0e408486c37f3297a01f75d8e2.html#_CPPv4N19rc_mpu_accel_dlpf_t14ACCEL_DLPF_OFFE">rc_mpu_accel_dlpf_t::ACCEL_DLPF_OFF (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga6a40bfb1b31c95c07c440ee1a7c464b8.html#_CPPv418rc_mpu_accel_fsr_t">rc_mpu_accel_fsr_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1gaecc9aeb723d5624f481f0b84300def1e.html#_CPPv418rc_mpu_accel_fsr_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga6a40bfb1b31c95c07c440ee1a7c464b8.html#_CPPv4N18rc_mpu_accel_fsr_t13ACCEL_FSR_16GE">rc_mpu_accel_fsr_t::ACCEL_FSR_16G (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga6a40bfb1b31c95c07c440ee1a7c464b8.html#_CPPv4N18rc_mpu_accel_fsr_t12ACCEL_FSR_2GE">rc_mpu_accel_fsr_t::ACCEL_FSR_2G (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga6a40bfb1b31c95c07c440ee1a7c464b8.html#_CPPv4N18rc_mpu_accel_fsr_t12ACCEL_FSR_4GE">rc_mpu_accel_fsr_t::ACCEL_FSR_4G (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga6a40bfb1b31c95c07c440ee1a7c464b8.html#_CPPv4N18rc_mpu_accel_fsr_t12ACCEL_FSR_8GE">rc_mpu_accel_fsr_t::ACCEL_FSR_8G (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga3e2efff91b74fdc636b66c102954c6f3.html#c.RC_MPU_ALT_I2C_ADDR">RC_MPU_ALT_I2C_ADDR (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv415rc_mpu_config_t">rc_mpu_config_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1gac1d585f2574f8e168500ccd5a2fed25b.html#_CPPv415rc_mpu_config_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t10accel_dlpfE">rc_mpu_config_t::accel_dlpf (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t9accel_fsrE">rc_mpu_config_t::accel_fsr (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t21compass_time_constantE">rc_mpu_config_t::compass_time_constant (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t23dmp_auto_calibrate_gyroE">rc_mpu_config_t::dmp_auto_calibrate_gyro (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t20dmp_fetch_accel_gyroE">rc_mpu_config_t::dmp_fetch_accel_gyro (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t22dmp_interrupt_priorityE">rc_mpu_config_t::dmp_interrupt_priority (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t26dmp_interrupt_sched_policyE">rc_mpu_config_t::dmp_interrupt_sched_policy (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t15dmp_sample_rateE">rc_mpu_config_t::dmp_sample_rate (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t19enable_magnetometerE">rc_mpu_config_t::enable_magnetometer (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t18gpio_interrupt_pinE">rc_mpu_config_t::gpio_interrupt_pin (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t23gpio_interrupt_pin_chipE">rc_mpu_config_t::gpio_interrupt_pin_chip (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t9gyro_dlpfE">rc_mpu_config_t::gyro_dlpf (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t8gyro_fsrE">rc_mpu_config_t::gyro_fsr (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t8i2c_addrE">rc_mpu_config_t::i2c_addr (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t7i2c_busE">rc_mpu_config_t::i2c_bus (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t19mag_sample_rate_divE">rc_mpu_config_t::mag_sample_rate_div (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t6orientE">rc_mpu_config_t::orient (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t23read_mag_after_callbackE">rc_mpu_config_t::read_mag_after_callback (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t13show_warningsE">rc_mpu_config_t::show_warnings (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__config__t.html#_CPPv4N15rc_mpu_config_t13tap_thresholdE">rc_mpu_config_t::tap_threshold (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv413rc_mpu_data_t">rc_mpu_data_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1ga23217491b572ff0a667f3930bbc071ac.html#_CPPv413rc_mpu_data_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t5accelE">rc_mpu_data_t::accel (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t12accel_to_ms2E">rc_mpu_data_t::accel_to_ms2 (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t15compass_headingE">rc_mpu_data_t::compass_heading (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t19compass_heading_rawE">rc_mpu_data_t::compass_heading_raw (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t8dmp_quatE">rc_mpu_data_t::dmp_quat (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t13dmp_TaitBryanE">rc_mpu_data_t::dmp_TaitBryan (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t10fused_quatE">rc_mpu_data_t::fused_quat (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t15fused_TaitBryanE">rc_mpu_data_t::fused_TaitBryan (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t4gyroE">rc_mpu_data_t::gyro (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t12gyro_to_degsE">rc_mpu_data_t::gyro_to_degs (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t14last_tap_countE">rc_mpu_data_t::last_tap_count (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t18last_tap_directionE">rc_mpu_data_t::last_tap_direction (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t3magE">rc_mpu_data_t::mag (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t9raw_accelE">rc_mpu_data_t::raw_accel (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t8raw_gyroE">rc_mpu_data_t::raw_gyro (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t12tap_detectedE">rc_mpu_data_t::tap_detected (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__mpu__data__t.html#_CPPv4N13rc_mpu_data_t4tempE">rc_mpu_data_t::temp (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga9b1480bd20368f330d0974dfc13068e4.html#c.RC_MPU_DEFAULT_I2C_ADDR">RC_MPU_DEFAULT_I2C_ADDR (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv418rc_mpu_gyro_dlpf_t">rc_mpu_gyro_dlpf_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1gad28c075affcb5b38b3b76e8d82dee71a.html#_CPPv418rc_mpu_gyro_dlpf_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t12GYRO_DLPF_10E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_10 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t13GYRO_DLPF_184E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_184 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t12GYRO_DLPF_20E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_20 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t13GYRO_DLPF_250E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_250 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t12GYRO_DLPF_41E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_41 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t11GYRO_DLPF_5E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_5 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t12GYRO_DLPF_92E">rc_mpu_gyro_dlpf_t::GYRO_DLPF_92 (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga615c10012ca9942ee0a06e59720aac85.html#_CPPv4N18rc_mpu_gyro_dlpf_t13GYRO_DLPF_OFFE">rc_mpu_gyro_dlpf_t::GYRO_DLPF_OFF (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734.html#_CPPv417rc_mpu_gyro_fsr_t">rc_mpu_gyro_fsr_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1ga5a333af7df9b252ef7df6b3baf3c291b.html#_CPPv417rc_mpu_gyro_fsr_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734.html#_CPPv4N17rc_mpu_gyro_fsr_t16GYRO_FSR_1000DPSE">rc_mpu_gyro_fsr_t::GYRO_FSR_1000DPS (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734.html#_CPPv4N17rc_mpu_gyro_fsr_t16GYRO_FSR_2000DPSE">rc_mpu_gyro_fsr_t::GYRO_FSR_2000DPS (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734.html#_CPPv4N17rc_mpu_gyro_fsr_t15GYRO_FSR_250DPSE">rc_mpu_gyro_fsr_t::GYRO_FSR_250DPS (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga41a163936d06090d69a234035ff0b734.html#_CPPv4N17rc_mpu_gyro_fsr_t15GYRO_FSR_500DPSE">rc_mpu_gyro_fsr_t::GYRO_FSR_500DPS (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv420rc_mpu_orientation_t">rc_mpu_orientation_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___i_m_u___m_p_u_1gaf301b579b9db3414f4895e9ef377d1b0.html#_CPPv420rc_mpu_orientation_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t18ORIENTATION_X_BACKE">rc_mpu_orientation_t::ORIENTATION_X_BACK (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t18ORIENTATION_X_DOWNE">rc_mpu_orientation_t::ORIENTATION_X_DOWN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t21ORIENTATION_X_FORWARDE">rc_mpu_orientation_t::ORIENTATION_X_FORWARD (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t16ORIENTATION_X_UPE">rc_mpu_orientation_t::ORIENTATION_X_UP (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t18ORIENTATION_Y_DOWNE">rc_mpu_orientation_t::ORIENTATION_Y_DOWN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t16ORIENTATION_Y_UPE">rc_mpu_orientation_t::ORIENTATION_Y_UP (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t18ORIENTATION_Z_DOWNE">rc_mpu_orientation_t::ORIENTATION_Z_DOWN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___i_m_u___m_p_u_1ga0ae4e14519b15e255477a9b51217f571.html#_CPPv4N20rc_mpu_orientation_t16ORIENTATION_Z_UPE">rc_mpu_orientation_t::ORIENTATION_Z_UP (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga3a88fd73655701445020f0acaa7c1c36.html#_CPPv419rc_nanos_since_bootv">rc_nanos_since_boot (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1gad990f90d9cda158a8652753055265836.html#_CPPv420rc_nanos_since_epochv">rc_nanos_since_epoch (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga3baaf2bc695f9a2eb4c72fb26fcf10ad.html#_CPPv420rc_nanos_thread_timev">rc_nanos_thread_time (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga5404c174657b11b7131d4b9bcc9f6603.html#_CPPv412rc_nanosleep8uint64_t">rc_nanosleep (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1gaa4e42cb59e9789b957067dbf27f011dd.html#_CPPv423rc_normalize_quaternionP11rc_vector_t">rc_normalize_quaternion (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group__start__stop_1gabf72a3607c241faf7f4b9094253af7a1.html#c.RC_PID_DIR">RC_PID_DIR (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group__start__stop_1ga1717e01e4309df6c7c93a48084f5ffb9.html#c.RC_PID_FILE">RC_PID_FILE (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv416rc_pinmux_mode_t">rc_pinmux_mode_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___pinmux_1ga3ba8bb1b646fde66a88ca607a099a6d3.html#_CPPv416rc_pinmux_mode_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t10PINMUX_CANE">rc_pinmux_mode_t::PINMUX_CAN (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t11PINMUX_GPIOE">rc_pinmux_mode_t::PINMUX_GPIO (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t14PINMUX_GPIO_PDE">rc_pinmux_mode_t::PINMUX_GPIO_PD (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t14PINMUX_GPIO_PUE">rc_pinmux_mode_t::PINMUX_GPIO_PU (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t10PINMUX_PWME">rc_pinmux_mode_t::PINMUX_PWM (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t10PINMUX_SPIE">rc_pinmux_mode_t::PINMUX_SPI (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group___pinmux_1gafef0633df3bdca2b1127b5c2d631ba1a.html#_CPPv4N16rc_pinmux_mode_t11PINMUX_UARTE">rc_pinmux_mode_t::PINMUX_UART (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___pinmux_1ga709e2f08ee353f2052eed1ebf98bfce3.html#_CPPv413rc_pinmux_seti16rc_pinmux_mode_t">rc_pinmux_set (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___pinmux_1ga663f1266e6d7fe3120a7b4cea6deb761.html#_CPPv421rc_pinmux_set_defaultv">rc_pinmux_set_default (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1gabfb6fa5439346ca03f4404ba65f753d4.html#_CPPv411rc_poly_add11rc_vector_t11rc_vector_tP11rc_vector_t">rc_poly_add (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1ga7a8ede505de3ba460edfb4c687fed29f.html#_CPPv419rc_poly_add_inplaceP11rc_vector_t11rc_vector_t">rc_poly_add_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1ga7c59fde73d5f31222746da5f730864e8.html#_CPPv414rc_poly_butteridP11rc_vector_t">rc_poly_butter (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1ga0ec56458baca9a38093d74a444513fdd.html#_CPPv412rc_poly_conv11rc_vector_t11rc_vector_tP11rc_vector_t">rc_poly_conv (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1gabbae3c7a60135300ec4b7765eb956bbe.html#_CPPv421rc_poly_differentiate11rc_vector_tiP11rc_vector_t">rc_poly_differentiate (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1gaa30b88e21671748ce4008e25dc6f200d.html#_CPPv414rc_poly_divide11rc_vector_t11rc_vector_tP11rc_vector_tP11rc_vector_t">rc_poly_divide (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1gae1ebd34a90a744787f2f2becaaeada2f.html#_CPPv413rc_poly_power11rc_vector_tiP11rc_vector_t">rc_poly_power (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1ga99d2b3a3b9405b3d01c2be85ef2b731b.html#_CPPv413rc_poly_print11rc_vector_t">rc_poly_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1ga0b4a09e13b28b40bbb2a0f9ddcf9a4f9.html#_CPPv416rc_poly_subtract11rc_vector_t11rc_vector_tP11rc_vector_t">rc_poly_subtract (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___polynomial_1ga50a9d83172575f86fa60622d57c816e4.html#_CPPv424rc_poly_subtract_inplaceP11rc_vector_t11rc_vector_t">rc_poly_subtract_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1ga82b35235986818b68c56251fbd6ad27b.html#_CPPv414rc_print_statev">rc_print_state (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_r_u_1ga8846ad12152eb6e33d0eac565511cdc4.html#_CPPv421rc_pru_shared_mem_ptrv">rc_pru_shared_mem_ptr (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_r_u_1gae905a61d9704f8d9c182d6ffb52f7e31.html#_CPPv412rc_pru_startiPKc">rc_pru_start (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_r_u_1ga3be81bb51981b5ef5c58be99d3c5f2c1.html#_CPPv411rc_pru_stopi">rc_pru_stop (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__pthread_1gacb19576a13ed2ac57ade65d30f88a100.html#_CPPv417rc_pthread_createP9pthread_tPFPvPvEPvii">rc_pthread_create (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__pthread_1ga6162f63afb3524554088127d6d1cf306.html#_CPPv431rc_pthread_get_process_nicenessv">rc_pthread_get_process_niceness (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__pthread_1ga723748e011ec8c27fc449826f7cde5a1.html#_CPPv427rc_pthread_print_properties9pthread_t">rc_pthread_print_properties (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__pthread_1ga7da79c8d772ef7ca141f04ea05d18667.html#_CPPv431rc_pthread_set_process_nicenessi">rc_pthread_set_process_niceness (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__pthread_1gac3a1d2d4543ed61cc6fdb0352471c0a7.html#_CPPv430rc_pthread_set_properties_selfii">rc_pthread_set_properties_self (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__pthread_1gae88a3ac02e86a18eb24a8ac0e698f12c.html#_CPPv421rc_pthread_timed_join9pthread_tPPvf">rc_pthread_timed_join (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_w_m_1ga240440f5a906dc1500babd232577467c.html#_CPPv414rc_pwm_cleanupi">rc_pwm_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_w_m_1gac88a84e4882918f6f6bc3acc3d398485.html#_CPPv411rc_pwm_initii">rc_pwm_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_w_m_1ga284056b0966590d13146dbd88203e1ee.html#_CPPv415rc_pwm_set_dutyicd">rc_pwm_set_duty (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___p_w_m_1ga1adbb8d2062f6a150c9106f9bfb05691.html#_CPPv418rc_pwm_set_duty_nsicj">rc_pwm_set_duty_ns (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1gae6ff0571c5b14a9c9866ccf659ede2be.html#_CPPv423rc_quaternion_conjugate11rc_vector_tP11rc_vector_t">rc_quaternion_conjugate (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga2f6a22394f69065da0db6814ab4cc809.html#_CPPv431rc_quaternion_conjugate_inplaceP11rc_vector_t">rc_quaternion_conjugate_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga54339e7a6a4b46357555def9fefd12be.html#_CPPv421rc_quaternion_from_tb11rc_vector_tP11rc_vector_t">rc_quaternion_from_tb (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga979a8b5919c153ccdd9cf1611bb5da95.html#_CPPv428rc_quaternion_imaginary_part11rc_vector_tP11rc_vector_t">rc_quaternion_imaginary_part (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga69f6fc81fa687d8341bd78dff1e8357e.html#_CPPv422rc_quaternion_multiply11rc_vector_t11rc_vector_tP11rc_vector_t">rc_quaternion_multiply (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga98fb13ca78450b2aadcc478bfc4d2751.html#_CPPv418rc_quaternion_norm11rc_vector_t">rc_quaternion_norm (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga1ad0d9273c7a78b4efac1066abe01b46.html#_CPPv420rc_quaternion_rotateP11rc_vector_t11rc_vector_t">rc_quaternion_rotate (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga4dcacf759d45c9c92782253338c1269b.html#_CPPv427rc_quaternion_rotate_vectorP11rc_vector_t11rc_vector_t">rc_quaternion_rotate_vector (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga1fbbeb418f6e71f2eefd7dc57c9bfbc8.html#_CPPv432rc_quaternion_to_rotation_matrix11rc_vector_tP11rc_matrix_t">rc_quaternion_to_rotation_matrix (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___quaternion_1ga563e33eda488bf7b8676bf6104905754.html#_CPPv419rc_quaternion_to_tb11rc_vector_tP11rc_vector_t">rc_quaternion_to_tb (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1ga0f06d321e00e3963aa0d672ab0d06fe5.html#_CPPv418rc_remove_pid_filev">rc_remove_pid_file (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1ga081c474a7a3e607a73080f5b7d6de94c.html#_CPPv416rc_ringbuf_allocP12rc_ringbuf_ti">rc_ringbuf_alloc (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1ga18cecd9dd70482175791871b0ed7d833.html#_CPPv416rc_ringbuf_emptyv">rc_ringbuf_empty (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1gacc048f71fcf6c35008c4a42a4c646d79.html#_CPPv415rc_ringbuf_freeP12rc_ringbuf_t">rc_ringbuf_free (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1ga178409422c694dab381ab6fd51918801.html#_CPPv420rc_ringbuf_get_valueP12rc_ringbuf_ti">rc_ringbuf_get_value (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___ring___buffer_1ga57868cd0e7c34de812f7c394ef4c1429.html#c.RC_RINGBUF_INITIALIZER">RC_RINGBUF_INITIALIZER (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1gaa82925c4c7ea0996b4861c89c131afb3.html#_CPPv417rc_ringbuf_insertP12rc_ringbuf_td">rc_ringbuf_insert (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1gaa9da5cc641aed10a6212df49f72669c3.html#_CPPv416rc_ringbuf_resetP12rc_ringbuf_t">rc_ringbuf_reset (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___ring___buffer_1ga0c8d29b891fc18f77dac6cdd6dbe1e24.html#_CPPv418rc_ringbuf_std_dev12rc_ringbuf_t">rc_ringbuf_std_dev (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__ringbuf__t.html#_CPPv412rc_ringbuf_t">rc_ringbuf_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___ring___buffer_1gaf61cd5a7161a167d96a7cc71b5c57ba4.html#_CPPv412rc_ringbuf_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__ringbuf__t.html#_CPPv4N12rc_ringbuf_t1dE">rc_ringbuf_t::d (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__ringbuf__t.html#_CPPv4N12rc_ringbuf_t5indexE">rc_ringbuf_t::index (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__ringbuf__t.html#_CPPv4N12rc_ringbuf_t11initializedE">rc_ringbuf_t::initialized (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__ringbuf__t.html#_CPPv4N12rc_ringbuf_t4sizeE">rc_ringbuf_t::size (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___other___math_1ga0db783667dde7eb053dd7ac01bf6f9d9.html#_CPPv418rc_saturate_doublePddd">rc_saturate_double (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___other___math_1ga2977f271b49fb61945c338cb37d56731.html#_CPPv417rc_saturate_floatPfff">rc_saturate_float (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1gafc9f63116bb9cc27e44b0f6b2082d66a.html#c.RC_SERVO_CH_ALL">RC_SERVO_CH_ALL (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1ga4c2f94d5932ba7de01baa9dae43f91b2.html#c.RC_SERVO_CH_MAX">RC_SERVO_CH_MAX (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___servo_1ga2b4c5c8c32bac51565fab764ca15384e.html#c.RC_SERVO_CH_MIN">RC_SERVO_CH_MIN (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1ga31a88ee18f8eab9a0a8fa6ba4aa8d838.html#_CPPv416rc_servo_cleanupv">rc_servo_cleanup (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1gabcde569afc59522a776c00a3cf38de7f.html#_CPPv413rc_servo_initv">rc_servo_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1ga3ac90f23a6793e0a1b841c83565101ef.html#_CPPv422rc_servo_power_rail_eni">rc_servo_power_rail_en (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1ga4348b72e1177d53a3f6b69b7bdf54f28.html#_CPPv434rc_servo_send_esc_pulse_normalizedid">rc_servo_send_esc_pulse_normalized (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1ga2ac626f7389c25bd8bdf4cf8129a0a1b.html#_CPPv438rc_servo_send_oneshot_pulse_normalizedid">rc_servo_send_oneshot_pulse_normalized (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1gaa3227ad3e226810d64a7266f27f39c3b.html#_CPPv430rc_servo_send_pulse_normalizedid">rc_servo_send_pulse_normalized (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1gadbf994173e0b530fe448e94694659b51.html#_CPPv422rc_servo_send_pulse_usii">rc_servo_send_pulse_us (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___servo_1ga677c306864d60dcc65011f38b00407da.html#_CPPv422rc_servo_set_esc_rangeii">rc_servo_set_esc_range (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__start__stop_1ga693e5b9f051bb14507d1d9eb246f616e.html#_CPPv412rc_set_state10rc_state_t">rc_set_state (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1gad7d52effae6be8581575cb70888bb411.html#c.RC_SPI_BITS_PER_WORD">RC_SPI_BITS_PER_WORD (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1ga45a54cb26f96590a895a95648aae7318.html#_CPPv412rc_spi_closei">rc_spi_close (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1ga58fa9de20b3fa7894bbf45629b007180.html#_CPPv413rc_spi_get_fdii">rc_spi_get_fd (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1ga01facb1d65f98568feacb6175b68e1b5.html#_CPPv422rc_spi_init_auto_slaveiiii">rc_spi_init_auto_slave (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1ga5696955033457ffaa734170468893835.html#_CPPv424rc_spi_init_manual_slaveiiiiii">rc_spi_init_manual_slave (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1gaf99da1c0fc5da1ae1555dba2ed90bf62.html#_CPPv420rc_spi_manual_selectiii">rc_spi_manual_select (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1ga02d8e63bbc1fdc32659c570124b0bc32.html#c.RC_SPI_MAX_SPEED">RC_SPI_MAX_SPEED (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___s_p_i_1ga48151cf037500b4e44aa38290c1e433d.html#c.RC_SPI_MIN_SPEED">RC_SPI_MIN_SPEED (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1ga4977a424108cf6f6f69f33dac358ad87.html#_CPPv411rc_spi_readiiP7uint8_t6size_t">rc_spi_read (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1gad113f7b75a8b6f4bee912ed83b400b49.html#_CPPv415rc_spi_transferiiP7uint8_t6size_tP7uint8_t">rc_spi_transfer (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___s_p_i_1gad5fc840c000c6cd57321af90efb60fa2.html#_CPPv412rc_spi_writeiiP7uint8_t6size_t">rc_spi_write (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group__start__stop_1gac4ff093ea579df8514825b1e601d38f9.html#_CPPv410rc_state_t">rc_state_t (C++ enum)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group__start__stop_1gab1eedb24971a9e7fdbcaa1ac0c09c01a.html#_CPPv410rc_state_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/enum_group__start__stop_1gac4ff093ea579df8514825b1e601d38f9.html#_CPPv4N10rc_state_t7EXITINGE">rc_state_t::EXITING (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group__start__stop_1gac4ff093ea579df8514825b1e601d38f9.html#_CPPv4N10rc_state_t6PAUSEDE">rc_state_t::PAUSED (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group__start__stop_1gac4ff093ea579df8514825b1e601d38f9.html#_CPPv4N10rc_state_t7RUNNINGE">rc_state_t::RUNNING (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/enum_group__start__stop_1gac4ff093ea579df8514825b1e601d38f9.html#_CPPv4N10rc_state_t13UNINITIALIZEDE">rc_state_t::UNINITIALIZED (C++ enumerator)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1gac83f639344338367d9fe1f64a4abaa9e.html#_CPPv415rc_timespec_addP8timespecd">rc_timespec_add (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga5b1b51b1c32db7f93eb9ee533f38cb2a.html#_CPPv416rc_timespec_diff8timespec8timespec">rc_timespec_diff (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga6aa951c4e4a6de2063a43352fefbc681.html#_CPPv421rc_timespec_to_micros8timespec">rc_timespec_to_micros (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1gaef74db6b357f3f2887017ba9b83abc47.html#_CPPv421rc_timespec_to_millis8timespec">rc_timespec_to_millis (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga0c853519eb782093e0fb73451c5dd21b.html#_CPPv420rc_timeval_to_micros7timeval">rc_timeval_to_micros (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1gac42dc3c312df8d517745ff6822fbcfa5.html#_CPPv420rc_timeval_to_millis7timeval">rc_timeval_to_millis (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga781cf847ae0bed0830453bf6efc49b2b.html#_CPPv423rc_uart_bytes_availablei">rc_uart_bytes_available (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga0f2bcf51362f3dee7a59ac349658e6f5.html#_CPPv413rc_uart_closei">rc_uart_close (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga8b822bc3eb5fac46087ddadcaac512f8.html#_CPPv413rc_uart_flushi">rc_uart_flush (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga8a6b4cb93f5bd79cc1153dba9e3f306d.html#_CPPv414rc_uart_get_fdi">rc_uart_get_fd (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga5afe8a87edb3d5435cf5ff54bcd3f88b.html#_CPPv412rc_uart_initiifiii">rc_uart_init (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga68fa9e4b06e7194ab8bd418d888be9bd.html#_CPPv418rc_uart_read_bytesiP7uint8_t6size_t">rc_uart_read_bytes (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1gaaf5b34313af1275c9729656ccf710f0e.html#_CPPv417rc_uart_read_lineiP7uint8_t6size_t">rc_uart_read_line (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___u_a_r_t_1ga094e0075844d5e6cc5bf5f26d86006f4.html#_CPPv413rc_uart_writeiP7uint8_t6size_t">rc_uart_write (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__time_1ga5477dde3014bc26b5ae6f0c773a8a340.html#_CPPv49rc_usleepj">rc_usleep (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga11722701079a6c31a88c1b2b5535c034.html#_CPPv415rc_vector_allocP11rc_vector_ti">rc_vector_alloc (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga01bee4c05bf391b3fb30b1b9fa8f7ff0.html#_CPPv423rc_vector_cross_product11rc_vector_t11rc_vector_tP11rc_vector_t">rc_vector_cross_product (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gad5781a23708133bb5beb334812909911.html#_CPPv421rc_vector_dot_product11rc_vector_t11rc_vector_t">rc_vector_dot_product (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga5aade05352c44f0eed9835a2e555254f.html#_CPPv419rc_vector_duplicate11rc_vector_tP11rc_vector_t">rc_vector_duplicate (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gab57c25942cfd30fce131175c5f86c42e.html#_CPPv415rc_vector_emptyv">rc_vector_empty (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gab26ea389839dc7cae224a3709316db03.html#_CPPv419rc_vector_fibonnaciP11rc_vector_ti">rc_vector_fibonnaci (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga866d0dd17fd2d052ffe0edb1ebbcf6ca.html#_CPPv414rc_vector_freeP11rc_vector_t">rc_vector_free (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga7330ebf6a505a5c6308cfcaa1a20d192.html#_CPPv420rc_vector_from_arrayP11rc_vector_tPdi">rc_vector_from_array (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___vector_1gab72eb22064075a2bc691904c5a6f64a4.html#c.RC_VECTOR_INITIALIZER">RC_VECTOR_INITIALIZER (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga3e4b086af44400fa2fa56af2618bfe81.html#_CPPv413rc_vector_max11rc_vector_t">rc_vector_max (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga30235b23358cd30512cdd0b6af542939.html#_CPPv414rc_vector_mean11rc_vector_t">rc_vector_mean (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gaf5cf5dee22ee0807725e86463b3cb415.html#_CPPv413rc_vector_min11rc_vector_t">rc_vector_min (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga9bf6cb90765b922cb3d205505e274014.html#_CPPv414rc_vector_norm11rc_vector_td">rc_vector_norm (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga93c2070da0f5b606113068dabcf64606.html#_CPPv414rc_vector_onesP11rc_vector_ti">rc_vector_ones (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gafbd986c3f1759de97760c2e65245fc45.html#_CPPv415rc_vector_print11rc_vector_t">rc_vector_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga6ea0298241c1b0207aea04cd331041d9.html#_CPPv419rc_vector_print_sci11rc_vector_t">rc_vector_print_sci (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga9d6baef58e77a3f6f17cd76d3967dcce.html#_CPPv420rc_vector_projection11rc_vector_t11rc_vector_tP11rc_vector_t">rc_vector_projection (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga61b0bc1f274f79017342393a2cf4c768.html#_CPPv416rc_vector_randomP11rc_vector_ti">rc_vector_random (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gaf6c966e3fa47561f3fac9a029b2d0d1d.html#_CPPv417rc_vector_std_dev11rc_vector_t">rc_vector_std_dev (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gac3f3fc91990f70fb98f33d7f1d14b7d6.html#_CPPv418rc_vector_subtract11rc_vector_t11rc_vector_tP11rc_vector_t">rc_vector_subtract (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga2c8a002edae139b24bde39eff021cf8e.html#_CPPv413rc_vector_sum11rc_vector_t11rc_vector_tP11rc_vector_t">rc_vector_sum (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1ga4af34fe82269a8a963c1a6b7850df8dc.html#_CPPv421rc_vector_sum_inplaceP11rc_vector_t11rc_vector_t">rc_vector_sum_inplace (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__vector__t.html#_CPPv411rc_vector_t">rc_vector_t (C++ struct)</a>
+
+      <ul>
+        <li><a href="projects/librobotcontrol/typedef_group___vector_1ga2312cf039ede3986f1cb5116626bb130.html#_CPPv411rc_vector_t">(C++ type)</a>
+</li>
+      </ul></li>
+      <li><a href="projects/librobotcontrol/structrc__vector__t.html#_CPPv4N11rc_vector_t1dE">rc_vector_t::d (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__vector__t.html#_CPPv4N11rc_vector_t11initializedE">rc_vector_t::initialized (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/structrc__vector__t.html#_CPPv4N11rc_vector_t3lenE">rc_vector_t::len (C++ member)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gaa5d747b5b351afd5ad7eb736360ed564.html#_CPPv422rc_vector_times_scalarP11rc_vector_td">rc_vector_times_scalar (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gae1568a79b72531a1c30e36d5be1ecb7e.html#_CPPv418rc_vector_zero_outP11rc_vector_t">rc_vector_zero_out (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group___vector_1gaaf406d1cf903d34a2fb175d947b7b9fd.html#_CPPv415rc_vector_zerosP11rc_vector_ti">rc_vector_zeros (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__version_1gac119ac7fd33dc5333f30c8a5be77d088.html#_CPPv410rc_versionv">rc_version (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__version_1gaf914d53437071a5c53f0e176f338967b.html#_CPPv416rc_version_printv">rc_version_print (C++ function)</a>
+</li>
+      <li><a href="projects/librobotcontrol/function_group__version_1ga159e40ac380f3c671d53f6a3ce105bbc.html#_CPPv417rc_version_stringv">rc_version_string (C++ function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1ga87bafaba040021ce4b52467163cf26c0.html#c.SPI_HEADER_PIN_3">SPI_HEADER_PIN_3 (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1gabadb724a2565c0eab46f351d6327e284.html#c.SPI_HEADER_PIN_4">SPI_HEADER_PIN_4 (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1gafb8db3be066633c87774d9e777bded3d.html#c.SPI_HEADER_PIN_5">SPI_HEADER_PIN_5 (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga3f30e426aa6d616ce2e7dfb43528e6ba.html#c.TB_PITCH_X">TB_PITCH_X (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga20b89150035ff9b018a5391942f6e9b8.html#c.TB_ROLL_Y">TB_ROLL_Y (C macro)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___i_m_u___m_p_u_1ga2c32a6323af47fd805660d077066dff3.html#c.TB_YAW_Z">TB_YAW_Z (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/typedef_group__time_1ga1cccab7444210b21d232130957e966dc.html#_CPPv48timespec">timespec (C++ type)</a>
+</li>
+      <li><a href="projects/librobotcontrol/typedef_group__time_1gaf202bc421ccfd5a434f6dcf438491e39.html#_CPPv47timeval">timeval (C++ type)</a>
+</li>
+      <li><a href="projects/librobotcontrol/define_group___useful___includes_1ga3b947f4b635461030ff2d87833e5049e.html#c.TWO_PI">TWO_PI (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1gab9ac569dfd6b4e57b64eaed3de9f5f22.html#c.UART1_HEADER_PIN_3">UART1_HEADER_PIN_3 (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/define_group___pinmux_1gaddde976f296c8441aed21f2b8c18ad70.html#c.UART1_HEADER_PIN_4">UART1_HEADER_PIN_4 (C macro)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="projects/librobotcontrol/variable_group___vector_1ga408c35375eaaf1ca251b040b1deeed0c.html#_CPPv414zero_tolerance">zero_tolerance (C++ member)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.. _exhale_function_group___s_i_s_o___filter_1ga30c826f6a4c74e641310a0c06d9f1c6c:
+
+Function rc_filter_alloc_from_arrays
+====================================
+
+- Defined in :ref:`file_library_include_rc_math_filter.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: rc_filter_alloc_from_arrays(rc_filter_t *, double, double *, int, double *, int)
+   :project: librobotcontrol

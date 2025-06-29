@@ -1,0 +1,6384 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Design and specifications &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglebone/ai/03-design-and-specifications';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Expansion" href="04-expansion.html" />
+    <link rel="prev" title="Quick start" href="02-quick-start.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-quick-start.html">Quick start</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Design and specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-expansion.html">Expansion</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos-and-tutorials.html">Demos &amp; Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/upgrade-beaglebone-ai-software.html">Upgrade BeagleBone AI software</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Additional Support Information</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleBone AI</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Design and specifications</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="design-and-specifications">
+<span id="bbai-design-and-specifications"></span><h1>Design and specifications<a class="headerlink" href="#design-and-specifications" title="Link to this heading">#</a></h1>
+<p>This section provides a detailed description of the Hardware design.
+This can be useful for interfacing, writing drivers, or using it to help
+modify specifics of your own design.</p>
+<p>The figure below is the high level block diagram of BeagleBone® AI. For
+those who may be concerned, this is the same figure found in section 5.
+It is placed here again for convenience so it is closer to the topics to
+follow.</p>
+<section id="block-diagram">
+<h2>Block Diagram<a class="headerlink" href="#block-diagram" title="Link to this heading">#</a></h2>
+<p>The figure below is the high level block diagram of BeagleBone® AI. For
+detailed layout information please check the schematics.</p>
+<img alt="beaglebone ai component placement" class="align-center" src="../../../_images/BB_AI_Blockdiagram_1000px.jpg" />
+</section>
+<section id="am572x-sitara-processor">
+<h2>AM572x Sitara™ Processor<a class="headerlink" href="#am572x-sitara-processor" title="Link to this heading">#</a></h2>
+<p>The Texas Instruments AM572x Sitara™ processor family of SOC devices
+brings high processing performance through the maximum flexibility of a
+fully integrated mixed processor solution. The devices also combine
+programmable video processing with a highly integrated peripheral set
+ideal for AI applications. The AM5729 used on BeagleBone® AI is the
+super-set device of the family.</p>
+<p>Programmability is provided by dual-core ARM® Cortex®-A15 RISC CPUs with
+Arm® Neon™ extension, and two TI C66x VLIW floating-point DSP core, and
+Vision AccelerationPac (with 4x EVEs). The Arm allows developers to keep
+control functions separate from other algorithms programmed on the DSPs
+and coprocessors, thus reducing the complexity of the system software.</p>
+<p>Texas Instruments AM572x Sitara™ Processor Family Block Diagram*</p>
+<img alt="beaglebone ai component placement" class="align-center" src="../../../_images/BB_AI_AM5729_blockdiagram.jpg" />
+<p><strong>MPU Subsystem</strong> The Dual Cortex-A15 MPU subsystem integrates the
+following submodules:</p>
+<ul class="simple">
+<li><p>ARM Cortex-A15 MPCore</p>
+<ul>
+<li><p>Two central processing units (CPUs)</p></li>
+<li><p>ARM Version 7 ISA: Standard ARM instruction set plus Thumb®-2,
+Jazelle® RCT Java™ accelerator, hardware virtualization support,
+and large physical address extensions (LPAE)</p></li>
+<li><p>Neon™ SIMD coprocessor and VFPv4 per CPU</p></li>
+<li><p>Interrupt controller with up to 160 interrupt requests</p></li>
+<li><p>One general-purpose timer and one watchdog timer per CPU – Debug
+and trace features</p></li>
+<li><p>32-KiB instruction and 32-KiB data level 1 (L1) cache per CPU</p></li>
+</ul>
+</li>
+<li><p>Shared 2-MiB level 2 (L2) cache</p></li>
+<li><p>48-KiB bootable ROM</p></li>
+<li><p>Local power, reset, and clock management (PRCM) module</p></li>
+<li><p>Emulation features</p></li>
+<li><p>Digital phase-locked loop (DPLL)</p></li>
+</ul>
+<p><strong>DSP Subsystems</strong> There are two DSP subsystems in the device. Each DSP
+subsystem contains the following submodules:</p>
+<ul class="simple">
+<li><p>TMS320C66x™ Floating-Point VLIW DSP core for audio processing, and
+general-purpose imaging and video processing. It extends the
+performance of existing C64x+™ and C647x™ DSPs through enhancements
+and new features.</p>
+<ul>
+<li><p>32-KiB L1D and 32-KiB L1P cache or addressable SRAM</p></li>
+<li><p>288-KiB L2 cache</p></li>
+</ul>
+</li>
+<li><p>256-KiB configurable as cache or SRAM</p></li>
+<li><p>32-KiB SRAM</p></li>
+<li><p>Enhanced direct memory access (EDMA) engine for video and audio data
+transfer</p></li>
+<li><p>Memory management units (MMU) for address management.</p></li>
+<li><p>Interrupt controller (INTC)</p></li>
+<li><p>Emulation capabilities</p></li>
+<li><p>Supported by OpenCL</p></li>
+</ul>
+<p><strong>EVE Subsystems</strong></p>
+<ul class="simple">
+<li><p>4 Embedded Vision Engines (EVEs) supported by TIDL machine learning
+library</p></li>
+</ul>
+<img alt="BeagleBone AI component placement" class="align-center" src="../../../_images/BB_AI_EVEmodule.jpg" />
+<p>The Embedded Vision Engine (EVE) module is a programmable imaging and
+vision processing engine. Software support for the EVE module is
+available through OpenCL Custom Device model with fixed set of
+functions. More information is available
+<a class="reference external" href="http://www.ti.com/lit/wp/spry251/spry251.pdf">http://www.ti.com/lit/wp/spry251/spry251.pdf</a></p>
+<p><strong>PRU-ICSS Subsystems</strong></p>
+<ul class="simple">
+<li><p>2x Dual-Core Programmable Real-Time Unit (PRU) subsystems (4 PRUs
+total) for ultra low-latency control and software generated
+peripherals. Access to these powerful subsystems is available through
+through the P8 and P9 headers. These are detailed in Section 7.</p></li>
+</ul>
+<p><strong>IPU Subsystems</strong> There are two Dual Cortex-M4 IPU subsystems in the
+device available for general purpose usage, particularly real-time
+control. Each IPU subsystem includes the following components:</p>
+<ul class="simple">
+<li><p>Two Cortex-M4 CPUs</p></li>
+<li><p>ARMv7E-M and Thumb-2 instruction set architectures</p></li>
+<li><p>Hardware division and single-cycle multiplication acceleration</p></li>
+<li><p>Dedicated INTC with up to 63 physical interrupt events with 16-level
+priority</p></li>
+<li><p>Two-level memory subsystem hierarchy</p>
+<ul>
+<li><p>L1 (32-KiB shared cache memory)</p></li>
+<li><p>L2 ROM + RAM</p></li>
+</ul>
+</li>
+<li><p>64-KiB RAM</p></li>
+<li><p>16-KiB bootable ROM</p></li>
+<li><p>MMU for address translation</p></li>
+<li><p>Integrated power management</p></li>
+<li><p>Emulation feature embedded in the Cortex-M4</p></li>
+</ul>
+<p><strong>IVA-HD Subsystem</strong></p>
+<ul class="simple">
+<li><p>IVA-HD subsystem with support for 4K &#64; 15fps H.264 encode/decode and
+other codecs &#64; 1080p60 The IVA-HD subsystem is a set of video encoder
+and decoder hardware accelerators. The list of supported codecs can
+be found in the software development kit (SDK) documentation.</p></li>
+</ul>
+<p><strong>BB2D Graphics Accelerator Subsystem</strong> The Vivante® GC320 2D graphics
+accelerator is the 2D BitBlt (BB2D) graphics accelerator subsystem on
+the device with the following features:</p>
+<ul class="simple">
+<li><p>API support:</p>
+<ul>
+<li><p>OpenWF™, DirectFB</p></li>
+<li><p>GDI/DirectDraw</p></li>
+</ul>
+</li>
+<li><p>BB2D architecture:</p>
+<ul>
+<li><p>BitBlt and StretchBlt</p></li>
+<li><p>DirectFB hardware acceleration</p></li>
+<li><p>ROP2, ROP3, ROP4 full alpha blending and transparency</p></li>
+<li><p>Clipping rectangle support</p></li>
+<li><p>Alpha blending includes Java 2 Porter-Duff compositing rules</p></li>
+<li><p>90-, 180-, 270-degree rotation on every primitive</p></li>
+<li><p>YUV-to-RGB color space conversion</p></li>
+<li><p>Programmable display format conversion with 14 source and 7
+destination formats</p></li>
+<li><p>High-quality, 9-tap, 32-phase filter for image and video scaling
+at 1080p</p></li>
+<li><p>Monochrome expansion for text rendering</p></li>
+<li><p>32K × 32K coordinate system</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Dual-Core PowerVR® SGX544™ 3D GPU</strong> The 3D graphics processing unit
+(GPU) subsystem is based on POWERVR® SGX544 subsystem from Imagination
+Technologies. It supports general embedded applications. The GPU can
+process different data types simultaneously, such as: pixel data, vertex
+data, video data, and general-purpose data. The GPU subsystem has the
+following features:</p>
+<ul class="simple">
+<li><p>Multicore GPU architecture: two SGX544 cores.</p></li>
+<li><p>Shared system level cache of 128 KiB</p></li>
+<li><p>Tile-based deferred rendering architecture</p></li>
+<li><p>Second-generation universal scalable shader engines (USSE2),
+multithreaded engines incorporating pixel and vertex shader
+functionality</p></li>
+<li><p>Present and texture load accelerators</p>
+<ul>
+<li><p>Enables to move, rotate, twiddle, and scale texture surfaces.</p></li>
+<li><p>Supports RGB, ARGB, YUV422, and YUV420 surface formats.</p></li>
+<li><p>Supports bilinear upscale.</p></li>
+<li><p>Supports source colorkey.</p></li>
+</ul>
+</li>
+<li><p>Fine-grained task switching, load balancing, and power management</p></li>
+<li><p>Programmable high-quality image antialiasing</p></li>
+<li><p>Bilinear, trilinear, anisotropic texture filtering</p></li>
+<li><p>Advanced geometry DMA driven operation for minimum CPU interaction</p></li>
+<li><p>Fully virtualized memory addressing for OS operation in a unified
+memory architecture (MMU)</p></li>
+</ul>
+</section>
+<section id="memory">
+<h2>Memory<a class="headerlink" href="#memory" title="Link to this heading">#</a></h2>
+<section id="gb-ddr3l">
+<span id="bbai-ddr"></span><h3>1GB DDR3L<a class="headerlink" href="#gb-ddr3l" title="Link to this heading">#</a></h3>
+<p>Dual 256M x 16 DDR3L memory devices are used, one on each side of the
+board, for a total of 1 GB. They will each operate at a clock frequency
+of up to 533 MHz yielding an effective rate of 1066Mb/s on the DDR3L bus
+allowing for 4GB/s of DDR3L memory bandwidth.</p>
+</section>
+<section id="gb-embedded-mmc">
+<h3>16GB Embedded MMC<a class="headerlink" href="#gb-embedded-mmc" title="Link to this heading">#</a></h3>
+<p>A single 16GB embedded MMC (eMMC) device is on the board.</p>
+</section>
+<section id="microsd-connector">
+<h3>microSD Connector<a class="headerlink" href="#microsd-connector" title="Link to this heading">#</a></h3>
+<p>The board is equipped with a single microSD connector to act as a
+secondary boot source for the board and, if selected as such, can be the
+primary booth source. The connector will support larger capacity microSD
+cards. The microSD card is not provided with the board.</p>
+</section>
+</section>
+<section id="boot-modes">
+<h2>Boot Modes<a class="headerlink" href="#boot-modes" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Need info on BBAI boot mode settings</p>
+</div>
+</section>
+<section id="power-management">
+<h2>Power Management<a class="headerlink" href="#power-management" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Need info on BBAI power management</p>
+</div>
+</section>
+<section id="connectivity">
+<h2>Connectivity<a class="headerlink" href="#connectivity" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Add WiFi/Bluetooth/Ethernet</p>
+</div>
+<p>BeagleBone® AI supports the majority of the functions of the AM5729 SOC
+through connectors or expansion header pin accessibility. See section 7
+for more information on expansion header pinouts. There are a few
+functions that are not accessible which are: (TBD)</p>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>This text needs to go somewhere.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id7">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text">On-board I2C Devices</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Address</p></th>
+<th class="head"><p>Identifier</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0x12</p></td>
+<td><p>U3</p></td>
+<td><p>TPS6590379 PMIC
+DVS</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x41</p></td>
+<td><p>U78</p></td>
+<td><p>STMPE811Q ADC
+and GPIO
+expander</p></td>
+</tr>
+<tr class="row-even"><td><p>0x47</p></td>
+<td><p>U13</p></td>
+<td><p>HD3SS3220 USB
+Type-C DRP port
+controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x50</p></td>
+<td><p>U9</p></td>
+<td><p>24LC32 board ID
+EEPROM</p></td>
+</tr>
+<tr class="row-even"><td><p>0x58</p></td>
+<td><p>U3</p></td>
+<td><p>TPS6590379 PMIC
+power registers</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x5a</p></td>
+<td><p>U3</p></td>
+<td><p>TPS6590379 PMIC
+interfaces and
+auxiliaries</p></td>
+</tr>
+<tr class="row-even"><td><p>0x5c</p></td>
+<td><p>U3</p></td>
+<td><p>TPS6590379 PMIC
+trimming and
+test</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x5e</p></td>
+<td><p>U3</p></td>
+<td><p>TPS6590379 PMIC
+OTP</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="power-section">
+<h2>Power Section<a class="headerlink" href="#power-section" title="Link to this heading">#</a></h2>
+<p><strong>Figure ?</strong> is the high level block diagram of the power section of the
+board.</p>
+<p>(Block Diagram for Power)</p>
+<section id="tps6590379-pmic">
+<h3>TPS6590379 PMIC<a class="headerlink" href="#tps6590379-pmic" title="Link to this heading">#</a></h3>
+<p>The Texas Instruments TPS6590379ZWSR device is an integrated
+power-management IC (PMIC) specifically designed to work well ARM Cortex
+A15 Processors, such as the AM5729 used on BeagleBone® AI. The datasheet
+is located here <a class="reference external" href="https://www.ti.com/lit/ds/symlink/tps659037.pdf">https://www.ti.com/lit/ds/symlink/tps659037.pdf</a></p>
+<p>The device provides seven configurable step-down converters with up to 6
+A of output current for memory, processor core, input-output (I/O), or
+preregulation of LDOs. One of these configurable step-down converters
+can be combined with another 3-A regulator to allow up to 9 A of output
+current. All of the step-down converters can synchronize to an external
+clock source between 1.7 MHz and 2.7 MHz, or an internal fallback clock
+at 2.2 MHz.</p>
+<p>The TPS659037 device contains seven LDO regulators for external use.
+These LDO regulators can be supplied from either a system supply or a
+preregulated supply. The power-up and power-down controller is
+configurable and supports any power-up and power-down sequences (OTP
+based). The TPS659037 device includes a 32-kHz RC oscillator to sequence
+all resources during power up and power down. In cases where a fast
+start up is needed, a 16-MHz crystal oscillator is also included to
+quickly generate a stable 32-kHz for the system. All LDOs and SMPS
+converters can be controlled by the SPI or I2C interface, or by power
+request signals. In addition, voltage scaling registers allow
+transitioning the SMPS to different voltages by SPI, I2C, or roof and
+floor control.</p>
+<p>One dedicated pin in each package can be configured as part of the
+power-up sequence to control external resources. General-purpose
+input-output (GPIO) functionality is available and two GPIOs can be
+configured as part of the power-up sequence to control external
+resources. Power request signals enable power mode control for power
+optimization. The device includes a general-purpose sigma-delta
+analog-to-digital converter (GPADC) with three external input channels.</p>
+<img alt="beaglebone ai user interface placement" class="align-center" src="../../../_images/BB_AI_PMIC_schematicpg3_900px.png" />
+</section>
+<section id="usb-c-power">
+<h3>USB-C Power<a class="headerlink" href="#usb-c-power" title="Link to this heading">#</a></h3>
+<p>Below image shows how the USB-C power input is connected to the <strong>TPS6590379</strong>.</p>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>(Schematic screenshot)</p>
+</div>
+</section>
+<section id="power-button">
+<h3>Power Button<a class="headerlink" href="#power-button" title="Link to this heading">#</a></h3>
+<img alt="beaglebone ai user interface placement" src="../../../_images/BB_AI_Userinterface_800px.png" />
+</section>
+</section>
+<section id="emmc-flash-memory-16gb">
+<span id="emmc-flash-memory"></span><h2>eMMC Flash Memory (16GB)<a class="headerlink" href="#emmc-flash-memory-16gb" title="Link to this heading">#</a></h2>
+<section id="emmc-device">
+<h3>eMMC Device<a class="headerlink" href="#emmc-device" title="Link to this heading">#</a></h3>
+</section>
+<section id="emmc-circuit-design">
+<h3>eMMC Circuit Design<a class="headerlink" href="#emmc-circuit-design" title="Link to this heading">#</a></h3>
+</section>
+<section id="board-id">
+<h3>Board ID<a class="headerlink" href="#board-id" title="Link to this heading">#</a></h3>
+<p>A board identifier is placed on the eMMC in the second linear boot
+partition (/dev/mmcblk1boot1). Reserved bytes up to 32k (0x8000) are
+filled with “FF”.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id8">
+<caption><span class="caption-number">Table 45 </span><span class="caption-text">Board ID</span><a class="headerlink" href="#id8" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Size (bytes)</p></th>
+<th class="head"><p>Contents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Header</p></td>
+<td><p>4</p></td>
+<td><p>MSB 0xEE3355AA LSB (stored LSB
+first)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Board Name</p></td>
+<td><p>8</p></td>
+<td><p>Name for board in ASCII
+“BBONE-AI” = BeagleBone AI</p></td>
+</tr>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>4</p></td>
+<td><p>Hardware version code for board
+in ASCII “00A1” = rev. A1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial Number</p></td>
+<td><p>14</p></td>
+<td><p>Serial number of the board. This
+is a 14 character string which
+is:</p>
+<p>WWYYEMAInnnnnn</p>
+<p>where:</p>
+<ul class="simple">
+<li><p>WW = 2 digit week of the year
+of production</p></li>
+<li><p>YY = 2 digit year of
+production</p></li>
+<li><p>EM = Embest</p></li>
+<li><p>AI = BeagleBone AI</p></li>
+<li><p>nnnnnn = incrementing board
+number</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>debian@beaglebone:~$<span class="w"> </span>sudo<span class="w"> </span>hexdump<span class="w"> </span>-C<span class="w"> </span>/dev/mmcblk1boot1
+<span class="m">00000000</span><span class="w">  </span>aa<span class="w"> </span><span class="m">55</span><span class="w"> </span><span class="m">33</span><span class="w"> </span>ee<span class="w"> </span><span class="m">42</span><span class="w"> </span><span class="m">42</span><span class="w"> </span>4f<span class="w"> </span>4e<span class="w">  </span><span class="m">45</span><span class="w"> </span>2d<span class="w"> </span><span class="m">41</span><span class="w"> </span><span class="m">49</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">41</span><span class="w"> </span><span class="m">31</span><span class="w">  </span><span class="p">|</span>.U3.BBONE-AI00A1<span class="p">|</span>
+<span class="m">00000010</span><span class="w">  </span><span class="m">31</span><span class="w"> </span><span class="m">39</span><span class="w"> </span><span class="m">33</span><span class="w"> </span><span class="m">33</span><span class="w"> </span><span class="m">45</span><span class="w"> </span>4d<span class="w"> </span><span class="m">41</span><span class="w"> </span><span class="m">49</span><span class="w">  </span><span class="m">30</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">38</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">33</span><span class="w"> </span>ff<span class="w"> </span>ff<span class="w">  </span><span class="p">|</span>1933EMAI000803..<span class="p">|</span>
+<span class="m">00000020</span><span class="w">  </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w">  </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w">  </span><span class="p">|</span>................<span class="p">|</span>
+*
+<span class="m">00008000</span><span class="w">  </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w">  </span><span class="p">|</span>................<span class="p">|</span>
+*
+<span class="m">00400000</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="wireless-communication-802-11-ac-bluetooth-azurewave-aw-cm256sm">
+<h2>Wireless Communication: 802.11 ac &amp; Bluetooth: AzureWave AW-CM256SM<a class="headerlink" href="#wireless-communication-802-11-ac-bluetooth-azurewave-aw-cm256sm" title="Link to this heading">#</a></h2>
+<p>Datasheet
+<a class="reference external" href="https://storage.googleapis.com/wzukusers/user-26561200/documents/5b7d0fe3c3f29Ct6k0QI/AW-CM256SM_DS_Rev%2015_CYW.pdf">https://storage.googleapis.com/wzukusers/user-26561200/documents/5b7d0fe3c3f29Ct6k0QI/AW-CM256SM_DS_Rev%2015_CYW.pdf</a>
+Wireless connectivity is provided on BeagleBone® AI via the AzureWave
+Technologies AW-CM256SM IEEE 802.11a/b/g/n/ac Wi-Fi with Bluetooth 4.2
+Combo Stamp Module.</p>
+<p>This highly integrated wireless local area network (WLAN) solution
+combines Bluetooth 4.2 and provides a complete 2.4GHz Bluetooth system
+which is fully compliant to Bluetooth 4.2 and v2.1 that supports EDR of
+2Mbps and 3Mbps for data and audio communications. It enables a high
+performance, cost effective, low power, compact solution that easily
+fits onto the SDIO and UART combo stamp module.</p>
+<p>Compliant with the IEEE 802.11a/b/g/n/ac standard, AW-CM256SM uses
+Direct Sequence Spread Spectrum (DSSS), Orthogonal Frequency Division
+Multiplexing (OFDM), BPSK, QPSK, CCK and QAM baseband modulation
+technologies. Compare to 802.11n technology, 802.11ac provides a big
+improvement on speed and range.</p>
+<p>The AW-CM256SM module adopts a Cypress solution. The module design is
+based on the Cypress CYP43455 single chip.</p>
+<section id="wlan-on-the-azurewave-aw-cm256sm">
+<h3>WLAN on the AzureWave AW-CM256SM<a class="headerlink" href="#wlan-on-the-azurewave-aw-cm256sm" title="Link to this heading">#</a></h3>
+<p>High speed wireless connection up to 433.3Mbps transmit/receive PHY rate using 80MHz bandwidth,</p>
+<ul class="simple">
+<li><p>1 antennas to support 1(Transmit) and 1(Receive) technology and Bluetooth</p></li>
+<li><p>WCS (Wireless Coexistence System)</p></li>
+<li><p>Low power consumption and high performance</p></li>
+<li><p>Enhanced wireless security</p></li>
+<li><p>Fully speed operation with Piconet and Scatternet support</p></li>
+<li><p>12mm(L) x 12mm(W) x1.65mm(H) LGA package</p></li>
+<li><p>Dual - band 2.4 GHz and 5GHz 802.11 a/b/g/n/ac</p></li>
+<li><p>External Crystal</p></li>
+</ul>
+</section>
+<section id="bluetooth-on-the-azurewave-aw-cm256s">
+<h3>Bluetooth on the AzureWave AW-CM256S<a class="headerlink" href="#bluetooth-on-the-azurewave-aw-cm256s" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>1 antennas to support 1(Transmit) and 1(Receive) technology and Bluetooth</p></li>
+<li><p>Fully qualified Bluetooth BT4.2</p></li>
+<li><p>Enhanced Data Rate(EDR) compliant for both 2Mbps and 3Mbps supported</p></li>
+<li><p>High speed UART and PCM for Bluetooth</p></li>
+</ul>
+</section>
+</section>
+<section id="hdmi">
+<h2>HDMI<a class="headerlink" href="#hdmi" title="Link to this heading">#</a></h2>
+<p>The HDMI interface is aligned with the HDMI TMDS single stream standard
+v1.4a (720p &#64;60Hz to 1080p &#64;24Hz) and the HDMI v1.3 (1080p &#64;60Hz): 3
+data channels, plus 1 clock channel is supported (differential).</p>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>Verify it isn’t better than this. Doesn’t seem right.</p>
+</div>
+</section>
+<section id="pru-icss">
+<h2>PRU-ICSS<a class="headerlink" href="#pru-icss" title="Link to this heading">#</a></h2>
+<p>The Texas Instruments AM5729 Sitara™ provides 2 Programmable Real-Time
+Unit Subsystem and Industrial Communciation Subsystems. (PRU-ICSS1 and
+PRU-ICSS2).</p>
+<p>Within each PRU-ICSS are dual 32-bit Load / Store RISC CPU cores:
+Programmable Real-Time Units (PRU0 and PRU1), shared data and
+instruction memories, internal peripheral modules and an interrupt
+controller. Therefore the SoC is providing a total of 4 PRU 32-bit RISC
+CPU’s:</p>
+<ul class="simple">
+<li><p>PRU-ICSS1 PRU0</p></li>
+<li><p>PRU-ICSS1 PRU1</p></li>
+<li><p>PRU-ICSS2 PRU0</p></li>
+<li><p>PRU-ICSS2 PRU1</p></li>
+</ul>
+<p>The programmable nature of the PRUs, along with their access to pins,
+events and all SoC resources, provides flexibility in implementing fast
+real-time responses, specialized data handling operations, peripheral
+interfaces and in off-loading tasks from the other processor cores of
+the SoC.</p>
+<section id="pru-icss-features">
+<h3>PRU-ICSS Features<a class="headerlink" href="#pru-icss-features" title="Link to this heading">#</a></h3>
+<p>Each of the 2 PRU-ICSS (PRU-ICSS1 and PRU-ICSS2) includes the following main features:</p>
+<ul class="simple">
+<li><p>2 Independent programmable real-time (PRU) cores (PRU0 and PRU1)</p></li>
+<li><p>21x Enhanced GPIs (EGPIs) and 21x Enhanced GPOs (EGPOs) with asynchronous capture and serial support per each PRU CPU core</p></li>
+<li><p>One Ethernet MII_RT module (PRU-ICSS_MII_RT) with two MII ports and configurable connections to PRUs</p></li>
+<li><p>1 MDIO Port (PRU-ICSS_MII_MDIO)</p></li>
+<li><p>One Industrial Ethernet Peripheral (IEP) to manage/generate Industrial Ethernet functions</p></li>
+<li><p>1 x 16550-compatible UART with a dedicated 192 MHz clock to support 12Mbps Profibus</p></li>
+<li><p>1 Industrial Ethernet timer with 7/9 capture and 8 compare events</p></li>
+<li><p>1 Enhanced Capture Module (ECAP)</p></li>
+<li><p>1 Interrupt Controller (PRU-ICSS_INTC)</p></li>
+<li><p>A flexible power management support</p></li>
+<li><p>Integrated switched central resource with programmable priority</p></li>
+<li><p>Parity control supported by all memories</p></li>
+</ul>
+</section>
+<section id="pru-icss-block-diagram">
+<h3>PRU-ICSS Block Diagram<a class="headerlink" href="#pru-icss-block-diagram" title="Link to this heading">#</a></h3>
+<p>Below is a high level block diagram of one of the PRU-ICSS Subsystems</p>
+<img alt="beaglebone ai component placement" class="align-center" src="../../../_images/BB_AI_PRU_block_diagram.jpg" />
+</section>
+</section>
+<section id="pru-icss-resources-and-faqs">
+<h2>PRU-ICSS Resources and FAQ’s<a class="headerlink" href="#pru-icss-resources-and-faqs" title="Link to this heading">#</a></h2>
+<p>Resources</p>
+<ul class="simple">
+<li><p>Great resources for PRU and BeagleBone® has been compiled here <a class="reference external" href="https://beagleboard.org/pru">https://beagleboard.org/pru</a></p></li>
+<li><p>The PRU Cookbook provides examples and getting started information <a class="reference internal" href="../../../books/pru-cookbook/index.html#pru-cookbook-home"><span class="std std-ref">PRU Cookbook</span></a></p></li>
+<li><p>Detailed specification is available at <a class="reference external" href="http://processors.wiki.ti.com/index.php/PRU-ICSS">http://processors.wiki.ti.com/index.php/PRU-ICSS</a></p></li>
+</ul>
+<p>FAQ</p>
+<ul class="simple">
+<li><p>Q: Is it possible to configure the Ethernet MII to be accessed via a
+PRU MII?</p></li>
+<li><p>A: TBD</p></li>
+</ul>
+<section id="pru-icss1-pin-access">
+<h3>PRU-ICSS1 Pin Access<a class="headerlink" href="#pru-icss1-pin-access" title="Link to this heading">#</a></h3>
+<p>The table below shows which PRU-ICSS1 signals can be accessed on
+BeagleBone® AI and on which connector and pins they are accessible from.
+Some signals are accessible on the same pins. Signal Names reveal which
+PRU-ICSS Subsystem is being addressed. pr1 is PRU-ICSS1 and pr2 is
+PRU-ICSS2</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id9">
+<caption><span class="caption-number">Table 46 </span><span class="caption-text">PRU-ICSS1 Pin Access</span><a class="headerlink" href="#id9" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>SIGNAL NAME</p></th>
+<th class="head"><p>DESCRIPTION</p></th>
+<th class="head"><p>T
+Y
+P
+E</p></th>
+<th class="head"><p>P
+R
+O
+C</p></th>
+<th class="head"><p>HE
+ADER
+_PIN</p></th>
+<th class="head"><p>M
+O
+D
+E</p></th>
+<th class="head"><p>HE
+ADER
+_PIN</p></th>
+<th class="head"><p>M
+O
+D
+E</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pr1_pru0_gpo0</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+H
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo1</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+H
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo2</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+H
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo3</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+G
+6</p></td>
+<td><p>P
+8_12</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo4</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+H
+4</p></td>
+<td><p>P
+8_11</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo5</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+G
+4</p></td>
+<td><p>P
+9_15</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo6</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+G
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo7</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+G
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo8</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+G
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo9</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo10</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo11</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo12</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo13</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo14</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo15</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo16</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo17</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+2</p></td>
+<td><p>P
+9_26</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo18</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpo19</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+D
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpo20</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+D
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi0</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+H
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi1</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+H
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi2</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+H
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi3</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+6</p></td>
+<td><p>P
+8_12</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi4</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+H
+4</p></td>
+<td><p>P
+8_11</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi5</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+4</p></td>
+<td><p>P
+9_15</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi6</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi7</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi8</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi9</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi10</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi11</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi12</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi13</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi14</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi15</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi16</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi17</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+2</p></td>
+<td><p>P
+9_26</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi18</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru0_gpi19</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+D
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru0_gpi20</p></td>
+<td><p>PRU0
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+D
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo0</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo1</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D
+2</p></td>
+<td><p>P
+9_20</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo2</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F
+4</p></td>
+<td><p>P
+9_19</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo3</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C
+1</p></td>
+<td><p>P
+9_41</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo4</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo5</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F
+5</p></td>
+<td><p>P
+8_18</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo6</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E
+6</p></td>
+<td><p>P
+8_19</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo7</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D
+3</p></td>
+<td><p>P
+8_13</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo8</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo9</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D
+5</p></td>
+<td><p>P
+8_14</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo10</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C
+2</p></td>
+<td><p>P
+9_42</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo11</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C
+3</p></td>
+<td><p>P
+9_27</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo12</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo13</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo14</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D
+6</p></td>
+<td><p>P
+9_14</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo15</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C
+5</p></td>
+<td><p>P
+9_16</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo16</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+3</p></td>
+<td><p>P
+8_15</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo17</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B
+3</p></td>
+<td><p>P
+8_26</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo18</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B
+4</p></td>
+<td><p>P
+8_16</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpo19</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpo20</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi0</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi1</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D
+2</p></td>
+<td><p>P
+9_20</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi2</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F
+4</p></td>
+<td><p>P
+9_19</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi3</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C
+1</p></td>
+<td><p>P
+9_41</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi4</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi5</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F
+5</p></td>
+<td><p>P
+8_18</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi6</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E
+6</p></td>
+<td><p>P
+8_19</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi7</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D
+3</p></td>
+<td><p>P
+8_13</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi8</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi9</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D
+5</p></td>
+<td><p>P
+8_14</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi10</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C
+2</p></td>
+<td><p>P
+9_42</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi11</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C
+3</p></td>
+<td><p>P
+9_27</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi12</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi13</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi14</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D
+6</p></td>
+<td><p>P
+9_14</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi15</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C
+5</p></td>
+<td><p>P
+9_16</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi16</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+3</p></td>
+<td><p>P
+8_15</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi17</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B
+3</p></td>
+<td><p>P
+8_26</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi18</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B
+4</p></td>
+<td><p>P
+8_16</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_pru1_gpi19</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_pru1_gpi20</p></td>
+<td><p>PRU1
+G
+eneral-Purpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii_mt0_clk</p></td>
+<td><p>MII0 Transmit
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>U
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_txen</p></td>
+<td><p>MII0 Transmit
+Enable</p></td>
+<td><p>O</p></td>
+<td><p>V
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_txd3</p></td>
+<td><p>MII0 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>V
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_txd2</p></td>
+<td><p>MII0 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>V
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_txd1</p></td>
+<td><p>MII0 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>Y
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_txd0</p></td>
+<td><p>MII0 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>W
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_rxdv</p></td>
+<td><p>MII0 Data
+Valid</p></td>
+<td><p>I</p></td>
+<td><p>V
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii_mr0_clk</p></td>
+<td><p>MII0 Receive
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>Y
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_rxd3</p></td>
+<td><p>MII0 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>W
+9</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_rxd2</p></td>
+<td><p>MII0 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>V
+9</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_crs</p></td>
+<td><p>MII0 Carrier
+Sense</p></td>
+<td><p>I</p></td>
+<td><p>V
+7</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_rxer</p></td>
+<td><p>MII0 Receive
+Error</p></td>
+<td><p>I</p></td>
+<td><p>U
+7</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_rxd1</p></td>
+<td><p>MII0 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>V
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_rxd0</p></td>
+<td><p>MII0 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>U
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii0_col</p></td>
+<td><p>MII0 Collision
+Detect</p></td>
+<td><p>I</p></td>
+<td><p>V
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii0_rxlink</p></td>
+<td><p>MII0 Receive
+Link</p></td>
+<td><p>I</p></td>
+<td><p>U
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii_mt1_clk</p></td>
+<td><p>MII1 Transmit
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>C
+1</p></td>
+<td><p>P
+9_41</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_txen</p></td>
+<td><p>MII1 Transmit
+Enable</p></td>
+<td><p>O</p></td>
+<td><p>E
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii1_txd3</p></td>
+<td><p>MII1 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>F
+5</p></td>
+<td><p>P
+8_18</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_txd2</p></td>
+<td><p>MII1 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>E
+6</p></td>
+<td><p>P
+8_19</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii1_txd1</p></td>
+<td><p>MII1 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>D
+5</p></td>
+<td><p>P
+8_14</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_txd0</p></td>
+<td><p>MII1 Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>C
+2</p></td>
+<td><p>P
+9_42</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii_mr1_clk</p></td>
+<td><p>MII1 Receive
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>C
+3</p></td>
+<td><p>P
+9_27</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_rxdv</p></td>
+<td><p>MII1 Data
+Valid</p></td>
+<td><p>I</p></td>
+<td><p>C
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii1_rxd3</p></td>
+<td><p>MII1 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>B
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_rxd2</p></td>
+<td><p>MII1 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>D
+6</p></td>
+<td><p>P
+9_14</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii1_rxd1</p></td>
+<td><p>MII1 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>C
+5</p></td>
+<td><p>P
+9_16</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_rxd0</p></td>
+<td><p>MII1 Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>A
+3</p></td>
+<td><p>P
+8_15</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii1_rxer</p></td>
+<td><p>MII1 Receive
+Error</p></td>
+<td><p>I</p></td>
+<td><p>B
+3</p></td>
+<td><p>P
+8_26</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_rxlink</p></td>
+<td><p>MII1 Receive
+Link</p></td>
+<td><p>I</p></td>
+<td><p>B
+4</p></td>
+<td><p>P
+8_16</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mii1_col</p></td>
+<td><p>MII1 Collision
+Detect</p></td>
+<td><p>I</p></td>
+<td><p>B
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mii1_crs</p></td>
+<td><p>MII1 Carrier
+Sense</p></td>
+<td><p>I</p></td>
+<td><p>A
+4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_mdio_mdclk</p></td>
+<td><p>MDIO Clock</p></td>
+<td><p>O</p></td>
+<td><p>D
+3</p></td>
+<td><p>P
+8_13</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_mdio_data</p></td>
+<td><p>MDIO Data</p></td>
+<td><p>I
+O</p></td>
+<td><p>F
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edc_latch0_in</p></td>
+<td><p>Latch Input 0</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+3
+/
+E
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edc_latch1_in</p></td>
+<td><p>Latch Input 1</p></td>
+<td><p>I</p></td>
+<td><p>A
+G
+5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edc_sync0_out</p></td>
+<td><p>SYNC0 Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+2
+/
+D
+2</p></td>
+<td><p>P
+9_20</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edc_sync1_out</p></td>
+<td><p>SYNC1 Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+6</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edio_latch_in</p></td>
+<td><p>Latch Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edio_sof</p></td>
+<td><p>Start Of Frame</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+4
+/
+F
+4</p></td>
+<td><p>P
+9_19</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edio_data_in0</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+F
+1
+/
+E
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edio_data_in1</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+3
+/
+G
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edio_data_in2</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+5
+/
+H
+7</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edio_data_in3</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+1
+/
+G
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edio_data_in4</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+2
+/
+G
+6</p></td>
+<td><p>P
+9_26</p></td>
+<td><p>M
+O
+D
+E
+1
+0</p></td>
+<td><p>P
+8_34</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edio_data_in5</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+E
+6
+/
+F
+2</p></td>
+<td><p>P
+8_36</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_edio_data_in6</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+D
+2
+/
+F
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_edio_data_in7</p></td>
+<td><p>Ethernet
+Digital Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+D
+3
+/
+D
+1</p></td>
+<td><p>P
+8_15</p></td>
+<td><p>M
+O
+D
+E
+1
+2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r1_edio_data_out0</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+F
+1
+/
+E
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r1_edio_data_out1</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+3
+/
+G
+2</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r1_edio_data_out2</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+5
+/
+H
+7</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r1_edio_data_out3</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+1
+/
+G
+1</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r1_edio_data_out4</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+2
+/
+G
+6</p></td>
+<td><p>P
+9_26</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td><p>P
+8_34</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r1_edio_data_out5</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+E
+6
+/
+F
+2</p></td>
+<td><p>P
+8_36</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r1_edio_data_out6</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+D
+2
+/
+F
+3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r1_edio_data_out7</p></td>
+<td><p>Ethernet
+Digital Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+D
+3
+/
+D
+1</p></td>
+<td><p>P
+8_15</p></td>
+<td><p>M
+O
+D
+E
+1
+3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_uart0_cts_n</p></td>
+<td><p>UART
+Clear-To-Send</p></td>
+<td><p>I</p></td>
+<td><p>G
+1
+/
+F
+1
+1</p></td>
+<td><p>P
+8_45</p></td>
+<td><p>M
+O
+D
+E
+1
+0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_uart0_rts_n</p></td>
+<td><p>UART
+Ready-To-Send</p></td>
+<td><p>O</p></td>
+<td><p>G
+6
+/
+G
+1
+0</p></td>
+<td><p>P
+8_34</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td><p>P
+8_46</p></td>
+<td><p>M
+O
+D
+E
+1
+0</p></td>
+</tr>
+<tr class="row-even"><td><p>pr1_uart0_rxd</p></td>
+<td><p>UART Receive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>F
+2
+/
+F
+1
+0</p></td>
+<td><p>P
+8_36</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td><p>P
+8_43</p></td>
+<td><p>M
+O
+D
+E
+1
+0</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_uart0_txd</p></td>
+<td><p>UART Transmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>F
+3
+/
+G
+1
+1</p></td>
+<td><p>P
+8_44</p></td>
+<td><p>M
+O
+D
+E
+1
+0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr1_ecap0_
+ecap_capin_apwm_o</p></td>
+<td><p>Capture
+Input/PWM
+Output</p></td>
+<td><p>I
+O</p></td>
+<td><p>D
+1
+/
+E
+9</p></td>
+<td><p>P
+8_15</p></td>
+<td><p>M
+O
+D
+E
+1
+1</p></td>
+<td><p>P
+8_41</p></td>
+<td><p>M
+O
+D
+E
+1
+0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pru-icss2-pin-access">
+<h3>PRU-ICSS2 Pin Access<a class="headerlink" href="#pru-icss2-pin-access" title="Link to this heading">#</a></h3>
+<p>The table below shows which PRU-ICSS2 signals can be accessed on
+BeagleBone® AI and on which connector and pins they are accessible from.
+Some signals are accessible on the same pins. Signal Names reveal which
+PRU-ICSS Subsystem is being addressed. pr1 is PRU-ICSS1 and pr2 is
+PRU-ICSS2</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id10">
+<caption><span class="caption-number">Table 47 </span><span class="caption-text">PRU-ICSS2 Pin Access</span><a class="headerlink" href="#id10" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>SIGNAL
+NAME</p></th>
+<th class="head"><p>DESCR
+IPTION</p></th>
+<th class="head"><p>TYPE</p></th>
+<th class="head"><p>PROC</p></th>
+<th class="head"><p>HEAD
+ER_PIN</p></th>
+<th class="head"><p>MODE</p></th>
+<th class="head"><p>HEAD
+ER_PIN</p></th>
+<th class="head"><p>MODE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpo0</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>G
+11/AC5</p></td>
+<td><p>P8_44</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpo1</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E9/AB4</p></td>
+<td><p>P8_41</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpo2</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F9/AD4</p></td>
+<td><p>P8_42</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_21</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpo3</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F8/AC4</p></td>
+<td><p>P8_39</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_20</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpo4</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E7/AC7</p></td>
+<td><p>P8_40</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_25</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpo5</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E8/AC6</p></td>
+<td><p>P8_37</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_24</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpo6</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D9/AC9</p></td>
+<td><p>P8_38</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_5</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpo7</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D7/AC3</p></td>
+<td><p>P8_36</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_6</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpo8</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>D8/AC8</p></td>
+<td><p>P8_34</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_23</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpo9</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A5/AD6</p></td>
+<td><p>P8_35</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_22</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpo10</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C6/AB8</p></td>
+<td><p>P8_33</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_3</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpo11</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C8/AB5</p></td>
+<td><p>P8_31</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_4</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpo12</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C7/B18</p></td>
+<td><p>P8_32</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpo13</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B7/F15</p></td>
+<td><p>P8_45</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpo14</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B8/B19</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE13</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpo15</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A7/C17</p></td>
+<td><p>P8_17</p></td>
+<td><p>MODE13</p></td>
+<td><p>P9_13</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpo16</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A8/C15</p></td>
+<td><p>P8_27</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpo17</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C9/A16</p></td>
+<td><p>P8_28</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpo18</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A9/A19</p></td>
+<td><p>P8_29</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpo19</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B9/A18</p></td>
+<td><p>P8_30</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpo20</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A
+10/F14</p></td>
+<td><p>P8_46</p></td>
+<td><p>MODE13</p></td>
+<td><p>P8_8</p></td>
+<td><p>MODE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpi0</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>G
+11/AC5</p></td>
+<td><p>P8_44</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpi1</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E9/AB4</p></td>
+<td><p>P8_41</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpi2</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F9/AD4</p></td>
+<td><p>P8_42</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_21</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpi3</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F8/AC4</p></td>
+<td><p>P8_39</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_20</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpi4</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E7/AC7</p></td>
+<td><p>P8_40</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_25</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpi5</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E8/AC6</p></td>
+<td><p>P8_37</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_24</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpi6</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D9/AC9</p></td>
+<td><p>P8_38</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_5</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpi7</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D7/AC3</p></td>
+<td><p>P8_36</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_6</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+0_gpi8</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D8/AC8</p></td>
+<td><p>P8_34</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_23</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+0_gpi9</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A5/AD6</p></td>
+<td><p>P8_35</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_22</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpi10</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C6/AB8</p></td>
+<td><p>P8_33</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_3</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpi11</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C8/AB5</p></td>
+<td><p>P8_31</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_4</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpi12</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C7/B18</p></td>
+<td><p>P8_32</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpi13</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B7/F15</p></td>
+<td><p>P8_45</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpi14</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B8/B19</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE12</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpi15</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A7/C17</p></td>
+<td><p>P8_17</p></td>
+<td><p>MODE12</p></td>
+<td><p>P9_13</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpi16</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A8/C15</p></td>
+<td><p>P8_27</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpi17</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C9/A16</p></td>
+<td><p>P8_28</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpi18</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A9/A19</p></td>
+<td><p>P8_29</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru0
+_gpi19</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B9/A18</p></td>
+<td><p>P8_30</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru0
+_gpi20</p></td>
+<td><p>PRU0
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A
+10/F14</p></td>
+<td><p>P8_46</p></td>
+<td><p>MODE12</p></td>
+<td><p>P8_8</p></td>
+<td><p>MODE12</p></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpo0</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V1/D17</p></td>
+<td><p>P8_32</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpo1</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>U4/AA3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpo2</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>U3/AB9</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpo3</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V2/AB3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpo4</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>Y1/AA4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpo5</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>W9/D18</p></td>
+<td><p>P9_25</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpo6</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V9/E17</p></td>
+<td><p>P8_9</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpo7</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V7/C14</p></td>
+<td><p>P9_31</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpo8</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>U7/G12</p></td>
+<td><p>P9_18</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpo9</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V6/F12</p></td>
+<td><p>P9_17</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpo10</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>U6/B12</p></td>
+<td><p>P9_31</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpo11</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>U5/A11</p></td>
+<td><p>P9_29</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpo12</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V5/B13</p></td>
+<td><p>P9_30</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpo13</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V4/A12</p></td>
+<td><p>P9_26</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpo14</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>V3/E14</p></td>
+<td><p>P9_42</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpo15</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>Y2/A13</p></td>
+<td><p>P8_10</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpo16</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>W2/G14</p></td>
+<td><p>P8_7</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpo17</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E11</p></td>
+<td><p>P8_27</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpo18</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F11</p></td>
+<td><p>P8_45</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpo19</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>G10</p></td>
+<td><p>P8_46</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpo20</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Output</p></td>
+<td><p>O</p></td>
+<td><p>F10</p></td>
+<td><p>P8_43</p></td>
+<td><p>MODE13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpi0</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V1/D17</p></td>
+<td><p>P8_32</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpi1</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>U4/AA3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpi2</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>U3/AB9</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpi3</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V2/AB3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpi4</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>Y1/AA4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpi5</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>W9/D18</p></td>
+<td><p>P9_25</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpi6</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V9/E17</p></td>
+<td><p>P8_9</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpi7</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V7/C14</p></td>
+<td><p>P9_31</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_pru
+1_gpi8</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>U7/G12</p></td>
+<td><p>P9_18</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_pru
+1_gpi9</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V6/F12</p></td>
+<td><p>P9_17</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpi10</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>U6/B12</p></td>
+<td><p>P9_31</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpi11</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>U5/A11</p></td>
+<td><p>P9_29</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpi12</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V5/B13</p></td>
+<td><p>P9_30</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpi13</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V4/A12</p></td>
+<td><p>P9_28</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpi14</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>V3/E14</p></td>
+<td><p>P9_42</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpi15</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>Y2/A13</p></td>
+<td><p>P8_10</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpi16</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>W2/G14</p></td>
+<td><p>P8_7</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpi17</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>E11</p></td>
+<td><p>P8_27</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpi18</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F11</p></td>
+<td><p>P8_45</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr
+2_pru1
+_gpi19</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>G10</p></td>
+<td><p>P8_46</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_pru1
+_gpi20</p></td>
+<td><p>PRU1
+Gen
+eral-P
+urpose
+Input</p></td>
+<td><p>I</p></td>
+<td><p>F10</p></td>
+<td><p>P8_43</p></td>
+<td><p>MODE12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dc_lat
+ch0_in</p></td>
+<td><p>Latch
+Input
+0</p></td>
+<td><p>I</p></td>
+<td><p>F9</p></td>
+<td><p>P8_42</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_e
+dc_lat
+ch1_in</p></td>
+<td><p>Latch
+Input
+1</p></td>
+<td><p>I</p></td>
+<td><p>F8</p></td>
+<td><p>P8_39</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dc_syn
+c0_out</p></td>
+<td><p>SYNC0
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E7</p></td>
+<td><p>P8_40</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_e
+dc_syn
+c1_out</p></td>
+<td><p>SYNC1
+Output</p></td>
+<td><p>O</p></td>
+<td><p>E8</p></td>
+<td><p>P8_37</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dio_la
+tch_in</p></td>
+<td><p>Latch
+Input</p></td>
+<td><p>I</p></td>
+<td><p>D9</p></td>
+<td><p>P8_38</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_ed
+io_sof</p></td>
+<td><p>Start
+Of
+Frame</p></td>
+<td><p>O</p></td>
+<td><p>D7</p></td>
+<td><p>P8_36</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2
+_uart0
+_cts_n</p></td>
+<td><p>UART
+C
+lear-T
+o-Send</p></td>
+<td><p>I</p></td>
+<td><p>D8</p></td>
+<td><p>P8_34</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2
+_uart0
+_rts_n</p></td>
+<td><p>UART
+R
+eady-T
+o-Send</p></td>
+<td><p>O</p></td>
+<td><p>A5</p></td>
+<td><p>P8_35</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_uar
+t0_rxd</p></td>
+<td><p>UART
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>C6</p></td>
+<td><p>P8_33</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_uar
+t0_txd</p></td>
+<td><p>UART
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>C8</p></td>
+<td><p>P8_31</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2
+_ecap0
+_ecap_
+capin_
+apwm_o</p></td>
+<td><p>C
+apture
+Inp
+ut/PWM
+output</p></td>
+<td><p>IO</p></td>
+<td><p>C7</p></td>
+<td><p>P8_32</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_e
+dio_da
+ta_in0</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B7</p></td>
+<td><p>P8_45</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dio_da
+ta_in1</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B8</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_e
+dio_da
+ta_in2</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A7</p></td>
+<td><p>P8_17</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dio_da
+ta_in3</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A8</p></td>
+<td><p>P8_27</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_e
+dio_da
+ta_in4</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>C9</p></td>
+<td><p>P8_28</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dio_da
+ta_in5</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A9</p></td>
+<td><p>P8_29</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_e
+dio_da
+ta_in6</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>B9</p></td>
+<td><p>P8_30</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_e
+dio_da
+ta_in7</p></td>
+<td><p>Et
+hernet
+D
+igital
+Input</p></td>
+<td><p>I</p></td>
+<td><p>A10</p></td>
+<td><p>P8_46</p></td>
+<td><p>MODE10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_ed
+io_dat
+a_out0</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B7</p></td>
+<td><p>P8_45</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_ed
+io_dat
+a_out1</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B8</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_ed
+io_dat
+a_out2</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A7</p></td>
+<td><p>P8_17</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_ed
+io_dat
+a_out3</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A8</p></td>
+<td><p>P8_27</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_ed
+io_dat
+a_out4</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>C9</p></td>
+<td><p>P8_28</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_ed
+io_dat
+a_out5</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A9</p></td>
+<td><p>P8_29</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_ed
+io_dat
+a_out6</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>B9</p></td>
+<td><p>P8_30</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_ed
+io_dat
+a_out7</p></td>
+<td><p>Et
+hernet
+D
+igital
+Output</p></td>
+<td><p>O</p></td>
+<td><p>A10</p></td>
+<td><p>P8_46</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_mi
+i1_col</p></td>
+<td><p>MII1
+Col
+lision
+Detect</p></td>
+<td><p>I</p></td>
+<td><p>D18</p></td>
+<td><p>P9_25</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_mi
+i1_crs</p></td>
+<td><p>MII1
+C
+arrier
+Sense</p></td>
+<td><p>I</p></td>
+<td><p>E17</p></td>
+<td><p>P8_9</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr
+2_mdio
+_mdclk</p></td>
+<td><p>MDIO
+Clock</p></td>
+<td><p>O</p></td>
+<td><p>C
+14/AB3</p></td>
+<td><p>P9_31</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mdi
+o_data</p></td>
+<td><p>MDIO
+Data</p></td>
+<td><p>IO</p></td>
+<td><p>D
+14/AA4</p></td>
+<td><p>P9_29</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_rxer</p></td>
+<td><p>MII0
+R
+eceive
+Error</p></td>
+<td><p>I</p></td>
+<td><p>G12</p></td>
+<td><p>P9_18</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2
+_mii_m
+t0_clk</p></td>
+<td><p>MII0
+Tr
+ansmit
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>F12</p></td>
+<td><p>P9_17</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_txen</p></td>
+<td><p>MII0
+Tr
+ansmit
+Enable</p></td>
+<td><p>O</p></td>
+<td><p>B12</p></td>
+<td><p>P9_31</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+0_txd3</p></td>
+<td><p>MII0
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>A11</p></td>
+<td><p>P9_29</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_txd2</p></td>
+<td><p>MII0
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>B13</p></td>
+<td><p>P9_30</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+0_txd1</p></td>
+<td><p>MII0
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>A12</p></td>
+<td><p>P9_28</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_txd0</p></td>
+<td><p>MII0
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>E14</p></td>
+<td><p>P9_42</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2
+_mii_m
+r0_clk</p></td>
+<td><p>MII0
+R
+eceive
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>A13</p></td>
+<td><p>P8_10</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_rxdv</p></td>
+<td><p>MII0
+Data
+Valid</p></td>
+<td><p>I</p></td>
+<td><p>G14</p></td>
+<td><p>P8_7</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+0_rxd3</p></td>
+<td><p>MII0
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>F14</p></td>
+<td><p>P8_8</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_rxd2</p></td>
+<td><p>MII0
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>A19</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+0_rxd1</p></td>
+<td><p>MII0
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>A18</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+0_rxd0</p></td>
+<td><p>MII0
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>C15</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2
+_mii0_
+rxlink</p></td>
+<td><p>MII0
+R
+eceive
+Link</p></td>
+<td><p>I</p></td>
+<td><p>A16</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_mi
+i0_crs</p></td>
+<td><p>MII0
+C
+arrier
+Sense</p></td>
+<td><p>I</p></td>
+<td><p>B18</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2_mi
+i0_col</p></td>
+<td><p>MII0
+Col
+lision
+Detect</p></td>
+<td><p>I</p></td>
+<td><p>F15</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+1_rxer</p></td>
+<td><p>MII1
+R
+eceive
+Error</p></td>
+<td><p>I</p></td>
+<td><p>B19</p></td>
+<td><p>P9_11</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pr2
+_mii1_
+rxlink</p></td>
+<td><p>MII1
+R
+eceive
+Link</p></td>
+<td><p>I</p></td>
+<td><p>C17</p></td>
+<td><p>P9_13</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2
+_mii_m
+t1_clk</p></td>
+<td><p>MII1
+Tr
+ansmit
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>AC5</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+1_txen</p></td>
+<td><p>MII1
+Tr
+ansmit
+Enable</p></td>
+<td><p>O</p></td>
+<td><p>AB4</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+1_txd3</p></td>
+<td><p>MII1
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>AD4</p></td>
+<td><p>P8_21</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+1_txd2</p></td>
+<td><p>MII1
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>AC4</p></td>
+<td><p>P8_20</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+1_txd1</p></td>
+<td><p>MII1
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>AC7</p></td>
+<td><p>P8_25</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+1_txd0</p></td>
+<td><p>MII1
+Tr
+ansmit
+Data</p></td>
+<td><p>O</p></td>
+<td><p>AC6</p></td>
+<td><p>P8_24</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pr2
+_mii_m
+r1_clk</p></td>
+<td><p>MII1
+R
+eceive
+Clock</p></td>
+<td><p>I</p></td>
+<td><p>AC9</p></td>
+<td><p>P8_5</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+1_rxdv</p></td>
+<td><p>MII1
+Data
+Valid</p></td>
+<td><p>I</p></td>
+<td><p>AC3</p></td>
+<td><p>P8_6</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+1_rxd3</p></td>
+<td><p>MII1
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>AC8</p></td>
+<td><p>P8_23</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+1_rxd2</p></td>
+<td><p>MII1
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>AD6</p></td>
+<td><p>P8_22</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p
+r2_mii
+1_rxd1</p></td>
+<td><p>MII1
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>AB8</p></td>
+<td><p>P8_3</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>p
+r2_mii
+1_rxd0</p></td>
+<td><p>MII1
+R
+eceive
+Data</p></td>
+<td><p>I</p></td>
+<td><p>AB5</p></td>
+<td><p>P8_4</p></td>
+<td><p>MODE11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>end</p></td>
+<td><p>end</p></td>
+<td><p>end</p></td>
+<td><p>end</p></td>
+<td><p>end</p></td>
+<td><p>end</p></td>
+<td><p>end</p></td>
+<td><p>end</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="user-leds">
+<h2>User LEDs<a class="headerlink" href="#user-leds" title="Link to this heading">#</a></h2>
+<p>There are 5 User Programmable LEDs on BeagleBone® AI. These are
+connected to GPIO pins on the processor.</p>
+<img alt="beaglebone ai connector placement" class="align-center" src="../../../_images/BB_AI_USERLEDS_800px.png" />
+<p>The table shows the signals used to control the LEDs from the processor.
+Each LED is user programmable. However, there is a Default Functions
+assigned in the device tree for BeagleBone® AI:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>LED</p></th>
+<th class="head"><p>GPIO SIGNAL</p></th>
+<th class="head"><p>DEFAULT FUNCTION</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>D2</p></td>
+<td><p>GPIO3_17</p></td>
+<td><p>Heartbeat When Linux
+is Running</p></td>
+</tr>
+<tr class="row-odd"><td><p>D3</p></td>
+<td><p>GPIO5_5</p></td>
+<td><p>microSD Activity</p></td>
+</tr>
+<tr class="row-even"><td><p>D4</p></td>
+<td><p>GPIO3_15</p></td>
+<td><p>CPU Activity</p></td>
+</tr>
+<tr class="row-odd"><td><p>D5</p></td>
+<td><p>GPIO3_14</p></td>
+<td><p>eMMC Activity</p></td>
+</tr>
+<tr class="row-even"><td><p>D8</p></td>
+<td><p>GPIO3_7</p></td>
+<td><p>WiFi/Bluetooth
+Activity</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-quick-start.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick start</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04-expansion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Expansion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-diagram">Block Diagram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#am572x-sitara-processor">AM572x Sitara™ Processor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gb-ddr3l">1GB DDR3L</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gb-embedded-mmc">16GB Embedded MMC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsd-connector">microSD Connector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-modes">Boot Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-management">Power Management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-section">Power Section</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tps6590379-pmic">TPS6590379 PMIC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-c-power">USB-C Power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-button">Power Button</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-flash-memory-16gb">eMMC Flash Memory (16GB)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-device">eMMC Device</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-circuit-design">eMMC Circuit Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#board-id">Board ID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wireless-communication-802-11-ac-bluetooth-azurewave-aw-cm256sm">Wireless Communication: 802.11 ac &amp; Bluetooth: AzureWave AW-CM256SM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wlan-on-the-azurewave-aw-cm256sm">WLAN on the AzureWave AW-CM256SM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bluetooth-on-the-azurewave-aw-cm256s">Bluetooth on the AzureWave AW-CM256S</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi">HDMI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss">PRU-ICSS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss-features">PRU-ICSS Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss-block-diagram">PRU-ICSS Block Diagram</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss-resources-and-faqs">PRU-ICSS Resources and FAQ’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss1-pin-access">PRU-ICSS1 Pin Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss2-pin-access">PRU-ICSS2 Pin Access</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-leds">User LEDs</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglebone/ai/03-design-and-specifications.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beaglebone/ai/03-design-and-specifications.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-ai.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleBone AI - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleboard/beaglebone-ai">BeagleBone AI git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglebone-ai">BeagleBone AI board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglebone/ai/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/bbai">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone AI
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us000169.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone AI_US000169.svg" alt="BeagleBone AI OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

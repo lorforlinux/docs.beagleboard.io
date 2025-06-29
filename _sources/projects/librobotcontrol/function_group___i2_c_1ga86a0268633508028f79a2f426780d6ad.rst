@@ -1,0 +1,14 @@
+.. _exhale_function_group___i2_c_1ga86a0268633508028f79a2f426780d6ad:
+
+Function rc_i2c_set_device_address
+==================================
+
+- Defined in :ref:`file_library_include_rc_i2c.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: rc_i2c_set_device_address(int, uint8_t)
+   :project: librobotcontrol

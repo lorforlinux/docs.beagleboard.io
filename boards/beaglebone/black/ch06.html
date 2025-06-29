@@ -1,0 +1,2918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Detailed Hardware Design &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglebone/black/ch06';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglebone/black/ch06.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Connectors" href="ch07.html" />
+    <link rel="prev" title="BeagleBone Black High Level Specification" href="ch05.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch01.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02.html">Change History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03.html">Connecting Up Your BeagleBone Black</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04.html">BeagleBone Black Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05.html">BeagleBone Black High Level Specification</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Detailed Hardware Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch07.html">Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch08.html">Cape Board Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch09.html">BeagleBone Black Mechanical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">Pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">Support Information</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleBone Black</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Detailed Hardware Design</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="detailed-hardware-design">
+<span id="beagleboneblack-hardware"></span><h1>Detailed Hardware Design<a class="headerlink" href="#detailed-hardware-design" title="Link to this heading">#</a></h1>
+<p>This section provides a detailed description of the Hardware design.
+This can be useful for interfacing, writing drivers, or using it to help
+modify specifics of your own design.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../../_images/image30.jpg"><img alt="BeagleBone Black Block Diagram" src="../../../_images/image30.jpg" style="width: 521px; height: 454px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 432 </span><span class="caption-text">BeagleBone Black Block Diagram</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="power-section">
+<h2>Power Section<a class="headerlink" href="#power-section" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../../_images/image31.png"><img alt="High Level Power Block Diagram" src="../../../_images/image31.png" style="width: 417px; height: 278px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 433 </span><span class="caption-text">High Level Power Block Diagram</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This section describes the power section of the design and all the
+functions performed by the <em>TPS65217C</em>.</p>
+<section id="tps65217c-pmic">
+<h3>TPS65217C PMIC<a class="headerlink" href="#tps65217c-pmic" title="Link to this heading">#</a></h3>
+<p>The main Power Management IC (PMIC) in the system is the <em>TPS65217C</em>
+which is a single chip power management IC consisting of a linear
+dual-input power path, three step-down converters, and four LDOs. LDO
+stands for Low Drop Out. If you want to know more about an LDO, you can
+go to <a class="reference external" href="http://en.wikipedia.org/wiki/Low-dropout_regulator">http://en.wikipedia.org/wiki/Low-dropout_regulator</a>
+.If you want to learn more about step-down converters, you can go to</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/DC-to-DC_converter">http://en.wikipedia.org/wiki/DC-to-DC_converter</a></p>
+<p>The system is supplied by a USB port or DC adapter. Three
+high-efficiency 2.25MHz step-down converters are targeted at providing
+the core voltage, MPU, and memory voltage for the board.</p>
+<p>The step-down converters enter a low power mode at light load for
+maximum efficiency across the widest possible range of load currents.
+For low-noise applications the devices can be forced into fixed
+frequency PWM using the I2C interface. The step-down converters allow
+the use of small inductors and capacitors to achieve a small footprint
+solution size.</p>
+<p>LDO1 and LDO2 are intended to support system standby mode. In normal
+operation, they can support up to 100mA each. LDO3 and LDO4 can support
+up to 285mA each.</p>
+<p>By default only LDO1 is always ON but any rail can be configured to
+remain up in SLEEP state. In particular the DCDC converters can remain
+up in a low-power PFM mode to support processor suspend mode. The
+<em>TPS65217C</em> offers flexible power-up and power-down sequencing and
+several house-keeping functions such as power-good output, pushbutton
+monitor, hardware reset function and temperature sensor to protect the
+battery.</p>
+<p>For more information on the <em>TPS65217C</em>, refer to
+<a class="reference external" href="http://www.ti.com/product/tps65217C">http://www.ti.com/product/tps65217C</a></p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../../_images/image37.png"><img alt="TPS65217C Block Diagram" src="../../../_images/image37.png" style="width: 550px; height: 629px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 434 </span><span class="caption-text">TPS65217C Block Diagram</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="dc-input">
+<h3>DC Input<a class="headerlink" href="#dc-input" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../../_images/image38.png"><img alt="TPS65217 DC Connection" src="../../../_images/image38.png" style="width: 458px; height: 408px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 435 </span><span class="caption-text">TPS65217 DC Connection</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A 5VDC supply can be used to provide power to the board. The power
+supply current depends on how many and what type of add-on boards are
+connected to the board. For typical use, a 5VDC supply rated at 1A
+should be sufficient. If heavier use of the expansion headers or USB
+host port is expected, then a higher current supply will be required.</p>
+<p>The connector used is a 2.1MM center positive x 5.5mm outer barrel. The
+5VDC rail is connected to the expansion header. It is possible to power
+the board via the expansion headers from an add-on card. The 5VDC is
+also available for use by the add-on cards when the power is supplied by
+the 5VDC jack on the board.</p>
+</section>
+<section id="usb-power">
+<h3>USB Power<a class="headerlink" href="#usb-power" title="Link to this heading">#</a></h3>
+<p>The board can also be powered from the USB port. A typical USB port is
+limited to 500mA max. When powering from the USB port, the VDD_5V rail
+is not provided to the expansion headers, so capes that require the 5V
+rail to supply the cape direct, bypassing the <em>TPS65217C</em>, will not have
+that rail available for use. The 5VDC supply from the USB port is
+provided on the SYS_5V, the one that comes from the**TPS65217C**, rail
+of the expansion header for use by a cape. <em>Figure 24</em> is the connection
+of the USB power input on the PMIC.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../_images/image96.png"><img alt="USB Power Connections" src="../../../_images/image96.png" style="width: 519px; height: 622px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 436 </span><span class="caption-text">USB Power Connections</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="power-selection">
+<h3>Power Selection<a class="headerlink" href="#power-selection" title="Link to this heading">#</a></h3>
+<p>The selection of either the 5VDC or the USB as the power source is
+handled internally to the <em>TPS65217C</em> and automatically switches to 5VDC
+power if both are connected. SW can change the power configuration via
+the I2C interface from the processor. In addition, the SW can read
+the**TPS65217C** and determine if the board is running on the 5VDC input
+or the USB input. This can be beneficial to know the capability of the
+board to supply current for things like operating frequency and
+expansion cards.</p>
+<p>It is possible to power the board from the USB input and then connect
+the DC power supply. The board will switch over automatically to the DC
+input.</p>
+</section>
+<section id="power-button">
+<h3>Power Button<a class="headerlink" href="#power-button" title="Link to this heading">#</a></h3>
+<p>A power button is connected to the input of the <em>TPS65217C</em>. This is a
+momentary switch, the same type of switch used for reset and boot
+selection on the board.</p>
+<p>If you push the button the <em>TPS65217C</em> will send an interrupt to the
+processor. It is up to the processor to then pull the**PMIC_POWER_EN**
+pin low at the correct time to power down the board. At this point, the
+PMIC is still active, assuming that the power input was not removed.
+Pressing the power button will cause the board to power up again if the
+processor puts the board in the power off mode.</p>
+<p>In power off mode, the RTC rail is still active, keeping the RTC powered
+and running off the main power input. If you remove that power, then the
+RTC will not be powered. You also have the option of using the battery
+holes on the board to connect a battery if desired as discussed in the
+next section.</p>
+<p>If you push and hold the button for greater than 8 seconds, the PMIC
+will power down. But you must release the button when the power LED
+turns off. Holding the button past that point will cause the board to
+power cycle.</p>
+</section>
+<section id="battery-access-pads">
+<h3>Battery Access Pads<a class="headerlink" href="#battery-access-pads" title="Link to this heading">#</a></h3>
+<p>Four pads are provided on the board to allow access to the battery pins
+on the <em>TPS65217C</em>. The pads can be loaded with a 4x4 header or you may
+just wire a battery into the pads. In addition they could provide access
+via a cape if desired. The four signals are listed below in <em>table-3</em> .</p>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id8">
+<caption><span class="caption-number">Table 79 </span><span class="caption-text">BeagleBone Black Battery Pins</span><a class="headerlink" href="#id8" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>DESIGNATION</p></th>
+<th class="head"><p>FUNCTION</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>BAT</strong></p></td>
+<td><p>TP5</p></td>
+<td><p>Battery connection point</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SENSE</strong></p></td>
+<td><p>TP6</p></td>
+<td><p>Battery voltage sense input, connect to BAT directly at the battery terminal.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TS</strong></p></td>
+<td><p>TP7</p></td>
+<td><p>Temperature sense input. Connect to NTC thermistor to sense battery temperature.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>GND</strong></p></td>
+<td><p>TP8</p></td>
+<td><p>System ground.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There is no fuel gauge function provided by the <em>TPS65217C</em>. That would
+need to be added if that function was required. If you want to add a
+fuel gauge, an option is to use 1-wire SPI or I2C device. You will need
+to add this using the expansion headers and place it on an expansion
+board.</p>
+<p><em>NOTE: Refer to the TPS65217C documentation</em> +
+<em>before connecting anything to these pins.</em></p>
+</section>
+<section id="power-consumption">
+<h3>Power Consumption<a class="headerlink" href="#power-consumption" title="Link to this heading">#</a></h3>
+<p>The power consumption of the board varies based on power scenarios and
+the board boot processes. Measurements were taken with the board in the
+following configuration:</p>
+<ul class="simple">
+<li><p>DC powered and USB powered</p></li>
+<li><p>HDMI monitor connected</p></li>
+<li><p>USB HUB</p></li>
+<li><p>4GB USB flash drive</p></li>
+<li><p>Ethernet connected &#64; 100M</p></li>
+<li><p>Serial debug cable connected</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id9">
+<caption><span class="caption-number">Table 80 </span><span class="caption-text">BeagleBone Black Power Consumption(<a class="reference external" href="mailto:mA&#37;&#52;&#48;5V">mA<span>&#64;</span>5V</a>)</span><a class="headerlink" href="#id9" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>MODE</p></th>
+<th class="head"><p>USB</p></th>
+<th class="head"><p>DC</p></th>
+<th class="head"><p>DC+USB</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reset</p></td>
+<td><p>TBD</p></td>
+<td><p>TBD</p></td>
+<td><p>TBD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Idling &#64; UBoot</p></td>
+<td><p>210</p></td>
+<td><p>210</p></td>
+<td><p>210</p></td>
+</tr>
+<tr class="row-even"><td><p>Kernel Booting (Peak)</p></td>
+<td><p>460</p></td>
+<td><p>460</p></td>
+<td><p>460</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kernel Idling</p></td>
+<td><p>350</p></td>
+<td><p>350</p></td>
+<td><p>350</p></td>
+</tr>
+<tr class="row-even"><td><p>Kernel Idling Display Blank</p></td>
+<td><p>280</p></td>
+<td><p>280</p></td>
+<td><p>280</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loading a Webpage</p></td>
+<td><p>430</p></td>
+<td><p>430</p></td>
+<td><p>430</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The current will fluctuate as various activates occur, such as the LEDs
+on and microSD/eMMC accesses.</p>
+</section>
+<section id="processor-interfaces">
+<h3>Processor Interfaces<a class="headerlink" href="#processor-interfaces" title="Link to this heading">#</a></h3>
+<p>The processor interacts with the <em>TPS65217C</em> via several different
+signals. Each of these signals is described below.</p>
+<p><strong>I2C0</strong></p>
+<p>I2C0 is the control interface between the processor and the <em>TPS65217C</em>.
+It allows the processor to control the registers inside the <strong>TPS65217C</strong>
+for such things as voltage scaling and switching of the input rails.</p>
+<p><strong>PMIC_POWR_EN</strong></p>
+<p>On power up the <em>VDD_RTC</em> rail activates first. After the RTC circuitry
+in the processor has activated it instructs the**TPS65217C** to initiate
+a full power up cycle by activating the <em>PMIC_POWR_EN</em> signal by taking
+it HI. When powering down, the processor can take this pin low to start
+the power down process.</p>
+<p><strong>LDO_GOOD</strong></p>
+<p>This signal connects to the <em>RTC_PORZn</em> signal, RTC power on reset. The
+small <em>n indicates that the signal is an active low signal. Word
+processors seem to be unable to put a bar over a word so the **n*</em> is
+commonly used in electronics. As the RTC circuitry comes up first, this
+signal indicates that the LDOs, the 1.8V VRTC rail, is up and stable.
+This starts the power up process.</p>
+<p><strong>PMIC_PGOOD</strong></p>
+<p>Once all the rails are up, the <em>PMIC_PGOOD</em> signal goes high. This
+releases the <strong>PORZn</strong> signal on the processor which was holding the
+processor reset.</p>
+<p><strong>WAKEUP</strong></p>
+<p>The WAKEUP signal from the <em>TPS65217C</em> is connected to the <strong>EXT_WAKEUP</strong>
+signal on the processor. This is used to wake up the processor when it
+is in a sleep mode. When an event is detected by the <em>TPS65217C</em>, such
+as the power button being pressed, it generates this signal.</p>
+<p><strong>PMIC_INT</strong></p>
+<p>The <em>PMIC_INT</em> signal is an interrupt signal to the processor. Pressing
+the power button will send an interrupt to the processor allowing it to
+implement a power down mode in an orderly fashion, go into sleep mode,
+or cause it to wake up from a sleep mode. All of these require SW
+support.</p>
+</section>
+<section id="power-rails">
+<h3>Power Rails<a class="headerlink" href="#power-rails" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/image39.jpg"><img alt="Power Rails" src="../../../_images/image39.jpg" style="width: 562px; height: 505px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 437 </span><span class="caption-text">Power Rails</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>VRTC Rail</strong></p>
+<p>The <em>VRTC</em> rail is a 1.8V rail that is the first rail to come up in the
+power sequencing. It provides power to the RTC domain on the processor
+and the I/O rail of the <strong>TPS65217C</strong>. It can deliver up to 250mA
+maximum.</p>
+<p><strong>VDD_3V3A Rail</strong></p>
+<p>The <em>VDD_3V3A</em> rail is supplied by the <strong>TPS65217C</strong> and provides the
+3.3V for the processor rails and can provide up to 400mA.</p>
+<p><strong>VDD_3V3B Rail</strong></p>
+<p>The current supplied by the <em>VDD_3V3A</em> rail is not sufficient to power
+all of the 3.3V rails on the board. So a second LDO is supplied, U4,
+a <strong>TL5209A</strong>, which sources the <em>VDD_3V3B</em> rail. It is powered up just
+after the <em>VDD_3V3A</em> rail.</p>
+<p><strong>VDD_1V8 Rail</strong></p>
+<p>The <em>VDD_1V8</em> rail can deliver up to 400mA and provides the power
+required for the 1.8V rails on the processor and the HDMI framer. This
+rail is not accessible for use anywhere else on the board.</p>
+<p><strong>VDD_CORE Rail</strong></p>
+<p>The <em>VDD_CORE</em> rail can deliver up to 1.2A at 1.1V. This rail is not
+accessible for use anywhere else on the board and connects only to the
+processor. This rail is fixed at 1.1V and should not be adjusted by SW
+using the PMIC. If you do, then the processor will no longer work.</p>
+<p><strong>VDD_MPU Rail</strong></p>
+<p>The <em>VDD_MPU</em> rail can deliver up to 1.2A. This rail is not accessible
+for use anywhere else on the board and connects only to the processor.
+This rail defaults to 1.1V and can be scaled up to allow for higher
+frequency operation. Changing of the voltage is set via the I2C
+interface from the processor.</p>
+<p><strong>VDDS_DDR Rail</strong></p>
+<p>The <em>VDDS_DDR</em> rail defaults to**1.5V** to support the DDR3L rails and
+can deliver up to 1.2A. It is possible to adjust this voltage rail down
+to <em>1.35V</em> for lower power operation of the DDR3L device. Only DDR3L
+devices can support this voltage setting of 1.35V.</p>
+<p><strong>Power Sequencing</strong></p>
+<p>The power up process is consists of several stages and events. <em>figure-26</em>
+describes the events that make up the power up process for the
+processor from the PMIC. This diagram is used elsewhere to convey
+additional information. I saw no need to bust it up into smaller
+diagrams. It is from the processor datasheet supplied by Texas
+Instruments.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/image40.png"><img alt="Power Rail Power Up Sequencing" src="../../../_images/image40.png" style="width: 547px; height: 397px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 438 </span><span class="caption-text">Power Rail Power Up Sequencing</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><em>figure-27</em> the voltage rail sequencing for the <strong>TPS65217C</strong> as it
+powers up and the voltages on each rail. The power sequencing starts at
+15 and then goes to one. That is the way the <em>TPS65217C</em> is configured.
+You can refer to the TPS65217C datasheet for more information.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/image41.png"><img alt="TPS65217C Power Sequencing Timing" src="../../../_images/image41.png" style="width: 225px; height: 188px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 439 </span><span class="caption-text">TPS65217C Power Sequencing Timing</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="power-led">
+<h3>Power LED<a class="headerlink" href="#power-led" title="Link to this heading">#</a></h3>
+<p>The power LED is a blue LED that will turn on once the <em>TPS65217C</em> has
+finished the power up procedure. If you ever see the LED flash once,
+that means that the**TPS65217C** started the process and encountered an
+issue that caused it to shut down. The connection of the LED is shown in
+<em>figure-25</em>.</p>
+</section>
+<section id="tps65217c-power-up-process">
+<h3>TPS65217C Power Up Process<a class="headerlink" href="#tps65217c-power-up-process" title="Link to this heading">#</a></h3>
+<p>Figure below shows the interface between the <strong>TPS65217C</strong> and the
+processor. It is a cut from the PDF form of the schematic and reflects
+what is on the schematic.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/image42.jpg"><img alt="Power Processor Interfaces" src="../../../_images/image42.jpg" style="width: 400px; height: 185px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 440 </span><span class="caption-text">Power Processor Interfaces</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When voltage is applied, DC or USB, the <em>TPS65217C</em> connects the power
+to the SYS output pin which drives the switchers and LDOs in
+the <strong>TPS65217C</strong>.</p>
+<p>At power up all switchers and LDOs are off except for the <em>VRTC LDO</em>
+(1.8V), which provides power to the VRTC rail and controls
+the <strong>RTC_PORZn</strong> input pin to the processor, which starts the power up
+process of the processor. Once the RTC rail powers up, the <em>RTC_PORZn</em>
+pin, driven by the <em>LDO_PGOOD</em> signal from the <em>TPS65217C</em>, of the
+processor is released.</p>
+<p>Once the <em>RTC_PORZn</em> reset is released, the processor starts the
+initialization process. After the RTC stabilizes, the processor launches
+the rest of the power up process by activating the <strong>PMIC_POWER_EN</strong>
+signal that is connected to the <em>TPS65217C</em> which starts the <em>TPS65217C</em>
+power up process.</p>
+<p>The <em>LDO_PGOOD</em> signal is provided by the**TPS65217C** to the processor.
+As this signal is 1.8V from the <em>TPS65217C</em> by virtue of the <em>TPS65217C</em>
+VIO rail being set to 1.8V, and the <em>RTC_PORZ</em> signal on the processor
+is 3.3V, a voltage level shifter, <em>U4</em>, is used. Once the LDOs and
+switchers are up on the <em>TPS65217C</em>, this signal goes active releasing
+the processor. The LDOs on the <em>TPS65217C</em> are used to power the VRTC
+rail on the processor.</p>
+</section>
+<section id="processor-control-interface">
+<h3>Processor Control Interface<a class="headerlink" href="#processor-control-interface" title="Link to this heading">#</a></h3>
+<p><em>figure-28</em> above shows two interfaces between the processor and
+the <strong>TPS65217C</strong> used for control after the power up sequence has
+completed.</p>
+<p>The first is the <em>I2C0</em> bus. This allows the processor to turn on and
+off rails and to set the voltage levels of each regulator to supports
+such things as voltage scaling.</p>
+<p>The second is the interrupt signal. This allows the <em>TPS65217C</em> to alert
+the processor when there is an event, such as when the power button is
+pressed. The interrupt is an open drain output which makes it easy to
+interface to 3.3V of the processor.</p>
+</section>
+<section id="low-power-mode-support">
+<h3>Low Power Mode Support<a class="headerlink" href="#low-power-mode-support" title="Link to this heading">#</a></h3>
+<p>This section covers three general power down modes that are available.
+These modes are only described from a Hardware perspective as it relates
+to the HW design.</p>
+<p><strong>RTC Only</strong></p>
+<p>In this mode all rails are turned off except the <em>VDD_RTC</em>. The
+processor will need to turn off all the rails to enter this mode.
+The <strong>VDD_RTC</strong> staying on will keep the RTC active and provide for the
+wakeup interfaces to be active to respond to a wake up event.</p>
+<p><strong>RTC Plus DDR</strong></p>
+<p>In this mode all rails are turned off except the <em>VDD_RTC</em> and
+the <strong>VDDS_DDR</strong>, which powers the DDR3L memory. The processor will need
+to turn off all the rails to enter this mode. The <em>VDD_RTC</em> staying on
+will keep the RTC active and provide for the wakeup interfaces to be
+active to respond to a wake up event.</p>
+<p>The <em>VDDS_DDR</em> rail to the DDR3L is provided by the 1.5V rail of
+the <strong>TPS65217C</strong> and with <em>VDDS_DDR</em> active, the DDR3L can be placed in
+a self refresh mode by the processor prior to power down which allows
+the memory data to be saved.</p>
+<p>Currently, this feature is not included in the standard software
+release. The plan is to include it in future releases.</p>
+<p><strong>Voltage Scaling</strong></p>
+<p>For a mode where the lowest power is possible without going to sleep,
+this mode allows the voltage on the ARM processor to be lowered along
+with slowing the processor frequency down. The I2C0 bus is used to
+control the voltage scaling function in the <em>TPS65217C</em>.</p>
+</section>
+</section>
+<section id="sitara-am3358bzcz100-processor">
+<h2>Sitara AM3358BZCZ100 Processor<a class="headerlink" href="#sitara-am3358bzcz100-processor" title="Link to this heading">#</a></h2>
+<p>The board is designed to use the Sitara AM3358BZCZ100 processor in the
+15 x 15 package. Earlier revisions of the board used the XM3359AZCZ100
+processor.</p>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p>Figure below shows is a high level block diagram of the processor. For more information on the processor, go to
+<a class="reference external" href="http://www.ti.com/product/am3358">http://www.ti.com/product/am3358</a></p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/image43.png"><img alt="Sitara AM3358BZCZ Block Diagram" src="../../../_images/image43.png" style="width: 503px; height: 511px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 441 </span><span class="caption-text">Sitara AM3358BZCZ Block Diagram</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="high-level-features">
+<h3>High Level Features<a class="headerlink" href="#high-level-features" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id15">
+<caption><span class="caption-number">Table 81 </span><span class="caption-text">Processor Features</span><a class="headerlink" href="#id15" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 30%" />
+<col style="width: 25%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operating Systems</p></th>
+<th class="head"><p>Linux, Android, Windows Embedded CE,QNX,ThreadX</p></th>
+<th class="head"><p><strong>MMC/SD</strong></p></th>
+<th class="head"><p>3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Standby Power</strong></p></td>
+<td><p>7 mW</p></td>
+<td><p><strong>CAN</strong></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ARM CPU</strong></p></td>
+<td><p>1 ARM Cortex-A8</p></td>
+<td><p><strong>UART (SCI)</strong></p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ARM MHz (Max.)</strong></p></td>
+<td><p>275,500,600,800,1000</p></td>
+<td><p><strong>ADC</strong></p></td>
+<td><p>8-ch 12-bit</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ARM MIPS (Max.)</strong></p></td>
+<td><p>1000,1200,2000</p></td>
+<td><p><strong>PWM (Ch)</strong></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Graphics Acceleration</strong></p></td>
+<td><p>1 3D</p></td>
+<td><p><strong>eCAP</strong></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Other Hardware Acceleration</strong></p></td>
+<td><p>2 PRU-ICSS,Crypto Accelerator</p></td>
+<td><p><strong>eQEP</strong></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>On-Chip L1 Cache</strong></p></td>
+<td><p>64 KB (ARM Cortex-A8)</p></td>
+<td><p><strong>RTC</strong></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>On-Chip L2 Cache</strong></p></td>
+<td><p>256 KB (ARM Cortex- A8)</p></td>
+<td><p><strong>I2C</strong></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Other On-Chip Memory</strong></p></td>
+<td><p>128 KB</p></td>
+<td><p><strong>McASP</strong></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Display Options</strong></p></td>
+<td><p>LCD</p></td>
+<td><p><strong>SPI</strong></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>General Purpose Memory</strong></p></td>
+<td><p>1 16-bit (GPMC, NAND flash, NOR Flash, SRAM)</p></td>
+<td><p><strong>DMA (Ch)</strong></p></td>
+<td><p>64-Ch EDMA</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DRAM</strong></p></td>
+<td><p>1 16-bit (LPDDR-400,DDR2-532, DDR3-400)</p></td>
+<td><p><strong>IO Supply (V)</strong></p></td>
+<td><p>1.8V(ADC), 3.3V</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>USB Ports</strong></p></td>
+<td><p>2</p></td>
+<td><p><strong>Operating Temperature Range (C)</strong></p></td>
+<td><p>40 to 90</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
+<p>Full documentation for the processor can be found on the TI website at
+<a class="reference external" href="http://www.ti.com/product/am3358">http://www.ti.com/product/am3358</a> for
+the current processor used on the board. Make sure that you always use
+the latest datasheets and Technical Reference Manuals (TRM).</p>
+</section>
+<section id="crystal-circuitry">
+<h3>Crystal Circuitry<a class="headerlink" href="#crystal-circuitry" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../../_images/image44.png"><img alt="Processor Crystals" src="../../../_images/image44.png" style="width: 570px; height: 223px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 442 </span><span class="caption-text">Processor Crystals</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="reset-circuitry">
+<h3>Reset Circuitry<a class="headerlink" href="#reset-circuitry" title="Link to this heading">#</a></h3>
+<p><em>figure-31</em> is the board reset circuitry. The initial power on reset is
+generated by the <strong>TPS65217C</strong> power management IC. It also handles the
+reset for the Real Time Clock.</p>
+<p>The board reset is the SYS_RESETn signal. This is connected to the
+NRESET_INOUT pin of the processor. This pin can act as an input or an
+output. When the reset button is pressed, it sends a warm reset to the
+processor and to the system.</p>
+<p>On the revision A5D board, a change was made. On power up, the
+NRESET_INOUT signal can act as an output. In this instance it can cause
+the SYS_RESETn line to go high prematurely. In order to prevent this,
+the PORZn signal from the TPS65217C is connected to the SYS_RESETn line
+using an open drain buffer. These ensure that the line does not
+momentarily go high on power up.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../../_images/image45.png"><img alt="Board Reset Circuitry" src="../../../_images/image45.png" style="width: 568px; height: 333px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 443 </span><span class="caption-text">Board Reset Circuitry</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This change is also in all revisions after A5D.</p>
+<p>DDR3L Memory</p>
+<p>The BeagleBone Black uses a single MT41K256M16HA-125 512MB DDR3L device
+from Micron that interfaces to the processor over 16 data lines, 16
+address lines, and 14 control lines. On rev C we added the Kingston
+<em>KE4CN2H5A-A58</em> device as a source for the DDR3L device**.**</p>
+<p>The following sections provide more details on the design.</p>
+</section>
+<section id="memory-device">
+<h3>Memory Device<a class="headerlink" href="#memory-device" title="Link to this heading">#</a></h3>
+<p>The design supports the standard DDR3 and DDR3L x16 devices and is built
+using the DDR3L. A single x16 device is used on the board and there is
+no support for two x8 devices. The DDR3 devices work at 1.5V and the
+DDR3L devices can work down to</p>
+<p>1.35V to achieve lower power. The DDR3L comes in a 96-BALL FBGA package
+with 0.8 mil pitch. Other standard DDR3 devices can also be supported,
+but the DDR3L is the lower power device and was chosen for its ability
+to work at 1.5V or 1.35V. The standard frequency that the DDR3L is run
+at on the board is 400MHZ.</p>
+</section>
+<section id="ddr3l-memory-design">
+<h3>DDR3L Memory Design<a class="headerlink" href="#ddr3l-memory-design" title="Link to this heading">#</a></h3>
+<p><em>figure-32</em> is the schematic for the DDR3L memory device. Each of the
+groups of signals is described in the following lines.</p>
+<p><strong>Address Lines:</strong> Provide the row address for ACTIVATE commands, and the column address and auto pre-charge bit (A10) for READ/WRITE commands, to select one location out of the memory array in the respective bank. A10 sampled during a PRECHARGE command determines whether the PRECHARGE applies to one bank (A10 LOW, bank selected by BA[2:0]) or all banks (A10 HIGH). The address
+inputs also provide the op-code during a LOAD MODE command. Address
+inputs are referenced to VREFCA. A12/BC#: When enabled in the mode
+register (MR), A12 is sampled during READ and WRITE commands to
+determine whether burst chop (on-the-fly) will be performed (HIGH = BL8
+or no burst chop, LOW = BC4 burst chop).</p>
+<p><strong>Bank Address Lines:</strong> BA[2:0] define the bank to which an ACTIVATE,
+READ, WRITE, or PRECHARGE command is being applied. BA[2:0] define which
+mode register (MR0, MR1, MR2, or MR3) is loaded during the LOAD MODE
+command. BA[2:0] are referenced to VREFCA.</p>
+<p><strong>CK and CK# Lines:</strong> are differential clock inputs. All address and
+control input signals are sampled on the crossing of the positive edge
+of CK and the negative edge of CK#. Output data strobe (DQS, DQS#) is
+referenced to the crossings of CK and CK#.</p>
+<p><strong>Clock Enable Line:</strong> CKE enables (registered HIGH) and disables
+(registered LOW) internal circuitry and clocks on the DRAM. The specific
+circuitry that is enabled/disabled is dependent upon the DDR3 SDRAM
+configuration and operating mode. Taking CKE LOW provides PRECHARGE
+power-down and SELF REFRESH operations (all banks idle) or active
+power-down (row active in any bank). CKE is synchronous for powerdown
+entry and exit and for self refresh entry. CKE is asynchronous for self
+refresh exit. Input buffers (excluding CK, CK#, CKE, RESET#, and ODT)
+are disabled during powerdown. Input buffers (excluding CKE and RESET#)
+are disabled during SELF REFRESH. CKE is referenced to VREFCA.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../../_images/image46.png"><img alt="DDR3L Memory Design" src="../../../_images/image46.png" style="width: 566px; height: 525px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 444 </span><span class="caption-text">DDR3L Memory Design</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Chip Select Line:</strong> CS# enables (registered LOW) and disables
+(registered HIGH) the command decoder. All commands are masked when CS#
+is registered HIGH. CS# provides for external rank selection on systems
+with multiple ranks. CS# is considered part of the command code. CS# is
+referenced to VREFCA.</p>
+<p><strong>Input Data Mask Line:</strong> DM is an input mask signal for write data. Input
+data is masked when DM is sampled HIGH along with the input data during
+a write access. Although the DM ball is input-only, the DM loading is
+designed to match that of the DQ and DQS balls. DM is referenced to
+VREFDQ.</p>
+<p><strong>On-die Termination Line:</strong> ODT enables (registered HIGH) and disables
+(registered LOW) termination resistance internal to the DDR3L SDRAM.
+When enabled in normal operation, ODT is only applied to each of the
+following balls: DQ[7:0], DQS, DQS#, and DM for the x8; DQ[3:0], DQS,
+DQS#, and DM for the x4. The ODT input is ignored if disabled via the
+LOAD MODE command. ODT is referenced to VREFCA.</p>
+</section>
+<section id="id2">
+<h3>Power Rails<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The <em>DDR3L</em> memory device and the DDR3 rails on the processor are
+supplied by the**TPS65217C**. Default voltage is 1.5V but can be scaled
+down to 1.35V if desired.</p>
+</section>
+<section id="vref">
+<h3>VREF<a class="headerlink" href="#vref" title="Link to this heading">#</a></h3>
+<p>The <em>VREF</em> signal is generated from a voltage divider on the**VDDS_DDR**
+rail that powers the processor DDR rail and the DDR3L device itself.
+<em>Figure 33</em> below shows the configuration of this signal and the
+connection to the DDR3L memory device and the processor.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../../_images/image47.jpg"><img alt="DDR3L VREF Design" src="../../../_images/image47.jpg" style="width: 376px; height: 269px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 445 </span><span class="caption-text">DDR3L VREF Design</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gb-emmc-memory">
+<h3>4GB eMMC Memory<a class="headerlink" href="#gb-emmc-memory" title="Link to this heading">#</a></h3>
+<p>The eMMC is a communication and mass data storage device that includes a
+Multi-MediaCard (MMC) interface, a NAND Flash component, and a
+controller on an advanced 11-signal bus, which is compliant with the MMC
+system specification. The nonvolatile eMMC draws no power to maintain
+stored data, delivers high performance across a wide range of operating
+temperatures, and resists shock and vibration disruption.</p>
+<p>One of the issues faced with SD cards is that across the different
+brands and even within the same brand, performance can vary. Cards use
+different controllers and different memories, all of which can have bad
+locations that the controller handles. But the controllers may be
+optimized for reads or writes. You never know what you will be getting.
+This can lead to varying rates of performance. The eMMC card is a known
+controller and when coupled with the 8bit mode, 8 bits of data instead
+of 4, you get double the performance which should result in quicker boot
+times.</p>
+<p>The following sections describe the design and device that is used on
+the board to implement this interface.</p>
+</section>
+<section id="emmc-device">
+<h3>eMMC Device<a class="headerlink" href="#emmc-device" title="Link to this heading">#</a></h3>
+<p>The device used is one of two different devices:</p>
+<ul class="simple">
+<li><p>Micron <em>MTFC4GLDEA 0M WT</em></p></li>
+<li><p>Kingston <em>KE4CN2H5A-A58</em></p></li>
+</ul>
+<p>The package is a 153 ball WFBGA device on both devices.</p>
+</section>
+<section id="emmc-circuit-design">
+<h3>eMMC Circuit Design<a class="headerlink" href="#emmc-circuit-design" title="Link to this heading">#</a></h3>
+<p><em>figure-34</em> is the design of the eMMC circuitry. The eMMC device is
+connected to the MMC1 port on the processor. MMC0 is still used for the
+microSD card as is currently done on the original BeagleBone. The size
+of the eMMC supplied is now 4GB.</p>
+<p>The device runs at 3.3V both internally and the external I/O rails. The
+VCCI is an internal voltage rail to the device. The manufacturer
+recommends that a 1uF capacitor be attached to this rail, but a 2.2uF
+was chosen to provide a little margin.</p>
+<p>Pullup resistors are used to increase the rise time on the signals to
+compensate for any capacitance on the board.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../../_images/image48.png"><img alt="eMMC Memory Design" src="../../../_images/image48.png" style="width: 542px; height: 224px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 446 </span><span class="caption-text">eMMC Memory Design</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The pins used by the eMMC1 in the boot mode are listed below in <em>Table 6</em>.</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../../_images/image49.png"><img alt="eMMC Boot Pins" src="../../../_images/image49.png" style="width: 528px; height: 112px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 447 </span><span class="caption-text">eMMC Boot Pins</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For eMMC devices the ROM will only support raw mode. The ROM Code reads
+out raw sectors from image or the booting file within the file system
+and boots from it. In raw mode the booting image can be located at one
+of the four consecutive locations in the main area: offset 0x0 / 0x20000
+(128 KB) / 0x40000 (256 KB) / 0x60000 (384 KB). For this reason, a
+booting image shall not exceed 128KB in size. However it is possible to
+flash a device with an image greater than 128KB starting at one of the
+aforementioned locations. Therefore the ROM Code does not check the
+image size. The only drawback is that the image will cross the
+subsequent image boundary. The raw mode is detected by reading sectors
+#0, #256, #512, #768. The content of these sectors is then verified for
+presence of a TOC structure. In the case of a <em>GP Device</em>, a
+Configuration Header (CH)*must* be located in the first sector followed
+by a <em>GP header</em>. The CH might be void (only containing a CHSETTINGS
+item for which the Valid field is zero).</p>
+<p>The ROM only supports the 4-bit mode. After the initial boot, the switch
+can be made to 8-bit mode for increasing the overall performance of the
+eMMC interface.</p>
+</section>
+<section id="board-id-eeprom">
+<h3>Board ID EEPROM<a class="headerlink" href="#board-id-eeprom" title="Link to this heading">#</a></h3>
+<p>The BeagleBone is equipped with a single 32Kbit(4KB) 24LC32AT-I/OT
+EEPROM to allow the SW to identify the board. <em>Table 7</em> below defined
+the contents of the EEPROM.</p>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id22">
+<caption><span class="caption-number">Table 82 </span><span class="caption-text">EEPROM Contents</span><a class="headerlink" href="#id22" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Size (bytes)</p></th>
+<th class="head"><p>Contents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Header</p></td>
+<td><p>4</p></td>
+<td><p>0xAA, 0x55, 0x33, EE</p></td>
+</tr>
+<tr class="row-odd"><td><p>Board Name</p></td>
+<td><p>8</p></td>
+<td><p>Name for board in ASCII: <strong>A335BNLT</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>4</p></td>
+<td><p>Hardware version code for board in ASCII: <strong>00A3 for Rev A3, 00A4 for Rev A4, 00A5 for Rev A5, 00A6 for Rev A6,00B0 for Rev B, and 00C0 for Rev C.</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial Number</p></td>
+<td><p>12</p></td>
+<td><p>Serial number of the board. This is a 12 character string which is: <strong>WWYY4P16nnnn</strong> where, WW = 2 digit week of the year of production YY = 2 digit year of production BBBK = BeagleBone Black nnnn = incrementing board number</p></td>
+</tr>
+<tr class="row-even"><td><p>Configuration Option</p></td>
+<td><p>32</p></td>
+<td><p>Codes to show the configuration setup on this board. <strong>All FF</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>RSVD</p></td>
+<td><p>6</p></td>
+<td><p>FF FF FF FF FF FF</p></td>
+</tr>
+<tr class="row-even"><td><p>RSVD</p></td>
+<td><p>6</p></td>
+<td><p>FF FF FF FF FF FF</p></td>
+</tr>
+<tr class="row-odd"><td><p>RSVD</p></td>
+<td><p>6</p></td>
+<td><p>FF FF FF FF FF FF</p></td>
+</tr>
+<tr class="row-even"><td><p>Available</p></td>
+<td><p>4018</p></td>
+<td><p>Available space for other non-volatile codes/data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../../_images/image50.png"><img alt="EEPROM Design Rev A5" src="../../../_images/image50.png" style="width: 473px; height: 194px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 448 </span><span class="caption-text">EEPROM Design Rev A5</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The EEPROM is accessed by the processor using the I2C 0 bus. The <em>WP</em>
+pin is enabled by default. By grounding the test point, the write
+protection is removed.</p>
+<p>The first 48 locations should not be written to if you choose to use the
+extras storage space in the EEPROM for other purposes. If you do, it
+could prevent the board from booting properly as the SW uses this
+information to determine how to set up the board.</p>
+<section id="micro-secure-digital">
+<h4>Micro Secure Digital<a class="headerlink" href="#micro-secure-digital" title="Link to this heading">#</a></h4>
+<p>The microSD connector on the board will support a microSD card that can
+be used for booting or file storage on the BeagleBone Black.</p>
+</section>
+</section>
+<section id="microsd-design">
+<h3>microSD Design<a class="headerlink" href="#microsd-design" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../../_images/image51.png"><img alt="microSD Design" src="../../../_images/image51.png" style="width: 550px; height: 216px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 449 </span><span class="caption-text">microSD Design</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The signals <em>MMC0-3</em> are the data lines for the transfer of data between
+the processor and the microSD connector.</p>
+<p>The <em>MMC0_CLK</em> signal clocks the data in and out of the microSD card.</p>
+<p>The <em>MMCO_CMD</em> signal indicates that a command versus data is being
+sent.</p>
+<p>There is no separate card detect pin in the microSD specification. It
+uses <em>MMCO_DAT3</em> for that function. However, most microSD connectors
+still supply a CD function on the connectors. In the BeagleBone Black
+design, this pin is connected to the <strong>MMC0_SDCD</strong> pin for use by the
+processor. You can also change the pin to <em>GPIO0_6</em>, which is able to
+wake up the processor from a sleep mode when an microSD card is inserted
+into the connector.</p>
+<p>Pullup resistors are provided on the signals to increase the rise times
+of the signals to overcome PCB capacitance.</p>
+<p>Power is provided from the <em>VDD_3V3B</em> rail and a 10uF capacitor is
+provided for filtering.</p>
+</section>
+</section>
+<section id="user-leds">
+<h2>6.6 User LEDs<a class="headerlink" href="#user-leds" title="Link to this heading">#</a></h2>
+<p>There are four user LEDs on the BeagleBone Black. These are connected to
+GPIO pins on the processor. <em>Figure 37</em> shows the interfaces for the
+user LEDs.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../../_images/image52.png"><img alt="User LEDs" src="../../../_images/image52.png" style="width: 570px; height: 290px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 450 </span><span class="caption-text">User LEDs</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Resistors R71-R74 were changed to 4.75K on the revision A5B and later
+boards.</p>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id26">
+<caption><span class="caption-number">Table 83 </span><span class="caption-text">User LED Control Signals/Pins</span><a class="headerlink" href="#id26" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>LED</p></th>
+<th class="head"><p>GPIO SIGNAL</p></th>
+<th class="head"><p>PROC PIN</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>USR0</p></td>
+<td><p>GPIO1_21</p></td>
+<td><p>V15</p></td>
+</tr>
+<tr class="row-odd"><td><p>USR1</p></td>
+<td><p>GPIO1_22</p></td>
+<td><p>U15</p></td>
+</tr>
+<tr class="row-even"><td><p>USR2</p></td>
+<td><p>GPIO1_23</p></td>
+<td><p>T15</p></td>
+</tr>
+<tr class="row-odd"><td><p>USR3</p></td>
+<td><p>GPIO1_24</p></td>
+<td><p>V16</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A logic level of “1” will cause the LEDs to turn on.</p>
+<section id="boot-configuration">
+<h3>Boot Configuration<a class="headerlink" href="#boot-configuration" title="Link to this heading">#</a></h3>
+<p>The design supports two groups of boot options on the board. The user
+can switch between these modes via the Boot button. The primary boot
+source is the onboard eMMC device. By holding the Boot button, the user
+can force the board to boot from the microSD slot. This enables the eMMC
+to be overwritten when needed or to just boot an alternate image. The
+following sections describe how the boot configuration works.</p>
+<p>In most applications, including those that use the provided demo
+distributions available from <a class="reference external" href="http://beagleboard.org/">beagleboard.org</a>
+the processor-external boot code is composed of two stages. After the
+primary boot code in the processor ROM passes control, a secondary stage
+(secondary program loader – “SPL” or “MLO”) takes over. The SPL stage
+initializes only the required devices to continue the boot process, and
+then control is transferred to the third stage “U-boot”. Based on the
+settings of the boot pins, the ROM knows where to go and get the SPL and
+UBoot code. In the case of the BeagleBone Black, that is either eMMC or
+microSD based on the position of the boot switch.</p>
+</section>
+<section id="boot-configuration-design">
+<h3>Boot Configuration Design<a class="headerlink" href="#boot-configuration-design" title="Link to this heading">#</a></h3>
+<p><em>figure-38</em> shows the circuitry that is involved in the boot
+configuration process. On power up, these pins are read by the processor
+to determine the boot order. S2 is used to change the level of one bit
+from HI to LO which changes the boot order.</p>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../../_images/image53.png"><img alt="Processor Boot Configuration Design" src="../../../_images/image53.png" style="width: 448px; height: 367px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 451 </span><span class="caption-text">Processor Boot Configuration Design</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It is possible to override these setting via the expansion headers. But
+be careful not to add too much load such that it could interfere with
+the operation of the HDMI interface or LCD panels. If you choose to
+override these settings, it is strongly recommended that you gate these
+signals with the <em>SYS_RESETn</em> signal. This ensures that after coming out
+of reset these signals are removed from the expansion pins.</p>
+</section>
+<section id="default-boot-options">
+<h3>Default Boot Options<a class="headerlink" href="#default-boot-options" title="Link to this heading">#</a></h3>
+<p>Based on the selected option found in <em>figure-39</em> below, each of the
+boot sequences for each of the two settings is shown.</p>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../../_images/image54.jpg"><img alt="Processor Boot Configuration" src="../../../_images/image54.jpg" style="width: 601px; height: 130px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 452 </span><span class="caption-text">Processor Boot Configuration</span><a class="headerlink" href="#id28" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The first row in &lt;&lt;figure-39&gt;&gt; is the default setting. On boot, the
+processor will look for the eMMC on the MMC1 port first, followed by the
+microSD slot on MMC0, USB0 and UART0. In the event there is no microSD
+card and the eMMC is empty, UART0 or USB0 could be used as the board
+source.</p>
+<p>If you have a microSD card from which you need to boot from, hold the
+boot button down. On boot, the processor will look for the SPIO0 port
+first, then microSD on the MMC0 port, followed by USB0 and UART0. In the
+event there is no microSD card and the eMMC is empty, USB0 or UART0
+could be used as the board source.</p>
+</section>
+</section>
+<section id="ethernet">
+<h2>10/100 Ethernet<a class="headerlink" href="#ethernet" title="Link to this heading">#</a></h2>
+<p>The BeagleBone Black is equipped with a 10/100 Ethernet interface. It
+uses the same PHY as is used on the original BeagleBone. The design is
+described in the following sections.</p>
+<section id="ethernet-processor-interface">
+<h3>Ethernet Processor Interface<a class="headerlink" href="#ethernet-processor-interface" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../../../_images/image55.png"><img alt="Ethernet Processor Interface" src="../../../_images/image55.png" style="width: 448px; height: 312px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 453 </span><span class="caption-text">Ethernet Processor Interface</span><a class="headerlink" href="#id29" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This is the same interface as is used on the BeagleBone. No changes were
+made in this design for the board.</p>
+</section>
+<section id="ethernet-connector-interface">
+<h3>Ethernet Connector Interface<a class="headerlink" href="#ethernet-connector-interface" title="Link to this heading">#</a></h3>
+<p>The off board side of the PHY connections are shown in <em>Figure 41</em>
+below.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../../_images/image56.png"><img alt="Ethernet Connector Interface" src="../../../_images/image56.png" style="width: 570px; height: 347px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 454 </span><span class="caption-text">Ethernet Connector Interface</span><a class="headerlink" href="#id30" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This is the same interface as is used on the BeagleBone. No changes were made in this design for the board.</p>
+</section>
+<section id="ethernet-phy-power-reset-and-clocks">
+<h3>Ethernet PHY Power, Reset, and Clocks<a class="headerlink" href="#ethernet-phy-power-reset-and-clocks" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../../_images/image57.png"><img alt="Ethernet PHY, Power, Reset, and Clocks" src="../../../_images/image57.png" style="width: 570px; height: 367px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 455 </span><span class="caption-text">Ethernet PHY, Power, Reset, and Clocks</span><a class="headerlink" href="#id31" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>VDD_3V3B Rail</strong></p>
+<p>The VDD_3V3B rail is the main power rail for the <em>LAN8710A</em>. It
+originates at the VD_3V3B regulator and is the primary rail that
+supports all of the peripherals on the board. This rail also supplies
+the VDDIO rails which set the voltage levels for all of the I/O signals
+between the processor and the**LAN8710A**.</p>
+<p><strong>VDD_PHYA Rail</strong></p>
+<p>A filtered version of VDD_3V3B rail is connected to the VDD rails of the
+LAN8710 and the termination resistors on the Ethernet signals. It is
+labeled as <em>VDD_PHYA</em>. The filtering inductor helps block transients
+that may be seen on the VDD_3V3B rail.</p>
+<p><strong>PHY_VDDCR Rail</strong></p>
+<p>The <em>PHY_VDDCR</em> rail originates inside the LAN8710A. Filter and bypass
+capacitors are used to filter the rail. Only circuitry inside the
+LAN8710A uses this rail.</p>
+<p><strong>SYS_RESET</strong></p>
+<p>The reset of the LAN8710A is controlled via the <em>SYS_RESETn</em> signal, the
+main board reset line.</p>
+<p><strong>Clock Signals</strong></p>
+<p>A crystal is used to create the clock for the LAN8710A. The processor
+uses the <em>RMII_RXCLK</em> signal to provide the clocking for the data
+between the processor and the LAN8710A.</p>
+</section>
+</section>
+<section id="lan8710a-mode-pins">
+<h2>LAN8710A Mode Pins<a class="headerlink" href="#lan8710a-mode-pins" title="Link to this heading">#</a></h2>
+<p>There are mode pins on the LAN8710A that sets the operational mode for
+the PHY when coming out of reset. These signals are also used to
+communicate between the processor and the LAN8710A. As a result, these
+signals can be driven by the processor which can cause the PHY not to be
+initialized correctly. To ensure that this does not happen, three low
+value pull up resistors are used. <em>Figure 43</em> below shows the three mode
+pin resistors.</p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../../../_images/image97.png"><img alt="Ethernet PHY Mode Pins" src="../../../_images/image97.png" style="width: 386px; height: 349px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 456 </span><span class="caption-text">Ethernet PHY Mode Pins</span><a class="headerlink" href="#id32" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This will set the mode to be 111, which enables all modes and enables
+auto-negotiation.</p>
+</section>
+<section id="hdmi-interface">
+<h2>HDMI Interface<a class="headerlink" href="#hdmi-interface" title="Link to this heading">#</a></h2>
+<p>The BeagleBone Black has an onboard HDMI framer that converts the LCD
+signals and audio signals to drive a HDMI monitor. The design uses an
+NXP <em>TDA19988</em> HDMI Framer.</p>
+<p>The following sections provide more detail into the design of this
+interface.</p>
+<section id="supported-resolutions">
+<h3>Supported Resolutions<a class="headerlink" href="#supported-resolutions" title="Link to this heading">#</a></h3>
+<p>The maximum resolution supported by the BeagleBone Black is 1280x1024 &#64;
+60Hz. <em>Table 9</em> below shows the supported resolutions. Not all
+resolutions may work on all monitors, but these have been tested and
+shown to work on at least one monitor. EDID is supported on the
+BeagleBone Black. Based on the EDID reading from the connected monitor,
+the highest compatible resolution is selected.</p>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id33">
+<caption><span class="caption-number">Table 84 </span><span class="caption-text">HDMI Supported Monitor Resolutions</span><a class="headerlink" href="#id33" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>RESOLUTION</p></th>
+<th class="head"><p>AUDIO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>800 x 600 &#64;60Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>800 x 600 &#64;56Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>640 x 480 &#64;75Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>640 x 480 &#64;60Hz</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>720 x 400 &#64;70Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1280 x 1024 &#64;75Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1024 x 768 &#64;75Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1024 x 768 &#64;70Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>1024 x 768 &#64;60Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>800 x 600 &#64;75Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>800 x 600 &#64;72Hz</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>720 x 480 &#64;60Hz</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>1280 x 720 &#64;60Hz</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>1920 x 1080 &#64;24Hz</p></td>
+<td><p>YES</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>NOTE: The updated software image used on the Rev A5B and later boards
+added support for <a class="reference external" href="mailto:1920x1080&#37;&#52;&#48;24HZ">1920x1080<span>&#64;</span>24HZ</a>.</p>
+<p>Audio is limited to CEA supported resolutions. LCD panels only activate
+the audio in CEA modes. This is a function of the specification and is
+not something that can be fixed on the board via a hardware change or a
+software change.</p>
+</section>
+<section id="hdmi-framer">
+<h3>HDMI Framer<a class="headerlink" href="#hdmi-framer" title="Link to this heading">#</a></h3>
+<p>The <em>TDA19988</em> is a High-Definition Multimedia Interface (HDMI) 1.4a
+transmitter. It is backward compatible with DVI 1.0 and can be connected
+to any DVI 1.0 or HDMI sink. The HDCP mode is not used in the design.
+The non-HDCP version of the device is used in the BeagleBone Black
+design.</p>
+<p>This device provides additional embedded features like CEC (Consumer
+Electronic Control). CEC is a single bidirectional bus that transmits
+CEC over the home appliance network connected through this bus. This
+eliminates the need of any additional device to handle this feature.
+While this feature is supported in this device, as of this point, the SW
+to support this feature has not been implemented and is not a feature
+that is considered critical. It can be switched to very low power
+Standby or Sleep modes to save power when HDMI is not used. <em>TDA19988</em>
+embeds I~2~C-bus master interface for DDC-bus communication to read
+EDID. This device can be controlled or configured via I~2~C-bus
+interface.</p>
+</section>
+<section id="hdmi-video-processor-interface">
+<h3>HDMI Video Processor Interface<a class="headerlink" href="#hdmi-video-processor-interface" title="Link to this heading">#</a></h3>
+<p>The <em>Figure 44</em> shows the connections between the processor and the HDMI
+framer device. There are 16 bits of display data, 5-6-5 that is used to
+drive the framer. The reason for 16 bits is that allows for
+compatibility with display and LCD capes already available on the
+original BeagleBone. The unused bits on the <strong>TDA19988</strong> are tied low. In
+addition to the data signals are the VSYNC, HSYNC, DE, and PCLK signals
+that round out the video interface from the processor.</p>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="../../../_images/image58.png"><img alt="HDMI Framer Processor Interface" src="../../../_images/image58.png" style="width: 449px; height: 481px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 457 </span><span class="caption-text">HDMI Framer Processor Interface</span><a class="headerlink" href="#id34" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hdmi-control-processor-interface">
+<h3>HDMI Control Processor Interface<a class="headerlink" href="#hdmi-control-processor-interface" title="Link to this heading">#</a></h3>
+<p>In order to use the <em>TDA19988</em>, the processor needs to setup the device.
+This is done via the I2C interface between the processor and
+the <strong>TDA19988</strong>. There are two signals on the <em>TDA19988</em> that could be
+used to set the address of the <em>TDA19988</em>. In this design they are both
+tied low. The I2C interface supports both 400kHz and 100KhZ operation.
+<em>Table 10</em> shows the I2C address.</p>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="../../../_images/image59.png"><img alt="TDA19988 I2C Address" src="../../../_images/image59.png" style="width: 527px; height: 72px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 458 </span><span class="caption-text">TDA19988 I2C Address</span><a class="headerlink" href="#id35" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="interrupt-signal">
+<h3>Interrupt Signal<a class="headerlink" href="#interrupt-signal" title="Link to this heading">#</a></h3>
+<p>There is a HDMI_INT signal that connects from the TDA19988 to the
+processor. This signal can be used to alert the processor in a state
+change on the HDMI interface.</p>
+</section>
+<section id="audio-interface">
+<h3>Audio Interface<a class="headerlink" href="#audio-interface" title="Link to this heading">#</a></h3>
+<p>There is an I2S audio interface between the processor and the
+<em>TDA19988</em>. Stereo audio can be transported over the HDMI interface to
+an audio equipped display. In order to create the required clock
+frequencies, an external 24.576MHz oscillator,*Y4*, is used. From this
+clock, the processor generates the required clock frequencies for the
+<em>TDA19988</em>.</p>
+<p>There are three signals used to pass data from the processor to the
+<em>TDA19988</em>. SCLK is the serial clock. SPI1_CS0 is the data pin to
+the  <strong>TDA199888</strong>. SPI1_D0 is the word sync pin. These signals are
+configured as I2S interfaces.</p>
+<p>Audio is limited to CEA supported resolutions. LCD panels only activate
+the audio in CEA modes. This is a function of the specification and is
+not something that can be fixed on the board via a hardware change or a
+software change.</p>
+<p>In order to create the correct clock frequencies, we had to add an
+external <em>24.576MHz</em> oscillator. Unfortunately this had to be input into
+the processor using the pin previously used for <strong>GPIO3_21</strong>. In order to
+keep GPIO3_21 functionality, we provided a way to disable the oscillator
+if the need was there to use the pin on the expansion header. <em>Figure
+45</em> shows the oscillator circuitry.</p>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="../../../_images/image60.png"><img alt="24.576MHZ Oscillator" src="../../../_images/image60.png" style="width: 575px; height: 169px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 459 </span><span class="caption-text">24.576MHZ Oscillator</span><a class="headerlink" href="#id36" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="power-connections">
+<h3>Power Connections<a class="headerlink" href="#power-connections" title="Link to this heading">#</a></h3>
+<p><em>figure-46</em> shows the power connections to the <strong>TDA19988</strong> device. All
+voltage rails for the device are at 1.8V. A filter is provided to
+minimize any noise from the 1.8V rail getting back into the device.</p>
+<figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="../../../_images/image64.png"><img alt="HDMI Power Connections" src="../../../_images/image64.png" style="width: 550px; height: 315px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 460 </span><span class="caption-text">HDMI Power Connections</span><a class="headerlink" href="#id37" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>All of the interfaces between the processor and the <em>TDA19988</em> are 3.3V
+tolerant allowing for direct connection.</p>
+</section>
+<section id="hdmi-connector-interface">
+<h3>HDMI Connector Interface<a class="headerlink" href="#hdmi-connector-interface" title="Link to this heading">#</a></h3>
+<p><em>figure-47</em> shows the design of the interface between the HDMI Framer
+and the connector.</p>
+<figure class="align-center" id="id38">
+<a class="reference internal image-reference" href="../../../_images/image65.png"><img alt="Connector Interface Circuitry" src="../../../_images/image65.png" style="width: 521px; height: 430px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 461 </span><span class="caption-text">Connector Interface Circuitry</span><a class="headerlink" href="#id38" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The connector for the HDMI interface is a microHDMI. It should be noted
+that this connector has a different pinout than the standard or mini
+HDMI connectors. D6 and D7 are ESD protection devices.</p>
+</section>
+</section>
+<section id="usb-host">
+<h2>USB Host<a class="headerlink" href="#usb-host" title="Link to this heading">#</a></h2>
+<p>The board is equipped with a single USB host interface accessible from a
+single USB Type A female connector. &lt;&lt;figure-48&gt;&gt; is the design of the USB
+Host circuitry.</p>
+<figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="../../../_images/image66.png"><img alt="USB Host circuit" src="../../../_images/image66.png" style="width: 570px; height: 205px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 462 </span><span class="caption-text">USB Host circuit</span><a class="headerlink" href="#id39" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="power-switch">
+<h3>Power Switch<a class="headerlink" href="#power-switch" title="Link to this heading">#</a></h3>
+<p><em>U8</em> is a switch that allows the power to the connector to be turned on
+or off by the processor. It also has an over current detection that can
+alert the processor if the current gets too high via the**USB1_OC**
+signal. The power is controlled by the <em>USB1_DRVBUS</em> signal from the
+processor.</p>
+</section>
+<section id="esd-protection">
+<h3>ESD Protection<a class="headerlink" href="#esd-protection" title="Link to this heading">#</a></h3>
+<p><em>U9</em> is the ESD protection for the signals that go to the connector.</p>
+</section>
+<section id="filter-options">
+<h3>Filter Options<a class="headerlink" href="#filter-options" title="Link to this heading">#</a></h3>
+<p><em>FB7</em> and**FB8** were added to assist in passing the FCC emissions test.
+The <em>USB1_VBUS</em> signal is used by the processor to detect that the 5V is
+present on the connector. <em>FB7</em> is populated and <em>FB8</em> is replaced with
+a .1 ohm resistor.</p>
+</section>
+</section>
+<section id="pru-icss">
+<h2>PRU-ICSS<a class="headerlink" href="#pru-icss" title="Link to this heading">#</a></h2>
+<p>The PRU-ICSS module is located inside the AM3358 processor. Access to
+these pins is provided by the expansion headers and is multiplexed with
+other functions on the board. Access is not provided to all of the
+available pins.</p>
+<p>All documentation is located at
+<a class="reference external" href="http://github.com/beagleboard/am335x_pru_package">http://github.com/beagleboard/am335x_pru_package_</a></p>
+<p>This feature is not supported by Texas Instruments.</p>
+<section id="pru-icss-features">
+<h3>PRU-ICSS Features<a class="headerlink" href="#pru-icss-features" title="Link to this heading">#</a></h3>
+<p>The features of the PRU-ICSS include:</p>
+<p>Two independent programmable real-time (PRU) cores:</p>
+<ul class="simple">
+<li><p>32-Bit Load/Store RISC architecture</p></li>
+<li><p>8K Byte instruction RAM (2K instructions) per core</p></li>
+<li><p>8K Bytes data RAM per core</p></li>
+<li><p>12K Bytes shared RAM</p></li>
+<li><p>Operating frequency of 200 MHz</p></li>
+<li><p>PRU operation is little endian similar to ARM processor</p></li>
+<li><p>All memories within PRU-ICSS support parity</p></li>
+<li><p>Includes Interrupt Controller for system event handling</p></li>
+<li><p>Fast I/O interface</p></li>
+</ul>
+<p>16 input pins and 16 output pins per PRU core. <em>(Not all of these are
+accessible on the BeagleBone Black).</em></p>
+</section>
+<section id="pru-icss-block-diagram">
+<h3>PRU-ICSS Block Diagram<a class="headerlink" href="#pru-icss-block-diagram" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id40">
+<a class="reference internal image-reference" href="../../../_images/image67.png"><img alt="PRU-ICSS Block Diagram" src="../../../_images/image67.png" style="width: 427px; height: 275px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 463 </span><span class="caption-text">PRU-ICSS Block Diagram</span><a class="headerlink" href="#id40" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pru-icss-pin-access">
+<h3>PRU-ICSS Pin Access<a class="headerlink" href="#pru-icss-pin-access" title="Link to this heading">#</a></h3>
+<p>Both PRU 0 and PRU1 are accessible from the expansion headers. Some may
+not be usable without first disabling functions on the board like LCD
+for example. Listed below is what ports can be accessed on each PRU.</p>
+<ul class="simple">
+<li><p>8 outputs or 9 inputs</p></li>
+<li><p>13 outputs or 14 inputs</p></li>
+<li><p>UART0_TXD, UART0_RXD, UART0_CTS, UART0_RTS</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id41">
+<caption><span class="caption-number">Table 85 </span><span class="caption-text">P8 PRU0 and PRU1 Access</span><a class="headerlink" href="#id41" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 15%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>PROC</p></th>
+<th class="head"><p>NAME</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>R12</p></td>
+<td><p>GPIO1_13</p></td>
+<td></td>
+<td><p>pr1_pru0_pru_r30_15 (Output)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>T12</p></td>
+<td><p>GPIO1_12</p></td>
+<td></td>
+<td><p>pr1_pru0_pru_r30_14 (Output)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>U13</p></td>
+<td><p>GPIO1_15</p></td>
+<td></td>
+<td><p>pr1_pru0_pru_r31_15 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>V13</p></td>
+<td><p>GPIO1_14</p></td>
+<td></td>
+<td><p>pr1_pru0_pru_r31_14 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>V9</p></td>
+<td><p>GPIO1_31</p></td>
+<td><p>pr1_pru1_pru_r30_13 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_13 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>U9</p></td>
+<td><p>GPIO1_30</p></td>
+<td><p>pr1_pru1_pru_r30_12 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_12 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>U5</p></td>
+<td><p>GPIO2_22</p></td>
+<td><p>pr1_pru1_pru_r30_8 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_8 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>V5</p></td>
+<td><p>GPIO2_24</p></td>
+<td><p>pr1_pru1_pru_r30_10 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_10 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>R5</p></td>
+<td><p>GPIO2_23</p></td>
+<td><p>pr1_pru1_pru_r30_9 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_9 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>39</p></td>
+<td><p>T3</p></td>
+<td><p>GPIO2_12</p></td>
+<td><p>pr1_pru1_pru_r30_6 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_6 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>T4</p></td>
+<td><p>GPIO2_13</p></td>
+<td><p>pr1_pru1_pru_r30_7 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_7 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>41</p></td>
+<td><p>T1</p></td>
+<td><p>GPIO2_10</p></td>
+<td><p>pr1_pru1_pru_r30_4 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_4 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>42</p></td>
+<td><p>T2</p></td>
+<td><p>GPIO2_11</p></td>
+<td><p>pr1_pru1_pru_r30_5 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_5 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>43</p></td>
+<td><p>R3</p></td>
+<td><p>GPIO2_8</p></td>
+<td><p>pr1_pru1_pru_r30_2 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_2 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44</p></td>
+<td><p>R4</p></td>
+<td><p>GPIO2_9</p></td>
+<td><p>pr1_pru1_pru_r30_3 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_3 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>45</p></td>
+<td><p>R1</p></td>
+<td><p>GPIO2_6</p></td>
+<td><p>pr1_pru1_pru_r30_0 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_0 (INPUT)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>46</p></td>
+<td><p>R2</p></td>
+<td><p>GPIO2_7</p></td>
+<td><p>pr1_pru1_pru_r30_1 (Output)</p></td>
+<td><p>pr1_pru1_pru_r31_1 (INPUT)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="longtable table table-center" id="id42">
+<caption><span class="caption-number">Table 86 </span><span class="caption-text">P9 PRU0 and PRU1 Access</span><a class="headerlink" href="#id42" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 15%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>PROC</p></th>
+<th class="head"><p>NAME</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>A16</p></td>
+<td><p>I2C1_SCL</p></td>
+<td><p>pr1_uart0_txd</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>B16</p></td>
+<td><p>I2C1_SDA</p></td>
+<td><p>pr1_uart0_rxd</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>D17</p></td>
+<td><p>I2C2_SCL</p></td>
+<td><p>pr1_uart0_rts_n</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>D18</p></td>
+<td><p>I2C2_SDA</p></td>
+<td><p>pr1_uart0_cts_n</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>B17</p></td>
+<td><p>UART2_TXD</p></td>
+<td><p>pr1_uart0_rts_n</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>A17</p></td>
+<td><p>UART2_RXD</p></td>
+<td><p>pr1_uart0_cts_n</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>D15</p></td>
+<td><p>UART1_TXD</p></td>
+<td><p>pr1_uart0_txd</p></td>
+<td><p>pr1_pru0_pru_r31_16 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>A14</p></td>
+<td><p>GPIO3_21</p></td>
+<td><p>pr1_pru0_pru_r30_5 (Output)</p></td>
+<td><p>pr1_pru0_pru_r31_5 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>D16</p></td>
+<td><p>UART1_RXD</p></td>
+<td><p>pr1_uart0_rxd</p></td>
+<td><p>pr1_pru1_pru_r31_16</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>C13</p></td>
+<td><p>GPIO3_19</p></td>
+<td><p>pr1_pru0_pru_r30_7 (Output)</p></td>
+<td><p>pr1_pru0_pru_r31_7 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>C12</p></td>
+<td><p>SPI1_CS0</p></td>
+<td><p>eCAP2_in_PWM2_out</p></td>
+<td><p>pr1_pru0_pru_r30_3 (Output)</p></td>
+<td><p>pr1_pru0_pru_r31_3 (Input)</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>B13</p></td>
+<td><p>SPI1_D0</p></td>
+<td><p>pr1_pru0_pru_r30_1 (Output)</p></td>
+<td><p>pr1_pru0_pru_r31_1 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>D12</p></td>
+<td><p>SPI1_D1</p></td>
+<td><p>pr1_pru0_pru_r30_2 (Output)</p></td>
+<td><p>pr1_pru0_pru_r31_2 (Input)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>A13</p></td>
+<td><p>SPI1_SCLK</p></td>
+<td><p>pr1_pru0_pru_r30_0 (Output)</p></td>
+<td><p>pr1_pru0_pru_r31_0 (Input)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GPIO3_21 is also the 24.576MHZ clock input to the processor to enable HDMI audio.
+To use this pin the oscillator must be disabled.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ch05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">BeagleBone Black High Level Specification</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ch07.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Connectors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-section">Power Section</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tps65217c-pmic">TPS65217C PMIC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dc-input">DC Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-power">USB Power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-selection">Power Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-button">Power Button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#battery-access-pads">Battery Access Pads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-consumption">Power Consumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processor-interfaces">Processor Interfaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-rails">Power Rails</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-led">Power LED</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tps65217c-power-up-process">TPS65217C Power Up Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processor-control-interface">Processor Control Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-power-mode-support">Low Power Mode Support</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sitara-am3358bzcz100-processor">Sitara AM3358BZCZ100 Processor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-features">High Level Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crystal-circuitry">Crystal Circuitry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-circuitry">Reset Circuitry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-device">Memory Device</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ddr3l-memory-design">DDR3L Memory Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Power Rails</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vref">VREF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gb-emmc-memory">4GB eMMC Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-device">eMMC Device</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-circuit-design">eMMC Circuit Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#board-id-eeprom">Board ID EEPROM</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-secure-digital">Micro Secure Digital</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsd-design">microSD Design</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-leds">6.6 User LEDs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-configuration">Boot Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-configuration-design">Boot Configuration Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-boot-options">Default Boot Options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet">10/100 Ethernet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet-processor-interface">Ethernet Processor Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet-connector-interface">Ethernet Connector Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet-phy-power-reset-and-clocks">Ethernet PHY Power, Reset, and Clocks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lan8710a-mode-pins">LAN8710A Mode Pins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi-interface">HDMI Interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-resolutions">Supported Resolutions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi-framer">HDMI Framer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi-video-processor-interface">HDMI Video Processor Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi-control-processor-interface">HDMI Control Processor Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupt-signal">Interrupt Signal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-interface">Audio Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-connections">Power Connections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi-connector-interface">HDMI Connector Interface</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-host">USB Host</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-switch">Power Switch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esd-protection">ESD Protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-options">Filter Options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss">PRU-ICSS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss-features">PRU-ICSS Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss-block-diagram">PRU-ICSS Block Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-icss-pin-access">PRU-ICSS Pin Access</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglebone/black/ch06.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beaglebone/black/ch06.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+        
+        <a role="button" href="/beaglebone-black.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleBone Black - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleboard/beaglebone-black">BeagleBone Black git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglebone-black">BeagleBone Black board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglebone/black/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/beaglebone-black">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone Black
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us000236.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone Black_US000236.svg" alt="BeagleBone Black OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone Black Wireless
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us000011.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone Black Wireless_US000011.svg" alt="BeagleBone Black Wireless OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

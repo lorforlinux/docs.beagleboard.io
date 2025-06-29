@@ -1,0 +1,1661 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Smart energy efficient video doorbell &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beagleplay/demos-and-tutorials/low-power-video-doorbell';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/low-power-video-doorbell.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Support" href="../06-support.html" />
+    <link rel="prev" title="Understanding Boot" href="understanding-boot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-quick-start.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-design.html">Design and specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../05-demos.html">Demos and tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="using-serial-console.html">Using Serial Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect-wifi.html">Connect WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-grove.html">Using Grove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-mikrobus.html">Using mikroBUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-qwiic.html">Using QWIIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-nodered.html">Using Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-rtc.html">Using RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-oldi.html">Using OLDI Displays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-csi.html">Using CSI Cameras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zephyr-cc1352-development.html">Wireless MCU Zephyr Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beagleplay-kernel-development.html">BeaglePlay Kernel Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="greybus-host.html">BeagleConnect™ Greybus demo using BeagleConnect™ Freedom and BeaglePlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-boot.html">Understanding Boot</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Smart energy efficient video doorbell</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-support.html">Support</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">BeaglePlay</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../05-demos.html" class="nav-link">Demos and tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Smart energy efficient video doorbell</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="smart-energy-efficient-video-doorbell">
+<span id="beagleplay-demo-lpm-video"></span><h1>Smart energy efficient video doorbell<a class="headerlink" href="#smart-energy-efficient-video-doorbell" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Intelligent camera streaming and recording at 640x480 resolution and 30 FPS with power saving.</p></li>
+<li><p>Detect user activity using an external button/sensor and configure it as a wake-up source</p></li>
+<li><p>Application should start streaming on wakeup event, pause on system suspend and resume back seamlessly thus saving power while system was in suspended state.</p></li>
+</ol>
+<p>Give options to enable below functionalities:</p>
+<ul class="simple">
+<li><p>Stream Live camera feed when visitor activity is detected</p></li>
+<li><p>On-the-fly recording of live camera feed with a timeout to record visitor activity</p></li>
+<li><p>On-the-fly streaming of live camera feed to remote server for post processing/storage or display.</p></li>
+</ul>
+<section id="about-deep-sleep">
+<h2>About deep sleep<a class="headerlink" href="#about-deep-sleep" title="Link to this heading">#</a></h2>
+<p>Deep Sleep AKA Suspend-to-RAM is a low-power mode that allows an embedded
+device to retain its state in RAM while the processor is turned off.
+This can save a significant amount of power, especially in devices that are battery-powered.</p>
+<p>The benefits of using deep sleep in embedded devices are faster wake-up time and
+better efficiency.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Checkout <a class="reference external" href="https://www.kernel.org/doc/Documentation/power/states.txt">kernel docs on power states</a></p>
+</div>
+<div class="video_wrapper align-center" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; text-align: center; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/4jbOXl_o4uo" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="hardware-requirements">
+<h2>Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.beagleboard.org/boards/beagleplay">BeaglePlay board</a></p></li>
+<li><p>A CSI MIPI camera like <a class="reference external" href="https://www.technexion.com/products/embedded-vision/image-sensors/tevi-ov5640/">TEVI-OV5640</a> or a USB web-cam</p></li>
+<li><p>HDMI monitor &amp; HDMI cable</p></li>
+<li><p>Ethernet cable and a laptop/desktop with an Ethernet port</p></li>
+<li><p><a class="reference external" href="https://wiki.seeedstudio.com/Grove-PIR_Motion_Sensor/">A Grove PIR sensor</a> or a Grove button</p></li>
+</ol>
+</section>
+<section id="software-requirements">
+<h2>Software requirements<a class="headerlink" href="#software-requirements" title="Link to this heading">#</a></h2>
+<p>First, make sure that you have the latest U-Boot which packages the right firmwares
+to make deep sleep work on beagleplay. You will also need to use ti-linux-kernel for
+basic suspend-to-RAM because the patches are yet to make it into upstream.</p>
+<p>You can always use Robert Nelson’s latest default debian images which should come with the
+right uboot and kernel required.</p>
+<p>On debian, you may also need to make sure you have gstreamer installed, refer to
+<a class="reference external" href="https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c">https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c</a>
+for further details on how to install gstreamer.</p>
+</section>
+<section id="devicetree-changes">
+<h2>Devicetree changes<a class="headerlink" href="#devicetree-changes" title="Link to this heading">#</a></h2>
+<p>You will need to tell Linux what your wakeup source is going to be, it can be a simple button
+or even a  PIR sensor. To do this you’ll need to make the following changes to the
+k3-am625-beagleplay.dts:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts</span>
+<span class="gh">index b3328ae24b5f..9a83102e3604 100644</span>
+<span class="gd">--- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts</span>
+<span class="gi">+++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts</span>
+<span class="gu">@@ -166,6 +166,20 @@ vdd_sd_dv: regulator-5 {</span>
+<span class="w"> </span>                        &lt;3300000 0x1&gt;;
+<span class="w"> </span>       };
+
+<span class="gi">+       motion_gpio_key {</span>
+<span class="gi">+               compatible = &quot;gpio-keys&quot;;</span>
+<span class="gi">+               autorepeat;</span>
+<span class="gi">+               pinctrl-names = &quot;default&quot;;</span>
+<span class="gi">+               pinctrl-0 = &lt;&amp;grove_pins_default&gt;;</span>
+<span class="gi">+               switch {</span>
+<span class="gi">+                       label = &quot;senseGPIO&quot;;</span>
+<span class="gi">+                       linux,code = &lt;KEY_WAKEUP&gt;;</span>
+<span class="gi">+                       interrupts-extended = &lt;&amp;main_gpio1 28 IRQ_TYPE_EDGE_RISING&gt;,</span>
+<span class="gi">+                               &lt;&amp;main_pmx0 0x1e8&gt;;</span>
+<span class="gi">+                       interrupt-names = &quot;irq&quot;, &quot;wakeup&quot;;</span>
+<span class="gi">+               };</span>
+<span class="gi">+       };</span>
+<span class="gi">+</span>
+<span class="w"> </span>       leds {
+<span class="w"> </span>               compatible = &quot;gpio-leds&quot;;
+</pre></div>
+</div>
+<p>The above will help us configure the grove connector’s GPIO to act as a
+wakeup source from Deep Sleep.</p>
+<p>If using the CSI MIPI camera like tevi-ov5640 then, be sure to also apply the respective overlay,
+for tevi-ov5640 apply <code class="docutils literal notranslate"><span class="pre">k3-am625-beagleplay-csi2-tevi-ov5640.dtbo</span></code> overlay.</p>
+<p>The Technexion TEVI-OV5640 module supports Suspend-to-RAM but may fail to set the sensor registers
+in time when built as a module. You can fix this by making it a part of the kernel image:
+Find further details in the <a class="reference external" href="https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_01_00_08/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Camera/CSI2RX.html#suspend-to-ram">TI-SDK Documentation</a></p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add the below changes to the beagle defconfig</p>
+</div>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig</span>
+<span class="gh">index 1f402994efed..0f081e5f96c1 100644</span>
+<span class="gd">--- a/arch/arm64/configs/defconfig</span>
+<span class="gi">+++ b/arch/arm64/configs/defconfig</span>
+<span class="gu">@@ -739,14 +739,14 @@ CONFIG_RC_DECODERS=y</span>
+<span class="w"> </span>CONFIG_RC_DEVICES=y
+<span class="w"> </span>CONFIG_IR_MESON=m
+<span class="w"> </span>CONFIG_IR_SUNXI=m
+<span class="gd">-CONFIG_MEDIA_SUPPORT=m</span>
+<span class="gi">+CONFIG_MEDIA_SUPPORT=y</span>
+<span class="w"> </span># CONFIG_DVB_NET is not set
+<span class="w"> </span>CONFIG_MEDIA_USB_SUPPORT=y
+<span class="w"> </span>CONFIG_USB_VIDEO_CLASS=m
+<span class="w"> </span>CONFIG_V4L_PLATFORM_DRIVERS=y
+<span class="w"> </span>CONFIG_SDR_PLATFORM_DRIVERS=y
+<span class="w"> </span>CONFIG_V4L_MEM2MEM_DRIVERS=y
+<span class="gd">-CONFIG_VIDEO_CADENCE_CSI2RX=m</span>
+<span class="gi">+CONFIG_VIDEO_CADENCE_CSI2RX=y</span>
+<span class="w"> </span>CONFIG_VIDEO_WAVE_VPU=m
+<span class="w"> </span>CONFIG_VIDEO_IMG_VXD_DEC=m
+<span class="w"> </span>CONFIG_VIDEO_IMG_VXE_ENC=m
+<span class="gu">@@ -764,12 +764,12 @@ CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m</span>
+<span class="w"> </span>CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+<span class="w"> </span>CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
+<span class="w"> </span>CONFIG_VIDEO_SUN6I_CSI=m
+<span class="gd">-CONFIG_VIDEO_TI_J721E_CSI2RX=m</span>
+<span class="gi">+CONFIG_VIDEO_TI_J721E_CSI2RX=y</span>
+<span class="w"> </span>CONFIG_VIDEO_HANTRO=m
+<span class="w"> </span>CONFIG_VIDEO_IMX219=m
+<span class="w"> </span>CONFIG_VIDEO_IMX390=m
+<span class="w"> </span>CONFIG_VIDEO_OV2312=m
+<span class="gd">-CONFIG_VIDEO_OV5640=m</span>
+<span class="gi">+CONFIG_VIDEO_OV5640=y</span>
+<span class="w"> </span>CONFIG_VIDEO_OV5645=m
+<span class="w"> </span>CONFIG_VIDEO_DS90UB953=m
+<span class="w"> </span>CONFIG_VIDEO_DS90UB960=m
+<span class="gu">@@ -1309,8 +1309,8 @@ CONFIG_PHY_XGENE=y</span>
+<span class="w"> </span>CONFIG_PHY_CAN_TRANSCEIVER=m
+<span class="w"> </span>CONFIG_PHY_SUN4I_USB=y
+<span class="w"> </span>CONFIG_PHY_CADENCE_TORRENT=y
+<span class="gd">-CONFIG_PHY_CADENCE_DPHY=m</span>
+<span class="gd">-CONFIG_PHY_CADENCE_DPHY_RX=m</span>
+<span class="gi">+CONFIG_PHY_CADENCE_DPHY=y</span>
+<span class="gi">+CONFIG_PHY_CADENCE_DPHY_RX=y</span>
+<span class="w"> </span>CONFIG_PHY_CADENCE_SIERRA=y
+<span class="w"> </span>CONFIG_PHY_MIXEL_MIPI_DPHY=m
+<span class="w"> </span>CONFIG_PHY_FSL_IMX8M_PCIE=y
+</pre></div>
+</div>
+</section>
+<section id="linux-commands">
+<h2>Linux commands<a class="headerlink" href="#linux-commands" title="Link to this heading">#</a></h2>
+<p>Once your hardware, software and devicetree changes are all set, and
+you boot till linux prompt we can finally start with the final bit. The below section describes various gstreamer pipelines created using sample gst-launch-1.0 gstreamer application. You can create your own gstreamer application too with some dynamic features, customized options taking referece from these pipelines.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using CSI based TEVI-OV5640 module, you need to also set the mediagraph prior to using camera. You can set set the media graph and sanity test the camera using below command which uses cam tool from libcamera:</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cam -c1 --stream width=640,height=480,pixelformat=UYVY -C20</span>
+</pre></div>
+</div>
+<p>Additionally, if using a different camera, you can check the supported resolutions and video formats using below command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">v4l2-ctl --all -d /dev/videoX (where X is your video node number e.g. /dev/video0)</span>
+</pre></div>
+</div>
+<p>There are two sets of gstreamer pipelines that get run in this demo one at server side i.e. on beagleplay board directly which captures and displays the camera feed and streams it to the remote or client side, and the other at client side itself which receives the camera feed, records it, decodes it and displays it using the remote host machine.</p>
+<section id="server-side-gstreamer-pipeline-on-beagleplay-board">
+<h3>Server side gstreamer pipeline (on beagleplay board):<a class="headerlink" href="#server-side-gstreamer-pipeline-on-beagleplay-board" title="Link to this heading">#</a></h3>
+<p>Here, you can run either of the below two sets of gstreamer pipeline depending upon your requirement :</p>
+<section id="display-live-camera-feed">
+<h4>Display live camera feed<a class="headerlink" href="#display-live-camera-feed" title="Link to this heading">#</a></h4>
+<section id="pipeline-topology">
+<h5>Pipeline topology<a class="headerlink" href="#pipeline-topology" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">v4l2src --&gt; kmssink</span>
+</pre></div>
+</div>
+</section>
+<section id="gstreamer-pipeline">
+<h5>Gstreamer Pipeline<a class="headerlink" href="#gstreamer-pipeline" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>Stop<span class="w"> </span>weston<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>kmssink
+<span class="go">systemctl stop weston.service</span>
+<span class="go">gst-launch-1.0 -v v4l2src io-mode=dmabuf device=&quot;/dev/video0&quot; ! video/x-raw, width=640, height=480, format=YUY2 ! kmssink       driver-name=tidss force-modesetting=true sync=false async=false</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the video format to UYVY if using CSI based ov5640 camera</p>
+</div>
+</section>
+<section id="description">
+<h5>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h5>
+<p>The Linux kernel uses V4L2 based driver for Camera and DRM/KMS based driver for Display, Gstreamer has v4l2src element to communicate with V4l2’s based driver and kmssink element to talk with display driver and using above command, we can create a media pipeline which shares video buffers from camera to display using DMA to transfer the buffer. This is specified using io-mode property of v4l2src.
+By default display server i.e weston is in charge of controlling the display, so it needs to be disabled if we want to control the display directly. We also use kmssink’s force-modesetting property to set the display mode to the camera resolution and have a full screen display. If using a graphics server involving GPU, one can use waylandsink (which uses weston as display server), glimagesink (which uses opengl API) or ximagesink (which uses Xorg as display server) depending upon the display server.</p>
+</section>
+</section>
+<section id="display-live-camera-feed-stream-out-to-remote-server">
+<h4>Display live camera feed + Stream out to remote server<a class="headerlink" href="#display-live-camera-feed-stream-out-to-remote-server" title="Link to this heading">#</a></h4>
+<section id="id2">
+<h5>Pipeline topology<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">                 .--&gt;kmssink</span>
+<span class="go">v4l2src --&gt; tee--|</span>
+<span class="go">                 .--&gt;x264enc--&gt;rtph264pay--&gt;udpsink</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h5>Gstreamer pipeline<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>Stop<span class="w"> </span>weston<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>kmssink
+<span class="go">systemctl stop weston.service</span>
+<span class="go">gst-launch-1.0 -v v4l2src io-mode=dmabuf device=&quot;/dev/video0&quot; ! video/x-raw, width=640, height=480, format=YUY2 ! queue ! tee name=t t. ! queue ! kmssink driver-name=tidss force-modesetting=true sync=false async=false t. ! queue ! ticolorconvert ! queue ! x264enc speed-preset=superfast  key-int-max=30 tune=zerolatency bitrate=25000 ! queue ! rtph264pay config-interval=30 ! udpsink sync=false port=5000 host=192.168.0.2 async=false &amp;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the video format to UYVY if using CSI based ov5640 camera</p>
+</div>
+</section>
+<section id="id4">
+<h5>Description<a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<p>Here we use gstreamer’s tee element to split the media pipeline graph into two arms, one arm is used to display the camera feed on-screen (which is same as the one described in previous section) and other arm is used to encode the camera feed and stream it to remote server. We use libx264 based x264enc element to encode the raw video to H.264 based access units. However x264enc does not support YUY2 video format, so we use ticolorconvert element to convert the video format to the one supported by the encoder, this element is CPU based but it uses ARM neon based instructions underneath for faster conversion. The x264enc element also offers different parameters to fine tune the encoding. We use superfast speed preset along with zerolatency tuning as we want to strem in realtime with minimal latency. We set IDR or key frame interval to 30 frames using key-int-max property. The IDR frame is important from streaming point of view as it marks arrival of fresh group of pictures without any dependencies to previous frames so that decoding at client side can resume back seamlessly even if there were packet losses in between due to network issues. However the value needs to be carefully chosen as the trade-off with higher frequency of IDR frames though is the increase in size of rtp payload which may consume more bandwidth. The video quality of encoded stream is controleld by bitrate parameter which specifies number of Kbits used for encoding video for 1s. Higher value for bitrate will increase the video quality albeit at the cost of increased size. The encoded frame is then packetized into RTP packets using rtph264pay element and transmitted over network using UDP protocol using udpsink element. The ip address and port number of remote host are specified using “host” and “port” property of udpsink element respectively.</p>
+<p>This gstreamer pipeline is useful for prototyping use-case where you not just want to display the camera feed outside the door when some visitor comes, but also want to stream out to a remote server (for e.g. security control rool or to your mobile device) for more safety.</p>
+</section>
+</section>
+<section id="display-live-camera-feed-stream-out-to-remote-server-record-camera-feed">
+<h4>Display live camera feed + Stream out to remote server+ Record camera feed<a class="headerlink" href="#display-live-camera-feed-stream-out-to-remote-server-record-camera-feed" title="Link to this heading">#</a></h4>
+<section id="id5">
+<h5>Pipeline topology<a class="headerlink" href="#id5" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">                 .--&gt;kmssink</span>
+<span class="go">v4l2src --&gt; tee--|                  .--filesink</span>
+<span class="go">                 .--&gt;x264enc--&gt;tee--|</span>
+<span class="go">                                    .--rtph264pay--&gt;udpsink</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h5>Gstreamer pipeline<a class="headerlink" href="#id6" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>Stop<span class="w"> </span>weston<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>kmssink
+<span class="go">systemctl stop weston.service</span>
+<span class="go">gst-launch-1.0 -v v4l2src io-mode=dmabuf device=&quot;/dev/video0&quot; ! video/x-raw, width=640, height=480, format=YUY2 ! queue ! tee name=t t. ! queue ! kmssink driver-name=tidss force-modesetting=true sync=false async=false t. ! queue ! ticolorconvert ! x264enc speed-preset=superfast key-int-max=30 bitrate=5000 ! queue ! tee name=t1 t1. ! queue ! rtph264pay config-interval=60 ! udpsink port=5000 host=192.168.0.2 sync=false async=false t1. ! queue ! filesink location=&quot;op.h264&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the video format to UYVY if using CSI based ov5640 camera</p>
+</div>
+</section>
+<section id="id7">
+<h5>Description<a class="headerlink" href="#id7" title="Link to this heading">#</a></h5>
+<p>In addition to the media topology described in previous section, one more tee element is added here to save the encoded file over user-specified storage media. This could be helpful to have the camera feed of all the visitors (or potential intruders :)) recorded at the device end itself for future reference/analysis or as a blackbox recording. However care needs to be taken to constantly backup the recorded stream so that storage media does not run out of space.</p>
+</section>
+</section>
+</section>
+<section id="client-side-gstreamer-pipeline-runs-on-remote-host">
+<h3>Client side gstreamer pipeline (runs on remote host):<a class="headerlink" href="#client-side-gstreamer-pipeline-runs-on-remote-host" title="Link to this heading">#</a></h3>
+<p>The previous section described how the camera feed is displayed and streamed out to remote server using RTP and UDP protocols. Here we will discuss about how we can receive the transmitted stream and display it or record it. We use X86_64 based Ubuntu machine as remote host here.</p>
+<section id="display-camera-feed-received-over-network">
+<h4>Display camera feed received over network<a class="headerlink" href="#display-camera-feed-received-over-network" title="Link to this heading">#</a></h4>
+<section id="id8">
+<h5>Pipeline topology<a class="headerlink" href="#id8" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">udpsrc --&gt; rtpjitterbuffer--&gt;rtph264depay--&gt;h264parse--&gt;avdec_h264--&gt;xvimagesink</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h5>Gstreamer pipeline<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>host<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>specified<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>pipelien<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>beagleplay
+<span class="go">sudo ifconfig enp2s0 192.168.0.2</span>
+<span class="go">gst-launch-1.0 udpsrc port=5000 caps = &quot;application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96&quot; ! rtpjitterbuffer latency=50 ! rtph264depay ! h264parse ! avdec_h264 ! queue ! fpsdisplaysink text-overlay=false name=fpssink video-sink=&quot;xvimagesink sync=false&quot; sync=false -v</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h5>Description<a class="headerlink" href="#id10" title="Link to this heading">#</a></h5>
+<p>The above gstreamer pipeline uses udpsrc element which reads UDP packets from the network, listening on the specified port (5000) and provide RTP packets to downstream element. rtpjitterbuffer element is used to buffer the incoming RTP packets to help reduce the impact of network jitter on smoothness of video. The bufferring is set to 50ms using latency property of rtpjitterbuffer, the value should be chosen optimally as tradeoff of choosing higher value is protection against network jitter maintaining the smoothness of pipeline but a higher value also increases the glass-to-glass latency. rtph264depay element is used to depacketize the H264 payload from RTP packets and feed send it to h264parse which parses it and provides access unit-by-access unit byte-stream to avdec_h264 which is a libav based software decoding element to decode H264 stream to raw video. fpsdisplaysink element is used along with xvimagesink (X11 backend) as video-sink to display overall frame-rate of the pipeline. If using weston as display server then waylandsink should be used as video-sink instead.</p>
+</section>
+</section>
+<section id="display-camera-feed-received-over-network-record-incoming-stream">
+<h4>Display camera feed received over network + record incoming stream<a class="headerlink" href="#display-camera-feed-received-over-network-record-incoming-stream" title="Link to this heading">#</a></h4>
+<section id="id11">
+<h5>Pipeline topology<a class="headerlink" href="#id11" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">                                                             .--&gt;avdec_h264--&gt;xvimagesink</span>
+<span class="go">udpsrc --&gt; rtpjitterbuffer--&gt;rtph264depay--&gt;h264parse--&gt;tee--|</span>
+<span class="go">                                                             .--&gt;filesink</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h5>Gstreamer pipeline<a class="headerlink" href="#id12" title="Link to this heading">#</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>host<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>specified<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>pipelien<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>beagleplay
+<span class="go">sudo ifconfig enp2s0 192.168.0.2</span>
+<span class="go">gst-launch-1.0 udpsrc port=5000 caps = &quot;application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96&quot; ! rtpjitterbuffer latency=50 ! rtph264depay ! h264parse ! video/x-h264, stream-format=byte-stream ! tee name=t t. ! queue ! filesink location=&quot;op.h264&quot;  t. ! queue ! avdec_h264 ! queue ! fpsdisplaysink text-overlay=false name=fpssink video-sink=&quot;xvimagesink sync=false&quot; sync=false -v</span>
+</pre></div>
+</div>
+</section>
+<section id="id13">
+<h5>Description<a class="headerlink" href="#id13" title="Link to this heading">#</a></h5>
+<p>This is same as pipeline described in previous section albeit with the extra addition of tee element which adds another arm to save the decoded video over a file on the host machine.</p>
+<ol class="arabic simple" start="2">
+<li><p>Let the above pipelines run in the background and then to suspend the device (beagleplay):</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo mem &gt; /sys/power/state</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Then, if you press the button/ trigger PIR sensor with some movement it should
+bring the device back up and you will see the video resume almost instantly on both the server side and client side. This is because underlying software stack also involving video and display related drivers support system suspend/resume, thus helping the application to resume seamlessly.</p></li>
+<li><p>Additionally, you can enable auto suspend for the device by using a simple systemd service. Follow the <a class="reference external" href="https://tecadmin.net/run-shell-script-as-systemd-service/">guide here</a>
+to see how to create and enable a script as a systemd service. The script that I used was as follows:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/bash
+
+<span class="go">while true</span>
+<span class="go">do</span>
+<span class="go"> sleep 15       # Adjust this time to whatever delay you prefer the device stays on after resume</span>
+<span class="go"> echo &quot;Entering Suspend to RAM...&quot;</span>
+<span class="go"> echo mem &gt; /sys/power/state</span>
+<span class="go">done</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_02_01_09/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Power_Management/pm_low_power_modes.html#deep-sleep">https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_02_01_09/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Power_Management/pm_low_power_modes.html#deep-sleep</a></p></li>
+<li><p><a class="reference external" href="https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_02_01_09/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Camera/CSI2RX.html">https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/09_02_01_09/exports/docs/linux/Foundational_Components/Kernel/Kernel_Drivers/Camera/CSI2RX.html</a></p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="understanding-boot.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Understanding Boot</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../06-support.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Support</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-deep-sleep">About deep sleep</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-requirements">Hardware requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requirements">Software requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#devicetree-changes">Devicetree changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-commands">Linux commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server-side-gstreamer-pipeline-on-beagleplay-board">Server side gstreamer pipeline (on beagleplay board):</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-live-camera-feed">Display live camera feed</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-topology">Pipeline topology</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gstreamer-pipeline">Gstreamer Pipeline</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-live-camera-feed-stream-out-to-remote-server">Display live camera feed + Stream out to remote server</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pipeline topology</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Gstreamer pipeline</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Description</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-live-camera-feed-stream-out-to-remote-server-record-camera-feed">Display live camera feed + Stream out to remote server+ Record camera feed</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Pipeline topology</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Gstreamer pipeline</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side-gstreamer-pipeline-runs-on-remote-host">Client side gstreamer pipeline (runs on remote host):</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-camera-feed-received-over-network">Display camera feed received over network</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Pipeline topology</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Gstreamer pipeline</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Description</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-camera-feed-received-over-network-record-incoming-stream">Display camera feed received over network + record incoming stream</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Pipeline topology</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Gstreamer pipeline</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beagleplay/demos-and-tutorials/low-power-video-doorbell.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beagleplay/demos-and-tutorials/low-power-video-doorbell.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beagleplay.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeaglePlay - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleplay/beagleplay">BeaglePlay git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beagleplay">BeaglePlay board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beagleplay/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/beagleplay">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeaglePlay
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002174.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeaglePlay_US002174.svg" alt="BeaglePlay OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

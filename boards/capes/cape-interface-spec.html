@@ -1,0 +1,5578 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>BeagleBone cape interface spec &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/capes/cape-interface-spec';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/capes/cape-interface-spec.html" />
+    <link rel="icon" href="../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BeagleBoard.org BeagleBone Relay Cape" href="relay.html" />
+    <link rel="prev" title="Capes" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">BeagleBone cape interface spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relay.html">BeagleBoard.org BeagleBone Relay Cape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comms.html">Beaglebone Industrial Comms Cape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motor_cape.html">BeagleBoard.org BeagleBone Motor Cape</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Capes</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">BeagleBone cape interface spec</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="beaglebone-cape-interface-spec">
+<span id="id1"></span><h1>BeagleBone cape interface spec<a class="headerlink" href="#beaglebone-cape-interface-spec" title="Link to this heading">#</a></h1>
+<p>This page is a fork of <a class="reference external" href="https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec">BeagleBone cape interface spec</a> page on elinux. This is the new official home.</p>
+<section id="background-and-overview">
+<h2>Background and overview<a class="headerlink" href="#background-and-overview" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Resources</p>
+<ul class="simple">
+<li><p>See <a class="reference external" href="https://beagleboard.org/blog/2022-03-31-device-tree-supporting-similar-boards-the-beaglebone-example">Device Tree: Supporting Similar Boards - The BeagleBone Example blog post</a> on BeagleBoard.org</p></li>
+<li><p>See <a class="reference external" href="https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing">spreadsheet with pin header details</a></p></li>
+<li><p>See <a class="reference external" href="https://elinux.org/Beagleboard:Cape_Expansion_Headers">elinux.org Cape Expansion Headers for BeagleBone page</a></p></li>
+<li><p>See <a class="reference internal" href="../beaglebone/black/ch07.html#beagleboneblack-connectors"><span class="std std-ref">BeagleBone Black System Reference Manual Connectors section</span></a></p></li>
+<li><p>See <a class="reference internal" href="../beaglebone/ai/04-expansion.html#bbai-expansion"><span class="std std-ref">BeagleBone AI System Reference Manual Connectors section</span></a></p></li>
+<li><p>See <a class="reference internal" href="../beaglebone/ai-64/04-expansion.html#bbai64-expansion"><span class="std std-ref">BeagleBone AI-64 System Reference Manual Connectors section</span></a></p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Below, when mentioning “Black”, this is true for all AM3358-based BeagleBone boards. “AI” is AM5729-based. “AI-64” is TDA4VM-based.</p>
+</div>
+<p>The device tree symbols for the BeagleBone Cape Compatibility Layer are provided in <a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees">BeagleBoard-DeviceTrees</a> at:</p>
+<ul class="simple">
+<li><p>Black: <a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/-/blob/v5.10.x-ti-unified/src/arm/bbb-bone-buses.dtsi">bbb-bone-buses.dtsi</a></p></li>
+<li><p>AI: <a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/-/blob/v5.10.x-ti-unified/src/arm/bbai-bone-buses.dtsi">bbai-bone-buses.dtsi</a></p></li>
+<li><p>AI-64: <a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/-/blob/v5.10.x-ti-unified/src/arm64/k3-j721e-beagleboneai64-bone-buses.dtsi">k3-j721e-beagleboneai-64-bone-buses.dtsi</a></p></li>
+</ul>
+<p>The udev rules used to create the userspace symlinks for the BeagleBone Cape Compatibility Layer are provided in <a class="reference external" href="https://git.beagleboard.org/beagleboard/usr-customizations">usr-customizations</a> at:</p>
+<p>More details can be found in <a class="reference internal" href="#bone-methodology"><span class="std std-ref">Methodology</span></a>.</p>
+<section id="summary-of-cape-interfaces">
+<h3>Summary of cape interfaces<a class="headerlink" href="#summary-of-cape-interfaces" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Legend</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> : Digital general purpose input and output (GPIO)</p></li>
+<li><p><a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> : Inter-integrated circuit bus (I<sup>2</sup>C) ports</p></li>
+<li><p><a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> : Serial peripheral interface (SPI) ports</p></li>
+<li><p><a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a> : Universal asynchronous reciever/transmitter (UART) serial ports</p></li>
+<li><p><a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a> : CAN</p></li>
+<li><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> : Analog inputs</p></li>
+<li><p><a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> : PWM</p></li>
+<li><p><a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a> : Capture/EQEP</p></li>
+<li><p><a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a> : MMC/SD/SDIO</p></li>
+<li><p><a class="reference internal" href="#bone-i2s"><span class="std std-ref">B</span></a> : I2S/audio serial ports</p></li>
+<li><p><a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> : LCD</p></li>
+<li><p><a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a> : PRU</p></li>
+<li><p><a class="reference internal" href="#bone-ecap"><span class="std std-ref">Y</span></a> : ECAP</p></li>
+</ul>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id40">
+<caption><span class="caption-number">Table 108 </span><span class="caption-text">Overall</span><a class="headerlink" href="#id40" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB D+</p></td>
+<td><p>E1</p></td>
+<td><p>E2</p></td>
+<td><p>USB D-</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>E3</p></td>
+<td><p>E4</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-even"><td><p>3V3 OUT</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>3V3 OUT</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a></p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>5V IN</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>5V IN</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>5V OUT</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>PWR BUT</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>RESET</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a></p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a></p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a></p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a></p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a></p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a></p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a></p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-i2c"><span class="std std-ref">I</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a> <a class="reference internal" href="#bone-can"><span class="std std-ref">C</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-sdio"><span class="std std-ref">M</span></a></p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a></p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>ADC VDD REF OUT</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a></p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>ADC GND</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a></p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a></p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a> <a class="reference internal" href="#bone-spi"><span class="std std-ref">S</span></a> <a class="reference internal" href="#bone-uart"><span class="std std-ref">U</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a></p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a> <a class="reference internal" href="#bone-counter"><span class="std std-ref">Q</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p><a class="reference internal" href="#bone-gpio"><span class="std std-ref">D</span></a> <a class="reference internal" href="#bone-pwm"><span class="std std-ref">E</span></a> <a class="reference internal" href="#bone-lcd"><span class="std std-ref">L</span></a> <a class="reference internal" href="#bone-pru"><span class="std std-ref">P</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>This is an alternate starting point template that should be fully encompasing with indexes.  It is a bit overwhelming, so I’m not making it visible.</p>
+<blockquote>
+<div><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB D+</p></td>
+<td><p>E1</p></td>
+<td><p>E2</p></td>
+<td><p>USB D-</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>E3</p></td>
+<td><p>E4</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-even"><td><p>3V3 OUT</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>3V3 OUT</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>D M</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V IN</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>5V IN</p></td>
+<td></td>
+<td><p>D M C4t</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>D M C4r</p></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>5V OUT</p></td>
+<td></td>
+<td><p>D C2r</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>D C2t</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWR BUT</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>RESET</p></td>
+<td></td>
+<td><p>D C3r</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>D C3t</p></td>
+</tr>
+<tr class="row-even"><td><p>D U4r</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>D</p></td>
+<td></td>
+<td><p>D P0o Q2b</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>D Q2a P0o</p></td>
+</tr>
+<tr class="row-odd"><td><p>D U4t</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>D E1a</p></td>
+<td></td>
+<td><p>D E2b</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>D E1b</p></td>
+<td></td>
+<td><p>D P0i</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>D P0i</p></td>
+</tr>
+<tr class="row-odd"><td><p>D I1c S00</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>D I1d S0o</p></td>
+<td></td>
+<td><p>D</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>C0r D I2c</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>C0t D I2d</p></td>
+<td></td>
+<td><p>D E2a</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>D M P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D E0b S0i U2t</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>D E0a S0c U2r</p></td>
+<td></td>
+<td><p>D M P1</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>D M Q2b</p></td>
+</tr>
+<tr class="row-even"><td><p>D S01</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>C1r D I3c U1t</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>D M</p></td>
+</tr>
+<tr class="row-odd"><td><p>D P0</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>C1t D I3d U1r</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>D P0 Q0b</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>D P0 S10</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>D L P1 U6r</p></td>
+</tr>
+<tr class="row-odd"><td><p>D E S1i P0</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>D P0 S1o</p></td>
+<td></td>
+<td><p>D L P1 U6t</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-even"><td><p>D E S1c P0</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>ADC VDD</p></td>
+<td></td>
+<td><p>D L</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>D L</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 4</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>ADC GND</p></td>
+<td></td>
+<td><p>D L Q1b</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>D E L</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 6</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 5</p></td>
+<td></td>
+<td><p>D L Q1a</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>D E L</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 2</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 3</p></td>
+<td></td>
+<td><p>D L U5t</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>D L U5r</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 0</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 1</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D P0</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>D Q0a S11 U3t P0</p></td>
+<td></td>
+<td><p>D L P1 Q4a</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>D L P1 Q4b</p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>D E L P1</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>D E L P1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+<section id="digital-gpio">
+<span id="bone-gpio"></span><h2>Digital GPIO<a class="headerlink" href="#digital-gpio" title="Link to this heading">#</a></h2>
+<p>The compatibility layer comes with simple reference nodes for attaching the Linux gpio-leds or gpio-keys to any cape header GPIO pin. This provides simple userspace general purpose input or output with various trigger modes.</p>
+<p>The format followed for the gpio-leds nodes is <strong>bone_led_P8_## / bone_led_P9_##</strong>. The <strong>gpio-leds</strong> driver is used by these reference nodes internally and allows users to easily create compatible led nodes in overlays for Black, AI and AI-64.</p>
+<div class="literal-block-wrapper docutils container" id="bone-cape-spec-led-example">
+<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">Example device tree overlay to enable LED driver on header P8 pin 3</span><a class="headerlink" href="#bone-cape-spec-led-example" title="Link to this code">#</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">/</span><span class="n">dts</span><span class="o">-</span><span class="n">v1</span><span class="o">/</span><span class="p">;</span>
+<span class="linenos">2</span><span class="o">/</span><span class="n">plugin</span><span class="o">/</span><span class="p">;</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="o">&amp;</span><span class="n">bone_led_P8_03</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">5</span><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="linenos">6</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In <a class="reference internal" href="#bone-cape-spec-led-example"><span class="std std-ref">Example device tree overlay to enable LED driver on header P8 pin 3</span></a>, it is possible to redefine the default label
+and other properties defined in the
+<a class="reference external" href="https://elixir.bootlin.com/linux/v5.10/source/Documentation/devicetree/bindings/leds/leds-gpio.yaml">gpio-leds schema</a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id41">
+<caption><span class="caption-number">Table 109 </span><span class="caption-text">GPIO pins</span><a class="headerlink" href="#id41" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td></td>
+<td></td>
+<td><p>P8_03</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>P8_04</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td></td>
+<td></td>
+<td><p>P8_05</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>P8_06</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td></td>
+<td></td>
+<td><p>P8_07</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>P8_08</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td></td>
+<td></td>
+<td><p>P8_09</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>P8_10</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9_11</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>P9_12</p></td>
+<td></td>
+<td><p>P8_11</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>P8_12</p></td>
+</tr>
+<tr class="row-even"><td><p>P9_13</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>P9_14</p></td>
+<td></td>
+<td><p>P8_13</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>P8_14</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9_15</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>P9_15</p></td>
+<td></td>
+<td><p>P8_15</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>P8_16</p></td>
+</tr>
+<tr class="row-even"><td><p>P9_17</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>P9_18</p></td>
+<td></td>
+<td><p>P8_17</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>P8_18</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9_19</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>P9_20</p></td>
+<td></td>
+<td><p>P8_19</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>P8_20</p></td>
+</tr>
+<tr class="row-even"><td><p>P9_21</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>P9_22</p></td>
+<td></td>
+<td><p>P8_21</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>P8_22</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9_23</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>P9_24</p></td>
+<td></td>
+<td><p>P8_23</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>P8_24</p></td>
+</tr>
+<tr class="row-even"><td><p>P9_25</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>P9_26</p></td>
+<td></td>
+<td><p>P8_25</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>P8_26</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9_27</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>P9_28</p></td>
+<td></td>
+<td><p>P8_27</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>P8_28</p></td>
+</tr>
+<tr class="row-even"><td><p>P9_29</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>P9_30</p></td>
+<td></td>
+<td><p>P8_29</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>P8_30</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9_31</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+<td></td>
+<td><p>P8_31</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>P8_32</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+<td></td>
+<td><p>P8_33</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>P8_34</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td></td>
+<td></td>
+<td><p>P8_35</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>P8_36</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td></td>
+<td></td>
+<td><p>P8_37</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>P8_38</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td></td>
+<td></td>
+<td><p>P8_39</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>P8_40</p></td>
+</tr>
+<tr class="row-even"><td><p>P9_41</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>P9_42</p></td>
+<td></td>
+<td><p>P8_41</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>P8_42</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td></td>
+<td></td>
+<td><p>P8_43</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>P8_44</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td></td>
+<td></td>
+<td><p>P8_45</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>P8_46</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id42">
+<caption><span class="caption-number">Table 110 </span><span class="caption-text">Bone GPIO LEDs interface</span><a class="headerlink" href="#id42" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>SYSFS link</p></th>
+<th class="head"><p>Header pin</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/sys/class/leds/P8_03</p></td>
+<td><p>P8_03</p></td>
+<td><p>gpio1_6</p></td>
+<td><p>gpio1_24</p></td>
+<td><p>gpio0_20</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_04</p></td>
+<td><p>P8_04</p></td>
+<td><p>gpio1_7</p></td>
+<td><p>gpio1_25</p></td>
+<td><p>gpio0_48</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_05</p></td>
+<td><p>P8_05</p></td>
+<td><p>gpio1_2</p></td>
+<td><p>gpio7_1</p></td>
+<td><p>gpio0_33</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_06</p></td>
+<td><p>P8_06</p></td>
+<td><p>gpio1_3</p></td>
+<td><p>gpio7_2</p></td>
+<td><p>gpio0_34</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_07</p></td>
+<td><p>P8_07</p></td>
+<td><p>gpio2_2</p></td>
+<td><p>gpio6_5</p></td>
+<td><p>gpio0_15</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_08</p></td>
+<td><p>P8_08</p></td>
+<td><p>gpio2_3</p></td>
+<td><p>gpio6_6</p></td>
+<td><p>gpio0_14</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_09</p></td>
+<td><p>P8_09</p></td>
+<td><p>gpio2_5</p></td>
+<td><p>gpio6_18</p></td>
+<td><p>gpio0_17</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_10</p></td>
+<td><p>P8_10</p></td>
+<td><p>gpio2_4</p></td>
+<td><p>gpio6_4</p></td>
+<td><p>gpio0_16</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_11</p></td>
+<td><p>P8_11</p></td>
+<td><p>gpio1_13</p></td>
+<td><p>gpio3_11</p></td>
+<td><p>gpio0_60</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_12</p></td>
+<td><p>P8_12</p></td>
+<td><p>gpio1_12</p></td>
+<td><p>gpio3_10</p></td>
+<td><p>gpio0_59</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_13</p></td>
+<td><p>P8_13</p></td>
+<td><p>gpio0_23</p></td>
+<td><p>gpio4_11</p></td>
+<td><p>gpio0_89</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_14</p></td>
+<td><p>P8_14</p></td>
+<td><p>gpio0_26</p></td>
+<td><p>gpio4_13</p></td>
+<td><p>gpio0_75</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_15</p></td>
+<td><p>P8_15</p></td>
+<td><p>gpio1_15</p></td>
+<td><p>gpio4_3</p></td>
+<td><p>gpio0_61</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_16</p></td>
+<td><p>P8_16</p></td>
+<td><p>gpio1_14</p></td>
+<td><p>gpio4_29</p></td>
+<td><p>gpio0_62</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_17</p></td>
+<td><p>P8_17</p></td>
+<td><p>gpio0_27</p></td>
+<td><p>gpio8_18</p></td>
+<td><p>gpio0_3</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_18</p></td>
+<td><p>P8_18</p></td>
+<td><p>gpio2_1</p></td>
+<td><p>gpio4_9</p></td>
+<td><p>gpio0_4</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_19</p></td>
+<td><p>P8_19</p></td>
+<td><p>gpio0_22</p></td>
+<td><p>gpio4_10</p></td>
+<td><p>gpio0_88</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_20</p></td>
+<td><p>P8_20</p></td>
+<td><p>gpio1_31</p></td>
+<td><p>gpio6_30</p></td>
+<td><p>gpio0_76</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_21</p></td>
+<td><p>P8_21</p></td>
+<td><p>gpio1_30</p></td>
+<td><p>gpio6_29</p></td>
+<td><p>gpio0_30</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_22</p></td>
+<td><p>P8_22</p></td>
+<td><p>gpio1_5</p></td>
+<td><p>gpio1_23</p></td>
+<td><p>gpio0_5</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_23</p></td>
+<td><p>P8_23</p></td>
+<td><p>gpio1_4</p></td>
+<td><p>gpio1_22</p></td>
+<td><p>gpio0_31</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_24</p></td>
+<td><p>P8_24</p></td>
+<td><p>gpio1_1</p></td>
+<td><p>gpio7_0</p></td>
+<td><p>gpio0_6</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_25</p></td>
+<td><p>P8_25</p></td>
+<td><p>gpio1_0</p></td>
+<td><p>gpio6_31</p></td>
+<td><p>gpio0_35</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_26</p></td>
+<td><p>P8_26</p></td>
+<td><p>gpio1_29</p></td>
+<td><p>gpio4_28</p></td>
+<td><p>gpio0_51</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_27</p></td>
+<td><p>P8_27</p></td>
+<td><p>gpio2_22</p></td>
+<td><p>gpio4_23</p></td>
+<td><p>gpio0_71</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_28</p></td>
+<td><p>P8_28</p></td>
+<td><p>gpio2_24</p></td>
+<td><p>gpio4_19</p></td>
+<td><p>gpio0_72</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_29</p></td>
+<td><p>P8_29</p></td>
+<td><p>gpio2_23</p></td>
+<td><p>gpio4_22</p></td>
+<td><p>gpio0_73</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_30</p></td>
+<td><p>P8_30</p></td>
+<td><p>gpio2_25</p></td>
+<td><p>gpio4_20</p></td>
+<td><p>gpio0_74</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_31</p></td>
+<td><p>P8_31</p></td>
+<td><p>gpio0_10</p></td>
+<td><p>gpio8_14</p></td>
+<td><p>gpio0_32</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_32</p></td>
+<td><p>P8_32</p></td>
+<td><p>gpio0_11</p></td>
+<td><p>gpio8_15</p></td>
+<td><p>gpio0_26</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_33</p></td>
+<td><p>P8_33</p></td>
+<td><p>gpio0_9</p></td>
+<td><p>gpio8_13</p></td>
+<td><p>gpio0_25</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_34</p></td>
+<td><p>P8_34</p></td>
+<td><p>gpio2_17</p></td>
+<td><p>gpio8_11</p></td>
+<td><p>gpio0_7</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_35</p></td>
+<td><p>P8_35</p></td>
+<td><p>gpio0_8</p></td>
+<td><p>gpio8_12</p></td>
+<td><p>gpio0_24</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_36</p></td>
+<td><p>P8_36</p></td>
+<td><p>gpio2_16</p></td>
+<td><p>gpio8_10</p></td>
+<td><p>gpio0_8</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_37</p></td>
+<td><p>P8_37</p></td>
+<td><p>gpio2_14</p></td>
+<td><p>gpio8_8</p></td>
+<td><p>gpio0_106</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_38</p></td>
+<td><p>P8_38</p></td>
+<td><p>gpio2_15</p></td>
+<td><p>gpio8_9</p></td>
+<td><p>gpio0_105</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_39</p></td>
+<td><p>P8_39</p></td>
+<td><p>gpio2_12</p></td>
+<td><p>gpio8_6</p></td>
+<td><p>gpio0_69</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_40</p></td>
+<td><p>P8_40</p></td>
+<td><p>gpio2_13</p></td>
+<td><p>gpio8_7</p></td>
+<td><p>gpio0_70</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_41</p></td>
+<td><p>P8_41</p></td>
+<td><p>gpio2_10</p></td>
+<td><p>gpio8_4</p></td>
+<td><p>gpio0_67</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_42</p></td>
+<td><p>P8_42</p></td>
+<td><p>gpio2_11</p></td>
+<td><p>gpio8_5</p></td>
+<td><p>gpio0_68</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_43</p></td>
+<td><p>P8_43</p></td>
+<td><p>gpio2_8</p></td>
+<td><p>gpio8_2</p></td>
+<td><p>gpio0_65</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_44</p></td>
+<td><p>P8_44</p></td>
+<td><p>gpio2_9</p></td>
+<td><p>gpio8_3</p></td>
+<td><p>gpio0_66</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P8_45</p></td>
+<td><p>P8_45</p></td>
+<td><p>gpio2_6</p></td>
+<td><p>gpio8_0</p></td>
+<td><p>gpio0_79</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P8_46</p></td>
+<td><p>P8_46</p></td>
+<td><p>gpio2_7</p></td>
+<td><p>gpio8_1</p></td>
+<td><p>gpio0_80</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_11</p></td>
+<td><p>P9_11</p></td>
+<td><p>gpio0_30</p></td>
+<td><p>gpio8_17</p></td>
+<td><p>gpio0_1</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_12</p></td>
+<td><p>P9_12</p></td>
+<td><p>gpio1_28</p></td>
+<td><p>gpio5_0</p></td>
+<td><p>gpio0_45</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_13</p></td>
+<td><p>P9_13</p></td>
+<td><p>gpio0_31</p></td>
+<td><p>gpio6_12</p></td>
+<td><p>gpio0_2</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_14</p></td>
+<td><p>P9_14</p></td>
+<td><p>gpio1_18</p></td>
+<td><p>gpio4_25</p></td>
+<td><p>gpio0_93</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_15</p></td>
+<td><p>P9_15</p></td>
+<td><p>gpio1_16</p></td>
+<td><p>gpio3_12</p></td>
+<td><p>gpio0_47</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_16</p></td>
+<td><p>P9_16</p></td>
+<td><p>gpio1_19</p></td>
+<td><p>gpio4_26</p></td>
+<td><p>gpio0_94</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_17</p></td>
+<td><p>P9_17</p></td>
+<td><p>gpio0_5</p></td>
+<td><p>gpio7_17</p></td>
+<td><p>gpio0_28</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_18</p></td>
+<td><p>P9_18</p></td>
+<td><p>gpio0_4</p></td>
+<td><p>gpio7_16</p></td>
+<td><p>gpio0_40</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_19</p></td>
+<td><p>P9_19</p></td>
+<td><p>gpio0_13</p></td>
+<td><p>gpio7_3</p></td>
+<td><p>gpio0_78</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_20</p></td>
+<td><p>P9_20</p></td>
+<td><p>gpio0_12</p></td>
+<td><p>gpio7_4</p></td>
+<td><p>gpio0_77</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_21</p></td>
+<td><p>P9_21</p></td>
+<td><p>gpio0_3</p></td>
+<td><p>gpio3_3</p></td>
+<td><p>gpio0_39</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_22</p></td>
+<td><p>P9_22</p></td>
+<td><p>gpio0_2</p></td>
+<td><p>gpio6_19</p></td>
+<td><p>gpio0_38</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_23</p></td>
+<td><p>P9_23</p></td>
+<td><p>gpio1_17</p></td>
+<td><p>gpio7_11</p></td>
+<td><p>gpio0_10</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_24</p></td>
+<td><p>P9_24</p></td>
+<td><p>gpio0_15</p></td>
+<td><p>gpio6_15</p></td>
+<td><p>gpio0_13</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_25</p></td>
+<td><p>P9_25</p></td>
+<td><p>gpio3_21</p></td>
+<td><p>gpio6_17</p></td>
+<td><p>gpio0_127</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_26</p></td>
+<td><p>P9_26</p></td>
+<td><p>gpio0_14</p></td>
+<td><p>gpio6_14</p></td>
+<td><p>gpio0_12</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_27</p></td>
+<td><p>P9_27</p></td>
+<td><p>gpio3_19</p></td>
+<td><p>gpio4_15</p></td>
+<td><p>gpio0_46</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_28</p></td>
+<td><p>P9_28</p></td>
+<td><p>gpio3_17</p></td>
+<td><p>gpio4_17</p></td>
+<td><p>gpio1_11</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_29</p></td>
+<td><p>P9_29</p></td>
+<td><p>gpio3_15</p></td>
+<td><p>gpio5_11</p></td>
+<td><p>gpio0_53</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_30</p></td>
+<td><p>P9_30</p></td>
+<td><p>gpio3_16</p></td>
+<td><p>gpio5_12</p></td>
+<td><p>gpio0_44</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_31</p></td>
+<td><p>P9_31</p></td>
+<td><p>gpio3_14</p></td>
+<td><p>gpio5_10</p></td>
+<td><p>gpio0_52</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_33</p></td>
+<td><p>P9_33</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_50</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_35</p></td>
+<td><p>P9_35</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_55</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_36</p></td>
+<td><p>P9_36</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_56</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_37</p></td>
+<td><p>P9_37</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_57</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_38</p></td>
+<td><p>P9_38</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_58</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_39</p></td>
+<td><p>P9_39</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_54</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_40</p></td>
+<td><p>P9_40</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>gpio0_81</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/P9_41</p></td>
+<td><p>P9_41</p></td>
+<td><p>gpio0_20</p></td>
+<td><p>gpio6_20</p></td>
+<td><p>gpio1_0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/class/leds/P9_42</p></td>
+<td><p>P9_42</p></td>
+<td><p>gpio0_7</p></td>
+<td><p>gpio4_18</p></td>
+<td><p>gpio0_123</p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/class/leds/A15</p></td>
+<td><p>A15 <a class="footnote-reference brackets" href="#id4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p></td>
+<td><p>gpio0_19</p></td>
+<td><p>NA</p></td>
+<td><p>NA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">7</a><span class="fn-bracket">]</span></span>
+<p>On BeagleBone Black, A15 is used to enable or disable the external CEC clock generation for the HDMI framer.</p>
+</aside>
+</aside>
+</section>
+<section id="i2c">
+<span id="bone-i2c"></span><h2>I<sup>2</sup>C<a class="headerlink" href="#i2c" title="Link to this heading">#</a></h2>
+<p>Cape interface specification provides I<sup>2</sup>C controller device links for userspace interaction and defined device tree entries for creating compatible overlays for any compliant board and OS image. The device tree node are named as <strong>bone_i2c_#</strong>.</p>
+<section id="i2c-pins">
+<h3>I<sup>2</sup>C pins<a class="headerlink" href="#i2c-pins" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id43">
+<caption><span class="caption-number">Table 111 </span><span class="caption-text">I2C pins</span><a class="headerlink" href="#id43" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 SCL</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>1 SDA</p></td>
+</tr>
+<tr class="row-even"><td><p>2 SCL</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>2 SDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>4 SCL <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>4 SDA <a class="footnote-reference brackets" href="#id12" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id13" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>3 SCL <a class="footnote-reference brackets" href="#id11" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>3 SDA <a class="footnote-reference brackets" href="#id11" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id11" role="note">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id10">2</a>)</span>
+<p>Port 3 is mutually exclusive with port 1 on Black</p>
+</aside>
+<aside class="footnote brackets" id="id12" role="note">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<p>Port 4 is mutually exclusive with port 2 on Black</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="note">
+<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id8">2</a>)</span>
+<p>On Black and AI-64 only, not AI</p>
+</aside>
+</aside>
+</section>
+<section id="i2c-port-mapping">
+<h3>I<sup>2</sup>C port mapping<a class="headerlink" href="#i2c-port-mapping" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id44">
+<caption><span class="caption-number">Table 112 </span><span class="caption-text">I2C port mapping</span><a class="headerlink" href="#id44" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Links</p></th>
+<th class="head"><p>DT symbol</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>SCL</p></th>
+<th class="head"><p>SDA</p></th>
+<th class="head"><p>Overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/i2c/0</p></td>
+<td><p>bone_i2c_0</p></td>
+<td><p>I2C0</p></td>
+<td><p>I2C1</p></td>
+<td><p>WKUP_I2C0</p></td>
+<td colspan="2"><p>On-board</p></td>
+<td><p>BONE-I2C0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/i2c/1</p></td>
+<td><p>bone_i2c_1</p></td>
+<td><p>I2C1</p></td>
+<td><p>I2C5</p></td>
+<td><p>MAIN_I2C6</p></td>
+<td><p>P9.17</p></td>
+<td><p>P9.18</p></td>
+<td><p>BONE-I2C1</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/i2c/2</p></td>
+<td><p>bone_i2c_2</p></td>
+<td><p>I2C2</p></td>
+<td><p>I2C4</p></td>
+<td><p>MAIN_I2C3</p></td>
+<td><p>P9.19</p></td>
+<td><p>P9.20</p></td>
+<td><p>BONE-I2C2</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/i2c/3</p></td>
+<td><p>bone_i2c_3</p></td>
+<td><p>I2C1</p></td>
+<td><p>I2C3</p></td>
+<td><p>MAIN_I2C4</p></td>
+<td><p>P9.24</p></td>
+<td><p>P9.26</p></td>
+<td><p>BONE-I2C3</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/i2c/4</p></td>
+<td><p>bone_i2c_4</p></td>
+<td><p>I2C2</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>P9.21</p></td>
+<td><p>P9.22</p></td>
+<td><p>BONE-I2C4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In the case the same controller is used for 2 different bone bus nodes, usage of those nodes is mutually-exclusive.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The provided pre-compiled overlays enable the I<sup>2</sup>C bus driver only, not a specific device driver.  Either a custom
+overlay is required to load the device driver or usermode device driver loading can be performed, depending on
+the driver. See <a class="reference internal" href="../../intro/beagle101/qwiic-stemma-grove-addons.html#beagle101-i2c"><span class="std std-ref">Using I2C with Linux drivers</span></a> for information on loading I<sup>2</sup>C drivers from userspace.</p>
+</div>
+</section>
+<section id="i2c-overlay-example">
+<h3>I<sup>2</sup>C overlay example<a class="headerlink" href="#i2c-overlay-example" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="bone-cape-spec-i2c-example">
+<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Example device tree overlay to enable I2C driver</span><a class="headerlink" href="#bone-cape-spec-i2c-example" title="Link to this code">#</a></div>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">/dts-v1/</span><span class="p">;</span>
+<span class="linenos"> 2</span><span class="cp">/plugin/</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="o">&amp;</span><span class="na">bone_i2c_1</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="nf">accel</span><span class="o">@</span><span class="mi">1c</span><span class="cm"> </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fsl,mma8453&quot;</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x1c</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="p">};</span>
+<span class="linenos">10</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In <a class="reference internal" href="#bone-cape-spec-i2c-example"><span class="std std-ref">Example device tree overlay to enable I2C driver</span></a>, you can specify what driver you want to load and provide any properties it might need.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/v5.10/i2c/summary.html">https://www.kernel.org/doc/html/v5.10/i2c/summary.html</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/v5.10/i2c/instantiating-devices.html#method-1-declare-the-i2c-devices-statically">https://www.kernel.org/doc/html/v5.10/i2c/instantiating-devices.html#method-1-declare-the-i2c-devices-statically</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/Documentation/devicetree/bindings/i2c/">https://www.kernel.org/doc/Documentation/devicetree/bindings/i2c/</a></p></li>
+</ul>
+</section>
+<section id="i2c-userspace-example">
+<h3>I<sup>2</sup>C userspace example<a class="headerlink" href="#i2c-userspace-example" title="Link to this heading">#</a></h3>
+<p>See <a class="reference internal" href="../../intro/beagle101/qwiic-stemma-grove-addons.html#beagle101-i2c"><span class="std std-ref">Using I2C with Linux drivers</span></a> for examples on using the userspace links to load appropriate Linux kernel drivers.</p>
+</section>
+</section>
+<section id="spi">
+<span id="bone-spi"></span><h2>SPI<a class="headerlink" href="#spi" title="Link to this heading">#</a></h2>
+<p>SPI bone bus nodes allow creating compatible overlays for Black, AI and AI-64.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id45">
+<caption><span class="caption-number">Table 113 </span><span class="caption-text">SPI pins</span><a class="headerlink" href="#id45" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>0 CS0</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>0 SDO</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0 SDI</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>0 CLK</p></td>
+</tr>
+<tr class="row-even"><td><p>0 CS1</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>1 CS0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 SDI</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>1 SDO</p></td>
+</tr>
+<tr class="row-even"><td><p>1 CLK</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>1 CS1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id46">
+<caption><span class="caption-number">Table 114 </span><span class="caption-text">SPI port mapping</span><a class="headerlink" href="#id46" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bone bus</p></th>
+<th class="head"><p>DT symbol</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>SDO</p></th>
+<th class="head"><p>SDI</p></th>
+<th class="head"><p>CLK</p></th>
+<th class="head"><p>CS</p></th>
+<th class="head"><p>Overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/spi/0.0</p></td>
+<td rowspan="2"><p>bone_spi_0</p></td>
+<td rowspan="2"><p>SPI0</p></td>
+<td rowspan="2"><p>SPI2</p></td>
+<td rowspan="2"><p>MAIN_SPI6</p></td>
+<td rowspan="2"><p>P9.18</p></td>
+<td rowspan="2"><p>P9.21</p></td>
+<td rowspan="2"><p>P9.22</p></td>
+<td><p>P9.17 (CS0)</p></td>
+<td><p>BONE-SPI0_0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/spi/0.1</p></td>
+<td><p>P9.23 (CS1)</p></td>
+<td><p>BONE-SPI0_1</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/spi/1.0</p></td>
+<td rowspan="2"><p>bone_spi_1</p></td>
+<td rowspan="2"><p>SPI1</p></td>
+<td rowspan="2"><p>SPI3</p></td>
+<td rowspan="2"><p>MAIN_SPI7</p></td>
+<td rowspan="2"><p>P9.30</p></td>
+<td rowspan="2"><p>P9.29</p></td>
+<td rowspan="2"><p>P9.31</p></td>
+<td><p>P9.28 (CS0)</p></td>
+<td><p>BONE-SPI1_0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/spi/1.1</p></td>
+<td><p>P9.42 (CS1)</p></td>
+<td><p>BONE-SPI1_1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The provided pre-compiled overlays enable the “spidev” driver using the “rohm,dh2228fv” compatible string.
+See <a class="reference external" href="https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree">https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree</a> for
+more background. A custom overlay is required to overload the compatible string to load a non-spidev driver.</p>
+</div>
+<div class="admonition-todo admonition" id="id14">
+<p class="admonition-title">Todo</p>
+<p>figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some boards may implement CS using a GPIO.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="bone-cape-spec-spi-example">
+<div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">Example device tree overlay to enable SPI driver</span><a class="headerlink" href="#bone-cape-spec-spi-example" title="Link to this code">#</a></div>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">/dts-v1/</span><span class="p">;</span>
+<span class="linenos"> 2</span><span class="cp">/plugin/</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="o">&amp;</span><span class="na">bone_spi_0</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">     </span><span class="nf">pressure</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">         </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bosch,bmp280&quot;</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">         </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span><span class="w">      </span><span class="cm">/* CS0 */</span>
+<span class="linenos"> 9</span><span class="w">         </span><span class="n">spi-max-frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">5000000</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">     </span><span class="p">};</span>
+<span class="linenos">11</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In <a class="reference internal" href="#bone-cape-spec-spi-example"><span class="std std-ref">Example device tree overlay to enable SPI driver</span></a>, you can specify what driver you want to load and provide any properties it might need.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/v5.10/spi/spi-summary.html">https://www.kernel.org/doc/html/v5.10/spi/spi-summary.html</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/Documentation/devicetree/bindings/spi/">https://www.kernel.org/doc/Documentation/devicetree/bindings/spi/</a></p></li>
+</ul>
+</section>
+<section id="uart">
+<span id="bone-uart"></span><h2>UART<a class="headerlink" href="#uart" title="Link to this heading">#</a></h2>
+<p>UART bone bus nodes allow creating compatible overlays for Black, AI and AI-64.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id47">
+<caption><span class="caption-number">Table 115 </span><span class="caption-text">UART pins</span><a class="headerlink" href="#id47" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>4 RX <a class="footnote-reference brackets" href="#id18" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>4 TX <a class="footnote-reference brackets" href="#id18" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2 TX</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>2 RX</p></td>
+<td></td>
+<td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>7 RX</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>1 TX</p></td>
+<td></td>
+<td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>1 RX</p></td>
+<td></td>
+<td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>6 RX</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td></td>
+<td></td>
+<td><p>6 TX</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>7 TX</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td></td>
+<td></td>
+<td><p>5 TX</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>5 RX</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>3 TX</p></td>
+<td></td>
+<td></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>RTSn and CTSn mappings are not compatible across boards in the family and are therefore not part of the
+cape specification.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id48">
+<caption><span class="caption-number">Table 116 </span><span class="caption-text">UART port mapping</span><a class="headerlink" href="#id48" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bone bus</p></th>
+<th class="head"><p>DT symbol</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>TX</p></th>
+<th class="head"><p>RX</p></th>
+<th class="head"><p>Overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/uart/0</p></td>
+<td><p>bone_uart_0</p></td>
+<td><p>UART0</p></td>
+<td><p>UART1</p></td>
+<td><p>MAIN_UART0</p></td>
+<td colspan="3"><p>Console debug header pins</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/uart/1</p></td>
+<td><p>bone_uart_1</p></td>
+<td><p>UART1</p></td>
+<td><p>UART10</p></td>
+<td><p>MAIN_UART2</p></td>
+<td><p>P9.24</p></td>
+<td><p>P9.26</p></td>
+<td><p>BONE-UART1</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/uart/2</p></td>
+<td><p>bone_uart_2</p></td>
+<td><p>UART2</p></td>
+<td><p>UART3</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>P9.21</p></td>
+<td><p>P9.22</p></td>
+<td><p>BONE-UART2</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/uart/3</p></td>
+<td><p>bone_uart_3</p></td>
+<td><p>UART3</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>P9.42</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>BONE-UART3</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/uart/4</p></td>
+<td><p>bone_uart_4</p></td>
+<td><p>UART4</p></td>
+<td><p>UART5</p></td>
+<td><p>MAIN_UART0 <a class="footnote-reference brackets" href="#id18" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></td>
+<td><p>P9.13</p></td>
+<td><p>P9.11</p></td>
+<td><p>BONE-UART4</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/uart/5</p></td>
+<td><p>bone_uart_5</p></td>
+<td><p>UART5</p></td>
+<td><p>UART8</p></td>
+<td><p>MAIN_UART5</p></td>
+<td><p>P8.37</p></td>
+<td><p>P8.38</p></td>
+<td><p>BONE-UART5</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/uart/6</p></td>
+<td><p>bone_uart_6</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>MAIN_UART8</p></td>
+<td><p>P8.29</p></td>
+<td><p>P8.28</p></td>
+<td><p>BONE-UART6</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/uart/7</p></td>
+<td><p>bone_uart_7</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>MAIN_UART2</p></td>
+<td><p>P8.34</p></td>
+<td><p>P8.22</p></td>
+<td><p>BONE-UART7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id18" role="note">
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id15">1</a>,<a role="doc-backlink" href="#id16">2</a>,<a role="doc-backlink" href="#id17">3</a>)</span>
+<p>This port is shared with the console UART on AI-64</p>
+</aside>
+</aside>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In the case the same controller is used for 2 different bone bus nodes, usage of those nodes is mutually-exclusive.</p>
+</div>
+</section>
+<section id="can">
+<span id="bone-can"></span><h2>CAN<a class="headerlink" href="#can" title="Link to this heading">#</a></h2>
+<p>CAN bone bus nodes allow creating compatible overlays for Black, AI and AI-64.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id49">
+<caption><span class="caption-number">Table 117 </span><span class="caption-text">CAN pins</span><a class="headerlink" href="#id49" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td></td>
+<td></td>
+<td><p>4 TX</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>4 RX</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td></td>
+<td></td>
+<td><p>2 RX</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>2 TX</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td></td>
+<td></td>
+<td><p>3 RX</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>3 TX</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0 RX</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>0 TX</p></td>
+<td></td>
+<td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>1 RX</p></td>
+<td></td>
+<td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>1 TX</p></td>
+<td></td>
+<td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id50">
+<caption><span class="caption-number">Table 118 </span><span class="caption-text">CAN port mapping</span><a class="headerlink" href="#id50" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bone bus</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>TX</p></th>
+<th class="head"><p>RX</p></th>
+<th class="head"><p>Overlays</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/can/0</p></td>
+<td><p>CAN0</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>MAIN_MCAN0</p></td>
+<td><p>P9.20</p></td>
+<td><p>P9.19</p></td>
+<td><p>BONE-CAN0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/can/1</p></td>
+<td><p>CAN1</p></td>
+<td><p>CAN2</p></td>
+<td><p>MAIN_MCAN4</p></td>
+<td><p>P9.26</p></td>
+<td><p>P9.24</p></td>
+<td><p>BONE-CAN1</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/can/2</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>CAN1 <a class="footnote-reference brackets" href="#id20" id="id19" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+<td><p>MAIN_MCAN5</p></td>
+<td><p>P8.08</p></td>
+<td><p>P8.07</p></td>
+<td><p>BONE-CAN2</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/can/3</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>MAIN_MCAN6</p></td>
+<td><p>P8.10</p></td>
+<td><p>P8.09</p></td>
+<td><p>BONE-CAN3</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/can/4</p></td>
+<td><p><em>n/a</em></p></td>
+<td><p><em>n/a</em></p></td>
+<td><p>MAIN_MCAN7</p></td>
+<td><p>P8.05</p></td>
+<td><p>P8.06</p></td>
+<td><p>BONE-CAN4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id20" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">1</a><span class="fn-bracket">]</span></span>
+<p>BeagleBone AI rev A2 and later only</p>
+</aside>
+</aside>
+</section>
+<section id="adc">
+<span id="bone-analog"></span><h2>ADC<a class="headerlink" href="#adc" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id21">
+<p class="admonition-title">Todo</p>
+<p>We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There’s nothing for sure that IIO devices will show up in the same place.</p>
+</div>
+<div class="admonition-todo admonition" id="id22">
+<p class="admonition-title">Todo</p>
+<p>I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y</p>
+</div>
+<div class="admonition-todo admonition" id="id23">
+<p class="admonition-title">Todo</p>
+<p>I believe a multiplexing IIO driver is the future solution</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id51">
+<caption><span class="caption-number">Table 119 </span><span class="caption-text">ADC pins</span><a class="headerlink" href="#id51" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB D+</p></td>
+<td><p>E1</p></td>
+<td><p>E2</p></td>
+<td><p>USB D-</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>E3</p></td>
+<td><p>E4</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-even"><td><p>3V3 OUT</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>3V3 OUT</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>D M</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V IN</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>5V IN</p></td>
+<td></td>
+<td><p>D M C4t</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>D M C4r</p></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>5V OUT</p></td>
+<td></td>
+<td><p>D C2r</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>D C2t</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWR BUT</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>RESET</p></td>
+<td></td>
+<td><p>D C3r</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>D C3t</p></td>
+</tr>
+<tr class="row-even"><td><p>D U4r</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>D</p></td>
+<td></td>
+<td><p>D P0o</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>D Q2a P0o</p></td>
+</tr>
+<tr class="row-odd"><td><p>D U4t</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>D E1a</p></td>
+<td></td>
+<td><p>D E2b</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>D E1b</p></td>
+<td></td>
+<td><p>D P0i</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>D P0i</p></td>
+</tr>
+<tr class="row-odd"><td><p>D I1c S00</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>D I1d S0o</p></td>
+<td></td>
+<td><p>D</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>C0r D I2c</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>C0t D I2d</p></td>
+<td></td>
+<td><p>D E2a</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>D M P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D E0b S0i U2t</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>D E0a S0c U2r</p></td>
+<td></td>
+<td><p>D M P1</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>D M Q2b</p></td>
+</tr>
+<tr class="row-even"><td><p>D S01</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>C1r D I3c U1t</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>D M</p></td>
+</tr>
+<tr class="row-odd"><td><p>D P0</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>C1t D I3d U1r</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>D P0 Q0b</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>D P0 S10</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>D L P1 U6r</p></td>
+</tr>
+<tr class="row-odd"><td><p>D E S1i P0</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>D P0 S1o</p></td>
+<td></td>
+<td><p>D L P1 U6t</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-even"><td><p>D E S1c P0</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>ADC VDD</p></td>
+<td></td>
+<td><p>D L</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>D L</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 4</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>ADC GND</p></td>
+<td></td>
+<td><p>D L Q1b</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>D E L</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 6</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 5</p></td>
+<td></td>
+<td><p>D L Q1a</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>D E L</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 2</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 3</p></td>
+<td></td>
+<td><p>D L U5t</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>D L U5r</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 0</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 1</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D P0</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>D Q0a S11 U3t P0</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>D E L P1</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>D E L P1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id52">
+<caption><span class="caption-number">Table 120 </span><span class="caption-text">Bone ADC</span><a class="headerlink" href="#id52" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Header pin</p></th>
+<th class="head"><p>Black/AI-64</p></th>
+<th class="head"><p>AI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>P9_39</p></td>
+<td><p>in_voltage0_raw</p></td>
+<td><p>in_voltage0_raw</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>P9_40</p></td>
+<td><p>in_voltage1_raw</p></td>
+<td><p>in_voltage1_raw</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>P9_37</p></td>
+<td><p>in_voltage2_raw</p></td>
+<td><p>in_voltage3_raw</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>P9_38</p></td>
+<td><p>in_voltage3_raw</p></td>
+<td><p>in_voltage2_raw</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>P9_33</p></td>
+<td><p>in_voltage4_raw</p></td>
+<td><p>in_voltage7_raw</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>P9_36</p></td>
+<td><p>in_voltage5_raw</p></td>
+<td><p>in_voltage6_raw</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>P9_35</p></td>
+<td><p>in_voltage6_raw</p></td>
+<td><p>in_voltage4_raw</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id53">
+<caption><span class="caption-number">Table 121 </span><span class="caption-text">Bone ADC Overlay</span><a class="headerlink" href="#id53" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Internal</p></td>
+<td><p>External (STMPE811)</p></td>
+<td><p>TBD</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BONE-ADC.dts">BONE-ADC.dts</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pwm">
+<span id="bone-pwm"></span><h2>PWM<a class="headerlink" href="#pwm" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id24">
+<p class="admonition-title">Todo</p>
+<p>remove deep references to git trees</p>
+</div>
+<p>PWM bone bus nodes allow creating compatible overlays for Black, AI and AI-64. For the definitions, you can see <a class="reference external" href="https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbai-bone-buses.dtsi#L415">bbai-bone-buses.dtsi#L415</a> &amp; <a class="reference external" href="https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbb-bone-buses.dtsi#L432">bbb-bone-buses.dtsi#L432</a></p>
+<section id="pwm-pins">
+<h3>PWM pins<a class="headerlink" href="#pwm-pins" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id54">
+<caption><span class="caption-number">Table 122 </span><span class="caption-text">PWM pins</span><a class="headerlink" href="#id54" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>1 A</p></td>
+<td></td>
+<td><p>2 B</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>1 B</p></td>
+<td></td>
+<td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+<td></td>
+<td><p>2 A</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0 B</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>0 A</p></td>
+<td></td>
+<td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pwm-port-mapping">
+<h3>PWM port mapping<a class="headerlink" href="#pwm-port-mapping" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id55">
+<caption><span class="caption-number">Table 123 </span><span class="caption-text">Bone bus PWM</span><a class="headerlink" href="#id55" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>SYSFS link</p></th>
+<th class="head"><p>DT symbol</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>Overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/pwm/0</p></td>
+<td><p>bone_pwm_0</p></td>
+<td><p>PWM0</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>PWM1</p></td>
+<td><p>P9.22</p></td>
+<td><p>P9.21</p></td>
+<td><p>BONE-PWM0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/pwm/1</p></td>
+<td><p>bone_pwm_0</p></td>
+<td><p>PWM1</p></td>
+<td><p>PWM3</p></td>
+<td><p>PWM2</p></td>
+<td><p>P9.14</p></td>
+<td><p>P9.16</p></td>
+<td><p>BONE-PWM1</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/pwm/2</p></td>
+<td><p>bone_pwm_0</p></td>
+<td><p>PWM2</p></td>
+<td><p>PWM2</p></td>
+<td><p>PWM0</p></td>
+<td><p>P8.19</p></td>
+<td><p>P8.13</p></td>
+<td><p>BONE-PWM2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pwm-overlay-example">
+<h3>PWM overlay example<a class="headerlink" href="#pwm-overlay-example" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="bone-cape-spec-pwm-example">
+<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">Example device tree overlay to enable PWM driver</span><a class="headerlink" href="#bone-cape-spec-pwm-example" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">/</span><span class="n">dts</span><span class="o">-</span><span class="n">v1</span><span class="o">/</span><span class="p">;</span>
+<span class="linenos">2</span><span class="o">/</span><span class="n">plugin</span><span class="o">/</span><span class="p">;</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="o">&amp;</span><span class="n">bone_pwm_0</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">5</span><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="linenos">6</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In <a class="reference internal" href="#bone-cape-spec-pwm-example"><span class="std std-ref">Example device tree overlay to enable PWM driver</span></a>, you can specify what driver you want to load and provide any properties it might need.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/v5.10/driver-api/pwm.html">https://www.kernel.org/doc/html/v5.10/driver-api/pwm.html</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/Documentation/devicetree/bindings/pwm/">https://www.kernel.org/doc/Documentation/devicetree/bindings/pwm/</a></p></li>
+</ul>
+</section>
+<section id="pwm-userspace-example">
+<h3>PWM userspace example<a class="headerlink" href="#pwm-userspace-example" title="Link to this heading">#</a></h3>
+<p>See <a class="reference internal" href="../../books/beaglebone-cookbook/03displays/displays.html#displays-pwmdiscussion"><span class="std std-ref">Fading an External LED</span></a> and  <a class="reference internal" href="../../books/beaglebone-cookbook/04motors/motors.html#beaglebone-cookbook-motors"><span class="std std-ref">Motors</span></a> for examples on using the userspace links to use the PWMs.</p>
+</section>
+</section>
+<section id="timer-pwm">
+<span id="bone-timer-pwm"></span><h2>TIMER PWM<a class="headerlink" href="#timer-pwm" title="Link to this heading">#</a></h2>
+<p>TIMER PWM bone bus uses ti,omap-dmtimer-pwm driver, and timer nodes that allow creating compatible overlays for Black, AI and AI-64. For the timer node definitions, you can see <a class="reference external" href="https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbai-bone-buses.dtsi#L449">bbai-bone-buses.dtsi#L449</a> &amp; <a class="reference external" href="https://github.com/lorforlinux/BeagleBoard-DeviceTrees/blob/97a6f0daa9eab09633a2064f68a53b107d6e3968/src/arm/bbb-bone-buses.dtsi#L466">bbb-bone-buses.dtsi#L466</a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id56">
+<caption><span class="caption-number">Table 124 </span><span class="caption-text">Bone TIMER PWMs</span><a class="headerlink" href="#id56" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bone bus</p></th>
+<th class="head"><p>Header pin</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/sys/bus/platform/devices/bone_timer_pwm_0/</p></td>
+<td><p>P8.10</p></td>
+<td><p>timer6</p></td>
+<td><p>timer10</p></td>
+<td><p><a class="reference external" href="https://github.com/lorforlinux/bb.org-overlays/blob/bone_timer/src/arm/BONE-TIMER_PWM_0.dts">BONE-TIMER_PWM_0.dts</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/bus/platform/devices/bone_timer_pwm_1/</p></td>
+<td><p>P8.07</p></td>
+<td><p>timer4</p></td>
+<td><p>timer11</p></td>
+<td><p><a class="reference external" href="https://github.com/lorforlinux/bb.org-overlays/blob/bone_timer/src/arm/BONE-TIMER_PWM_1.dts">BONE-TIMER_PWM_1.dts</a></p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/bus/platform/devices/bone_timer_pwm_2/</p></td>
+<td><p>P8.08</p></td>
+<td><p>timer7</p></td>
+<td><p>timer12</p></td>
+<td><p><a class="reference external" href="https://github.com/lorforlinux/bb.org-overlays/blob/bone_timer/src/arm/BONE-TIMER_PWM_2.dts">BONE-TIMER_PWM_2.dts</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/bus/platform/devices/bone_timer_pwm_3/</p></td>
+<td><p>P9.21</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>timer13</p></td>
+<td><p><a class="reference external" href="https://github.com/lorforlinux/bb.org-overlays/blob/bone_timer/src/arm/BONE-TIMER_PWM_3.dts">BONE-TIMER_PWM_3.dts</a></p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/bus/platform/devices/bone_timer_pwm_4/</p></td>
+<td><p>P8.09</p></td>
+<td><p>timer5</p></td>
+<td><p>timer14</p></td>
+<td><p><a class="reference external" href="https://github.com/lorforlinux/bb.org-overlays/blob/bone_timer/src/arm/BONE-TIMER_PWM_4.dts">BONE-TIMER_PWM_4.dts</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/bus/platform/devices/bone_timer_pwm_5/</p></td>
+<td><p>P9.22</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>timer15</p></td>
+<td><p><a class="reference external" href="https://github.com/lorforlinux/bb.org-overlays/blob/bone_timer/src/arm/BONE-TIMER_PWM_5.dts">BONE-TIMER_PWM_5.dts</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="counter">
+<span id="bone-counter"></span><h2>Counter<a class="headerlink" href="#counter" title="Link to this heading">#</a></h2>
+<p>A counter function for quadrature encoders is implemented with the EQEP peripheral.</p>
+<div class="admonition-todo admonition" id="id25">
+<p class="admonition-title">Todo</p>
+<p>Additional quadrature encoders can be implemented in PRU firmware.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id57">
+<caption><span class="caption-number">Table 125 </span><span class="caption-text">Counter pins</span><a class="headerlink" href="#id57" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td></td>
+<td></td>
+<td><p>2 B</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>2 A</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+<td></td>
+<td><p>3 B</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>3 A</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0 B</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+<td></td>
+<td><p>1 B</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td></td>
+<td></td>
+<td><p>1 A</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>0 A</p></td>
+<td></td>
+<td></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>On BeagleBone’s without an eQEP on specific pins, consider using the PRU to perform a software counter function.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id58">
+<caption><span class="caption-number">Table 126 </span><span class="caption-text">Counter port mapping</span><a class="headerlink" href="#id58" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>SYSFS link</p></th>
+<th class="head"><p>DT symbol</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+<th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>STRB</p></th>
+<th class="head"><p>INDX</p></th>
+<th class="head"><p>Overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/counter/0</p></td>
+<td><p>bone_counter_0</p></td>
+<td><p>eQEP0</p></td>
+<td><p>eQEP2</p></td>
+<td><p>eQEP0</p></td>
+<td><p>P9.42</p></td>
+<td><p>P9.27</p></td>
+<td><ul class="simple">
+<li><p>Black/AI-64: P9.25</p></li>
+<li><p>AI: P8.06</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Black/AI-64: P9.41</p></li>
+<li><p>AI: P8.05</p></li>
+</ul>
+</td>
+<td><p>BONE-COUNTER0</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/counter/1</p></td>
+<td><p>bone_counter_1</p></td>
+<td><p>eQEP1</p></td>
+<td><p>eQEP0</p></td>
+<td><p>eQEP1</p></td>
+<td><p>P8.35</p></td>
+<td><p>P8.33</p></td>
+<td><ul class="simple">
+<li><p>Black/AI-64: P8.32</p></li>
+<li><p>AI: P9.21</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Black/AI-64: P8.31</p></li>
+<li><p>AI: ‒</p></li>
+</ul>
+</td>
+<td><p>BONE-COUNTER1</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/counter/2</p></td>
+<td><p>bone_counter_2</p></td>
+<td><p>eQEP2</p></td>
+<td><p>eQEP1</p></td>
+<td><p>‒</p></td>
+<td><p>P8.12</p></td>
+<td><p>P8.11</p></td>
+<td><ul class="simple">
+<li><p>Black: P8.15</p></li>
+<li><p>AI: P8.18</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Black: P8.16</p></li>
+<li><p>AI: P9.15</p></li>
+</ul>
+</td>
+<td><p>BONE-COUNTER2</p></td>
+</tr>
+<tr class="row-odd"><td><p>/dev/bone/counter/3</p></td>
+<td><p>bone_counter_3</p></td>
+<td><p>eQEP2</p></td>
+<td><p>‒</p></td>
+<td><p>‒</p></td>
+<td><p>P8.41</p></td>
+<td><p>P8.42</p></td>
+<td><ul class="simple">
+<li><p>Black: P8.40</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Black: P8.39</p></li>
+</ul>
+</td>
+<td><p>BONE-COUNTER3</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev/bone/counter/4</p></td>
+<td><p>bone_counter_4</p></td>
+<td><p>‒</p></td>
+<td><p>‒</p></td>
+<td><p>‒</p></td>
+<td><p>P8.16</p></td>
+<td><p>P8.15</p></td>
+<td></td>
+<td></td>
+<td><p>BONE-COUNTER4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ecap">
+<span id="bone-ecap"></span><h2>eCAP<a class="headerlink" href="#ecap" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id26">
+<p class="admonition-title">Todo</p>
+<p>This doesn’t include any abstraction yet.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id59">
+<caption><span class="caption-number">Table 127 </span><span class="caption-text">ECAP pins</span><a class="headerlink" href="#id59" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB D+</p></td>
+<td><p>E1</p></td>
+<td><p>E2</p></td>
+<td><p>USB D-</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>E3</p></td>
+<td><p>E4</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>GND</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-even"><td><p>3V3 OUT</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>3V3 OUT</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>D M</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V IN</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>5V IN</p></td>
+<td></td>
+<td><p>D M C4t</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>D M C4r</p></td>
+</tr>
+<tr class="row-even"><td><p>5V OUT</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>5V OUT</p></td>
+<td></td>
+<td><p>D C2r</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>D C2t</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWR BUT</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>RESET</p></td>
+<td></td>
+<td><p>D C3r</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>D C3t</p></td>
+</tr>
+<tr class="row-even"><td><p>D U4r</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>D</p></td>
+<td></td>
+<td><p>D P0o</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>D Q2a P0o</p></td>
+</tr>
+<tr class="row-odd"><td><p>D U4t</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>D E1a</p></td>
+<td></td>
+<td><p>D E2b</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>D E1b</p></td>
+<td></td>
+<td><p>D P0i</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>D P0i</p></td>
+</tr>
+<tr class="row-odd"><td><p>D I1c S00</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>D I1d S0o</p></td>
+<td></td>
+<td><p>D</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>C0r D I2c</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>C0t D I2d</p></td>
+<td></td>
+<td><p>D E2a</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>D M P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D E0b S0i U2t</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>D E0a S0c U2r</p></td>
+<td></td>
+<td><p>D M P1</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>D M Q2b</p></td>
+</tr>
+<tr class="row-even"><td><p>D S01</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>C1r D I3c U1t</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>D M</p></td>
+</tr>
+<tr class="row-odd"><td><p>D P0</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>C1t D I3d U1r</p></td>
+<td></td>
+<td><p>D M</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>D P0 Q0b</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>D P0 S10</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>D L P1 U6r</p></td>
+</tr>
+<tr class="row-odd"><td><p>D E S1i P0</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>D P0 S1o</p></td>
+<td></td>
+<td><p>D L P1 U6t</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-even"><td><p>D E S1c P0</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>ADC VDD</p></td>
+<td></td>
+<td><p>D L</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>D L</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 4</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>ADC GND</p></td>
+<td></td>
+<td><p>D L Q1b</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>D E L</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 6</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 5</p></td>
+<td></td>
+<td><p>D L Q1a</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>D E L</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 2</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 3</p></td>
+<td></td>
+<td><p>D L U5t</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>D L U5r</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 0</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p><a class="reference internal" href="#bone-analog"><span class="std std-ref">A</span></a> 1</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D P0</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>D Q0a S11 U3t P0</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>D L P1</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>D L P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>GND</p></td>
+<td></td>
+<td><p>D E L P1</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>D E L P1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id60">
+<caption><span class="caption-number">Table 128 </span><span class="caption-text">Black eCAP PWMs</span><a class="headerlink" href="#id60" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bone bus</p></th>
+<th class="head"><p>Header pin</p></th>
+<th class="head"><p>peripheral</p></th>
+<th class="head"><p>overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/sys/bus/platform/drivers/ecap/48302100.ecap</p></td>
+<td><p>P9.42</p></td>
+<td><p>eCAP0_in_PWM0_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBB-ECAP0.dts">BBB-ECAP0.dts</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/bus/platform/drivers/ecap/48304100.ecap</p></td>
+<td><p>P9.28</p></td>
+<td><p>eCAP2_in_PWM2_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBB-ECAP2.dts">BBB-ECAP2.dts</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id61">
+<caption><span class="caption-number">Table 129 </span><span class="caption-text">AI eCAP PWMs</span><a class="headerlink" href="#id61" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bone bus</p></th>
+<th class="head"><p>Header pin</p></th>
+<th class="head"><p>peripheral</p></th>
+<th class="head"><p>overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/sys/bus/platform/drivers/ecap/4843e100.ecap</p></td>
+<td><p>P8.15</p></td>
+<td><p>eCAP1_in_PWM1_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBAI-ECAP1.dts">BBAI-ECAP1.dts</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/bus/platform/drivers/ecap/48440100.ecap</p></td>
+<td><p>P8.14</p></td>
+<td><p>eCAP2_in_PWM2_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBAI-ECAP2.dts">BBAI-ECAP2.dts</a></p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/bus/platform/drivers/ecap/48440100.ecap</p></td>
+<td><p>P8.20</p></td>
+<td><p>eCAP2_in_PWM2_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBAI-ECAP2A.dts">BBAI-ECAP2A.dts</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>/sys/bus/platform/drivers/ecap/48442100.ecap</p></td>
+<td><p>P8.04</p></td>
+<td><p>eCAP3_in_PWM3_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBAI-ECAP3.dts">BBAI-ECAP3.dts</a></p></td>
+</tr>
+<tr class="row-even"><td><p>/sys/bus/platform/drivers/ecap/48442100.ecap</p></td>
+<td><p>P8.26</p></td>
+<td><p>eCAP3_in_PWM3_out</p></td>
+<td><p><a class="reference external" href="https://git.beagleboard.org/beagleboard/BeagleBoard-DeviceTrees/blob/v4.19.x-ti-overlays/src/arm/overlays/BBAI-ECAP3A.dts">BBAI-ECAP3A.dts</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mmc-sdio">
+<span id="bone-sdio"></span><h2>MMC/SDIO<a class="headerlink" href="#mmc-sdio" title="Link to this heading">#</a></h2>
+<p>SDIO is popular to connect various WiFi modules. The interface can also be used to connect MMC cards.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>On Black, the SDIO pins are consumed by default by the on-board eMMC which must be disabled to utilize the SDIO capability. On AI and AI-64, the on-board eMMC does not consume these pins.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id62">
+<caption><span class="caption-number">Table 130 </span><span class="caption-text">Bone MMC/SD/SDIO/eMMC</span><a class="headerlink" href="#id62" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header pin</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P8.3</p></td>
+<td><p>DAT6 <a class="footnote-reference brackets" href="#id31" id="id27" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.4</p></td>
+<td><p>DAT7 <a class="footnote-reference brackets" href="#id31" id="id28" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>P8.5</p></td>
+<td><p>DAT2</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.6</p></td>
+<td><p>DAT3</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.20</p></td>
+<td><p>CMD</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.21</p></td>
+<td><p>CLK</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.22</p></td>
+<td><p>DAT5 <a class="footnote-reference brackets" href="#id31" id="id29" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.23</p></td>
+<td><p>DAT4 <a class="footnote-reference brackets" href="#id31" id="id30" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>P8.24</p></td>
+<td><p>DAT1</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.25</p></td>
+<td><p>DAT0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id31" role="note">
+<span class="label"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id27">1</a>,<a role="doc-backlink" href="#id28">2</a>,<a role="doc-backlink" href="#id29">3</a>,<a role="doc-backlink" href="#id30">4</a>)</span>
+<p>8-bit eMMC support only on Black. AI and AI-64 provide 4-bit support only.</p>
+</aside>
+</aside>
+<div class="pst-scrollable-table-container"><table class="table" id="id63">
+<caption><span class="caption-number">Table 131 </span><span class="caption-text">Bone SDIO Overlay</span><a class="headerlink" href="#id63" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MMC2</p></td>
+<td><p>MMC3</p></td>
+<td><p>BONE-SDIO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="lcd">
+<span id="bone-lcd"></span><h2>LCD<a class="headerlink" href="#lcd" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table" id="id64">
+<caption><span class="caption-number">Table 132 </span><span class="caption-text">16bit LCD interface</span><a class="headerlink" href="#id64" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header pin</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>RGB565</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P8_27</p></td>
+<td><p>lcd_vsync</p></td>
+<td><p>vout1__vsync</p></td>
+<td><p>VSYNC</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_28</p></td>
+<td><p>lcd_pclk</p></td>
+<td><p>vout1_pclk</p></td>
+<td><p>PCLK</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_29</p></td>
+<td><p>lcd_hsync</p></td>
+<td><p>vout1_hsync</p></td>
+<td><p>HSYNC</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_30</p></td>
+<td><p>lcd_ac_bias_en</p></td>
+<td><p>vout1_de</p></td>
+<td><p>DE</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_32</p></td>
+<td><p>lcd_data15</p></td>
+<td><p>vout1_d15</p></td>
+<td><p>R4</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_31</p></td>
+<td><p>lcd_data14</p></td>
+<td><p>vout1_d14</p></td>
+<td><p>R3</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_33</p></td>
+<td><p>lcd_data13</p></td>
+<td><p>vout1_d13</p></td>
+<td><p>R2</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_35</p></td>
+<td><p>lcd_data12</p></td>
+<td><p>vout1_d12</p></td>
+<td><p>R1</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_34</p></td>
+<td><p>lcd_data11</p></td>
+<td><p>vout1_d11</p></td>
+<td><p>R0</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_36</p></td>
+<td><p>lcd_data10</p></td>
+<td><p>vout1_d10</p></td>
+<td><p>G5</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_38</p></td>
+<td><p>lcd_data9</p></td>
+<td><p>vout1_d9</p></td>
+<td><p>G4</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_37</p></td>
+<td><p>lcd_data8</p></td>
+<td><p>vout1_d8</p></td>
+<td><p>G3</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_40</p></td>
+<td><p>lcd_data7</p></td>
+<td><p>vout1_d7</p></td>
+<td><p>G2</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_39</p></td>
+<td><p>lcd_data6</p></td>
+<td><p>vout1_d6</p></td>
+<td><p>G1</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_42</p></td>
+<td><p>lcd_data5</p></td>
+<td><p>vout1_d5</p></td>
+<td><p>G0</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_41</p></td>
+<td><p>lcd_data4</p></td>
+<td><p>vout1_d4</p></td>
+<td><p>B4</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_44</p></td>
+<td><p>lcd_data3</p></td>
+<td><p>vout1_d3</p></td>
+<td><p>B3</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_43</p></td>
+<td><p>lcd_data2</p></td>
+<td><p>vout1_d2</p></td>
+<td><p>B2</p></td>
+</tr>
+<tr class="row-even"><td><p>P8_46</p></td>
+<td><p>lcd_data1</p></td>
+<td><p>vout1_d1</p></td>
+<td><p>B1</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8_45</p></td>
+<td><p>lcd_data0</p></td>
+<td><p>vout1_d0</p></td>
+<td><p>B0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id65">
+<caption><span class="caption-number">Table 133 </span><span class="caption-text">16bit LCD interface Overlay</span><a class="headerlink" href="#id65" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>overlay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lcdc</p></td>
+<td><p>dss</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="i2s">
+<span id="bone-i2s"></span><h2>I<sup>2</sup>S<a class="headerlink" href="#i2s" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id32">
+<p class="admonition-title">Todo</p>
+<p>Describe I<sup>2</sup>S and ALSA</p>
+</div>
+<section id="i2s-pins">
+<h3>I<sup>2</sup>S pins<a class="headerlink" href="#i2s-pins" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id66">
+<caption><span class="caption-number">Table 134 </span><span class="caption-text">I<sup>2</sup>S pins</span><a class="headerlink" href="#id66" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p class="centered">
+<strong>P9</strong></p></th>
+<th class="head"></th>
+<th class="head" colspan="4"><p class="centered">
+<strong>P8</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+<td></td>
+<td><p>Functions</p></td>
+<td><p>odd</p></td>
+<td><p>even</p></td>
+<td><p>Functions</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>0 SCK_IN</p></td>
+<td></td>
+<td></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0 HCLK</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0 WS_IN</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td><p>0 SDO0</p></td>
+<td></td>
+<td></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0 WS</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>0 SDI0</p></td>
+<td></td>
+<td></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0 SCK</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+<td></td>
+<td><p>0 SDO1 <a class="footnote-reference brackets" href="#id35" id="id33" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+<td></td>
+<td><p>0 SDI1 <a class="footnote-reference brackets" href="#id35" id="id34" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id35" role="note">
+<span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id33">1</a>,<a role="doc-backlink" href="#id34">2</a>)</span>
+<p>Only available on Black.</p>
+</aside>
+</aside>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>I<sup>2</sup>S 0 is used by HDMI audio on Black.</p>
+</div>
+</section>
+<section id="i2s-port-mapping">
+<h3>I<sup>2</sup>S port mapping<a class="headerlink" href="#i2s-port-mapping" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id67">
+<caption><span class="caption-number">Table 135 </span><span class="caption-text">I<sup>2</sup>S port mapping</span><a class="headerlink" href="#id67" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>I2S</p></th>
+<th class="head"><p>Header pin</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+<th class="head"><p>AI-64</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HCLK</p></td>
+<td><p>P9.25</p></td>
+<td><p>mcasp0_ahclkx</p></td>
+<td><p>mcasp1_ahclkx</p></td>
+<td><p>AUDIO_EXT_REFCLK2</p></td>
+</tr>
+<tr class="row-odd"><td><p>SCLK</p></td>
+<td><p>P9.31</p></td>
+<td><p>mcasp0_aclkx</p></td>
+<td><p>mcasp1_aclkx</p></td>
+<td><p>MCASP0_ACLKX</p></td>
+</tr>
+<tr class="row-even"><td><p>SCLK_IN</p></td>
+<td><p>P9.12</p></td>
+<td><p>mcasp0_aclkr_mux3</p></td>
+<td><p>mcasp1_aclkr</p></td>
+<td><p>MCASP0_ACLKR</p></td>
+</tr>
+<tr class="row-odd"><td><p>WS</p></td>
+<td><p>P9.29</p></td>
+<td><p>mcasp0_fsx</p></td>
+<td><p>mcasp1_fsx</p></td>
+<td><p>MCASP0_AFSX</p></td>
+</tr>
+<tr class="row-even"><td><p>WS_IN</p></td>
+<td><p>P9.27</p></td>
+<td><p>mcasp0_fsr</p></td>
+<td><p>mcasp1_fsr</p></td>
+<td><p>MCASP0_AFSR</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDO0</p></td>
+<td><p>P9.28</p></td>
+<td><p>mcasp0_axr2</p></td>
+<td><p>mcasp1_axr11</p></td>
+<td><p>MCASP0_AXR0</p></td>
+</tr>
+<tr class="row-even"><td><p>SDI0</p></td>
+<td><p>P9.30</p></td>
+<td><p>mcasp0_axr0</p></td>
+<td><p>mcasp1_axr10</p></td>
+<td><p>MCASP0_AXR1</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDO1</p></td>
+<td><p>P8.31</p></td>
+<td><p>mcasp0_axr1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SDI1</p></td>
+<td><p>P8.33</p></td>
+<td><p>mcasp0_axr3</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id68">
+<caption><span class="caption-number">Table 136 </span><span class="caption-text">I<sup>2</sup>S port mapping link and overlay</span><a class="headerlink" href="#id68" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Link</p></th>
+<th class="head"><p>Overlays</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/dev/bone/i2s/0</p></td>
+<td><p>BONE-I2S0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="i2s-overlay-example">
+<h3>I<sup>2</sup>S overlay example<a class="headerlink" href="#i2s-overlay-example" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="pru">
+<span id="bone-pru"></span><h2>PRU<a class="headerlink" href="#pru" title="Link to this heading">#</a></h2>
+<p>The overlay situation for PRUs is a bit more complex than with other peripherals. The mechanism for loading, starting and stopping the PRUs can go through either <a class="reference external" href="https://www.kernel.org/doc/html/latest/driver-api/uio-howto.html">UIO</a> or <a class="reference external" href="https://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components/PRU-ICSS/Linux_Drivers/RemoteProc_and_RPMsg.htmlRemoteProc">RemoteProc</a>.</p>
+<ul class="simple">
+<li><p>/dev/remoteproc/prussX-coreY (AM3358 X = “”, other x = “1|2”)</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="id69">
+<caption><span class="caption-number">Table 137 </span><span class="caption-text">Bone PRU eCAP</span><a class="headerlink" href="#id69" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Pin</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P8.15</p></td>
+<td><p>pr1_ecap0</p></td>
+<td><p>pr1_ecap0</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.32</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_ecap0</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.42</p></td>
+<td><p>pr1_ecap0</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id70">
+<caption><span class="caption-number">Table 138 </span><span class="caption-text">AI PRU UART</span><a class="headerlink" href="#id70" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>UART</p></th>
+<th class="head"><p>TX</p></th>
+<th class="head"><p>RX</p></th>
+<th class="head"><p>RTSn</p></th>
+<th class="head"><p>CTSn</p></th>
+<th class="head"><p>Overlays</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRU1 UART0</p></td>
+<td><p>P8_31</p></td>
+<td><p>P8_33</p></td>
+<td><p>P8_34</p></td>
+<td><p>P8_35</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PRU2 UART0</p></td>
+<td><p>P8_43</p></td>
+<td><p>P8_44</p></td>
+<td><p>P8_45</p></td>
+<td><p>P8_46</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id71">
+<caption><span class="caption-number">Table 139 </span><span class="caption-text">Bone PRU</span><a class="headerlink" href="#id71" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Pin</p></th>
+<th class="head"><p>Black</p></th>
+<th class="head"><p>AI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P8.03</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.04</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 11</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.05</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 06</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.06</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 07</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.07</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 16</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.08</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 20</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.09</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 06</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.10</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 15</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.11</p></td>
+<td><p>pr1_pru0 15 (Out)</p></td>
+<td><p>pr1_pru0 04</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.12</p></td>
+<td><p>pr1_pru0 14 (Out)</p></td>
+<td><p>pr1_pru0 03</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.13</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 07</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.14</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 09</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.15</p></td>
+<td><p>pr1_pru0 15 (In)</p></td>
+<td><p>pr1_pru1 16</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.16</p></td>
+<td><p>pr1_pru0 14 (In)</p></td>
+<td><p>pr1_pru1 18</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.17</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 15</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.18</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 05</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.19</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 06</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.20</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 03</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.21</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 02</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.22</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 09</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.23</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 08</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.24</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 05</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.25</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 04</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.26</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 17</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.27</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 17</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.28</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 17</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.29</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.30</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 19</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.31</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 11</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.32</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 00</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.33</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.34</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 08</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.35</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 09</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.36</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 07</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.37</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 05</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.38</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 06</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.39</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 03</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.40</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 04</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.41</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 01</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.42</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 02</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.43</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 20</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.44</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 00</p></td>
+</tr>
+<tr class="row-even"><td><p>P8.45</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>P8.46</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 19</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.11</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 14</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.13</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru0 15</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.14</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 14</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.15</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru0 5</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.16</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 15</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.17</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 09</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.18</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr2_pru1 08</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.19</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 02</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.20</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pr1_pru1 01</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.24</p></td>
+<td><p>pr1_pru0 16 (In)</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>P9.25</p></td>
+<td><p>pr1_pru0 07</p></td>
+<td><p>pr2_pru1 05</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.26</p></td>
+<td><p>pr1_pru1 16 (In)</p></td>
+<td><p>pr1_pru0 17</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.27</p></td>
+<td><p>pr1_pru0 05</p></td>
+<td><p>pr1_pru1 11</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.28</p></td>
+<td><p>pr1_pru0 03</p></td>
+<td><p>pr2_pru1 13</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.29</p></td>
+<td><p>pr1_pru0 01</p></td>
+<td><p>pr2_pru1 11</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.30</p></td>
+<td><p>pr1_pru0 02</p></td>
+<td><p>pr2_pru1 12</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.31</p></td>
+<td><p>pr1_pru0 00</p></td>
+<td><p>pr2_pru1 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>P9.41</p></td>
+<td><p>pr1_pru0 06</p></td>
+<td><p>pr1_pru1 03</p></td>
+</tr>
+<tr class="row-even"><td><p>P9.42</p></td>
+<td><p>pr1_pru0 04</p></td>
+<td><p>pr1_pru1 10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dynamic-overlays">
+<span id="bone-dynamic-overlays"></span><h2>Dynamic overlays<a class="headerlink" href="#dynamic-overlays" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id36">
+<p class="admonition-title">Todo</p>
+<p>Document dynamic DT overlays</p>
+</div>
+</section>
+<section id="dynamic-pinmux-control">
+<span id="bone-dynamic-pinmux"></span><h2>Dynamic pinmux control<a class="headerlink" href="#dynamic-pinmux-control" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id37">
+<p class="admonition-title">Todo</p>
+<p>Document dynamic pinmux control</p>
+</div>
+</section>
+<section id="methodology">
+<span id="bone-methodology"></span><h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<p>The methodology for applied in the kernel and software images to expose the software interfaces is to be documented here. The most fundamental elements are the device tree entries, including overlays, and udev rules.</p>
+<section id="device-trees">
+<h3>Device Trees<a class="headerlink" href="#device-trees" title="Link to this heading">#</a></h3>
+<div class="admonition-todo admonition" id="id38">
+<p class="admonition-title">Todo</p>
+<p>Describe how the Device Trees expose symbols for reuse across boards</p>
+</div>
+<p>For every resource exposed on the cape headers, an indexed symbol should be provided in the base device tree.</p>
+</section>
+<section id="udev-rules">
+<h3>udev rules<a class="headerlink" href="#udev-rules" title="Link to this heading">#</a></h3>
+<section id="of-symlink-rules">
+<h4>10-of-symlink.rules<a class="headerlink" href="#of-symlink-rules" title="Link to this heading">#</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#From: https:</span><span class="c1">//github.com/mvduin/py-uio/blob/master/etc/udev/rules.d/10-of-symlink.rules</span>
+<span class="cp"># allow declaring a symlink for a device in DT</span>
+<span class="n">ATTR</span><span class="p">{</span><span class="n">device</span><span class="o">/</span><span class="n">of_node</span><span class="o">/</span><span class="n">symlink</span><span class="p">}</span><span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>\
+<span class="w">        </span><span class="n">ENV</span><span class="p">{</span><span class="n">OF_SYMLINK</span><span class="p">}</span><span class="o">=</span><span class="s">&quot;%s{device/of_node/symlink}&quot;</span>
+
+<span class="n">ENV</span><span class="p">{</span><span class="n">OF_SYMLINK</span><span class="p">}</span><span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ENV</span><span class="p">{</span><span class="n">DEVNAME</span><span class="p">}</span><span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>\
+<span class="w">        </span><span class="n">SYMLINK</span><span class="o">+=</span><span class="s">&quot;%E{OF_SYMLINK}&quot;</span><span class="p">,</span><span class="w"> </span>\
+<span class="w">        </span><span class="n">TAG</span><span class="o">+=</span><span class="s">&quot;systemd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ENV</span><span class="p">{</span><span class="n">SYSTEMD_ALIAS</span><span class="p">}</span><span class="o">+=</span><span class="s">&quot;/dev/%E{OF_SYMLINK}&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="tbd">
+<h4>TBD<a class="headerlink" href="#tbd" title="Link to this heading">#</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp"># Also courtesy of mvduin</span>
+<span class="cp"># create symlinks for gpios exported to sysfs by DT</span>
+<span class="n">SUBSYSTEM</span><span class="o">==</span><span class="s">&quot;gpio&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ACTION</span><span class="o">==</span><span class="s">&quot;add&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TEST</span><span class="o">==</span><span class="s">&quot;value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ATTR</span><span class="p">{</span><span class="n">label</span><span class="p">}</span><span class="o">!=</span><span class="s">&quot;sysfs&quot;</span><span class="p">,</span><span class="w"> </span>\
+<span class="w">                </span><span class="n">RUN</span><span class="o">+=</span><span class="s">&quot;/bin/mkdir -p /dev/bone/gpio&quot;</span><span class="p">,</span><span class="w"> </span>\
+<span class="w">                </span><span class="n">RUN</span><span class="o">+=</span><span class="s">&quot;/bin/ln -sT &#39;/sys/class/gpio/%k&#39; /dev/bone/gpio/%s{label}&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="verification">
+<h3>Verification<a class="headerlink" href="#verification" title="Link to this heading">#</a></h3>
+<div class="admonition-todo admonition" id="id39">
+<p class="admonition-title">Todo</p>
+<p>The steps used to verify all of these configurations is to be documented
+here. It will serve to document what has been tested, how to reproduce the
+configurations, and how to verify each major triannual release. All faults
+will be documented in the issue tracker.</p>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://beagleboard.org/blog/2022-03-31-device-tree-supporting-similar-boards-the-beaglebone-example">Device Tree: Supporting Similar Boards - The BeagleBone Example</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing">Google drive with summary of expansion signals on various BeagleBoard.org designs</a></p></li>
+<li><p><a class="reference external" href="https://elinux.org/Beagleboard:Cape_Expansion_Headers">Beagleboard:Cape Expansion Headers</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Capes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="relay.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">BeagleBoard.org BeagleBone Relay Cape</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-overview">Background and overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-cape-interfaces">Summary of cape interfaces</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-gpio">Digital GPIO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c">I<sup>2</sup>C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c-pins">I<sup>2</sup>C pins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c-port-mapping">I<sup>2</sup>C port mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c-overlay-example">I<sup>2</sup>C overlay example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c-userspace-example">I<sup>2</sup>C userspace example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spi">SPI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uart">UART</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can">CAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adc">ADC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm">PWM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-pins">PWM pins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-port-mapping">PWM port mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-overlay-example">PWM overlay example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-userspace-example">PWM userspace example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timer-pwm">TIMER PWM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counter">Counter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecap">eCAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mmc-sdio">MMC/SDIO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcd">LCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i2s">I<sup>2</sup>S</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2s-pins">I<sup>2</sup>S pins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2s-port-mapping">I<sup>2</sup>S port mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2s-overlay-example">I<sup>2</sup>S overlay example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pru">PRU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-overlays">Dynamic overlays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-pinmux-control">Dynamic pinmux control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#device-trees">Device Trees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#udev-rules">udev rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#of-symlink-rules">10-of-symlink.rules</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tbd">TBD</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">Verification</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/capes/cape-interface-spec.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/boards/capes/cape-interface-spec.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

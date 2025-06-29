@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>BeagleBoard Documentation &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="canonical" href="docs.beagleboard.io/index.html" />
+    <link rel="icon" href="_static/boris.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="intro/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="beagleboard-documentation">
+<h1 class="sd-d-none">BeagleBoard Documentation<a class="headerlink" href="#beagleboard-documentation" title="Link to this heading">#</a></h1>
+<img alt="_images/banner.webp" src="_images/banner.webp" />
+<p>Welcome to the <a class="reference external" href="https://git.beagleboard.org/docs/docs.beagleboard.io">BeagleBoard project documentation</a>.
+If you are looking for help with your Beagle open-hardware development platform, you’ve found the right place!</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Get started quickly on our Linux-enabled boards with <a class="reference internal" href="intro/beagle101/blinkLED.html#blinkled"><span class="std std-ref">Blink an LED</span></a>, follow-up with articles in <a class="reference internal" href="intro/beagle101/index.html#intro-beagle-101"><span class="std std-ref">An Introduction to Beagles</span></a>, and reach out
+via resources on our <a class="reference internal" href="intro/support/index.html#support"><span class="std std-ref">Support</span></a> page as needed to resolve issues
+and engage with the developer community. Don’t forget that this is an open-source project! Your contributions are welcome.
+Learn about how to contribute to the BeagleBoard documentation project and any of the many open-source Beagle
+projects ongoing on our <a class="reference internal" href="intro/contribution/index.html#contribution"><span class="std std-ref">Contribution</span></a> page.</p>
+<ul class="simple">
+<li><p>Get started quickly at <a class="reference internal" href="intro/beagle101/blinkLED.html#blinkled"><span class="std std-ref">Blink an LED</span></a>.</p></li>
+<li><p>Go a bit deaper at <a class="reference internal" href="intro/beagle101/index.html#intro-beagle-101"><span class="std std-ref">An Introduction to Beagles</span></a>.</p></li>
+<li><p>Read the book at <a class="reference internal" href="books/beaglebone-cookbook/index.html#bone-cook-book-home"><span class="std std-ref">BeagleBone Cookbook</span></a>.</p></li>
+<li><p>Get help from the community at <a class="reference internal" href="intro/support/index.html#support"><span class="std std-ref">Support</span></a>.</p></li>
+<li><p>Learn how to contribute to the project at <a class="reference internal" href="intro/contribution/index.html#contribution"><span class="std std-ref">Contribution</span></a>.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="boards">
+<h2>Boards<a class="headerlink" href="#boards" title="Link to this heading">#</a></h2>
+<p>This is where you will find the System Reference Manuals (SRMs) for all of the boards.</p>
+<p>All Beagles are <a class="reference external" href="https://www.oshwa.org/definition/">open-hardware</a> with documentation on the
+design, including the
+<a class="reference external" href="https://git.beagleboard.org/explore/projects/topics/boards">materials</a> to modify the designs
+from source using appropriate design tools.</p>
+<ul class="simple">
+<li><p>Check out our tiniest single board computer: <a class="reference internal" href="boards/pocketbeagle-2/index.html#pocketbeagle-2-home"><span class="std std-ref">PocketBeagle 2</span></a></p></li>
+<li><p>Check out our Pi form-factor computer with 4 TOPs AI engine at: <a class="reference internal" href="boards/beagley/ai/index.html#beagley-ai-home"><span class="std std-ref">BeagleY-AI</span></a></p></li>
+<li><p>Check out our easy-to-use gateway computer at: <a class="reference internal" href="boards/beagleplay/index.html#beagleplay-home"><span class="std std-ref">BeaglePlay</span></a></p></li>
+<li><p>Check out our highest performance (8 TOPs) board at: <a class="reference internal" href="boards/beaglebone/ai-64/index.html#bbai64-home"><span class="std std-ref">BeagleBone AI-64</span></a></p></li>
+<li><p>Check out our first Zephyr-based board at: <a class="reference internal" href="boards/beagleconnect/freedom/index.html#beagleconnect-freedom-home"><span class="std std-ref">BeagleConnect Freedom</span></a></p></li>
+<li><p>Find all of our boards at: <a class="reference internal" href="boards/index.html#boards"><span class="std std-ref">Boards</span></a></p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mt-4 sd-mb-4 sd-ml-0 sd-mr-0 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-4 sd-g-4 sd-g-xs-4 sd-g-sm-4 sd-g-md-4 sd-g-lg-4 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>PocketBeagle® 2</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/pocketbeagle-2-45-front.jpg" class="align-center" src="_images/pocketbeagle-2-45-front.jpg" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Tiny board with quad A53 cores, M4, PRUs and lots of I/O. Higher performance than original PocketBeagle
+with pre-soldered headers, UART debug port, high-speed USB-C port, MSPM0L1105, 512MB RAM, and LiPo Battery
+charger.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/pocketbeagle-2/index.html#pocketbeagle-2-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleY®-AI</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beagley-ai.webp" class="align-center" src="_images/beagley-ai.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">An industry standard form-factor 64-bit ARM computer with 4 TOPS AI engine
+and integrated ARM Cortex-R5 for low-latency I/O tasks.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beagley/ai/index.html#beagley-ai-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeaglePlay®</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beagleplay.webp" class="align-center" src="_images/beagleplay.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">A 64-bit ARM computer designed to simplify physical world interactions
+to the connected world.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beagleplay/index.html#beagleplay-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleConnect™ Freedom</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beagleconnect-freedom.webp" class="align-center" src="_images/beagleconnect-freedom.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">BeagleConnect™ Freedom is based on a <a class="reference external" href="https://www.ti.com/product/CC1352P7">TI Arm Cortex-M4 wireless-enabled microcontroller</a>
+and is the first available BeagleConnect™ solution.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beagleconnect/freedom/index.html#beagleconnect-freedom-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® AI-64</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beaglebone-ai-64.webp" class="align-center" src="_images/beaglebone-ai-64.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">A complete 64-bit AI and Machine Learning System with the convenience
+and expandability of the BeagleBone® platform with the peripherals on
+board to get started right away learning and building applications.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beaglebone/ai-64/index.html#bbai64-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleV®-Fire</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beaglev-fire.webp" class="align-center" src="_images/beaglev-fire.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Awesome quad-core RISC-V and <em>FPGA</em> SBC with BeagleBone cape headers,
+PCIe over M.2 and SYZYGY high-speed connector!</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beaglev/fire/index.html#beaglev-fire-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleV®-Ahead</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beaglev-ahead.webp" class="align-center" src="_images/beaglev-ahead.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">High-performance quad-core RISC-V SBC with neural network and media accelerators
+with BeagleBone cape headers, mikroBUS shuttle connector, 2x CSI and DSI expansion.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beaglev/ahead/index.html#beaglev-ahead-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Black</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beaglebone-black.webp" class="align-center" src="_images/beaglebone-black.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">1GHz Single-Board Linux Computer based on ARM Cortex-A8 with PRU
+microcontrollers and tons of features like Ethernet and HDMI –
+credit card sized with over a decade of support, software and
+materials behind it making it ready for any application.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beaglebone/black/index.html#beagleboneblack-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® AI</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beaglebone-ai.webp" class="align-center" src="_images/beaglebone-ai.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Filling the gap between small SBCs and more powerful industrial computers,
+BeagleBone® AI, based on the AM5729, makes it easy to explore how artificial
+intelligence can be used in every day life. Powerful compute performance and software support.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beaglebone/ai/index.html#bbai-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>PocketBeagle®</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/pocketbeagle.webp" class="align-center" src="_images/pocketbeagle.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">This ultra-tiny-yet-complete open-source USB-key-fob computer has the same processor
+as the BeagleBone® Black at one third the size. Give small projects the Linux computer
+they deserve. Hundreds of example projects to help you get started.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/pocketbeagle/index.html#pocketbeagle-home"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Blue</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/beaglebone-blue.webp" class="align-center" src="_images/beaglebone-blue.webp" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">An all-in-one Linux-based robotics computer with compatibility to BeagleBone® Black and
+tons of integration including Wi-Fi, Bluetooth, IMU/barometer, power regulation, H-Bridges,
+motor connectors and more. Robotics made streamlined, affordable and fun.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/beaglebone/blue/index.html#beaglebone-blue-home"><span class="std std-ref"></span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="capes">
+<h2>Capes<a class="headerlink" href="#capes" title="Link to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mt-4 sd-mb-4 sd-ml-0 sd-mr-0 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-4 sd-g-4 sd-g-xs-4 sd-g-sm-4 sd-g-md-4 sd-g-lg-4 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Servo Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBoneServoCapeA2_Top_NEW-400x332.png" class="align-center" src="_images/BeagleBoneServoCapeA2_Top_NEW-400x332.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Control up to 16 servos for many remote control, robotics or automation projects</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Fan Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/fan-cape-400x299.png" class="align-center" src="_images/fan-cape-400x299.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Keeps BeagleBone® cool under heavy operating loads while still providing easy
+access to the headers. Essential for BeagleBone® AI Projects</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Robotics Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BBB_RoboticsCape-400x368.png" class="align-center" src="_images/BBB_RoboticsCape-400x368.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Loaded with features needed for mobile robotics supporting
+movement, sensing, power management and communication</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Relay Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBoneRelayCapeA2-400x274.png" class="align-center" src="_images/BeagleBoneRelayCapeA2-400x274.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Control things like lights, pumps and more in any home
+automation project quickly with 4 relay switches</p>
+</div>
+<a class="sd-stretched-link reference internal" href="boards/capes/relay.html#bone-cape-relay"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Proto Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBoneProtoCapeA2-e1622405187534.png" class="align-center" src="_images/BeagleBoneProtoCapeA2-e1622405187534.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Provides a blank slate including a grid of plated through-holes for external
+components and supportive buttons and LEDs</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Power Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBonePowerCapeA2-400x285.png" class="align-center" src="_images/BeagleBonePowerCapeA2-400x285.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Provides a complete power interface with regulated 3.3V and 5V out as well as up to 30V input voltage</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Load Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBoneLoadCapeA2-400x290.png" class="align-center" src="_images/BeagleBoneLoadCapeA2-400x290.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Drive high-current loads like relays, motors, solenoids, and high current LEDs</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Motor Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBoneMotorCapeA2-400x281.png" class="align-center" src="_images/BeagleBoneMotorCapeA2-400x281.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Drive up to 4 DC motors with direction and PWM control</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Comms Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/BeagleBoneCommsCapeA2-400x279.png" class="align-center" src="_images/BeagleBoneCommsCapeA2-400x279.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Quickly develop industrial communication applications with an array of protocols including RS485 and CAN</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® GamePup Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/PocketBeagle_GamePup-400x410.png" class="align-center" src="_images/PocketBeagle_GamePup-400x410.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">For making a handheld arcade emulator, your own games or otherwise taking your PocketBeagle
+on the go, PocketBeagle® GamePup provides all the features you need in a slick shape for gaming</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® Grove Kit</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/pb-grove-kit-400x267.png" class="align-center" src="_images/pb-grove-kit-400x267.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">A complete kit for developing projects with PocketBeagle® and Grove modules. Great for
+teaching embedded processing and Linux development. Comes complete with PocketBeagle®
+as well as Grove Cape and 10 modules to get started.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>BeagleBone® TechLab Cape</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<img alt="_images/PocketBeagle_TechLab-400x212.png" class="align-center" src="_images/PocketBeagle_TechLab-400x212.png" />
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Designed with years of educational lessons-learned in mind, PocketBeagle® TechLab
+Cape delivers easy introduction to programming, Linux and even hacking the kernel
+itself. Supported by teaching materials from the Linux Foundation and eALE.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="projects">
+<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading">#</a></h2>
+<p>A number of software projects, like <a class="reference internal" href="projects/simppru/index.html#simppru-home"><span class="std std-ref">simpPRU</span></a> exist to help Beagle
+developers. Some developers choose to host documentation for their <a class="reference internal" href="projects/index.html#projects-home"><span class="std std-ref">Projects</span></a> here.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="books">
+<h2>Books<a class="headerlink" href="#books" title="Link to this heading">#</a></h2>
+<p>This project hosts a collection of open-source <a class="reference internal" href="books/index.html#books-home"><span class="std std-ref">Books</span></a> written to help Beagle developers.</p>
+<ul class="simple">
+<li><p>Find a great introduction to BeagleBone at: <a class="reference internal" href="books/beaglebone-cookbook/index.html#bone-cook-book-home"><span class="std std-ref">BeagleBone Cookbook</span></a></p></li>
+<li><p>Learn one of the most amazing Beagle features at: <a class="reference internal" href="books/pru-cookbook/index.html#pru-cookbook-home"><span class="std std-ref">PRU Cookbook</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="accessories">
+<h2>Accessories<a class="headerlink" href="#accessories" title="Link to this heading">#</a></h2>
+<p>This is a list of hardware accessories tested with BeagleBone hardware.
+The list is growing with support of volunteers like you. Checkout the <a class="reference internal" href="accessories/index.html#accessories-home"><span class="std std-ref">Accessories</span></a>
+page for more information.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="glossary.html#glossary"><span class="std std-ref">Glossary of Terms</span></a></p></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="intro/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

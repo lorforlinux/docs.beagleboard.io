@@ -1,0 +1,5353 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Expansion &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beaglebone/ai/04-expansion';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beaglebone/ai/04-expansion.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Demos &amp; Tutorials" href="05-demos-and-tutorials.html" />
+    <link rel="prev" title="Design and specifications" href="03-design-and-specifications.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-quick-start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-design-and-specifications.html">Design and specifications</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Expansion</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos-and-tutorials.html">Demos &amp; Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/upgrade-beaglebone-ai-software.html">Upgrade BeagleBone AI software</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Additional Support Information</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeagleBone AI</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Expansion</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="expansion">
+<span id="bbai-expansion"></span><h1>Expansion<a class="headerlink" href="#expansion" title="Link to this heading">#</a></h1>
+<section id="expansion-connectors">
+<h2>Expansion Connectors<a class="headerlink" href="#expansion-connectors" title="Link to this heading">#</a></h2>
+<p>The expansion interface on the board is comprised of two 46 pin
+connectors, the P8 and P9 Headers. All signals on the expansion headers
+are <strong>3.3V</strong> unless otherwise indicated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not connect 5V logic level signals to these pins or the board will be damaged.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE BOARD.
+IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.</p>
+</div>
+<p><strong>NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.</strong></p>
+<p><strong>Figure ?</strong> shows the location of the expansion connectors.</p>
+<img alt="beaglebone ai header placement" class="align-center" src="../../../_images/BB_AI_Headerplacement_800px.png" />
+<p>The location and spacing of the expansion headers are the same as on
+BeagleBone Black.</p>
+<section id="connector-p8">
+<h3>Connector P8<a class="headerlink" href="#connector-p8" title="Link to this heading">#</a></h3>
+<p>The following tables show the pinout of the <strong>P8</strong> expansion header. The
+SW is responsible for setting the default function of each pin. Refer to
+the processor documentation for more information on these pins and
+detailed descriptions of all of the pins listed. In some cases there may
+not be enough signals to complete a group of signals that may be
+required to implement a total interface.</p>
+<p>The column heading is the pin number on the expansion header.</p>
+<p>The <strong>GPIO</strong> row is the expected gpio identifier number in the Linux
+kernel.</p>
+<p>The <strong>BALL</strong> row is the pin number on the processor.</p>
+<p>The <strong>REG</strong> row is the offset of the control register for the processor
+pin.</p>
+<p>The <strong>MODE #</strong> rows are the mode setting for each pin. Setting each mode
+to align with the mode column will give that function on that pin.</p>
+<p>If included, the <strong>2nd BALL</strong> row is the pin number on the processor for
+a second processor pin connected to the same pin on the expansion
+header. Similarly, all row headings starting with <strong>2nd</strong> refer to data
+for this second processor pin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE
+BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.</strong></p>
+<p><strong>NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.</strong></p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id35">
+<caption><span class="caption-number">Table 48 </span><span class="caption-text">P8.01-P8.02</span><a class="headerlink" href="#id35" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>P8.01</p></th>
+<th class="head"><p>P8.02</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id36">
+<caption><span class="caption-number">Table 49 </span><span class="caption-text">P8.03-P8.05</span><a class="headerlink" href="#id36" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.03</p></th>
+<th class="head"><p>P8.04</p></th>
+<th class="head"><p>P8.05</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>24</p></td>
+<td><p>25</p></td>
+<td><p>193</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>AB8</p></td>
+<td><p>AB5</p></td>
+<td><p>AC9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x179C</p></td>
+<td><p>0x17A0</p></td>
+<td><p>0x178C</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>mmc3_dat6</p></td>
+<td><p>mmc3_dat7</p></td>
+<td><p>mmc3_dat2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>spi4_d0</p></td>
+<td><p>spi4_cs0</p></td>
+<td><p>spi3_cs0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>uart10_ctsn</p></td>
+<td><p>uart10_rtsn</p></td>
+<td><p>uart5_ctsn</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin2b_de1</p></td>
+<td><p>vin2b_clk1</p></td>
+<td><p>vin2b_d3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>vin5a_hsync0</p></td>
+<td><p>vin5a_vsync0</p></td>
+<td><p>vin5a_d3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>ehrpwm3_tripzone_input</p></td>
+<td><p>eCAP3_in_PWM3_out</p></td>
+<td><p>eQEP3_index</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii1_rxd1</p></td>
+<td><p>pr2_mii1_rxd0</p></td>
+<td><p>pr2_mii_mr1_clk</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi10</p></td>
+<td><p>pr2_pru0_gpi11</p></td>
+<td><p>pr2_pru0_gpi6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo10</p></td>
+<td><p>pr2_pru0_gpo11</p></td>
+<td><p>pr2_pru0_gpo6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio1_24</p></td>
+<td><p>gpio1_25</p></td>
+<td><p>gpio7_1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id37">
+<caption><span class="caption-number">Table 50 </span><span class="caption-text">P8.06-P8.09</span><a class="headerlink" href="#id37" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.06</p></th>
+<th class="head"><p>P8.07</p></th>
+<th class="head"><p>P8.08</p></th>
+<th class="head"><p>P8.09</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>194</p></td>
+<td><p>165</p></td>
+<td><p>166</p></td>
+<td><p>178</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>AC3</p></td>
+<td><p>G14</p></td>
+<td><p>F14</p></td>
+<td><p>E17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1790</p></td>
+<td><p>0x16EC</p></td>
+<td><p>0x16F0</p></td>
+<td><p>0x1698</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE0</strong></p></td>
+<td><p>mmc3_dat3</p></td>
+<td><p>mcasp1_axr14</p></td>
+<td><p>mcasp1_axr15</p></td>
+<td><p>xref_clk1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>spi3_cs1</p></td>
+<td><p>mcasp7_aclkx</p></td>
+<td><p>mcasp7_fsx</p></td>
+<td><p>mcasp2_axr9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>uart5_rtsn</p></td>
+<td><p>mcasp7_aclkr</p></td>
+<td><p>mcasp7_fsr</p></td>
+<td><p>mcasp1_axr5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>mcasp2_ahclkx</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin2b_d2</p></td>
+<td></td>
+<td></td>
+<td><p>mcasp6_ahclkx</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td><p>vin6a_d9</p></td>
+<td><p>vin6a_d8</p></td>
+<td><p>vin6a_clk0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>vin5a_d2</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>eQEP3_strobe</p></td>
+<td><p>timer11</p></td>
+<td><p>timer12</p></td>
+<td><p>timer14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii1_rxdv</p></td>
+<td><p>pr2_mii0_rxdv</p></td>
+<td><p>pr2_mii0_rxd3</p></td>
+<td><p>pr2_mii1_crs</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi7</p></td>
+<td><p>pr2_pru1_gpi16</p></td>
+<td><p>pr2_pru0_gpi20</p></td>
+<td><p>pr2_pru1_gpi6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo7</p></td>
+<td><p>pr2_pru1_gpo16</p></td>
+<td><p>pr2_pru0_gpo20</p></td>
+<td><p>pr2_pru1_gpo6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio7_2</p></td>
+<td><p>gpio6_5</p></td>
+<td><p>gpio6_6</p></td>
+<td><p>gpio6_18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id38">
+<caption><span class="caption-number">Table 51 </span><span class="caption-text">P8.10-P8.13</span><a class="headerlink" href="#id38" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.10</p></th>
+<th class="head"><p>P8.11</p></th>
+<th class="head"><p>P8.12</p></th>
+<th class="head"><p>P8.13</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>164</p></td>
+<td><p>75</p></td>
+<td><p>74</p></td>
+<td><p>107</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>A13</p></td>
+<td><p>AH4</p></td>
+<td><p>AG6</p></td>
+<td><p>D3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x16E8</p></td>
+<td><p>0x1510</p></td>
+<td><p>0x150C</p></td>
+<td><p>0x1590</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>mcasp1_axr13</p></td>
+<td><p>vin1a_d7</p></td>
+<td><p>vin1a_d6</p></td>
+<td><p>vin2a_d10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>mcasp7_axr1</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td></td>
+<td><p>vout3_d0</p></td>
+<td><p>vout3_d1</p></td>
+<td><p>mdio_mclk</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td></td>
+<td><p>vout3_d16</p></td>
+<td><p>vout3_d17</p></td>
+<td><p>vout2_d13</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>vin6a_d10</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>kbd_col7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>timer10</p></td>
+<td><p>eQEP2B_in</p></td>
+<td><p>eQEP2A_in</p></td>
+<td><p>ehrpwm2B</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii_mr0_clk</p></td>
+<td></td>
+<td></td>
+<td><p>pr1_mdio_mdclk</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru1_gpi15</p></td>
+<td><p>pr1_pru0_gpi4</p></td>
+<td><p>pr1_pru0_gpi3</p></td>
+<td><p>pr1_pru1_gpi7</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru1_gpo15</p></td>
+<td><p>pr1_pru0_gpo4</p></td>
+<td><p>pr1_pru0_gpo3</p></td>
+<td><p>pr1_pru1_gpo7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio6_4</p></td>
+<td><p>gpio3_11</p></td>
+<td><p>gpio3_10</p></td>
+<td><p>gpio4_11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id39">
+<caption><span class="caption-number">Table 52 </span><span class="caption-text">P8.14-P8.16</span><a class="headerlink" href="#id39" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.14</p></th>
+<th class="head"><p>P8.15</p></th>
+<th class="head"><p>P8.16</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>109</p></td>
+<td><p>99</p></td>
+<td><p>125</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>D5</p></td>
+<td><p>D1</p></td>
+<td><p>B4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1598</p></td>
+<td><p>0x1570</p></td>
+<td><p>0x15BC</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vin2a_d12</p></td>
+<td><p>vin2a_d2</p></td>
+<td><p>vin2a_d21</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin2b_d2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>rgmii1_txc</p></td>
+<td></td>
+<td><p>rgmii1_rxd2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vout2_d11</p></td>
+<td><p>vout2_d21</p></td>
+<td><p>vout2_d2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td><p>emu12</p></td>
+<td><p>vin3a_fld0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin3a_d13</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>mii1_rxclk</p></td>
+<td><p>uart10_rxd</p></td>
+<td><p>mii1_col</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>kbd_col8</p></td>
+<td><p>kbd_row6</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>eCAP2_in_PWM2_out</p></td>
+<td><p>eCAP1_in_PWM1_out</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr1_mii1_txd1</p></td>
+<td><p>pr1_ecap0_ecap_capin_apwm_o</p></td>
+<td><p>pr1_mii1_rxlink</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr1_pru1_gpi9</p></td>
+<td><p>pr1_edio_data_in7</p></td>
+<td><p>pr1_pru1_gpi18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr1_pru1_gpo9</p></td>
+<td><p>pr1_edio_data_out7</p></td>
+<td><p>pr1_pru1_gpo18</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio4_13</p></td>
+<td><p>gpio4_3</p></td>
+<td><p>gpio4_29</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td></td>
+<td><p>A3</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td></td>
+<td><p>0x15B4</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td></td>
+<td><p>vin2a_d19</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td><p>vin2b_d4</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td><p>rgmii1_rxctl</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td></td>
+<td><p>vout2_d4</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td><p>vin3a_d11</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td><p>mii1_txer</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td></td>
+<td><p>ehrpwm3_tripzone_input</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td></td>
+<td><p>pr1_mii1_rxd0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td></td>
+<td><p>pr1_pru1_gpi16</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td></td>
+<td><p>pr1_pru1_gpo16</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td></td>
+<td><p>gpio4_27</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td></td>
+<td><p>Driver off</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id40">
+<caption><span class="caption-number">Table 53 </span><span class="caption-text">P8.17-P8.19</span><a class="headerlink" href="#id40" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.17</p></th>
+<th class="head"><p>P8.18</p></th>
+<th class="head"><p>P8.19</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>242</p></td>
+<td><p>105</p></td>
+<td><p>106</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>A7</p></td>
+<td><p>F5</p></td>
+<td><p>E6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1624</p></td>
+<td><p>0x1588</p></td>
+<td><p>0x158C</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_d18</p></td>
+<td><p>vin2a_d8</p></td>
+<td><p>vin2a_d9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>emu4</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_d2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_d2</p></td>
+<td><p>vout2_d15</p></td>
+<td><p>vout2_d14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>obs11</p></td>
+<td><p>emu18</p></td>
+<td><p>emu19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>obs27</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td><p>mii1_rxd3</p></td>
+<td><p>mii1_rxd0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td><p>kbd_col5</p></td>
+<td><p>kbd_col6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>pr2_edio_data_in2</p></td>
+<td><p>eQEP2_strobe</p></td>
+<td><p>ehrpwm2A</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_edio_data_out2</p></td>
+<td><p>pr1_mii1_txd3</p></td>
+<td><p>pr1_mii1_txd2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi15</p></td>
+<td><p>pr1_pru1_gpi5</p></td>
+<td><p>pr1_pru1_gpi6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo15</p></td>
+<td><p>pr1_pru1_gpo5</p></td>
+<td><p>pr1_pru1_gpo6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio8_18</p></td>
+<td><p>gpio4_9</p></td>
+<td><p>gpio4_10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id41">
+<caption><span class="caption-number">Table 54 </span><span class="caption-text">P8.20-P8.22</span><a class="headerlink" href="#id41" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.20</p></th>
+<th class="head"><p>P8.21</p></th>
+<th class="head"><p>P8.22</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>190</p></td>
+<td><p>189</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>AC4</p></td>
+<td><p>AD4</p></td>
+<td><p>AD6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1780</p></td>
+<td><p>0x177C</p></td>
+<td><p>0x1798</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>mmc3_cmd</p></td>
+<td><p>mmc3_clk</p></td>
+<td><p>mmc3_dat5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>spi3_sclk</p></td>
+<td></td>
+<td><p>spi4_d1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td></td>
+<td></td>
+<td><p>uart10_txd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin2b_d6</p></td>
+<td><p>vin2b_d7</p></td>
+<td><p>vin2b_d0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>vin5a_d6</p></td>
+<td><p>vin5a_d7</p></td>
+<td><p>vin5a_d0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>eCAP2_in_PWM2_out</p></td>
+<td><p>ehrpwm2_tripzone_input</p></td>
+<td><p>ehrpwm3B</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii1_txd2</p></td>
+<td><p>pr2_mii1_txd3</p></td>
+<td><p>pr2_mii1_rxd2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi3</p></td>
+<td><p>pr2_pru0_gpi2</p></td>
+<td><p>pr2_pru0_gpi9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo3</p></td>
+<td><p>pr2_pru0_gpo2</p></td>
+<td><p>pr2_pru0_gpo9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio6_30</p></td>
+<td><p>gpio6_29</p></td>
+<td><p>gpio1_23</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id42">
+<caption><span class="caption-number">Table 55 </span><span class="caption-text">P8.23-P8.26</span><a class="headerlink" href="#id42" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.23</p></th>
+<th class="head"><p>P8.24</p></th>
+<th class="head"><p>P8.25</p></th>
+<th class="head"><p>P8.26</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>22</p></td>
+<td><p>192</p></td>
+<td><p>191</p></td>
+<td><p>124</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>AC8</p></td>
+<td><p>AC6</p></td>
+<td><p>AC7</p></td>
+<td><p>B3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1794</p></td>
+<td><p>0x1788</p></td>
+<td><p>0x1784</p></td>
+<td><p>0x15B8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>mmc3_dat4</p></td>
+<td><p>mmc3_dat1</p></td>
+<td><p>mmc3_dat0</p></td>
+<td><p>vin2a_d20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>spi4_sclk</p></td>
+<td><p>spi3_d0</p></td>
+<td><p>spi3_d1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>uart10_rxd</p></td>
+<td><p>uart5_txd</p></td>
+<td><p>uart5_rxd</p></td>
+<td><p>vin2b_d3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>rgmii1_rxd3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin2b_d1</p></td>
+<td><p>vin2b_d4</p></td>
+<td><p>vin2b_d5</p></td>
+<td><p>vout2_d3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>vin3a_de0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>vin3a_d12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>mii1_rxer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>vin5a_d1</p></td>
+<td><p>vin5a_d4</p></td>
+<td><p>vin5a_d5</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>ehrpwm3A</p></td>
+<td><p>eQEP3B_in</p></td>
+<td><p>eQEP3A_in</p></td>
+<td><p>eCAP3_in_PWM3_out</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii1_rxd3</p></td>
+<td><p>pr2_mii1_txd0</p></td>
+<td><p>pr2_mii1_txd1</p></td>
+<td><p>pr1_mii1_rxer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi8</p></td>
+<td><p>pr2_pru0_gpi5</p></td>
+<td><p>pr2_pru0_gpi4</p></td>
+<td><p>pr1_pru1_gpi17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo8</p></td>
+<td><p>pr2_pru0_gpo5</p></td>
+<td><p>pr2_pru0_gpo4</p></td>
+<td><p>pr1_pru1_gpo17</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio1_22</p></td>
+<td><p>gpio7_0</p></td>
+<td><p>gpio6_31</p></td>
+<td><p>gpio4_28</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id43">
+<caption><span class="caption-number">Table 56 </span><span class="caption-text">P8.27-P8.29</span><a class="headerlink" href="#id43" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.27</p></th>
+<th class="head"><p>P8.28</p></th>
+<th class="head"><p>P8.29</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>119</p></td>
+<td><p>115</p></td>
+<td><p>118</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>E11</p></td>
+<td><p>D11</p></td>
+<td><p>C11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x15D8</p></td>
+<td><p>0x15C8</p></td>
+<td><p>0x15D4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_vsync</p></td>
+<td><p>vout1_clk</p></td>
+<td><p>vout1_hsync</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_vsync0</p></td>
+<td><p>vin4a_fld0</p></td>
+<td><p>vin4a_hsync0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_vsync0</p></td>
+<td><p>vin3a_fld0</p></td>
+<td><p>vin3a_hsync0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>spi3_sclk</p></td>
+<td><p>spi3_cs0</p></td>
+<td><p>spi3_d0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru1_gpi17</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru1_gpo17</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio4_23</p></td>
+<td><p>gpio4_19</p></td>
+<td><p>gpio4_22</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>A8</p></td>
+<td><p>C9</p></td>
+<td><p>A9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1628</p></td>
+<td><p>0x162C</p></td>
+<td><p>0x1630</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE0</strong></p></td>
+<td><p>vout1_d19</p></td>
+<td><p>vout1_d20</p></td>
+<td><p>vout1_d21</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td><p>emu15</p></td>
+<td><p>emu16</p></td>
+<td><p>emu17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td><p>vin4a_d3</p></td>
+<td><p>vin4a_d4</p></td>
+<td><p>vin4a_d5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vin3a_d3</p></td>
+<td><p>vin3a_d4</p></td>
+<td><p>vin3a_d5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td><p>obs12</p></td>
+<td><p>obs13</p></td>
+<td><p>obs14</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td><p>obs28</p></td>
+<td><p>obs29</p></td>
+<td><p>obs30</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>pr2_edio_data_in3</p></td>
+<td><p>pr2_edio_data_in4</p></td>
+<td><p>pr2_edio_data_in5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr2_edio_data_out3</p></td>
+<td><p>pr2_edio_data_out4</p></td>
+<td><p>pr2_edio_data_out5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr2_pru0_gpi16</p></td>
+<td><p>pr2_pru0_gpi17</p></td>
+<td><p>pr2_pru0_gpi18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr2_pru0_gpo16</p></td>
+<td><p>pr2_pru0_gpo17</p></td>
+<td><p>pr2_pru0_gpo18</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio8_19</p></td>
+<td><p>gpio8_20</p></td>
+<td><p>gpio8_21</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id44">
+<caption><span class="caption-number">Table 57 </span><span class="caption-text">P8.30-P8.32</span><a class="headerlink" href="#id44" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.30</p></th>
+<th class="head"><p>P8.31</p></th>
+<th class="head"><p>P8.32</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>116</p></td>
+<td><p>238</p></td>
+<td><p>239</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>B10</p></td>
+<td><p>C8</p></td>
+<td><p>C7</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x15CC</p></td>
+<td><p>0x1614</p></td>
+<td><p>0x1618</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_de</p></td>
+<td><p>vout1_d14</p></td>
+<td><p>vout1_d15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td></td>
+<td><p>emu13</p></td>
+<td><p>emu14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_de0</p></td>
+<td><p>vin4a_d14</p></td>
+<td><p>vin4a_d15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_de0</p></td>
+<td><p>vin3a_d14</p></td>
+<td><p>vin3a_d15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td><p>obs9</p></td>
+<td><p>obs10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td><p>obs25</p></td>
+<td><p>obs26</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>spi3_d1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td></td>
+<td><p>pr2_uart0_txd</p></td>
+<td><p>pr2_ecap0_ecap_capin_apwm_o</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td></td>
+<td><p>pr2_pru0_gpi11</p></td>
+<td><p>pr2_pru0_gpi12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td></td>
+<td><p>pr2_pru0_gpo11</p></td>
+<td><p>pr2_pru0_gpo12</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio4_20</p></td>
+<td><p>gpio8_14</p></td>
+<td><p>gpio8_15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>B9</p></td>
+<td><p>G16</p></td>
+<td><p>D17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1634</p></td>
+<td><p>0x173C</p></td>
+<td><p>0x1740</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vout1_d22</p></td>
+<td><p>mcasp4_axr0</p></td>
+<td><p>mcasp4_axr1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td><p>emu18</p></td>
+<td><p>spi3_d0</p></td>
+<td><p>spi3_cs0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td><p>vin4a_d6</p></td>
+<td><p>uart8_ctsn</p></td>
+<td><p>uart8_rtsn</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vin3a_d6</p></td>
+<td><p>uart4_rxd</p></td>
+<td><p>uart4_txd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td><p>obs15</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td><p>obs31</p></td>
+<td><p>vout2_d18</p></td>
+<td><p>vout2_d19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td><p>vin4a_d18</p></td>
+<td><p>vin4a_d19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td><p>vin5a_d13</p></td>
+<td><p>vin5a_d12</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>pr2_edio_data_in6</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr2_edio_data_out6</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr2_pru0_gpi19</p></td>
+<td></td>
+<td><p>pr2_pru1_gpi0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr2_pru0_gpo19</p></td>
+<td></td>
+<td><p>pr2_pru1_gpo0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio8_22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id45">
+<caption><span class="caption-number">Table 58 </span><span class="caption-text">P8.33-P8.35</span><a class="headerlink" href="#id45" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.33</p></th>
+<th class="head"><p>P8.34</p></th>
+<th class="head"><p>P8.35</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>237</p></td>
+<td><p>235</p></td>
+<td><p>236</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>C6</p></td>
+<td><p>D8</p></td>
+<td><p>A5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1610</p></td>
+<td><p>0x1608</p></td>
+<td><p>0x160C</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_d13</p></td>
+<td><p>vout1_d11</p></td>
+<td><p>vout1_d12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>emu12</p></td>
+<td><p>emu10</p></td>
+<td><p>emu11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_d13</p></td>
+<td><p>vin4a_d11</p></td>
+<td><p>vin4a_d12</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_d13</p></td>
+<td><p>vin3a_d11</p></td>
+<td><p>vin3a_d12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>obs8</p></td>
+<td><p>obs6</p></td>
+<td><p>obs7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>obs24</p></td>
+<td><p>obs22</p></td>
+<td><p>obs23</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td><p>obs_dmarq2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>pr2_uart0_rxd</p></td>
+<td><p>pr2_uart0_cts_n</p></td>
+<td><p>pr2_uart0_rts_n</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi10</p></td>
+<td><p>pr2_pru0_gpi8</p></td>
+<td><p>pr2_pru0_gpi9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo10</p></td>
+<td><p>pr2_pru0_gpo8</p></td>
+<td><p>pr2_pru0_gpo9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio8_13</p></td>
+<td><p>gpio8_11</p></td>
+<td><p>gpio8_12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>AF9</p></td>
+<td><p>G6</p></td>
+<td><p>AD9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x14E8</p></td>
+<td><p>0x1564</p></td>
+<td><p>0x14E4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE0</strong></p></td>
+<td><p>vin1a_fld0</p></td>
+<td><p>vin2a_vsync0</p></td>
+<td><p>vin1a_de0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td><p>vin1b_vsync1</p></td>
+<td></td>
+<td><p>vin1b_hsync1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td><p>vin2b_vsync1</p></td>
+<td><p>vout3_d17</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vout3_clk</p></td>
+<td><p>vout2_vsync</p></td>
+<td><p>vout3_de</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td><p>uart7_txd</p></td>
+<td><p>emu9</p></td>
+<td><p>uart7_rxd</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td><p>timer15</p></td>
+<td><p>uart9_txd</p></td>
+<td><p>timer16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td><p>spi3_d1</p></td>
+<td><p>spi4_d1</p></td>
+<td><p>spi3_sclk</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td><p>kbd_row1</p></td>
+<td><p>kbd_row3</p></td>
+<td><p>kbd_row0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>eQEP1B_in</p></td>
+<td><p>ehrpwm1A</p></td>
+<td><p>eQEP1A_in</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td></td>
+<td><p>pr1_uart0_rts_n</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td></td>
+<td><p>pr1_edio_data_in4</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td></td>
+<td><p>pr1_edio_data_out4</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio3_1</p></td>
+<td><p>gpio4_0</p></td>
+<td><p>gpio3_0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id46">
+<caption><span class="caption-number">Table 59 </span><span class="caption-text">P8.36-P8.38</span><a class="headerlink" href="#id46" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.36</p></th>
+<th class="head"><p>P8.37</p></th>
+<th class="head"><p>P8.38</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>234</p></td>
+<td><p>232</p></td>
+<td><p>233</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>D7</p></td>
+<td><p>E8</p></td>
+<td><p>D9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1604</p></td>
+<td><p>0x15FC</p></td>
+<td><p>0x1600</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_d10</p></td>
+<td><p>vout1_d8</p></td>
+<td><p>vout1_d9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>emu3</p></td>
+<td><p>uart6_rxd</p></td>
+<td><p>uart6_txd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_d10</p></td>
+<td><p>vin4a_d8</p></td>
+<td><p>vin4a_d9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_d10</p></td>
+<td><p>vin3a_d8</p></td>
+<td><p>vin3a_d9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>obs5</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>obs21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>obs_irq2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>pr2_edio_sof</p></td>
+<td><p>pr2_edc_sync1_out</p></td>
+<td><p>pr2_edio_latch_in</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi7</p></td>
+<td><p>pr2_pru0_gpi5</p></td>
+<td><p>pr2_pru0_gpi6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo7</p></td>
+<td><p>pr2_pru0_gpo5</p></td>
+<td><p>pr2_pru0_gpo6</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio8_10</p></td>
+<td><p>gpio8_8</p></td>
+<td><p>gpio8_9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>F2</p></td>
+<td><p>A21</p></td>
+<td><p>C18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1568</p></td>
+<td><p>0x1738</p></td>
+<td><p>0x1734</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vin2a_d0</p></td>
+<td><p>mcasp4_fsx</p></td>
+<td><p>mcasp4_aclkx</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td><p>mcasp4_fsr</p></td>
+<td><p>mcasp4_aclkr</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td><p>spi3_d1</p></td>
+<td><p>spi3_sclk</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td><p>uart8_txd</p></td>
+<td><p>uart8_rxd</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vout2_d23</p></td>
+<td><p>i2c4_scl</p></td>
+<td><p>i2c4_sda</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td><p>emu10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td><p>vout2_d17</p></td>
+<td><p>vout2_d16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td><p>uart9_ctsn</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td><p>spi4_d0</p></td>
+<td><p>vin4a_d17</p></td>
+<td><p>vin4a_d16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td><p>kbd_row4</p></td>
+<td><p>vin5a_d14</p></td>
+<td><p>vin5a_d15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>ehrpwm1B</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr1_uart0_rxd</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr1_edio_data_in5</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr1_edio_data_out5</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio4_1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id47">
+<caption><span class="caption-number">Table 60 </span><span class="caption-text">P8.39-P8.41</span><a class="headerlink" href="#id47" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.39</p></th>
+<th class="head"><p>P8.40</p></th>
+<th class="head"><p>P8.41</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>230</p></td>
+<td><p>231</p></td>
+<td><p>228</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>F8</p></td>
+<td><p>E7</p></td>
+<td><p>E9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x15F4</p></td>
+<td><p>0x15F8</p></td>
+<td><p>0x15EC</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_d6</p></td>
+<td><p>vout1_d7</p></td>
+<td><p>vout1_d4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>emu8</p></td>
+<td><p>emu9</p></td>
+<td><p>emu6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_d22</p></td>
+<td><p>vin4a_d23</p></td>
+<td><p>vin4a_d20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_d22</p></td>
+<td><p>vin3a_d23</p></td>
+<td><p>vin3a_d20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>obs4</p></td>
+<td></td>
+<td><p>obs2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>obs20</p></td>
+<td></td>
+<td><p>obs18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>pr2_edc_latch1_in</p></td>
+<td><p>pr2_edc_sync0_out</p></td>
+<td><p>pr1_ecap0_ecap_capin_apwm_o</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi3</p></td>
+<td><p>pr2_pru0_gpi4</p></td>
+<td><p>pr2_pru0_gpi1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo3</p></td>
+<td><p>pr2_pru0_gpo4</p></td>
+<td><p>pr2_pru0_gpo1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio8_6</p></td>
+<td><p>gpio8_7</p></td>
+<td><p>gpio8_4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id48">
+<caption><span class="caption-number">Table 61 </span><span class="caption-text">P8.42-P8.44</span><a class="headerlink" href="#id48" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.42</p></th>
+<th class="head"><p>P8.43</p></th>
+<th class="head"><p>P8.44</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>229</p></td>
+<td><p>226</p></td>
+<td><p>227</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>F9</p></td>
+<td><p>F10</p></td>
+<td><p>G11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x15F0</p></td>
+<td><p>0x15E4</p></td>
+<td><p>0x15E8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_d5</p></td>
+<td><p>vout1_d2</p></td>
+<td><p>vout1_d3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>emu7</p></td>
+<td><p>emu2</p></td>
+<td><p>emu5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_d21</p></td>
+<td><p>vin4a_d18</p></td>
+<td><p>vin4a_d19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_d21</p></td>
+<td><p>vin3a_d18</p></td>
+<td><p>vin3a_d19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>obs3</p></td>
+<td><p>obs0</p></td>
+<td><p>obs1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>obs19</p></td>
+<td><p>obs16</p></td>
+<td><p>obs17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td><p>obs_irq1</p></td>
+<td><p>obs_dmarq1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>pr2_edc_latch0_in</p></td>
+<td><p>pr1_uart0_rxd</p></td>
+<td><p>pr1_uart0_txd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi2</p></td>
+<td><p>pr2_pru1_gpi20</p></td>
+<td><p>pr2_pru0_gpi0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo2</p></td>
+<td><p>pr2_pru1_gpo20</p></td>
+<td><p>pr2_pru0_gpo0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio8_5</p></td>
+<td><p>gpio8_2</p></td>
+<td><p>gpio8_3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id49">
+<caption><span class="caption-number">Table 62 </span><span class="caption-text">P8.45-P8.46</span><a class="headerlink" href="#id49" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P8.45</p></th>
+<th class="head"><p>P8.46</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>224</p></td>
+<td><p>225</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>F11</p></td>
+<td><p>G10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x15DC</p></td>
+<td><p>0x15E0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vout1_d0</p></td>
+<td><p>vout1_d1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>uart5_rxd</p></td>
+<td><p>uart5_txd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vin4a_d16</p></td>
+<td><p>vin4a_d17</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin3a_d16</p></td>
+<td><p>vin3a_d17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>spi3_cs2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>pr1_uart0_cts_n</p></td>
+<td><p>pr1_uart0_rts_n</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru1_gpi18</p></td>
+<td><p>pr2_pru1_gpi19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru1_gpo18</p></td>
+<td><p>pr2_pru1_gpo19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio8_0</p></td>
+<td><p>gpio8_1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>B7</p></td>
+<td><p>A10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x161C</p></td>
+<td><p>0x1638</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vout1_d16</p></td>
+<td><p>vout1_d23</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td><p>uart7_rxd</p></td>
+<td><p>emu19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td><p>vin4a_d0</p></td>
+<td><p>vin4a_d7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vin3a_d0</p></td>
+<td><p>vin3a_d7</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td><p>spi3_cs3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>pr2_edio_data_in0</p></td>
+<td><p>pr2_edio_data_in7</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr2_edio_data_out0</p></td>
+<td><p>pr2_edio_data_out7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr2_pru0_gpi13</p></td>
+<td><p>pr2_pru0_gpi20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr2_pru0_gpo13</p></td>
+<td><p>pr2_pru0_gpo20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio8_16</p></td>
+<td><p>gpio8_23</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Notes regarding the resistors on muxed pins.</p>
+</div>
+</section>
+<section id="connector-p9">
+<h3>Connector P9<a class="headerlink" href="#connector-p9" title="Link to this heading">#</a></h3>
+<p>The following tables show the pinout of the <strong>P9</strong> expansion header. The
+SW is responsible for setting the default function of each pin. Refer to
+the processor documentation for more information on these pins and
+detailed descriptions of all of the pins listed. In some cases there may
+not be enough signals to complete a group of signals that may be
+required to implement a total interface.</p>
+<p>The column heading is the pin number on the expansion header.</p>
+<p>The <strong>GPIO</strong> row is the expected gpio identifier number in the Linux
+kernel.</p>
+<p>The <strong>BALL</strong> row is the pin number on the processor.</p>
+<p>The <strong>REG</strong> row is the offset of the control register for the processor
+pin.</p>
+<p>The <strong>MODE #</strong> rows are the mode setting for each pin. Setting each mode
+to align with the mode column will give that function on that pin.</p>
+<p>If included, the <strong>2nd BALL</strong> row is the pin number on the processor for
+a second processor pin connected to the same pin on the expansion
+header. Similarly, all row headings starting with <strong>2nd</strong> refer to data
+for this second processor pin.</p>
+<p><strong>NOTES</strong>:</p>
+<p><strong>DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT SUPPLIED TO THE
+BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE WARRANTY.</strong></p>
+<p><strong>NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.</strong></p>
+<p>In the table are the following notations:</p>
+<p><strong>PWR_BUT</strong> is a 5V level as pulled up internally by the TPS6590379. It
+is activated by pulling the signal to GND.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>(Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
+but activation is still done by pulling the signal to GND. Also, a quick
+grounding of PWR_BUT will trigger a system event where shutdown can
+occur, but there is no hardware power-off function like on BeagleBone
+Black via this signal. It does, however, act as a hardware power-on.)</p>
+</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>(On BeagleBone Black, SYS_RESET was a bi-directional signal, but
+it is only an output from BeagleBone AI to capes on BeagleBone AI.)</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id50">
+<caption><span class="caption-number">Table 63 </span><span class="caption-text">P9.01-P9.05</span><a class="headerlink" href="#id50" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.01</p></th>
+<th class="head"><p>P9.02</p></th>
+<th class="head"><p>P9.03</p></th>
+<th class="head"><p>P9.04</p></th>
+<th class="head"><p>P9.05</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>VOUT_3V3</p></td>
+<td><p>VOUT_3V3</p></td>
+<td><p>VIN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id51">
+<caption><span class="caption-number">Table 64 </span><span class="caption-text">P9.06-P9.10</span><a class="headerlink" href="#id51" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>P9.06</p></th>
+<th class="head" colspan="4"><p>P9.07   | P9.08    | P9.09  | P9.10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VIN</p></td>
+<td><p>VOUT_SYS</p></td>
+<td><p>VOUT_SYS</p></td>
+<td><p>RESET#</p></td>
+<td><p>RESET#</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id52">
+<caption><span class="caption-number">Table 65 </span><span class="caption-text">P9.11-P9.13</span><a class="headerlink" href="#id52" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.11</p></th>
+<th class="head"><p>P9.12</p></th>
+<th class="head"><p>P9.13</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>241</p></td>
+<td><p>128</p></td>
+<td><p>172</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>B19</p></td>
+<td><p>B14</p></td>
+<td><p>C17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x172C</p></td>
+<td><p>0x16AC</p></td>
+<td><p>0x1730</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>mcasp3_axr0</p></td>
+<td><p>mcasp1_aclkr</p></td>
+<td><p>mcasp3_axr1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td><p>mcasp7_axr2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>mcasp2_axr14</p></td>
+<td></td>
+<td><p>mcasp2_axr15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>uart7_ctsn</p></td>
+<td></td>
+<td><p>uart7_rtsn</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>uart5_rxd</p></td>
+<td></td>
+<td><p>uart5_txd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td><p>vout2_d0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>vin6a_d1</p></td>
+<td></td>
+<td><p>vin6a_d0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td><p>vin4a_d0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin5a_fld0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td></td>
+<td><p>i2c4_sda</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii1_rxer</p></td>
+<td></td>
+<td><p>pr2_mii1_rxlink</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru0_gpi14</p></td>
+<td></td>
+<td><p>pr2_pru0_gpi15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru0_gpo14</p></td>
+<td></td>
+<td><p>pr2_pru0_gpo15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td></td>
+<td><p>gpio5_0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>B8</p></td>
+<td></td>
+<td><p>AB10**</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1620</p></td>
+<td></td>
+<td><p>0x1680</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vout1_d17</p></td>
+<td></td>
+<td><p>usb1_drvvbus</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td><p>uart7_txd</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td><p>vin4a_d1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vin3a_d1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+<td><p>timer16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>pr2_edio_data_in1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr2_edio_data_out1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr2_pru0_gpi14</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr2_pru0_gpo14</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio8_17</p></td>
+<td></td>
+<td><p>gpio6_12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id53">
+<caption><span class="caption-number">Table 66 </span><span class="caption-text">P9.14-P9.16</span><a class="headerlink" href="#id53" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.14</p></th>
+<th class="head"><p>P9.15</p></th>
+<th class="head"><p>P9.16</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>121</p></td>
+<td><p>76</p></td>
+<td><p>122</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>D6</p></td>
+<td><p>AG4</p></td>
+<td><p>C5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x15AC</p></td>
+<td><p>0x1514</p></td>
+<td><p>0x15B0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>vin2a_d17</p></td>
+<td><p>vin1a_d8</p></td>
+<td><p>vin2a_d18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td><p>vin1b_d7</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>vin2b_d6</p></td>
+<td></td>
+<td><p>vin2b_d5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>rgmii1_txd0</p></td>
+<td></td>
+<td><p>rgmii1_rxc</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vout2_d6</p></td>
+<td><p>vout3_d15</p></td>
+<td><p>vout2_d5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>vin3a_d9</p></td>
+<td></td>
+<td><p>vin3a_d10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>mii1_txd2</p></td>
+<td></td>
+<td><p>mii1_txd3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td><p>kbd_row2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>ehrpwm3A</p></td>
+<td><p>eQEP2_index</p></td>
+<td><p>ehrpwm3B</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr1_mii1_rxd2</p></td>
+<td></td>
+<td><p>pr1_mii1_rxd1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr1_pru1_gpi14</p></td>
+<td><p>pr1_pru0_gpi5</p></td>
+<td><p>pr1_pru1_gpi15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr1_pru1_gpo14</p></td>
+<td><p>pr1_pru0_gpo5</p></td>
+<td><p>pr1_pru1_gpo15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio4_25</p></td>
+<td><p>gpio3_12</p></td>
+<td><p>gpio4_26</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id54">
+<caption><span class="caption-number">Table 67 </span><span class="caption-text">P9.17-P9.19</span><a class="headerlink" href="#id54" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.17</p></th>
+<th class="head"><p>P9.18</p></th>
+<th class="head"><p>P9.19</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>209</p></td>
+<td><p>208</p></td>
+<td><p>195</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>B24</p></td>
+<td><p>G17</p></td>
+<td><p>R6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x17CC</p></td>
+<td><p>0x17C8</p></td>
+<td><p>0x1440</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>spi2_cs0</p></td>
+<td><p>spi2_d0</p></td>
+<td><p>gpmc_a0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>uart3_rtsn</p></td>
+<td><p>uart3_ctsn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>uart5_txd</p></td>
+<td><p>uart5_rxd</p></td>
+<td><p>vin3a_d16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vout3_d16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin4a_d0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin4b_d0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td><p>i2c4_scl</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+<td><p>uart5_rxd</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio7_17</p></td>
+<td><p>gpio7_16</p></td>
+<td><p>gpio7_3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>F12</p></td>
+<td><p>G12</p></td>
+<td><p>F4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x16B8</p></td>
+<td><p>0x16B4</p></td>
+<td><p>0x157C</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>mcasp1_axr1</p></td>
+<td><p>mcasp1_axr0</p></td>
+<td><p>vin2a_d5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td><p>uart6_txd</p></td>
+<td><p>uart6_rxd</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vout2_d18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td></td>
+<td></td>
+<td><p>emu15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td><p>vin6a_hsync0</p></td>
+<td><p>vin6a_vsync0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td></td>
+<td><p>uart10_rtsn</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td></td>
+<td><p>kbd_col2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>i2c5_scl</p></td>
+<td><p>i2c5_sda</p></td>
+<td><p>eQEP2A_in</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr2_mii_mt0_clk</p></td>
+<td><p>pr2_mii0_rxer</p></td>
+<td><p>pr1_edio_sof</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr2_pru1_gpi9</p></td>
+<td><p>pr2_pru1_gpi8</p></td>
+<td><p>pr1_pru1_gpi2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr2_pru1_gpo9</p></td>
+<td><p>pr2_pru1_gpo8</p></td>
+<td><p>pr1_pru1_gpo2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio5_3</p></td>
+<td><p>gpio5_2</p></td>
+<td><p>gpio4_6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id55">
+<caption><span class="caption-number">Table 68 </span><span class="caption-text">P9.20-P9.22</span><a class="headerlink" href="#id55" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.20</p></th>
+<th class="head"><p>P9.21</p></th>
+<th class="head"><p>P9.22</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>196</p></td>
+<td><p>67</p></td>
+<td><p>179</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>T9</p></td>
+<td><p>AF8</p></td>
+<td><p>B26</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1444</p></td>
+<td><p>0x14F0</p></td>
+<td><p>0x169C</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>gpmc_a1</p></td>
+<td><p>vin1a_vsync0</p></td>
+<td><p>xref_clk2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td><p>vin1b_de1</p></td>
+<td><p>mcasp2_axr10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>vin3a_d17</p></td>
+<td></td>
+<td><p>mcasp1_axr6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>vout3_d17</p></td>
+<td></td>
+<td><p>mcasp3_ahclkx</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>vin4a_d1</p></td>
+<td><p>vout3_vsync</p></td>
+<td><p>mcasp7_ahclkx</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td><p>uart7_rtsn</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>vin4b_d1</p></td>
+<td></td>
+<td><p>vout2_clk</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>i2c4_sda</p></td>
+<td><p>timer13</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>uart5_txd</p></td>
+<td><p>spi3_cs0</p></td>
+<td><p>vin4a_clk0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td></td>
+<td><p>eQEP1_strobe</p></td>
+<td><p>timer15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio7_4</p></td>
+<td><p>gpio3_3</p></td>
+<td><p>gpio6_19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>D2</p></td>
+<td><p>B22</p></td>
+<td><p>A26</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1578</p></td>
+<td><p>0x17C4</p></td>
+<td><p>0x17C0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vin2a_d4</p></td>
+<td><p>spi2_d1</p></td>
+<td><p>spi2_sclk</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td><p>uart3_txd</p></td>
+<td><p>uart3_rxd</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vout2_d19</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td><p>emu14</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td><p>uart10_ctsn</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td><p>kbd_col1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>ehrpwm1_synco</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr1_edc_sync0_out</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr1_pru1_gpi1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr1_pru1_gpo1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio4_5</p></td>
+<td><p>gpio7_15</p></td>
+<td><p>gpio7_14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id56">
+<caption><span class="caption-number">Table 69 </span><span class="caption-text">P9.23-P9.25</span><a class="headerlink" href="#id56" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.23</p></th>
+<th class="head"><p>P9.24</p></th>
+<th class="head"><p>P9.25</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>203</p></td>
+<td><p>175</p></td>
+<td><p>177</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>A22</p></td>
+<td><p>F20</p></td>
+<td><p>D18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x17B4</p></td>
+<td><p>0x168C</p></td>
+<td><p>0x1694</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>spi1_cs1</p></td>
+<td><p>gpio6_15</p></td>
+<td><p>xref_clk0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td></td>
+<td><p>mcasp1_axr9</p></td>
+<td><p>mcasp2_axr8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>sata1_led</p></td>
+<td><p>dcan2_rx</p></td>
+<td><p>mcasp1_axr4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>spi2_cs1</p></td>
+<td><p>uart10_txd</p></td>
+<td><p>mcasp1_ahclkx</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td></td>
+<td></td>
+<td><p>mcasp5_ahclkx</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td><p>vout2_vsync</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin6a_d0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td><p>vin4a_vsync0</p></td>
+<td><p>hdq0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td><p>i2c3_scl</p></td>
+<td><p>clkout2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td></td>
+<td><p>timer2</p></td>
+<td><p>timer13</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td></td>
+<td><p>pr2_mii1_col</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td></td>
+<td></td>
+<td><p>pr2_pru1_gpi5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td></td>
+<td></td>
+<td><p>pr2_pru1_gpo5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio7_11</p></td>
+<td><p>gpio6_15</p></td>
+<td><p>gpio6_17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id57">
+<caption><span class="caption-number">Table 70 </span><span class="caption-text">P9.26-P9.29</span><a class="headerlink" href="#id57" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.26</p></th>
+<th class="head"><p>P9.27</p></th>
+<th class="head"><p>P9.28</p></th>
+<th class="head"><p>P9.29</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>174</p></td>
+<td><p>111</p></td>
+<td><p>113</p></td>
+<td><p>139</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>E21</p></td>
+<td><p>C3</p></td>
+<td><p>A12</p></td>
+<td><p>A11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x1688</p></td>
+<td><p>0x15A0</p></td>
+<td><p>0x16E0</p></td>
+<td><p>0x16D8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>gpio6_14</p></td>
+<td><p>vin2a_d14</p></td>
+<td><p>mcasp1_axr11</p></td>
+<td><p>mcasp1_axr9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>mcasp1_axr8</p></td>
+<td></td>
+<td><p>mcasp6_fsx</p></td>
+<td><p>mcasp6_axr1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>dcan2_tx</p></td>
+<td></td>
+<td><p>mcasp6_fsr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>uart10_rxd</p></td>
+<td><p>rgmii1_txd3</p></td>
+<td><p>spi3_cs0</p></td>
+<td><p>spi3_d1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td></td>
+<td><p>vout2_d9</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>vout2_hsync</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td></td>
+<td></td>
+<td><p>vin6a_d12</p></td>
+<td><p>vin6a_d14</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>vin4a_hsync0</p></td>
+<td><p>mii1_txclk</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>i2c3_sda</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>timer1</p></td>
+<td><p>eQEP3B_in</p></td>
+<td><p>timer8</p></td>
+<td><p>timer6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td><p>pr1_mii_mr1_clk</p></td>
+<td><p>pr2_mii0_txd1</p></td>
+<td><p>pr2_mii0_txd3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td></td>
+<td><p>pr1_pru1_gpi11</p></td>
+<td><p>pr2_pru1_gpi13</p></td>
+<td><p>pr2_pru1_gpi11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td></td>
+<td><p>pr1_pru1_gpo11</p></td>
+<td><p>pr2_pru1_gpo13</p></td>
+<td><p>pr2_pru1_gpo11</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio6_14</p></td>
+<td><p>gpio4_15</p></td>
+<td><p>gpio4_17</p></td>
+<td><p>gpio5_11</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>AE2</p></td>
+<td><p>J14</p></td>
+<td></td>
+<td><p>D14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1544</p></td>
+<td><p>0x16B0</p></td>
+<td></td>
+<td><p>0x16A8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vin1a_d20</p></td>
+<td><p>mcasp1_fsr</p></td>
+<td></td>
+<td><p>mcasp1_fsx</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td><p>vin1b_d3</p></td>
+<td><p>mcasp7_axr3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vout3_d3</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td><p>vin3a_d4</p></td>
+<td><p>vout2_d1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>vin6a_de0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td><p>vin4a_d1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td><p>kbd_col5</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>pr1_edio_data_in4</p></td>
+<td><p>i2c4_scl</p></td>
+<td></td>
+<td><p>i2c3_scl</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr1_edio_data_out4</p></td>
+<td></td>
+<td></td>
+<td><p>pr2_mdio_data</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr1_pru0_gpi17</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr1_pru0_gpo17</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio3_24</p></td>
+<td><p>gpio5_1</p></td>
+<td></td>
+<td><p>gpio7_30</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+<td></td>
+<td><p>Driveroff</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id58">
+<caption><span class="caption-number">Table 71 </span><span class="caption-text">P9.30-P9.31</span><a class="headerlink" href="#id58" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.30</p></th>
+<th class="head"><p>P9.31</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>140</p></td>
+<td><p>138</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>B13</p></td>
+<td><p>B12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x16DC</p></td>
+<td><p>0x16D4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>mcasp1_axr10</p></td>
+<td><p>mcasp1_axr8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>mcasp6_aclkx</p></td>
+<td><p>mcasp6_axr0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>mcasp6_aclkr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>spi3_d0</p></td>
+<td><p>spi3_sclk</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>vin6a_d13</p></td>
+<td><p>vin6a_d15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>timer7</p></td>
+<td><p>timer5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td><p>pr2_mii0_txd2</p></td>
+<td><p>pr2_mii0_txen</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td><p>pr2_pru1_gpi12</p></td>
+<td><p>pr2_pru1_gpi10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>pr2_pru1_gpo12</p></td>
+<td><p>pr2_pru1_gpo10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio5_12</p></td>
+<td><p>gpio5_10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td></td>
+<td><p>C14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td></td>
+<td><p>0x16A4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td></td>
+<td><p>mcasp1_aclkx</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td><p>vin6a_fld0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td></td>
+<td><p>i2c3_sda</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td></td>
+<td><p>pr2_mdio_mdclk</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td></td>
+<td><p>pr2_pru1_gpi7</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td></td>
+<td><p>pr2_pru1_gpo7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td></td>
+<td><p>gpio7_31</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>This table needs entries</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id59">
+<caption><span class="caption-number">Table 72 </span><span class="caption-text">P9.32-P9.40</span><a class="headerlink" href="#id59" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.32</p></th>
+<th class="head"><p>P9.33</p></th>
+<th class="head"><p>P9.34</p></th>
+<th class="head"><p>P9.35</p></th>
+<th class="head"><p>P9.36</p></th>
+<th class="head"><p>P9.37</p></th>
+<th class="head"><p>P9.38</p></th>
+<th class="head"><p>P9.39</p></th>
+<th class="head"><p>P9.40</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Row 1</strong></p></td>
+<td><p>P9.32</p></td>
+<td><p>P9.33</p></td>
+<td><p>P9.34</p></td>
+<td><p>P9.35</p></td>
+<td><p>P9.36</p></td>
+<td><p>P9.37</p></td>
+<td><p>P9.38</p></td>
+<td><p>P9.39</p></td>
+<td><p>P9.40</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id60">
+<caption><span class="caption-number">Table 73 </span><span class="caption-text">P9.41-P9.42</span><a class="headerlink" href="#id60" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.41</p></th>
+<th class="head"><p>P9.42</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GPIO</strong></p></td>
+<td><p>180</p></td>
+<td><p>114</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BALL</strong></p></td>
+<td><p>C23</p></td>
+<td><p>E14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REG</strong></p></td>
+<td><p>0x16A0</p></td>
+<td><p>0x16E4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE 0</strong></p></td>
+<td><p>xref_clk3</p></td>
+<td><p>mcasp1_axr12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>mcasp2_axr11</p></td>
+<td><p>mcasp7_axr0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>mcasp1_axr7</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>mcasp4_ahclkx</p></td>
+<td><p>spi3_cs1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>mcasp8_ahclkx</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>vout2_de</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>hdq0</p></td>
+<td><p>vin6a_d11</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>vin4a_de0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>clkout3</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>timer16</p></td>
+<td><p>timer9</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>11</strong></p></td>
+<td></td>
+<td><p>pr2_mii0_txd0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>12</strong></p></td>
+<td></td>
+<td><p>pr2_pru1_gpi14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td></td>
+<td><p>pr2_pru1_gpo14</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14</strong></p></td>
+<td><p>gpio6_20</p></td>
+<td><p>gpio4_18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd BALL</strong></p></td>
+<td><p>C1</p></td>
+<td><p>C2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd REG</strong></p></td>
+<td><p>0x1580</p></td>
+<td><p>0x159C</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd MODE 0</strong></p></td>
+<td><p>vin2a_d6</p></td>
+<td><p>vin2a_d13</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 1</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 2</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 3</strong></p></td>
+<td></td>
+<td><p>rgmii1_txctl</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 4</strong></p></td>
+<td><p>vout2_d17</p></td>
+<td><p>vout2_d10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 5</strong></p></td>
+<td><p>emu16</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 6</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 7</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 8</strong></p></td>
+<td><p>mii1_rxd1</p></td>
+<td><p>mii1_rxdv</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 9</strong></p></td>
+<td><p>kbd_col3</p></td>
+<td><p>kbd_row8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 10</strong></p></td>
+<td><p>eQEP2B_in</p></td>
+<td><p>eQEP3A_in</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 11</strong></p></td>
+<td><p>pr1_mii_mt1_clk</p></td>
+<td><p>pr1_mii1_txd0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 12</strong></p></td>
+<td><p>pr1_pru1_gpi3</p></td>
+<td><p>pr1_pru1_gpi10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 13</strong></p></td>
+<td><p>pr1_pru1_gpo3</p></td>
+<td><p>pr1_pru1_gpo10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2nd 14</strong></p></td>
+<td><p>gpio4_7</p></td>
+<td><p>gpio4_14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2nd 15</strong></p></td>
+<td><p>Driver off</p></td>
+<td><p>Driver off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>Table entries needed</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id61">
+<caption><span class="caption-number">Table 74 </span><span class="caption-text">P9.43-P9.46</span><a class="headerlink" href="#id61" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>P9.43</p></th>
+<th class="head"><p>P9.44</p></th>
+<th class="head"><p>P9.45</p></th>
+<th class="head"><p>P9.46</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Row 1</strong></p></td>
+<td><p>P9.43</p></td>
+<td><p>P9.44</p></td>
+<td><p>P9.45</p></td>
+<td><p>P9.46</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="serial-debug">
+<h2>Serial Debug<a class="headerlink" href="#serial-debug" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI serial debug</p>
+</div>
+</section>
+<section id="usb-3-type-c">
+<h2>USB 3 Type-C<a class="headerlink" href="#usb-3-type-c" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id7">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI USB Type-C connection</p>
+</div>
+</section>
+<section id="usb-2-type-a">
+<h2>USB 2 Type-A<a class="headerlink" href="#usb-2-type-a" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id8">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI USB Type-A connection</p>
+</div>
+</section>
+<section id="gigabit-ethernet">
+<h2>Gigabit Ethernet<a class="headerlink" href="#gigabit-ethernet" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id9">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI USB Gigabit Ethernet connection</p>
+</div>
+</section>
+<section id="coaxial">
+<h2>Coaxial<a class="headerlink" href="#coaxial" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id10">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI u.FL antenna connection</p>
+</div>
+</section>
+<section id="microsd-memory">
+<h2>microSD Memory<a class="headerlink" href="#microsd-memory" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id11">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI uSD card slot</p>
+</div>
+</section>
+<section id="microhdmi">
+<h2>microHDMI<a class="headerlink" href="#microhdmi" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id12">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI uHDMI connection</p>
+</div>
+</section>
+</section>
+<section id="cape-board-support">
+<h1>Cape Board Support<a class="headerlink" href="#cape-board-support" title="Link to this heading">#</a></h1>
+<p>There is a <a class="reference external" href="https://docs.google.com/spreadsheets/d/1fE-AsDZvJ-bBwzNBj1_sPDrutvEvsmARqFwvbw_HkrE/edit?usp=sharing">Cape Headers Google
+Spreadsheet</a>
+which has a lot of detail regarding various boards and cape add-on
+boards.</p>
+<p>See also <a class="reference internal" href="../../capes/cape-interface-spec.html#beaglebone-cape-interface-spec"><span class="std std-ref">BeagleBone cape interface spec</span></a></p>
+<div class="admonition-todo admonition" id="id13">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI content</p>
+</div>
+<section id="beaglebone-black-cape-compatibility">
+<h2>BeagleBone® Black Cape Compatibility<a class="headerlink" href="#beaglebone-black-cape-compatibility" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id14">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">BeagleBone®</span> <span class="pre">Black</span> <span class="pre">Cape</span> <span class="pre">Compatibility</span></code> section content</p>
+</div>
+<p>See <a class="reference internal" href="../../capes/cape-interface-spec.html#beaglebone-cape-interface-spec"><span class="std std-ref">BeagleBone cape interface spec</span></a> for now.</p>
+</section>
+<section id="eeprom">
+<h2>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id15">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">EEPROM</span></code> section content</p>
+</div>
+</section>
+<section id="pin-usage-consideration">
+<h2>Pin Usage Consideration<a class="headerlink" href="#pin-usage-consideration" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id16">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Pin</span> <span class="pre">Usage</span> <span class="pre">Consideration</span></code> section content</p>
+</div>
+</section>
+<section id="gpio">
+<h2>GPIO<a class="headerlink" href="#gpio" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id17">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">GPIO</span></code> section content</p>
+</div>
+</section>
+<section id="i2c">
+<h2>I2C<a class="headerlink" href="#i2c" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id18">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">I2C</span></code> section content</p>
+</div>
+</section>
+<section id="uart-or-pru-uart">
+<h2>UART or PRU UART<a class="headerlink" href="#uart-or-pru-uart" title="Link to this heading">#</a></h2>
+<p>This section is about both UART pins on the header and PRU UART pins on
+the headers we will include a chart and later some code</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id62">
+<caption><span class="caption-number">Table 75 </span><span class="caption-text">UART</span><a class="headerlink" href="#id62" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Pin</p></th>
+<th class="head"><p>ABC Ball</p></th>
+<th class="head"><p>Pinctrl Register</p></th>
+<th class="head"><p>Mode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>uart3_txd</p></td>
+<td><p>P9.21</p></td>
+<td><p>B22</p></td>
+<td><p>0x17C4</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart3_rxd</p></td>
+<td><p>P9.22</p></td>
+<td><p>A26</p></td>
+<td><p>0x17C0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>uart5_txd</p></td>
+<td><p>P9.13</p></td>
+<td><p>C17</p></td>
+<td><p>0x1730</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart5_rxd</p></td>
+<td><p>P9.11</p></td>
+<td><p>B19</p></td>
+<td><p>0x172C</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>uart5_ctsn</p></td>
+<td><p>P8.05</p></td>
+<td><p>AC9</p></td>
+<td><p>0x178C</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart5_rtsn</p></td>
+<td><p>P8.06</p></td>
+<td><p>AC3</p></td>
+<td><p>0x1790</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>uart8_txd</p></td>
+<td><p>P8.37</p></td>
+<td><p>A21</p></td>
+<td><p>0x1738</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart8_rxd</p></td>
+<td><p>P8.38</p></td>
+<td><p>C18</p></td>
+<td><p>0x1734</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>uart8_ctsn</p></td>
+<td><p>P8.31</p></td>
+<td><p>G16</p></td>
+<td><p>0x173C</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart8_rtsn</p></td>
+<td><p>P8.32</p></td>
+<td><p>D17</p></td>
+<td><p>0x1740</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>uart10_txd</p></td>
+<td><p>P9.24</p></td>
+<td><p>F20</p></td>
+<td><p>0x168C</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart10_rxd</p></td>
+<td><p>P9.26</p></td>
+<td><p>E21</p></td>
+<td><p>0x1688</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>uart10_ctsn</p></td>
+<td><p>P8.03</p></td>
+<td><p>AB8</p></td>
+<td><p>0x179C</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart10_rtsn</p></td>
+<td><p>P8.04</p></td>
+<td><p>AB5</p></td>
+<td><p>0x17A0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>uart10_txd</p></td>
+<td><p>P9.24</p></td>
+<td><p>F20</p></td>
+<td><p>0x168C</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart10_rxd</p></td>
+<td><p>P9.26</p></td>
+<td><p>E21</p></td>
+<td><p>0x1688</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>uart10_ctsn</p></td>
+<td><p>P9.20</p></td>
+<td><p>D2</p></td>
+<td><p>0x1578</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>uart10_rtsn</p></td>
+<td><p>P9.19</p></td>
+<td><p>F4</p></td>
+<td><p>0x157C</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id63">
+<caption><span class="caption-number">Table 76 </span><span class="caption-text">PRU UART</span><a class="headerlink" href="#id63" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Pin</p></th>
+<th class="head"><p>ABC Ball</p></th>
+<th class="head"><p>Pinctrl Register</p></th>
+<th class="head"><p>Mode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pr2_uart0_txd</p></td>
+<td><p>P8.31</p></td>
+<td><p>C8</p></td>
+<td><p>0x1614</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_uart0_rxd</p></td>
+<td><p>P8.33</p></td>
+<td><p>C6</p></td>
+<td><p>0x1610</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>pr2_uart0_cts_n</p></td>
+<td><p>P8.34</p></td>
+<td><p>D8</p></td>
+<td><p>0x1608</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr2_uart0_rts_n</p></td>
+<td><p>P8.35</p></td>
+<td><p>A5</p></td>
+<td><p>0x160C</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>pr1_uart0_rxd</p></td>
+<td><p>P8.43</p></td>
+<td><p>F10</p></td>
+<td><p>0x15E4</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_uart0_txd</p></td>
+<td><p>P8.44</p></td>
+<td><p>G11</p></td>
+<td><p>0x15E8</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>pr1_uart0_cts_n</p></td>
+<td><p>P8.45</p></td>
+<td><p>F11</p></td>
+<td><p>0x15DC</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>pr1_uart0_rts_n</p></td>
+<td><p>P8.46</p></td>
+<td><p>G10</p></td>
+<td><p>0x15E0</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-todo admonition" id="id19">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI content</p>
+</div>
+</section>
+<section id="spi">
+<h2>SPI<a class="headerlink" href="#spi" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id20">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">SPI</span></code> section content</p>
+</div>
+</section>
+<section id="analog">
+<h2>Analog<a class="headerlink" href="#analog" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id21">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Analog</span></code> section content</p>
+</div>
+</section>
+<section id="pwm-timer-ecap-or-pru-pwm-ecap">
+<span id="id22"></span><h2>PWM, TIMER, eCAP or PRU PWM/eCAP<a class="headerlink" href="#pwm-timer-ecap-or-pru-pwm-ecap" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id23">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">PWM,</span> <span class="pre">TIMER,</span> <span class="pre">eCAP</span> <span class="pre">or</span> <span class="pre">PRU</span> <span class="pre">PWM/eCAP</span></code> section content</p>
+</div>
+</section>
+<section id="eqep">
+<h2>eQEP<a class="headerlink" href="#eqep" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id24">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">eQEP</span></code> section content</p>
+</div>
+</section>
+<section id="can">
+<h2>CAN<a class="headerlink" href="#can" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id25">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">CAN</span></code> section content</p>
+</div>
+</section>
+<section id="mcasp-audio-serial-like-i2s-and-ac97">
+<span id="mcasp-audio-serial-like-i2c-and-ac97"></span><h2>McASP (audio serial like I2S and AC97)<a class="headerlink" href="#mcasp-audio-serial-like-i2s-and-ac97" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id26">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">McASP</span> <span class="pre">(audio</span> <span class="pre">serial</span> <span class="pre">like</span> <span class="pre">I2S</span> <span class="pre">and</span> <span class="pre">AC97)</span></code> section content</p>
+</div>
+</section>
+<section id="mmc">
+<h2>MMC<a class="headerlink" href="#mmc" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id27">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">MMC</span></code> section content</p>
+</div>
+</section>
+<section id="lcd">
+<h2>LCD<a class="headerlink" href="#lcd" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id28">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">LCD</span></code> section content</p>
+</div>
+</section>
+<section id="pru-gpio">
+<h2>PRU GPIO<a class="headerlink" href="#pru-gpio" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id29">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">PRU</span> <span class="pre">GPIO</span></code> section content</p>
+</div>
+</section>
+<section id="clkout">
+<h2>CLKOUT<a class="headerlink" href="#clkout" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id30">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">CLKOUT</span></code> section content</p>
+</div>
+</section>
+<section id="expansion-connector-headers">
+<h2>Expansion Connector Headers<a class="headerlink" href="#expansion-connector-headers" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id31">
+<p class="admonition-title">Todo</p>
+<p>discuss header options for working with the expansion connectors per
+<a class="reference external" href="https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1">https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1</a></p>
+</div>
+</section>
+<section id="signal-usage">
+<h2>Signal Usage<a class="headerlink" href="#signal-usage" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id32">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Signal</span> <span class="pre">Usage</span></code> section content</p>
+</div>
+</section>
+<section id="cape-power">
+<h2>Cape Power<a class="headerlink" href="#cape-power" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id33">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Cape</span> <span class="pre">Power</span></code> section content</p>
+</div>
+</section>
+<section id="mechanical">
+<h2>Mechanical<a class="headerlink" href="#mechanical" title="Link to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id34">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Mechanical</span></code> section content</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03-design-and-specifications.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Design and specifications</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-demos-and-tutorials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Demos &amp; Tutorials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Expansion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-connectors">Expansion Connectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connector-p8">Connector P8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connector-p9">Connector P9</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serial-debug">Serial Debug</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-3-type-c">USB 3 Type-C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-2-type-a">USB 2 Type-A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gigabit-ethernet">Gigabit Ethernet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coaxial">Coaxial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsd-memory">microSD Memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microhdmi">microHDMI</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cape-board-support">Cape Board Support</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beaglebone-black-cape-compatibility">BeagleBone® Black Cape Compatibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom">EEPROM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pin-usage-consideration">Pin Usage Consideration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio">GPIO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c">I2C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uart-or-pru-uart">UART or PRU UART</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spi">SPI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog">Analog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-timer-ecap-or-pru-pwm-ecap">PWM, TIMER, eCAP or PRU PWM/eCAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eqep">eQEP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can">CAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcasp-audio-serial-like-i2s-and-ac97">McASP (audio serial like I2S and AC97)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mmc">MMC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcd">LCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pru-gpio">PRU GPIO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clkout">CLKOUT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-connector-headers">Expansion Connector Headers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-usage">Signal Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cape-power">Cape Power</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical">Mechanical</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beaglebone/ai/04-expansion.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/boards/beaglebone/ai/04-expansion.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+        
+        <a role="button" href="/beaglebone-ai.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeagleBone AI - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleboard/beaglebone-ai">BeagleBone AI git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beaglebone-ai">BeagleBone AI board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beaglebone/ai/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/bbai">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeagleBone AI
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us000169.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeagleBone AI_US000169.svg" alt="BeagleBone AI OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

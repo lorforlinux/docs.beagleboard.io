@@ -1,0 +1,2156 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Debugging and Benchmarking &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'books/pru-cookbook/04debug/debug';</script>
+    <link rel="canonical" href="docs.beagleboard.io/books/pru-cookbook/04debug/debug.html" />
+    <link rel="icon" href="../../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Building Blocks - Applications" href="../05blocks/blocks.html" />
+    <link rel="prev" title="Running a Program; Configuring Pins" href="../03details/details.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../beaglebone-cookbook/index.html">BeagleBone Cookbook</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/01basics/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/02sensors/sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/03displays/displays.html">Displays and Other Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/04motors/motors.html">Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/05tips/tips.html">Beyond the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/06iot/iot.html">Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/07kernel/kernel.html">The Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/08realtime/realtime.html">Real-Time I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/09capes/capes.html">Capes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/10parts/parts.html">Parts and Suppliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../beaglebone-cookbook/11misc/misc.html">Misc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">PRU Cookbook</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01case/case.html">Case Studies - Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02start/start.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03details/details.html">Running a Program; Configuring Pins</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Debugging and Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05blocks/blocks.html">Building Blocks - Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06io/io.html">Accessing More I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07more/more.html">More Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08ai/ai.html">Moving to the BeagleBone AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects.html">PRU Projects</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Books</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">PRU Cookbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Debugging and Benchmarking</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="debugging-and-benchmarking">
+<span id="pru-cookbook-debug"></span><h1>Debugging and Benchmarking<a class="headerlink" href="#debugging-and-benchmarking" title="Link to this heading">#</a></h1>
+<p>One of the challenges is getting debug
+information out of the PRUs since they don’t have a traditional <code class="docutils literal notranslate"><span class="pre">printf()</span></code>.
+In this chapter four different methods are presented that I’ve found useful in
+debugging.  The first is simply attaching an LED.  The second is using
+<code class="docutils literal notranslate"><span class="pre">dmesg</span></code> to watch the kernel messages.  <code class="docutils literal notranslate"><span class="pre">prudebug</span></code>, a simple debugger that
+allows you to inspect registers and memory of the PRUs, is then presented.
+Finally, using one of the UARTS to send debugging information out a serial port
+is shown.</p>
+<section id="debugging-via-an-led">
+<h2>Debugging via an LED<a class="headerlink" href="#debugging-via-an-led" title="Link to this heading">#</a></h2>
+<section id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
+<p>I need a simple way to see if my program is running without slowing the real-time execution.</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
+<p>One of the simplest ways to do this is to attach an LED to the output pin and watch it
+flash. <a class="reference internal" href="#debug-led"><span class="std std-ref">LED used for debugging P9_29</span></a> shows an LED attached to pin P9_29 of the BeagleBone Black.</p>
+<figure class="align-center" id="id15">
+<span id="debug-led"></span><img alt="LED used for debugging P9_29" src="../../../_images/LED_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 787 </span><span class="caption-text">LED used for debugging P9_29</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Make sure you have the LED in the correct way, or it won’t work.</p>
+</section>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<p>If your output is changing more than a few times a second, the LED will be
+blinking too fast and you’ll need an oscilloscope or a logic analyzer to
+see what’s happening.</p>
+<p>Another useful tool that let’s you see the contents of the registers and
+RAM is discussed in <a class="reference internal" href="#debug-prudebug"><span class="std std-ref">prudebug - A Simple Debugger for the PRU</span></a>.</p>
+</section>
+</section>
+<section id="dmesg-hw">
+<span id="id1"></span><h2>dmesg Hw<a class="headerlink" href="#dmesg-hw" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Problem<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>I’m getting an error message
+(<code class="docutils literal notranslate"><span class="pre">/sys/devices/platform/ocp/4a326000.pruss-soc-bus/4a300000.pruss/4a334000.pru0/remoteproc/remoteproc1/state:</span> <span class="pre">Invalid</span> <span class="pre">argument</span></code>)
+when I load my code, but don’t know what’s causing it.</p>
+</section>
+<section id="id3">
+<h3>Solution<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The command <code class="docutils literal notranslate"><span class="pre">dmesg</span></code> outputs useful information when dealing with the kernel.
+Simply running <code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">-Hw</span></code> can tell you a lot.  The <code class="docutils literal notranslate"><span class="pre">-H</span></code> flag puts the
+dates in the human readable form, the <code class="docutils literal notranslate"><span class="pre">-w</span></code> tells it to wait for more information.
+Often I’ll have a window open running <code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">-Hw</span></code>.</p>
+<p>Here’s what <code class="docutils literal notranslate"><span class="pre">dmesg</span></code> said for the example above.</p>
+</section>
+</section>
+<section id="id4">
+<h2>dmesg -Hw<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w">  </span>+0.000018<span class="o">]</span><span class="w"> </span>remoteproc<span class="w"> </span>remoteproc1:<span class="w"> </span>header-less<span class="w"> </span>resource<span class="w"> </span>table
+<span class="o">[</span><span class="w">  </span>+0.011879<span class="o">]</span><span class="w"> </span>remoteproc<span class="w"> </span>remoteproc1:<span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>resource<span class="w"> </span>table
+<span class="o">[</span><span class="w">  </span>+0.008770<span class="o">]</span><span class="w"> </span>remoteproc<span class="w"> </span>remoteproc1:<span class="w"> </span>Boot<span class="w"> </span>failed:<span class="w"> </span>-22
+</pre></div>
+</div>
+<p>It quickly told me I needed to add the line <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;resource_table_empty.h&quot;</span></code>
+to my code.</p>
+</section>
+<section id="prudebug-a-simple-debugger-for-the-pru">
+<span id="debug-prudebug"></span><h2>prudebug - A Simple Debugger for the PRU<a class="headerlink" href="#prudebug-a-simple-debugger-for-the-pru" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Problem<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>You need to examine registers and memory on the PRUs.</p>
+</section>
+<section id="id6">
+<h3>Solution<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">prudebug</span></code> is a simple debugger for the PRUs that lets you start and stop the PRUs and
+examine the registers and memory. It can be found on GitHub
+<a class="github reference external" href="https://github.com/RRvW/prudebug-rl">RRvW/prudebug-rl</a>.  I have a version I updated to use byte
+addressing rather than word addressing.  This makes it easier to work with the
+assembler output. You can find it in my GitHub BeagleBoard repo
+<a class="github reference external" href="https://github.com/MarkAYoder/BeagleBoard-exercises/tree/master/pru/prudebug">MarkAYoder/BeagleBoard-exercises</a>.</p>
+<p>Just download the files and type <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
+</section>
+<section id="id7">
+<h3>Discussion<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Once <code class="docutils literal notranslate"><span class="pre">prudebug</span></code> is installed is rather easy to use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">prudebug</span></code> has now been ported to the AI.</p>
+</div>
+<div class="admonition-todo admonition" id="id8">
+<p class="admonition-title">Todo</p>
+<p>Isn’t working on Pocket at this time.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>*sudo<span class="w"> </span>prudebug*
+PRU<span class="w"> </span>Debugger<span class="w"> </span>v0.25
+<span class="o">(</span>C<span class="o">)</span><span class="w"> </span>Copyright<span class="w"> </span><span class="m">2011</span>,<span class="w"> </span><span class="m">2013</span><span class="w"> </span>by<span class="w"> </span>Arctica<span class="w"> </span>Technologies.<span class="w">  </span>All<span class="w"> </span>rights<span class="w"> </span>reserved.
+Written<span class="w"> </span>by<span class="w"> </span>Steven<span class="w"> </span>Anderson
+
+Using<span class="w"> </span>/dev/mem<span class="w"> </span>device.
+Processor<span class="w"> </span><span class="nb">type</span><span class="w">                </span>AM335x
+PRUSS<span class="w"> </span>memory<span class="w"> </span>address<span class="w">  </span>0x4a300000
+PRUSS<span class="w"> </span>memory<span class="w"> </span>length<span class="w">   </span>0x00080000
+
+<span class="w">        </span>offsets<span class="w"> </span>below<span class="w"> </span>are<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>byte<span class="w"> </span>addresses<span class="w"> </span><span class="o">(</span>not<span class="w"> </span>ARM<span class="w"> </span>byte<span class="w"> </span>addresses<span class="o">)</span>
+<span class="w">        </span>PRU<span class="w">            </span>Instruction<span class="w">    </span>Data<span class="w">         </span>Ctrl
+<span class="w">        </span><span class="m">0</span><span class="w">              </span>0x00034000<span class="w">     </span>0x00000000<span class="w">   </span>0x00022000
+<span class="w">        </span><span class="m">1</span><span class="w">              </span>0x00038000<span class="w">     </span>0x00002000<span class="w">   </span>0x00024000
+</pre></div>
+</div>
+<p>You get help by entering <code class="docutils literal notranslate"><span class="pre">help</span></code>.  You cal also enter <code class="docutils literal notranslate"><span class="pre">hb</span></code> to get a brief help.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*hb*
+Command<span class="w"> </span><span class="nb">help</span>
+
+<span class="w">    </span>BR<span class="w"> </span><span class="o">[</span>breakpoint_number<span class="w"> </span><span class="o">[</span>address<span class="o">]]</span><span class="w"> </span>-<span class="w"> </span>View<span class="w"> </span>or<span class="w"> </span><span class="nb">set</span><span class="w"> </span>an<span class="w"> </span>instruction<span class="w"> </span>breakpoint
+<span class="w">    </span>D<span class="w"> </span>memory_location_ba<span class="w"> </span><span class="o">[</span>length<span class="o">]</span><span class="w"> </span>-<span class="w"> </span>Raw<span class="w"> </span>dump<span class="w"> </span>of<span class="w"> </span>PRU<span class="w"> </span>data<span class="w"> </span>memory<span class="w"> </span><span class="o">(</span><span class="m">32</span>-bit<span class="w"> </span>byte<span class="w"> </span>offset<span class="w"> </span>from<span class="w"> </span>beginning<span class="w"> </span>of<span class="w"> </span>full<span class="w"> </span>PRU<span class="w"> </span>memory<span class="w"> </span>block<span class="w"> </span>-<span class="w"> </span>all<span class="w"> </span>PRUs<span class="o">)</span>
+<span class="w">    </span>DD<span class="w"> </span>memory_location_ba<span class="w"> </span><span class="o">[</span>length<span class="o">]</span><span class="w"> </span>-<span class="w"> </span>Dump<span class="w"> </span>data<span class="w"> </span>memory<span class="w"> </span><span class="o">(</span><span class="m">32</span>-bit<span class="w"> </span>byte<span class="w"> </span>offset<span class="w"> </span>from<span class="w"> </span>beginning<span class="w"> </span>of<span class="w"> </span>PRU<span class="w"> </span>data<span class="w"> </span>memory<span class="o">)</span>
+<span class="w">    </span>DI<span class="w"> </span>memory_location_ba<span class="w"> </span><span class="o">[</span>length<span class="o">]</span><span class="w"> </span>-<span class="w"> </span>Dump<span class="w"> </span>instruction<span class="w"> </span>memory<span class="w"> </span><span class="o">(</span><span class="m">32</span>-bit<span class="w"> </span>byte<span class="w"> </span>offset<span class="w"> </span>from<span class="w"> </span>beginning<span class="w"> </span>of<span class="w"> </span>PRU<span class="w"> </span>instruction<span class="w"> </span>memory<span class="o">)</span>
+<span class="w">    </span>DIS<span class="w"> </span>memory_location_ba<span class="w"> </span><span class="o">[</span>length<span class="o">]</span><span class="w"> </span>-<span class="w"> </span>Disassemble<span class="w"> </span>instruction<span class="w"> </span>memory<span class="w"> </span><span class="o">(</span><span class="m">32</span>-bit<span class="w"> </span>byte<span class="w"> </span>offset<span class="w"> </span>from<span class="w"> </span>beginning<span class="w"> </span>of<span class="w"> </span>PRU<span class="w"> </span>instruction<span class="w"> </span>memory<span class="o">)</span>
+<span class="w">    </span>G<span class="w"> </span>-<span class="w"> </span>Start<span class="w"> </span>processor<span class="w"> </span>execution<span class="w"> </span>of<span class="w"> </span>instructions<span class="w"> </span><span class="o">(</span>at<span class="w"> </span>current<span class="w"> </span>IP<span class="o">)</span>
+<span class="w">    </span>GSS<span class="w"> </span>-<span class="w"> </span>Start<span class="w"> </span>processor<span class="w"> </span>execution<span class="w"> </span>using<span class="w"> </span>automatic<span class="w"> </span>single<span class="w"> </span>stepping<span class="w"> </span>-<span class="w"> </span>this<span class="w"> </span>allows<span class="w"> </span>running<span class="w"> </span>a<span class="w"> </span>program<span class="w"> </span>with<span class="w"> </span>breakpoints
+<span class="w">    </span>HALT<span class="w"> </span>-<span class="w"> </span>Halt<span class="w"> </span>the<span class="w"> </span>processor
+<span class="w">    </span>L<span class="w"> </span>memory_location_iwa<span class="w"> </span>file_name<span class="w"> </span>-<span class="w"> </span>Load<span class="w"> </span>program<span class="w"> </span>file<span class="w"> </span>into<span class="w"> </span>instruction<span class="w"> </span>memory
+<span class="w">    </span>PRU<span class="w"> </span>pru_number<span class="w"> </span>-<span class="w"> </span>Set<span class="w"> </span>the<span class="w"> </span>active<span class="w"> </span>PRU<span class="w"> </span>where<span class="w"> </span>pru_number<span class="w"> </span>ranges<span class="w"> </span>from<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">1</span>
+<span class="w">    </span>Q<span class="w"> </span>-<span class="w"> </span>Quit<span class="w"> </span>the<span class="w"> </span>debugger<span class="w"> </span>and<span class="w"> </span><span class="k">return</span><span class="w"> </span>to<span class="w"> </span>shell<span class="w"> </span>prompt.
+<span class="w">    </span>R<span class="w"> </span>-<span class="w"> </span>Display<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>PRU<span class="w"> </span>registers.
+<span class="w">    </span>RESET<span class="w"> </span>-<span class="w"> </span>Reset<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>PRU
+<span class="w">    </span>SS<span class="w"> </span>-<span class="w"> </span>Single<span class="w"> </span>step<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>instruction.
+<span class="w">    </span>WA<span class="w"> </span><span class="o">[</span>watch_num<span class="w"> </span><span class="o">[</span>address<span class="w"> </span><span class="o">[</span>value<span class="o">]]]</span><span class="w"> </span>-<span class="w"> </span>Clear<span class="w"> </span>or<span class="w"> </span><span class="nb">set</span><span class="w"> </span>a<span class="w"> </span>watch<span class="w"> </span>point
+<span class="w">    </span>WR<span class="w"> </span>memory_location_ba<span class="w"> </span>value1<span class="w"> </span><span class="o">[</span>value2<span class="w"> </span><span class="o">[</span>value3<span class="w"> </span>...<span class="o">]]</span><span class="w"> </span>-<span class="w"> </span>Write<span class="w"> </span>a<span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>value<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>raw<span class="w"> </span><span class="o">(</span>offset<span class="w"> </span>from<span class="w"> </span>beginning<span class="w"> </span>of<span class="w"> </span>full<span class="w"> </span>PRU<span class="w"> </span>memory<span class="w"> </span>block<span class="o">)</span>
+<span class="w">    </span>WRD<span class="w"> </span>memory_location_ba<span class="w"> </span>value1<span class="w"> </span><span class="o">[</span>value2<span class="w"> </span><span class="o">[</span>value3<span class="w"> </span>...<span class="o">]]</span><span class="w"> </span>-<span class="w"> </span>Write<span class="w"> </span>a<span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>value<span class="w"> </span>to<span class="w"> </span>PRU<span class="w"> </span>data<span class="w"> </span>memory<span class="w"> </span><span class="k">for</span><span class="w"> </span>current<span class="w"> </span>PRU
+<span class="w">    </span>WRI<span class="w"> </span>memory_location_ba<span class="w"> </span>value1<span class="w"> </span><span class="o">[</span>value2<span class="w"> </span><span class="o">[</span>value3<span class="w"> </span>...<span class="o">]]</span><span class="w"> </span>-<span class="w"> </span>Write<span class="w"> </span>a<span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>value<span class="w"> </span>to<span class="w"> </span>PRU<span class="w"> </span>instruction<span class="w"> </span>memory<span class="w"> </span><span class="k">for</span><span class="w"> </span>current<span class="w"> </span>PRU
+</pre></div>
+</div>
+<p>Initially you are talking to PRU 0.  You can enter <code class="docutils literal notranslate"><span class="pre">pru</span> <span class="pre">1</span></code> to talk to PRU 1.
+The commands I find most useful are, <code class="docutils literal notranslate"><span class="pre">r</span></code>, to see the registers.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*r*
+Register<span class="w"> </span>info<span class="w"> </span><span class="k">for</span><span class="w"> </span>PRU0
+<span class="w">    </span>Control<span class="w"> </span>register:<span class="w"> </span>0x00008003
+<span class="w">      </span>Reset<span class="w"> </span>PC:0x0000<span class="w">  </span>RUNNING,<span class="w"> </span>FREE_RUN,<span class="w"> </span>COUNTER_DISABLED,<span class="w"> </span>NOT_SLEEPING,<span class="w"> </span>PROC_ENABLED
+
+<span class="w">    </span>Program<span class="w"> </span>counter:<span class="w"> </span>0x0030
+<span class="w">      </span>Current<span class="w"> </span>instruction:<span class="w"> </span>ADD<span class="w"> </span>R0.b0,<span class="w"> </span>R0.b0,<span class="w"> </span>R0.b0
+
+<span class="w">    </span>Rxx<span class="w"> </span>registers<span class="w"> </span>not<span class="w"> </span>available<span class="w"> </span>since<span class="w"> </span>PRU<span class="w"> </span>is<span class="w"> </span>RUNNING.
+</pre></div>
+</div>
+<p>Notice the PRU has to be stopped to see the register contents.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*h*
+PRU0<span class="w"> </span>Halted.
+PRU0&gt;<span class="w"> </span>*r*
+Register<span class="w"> </span>info<span class="w"> </span><span class="k">for</span><span class="w"> </span>PRU0
+<span class="w">    </span>Control<span class="w"> </span>register:<span class="w"> </span>0x00000001
+<span class="w">      </span>Reset<span class="w"> </span>PC:0x0000<span class="w">  </span>STOPPED,<span class="w"> </span>FREE_RUN,<span class="w"> </span>COUNTER_DISABLED,<span class="w"> </span>NOT_SLEEPING,<span class="w"> </span>PROC_DISABLED
+
+<span class="w">    </span>Program<span class="w"> </span>counter:<span class="w"> </span>0x0028
+<span class="w">      </span>Current<span class="w"> </span>instruction:<span class="w"> </span>LBBO<span class="w"> </span>R15,<span class="w"> </span>R15,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">4</span>
+
+<span class="w">    </span>R00:<span class="w"> </span>0x00000000<span class="w">    </span>R08:<span class="w"> </span>0x00000000<span class="w">    </span>R16:<span class="w"> </span>0x00000001<span class="w">    </span>R24:<span class="w"> </span>0x00000002
+<span class="w">    </span>R01:<span class="w"> </span>0x00000000<span class="w">    </span>R09:<span class="w"> </span>0xaf40dcf2<span class="w">    </span>R17:<span class="w"> </span>0x00000000<span class="w">    </span>R25:<span class="w"> </span>0x00000003
+<span class="w">    </span>R02:<span class="w"> </span>0x000000dc<span class="w">    </span>R10:<span class="w"> </span>0xd8255b1b<span class="w">    </span>R18:<span class="w"> </span>0x00000003<span class="w">    </span>R26:<span class="w"> </span>0x00000003
+<span class="w">    </span>R03:<span class="w"> </span>0x000f0000<span class="w">    </span>R11:<span class="w"> </span>0xc50cbefd<span class="w">    </span>R19:<span class="w"> </span>0x00000100<span class="w">    </span>R27:<span class="w"> </span>0x00000002
+<span class="w">    </span>R04:<span class="w"> </span>0x00000000<span class="w">    </span>R12:<span class="w"> </span>0xb037c0d7<span class="w">    </span>R20:<span class="w"> </span>0x00000100<span class="w">    </span>R28:<span class="w"> </span>0x8ca9d976
+<span class="w">    </span>R05:<span class="w"> </span>0x00000009<span class="w">    </span>R13:<span class="w"> </span>0xf48bbe23<span class="w">    </span>R21:<span class="w"> </span>0x441fb678<span class="w">    </span>R29:<span class="w"> </span>0x00000002
+<span class="w">    </span>R06:<span class="w"> </span>0x00000000<span class="w">    </span>R14:<span class="w"> </span>0x00000134<span class="w">    </span>R22:<span class="w"> </span>0xc8cc0752<span class="w">    </span>R30:<span class="w"> </span>0x00000000
+<span class="w">    </span>R07:<span class="w"> </span>0x00000009<span class="w">    </span>R15:<span class="w"> </span>0x00000200<span class="w">    </span>R23:<span class="w"> </span>0xe346fee9<span class="w">    </span>R31:<span class="w"> </span>0x00000000
+</pre></div>
+</div>
+<p>You can resume using <code class="docutils literal notranslate"><span class="pre">g</span></code> which starts right where you left off, or use <code class="docutils literal notranslate"><span class="pre">reset</span></code> to
+restart back at the beginning.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dd</span></code> command dumps the memory.  Keep in mind the following.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id16">
+<caption><span class="caption-number">Table 152 </span><span class="caption-text">Important memory locations</span><a class="headerlink" href="#id16" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Address</p></th>
+<th class="head"><p>Contents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0x00000</p></td>
+<td><p>Start of the <strong>stack</strong> for PRU 0.  The file <strong>AM335x_PRU.cmd</strong> specifies
+where the stack is.</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x00100</p></td>
+<td><p>Start of the <strong>heap</strong> for PRU 0.</p></td>
+</tr>
+<tr class="row-even"><td><p>0x00200</p></td>
+<td><p>Start of DRAM that your programs can use.  The <strong>Makefile</strong> specifies</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>the size of the <strong>stack</strong> and the <strong>heap</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p>0x10000</p></td>
+<td><p>Start of the memory shared between the PRUs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">dd</span></code> with no address prints the next section of memory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*dd*
+dd
+Absolute<span class="w"> </span><span class="nv">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0000,<span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0000,<span class="w"> </span><span class="nv">Len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span>
+<span class="o">[</span>0x0000<span class="o">]</span><span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000
+<span class="o">[</span>0x0010<span class="o">]</span><span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000
+<span class="o">[</span>0x0020<span class="o">]</span><span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000
+<span class="o">[</span>0x0030<span class="o">]</span><span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000
+</pre></div>
+</div>
+<p>The stack grows from higher memory to lower memory, so you often won’t see
+much around address <code class="docutils literal notranslate"><span class="pre">0x0000</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*dd<span class="w"> </span>0x100*
+dd<span class="w"> </span>0x100
+Absolute<span class="w"> </span><span class="nv">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0100,<span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0000,<span class="w"> </span><span class="nv">Len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span>
+<span class="o">[</span>0x0100<span class="o">]</span><span class="w"> </span>0x00000001<span class="w"> </span>0x00000002<span class="w"> </span>0x00000003<span class="w"> </span>0x00000004
+<span class="o">[</span>0x0110<span class="o">]</span><span class="w"> </span>0x00000004<span class="w"> </span>0x00000003<span class="w"> </span>0x00000002<span class="w"> </span>0x00000001
+<span class="o">[</span>0x0120<span class="o">]</span><span class="w"> </span>0x00000001<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000<span class="w"> </span>0x00000000
+<span class="o">[</span>0x0130<span class="o">]</span><span class="w"> </span>0x00000000<span class="w"> </span>0x00000200<span class="w"> </span>0x862e5c18<span class="w"> </span>0xfeb21aca
+</pre></div>
+</div>
+<p>Here we see some values on the heap.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*dd<span class="w"> </span>0x200*
+dd<span class="w"> </span>0x200
+Absolute<span class="w"> </span><span class="nv">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0200,<span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0000,<span class="w"> </span><span class="nv">Len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span>
+<span class="o">[</span>0x0200<span class="o">]</span><span class="w"> </span>0x00000001<span class="w"> </span>0x00000004<span class="w"> </span>0x00000002<span class="w"> </span>0x00000003
+<span class="o">[</span>0x0210<span class="o">]</span><span class="w"> </span>0x00000003<span class="w"> </span>0x00000011<span class="w"> </span>0x00000004<span class="w"> </span>0x00000010
+<span class="o">[</span>0x0220<span class="o">]</span><span class="w"> </span>0x0a4fe833<span class="w"> </span>0xb222ebda<span class="w"> </span>0xe5575236<span class="w"> </span>0xc50cbefd
+<span class="o">[</span>0x0230<span class="o">]</span><span class="w"> </span>0xb037c0d7<span class="w"> </span>0xf48bbe23<span class="w"> </span>0x88c460f0<span class="w"> </span>0x011550d4
+</pre></div>
+</div>
+<p>Data written explicitly to <code class="docutils literal notranslate"><span class="pre">0x0200</span></code> of the DRAM.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRU0&gt;<span class="w"> </span>*dd<span class="w"> </span>0x10000*
+dd<span class="w"> </span>0x10000
+Absolute<span class="w"> </span><span class="nv">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x10000,<span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0000,<span class="w"> </span><span class="nv">Len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span>
+<span class="o">[</span>0x10000<span class="o">]</span><span class="w"> </span>0x8ca9d976<span class="w"> </span>0xebcb119e<span class="w"> </span>0x3aebce31<span class="w"> </span>0x68c44d8b
+<span class="o">[</span>0x10010<span class="o">]</span><span class="w"> </span>0xc370ba7e<span class="w"> </span>0x2fea993b<span class="w"> </span>0x15c67fa5<span class="w"> </span>0xfbf68557
+<span class="o">[</span>0x10020<span class="o">]</span><span class="w"> </span>0x5ad81b4f<span class="w"> </span>0x4a55071a<span class="w"> </span>0x48576eb7<span class="w"> </span>0x1004786b
+<span class="o">[</span>0x10030<span class="o">]</span><span class="w"> </span>0x2265ebc6<span class="w"> </span>0xa27b32a0<span class="w"> </span>0x340d34dc<span class="w"> </span>0xbfa02d4b
+</pre></div>
+</div>
+<p>Here’s the shared memory.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">prudebug</span></code> to set breakpoints and single step,
+but I haven’t used that feature much.</p>
+<p><a class="reference internal" href="../05blocks/blocks.html#memory-allocation"><span class="std std-ref">Memory Allocation</span></a> gives examples of how you can control where your variables are stored in memory.</p>
+</section>
+</section>
+<section id="uart">
+<h2>UART<a class="headerlink" href="#uart" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Problem<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>I’d like to use something like <code class="docutils literal notranslate"><span class="pre">printf()</span></code> to debug my code.</p>
+<div class="admonition-todo admonition" id="id10">
+<p class="admonition-title">Todo</p>
+<p>Check these on the Black and Pocket without grove</p>
+</div>
+</section>
+<section id="id11">
+<h3>Solution<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>One simple, yet effective approach to ‘printing’ from the PRU is
+an idea taken from the Adruino playbook;
+use the UART (serial port) to output debug information.  The PRU has it’s
+own UART that can send characters to a serial port.</p>
+<p>You’ll need a 3.3V FTDI cable to go between your Beagle and the USB port
+on your host computer as shown in <a class="reference internal" href="#ftdi-cable"><span class="std std-ref">FTDI cable</span></a>. <a class="footnote-reference brackets" href="#debug1" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+you can get such a cable from places such as
+<a class="reference external" href="https://www.sparkfun.com/products/9717">Sparkfun</a> or
+<a class="reference external" href="https://www.adafruit.com/product/70">Adafruit</a>.</p>
+<figure class="align-center" id="id17">
+<span id="ftdi-cable"></span><img alt="FTDI cable" src="../../../_images/FTDIcable1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 788 </span><span class="caption-text">FTDI cable</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id13">
+<h3>Discussion<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>The Beagle side of the FTDI cable has a small triangle on it as shown in
+<a class="reference internal" href="#debug-ftdi-connector"><span class="std std-ref">FTDI connector</span></a> which marks the ground pin, pin 1.</p>
+<figure class="align-center" id="id18">
+<span id="debug-ftdi-connector"></span><img alt="FTDI connector" src="../../../_images/FTDIconnector1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 789 </span><span class="caption-text">FTDI connector</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <a class="reference internal" href="#debug-ftdi"><span class="std std-ref">Wring for FTDI cable to Beagle</span></a> table shows which pins connect where and <a class="reference internal" href="#debug-ftdi-pins"><span class="std std-ref">FTDI to BB Black</span></a>
+is a wiring diagram for the BeagleBone Black.</p>
+<div class="pst-scrollable-table-container"><span id="debug-ftdi"></span><table class="table" id="id19">
+<caption><span class="caption-number">Table 153 </span><span class="caption-text">Wring for FTDI cable to Beagle</span><a class="headerlink" href="#id19" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>FTDI pin</p></th>
+<th class="head"><p>Color</p></th>
+<th class="head"><p>Black pin</p></th>
+<th class="head"><p>AI 1 pin</p></th>
+<th class="head"><p>AI 2 pin</p></th>
+<th class="head"><p>Pocket</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>black</p></td>
+<td><p>P9_1</p></td>
+<td><p>P8_1</p></td>
+<td><p>P8_1</p></td>
+<td><p>P1_16</p></td>
+<td><p>ground</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>orange</p></td>
+<td><p>P9_24</p></td>
+<td><p>P8_43</p></td>
+<td><p>P8_33a</p></td>
+<td><p>P1_12</p></td>
+<td><p>rx</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>yellow</p></td>
+<td><p>P9_26</p></td>
+<td><p>P8_44</p></td>
+<td><p>P8_31a</p></td>
+<td><p>P1_06</p></td>
+<td><p>tx</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="id20">
+<span id="debug-ftdi-pins"></span><img alt="FTDI to BB Black" src="../../../_images/FTDIhookup_bb.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 790 </span><span class="caption-text">FTDI to BB Black</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="details">
+<h3>Details<a class="headerlink" href="#details" title="Link to this heading">#</a></h3>
+<p>Two examples of using the UART are presented here. The first
+(<a class="reference internal" href="#debug-uart1"><span class="std std-ref">uart1.pru1_0.c</span></a>) sends a character out the serial port then
+waits for a character to come in. Once the new
+character arrives another character is output.</p>
+<p>The second example (<a class="reference internal" href="#debug-uart2"><span class="std std-ref">uart2.pru1_0.c</span></a>) prints out a string and then
+waits for characters to arrive.
+Once an ENTER appears the string is sent back.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>On the Black, either PRU0 and PRU1 can
+run this code. Both have access to the same UART.</p>
+</div>
+<p>You need to set the pin muxes.</p>
+</section>
+<section id="config-pin">
+<h3>config-pin<a class="headerlink" href="#config-pin" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configure tx Black</span>
+bone$<span class="w"> </span>*config-pin<span class="w"> </span>P9_24<span class="w"> </span>pru_uart*
+<span class="c1"># Configure rx Black</span>
+bone$<span class="w"> </span>*config-pin<span class="w"> </span>P9_26<span class="w"> </span>pru_uart*
+
+<span class="c1"># Configure tx Pocket</span>
+bone$<span class="w"> </span>*config-pin<span class="w"> </span>P1_06<span class="w"> </span>pru_uart*
+<span class="c1"># Configure rx Pocket</span>
+bone$<span class="w"> </span>*config-pin<span class="w"> </span>P1_12<span class="w"> </span>pru_uart*
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="../08ai/ai.html#ai-device-tree"><span class="std std-ref">Configuring pins on the AI via device trees</span></a> for configuring
+pins on the AI. Make sure your <cite>rx</cite> pins are
+configured as input pins in the device tree.</p>
+</div>
+<p>For example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>DRA7XX_CORE_IOPAD<span class="o">(</span>0x3610,<span class="w"> </span>*PIN_INPUT*<span class="w"> </span><span class="p">|</span><span class="w"> </span>MUX_MODE10<span class="o">)</span><span class="w"> </span>//<span class="w"> </span>C6:<span class="w"> </span>P8.33a:
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id14">
+<p class="admonition-title">Todo</p>
+<p>Add code for Blue.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-number">Listing 96 </span><span class="caption-text">uart1.pru1_0.c</span><a class="headerlink" href="#id21" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// From: http://git.ti.com/pru-software-support-package/pru-software-support-package/trees/master/examples/am335x/PRU_Hardware_UART</span>
+<span class="linenos"> 2</span><span class="c1">// This example was converted to the am5729 by changing the names in pru_uart.h</span>
+<span class="linenos"> 3</span><span class="c1">// for the am335x to the more descriptive names for the am5729.</span>
+<span class="linenos"> 4</span><span class="c1">// For example  DLL convertes to DIVISOR_REGISTER_LSB_</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_uart.h&gt;</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="cm">/* The FIFO size on the PRU UART is 16 bytes; however, we are (arbitrarily)</span>
+<span class="linenos">10</span><span class="cm"> * only going to send 8 at a time */</span>
+<span class="linenos">11</span><span class="cp">#define FIFO_SIZE	16</span>
+<span class="linenos">12</span><span class="cp">#define MAX_CHARS	8</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">15</span><span class="p">{</span>
+<span class="linenos">16</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">tx</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rx</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">	</span><span class="cm">/*  hostBuffer points to the string to be printed */</span>
+<span class="linenos">21</span><span class="w">	</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hostBuffer</span><span class="p">;</span>
+<span class="linenos">22</span><span class="w">	</span>
+<span class="linenos">23</span><span class="w">	</span><span class="cm">/*** INITIALIZATION ***/</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">	</span><span class="cm">/* Set up UART to function at 115200 baud - DLL divisor is 104 at 16x oversample</span>
+<span class="linenos">26</span><span class="cm">	 * 192MHz / 104 / 16 = ~115200 */</span>
+<span class="linenos">27</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DIVISOR_REGISTER_LSB_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">104</span><span class="p">;</span>
+<span class="linenos">28</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DIVISOR_REGISTER_MSB_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">29</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODE_DEFINITION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">	</span><span class="cm">/* Enable Interrupts in UART module. This allows the main thread to poll for</span>
+<span class="linenos">32</span><span class="cm">	 * Receive Data Available and Transmit Holding Register Empty */</span>
+<span class="linenos">33</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_ENABLE_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7</span><span class="p">;</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">	</span><span class="cm">/* If FIFOs are to be used, select desired trigger level and enable</span>
+<span class="linenos">36</span><span class="cm">	 * FIFOs by writing to FCR. FIFOEN bit in FCR must be set first before</span>
+<span class="linenos">37</span><span class="cm">	 * other bits are configured */</span>
+<span class="linenos">38</span><span class="w">	</span><span class="cm">/* Enable FIFOs for now at 1-byte, and flush them */</span>
+<span class="linenos">39</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_IDENTIFICATION_REGISTER_FIFO_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x2</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x1</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">	</span><span class="c1">//CT_UART.FCR = (0x80) | (0x4) | (0x2) | (0x01); // 8-byte RX FIFO trigger</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="w">	</span><span class="cm">/* Choose desired protocol settings by writing to LCR */</span>
+<span class="linenos">43</span><span class="w">	</span><span class="cm">/* 8-bit word, 1 stop bit, no parity, no break control and no divisor latch */</span>
+<span class="linenos">44</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="w">	</span><span class="cm">/* Enable loopback for test */</span>
+<span class="linenos">47</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODEM_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="w">	</span><span class="cm">/* Choose desired response to emulation suspend events by configuring</span>
+<span class="linenos">50</span><span class="cm">	 * FREE bit and enable UART by setting UTRST and URRST in PWREMU_MGMT */</span>
+<span class="linenos">51</span><span class="w">	</span><span class="cm">/* Allow UART to run free, enable UART TX/RX */</span>
+<span class="linenos">52</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x6001</span><span class="p">;</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="w">	</span><span class="cm">/*** END INITIALIZATION ***/</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="w">	</span><span class="cm">/* Priming the &#39;hostbuffer&#39; with a message */</span>
+<span class="linenos">57</span><span class="w">	</span><span class="n">hostBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello!  This is a long string</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="w">	</span><span class="cm">/*** SEND SOME DATA ***/</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span><span class="w">	</span><span class="cm">/* Let&#39;s send/receive some dummy data */</span>
+<span class="linenos">62</span><span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">63</span><span class="w">		</span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">64</span><span class="w">		</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">65</span><span class="w">			</span><span class="cm">/* Load character, ensure it is not string termination */</span>
+<span class="linenos">66</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hostBuffer</span><span class="p">[</span><span class="n">cnt</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+<span class="linenos">67</span><span class="w">				</span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">68</span><span class="w">			</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos">69</span><span class="w">			</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_THR_REGISTERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tx</span><span class="p">;</span>
+<span class="linenos">70</span><span class="w">	</span>
+<span class="linenos">71</span><span class="w">			</span><span class="cm">/* Because we are doing loopback, wait until LSR.DR == 1</span>
+<span class="linenos">72</span><span class="cm">			 * indicating there is data in the RX FIFO */</span>
+<span class="linenos">73</span><span class="w">			</span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_STATUS_REGISTER</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x0</span><span class="p">);</span>
+<span class="linenos">74</span><span class="w">	</span>
+<span class="linenos">75</span><span class="w">			</span><span class="cm">/* Read the value from RBR */</span>
+<span class="linenos">76</span><span class="w">			</span><span class="n">rx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_THR_REGISTERS</span><span class="p">;</span>
+<span class="linenos">77</span><span class="w">	</span>
+<span class="linenos">78</span><span class="w">			</span><span class="cm">/* Wait for TX FIFO to be empty */</span>
+<span class="linenos">79</span><span class="w">			</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_IDENTIFICATION_REGISTER_FIFO_CONTROL_REGISTER</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x2</span><span class="p">));</span>
+<span class="linenos">80</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">81</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">82</span>
+<span class="linenos">83</span><span class="w">	</span><span class="cm">/*** DONE SENDING DATA ***/</span>
+<span class="linenos">84</span>
+<span class="linenos">85</span><span class="w">	</span><span class="cm">/* Disable UART before halting */</span>
+<span class="linenos">86</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos">87</span>
+<span class="linenos">88</span><span class="w">	</span><span class="cm">/* Halt PRU core */</span>
+<span class="linenos">89</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">90</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/c913a5c0b386e2ecf1f38188da1a4c8f/uart1.pru1_0.c"><code class="xref download docutils literal notranslate"><span class="pre">uart1.pru1_0.c</span></code></a></p>
+<p>Set the following variables so <code class="docutils literal notranslate"><span class="pre">make</span></code> will know what to compile.</p>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-number">Listing 97 </span><span class="caption-text">make</span><a class="headerlink" href="#id22" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>*make<span class="w"> </span><span class="nv">TARGET</span><span class="o">=</span>uart1.pru0*
+/opt/source/pru-cookbook-code/common/Makefile:29:<span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span>TI_AM335x_BeagleBone_Black,TARGET<span class="o">=</span>uart1.pru0
+-<span class="w">    </span>Stopping<span class="w"> </span>PRU<span class="w"> </span><span class="m">0</span>
+-<span class="w">     </span>copying<span class="w"> </span>firmware<span class="w"> </span>file<span class="w"> </span>/tmp/vsx-examples/uart1.pru0.out<span class="w"> </span>to<span class="w"> </span>/lib/firmware/am335x-pru0-fw
+write_init_pins.sh
+-<span class="w">    </span>Starting<span class="w"> </span>PRU<span class="w"> </span><span class="m">0</span>
+<span class="nv">MODEL</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>TI_AM335x_BeagleBone_Black
+<span class="nv">PROC</span><span class="w">    </span><span class="o">=</span><span class="w"> </span>pru
+<span class="nv">PRUN</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">PRU_DIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/dev/remoteproc/pruss-core0
+</pre></div>
+</div>
+</div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">make</span></code> will compile, load PRU0 and start it.
+In a terminal window on your host computer run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host$<span class="w"> </span>*screen<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span><span class="m">115200</span>*
+</pre></div>
+</div>
+<p>It will initially display the first charters (<code class="docutils literal notranslate"><span class="pre">H</span></code>) and then as you enter
+characters on the keyboard, the rest of the message will appear.</p>
+<figure class="align-center" id="id23">
+<img alt="uart1.pru0.c output" src="../../../_images/uart1.pru0.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 791 </span><span class="caption-text">uart1.pru0.c output</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here’s the code (<code class="docutils literal notranslate"><span class="pre">uart1.pru1_0.c</span></code>) that does it.</p>
+<div class="literal-block-wrapper docutils container" id="id24">
+<span id="debug-uart1"></span><div class="code-block-caption"><span class="caption-number">Listing 98 </span><span class="caption-text">uart1.pru1_0.c</span><a class="headerlink" href="#id24" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// From: http://git.ti.com/pru-software-support-package/pru-software-support-package/trees/master/examples/am335x/PRU_Hardware_UART</span>
+<span class="linenos"> 2</span><span class="c1">// This example was converted to the am5729 by changing the names in pru_uart.h</span>
+<span class="linenos"> 3</span><span class="c1">// for the am335x to the more descriptive names for the am5729.</span>
+<span class="linenos"> 4</span><span class="c1">// For example  DLL convertes to DIVISOR_REGISTER_LSB_</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_uart.h&gt;</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="cm">/* The FIFO size on the PRU UART is 16 bytes; however, we are (arbitrarily)</span>
+<span class="linenos">10</span><span class="cm"> * only going to send 8 at a time */</span>
+<span class="linenos">11</span><span class="cp">#define FIFO_SIZE	16</span>
+<span class="linenos">12</span><span class="cp">#define MAX_CHARS	8</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos">15</span><span class="p">{</span>
+<span class="linenos">16</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">tx</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rx</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">	</span><span class="cm">/*  hostBuffer points to the string to be printed */</span>
+<span class="linenos">21</span><span class="w">	</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hostBuffer</span><span class="p">;</span>
+<span class="linenos">22</span><span class="w">	</span>
+<span class="linenos">23</span><span class="w">	</span><span class="cm">/*** INITIALIZATION ***/</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">	</span><span class="cm">/* Set up UART to function at 115200 baud - DLL divisor is 104 at 16x oversample</span>
+<span class="linenos">26</span><span class="cm">	 * 192MHz / 104 / 16 = ~115200 */</span>
+<span class="linenos">27</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DIVISOR_REGISTER_LSB_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">104</span><span class="p">;</span>
+<span class="linenos">28</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DIVISOR_REGISTER_MSB_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">29</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODE_DEFINITION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">	</span><span class="cm">/* Enable Interrupts in UART module. This allows the main thread to poll for</span>
+<span class="linenos">32</span><span class="cm">	 * Receive Data Available and Transmit Holding Register Empty */</span>
+<span class="linenos">33</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_ENABLE_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7</span><span class="p">;</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">	</span><span class="cm">/* If FIFOs are to be used, select desired trigger level and enable</span>
+<span class="linenos">36</span><span class="cm">	 * FIFOs by writing to FCR. FIFOEN bit in FCR must be set first before</span>
+<span class="linenos">37</span><span class="cm">	 * other bits are configured */</span>
+<span class="linenos">38</span><span class="w">	</span><span class="cm">/* Enable FIFOs for now at 1-byte, and flush them */</span>
+<span class="linenos">39</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_IDENTIFICATION_REGISTER_FIFO_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x2</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x1</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">	</span><span class="c1">//CT_UART.FCR = (0x80) | (0x4) | (0x2) | (0x01); // 8-byte RX FIFO trigger</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="w">	</span><span class="cm">/* Choose desired protocol settings by writing to LCR */</span>
+<span class="linenos">43</span><span class="w">	</span><span class="cm">/* 8-bit word, 1 stop bit, no parity, no break control and no divisor latch */</span>
+<span class="linenos">44</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="w">	</span><span class="cm">/* Enable loopback for test */</span>
+<span class="linenos">47</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODEM_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="w">	</span><span class="cm">/* Choose desired response to emulation suspend events by configuring</span>
+<span class="linenos">50</span><span class="cm">	 * FREE bit and enable UART by setting UTRST and URRST in PWREMU_MGMT */</span>
+<span class="linenos">51</span><span class="w">	</span><span class="cm">/* Allow UART to run free, enable UART TX/RX */</span>
+<span class="linenos">52</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x6001</span><span class="p">;</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="w">	</span><span class="cm">/*** END INITIALIZATION ***/</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="w">	</span><span class="cm">/* Priming the &#39;hostbuffer&#39; with a message */</span>
+<span class="linenos">57</span><span class="w">	</span><span class="n">hostBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello!  This is a long string</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="w">	</span><span class="cm">/*** SEND SOME DATA ***/</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span><span class="w">	</span><span class="cm">/* Let&#39;s send/receive some dummy data */</span>
+<span class="linenos">62</span><span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">63</span><span class="w">		</span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">64</span><span class="w">		</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">65</span><span class="w">			</span><span class="cm">/* Load character, ensure it is not string termination */</span>
+<span class="linenos">66</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hostBuffer</span><span class="p">[</span><span class="n">cnt</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+<span class="linenos">67</span><span class="w">				</span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">68</span><span class="w">			</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos">69</span><span class="w">			</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_THR_REGISTERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tx</span><span class="p">;</span>
+<span class="linenos">70</span><span class="w">	</span>
+<span class="linenos">71</span><span class="w">			</span><span class="cm">/* Because we are doing loopback, wait until LSR.DR == 1</span>
+<span class="linenos">72</span><span class="cm">			 * indicating there is data in the RX FIFO */</span>
+<span class="linenos">73</span><span class="w">			</span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_STATUS_REGISTER</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x0</span><span class="p">);</span>
+<span class="linenos">74</span><span class="w">	</span>
+<span class="linenos">75</span><span class="w">			</span><span class="cm">/* Read the value from RBR */</span>
+<span class="linenos">76</span><span class="w">			</span><span class="n">rx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_THR_REGISTERS</span><span class="p">;</span>
+<span class="linenos">77</span><span class="w">	</span>
+<span class="linenos">78</span><span class="w">			</span><span class="cm">/* Wait for TX FIFO to be empty */</span>
+<span class="linenos">79</span><span class="w">			</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_IDENTIFICATION_REGISTER_FIFO_CONTROL_REGISTER</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x2</span><span class="p">));</span>
+<span class="linenos">80</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">81</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">82</span>
+<span class="linenos">83</span><span class="w">	</span><span class="cm">/*** DONE SENDING DATA ***/</span>
+<span class="linenos">84</span>
+<span class="linenos">85</span><span class="w">	</span><span class="cm">/* Disable UART before halting */</span>
+<span class="linenos">86</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos">87</span>
+<span class="linenos">88</span><span class="w">	</span><span class="cm">/* Halt PRU core */</span>
+<span class="linenos">89</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">90</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/c913a5c0b386e2ecf1f38188da1a4c8f/uart1.pru1_0.c"><code class="xref download docutils literal notranslate"><span class="pre">uart1.pru1_0.c</span></code></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I’m using the AI version of the code since
+it uses variables with more desciptive names.</p>
+</div>
+<p>The first part of the code initializes the UART. Then the line
+<code class="docutils literal notranslate"><span class="pre">CT_UART.RBR_THR_REGISTERS</span> <span class="pre">=</span> <span class="pre">tx;</span></code> takes a character in <code class="docutils literal notranslate"><span class="pre">tx</span></code>
+and sends it to the transmit buffer on the UART. Think of
+this as the UART version of the <code class="docutils literal notranslate"><span class="pre">printf()</span></code>.</p>
+<p>Later the line <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(!((CT_UART.INTERRUPT_IDENTIFICATION_REGISTER_FIFO_CONTROL_REGISTER</span> <span class="pre">&amp;</span> <span class="pre">0x2)</span> <span class="pre">==</span> <span class="pre">0x2));</span></code>
+waits for the transmitter FIFO to be empty.  This makes sure later characters
+won’t overwrite the buffer before they can be sent.  The downside is, this will
+cause your code to wait on the buffer and it might miss an important
+real-time event.</p>
+<p>The line <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">((CT_UART.LINE_STATUS_REGISTER</span> <span class="pre">&amp;</span> <span class="pre">0x1)</span> <span class="pre">==</span> <span class="pre">0x0);</span></code> waits for an input from the
+UART (possibly missing something) and <code class="docutils literal notranslate"><span class="pre">rx</span> <span class="pre">=</span> <span class="pre">CT_UART.RBR_THR_REGISTERS;</span></code> reads from the
+receive register on the UART.</p>
+<p>These simple lines should be enough to place in your code to print out
+debugging information.</p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-number">Listing 99 </span><span class="caption-text">uart2.pru0.c</span><a class="headerlink" href="#id25" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">// From: http://git.ti.com/pru-software-support-package/pru-software-support-package/trees/master/pru_cape/pru_fw/PRU_Hardware_UART</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_uart.h&gt;</span>
+<span class="linenos">  5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="cm">/* The FIFO size on the PRU UART is 16 bytes; however, we are (arbitrarily)</span>
+<span class="linenos">  8</span><span class="cm"> * only going to send 8 at a time */</span>
+<span class="linenos">  9</span><span class="cp">#define FIFO_SIZE	16</span>
+<span class="linenos"> 10</span><span class="cp">#define MAX_CHARS	8</span>
+<span class="linenos"> 11</span><span class="cp">#define BUFFER		40</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 14</span><span class="c1">//    Print Message Out</span>
+<span class="linenos"> 15</span><span class="c1">//      This function take in a string literal of any size and then fill the</span>
+<span class="linenos"> 16</span><span class="c1">//      TX FIFO when it&#39;s empty and waits until there is info in the RX FIFO</span>
+<span class="linenos"> 17</span><span class="c1">//      before returning.</span>
+<span class="linenos"> 18</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 19</span><span class="kt">void</span><span class="w"> </span><span class="nf">PrintMessageOut</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">Message</span><span class="p">)</span>
+<span class="linenos"> 20</span><span class="p">{</span>
+<span class="linenos"> 21</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">cnt</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 24</span><span class="w">		</span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="w">		</span><span class="cm">/* Wait until the TX FIFO and the TX SR are completely empty */</span>
+<span class="linenos"> 27</span><span class="w">		</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LSR_bit</span><span class="p">.</span><span class="n">TEMT</span><span class="p">);</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="w">		</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Message</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_CHARS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 30</span><span class="w">			</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">THR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Message</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<span class="linenos"> 31</span><span class="w">			</span><span class="n">index</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos"> 32</span><span class="w">			</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos"> 33</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos"> 34</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Message</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos"> 35</span><span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="linenos"> 36</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span><span class="w">	</span><span class="cm">/* Wait until the TX FIFO and the TX SR are completely empty */</span>
+<span class="linenos"> 39</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LSR_bit</span><span class="p">.</span><span class="n">TEMT</span><span class="p">);</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="p">}</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 44</span><span class="c1">//    IEP Timer Config</span>
+<span class="linenos"> 45</span><span class="c1">//      This function waits until there is info in the RX FIFO and then returns</span>
+<span class="linenos"> 46</span><span class="c1">//      the first character entered.</span>
+<span class="linenos"> 47</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 48</span><span class="kt">char</span><span class="w"> </span><span class="nf">ReadMessageIn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos"> 49</span><span class="p">{</span>
+<span class="linenos"> 50</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LSR_bit</span><span class="p">.</span><span class="n">DR</span><span class="p">);</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_bit</span><span class="p">.</span><span class="n">DATA</span><span class="p">;</span>
+<span class="linenos"> 53</span><span class="p">}</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos"> 56</span><span class="p">{</span>
+<span class="linenos"> 57</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 58</span><span class="w">	</span><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">not_done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span><span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">BUFFER</span><span class="p">];</span>
+<span class="linenos"> 61</span><span class="w">	</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">BUFFER</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// null terminate the string</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span><span class="w">	</span><span class="cm">/*** INITIALIZATION ***/</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span><span class="w">	</span><span class="cm">/* Set up UART to function at 115200 baud - DLL divisor is 104 at 16x oversample</span>
+<span class="linenos"> 66</span><span class="cm">	 * 192MHz / 104 / 16 = ~115200 */</span>
+<span class="linenos"> 67</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">104</span><span class="p">;</span>
+<span class="linenos"> 68</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DLH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 69</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MDR_bit</span><span class="p">.</span><span class="n">OSM_SEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span><span class="w">	</span><span class="cm">/* Enable Interrupts in UART module. This allows the main thread to poll for</span>
+<span class="linenos"> 72</span><span class="cm">	 * Receive Data Available and Transmit Holding Register Empty */</span>
+<span class="linenos"> 73</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">IER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7</span><span class="p">;</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="w">	</span><span class="cm">/* If FIFOs are to be used, select desired trigger level and enable</span>
+<span class="linenos"> 76</span><span class="cm">	 * FIFOs by writing to FCR. FIFOEN bit in FCR must be set first before</span>
+<span class="linenos"> 77</span><span class="cm">	 * other bits are configured */</span>
+<span class="linenos"> 78</span><span class="w">	</span><span class="cm">/* Enable FIFOs for now at 1-byte, and flush them */</span>
+<span class="linenos"> 79</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">FCR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x80</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x2</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01</span><span class="p">);</span><span class="w"> </span><span class="c1">// 8-byte RX FIFO trigger</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span><span class="w">	</span><span class="cm">/* Choose desired protocol settings by writing to LCR */</span>
+<span class="linenos"> 82</span><span class="w">	</span><span class="cm">/* 8-bit word, 1 stop bit, no parity, no break control and no divisor latch */</span>
+<span class="linenos"> 83</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LCR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos"> 84</span>
+<span class="linenos"> 85</span><span class="w">	</span><span class="cm">/* If flow control is desired write appropriate values to MCR. */</span>
+<span class="linenos"> 86</span><span class="w">	</span><span class="cm">/* No flow control for now, but enable loopback for test */</span>
+<span class="linenos"> 87</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MCR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span><span class="w">	</span><span class="cm">/* Choose desired response to emulation suspend events by configuring</span>
+<span class="linenos"> 90</span><span class="cm">	 * FREE bit and enable UART by setting UTRST and URRST in PWREMU_MGMT */</span>
+<span class="linenos"> 91</span><span class="w">	</span><span class="cm">/* Allow UART to run free, enable UART TX/RX */</span>
+<span class="linenos"> 92</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">PWREMU_MGMT_bit</span><span class="p">.</span><span class="n">FREE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">;</span>
+<span class="linenos"> 93</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">PWREMU_MGMT_bit</span><span class="p">.</span><span class="n">URRST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">;</span>
+<span class="linenos"> 94</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">PWREMU_MGMT_bit</span><span class="p">.</span><span class="n">UTRST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">;</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span><span class="w">	</span><span class="cm">/* Turn off RTS and CTS functionality */</span>
+<span class="linenos"> 97</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MCR_bit</span><span class="p">.</span><span class="n">AFE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos"> 98</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MCR_bit</span><span class="p">.</span><span class="n">RTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span><span class="w">	</span><span class="cm">/*** END INITIALIZATION ***/</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">103</span><span class="w">		</span><span class="cm">/* Print out greeting message */</span>
+<span class="linenos">104</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="s">&quot;Hello you are in the PRU UART demo test please enter some characters</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">105</span><span class="w">	</span>
+<span class="linenos">106</span><span class="w">		</span><span class="cm">/* Read in characters from user, then echo them back out */</span>
+<span class="linenos">107</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">BUFFER</span><span class="mi">-1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">108</span><span class="w">			</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReadMessageIn</span><span class="p">();</span>
+<span class="linenos">109</span><span class="w">			</span><span class="k">if</span><span class="p">(</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">	</span><span class="c1">// Quit early if ENTER is hit.</span>
+<span class="linenos">110</span><span class="w">				</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="linenos">111</span><span class="w">				</span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">112</span><span class="w">			</span><span class="p">}</span>
+<span class="linenos">113</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">114</span><span class="w">	</span>
+<span class="linenos">115</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="s">&quot;you typed:</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">116</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="n">rxBuffer</span><span class="p">);</span>
+<span class="linenos">117</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">118</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="w">	</span><span class="cm">/*** DONE SENDING DATA ***/</span>
+<span class="linenos">121</span><span class="w">	</span><span class="cm">/* Disable UART before halting */</span>
+<span class="linenos">122</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">PWREMU_MGMT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos">123</span>
+<span class="linenos">124</span><span class="w">	</span><span class="cm">/* Halt PRU core */</span>
+<span class="linenos">125</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">126</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/3ac57096d4a1f63a03474de4a677f5dc/uart2.pru0.c"><code class="xref download docutils literal notranslate"><span class="pre">uart2.pru0.c</span></code></a></p>
+<p>If you want to try <code class="docutils literal notranslate"><span class="pre">uart2.pru0.c</span></code>, run the following:</p>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-number">Listing 100 </span><span class="caption-text">make</span><a class="headerlink" href="#id26" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bone$<span class="w"> </span>*make<span class="w"> </span><span class="nv">TARGET</span><span class="o">=</span>uart2.pru0*
+/opt/source/pru-cookbook-code/common/Makefile:29:<span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span>TI_AM335x_BeagleBone_Black,TARGET<span class="o">=</span>uart2.pru0
+-<span class="w">    </span>Stopping<span class="w"> </span>PRU<span class="w"> </span><span class="m">0</span>
+-<span class="w">     </span>copying<span class="w"> </span>firmware<span class="w"> </span>file<span class="w"> </span>/tmp/vsx-examples/uart2.pru0.out<span class="w"> </span>to<span class="w"> </span>/lib/firmware/am335x-pru0-fw
+write_init_pins.sh
+-<span class="w">    </span>Starting<span class="w"> </span>PRU<span class="w"> </span><span class="m">0</span>
+<span class="nv">MODEL</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>TI_AM335x_BeagleBone_Black
+<span class="nv">PROC</span><span class="w">    </span><span class="o">=</span><span class="w"> </span>pru
+<span class="nv">PRUN</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">PRU_DIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/dev/remoteproc/pruss-core0
+</pre></div>
+</div>
+</div>
+<p>You will see:</p>
+<figure class="align-center" id="id27">
+<img alt="uart2.pru0.c output" src="../../../_images/uart2.pru0.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 792 </span><span class="caption-text">uart2.pru0.c output</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Type a few characters and hit ENTER. The PRU will playback what you typed,
+but it won’t echo it as you type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">uart2.pru0.c</span></code> defines <code class="docutils literal notranslate"><span class="pre">PrintMessageOut()</span></code> which is passed a string that is
+sent to the UART. It takes advantage of the eight character FIFO on the UART.
+Be careful using it because it also uses <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(!CT_UART.LSR_bit.TEMT);</span></code> to
+wait for the FIFO to empty, which may cause your code to miss something.</p>
+<p><a class="reference internal" href="#debug-uart2"><span class="std std-ref">uart2.pru1_0.c</span></a> is the code that does it.</p>
+<div class="literal-block-wrapper docutils container" id="id28">
+<span id="debug-uart2"></span><div class="code-block-caption"><span class="caption-number">Listing 101 </span><span class="caption-text">uart2.pru1_0.c</span><a class="headerlink" href="#id28" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">// From: http://git.ti.com/pru-software-support-package/pru-software-support-package/trees/master/pru_cape/pru_fw/PRU_Hardware_UART</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pru_uart.h&gt;</span>
+<span class="linenos">  5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;resource_table_empty.h&quot;</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="cm">/* The FIFO size on the PRU UART is 16 bytes; however, we are (arbitrarily)</span>
+<span class="linenos">  8</span><span class="cm"> * only going to send 8 at a time */</span>
+<span class="linenos">  9</span><span class="cp">#define FIFO_SIZE	16</span>
+<span class="linenos"> 10</span><span class="cp">#define MAX_CHARS	8</span>
+<span class="linenos"> 11</span><span class="cp">#define BUFFER		40</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 14</span><span class="c1">//    Print Message Out</span>
+<span class="linenos"> 15</span><span class="c1">//      This function take in a string literal of any size and then fill the</span>
+<span class="linenos"> 16</span><span class="c1">//      TX FIFO when it&#39;s empty and waits until there is info in the RX FIFO</span>
+<span class="linenos"> 17</span><span class="c1">//      before returning.</span>
+<span class="linenos"> 18</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 19</span><span class="kt">void</span><span class="w"> </span><span class="nf">PrintMessageOut</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">Message</span><span class="p">)</span>
+<span class="linenos"> 20</span><span class="p">{</span>
+<span class="linenos"> 21</span><span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">cnt</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 24</span><span class="w">		</span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="w">		</span><span class="cm">/* Wait until the TX FIFO and the TX SR are completely empty */</span>
+<span class="linenos"> 27</span><span class="w">		</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_STATUS_REGISTER_bit</span><span class="p">.</span><span class="n">TEMT</span><span class="p">);</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="w">		</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Message</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_CHARS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 30</span><span class="w">			</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_THR_REGISTERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Message</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<span class="linenos"> 31</span><span class="w">			</span><span class="n">index</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos"> 32</span><span class="w">			</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos"> 33</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos"> 34</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Message</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="linenos"> 35</span><span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="linenos"> 36</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span><span class="w">	</span><span class="cm">/* Wait until the TX FIFO and the TX SR are completely empty */</span>
+<span class="linenos"> 39</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_STATUS_REGISTER_bit</span><span class="p">.</span><span class="n">TEMT</span><span class="p">);</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="p">}</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 44</span><span class="c1">//    IEP Timer Config</span>
+<span class="linenos"> 45</span><span class="c1">//      This function waits until there is info in the RX FIFO and then returns</span>
+<span class="linenos"> 46</span><span class="c1">//      the first character entered.</span>
+<span class="linenos"> 47</span><span class="c1">//******************************************************************************</span>
+<span class="linenos"> 48</span><span class="kt">char</span><span class="w"> </span><span class="nf">ReadMessageIn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos"> 49</span><span class="p">{</span>
+<span class="linenos"> 50</span><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_STATUS_REGISTER_bit</span><span class="p">.</span><span class="n">DR</span><span class="p">);</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">CT_UART</span><span class="p">.</span><span class="n">RBR_THR_REGISTERS_bit</span><span class="p">.</span><span class="n">DATA</span><span class="p">;</span>
+<span class="linenos"> 53</span><span class="p">}</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="linenos"> 56</span><span class="p">{</span>
+<span class="linenos"> 57</span><span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos"> 58</span><span class="w">	</span><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">not_done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span><span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">BUFFER</span><span class="p">];</span>
+<span class="linenos"> 61</span><span class="w">	</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">BUFFER</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// null terminate the string</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span><span class="w">	</span><span class="cm">/*** INITIALIZATION ***/</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span><span class="w">	</span><span class="cm">/* Set up UART to function at 115200 baud - DLL divisor is 104 at 16x oversample</span>
+<span class="linenos"> 66</span><span class="cm">	 * 192MHz / 104 / 16 = ~115200 */</span>
+<span class="linenos"> 67</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DIVISOR_REGISTER_LSB_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">104</span><span class="p">;</span>
+<span class="linenos"> 68</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">DIVISOR_REGISTER_MSB_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 69</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODE_DEFINITION_REGISTER_bit</span><span class="p">.</span><span class="n">OSM_SEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span><span class="w">	</span><span class="cm">/* Enable Interrupts in UART module. This allows the main thread to poll for</span>
+<span class="linenos"> 72</span><span class="cm">	 * Receive Data Available and Transmit Holding Register Empty */</span>
+<span class="linenos"> 73</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_ENABLE_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7</span><span class="p">;</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="w">	</span><span class="cm">/* If FIFOs are to be used, select desired trigger level and enable</span>
+<span class="linenos"> 76</span><span class="cm">	 * FIFOs by writing to FCR. FIFOEN bit in FCR must be set first before</span>
+<span class="linenos"> 77</span><span class="cm">	 * other bits are configured */</span>
+<span class="linenos"> 78</span><span class="w">	</span><span class="cm">/* Enable FIFOs for now at 1-byte, and flush them */</span>
+<span class="linenos"> 79</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">INTERRUPT_IDENTIFICATION_REGISTER_FIFO_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x80</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x2</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01</span><span class="p">);</span><span class="w"> </span><span class="c1">// 8-byte RX FIFO trigger</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span><span class="w">	</span><span class="cm">/* Choose desired protocol settings by writing to LCR */</span>
+<span class="linenos"> 82</span><span class="w">	</span><span class="cm">/* 8-bit word, 1 stop bit, no parity, no break control and no divisor latch */</span>
+<span class="linenos"> 83</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">LINE_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos"> 84</span>
+<span class="linenos"> 85</span><span class="w">	</span><span class="cm">/* If flow control is desired write appropriate values to MCR. */</span>
+<span class="linenos"> 86</span><span class="w">	</span><span class="cm">/* No flow control for now, but enable loopback for test */</span>
+<span class="linenos"> 87</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODEM_CONTROL_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span><span class="w">	</span><span class="cm">/* Choose desired response to emulation suspend events by configuring</span>
+<span class="linenos"> 90</span><span class="cm">	 * FREE bit and enable UART by setting UTRST and URRST in PWREMU_MGMT */</span>
+<span class="linenos"> 91</span><span class="w">	</span><span class="cm">/* Allow UART to run free, enable UART TX/RX */</span>
+<span class="linenos"> 92</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER_bit</span><span class="p">.</span><span class="n">FREE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">;</span>
+<span class="linenos"> 93</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER_bit</span><span class="p">.</span><span class="n">URRST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">;</span>
+<span class="linenos"> 94</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER_bit</span><span class="p">.</span><span class="n">UTRST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">;</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span><span class="w">	</span><span class="cm">/* Turn off RTS and CTS functionality */</span>
+<span class="linenos"> 97</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODEM_CONTROL_REGISTER_bit</span><span class="p">.</span><span class="n">AFE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos"> 98</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">MODEM_CONTROL_REGISTER_bit</span><span class="p">.</span><span class="n">RTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span><span class="w">	</span><span class="cm">/*** END INITIALIZATION ***/</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">103</span><span class="w">		</span><span class="cm">/* Print out greeting message */</span>
+<span class="linenos">104</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="s">&quot;Hello you are in the PRU UART demo test please enter some characters</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">105</span><span class="w">	</span>
+<span class="linenos">106</span><span class="w">		</span><span class="cm">/* Read in characters from user, then echo them back out */</span>
+<span class="linenos">107</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">BUFFER</span><span class="mi">-1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">108</span><span class="w">			</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReadMessageIn</span><span class="p">();</span>
+<span class="linenos">109</span><span class="w">			</span><span class="k">if</span><span class="p">(</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">	</span><span class="c1">// Quit early if ENTER is hit.</span>
+<span class="linenos">110</span><span class="w">				</span><span class="n">rxBuffer</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="linenos">111</span><span class="w">				</span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">112</span><span class="w">			</span><span class="p">}</span>
+<span class="linenos">113</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">114</span><span class="w">	</span>
+<span class="linenos">115</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="s">&quot;you typed:</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">116</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="n">rxBuffer</span><span class="p">);</span>
+<span class="linenos">117</span><span class="w">		</span><span class="n">PrintMessageOut</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">118</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="w">	</span><span class="cm">/*** DONE SENDING DATA ***/</span>
+<span class="linenos">121</span><span class="w">	</span><span class="cm">/* Disable UART before halting */</span>
+<span class="linenos">122</span><span class="w">	</span><span class="n">CT_UART</span><span class="p">.</span><span class="n">POWERMANAGEMENT_AND_EMULATION_REGISTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">;</span>
+<span class="linenos">123</span>
+<span class="linenos">124</span><span class="w">	</span><span class="cm">/* Halt PRU core */</span>
+<span class="linenos">125</span><span class="w">	</span><span class="n">__halt</span><span class="p">();</span>
+<span class="linenos">126</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/6f6763f9bd486f72abd39084b9644b78/uart2.pru1_0.c"><code class="xref download docutils literal notranslate"><span class="pre">uart2.pru1_0.c</span></code></a></p>
+<p>More complex examples can be built using the principles shown in these examples.</p>
+<section id="copyright">
+<h4>Copyright<a class="headerlink" href="#copyright" title="Link to this heading">#</a></h4>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-number">Listing 102 </span><span class="caption-text">copyright.c</span><a class="headerlink" href="#id29" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cm">/*</span>
+<span class="linenos"> 2</span><span class="cm"> * Copyright (C) 2015 Texas Instruments Incorporated - http://www.ti.com/</span>
+<span class="linenos"> 3</span><span class="cm"> *</span>
+<span class="linenos"> 4</span><span class="cm"> *</span>
+<span class="linenos"> 5</span><span class="cm"> * Redistribution and use in source and binary forms, with or without</span>
+<span class="linenos"> 6</span><span class="cm"> * modification, are permitted provided that the following conditions</span>
+<span class="linenos"> 7</span><span class="cm"> * are met:</span>
+<span class="linenos"> 8</span><span class="cm"> *</span>
+<span class="linenos"> 9</span><span class="cm"> *	* Redistributions of source code must retain the above copyright</span>
+<span class="linenos">10</span><span class="cm"> *	  notice, this list of conditions and the following disclaimer.</span>
+<span class="linenos">11</span><span class="cm"> *</span>
+<span class="linenos">12</span><span class="cm"> *	* Redistributions in binary form must reproduce the above copyright</span>
+<span class="linenos">13</span><span class="cm"> *	  notice, this list of conditions and the following disclaimer in the</span>
+<span class="linenos">14</span><span class="cm"> *	  documentation and/or other materials provided with the</span>
+<span class="linenos">15</span><span class="cm"> *	  distribution.</span>
+<span class="linenos">16</span><span class="cm"> *</span>
+<span class="linenos">17</span><span class="cm"> *	* Neither the name of Texas Instruments Incorporated nor the names of</span>
+<span class="linenos">18</span><span class="cm"> *	  its contributors may be used to endorse or promote products derived</span>
+<span class="linenos">19</span><span class="cm"> *	  from this software without specific prior written permission.</span>
+<span class="linenos">20</span><span class="cm"> *</span>
+<span class="linenos">21</span><span class="cm"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
+<span class="linenos">22</span><span class="cm"> * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
+<span class="linenos">23</span><span class="cm"> * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</span>
+<span class="linenos">24</span><span class="cm"> * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT</span>
+<span class="linenos">25</span><span class="cm"> * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</span>
+<span class="linenos">26</span><span class="cm"> * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT</span>
+<span class="linenos">27</span><span class="cm"> * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span class="linenos">28</span><span class="cm"> * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span class="linenos">29</span><span class="cm"> * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span class="linenos">30</span><span class="cm"> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
+<span class="linenos">31</span><span class="cm"> * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="linenos">32</span><span class="cm"> */</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/f1c3ce73b0a92d3efee36e285344e5c9/copyright.c"><code class="xref download docutils literal notranslate"><span class="pre">copyright.c</span></code></a></p>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="debug1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://shop.oreilly.com/product/0636920033899.do">FTDI images are from the BeagleBone Cookbook</a></p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../03details/details.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Running a Program; Configuring Pins</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../05blocks/blocks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Building Blocks - Applications</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-via-an-led">Debugging via an LED</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dmesg-hw">dmesg Hw</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">dmesg -Hw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prudebug-a-simple-debugger-for-the-pru">prudebug - A Simple Debugger for the PRU</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uart">UART</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Discussion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#details">Details</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config-pin">config-pin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright">Copyright</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/books/pru-cookbook/04debug/debug.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/books/pru-cookbook/04debug/debug.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

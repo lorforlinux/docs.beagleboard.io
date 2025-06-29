@@ -1,0 +1,2588 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>How can I contribute? &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro/contribution/how';</script>
+    <link rel="canonical" href="docs.beagleboard.io/intro/contribution/how.html" />
+    <link rel="icon" href="../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Google Summer of Code (GSoC)" href="gsoc.html" />
+    <link rel="prev" title="What should I know before I get started?" href="background.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../boards/index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../beagle101/index.html">An Introduction to Beagles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/blinkLED.html">Blink an LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/c.html">Introduction to C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/assembly.html">Introduction to Assembly Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/verilog.html">Introduction to Verilog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/basic-wiring.html">Introduction to Wiring Electronics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/embedded-serial.html">Introduction to Embedded Serial Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/qwiic-stemma-grove-addons.html">QWIIC, STEMMA and Grove Add-ons in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/motors.html">Introduction to Motors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/zephyr.html">Introduction to Zephyr RTOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/linux.html">Introduction to Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/device-tree.html">Introduction to Device Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/fpga.html">Introduction to Field Programmable Gate Arrays (FPGAs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/verification.html">Introduction to Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/arm.html">Introduction to Arm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/riscv.html">Introduction to RISC-V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/openbeagle-ci.html">Introduction to OpenBeagle Continuous Integration (CI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/buildroot.html">Introduction to Buildroot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/debian.html">Introduction to Debian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beagle101/wireless-communications.html">Introduction to Wireless Communications</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../support/index.html">Support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../support/getting-started.html">Getting Started Guide</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Contribution</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">What should I know before I get started?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background.html">What should I know before I get started?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">How can I contribute?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gsoc.html">Google Summer of Code (GSoC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-usage.html">Git Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Documentation Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst-cheat-sheet.html">ReStructuredText Cheat Sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux-upstream.html">Upstream Kernel Contributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc-builder.html">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CONTRIB.html">Contributors</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Introduction</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Contribution</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How can I contribute?</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="how-can-i-contribute">
+<span id="contribution-how"></span><h1>How can I contribute?<a class="headerlink" href="#how-can-i-contribute" title="Link to this heading">#</a></h1>
+<p>The most obvious way to contribute is using the <a class="reference external" href="https://openbeagle.org">OpenBeagle (BeagleBoard.org GitLab server)</a> to report
+bugs, suggest enhancements and providing merge requests / pull requests to fix software, hardware designs and documentation. We
+have made it easy to share the link while you are working with documentation and provide feedback for any heading, figure, and table.</p>
+<ol class="arabic simple">
+<li><p><span class="fas fa-link pst-color-secondary"></span> button is to copy the link of current heading, figure, or table.</p></li>
+<li><p><span class="fas fa-message pst-color-secondary"></span> button is to open feedback modal for submitting issue, feedback, and idea.</p></li>
+</ol>
+<figure class="align-center" id="id3">
+<img alt="Copy link and feedback button" src="../../_images/copy-link-and-feedback-button.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Copy link and feedback button</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When you click on <span class="fas fa-message pst-color-secondary"></span> button, you will see the modal as shown in the image below.
+With this you can easily provide us ideas, feedback, and create issues directly on OpenBeagle from docs site.</p>
+<figure class="align-center" id="id4">
+<img alt="Feedback modal" src="../../_images/feedback-modal.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Feedback modal</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need an active OpenBeagle account to use the feedback modal.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Reading the <a class="reference external" href="https://openbeagle.org/help/">help guide</a> is a great way to get started using OpenBeagle.</p>
+</div>
+<section id="suggesting-enhancements">
+<h2>Suggesting enhancements<a class="headerlink" href="#suggesting-enhancements" title="Link to this heading">#</a></h2>
+<p>An issue doesn’t have to be something wrong, it can just be about making something better. If in doubt how to make
+a productive suggestion, hop on the forum and live chat groups to see what other people say. Check the current
+ideas that are already out there and give us your idea. Try to be constructive in your suggestion. We are a primarily
+a volunteer community looking to make your experience better, as those that follow you, and your suggestion could be
+key in that endeavor.</p>
+<p>Where available, use the “enhancement” <a class="reference external" href="https://openbeagle.org/help/user/project/labels.md">label</a> on your issue
+to make sure we know you are looking for a future improvement, not reporting something critically wrong.</p>
+</section>
+<section id="submitting-merge-requests">
+<h2>Submitting merge requests<a class="headerlink" href="#submitting-merge-requests" title="Link to this heading">#</a></h2>
+<p>If you want to contribute to a project, the most practical way is with a
+<a class="reference external" href="https://openbeagle.org/help/user/project/merge_requests/index.html">merge request</a>. Start
+by <a class="reference external" href="https://openbeagle.org/help/user/project/repository/forking_workflow.html">creating a fork</a>, which
+is your own copy of the project you can feel free to edit how you see fit. When ready,
+<a class="reference external" href="https://openbeagle.org/help/user/project/merge_requests/creating_merge_requests.html">create a merge request</a> and
+we’ll review your work and give comments back to you. If suitable, we’ll update the code to include your contribution!</p>
+<p>A bit more detailed suggestions can be found in the articles linked below.</p>
+</section>
+<section id="site-editing-guide">
+<span id="docs-site-editing-guide"></span><h2>Site Editing Guide<a class="headerlink" href="#site-editing-guide" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.beagleboard.org/">Docs</a> site uses <a class="reference external" href="https://docs.gitlab.com/ee/ci/">OpenBeagle Continous Integration (CI) / Continous Development
+(CD)</a> which is a continuous method of software development, where
+you continuously build, test, deploy, and monitor iterative code changes. which means you don’t have to setup
+anything on your local machine to update anything on the site. To contribute to this site, you can follow the
+simple steps provided below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://openbeagle.org/">OpenBeagle</a> is a self hosted instance of open source program called <a class="reference external" href="https://about.gitlab.com/">GitLab</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you want to build on your local machine we have added <code class="docutils literal notranslate"><span class="pre">venv-build-env.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>
+to help you setup sphinx and all the other dependencies. Execute these commands in your terminal,</p>
+<p>Install python modules and setup virtual environment,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.<span class="w"> </span>./venv-build-env.sh
+</pre></div>
+</div>
+<p>Build and serve it live using <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code>,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>livehtml
+</pre></div>
+</div>
+<p>Now, you can open <a class="reference external" href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> on any browser to see the rendered HTML with live updates.
+Clear cookies and site data in your browser window to view up-to-date site.</p>
+</div>
+<section id="fork-the-project">
+<h3>Fork the project<a class="headerlink" href="#fork-the-project" title="Link to this heading">#</a></h3>
+<p>Go to <a class="reference external" href="https://openbeagle.org/docs/docs.beagleboard.io">docs.beagleboard.io repo on OpenBeagle</a>
+and click on fork button create a fork on your personal OpenBeagle profile.</p>
+<figure class="align-center" id="id5">
+<img alt="Fork button" src="../../_images/fork-button.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Fork button</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After clicking on the fork button, you’ll be taken to a page like shown below where you have to,</p>
+<ol class="arabic simple">
+<li><p>Select your profile from the dropdown.</p></li>
+<li><p>Click on fork project button to initiate the forking process.</p></li>
+</ol>
+<figure class="align-center" id="id6">
+<img alt="Fork project" src="../../_images/fork-project.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Fork project</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="select-file-to-edit">
+<h3>Select file to edit<a class="headerlink" href="#select-file-to-edit" title="Link to this heading">#</a></h3>
+<p>After successfully forking the project you have to,</p>
+<ol class="arabic simple">
+<li><p>Make sure you are on the forked repo on your profile, it should be <code class="docutils literal notranslate"><span class="pre">https://openbeagle.org/&lt;user-name&gt;/docs.beagleboard.io</span></code> where &lt;user-name&gt; should be replaced with your OpenBeagle username.</p></li>
+<li><p>Select any file you want to edit from the files &amp; folders view of the repo page.</p></li>
+</ol>
+<figure class="align-center" id="id7">
+<img alt="Repository files and folders" src="../../_images/repo-file-folders.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Repository files and folders</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After selecting the file you have to click on <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">button</span></code> and then choose either of the options from drop-down,</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Web</span> <span class="pre">IDE</span></code>, choose this if you want to work on multiple files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">single</span> <span class="pre">file</span></code>, choose this if you want to make some small edits in a single file.</p></li>
+</ol>
+<figure class="align-center" id="id8">
+<img alt="Edit button" src="../../_images/edit-button.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Edit button</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Choosing <code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">IDE</span></code> will load a <a class="reference external" href="https://code.visualstudio.com/docs/remote/vscode-server">Visual Studio Code Server</a>
+instance which is a feature rich source code editor. Depending on the internent connection, your machine will take some time to
+load the editor and it can be a bit heavy for some machines to handle. Once fully loaded it should run smoothly but, if that is
+not the case then please consider using single file editor option. Considering majority of the users will be using <code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">IDE</span></code> option,
+we are using the <code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">IDE</span></code> for the rest of this guide.</p>
+</div>
+</section>
+<section id="start-editing">
+<h3>Start editing<a class="headerlink" href="#start-editing" title="Link to this heading">#</a></h3>
+<p>If you select to open your file in <code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">IDE</span></code> you’ll see a familar interface. The GitLab Web IDE is actually a rich
+<a class="reference external" href="https://code.visualstudio.com/docs/remote/vscode-server">Visual Studio Code Server</a> hosted on OpenBeagle.</p>
+<figure class="align-center" id="id9">
+<img alt="Web IDE" src="../../_images/ide.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Wed IDE</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We use <a class="reference external" href="https://en.wikipedia.org/wiki/ReStructuredText">reStructuredText (RST)</a> for all of our documentation projects
+including <a class="reference external" href="https://gsoc.beagleboard.io/">GSoC site</a> and <a class="reference external" href="https://docs.beagleboard.org/latest/">documentation site</a>.
+If you are new to reStructuredText you can checkout our <a class="reference external" href="https://docs.beagleboard.org/latest/intro/contribution/rst-cheat-sheet.html">reStructuredText cheatsheet</a> to get yourself familiar with reStructuredText.</p>
+</div>
+<div class="admonition-why-not-use-markdown-for-documentation admonition">
+<p class="admonition-title">Why not use Markdown for documentation?</p>
+<p>Because reStructuredText stands out against Markdown as,</p>
+<ol class="arabic simple">
+<li><p>It’s more fully-featured.</p></li>
+<li><p>It’s much more standardized and uniform.</p></li>
+<li><p>It has built-in support for extensions.</p></li>
+</ol>
+<p>For more detailed comparison you can checkout <a class="reference external" href="https://eli.thegreenplace.net/2017/restructuredtext-vs-markdown-for-technical-documentation/">this article on reStructuredText vs. Markdown for technical
+documentation</a></p>
+</div>
+<p>Now you have to select a file and start editing. Below image shows some,</p>
+<ol class="arabic simple">
+<li><p>Edits made to the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file, changes are highlighted with green bar on left side of code editor window near line numbers.</p></li>
+<li><p>Source control button indicating (1) file updated in the repo.</p></li>
+</ol>
+<figure class="align-center" id="id10">
+<img alt="Make edits" src="../../_images/make-edits.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Make edits</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Just like you do on your normal Visual Studio Code desktop application, to commit your changes you can either
+click on Source control ( <span class="fa fa-code-branch pst-color-secondary"></span> ) button or press <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">SHIFT</span> <span class="pre">+</span> <span class="pre">G</span></code> to see all the edited files.</p>
+</div>
+<p>After switching to source control you have to,</p>
+<ol class="arabic simple">
+<li><p>Add a commit message in the input field then commit your changes.</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">to</span> <span class="pre">main</span></code> button (not recommended).</p></li>
+<li><p>Click on drop down button to choose <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">to</span> <span class="pre">new</span> <span class="pre">branch</span></code> (recommended).</p></li>
+</ol>
+<figure class="align-center" id="id11">
+<img alt="Commit changes" src="../../_images/commit-changes.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Commit changes</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After clicking <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">to</span> <span class="pre">'main'</span></code> button you’ll be prompted with a window (shown below) with three options,</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">branch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cancel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Continue</span></code></p></li>
+</ol>
+<p>Click on <code class="docutils literal notranslate"><span class="pre">Continue</span></code> button if you want to commit to main (default branch) if it’s a single edit or commit.
+Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">branch</span></code> if you want to create a new branch and want to keep your main branch clean. Advantage
+of creating a new branch is that assigned reviewer for a pull request / merge request can also add commits to your
+newly created branch which is not possible for your main branch because it’s a <a class="reference external" href="https://docs.gitlab.com/ee/user/project/protected_branches.html">protected branch</a> by default.</p>
+<figure class="align-center" id="id12">
+<img alt="Commit branch" src="../../_images/commit-branch.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Commit branch</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When all done right, at the lower right side of the <code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">IDE</span></code> you’ll see a prompt showing
+<code class="docutils literal notranslate"><span class="pre">Success!</span> <span class="pre">Your</span> <span class="pre">changes</span> <span class="pre">have</span> <span class="pre">been</span> <span class="pre">committed</span></code> message with two buttons,</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Go</span> <span class="pre">to</span> <span class="pre">Project</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Continue</span> <span class="pre">working</span></code></p></li>
+</ol>
+<figure class="align-center" id="id13">
+<img alt="Commit success" src="../../_images/commit-success.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Commit success</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If you click on <code class="docutils literal notranslate"><span class="pre">Go</span> <span class="pre">to</span> <span class="pre">Project</span></code> button, you’ll see,
+1. The commit successfully applied and the green tick shown on the right side indicates that the CI build was also successful.
+2. Option to create a merge request and update your fork.</p>
+<figure class="align-center" id="id14">
+<img alt="Commit" src="../../_images/commit.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Commit</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-congratulations admonition">
+<p class="admonition-title">Congratulations!!</p>
+<p>You have made a valuable contribution to an OpenBeagle project!</p>
+</div>
+</section>
+<section id="id2">
+<h3>Create a merge request<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>After making your changes and commiting them to your forked repo, you are set to create a new <a class="reference external" href="https://en.wikipedia.org/wiki/Distributed_version_control#Pull_requests">pull request / merge request</a> so that those changes can be merged to upstream
+repo. To start your new PR, click on the dedicated button to create a new merge request and fill out all the details. The image
+below shows all the fields you have to update,</p>
+<ol class="arabic simple">
+<li><p>Provide a good title that reflects your work.</p></li>
+<li><p>Add a detailed description of the work you have done. Add pictures whenever seems useful.</p></li>
+<li><p>(Optional) you can assign it to yourself if you’ll be working on further updates or assign it to someone else who might want to work on the comments we may provide on your work.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">lorforlinux</span></code> as reviewer for PRs with site content update or add your mentor as reviewer if it’s related to project work / proposal.</p></li>
+<li><p>If you want your commits to be shown as a single commit, then you can choose the <code class="docutils literal notranslate"><span class="pre">sqash</span> <span class="pre">commits</span> <span class="pre">...</span></code> check box.</p></li>
+<li><p>Check if all your commits are shown in the bottom of the screen and if everything looks okay, then click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">merge</span> <span class="pre">request</span></code> button.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are still working on some updates, you may also choose <code class="docutils literal notranslate"><span class="pre">Mark</span> <span class="pre">as</span> <span class="pre">draft</span></code> checkbox (below title)
+which indicates that you are seeking feedback before making your commits suitable to merge.</p>
+</div>
+<figure class="align-center" id="id15">
+<img alt="Merge request" src="../../_images/merge-request.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Merge request</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now wait for a review and, if comments are raised, then you can continue working on the project
+until everything looks perfect and your changes are merged in upstream.</p>
+</section>
+</section>
+<section id="google-summer-of-code-gsoc">
+<h2>Google Summer of Code (GSoC)<a class="headerlink" href="#google-summer-of-code-gsoc" title="Link to this heading">#</a></h2>
+<p>For newcomers venturing into the realm of open-source contribution, Google Summer of Code (GSoC) stands as an invaluable platform. GSoC provides a unique opportunity to collaborate with the open-source community, engaging in the identification and development of exciting projects during the summer term.</p>
+<p>BeagleBoard.org serves as a mentorship organization that takes part in the Google Summer of Code program actively, giving students the opportunity to work on open-source projects during the summer. Visit our dedicated <a class="reference internal" href="gsoc.html#beagleboard-gsoc"><span class="std std-ref">Google Summer of Code (GSoC)</span></a> for more information about this program, including past projects and mentorship opportunities.</p>
+</section>
+<section id="reporting-bugs">
+<h2>Reporting bugs<a class="headerlink" href="#reporting-bugs" title="Link to this heading">#</a></h2>
+<p>Start by reading the <a class="reference external" href="https://openbeagle.org/help/user/project/issues/index.md">OpenBeagle Issues help page</a>.</p>
+<p>Please request an account and report any issues on the appropriate project issue tracker at <a class="reference external" href="https://openbeagle.org">https://openbeagle.org</a>.</p>
+<p>Report issues on the software images at <a class="reference external" href="https://openbeagle.org/explore/topics/distros">https://openbeagle.org/explore/topics/distros</a>.</p>
+<p>Report issues on the hardware at <a class="reference external" href="https://openbeagle.org/explore/projects/topics/boards">https://openbeagle.org/explore/projects/topics/boards</a>.</p>
+</section>
+<section id="tackle-to-do-list">
+<span id="contribution-todo-list"></span><h2>Tackle to-do list<a class="headerlink" href="#tackle-to-do-list" title="Link to this heading">#</a></h2>
+<p>This documentation has a number of <code class="docutils literal notranslate"><span class="pre">todo</span></code> items where help is needed that can be searched in the source. This list will
+show up directly in the staging documentation at <a class="reference external" href="https://docs.beagleboard.io/latest/intro/contribution/how.html#contribution-todo-list">https://docs.beagleboard.io/latest/intro/contribution/how.html#contribution-todo-list</a></p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add cape compatibility details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/01-introduction.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/01-introduction.rst, line 75.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Variable &amp; MAC Memory</p></li>
+<li><p>VSYS_IO_3V3</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/04-expansion.html#id5"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/04-expansion.rst, line 1666.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p><em>Clean/Update table</em></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/04-expansion.html#id7"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/04-expansion.rst, line 1691.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Align with other boards and migrate away from pin usage entries for BeagleBone Black expansion</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/04-expansion.html#id8"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/04-expansion.rst, line 1761.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone AI-64 cape mechanical characteristics**</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/04-expansion.html#id23"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/04-expansion.rst, line 2131.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update everything taken from BBB chapters to BB AI-64 compatible text.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/04-expansion.html#id26"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/04-expansion.rst, line 2172.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>IMX219 CSI sensor connection with BeagleBone® AI-64 for Edge AI</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/edge_ai_apps/getting_started.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/edge_ai_apps/getting_started.rst, line 78.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>BeagleBone® AI-64 wallpaper upon boot</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/edge_ai_apps/getting_started.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/edge_ai_apps/getting_started.rst, line 182.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Microsoft Visual Studio Code for connecting to BeagleBone® AI-64 for Edge AI via SSH</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/edge_ai_apps/getting_started.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/edge_ai_apps/getting_started.rst, line 243.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update to latest text from Texas Instruments Edge AI docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai-64/edge_ai_apps/index.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai-64/edge_ai_apps/index.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BBAI boot mode settings</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/03-design-and-specifications.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.rst, line 266.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BBAI power management</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/03-design-and-specifications.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.rst, line 271.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add WiFi/Bluetooth/Ethernet</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/03-design-and-specifications.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.rst, line 276.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>This text needs to go somewhere.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/03-design-and-specifications.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.rst, line 283.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>(Schematic screenshot)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/03-design-and-specifications.html#id5"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.rst, line 373.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Verify it isn’t better than this. Doesn’t seem right.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/03-design-and-specifications.html#id6"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/03-design-and-specifications.rst, line 504.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Notes regarding the resistors on muxed pins.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 922.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>(Actually, on BeagleBone AI, I believe PWR_BUT is pulled to 3.3V,
+but activation is still done by pulling the signal to GND. Also, a quick
+grounding of PWR_BUT will trigger a system event where shutdown can
+occur, but there is no hardware power-off function like on BeagleBone
+Black via this signal. It does, however, act as a hardware power-on.)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 964.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>(On BeagleBone Black, SYS_RESET was a bi-directional signal, but
+it is only an output from BeagleBone AI to capes on BeagleBone AI.)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 970.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>This table needs entries</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1484.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Table entries needed</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id5"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1576.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI serial debug</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id6"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1590.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI USB Type-C connection</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id7"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1595.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI USB Type-A connection</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id8"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1600.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI USB Gigabit Ethernet connection</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id9"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1605.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI u.FL antenna connection</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id10"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1610.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI uSD card slot</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id11"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1615.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need info on BealgeBone AI uHDMI connection</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id12"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1620.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id13"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1633.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">BeagleBone®</span> <span class="pre">Black</span> <span class="pre">Cape</span> <span class="pre">Compatibility</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id14"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1638.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">EEPROM</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id15"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1645.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Pin</span> <span class="pre">Usage</span> <span class="pre">Consideration</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id16"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1650.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">GPIO</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id17"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1655.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">I2C</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id18"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1660.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id19"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1733.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">SPI</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id20"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1738.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Analog</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id21"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1743.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">PWM,</span> <span class="pre">TIMER,</span> <span class="pre">eCAP</span> <span class="pre">or</span> <span class="pre">PRU</span> <span class="pre">PWM/eCAP</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id23"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1750.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">eQEP</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id24"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1755.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">CAN</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id25"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1760.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">McASP</span> <span class="pre">(audio</span> <span class="pre">serial</span> <span class="pre">like</span> <span class="pre">I2S</span> <span class="pre">and</span> <span class="pre">AC97)</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id26"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1767.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">MMC</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id27"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1772.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">LCD</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id28"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1777.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">PRU</span> <span class="pre">GPIO</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id29"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1782.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">CLKOUT</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id30"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1787.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>discuss header options for working with the expansion connectors per
+<a class="reference external" href="https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1">https://git.beagleboard.org/beagleboard/beaglebone-black/-/wikis/System-Reference-Manual#section-7-1</a></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id31"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1792.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Signal</span> <span class="pre">Usage</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id32"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1798.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Cape</span> <span class="pre">Power</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id33"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1803.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleBone-AI <code class="docutils literal notranslate"><span class="pre">Mechanical</span></code> section content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/04-expansion.html#id34"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/04-expansion.rst, line 1808.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Reference <a class="reference external" href="https://docs.beagleboard.org/latest/intro/support/index.html">https://docs.beagleboard.org/latest/intro/support/index.html</a> and
+<a class="reference external" href="https://beagleboard.org/resources">https://beagleboard.org/resources</a></p>
+<p>Related TI documentation: <a class="reference external" href="http://www.ti.com/tool/BEAGLE-3P-BBONE-AI">http://www.ti.com/tool/BEAGLE-3P-BBONE-AI</a></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/06-support.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/06-support.rst, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add production boot media link in <code class="docutils literal notranslate"><span class="pre">_static/epilog/production.image</span></code> and reference it here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/ai/06-support.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/ai/06-support.rst, line 19.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Make all figure references actual references</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/black/ch07.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/black/ch07.rst, line 1163.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>move accessory links to a single common document for all boards.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/black/ch07.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/black/ch07.rst, line 1184.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We should include all support information in docs.beagleboard.org now and leave eLinux to others, freeing it as much as possible</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/black/ch07.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/black/ch07.rst, line 1194.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We are going to work on a unified accessories page for all the boards and it should replace this.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/blue/accessories.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/blue/accessories.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add production boot media link in <code class="docutils literal notranslate"><span class="pre">_static/epilog/production.image</span></code> and reference it here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglebone/blue/faq.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglebone/blue/faq.rst, line 13.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Image with what’s inside the box and a better description.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/02-quick-start.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/02-quick-start.rst, line 14.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how to get a serial connection.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/02-quick-start.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/02-quick-start.rst, line 41.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how to get an IEEE802.15.4g connection from BeaglePlay.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/02-quick-start.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/02-quick-start.rst, line 48.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how to get to a local console and websockets console.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/02-quick-start.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/02-quick-start.rst, line 59.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add BeagleConnect Freedom expansion chapter content.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/04-expansion.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/04-expansion.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Find a place for the following notes:</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/demos-and-tutorials/using-greybus.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/demos-and-tutorials/using-greybus.rst, line 116.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need to describe functionality of 0.2.2</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/demos-and-tutorials/using-micropython.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/demos-and-tutorials/using-micropython.rst, line 201.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>note the tested version of software for BeaglePlay</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/demos-and-tutorials/using-zephyr.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/demos-and-tutorials/using-zephyr.rst, line 41.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add documentation to debug BCF zephyr application over serial terminal.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleconnect/freedom/demos-and-tutorials/using-zephyr.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleconnect/freedom/demos-and-tutorials/using-zephyr.rst, line 151.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add specific power-up/down sequence notes here as well a highlight any limitations and known issues.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/03-design.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/03-design.rst, line 144.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add information on building expansion hardware for BeaglePlay.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/04-expansion.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/04-expansion.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add notes on changing SSID/Password</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/connect-wifi.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/connect-wifi.rst, line 344.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add the below changes to the beagle defconfig</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/low-power-video-doorbell.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/low-power-video-doorbell.rst, line 99.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>To make it stick, …</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/using-mikrobus.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/using-mikrobus.rst, line 168.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Document kernel version that integrates this overlay and where to get update instructions.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/using-mikrobus.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/using-mikrobus.rst, line 422.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>How do turn off the driver?</p></li>
+<li><p>How do turn on spidev?</p></li>
+<li><p>How do I enable GPIO?</p></li>
+<li><p>How do a provide a manifest?</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/using-mikrobus.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/using-mikrobus.rst, line 467.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Needs udev</p></li>
+<li><p>Needs live description</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/using-mikrobus.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/using-mikrobus.rst, line 475.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Add flow diagram</p></li>
+<li><ul>
+<li><p>Show the output</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/using-nodered.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/using-nodered.rst, line 107.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how to know it is working</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.rst, line 56.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>A big part of what is missing here is to put your BeaglePlay on the Internet such
+that we can download things in later steps. That has been initially brushed over.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.rst, line 67.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-d<span class="w"> </span>build/sensortest<span class="w"> </span>zephyr/samples/boards/beagle_bcf/sensortest<span class="w"> </span>--<span class="w"> </span>-DOVERLAY_CONFIG<span class="o">=</span>overlay-subghz.conf
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-d<span class="w"> </span>build/wpanusb<span class="w"> </span>modules/lib/wpanusb_bc<span class="w"> </span>--<span class="w"> </span>-DOVERLAY_CONFIG<span class="o">=</span>overlay-subghz.conf
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-d<span class="w"> </span>build/bcfserial<span class="w"> </span>modules/lib/wpanusb_bc<span class="w"> </span>--<span class="w"> </span>-DOVERLAY_CONFIG<span class="o">=</span>overlay-bcfserial.conf<span class="w"> </span>-DDTC_OVERLAY_FILE<span class="o">=</span>bcfserial.overlay
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-d<span class="w"> </span>build/greybus<span class="w"> </span>modules/lib/greybus/samples/subsys/greybus/net<span class="w"> </span>--<span class="w"> </span>-DOVERLAY_CONFIG<span class="o">=</span>overlay-802154-subg.conf
+</pre></div>
+</div>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.rst, line 351.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how to handle the serial connection</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagleplay/demos-and-tutorials/zephyr-cc1352-development.rst, line 391.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>remove “&lt;To-Do&gt;” items in the table below.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/01-introduction.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/01-introduction.rst, line 55.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add instructions for flashing in windows.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/02-quick-start.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/02-quick-start.rst, line 196.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add instructions for flashing in Mac.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/02-quick-start.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/02-quick-start.rst, line 200.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need a CSI capture and DSI display demos</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/05-demos.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/05-demos.rst, line 7.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need a cape compatibility layer demo</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/05-demos.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/05-demos.rst, line 11.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/06-support.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/06-support.rst, line 22.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/ahead/06-support.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/ahead/06-support.rst, line 31.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add image &amp; information about box content.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/02-quick-start.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/02-quick-start.rst, line 14.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add information for custom hardware building and debugging.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/04-expansion.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/04-expansion.rst, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need a CSI capture demos</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/05-demos.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/05-demos.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need a cape compatibility layer demo</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/05-demos.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/05-demos.rst, line 10.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add production boot media link in <code class="docutils literal notranslate"><span class="pre">_static/epilog/production.image</span></code> and reference it here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/06-support.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/06-support.rst, line 12.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/06-support.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/06-support.rst, line 22.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/06-support.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/06-support.rst, line 31.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>This is the <em>hard</em> way! Special cables and FlashPros are not required when using the firmware we initially ship on the board. This tutorial should be
+rescripted as how to _unbrick_ your board. Also, we have other work-arounds using software and GPIOs rather than FlashPros. Let’s not put this in user’s
+face as <em>the</em> experience when it is far more painful than using the <cite>change-gateware.sh</cite> script and “hold BOOT button when applying power” solutions we’ve created!</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/demos-and-tutorials/flashing-board.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/demos-and-tutorials/flashing-board.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Due to the current Linux kernel being on <code class="docutils literal notranslate"><span class="pre">6.1</span></code>, only a UIO driver is available instead of a Socket CAN driver. This section will be updated once Linux kernel <code class="docutils literal notranslate"><span class="pre">6.6</span></code> is shipped for the beagleV-fire, with the Socket CAN driver.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/demos-and-tutorials/gateware/comms-cape-gateware-usage.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/demos-and-tutorials/gateware/comms-cape-gateware-usage.rst, line 30.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Make sure people know about the alternative and we provide links to details on that before we send them down this process.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beaglev/fire/demos-and-tutorials/mchp-fpga-tools-installation-guide.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beaglev/fire/demos-and-tutorials/mchp-fpga-tools-installation-guide.rst, line 13.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>BeagleY-AI unboxing video</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/02-quick-start.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/02-quick-start.rst, line 20.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add details about all the schematic sections.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/03-design.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/03-design.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add Final DDR Part Number</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/03-design.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/03-design.rst, line 224.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add details about specific EEPROM contents and formatting.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/03-design.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/03-design.rst, line 259.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Explain UHS-1 in more detail and add link to TRM for boot modes and resistor swap options for advanced users.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/03-design.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/03-design.rst, line 274.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add link to docs on building expansion accessories.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/03-design.html#id5"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/03-design.rst, line 293.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>If there are real design elements, put those here, like clearances and other elements going
+into design consideration. Summary information should just go in the support page.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/03-design.html#id6"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/03-design.rst, line 752.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how to build expansion hardware for BeagleY-AI. This section is not about using existing add-on hardware.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/04-expansion.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/04-expansion.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Remove this. I really don’t see how “RTC” falls into our definition of what should be documented in “Expansion”.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/04-expansion.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/04-expansion.rst, line 24.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add production boot media link in <code class="docutils literal notranslate"><span class="pre">_static/epilog/production.image</span></code> and reference it here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/06-support.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/06-support.rst, line 12.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add further testing steps, results, and images.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/arducam-imx219-v3link-dual-camera-kit.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/arducam-imx219-v3link-dual-camera-kit.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>ADD CSI 0/1 Header Location photo.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/arducam-imx219-v3link-dual-camera-kit.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/arducam-imx219-v3link-dual-camera-kit.rst, line 21.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add further testing steps, results, and images.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/expansion-nvme.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/expansion-nvme.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add further testing steps, results, and images.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/pca9685-motor-drivers.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/pca9685-motor-drivers.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add more information on Waveshare motor &amp; servo driver HAT.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/pca9685-motor-drivers.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/pca9685-motor-drivers.rst, line 105.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Expand on running 2 DC motor objects</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/pca9685-motor-drivers.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/pca9685-motor-drivers.rst, line 229.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add information about software image used for this demo.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-gpio.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-gpio.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add fritzing diagram and chapter on Pin Binding here</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-gpio.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-gpio.rst, line 50.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add instructions to use OLED for console and printing text via <code class="docutils literal notranslate"><span class="pre">/dev/fb0</span></code> interface.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-i2c-oled-display.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-i2c-oled-display.rst, line 151.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add further testing steps, results, and images.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-imx219-csi-cameras.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-imx219-csi-cameras.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Need to add <cite>gstreamer</cite> and/or <cite>cheese</cite> commands to show how to make use of connected cameras.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-imx219-csi-cameras.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-imx219-csi-cameras.rst, line 8.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add instructions to setup CSI1</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-imx219-csi-cameras.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-imx219-csi-cameras.rst, line 111.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add instruction to take photos and videos</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-imx219-csi-cameras.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-imx219-csi-cameras.rst, line 116.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add further testing steps, results, and images..</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-pwm.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-pwm.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add section about driving Servo Motors at 50KHz</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-pwm.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-pwm.rst, line 140.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Fill out empty section</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-pwm.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-pwm.rst, line 145.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Fill out empty section</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/beagley/ai/demos/using-pwm.html#id4"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/beagley/ai/demos/using-pwm.rst, line 150.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>figure out if BONE-SPI0_0 and BONE-SPI0_1 can be loaded at the same time</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id14"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 581.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need a udev rule to make sure the ADC shows up at /dev/bone/adc! There’s nothing for sure that IIO devices will show up in the same place.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id21"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 750.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>I think we can also create symlinks for each channel based on which device is there, such that we can do /dev/bone/adc/Px_y</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id22"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 752.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>I believe a multiplexing IIO driver is the future solution</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id23"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 754.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>remove deep references to git trees</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id24"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 849.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Additional quadrature encoders can be implemented in PRU firmware.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id25"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 947.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>This doesn’t include any abstraction yet.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id26"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 1018.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe I<sup>2</sup>S and ALSA</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id32"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 1218.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Document dynamic DT overlays</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id36"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 1471.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Document dynamic pinmux control</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id37"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 1478.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Describe how the Device Trees expose symbols for reuse across boards</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id38"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 1490.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>The steps used to verify all of these configurations is to be documented
+here. It will serve to document what has been tested, how to reproduce the
+configurations, and how to verify each major triannual release. All faults
+will be documented in the issue tracker.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/cape-interface-spec.html#id39"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/cape-interface-spec.rst, line 1526.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Get OSHWA certification for all of our capes and update the documentation to reflect that</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/capes/index.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/capes/index.rst, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add cape compatibility details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/01-introduction.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/01-introduction.rst, line 48.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add picture of PocketBeagle 2 box content</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/02-quick-start.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/02-quick-start.rst, line 31.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add steps to share internet connection on Windows</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/02-quick-start.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/02-quick-start.rst, line 254.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add steps to share internet connection on MacOS</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/02-quick-start.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/02-quick-start.rst, line 258.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add cape connection diagram and steps to use examples.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/02-quick-start.html#id6"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/02-quick-start.rst, line 283.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add MicroSD card slot information</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/03-design-and-specifications.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/03-design-and-specifications.rst, line 490.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add button details</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/03-design-and-specifications.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/03-design-and-specifications.rst, line 504.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add information about LED indicators</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/03-design-and-specifications.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/03-design-and-specifications.rst, line 509.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add PocketBeagle 2 demos and tutorials.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/05-demos-and-tutorials.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/05-demos-and-tutorials.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add production image link with board revision information.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/06-support.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/06-support.rst, line 34.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>add distros page image selection for pocketbeagle-2</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../boards/pocketbeagle-2/06-support.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/boards/pocketbeagle-2/06-support.rst, line 46.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update for 2023-06-03</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/01basics/basics.html#id17"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/01basics/basics.rst, line 332.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update for BeagleY-AI</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/02sensors/sensors.html#id14"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/02sensors/sensors.rst, line 554.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>fix deg</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/02sensors/sensors.html#id20"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/02sensors/sensors.rst, line 826.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update for BeagleY-AI</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/02sensors/sensors.html#id23"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/02sensors/sensors.rst, line 1021.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Remove?</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/02sensors/sensors.html#id24"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/02sensors/sensors.rst, line 1236.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>is this up to date?</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/05tips/tips.html#id24"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.rst, line 771.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/05tips/tips.html#id25"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.rst, line 804.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Test this</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/05tips/tips.html#id26"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.rst, line 893.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>switch to ip address</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/05tips/tips.html#id29"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.rst, line 979.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>check this iptables, convert to ufw</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/05tips/tips.html#id30"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.rst, line 1006.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/05tips/tips.html#id39"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/05tips/tips.rst, line 1261.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>verify this works. fonts are taking too long to load</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/06iot/iot.html#id11"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/06iot/iot.rst, line 502.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Is this true: (The plot is wrong, but eLinux won’t let me fix it.)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/06iot/iot.html#id12"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/06iot/iot.rst, line 594.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>My twilio account is suspended, using <a class="reference external" href="mailto:yoder&#37;&#52;&#48;rose-hulman&#46;edu">yoder<span>&#64;</span>rose-hulman<span>&#46;</span>edu</a>.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/06iot/iot.html#id15"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/06iot/iot.rst, line 665.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Start Here.  Update for python.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/06iot/iot.html#id22"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/06iot/iot.rst, line 866.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add cape examples of various sizes</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/09capes/capes.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/09capes/capes.rst, line 18.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update display cape example</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/beaglebone-cookbook/09capes/capes.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/beaglebone-cookbook/09capes/capes.rst, line 23.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Switch from LEDscape to FPP</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 36.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>verify these commands</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id5"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 111.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Recheck</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id16"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 341.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>This is currently broken with the latest version of Falcon Christmas (no F8-B-20.json file)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id18"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 431.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Show how to drive ws2812’s with FPP.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id21"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 445.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>document the code</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id23"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 595.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update the figures.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id27"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 759.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>update this</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/01case/case.html#id28"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/01case/case.rst, line 863.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Update links</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/02start/start.html#id8"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/02start/start.rst, line 178.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>The ‘s and _’s in the code are messing with the formatting.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/02start/start.html#id17"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/02start/start.rst, line 333.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>The version of code used needs to be noted in the documentation.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/03details/details.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/03details/details.rst, line 42.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Why is this documented in multiple places?</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/03details/details.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/03details/details.rst, line 44.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>does  this need updating?</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/03details/details.html#id20"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/03details/details.rst, line 346.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Isn’t working on Pocket at this time.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/04debug/debug.html#id8"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/04debug/debug.rst, line 113.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Check these on the Black and Pocket without grove</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/04debug/debug.html#id10"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/04debug/debug.rst, line 283.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Add code for Blue.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/04debug/debug.html#id14"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/04debug/debug.rst, line 392.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Include a section on accessing DDR.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/05blocks/blocks.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/05blocks/blocks.rst, line 31.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>fill in Blue</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/05blocks/blocks.html#id11"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/05blocks/blocks.rst, line 483.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>get this working on the 5.10 kernel</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/05blocks/blocks.html#id46"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/05blocks/blocks.rst, line 1584.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Test this</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/05blocks/blocks.html#id50"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/05blocks/blocks.rst, line 1723.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Make a mapping table for the Black</p>
+<p><a class="github reference external" href="https://github.com/FalconChristmas/fpp/blob/master/src/pru/OctoscrollerV2.hp">FalconChristmas/fpp</a></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../books/pru-cookbook/05blocks/blocks.html#id52"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/books/pru-cookbook/05blocks/blocks.rst, line 1816.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for Arm tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/arm.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/arm.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Write assembly guide</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/assembly.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/assembly.rst, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for electronics wiring tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/basic-wiring.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/basic-wiring.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for Buildroot tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/buildroot.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/buildroot.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for tutorial on the C programming language</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/c.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/c.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for Debian tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/debian.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/debian.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for Device Tree tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/device-tree.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/device-tree.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for embedded serial interfaces tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/embedded-serial.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/embedded-serial.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for FPGA tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/fpga.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/fpga.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Make sure we have everything critical from <a class="reference external" href="https://beagleboard.github.io/bone101/Support/bone101/">https://beagleboard.github.io/bone101/Support/bone101/</a></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/index.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/index.rst, line 133.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for Motors tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/motors.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/motors.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for OpenBeagle CI tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/openbeagle-ci.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/openbeagle-ci.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Create a simple drawing of BeaglePlay connecting to an external add-on with an interesting device on it.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/qwiic-stemma-grove-addons.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/qwiic-stemma-grove-addons.rst, line 12.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for verification tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/verification.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/verification.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for tutorial on the Verilog programming language</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/verilog.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/verilog.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Place-holder for Wireless Communications tutorial</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../beagle101/wireless-communications.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/beagle101/wireless-communications.rst, line 6.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need to describe how to use the “Web IDE” to work with OpenBeagle respositories.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="git-usage.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/contribution/git-usage.rst, line 189.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>We need some kind of documentation on how the build process runs and how Sphinx is
+configured. This <cite>conf.yml</cite> file is just a mystery, with insufficient information on
+the provided interface.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="index.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/contribution/index.rst, line 23.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p><strong>Why “device” drivers?</strong></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="linux-upstream.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/contribution/linux-upstream.rst, line 148.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p><strong>Why do we need drivers?</strong></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="linux-upstream.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/contribution/linux-upstream.rst, line 152.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p><strong>What do drivers look like?</strong></p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="linux-upstream.html#id3"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/contribution/linux-upstream.rst, line 156.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>There are several type of entries that should be added to the cheat sheet to help provide
+some consistency and avoid needing to refer to outside documentation.</p>
+<ol class="arabic simple">
+<li><p><cite>todo</cite> entries and general admonitions like <cite>note</cite> and <cite>important</cite></p></li>
+<li><p><cite>literalinclude</cite> usage</p></li>
+<li><p><cite>tab-set</cite> entries</p></li>
+<li><p><cite>toctree</cite> entires and policy (depth, etc.)</p></li>
+<li><p>Using <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#external-links">Separated Links</a></p></li>
+</ol>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="rst-cheat-sheet.html#id5"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/intro/contribution/rst-cheat-sheet.rst, line 29.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Click Board plug-ins for node-red for the same 100 or so Click Boards</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../projects/beagleconnect/beaglebone-bcf.html#id1"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/projects/beagleconnect/beaglebone-bcf.rst, line 92.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>BeagleConnect™ Freedom System Reference Manual and FAQs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../projects/beagleconnect/beaglebone-bcf.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/projects/beagleconnect/beaglebone-bcf.rst, line 94.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Use upstream Zephyr. The current support in Zephyr upstream has some performance problems which are being worked on. For now, we are using a custom fork based on Zephyr v3.4</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="../../projects/beagleconnect/beagleplay-bcf.html#id2"><em>original entry</em></a> is located in /__w/docs.beagleboard.io/docs.beagleboard.io/projects/beagleconnect/beagleplay-bcf.rst, line 65.)</p>
+</section>
+<section id="articles-on-contribution">
+<h2>Articles on contribution<a class="headerlink" href="#articles-on-contribution" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="git-usage.html#beagleboard-git-usage"><span class="std std-ref">Git Usage</span></a></p></li>
+<li><p><a class="reference internal" href="style.html#beagleboard-doc-style"><span class="std std-ref">Documentation Style Guide</span></a></p></li>
+<li><p><a class="reference internal" href="rst-cheat-sheet.html#rst-cheat-sheet"><span class="std std-ref">ReStructuredText Cheat Sheet</span></a></p></li>
+<li><p><a class="reference internal" href="linux-upstream.html#beagleboard-linux-upstream"><span class="std std-ref">Upstream Kernel Contributions</span></a></p></li>
+</ul>
+</section>
+<section id="history-of-contributors">
+<h2>History of contributors<a class="headerlink" href="#history-of-contributors" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../CONTRIB.html#contributors"><span class="std std-ref">Contributors</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="background.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">What should I know before I get started?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gsoc.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Google Summer of Code (GSoC)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggesting-enhancements">Suggesting enhancements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-merge-requests">Submitting merge requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#site-editing-guide">Site Editing Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-the-project">Fork the project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-file-to-edit">Select file to edit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-editing">Start editing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Create a merge request</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-summer-of-code-gsoc">Google Summer of Code (GSoC)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs">Reporting bugs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tackle-to-do-list">Tackle to-do list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#articles-on-contribution">Articles on contribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-contributors">History of contributors</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/intro/contribution/how.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/intro/contribution/how.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

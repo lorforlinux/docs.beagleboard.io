@@ -1,0 +1,1818 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Design and specifications &#8212; BeagleBoard Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css?v=5c84f910" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=99f84846" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boards/beagleplay/03-design';</script>
+    <link rel="canonical" href="docs.beagleboard.io/boards/beagleplay/03-design.html" />
+    <link rel="icon" href="../../_static/boris.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Expansion" href="04-expansion.html" />
+    <link rel="prev" title="Quick Start Guide" href="02-quick-start.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Jun 29, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+
+    <!-- Top version and announcement message -->
+    <script>
+        
+    // Function to generate version and announcement banner HTML
+    function getBannerHTML() {
+        return `
+            
+            <aside id="bd-header-version-warning" class="d-print-none" aria-label="Version warning">
+                <div class="bd-header-announcement__content ms-auto me-auto">
+                    <div class="sidebar-message">
+                        
+                        
+                        This is an <strong>unknown version</strong> of docs.
+                        
+                        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version" href="https://docs.beagleboard.org">
+                            Switch to released version
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            
+        `;
+    }
+    
+    // Get the target element where the banners will be added
+    const bannerDiv = document.getElementsByClassName('pst-async-banner-revealer')[0];
+
+    // Add version banner and announcement banner if bannerDiv is valid
+    if (bannerDiv) {
+        bannerDiv.innerHTML = getBannerHTML();
+    }
+    
+    </script>
+
+    
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="BeagleBoard Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="BeagleBoard Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    Boards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../projects/index.html">
+    Projects
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../books/index.html">
+    Books
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../accessories/index.html">
+    Accessories
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/about">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.beagleboard.org/donate">
+    Donate
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://gsoc.beagleboard.org/">
+    GSoC
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://forum.beagleboard.org/c/faq">
+    FAQ
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openbeagle.org/" title="OpenBeagle" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-gitlab fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">OpenBeagle</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.beagleboard.org/" title="Docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Docs</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bbb.io/discord" title="Discord" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discord</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.beagleboard.org/" title="Forum" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Forum</span></a>
+        </li>
+        <li class="nav-item">
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.beagleboard.org" title="BeagleBoard.org" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/images/boris.svg" class="icon-link-image" alt="BeagleBoard.org"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-quick-start.html">Quick Start Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Design and specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-expansion.html">Expansion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05-demos.html">Demos and tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-serial-console.html">Using Serial Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/connect-wifi.html">Connect WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-grove.html">Using Grove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-mikrobus.html">Using mikroBUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-qwiic.html">Using QWIIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-nodered.html">Using Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-rtc.html">Using RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-oldi.html">Using OLDI Displays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/using-csi.html">Using CSI Cameras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/zephyr-cc1352-development.html">Wireless MCU Zephyr Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/beagleplay-kernel-development.html">BeaglePlay Kernel Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/greybus-host.html">BeagleConnect™ Greybus demo using BeagleConnect™ Freedom and BeaglePlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/understanding-boot.html">Understanding Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos-and-tutorials/low-power-video-doorbell.html">Smart energy efficient video doorbell</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="06-support.html">Support</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="card mb-3">
+    <div class="card-header bg-primary text-light fw-bold">
+        Why are we doing this?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We believe in making computers open again to democratize technology and empower individuals and organizations to explore, experiment, and create without the constraints of proprietary systems.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+        What are we doing?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            We design versatile and affordable single-board computers to provide developers, hobbyists, and educators with a platform for prototyping, experimentation, and production of embedded systems. Our comprehensive documentation, tutorials, and vibrant online community support users in their projects and foster knowledge sharing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-success text-light fw-bold">
+        How are we doing it?
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            Through open-source hardware designs, diverse software support, and active community engagement, we enable users to customize, innovate, and collaborate effortlessly in embedded computing.
+        </p>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header bg-dark text-light fw-bold">
+        Support us <i class="fa-solid fa-hand-holding-dollar"></i>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            The BeagleBoard.org Foundation is a Michigan, USA-based 501(c)(3) non-profit corporation existing to provide education in and collaboration around the design and use of open-source software and hardware in embedded computing.
+        </p>
+    </div>
+    <div class="card-footer d-grid gap-2">
+        <a href="https://patreon.com/beagleboard" class="btn btn-danger text-light"><i class="fa-brands fa-patreon"></i> Become a Patreon</a>
+        <a href="https://github.com/sponsors/beagleboard" class="btn btn-dark text-light"><i class="fa-brands fa-github"></i> Sponsor on GitHub</a>
+    </div>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add primary sidebar toggle button
+    const primarySidebar = document.getElementById('pst-primary-sidebar');
+    if (primarySidebar) {
+        addSidebarToggleButton(
+            primarySidebar,
+            'primary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-left"></i>',
+            '<i class="fa-solid fa-caret-right"></i>',
+            'after'
+        );
+    }
+
+    // Add secondary sidebar toggle button
+    const secondarySidebar = document.getElementById('pst-secondary-sidebar');
+    if (secondarySidebar) {
+        addSidebarToggleButton(
+            secondarySidebar,
+            'secondary',
+            'sidebar-toggle-btn',
+            '<i class="fa-solid fa-caret-right"></i>',
+            '<i class="fa-solid fa-caret-left"></i>',
+            'before'
+        );
+    }
+
+    /**
+     * Adds a toggle button for a sidebar with visibility and state management.
+     * @param {HTMLElement} sidebar - The sidebar element to toggle.
+     * @param {string} key - A unique key for localStorage and button id.
+     * @param {string} buttonClass - CSS class for the toggle button.
+     * @param {string} collapseHTML - HTML for the button when the sidebar is collapsed.
+     * @param {string} expandHTML - HTML for the button when the sidebar is expanded.
+     * @param {string} position - Position to insert the button ('before' or 'after').
+     */
+    function addSidebarToggleButton(sidebar, key, buttonClass, collapseHTML, expandHTML, position) {
+        const toggleButton = document.createElement('button');
+        toggleButton.id = `toggle-${key}-sidebar`;
+        toggleButton.innerHTML = sidebar.classList.contains('collapsed') ? expandHTML : collapseHTML;
+        toggleButton.className = buttonClass;
+
+        // Insert the toggle button
+        if (position === 'before') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar);
+        } else if (position === 'after') {
+            sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+        }
+
+        // Restore collapsed state from localStorage
+        const collapsedState = localStorage.getItem(`${key}SidebarCollapsed`) === 'true';
+        if (collapsedState) {
+            sidebar.classList.add('collapsed');
+            toggleButton.innerHTML = expandHTML;
+        }
+
+        // Handle toggle button click
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Update button content and save state
+            if (sidebar.classList.contains('collapsed')) {
+                toggleButton.innerHTML = expandHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'true');
+            } else {
+                toggleButton.innerHTML = collapseHTML;
+                localStorage.setItem(`${key}SidebarCollapsed`, 'false');
+            }
+        });
+
+        // Check visibility of the toggle button
+        function checkToggleVisibility() {
+            const existingToggleButton = document.querySelector(
+                `.pst-navbar-icon.sidebar-toggle.${key}-toggle`
+            );
+            if (existingToggleButton && existingToggleButton.offsetParent !== null) {
+                toggleButton.style.display = 'none'; // Hide custom toggle button
+            } else {
+                toggleButton.style.display = 'block'; // Show custom toggle button
+            }
+        }
+
+        // Update button visibility if the sidebar is removed
+        function updateButtonVisibility() {
+            if (window.getComputedStyle(sidebar).display === 'none') {
+                toggleButton.remove(); // Remove button if sidebar is hidden
+            } else if (!document.querySelector(`#toggle-${key}-sidebar`)) {
+                // Re-add the button if missing
+                if (position === 'before') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar);
+                } else if (position === 'after') {
+                    sidebar.parentNode.insertBefore(toggleButton, sidebar.nextSibling);
+                }
+            }
+        }
+
+        // Initial visibility check
+        checkToggleVisibility();
+        updateButtonVisibility();
+
+        // Monitor window resize for dynamic button visibility updates
+        window.addEventListener('resize', () => {
+            checkToggleVisibility();
+            updateButtonVisibility();
+        });
+    }
+});
+
+</script>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Boards</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">BeaglePlay</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Design and specifications</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="design-and-specifications">
+<span id="beagleplay-design"></span><h1>Design and specifications<a class="headerlink" href="#design-and-specifications" title="Link to this heading">#</a></h1>
+<p>If you want to know how BeaglePlay is designed and the detailed specifications, then
+this chapter is for you. We are going to attempt to provide you a short and crisp overview
+followed by discussing each hardware design element in detail.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can download BeaglePlay schematic to have clear view of
+all the elements that makes up the BeaglePlay hardware.</p>
+<p><a class="reference external" href="https://git.beagleboard.org/beagleplay/beagleplay">BeaglePlay design repository</a></p>
+</div>
+<section id="block-diagram">
+<h2>Block diagram<a class="headerlink" href="#block-diagram" title="Link to this heading">#</a></h2>
+<p>The block diagram below shows all the parts that makes up your BeaglePlay board.
+BeaglePlay as mentioned in previous chapters is based on AM6254 SoC which is shown in the middle.
+Connection of other parts like power supply, memory, storage, wifi, ethernet, and others is also
+clearly shown in the block diagram. This block diagram shows the high level specifications of the
+BeaglePlay hardware and the sections below this are going to show you the individual part in
+more detail with schematic diagrams.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/System-Block-Diagram.svg"><img alt="BeaglePlay block diagram" src="../../_images/System-Block-Diagram.svg" width="1247" /></a>
+</figure>
+</section>
+<section id="system-on-chip-soc">
+<h2>System on Chip (SoC)<a class="headerlink" href="#system-on-chip-soc" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.ti.com/product/AM625">AM62x Sitara™ Processors</a> from Texas Instruments are
+Human-machine-interaction SoC with Arm® Cortex®-A53-based edge AI and full-HD dual display.
+AM6254 which is on your BeaglePlay board has a multi core design with Quad 64-bit Arm®
+Cortex®-A53 microprocessor subsystem at up to 1.4 GHz, Single-core Arm® Cortex®-M4F
+MCU at up to 400MHz, and Dedicated Device/Power Manager. Talking about the multimedia
+capabilities of the processor you can connect upto two display monitors with 1920x1080 &#64; 60fps
+each, additionally there is a OLDI/LVDS (4 lanes - 2x) and 24-bit RGB parallel interface for connecting
+external display panels. One 4 Lane CSI camera interface is also available which has support
+for 1,2,3 or 4 data lane mode up to 2.5Gbps speed. The list of features is very long and if you
+are interested to know more about the AM62x SoC you may take a look at
+<a class="reference external" href="https://www.ti.com/lit/ds/symlink/am625.pdf">AM62x Sitara™ Processors datasheet</a>.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/am625.svg"><img alt="AM6254 SoC block diagram" src="../../_images/am625.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 156 </span><span class="caption-text">AM6254 SoC block diagram</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="power-management">
+<h2>Power management<a class="headerlink" href="#power-management" title="Link to this heading">#</a></h2>
+<p>Different parts of the board requires different voltages to operate and to fulfill requirements of
+all the chips on BeaglePlay we have Low Drop Out (LDO) voltage regulators for fixed voltage output
+and Power Management Integrated Circuit (PMIC) that interface with SoC to generate software programable voltages.
+2 x LDOs and 1 x PMIC used on BeaglePlay are shown below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Power-Block-Diagram.svg"><img alt="BeaglePlay power block diagram" src="../../_images/Power-Block-Diagram.svg" width="1247" /></a>
+</figure>
+<section id="v-ldo">
+<h3>1.0V LDO<a class="headerlink" href="#v-ldo" title="Link to this heading">#</a></h3>
+<p>TLV75801 is an adjustable 500-mA low-dropout (LDO) regulator. Consumes very low quiescent current and provides fast line and load transient
+performance. The TLV758P features an ultra-low dropout of 130 mV at 500 mA that can help improve the power efficiency of the system.
+The TLV758P is stable with small ceramic output capacitors, allowing for a small overall solution size. A precision band-gap and error
+amplifier provides high accuracy of 0.7% (max) at 25°C and 1% (max) over temperature (85°C). This device includes integrated thermal
+shutdown, current limit, and undervoltage lockout (UVLO) features. The TLV758P has an internal foldback current limit that helps reduce the
+thermal dissipation during short-circuit events.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/TLV75801PDBVR.svg"><img alt="TLV75801PDBVR LDO schematic for 1V0 output" src="../../_images/TLV75801PDBVR.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 157 </span><span class="caption-text">TLV75801PDBVR LDO schematic for 1V0 output</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>TLV75801 provides 1.0V required by the single-pair Ethernet PHY (U13 - DP83TD510ERHBR). It was decided this was less
+likely to be needed than the other rails coming off of the primary PMIC and therefore was given its own regulator
+when running low on power rails.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The voltage drop from 1.8V to 1.0V is rated up to 0.3A (240mW), but the typical current from the
+DP83TD51E data sheet (SNLS656C) is stated at 3.5mA (2.8mW) and the maximum is 7.5mA (6mW). This isn’t overly
+significant on a board typically consuming 400mA at 5V (2W). However, this is an area where some power
+optimization could be performed if concerned about sleep modes.</p>
+</div>
+</section>
+<section id="v-dcdc-buck">
+<h3>3.3V DCDC buck<a class="headerlink" href="#v-dcdc-buck" title="Link to this heading">#</a></h3>
+<p>TLV62595 is a high-frequency synchronous step-down converter optimized for compact solution size
+and high efficiency. The device integrates switches capable of delivering an output current up to 4 A.
+At medium to heavy loads, the converter operates in pulse width modulation (PWM) mode with typical
+2.2-MHz switching frequency. At light load, the device automatically enters Power Save Mode (PSM) to
+maintain high efficiency over the entire load current range with a quiescent current as low as 10 μA.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/TLV62595DMQR.svg"><img alt="TLV62595DMQ step-down regulator schematic for 3V3 output" src="../../_images/TLV62595DMQR.svg" width="1024" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 158 </span><span class="caption-text">TLV62595DMQ step-down regulator schematic for 3V3 output</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This provides 3.3V for the vast majority of 3.3V I/Os on the board, off-board 3.3V power to microSD, mikroBUS,
+QWIIC and Grove connectors, as well as to the PMIC LDO to provide power for the 1.8V on-board I/Os, DDR4, and
+gigabit Ethernet PHY. Due to the relatively high current rating (3A), a highly efficient (up to 97%) was chosen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The primary TPS65219 PMIC firmware uses GPO2 to provide the enable signal (VDD_3V3_EN). The power-good signal
+(VDD_3V3_PG) is available at TP19 and is unused on the rest of the board.</p>
+</div>
+</section>
+<section id="pmic">
+<h3>PMIC<a class="headerlink" href="#pmic" title="Link to this heading">#</a></h3>
+<p>The TPS65219 is a Power Management IC (PMIC) designed to supply a wide range of SoCs in both
+portable and stationary applications. The DC-DC converters are capable of 1x 3.5 A and 2x
+2 A. The converters require a small 470 nH inductor, 4.7 μF input capacitance, and a minimum 10 μF
+output capacitance per rail. Two of the LDOs support output currents of 400
+mA at an output voltage range of 0.6 V to 3.4 V. These LDOs support bypass mode, acting as a load-
+switch, and allow voltage-changes during operation. The other two LDOs support output currents of 300
+mA at an output voltage range of 1.2 V to 3.3 V. The LDOs also support load-switch mode.
+The I2C-interface, IOs, GPIOs and multi-function-pins (MFP) allow a seamless interface to a wide range of SoCs.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/TPS65219.svg"><img alt="TPS65219 Power Management Integrated Circuit (PMIC) schematic" src="../../_images/TPS65219.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 159 </span><span class="caption-text">TPS65219 Power Management Integrated Circuit (PMIC) schematic</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This is the primary power management integrated circuit (PMIC) for the design. It coordinates the power
+sequencing and provides numerous power rails required for the core of the system, including dynamic voltages
+for the processor core and microSD card. The TPS6521903 variant is used for this DDR4-based system. The 03
+at the end indicates the sequencing programmed into the device and is covered in the TPS6521903 Technical
+Reference Manual <a class="reference external" href="https://www.ti.com/lit/pdf/slvucj2">SLVUCJ2</a>.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add specific power-up/down sequence notes here as well a highlight any limitations and known issues.</p>
+</div>
+</section>
+</section>
+<section id="general-connectivity-and-expansion">
+<h2>General Connectivity and Expansion<a class="headerlink" href="#general-connectivity-and-expansion" title="Link to this heading">#</a></h2>
+<p>One of the main advantage of using a Single Board Computer (SBC) is having direct accessibility of
+general purpose input &amp; output (GPIO) pins and other interfaces like I2C, SPI, ADC, PWM. Your BeaglePlay
+board shines in this domain as well with mikroBUS connector that can take 1000s of click board from
+<a class="reference external" href="https://www.mikroe.com/">MikroElektronika</a>, Grove connector allows to connect hundreds of Grove modules
+from <a class="reference external" href="https://www.seeedstudio.com/grove.html">Seeed Studio</a>, and QWIIC connector allows to connect I2C modules
+like QWIIC modules from <a class="reference external" href="https://www.sparkfun.com/qwiic">SparkFun</a> or STEMMA QT modules from
+<a class="reference external" href="https://www.adafruit.com/category/1005">Adafruit</a>. Note that you also get one USB-A port and one USB-C port.
+BeaglePlay’s USB-A port with host support enables you to connect any USB device like your keyboard &amp; mouse.
+The USB-C connector allows you to power the board and to connect the board to a PC. You can then connect via SSH or
+use the pre-installed VisualStudio Code editor by putting the address <code class="docutils literal notranslate"><span class="pre">192.168.7.2:3000</span></code> in your web browser.</p>
+<section id="usb-a-usb-c">
+<h3>USB A &amp; USB C<a class="headerlink" href="#usb-a-usb-c" title="Link to this heading">#</a></h3>
+<p>Below is the schematic of full size USB A for peripheral connection and USB C for device power &amp; tethering.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/usb.svg"><img alt="USB-A and USB-C" src="../../_images/usb.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 160 </span><span class="caption-text">USB-A and USB-C</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ch-10bit-adc">
+<h3>2ch 10bit ADC<a class="headerlink" href="#ch-10bit-adc" title="Link to this heading">#</a></h3>
+<p>The ADC102S051 is a low-power, two-channel CMOS 10-bit analog-to-digital converter with a high-
+speed serial interface. Unlike the conventional practice of specifying performance at a single sample
+rate only, the ADC102S051 is fully specified over a sample rate range of 200 ksps to 500 ksps. The
+converter is based on a successive-approximation register architecture with an internal track-and-hold
+circuit. It can be configured to accept one or two input signals at inputs IN1 and IN2.
+The output serial data is straight binary, and is compatible with several standards, such as SPI,
+QSPI, MICROWIRE, and many common DSP serial interfaces. We ar using it over SPI.
+The ADC102S051 operates with a single supply that can range from +2.7V to +5.25V. Normal power
+consumption using a +3V or +5V supply is 2.7 mW and 8.6 mW, respectively. The power-down feature
+reduces the power consumption to just 0.12 μW using a +3V supply, or 0.47 μW using a +5V supply.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/ADC102S051.svg"><img alt="ADC102S051 - 12bit Analog to Digital Converter (ADC)" src="../../_images/ADC102S051.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 161 </span><span class="caption-text">ADC102S051 - 12bit Analog to Digital Converter (ADC)</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mikrobus">
+<h3>mikroBUS<a class="headerlink" href="#mikrobus" title="Link to this heading">#</a></h3>
+<p>mikroBUS is a standard specification by MikroElektronika that can be freely used by anyone following the guidelines.
+It includes SPI, I2C, UART, PWM, ADC, reset, interrupt, and power (3.3V and 5V) connections to common embedded peripherals.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../_images/mikroBUS1.svg"><img alt="mikroBUS connector schematic" src="../../_images/mikroBUS1.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 162 </span><span class="caption-text">mikroBUS connector schematic</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="grove">
+<h3>Grove<a class="headerlink" href="#grove" title="Link to this heading">#</a></h3>
+<p>Seeed Studio Grove System is a modular, standardized connector prototyping ecosystem. The Grove System
+takes a building block approach to assembling electronics. Compared to the jumper or solder based system,
+it is easier to connect devices to an application, simplifying the learning system</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../_images/grove.svg"><img alt="Grove connector schematic" src="../../_images/grove.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 163 </span><span class="caption-text">Grove connector schematic</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qwiic">
+<h3>QWIIC<a class="headerlink" href="#qwiic" title="Link to this heading">#</a></h3>
+<p>Qwiic, or STEMMA QT are 4pin JST SH 1.00 connectors for easy I2C connection.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../_images/qwiic.svg"><img alt="QWIIC connnector for I2C modules" src="../../_images/qwiic.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 164 </span><span class="caption-text">QWIIC connector for I2C modules</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="buttons-and-leds">
+<h2>Buttons and LEDs<a class="headerlink" href="#buttons-and-leds" title="Link to this heading">#</a></h2>
+<p>To interact with the Single Board Computers we use buttons for input and LEDs for visual feedback.
+On your BeaglePlay board you will find 3 buttons each with a specific purpose: power, reset, and user.
+For visual feedback you will find 5 user LEDs near USB-C port and 6 more indicator LEDs near your BeaglePlay’s
+Single Pair ethernet port. Schematic diagrams below show how these buttons and LEDs are wired.</p>
+<section id="buttons">
+<h3>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">#</a></h3>
+<p>Power, Reset and User buttons for turning board ON/OFF, resetting board, and boot selection or user assigned control.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id11">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">BeaglePlay buttons</span><a class="headerlink" href="#id11" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Power</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>User</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><a class="reference internal image-reference" href="../../_images/power-button.svg"><img alt="../../_images/power-button.svg" class="align-center" src="../../_images/power-button.svg" width="742" /></a>
+</td>
+<td><a class="reference internal image-reference" href="../../_images/reset-button.svg"><img alt="../../_images/reset-button.svg" class="align-center" src="../../_images/reset-button.svg" width="742" /></a>
+</td>
+<td><a class="reference internal image-reference" href="../../_images/power-button.svg"><img alt="../../_images/power-button.svg" class="align-center" src="../../_images/power-button.svg" width="742" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="leds">
+<h3>LEDs<a class="headerlink" href="#leds" title="Link to this heading">#</a></h3>
+<p>Power and user LEDs for status and general purpose usage.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../_images/leds1.svg"><img alt="BeaglePlay LEDs" src="../../_images/leds1.svg" width="924" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 165 </span><span class="caption-text">BeaglePlay LEDs</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="wired-and-wireless-connectivity">
+<h2>Wired and wireless connectivity<a class="headerlink" href="#wired-and-wireless-connectivity" title="Link to this heading">#</a></h2>
+<p>For internet connection or general connectivity between BeaglePlay and other devices.</p>
+<section id="gigabit-ethernet">
+<h3>Gigabit ethernet<a class="headerlink" href="#gigabit-ethernet" title="Link to this heading">#</a></h3>
+<p>The Realtek RTL8211F-CG is a highly integrated Ethernet transceiver that is compatible with 10Base-T,
+100Base-TX, and 1000Base-T IEEE 802.3 standards. It provides all the necessary physical layer functions
+to transmit and receive Ethernet packets over CAT.5 UTP cable. The RTL8211F(I)-CG uses state-of-the-art
+DSP technology and an Analog Front End (AFE) to enable high-speed data transmission and reception over
+UTP cable. Functions such as Crossover Detection &amp; Auto-Correction, polarity correction, adaptive
+equalization, cross-talk cancellation, echo cancellation, timing recovery, and error correction are
+implemented in the RTL8211F(I)-CG to provide robust transmission and reception capabilities at
+10Mbps, 100Mbps, or 1000Mbps.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../_images/gigabit-ethernet.svg"><img alt="Gigabit ethernet" src="../../_images/gigabit-ethernet.svg" width="1024" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 166 </span><span class="caption-text">Gigabit ethernet</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="single-pair-ethernet">
+<h3>Single pair ethernet<a class="headerlink" href="#single-pair-ethernet" title="Link to this heading">#</a></h3>
+<p>The DP83TD510E is an ultra-low power Ethernet physical layer transceiver compliant with the IEEE
+802.3cg 10Base-T1L specification. The PHY has very low noise coupled receiver architecture enabling
+long cable reach and very low power dissipation. The DP83TD510E has external MDI termination to
+support intrinsic safety requirements. It interfaces with MAC layer through MII, Reduced MII (RMII) , RGMII,
+and RMII low power 5-MHz master mode. It also supports RMII back-to-back mode for applications that
+require cable reach extension beyond 2000 meters. It supports a 25MHz reference clock output to clock
+other modules on the system. The DP83TD510E offers integrated cable diagnostic tools; built-in self-
+test, and loopback capabilities for ease of design or debug</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../_images/single-pair-ethernet.svg"><img alt="Single pair ethernet" src="../../_images/single-pair-ethernet.svg" width="1024" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 167 </span><span class="caption-text">Single pair ethernet</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="wifi-2-4g-5g">
+<h3>WiFi 2.4G/5G<a class="headerlink" href="#wifi-2-4g-5g" title="Link to this heading">#</a></h3>
+<p>The WL18x7MOD is a Wi-Fi, dual-band, 2.4- and 5-GHz module solution with two antennas supporting industrial temperature grade.
+The device is FCC, IC, ETSI/CE, and TELEC certified for AP (with DFS support) and client. TI offers drivers for high-level
+operating systems, such as Linux® and Android™. Additional drivers, such as WinCE and RTOS, which includes
+QNX, Nucleus, ThreadX, and FreeRTOS, are supported through third parties.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../../_images/WL1807MODGIMOC.svg"><img alt="WL1807MOD dual-band (2.4G/5G) WiFi" src="../../_images/WL1807MODGIMOC.svg" width="1024" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 168 </span><span class="caption-text">WL1807MOD dual-band (2.4G/5G) WiFi</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ble-subghz">
+<h3>BLE &amp; SubGHz<a class="headerlink" href="#ble-subghz" title="Link to this heading">#</a></h3>
+<p>The SimpleLink™ CC1352P7 device is a multiprotocol and multi-band Sub-1 GHz and 2.4-GHz wireless
+microcontroller (MCU) supporting Thread, Zigbee®, Bluetooth® 5.2 Low Energy, IEEE 802.15.4g, IPv6-enabled
+smart objects (6LoWPAN), mioty®, Wi-SUN®, proprietary systems, including the TI 15.4-Stack (Sub-1 GHz and
+2.4 GHz), and concurrent multiprotocol through a Dynamic Multiprotocol Manager (DMM) driver. The CC1352P7
+is based on an Arm® Cortex® M4F main processor and optimized for low-power wireless communication and
+advanced sensing in grid infrastructure, building automation, retail automation, personal electronics and medical
+applications.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../_images/cc1352-block-diagram.webp"><img alt="CC1352P7 block diagram" src="../../_images/cc1352-block-diagram.webp" style="width: 420px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 169 </span><span class="caption-text">CC1352P7 block diagram</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../_images/cc1352.svg"><img alt="CC1352P7 Bluetooth Low Energy (BLW) and SubGHz connectivity" src="../../_images/cc1352.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 170 </span><span class="caption-text">CC1352P7 Bluetooth Low Energy (BLW) and SubGHz connectivity</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="memory-media-and-data-storage">
+<h2>Memory, Media and Data storage<a class="headerlink" href="#memory-media-and-data-storage" title="Link to this heading">#</a></h2>
+<section id="ddr4">
+<h3>DDR4<a class="headerlink" href="#ddr4" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../_images/ddr4.svg"><img alt="DDR4 Memory" src="../../_images/ddr4.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 171 </span><span class="caption-text">DDR4 Memory</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="emmc-sd">
+<h3>eMMC/SD<a class="headerlink" href="#emmc-sd" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../_images/emmc.svg"><img alt="eMMC/SD storage" src="../../_images/emmc.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 172 </span><span class="caption-text">eMMC/SD storage</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="microsd-card">
+<h3>microSD Card<a class="headerlink" href="#microsd-card" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../_images/micro-sd-card.svg"><img alt="microSD Card storage slot" src="../../_images/micro-sd-card.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 173 </span><span class="caption-text">microSD Card storage slot</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="board-eeprom">
+<h3>Board EEPROM<a class="headerlink" href="#board-eeprom" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../_images/board-id.svg"><img alt="Board EEPROM ID" src="../../_images/board-id.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 174 </span><span class="caption-text">Board EEPROM ID</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="multimedia-i-o">
+<h2>Multimedia I/O<a class="headerlink" href="#multimedia-i-o" title="Link to this heading">#</a></h2>
+<section id="hdmi">
+<h3>HDMI<a class="headerlink" href="#hdmi" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../../_images/hdmi.svg"><img alt="HDMI output" src="../../_images/hdmi.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 175 </span><span class="caption-text">HDMI output</span><a class="headerlink" href="#id22" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="oldi">
+<h3>OLDI<a class="headerlink" href="#oldi" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../_images/oldi.svg"><img alt="OLDI display interface" src="../../_images/oldi.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 176 </span><span class="caption-text">OLDI display interface</span><a class="headerlink" href="#id23" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="csi">
+<h3>CSI<a class="headerlink" href="#csi" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../_images/csi.svg"><img alt="CSI camera interface" src="../../_images/csi.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 177 </span><span class="caption-text">CSI camera interface</span><a class="headerlink" href="#id24" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="rtc-debug">
+<h2>RTC &amp; Debug<a class="headerlink" href="#rtc-debug" title="Link to this heading">#</a></h2>
+<section id="rtc">
+<h3>RTC<a class="headerlink" href="#rtc" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/rtc.svg"><img alt="Real Time Clock (RTC)" src="../../_images/rtc.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 178 </span><span class="caption-text">Real Time Clock (RTC)</span><a class="headerlink" href="#id25" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="uart-debug-port">
+<h3>UART Debug Port<a class="headerlink" href="#uart-debug-port" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../_images/debug.svg"><img alt="UART debug port" src="../../_images/debug.svg" width="940" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 179 </span><span class="caption-text">UART debug port</span><a class="headerlink" href="#id26" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="am62x-jtag-tagconnect">
+<h3>AM62x JTAG &amp; TagConnect<a class="headerlink" href="#am62x-jtag-tagconnect" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../_images/am62-jtag.svg"><img alt="AM62 JTAG debug port and TagConnect interface" src="../../_images/am62-jtag.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 180 </span><span class="caption-text">AM62 JTAG debug port and TagConnect interface</span><a class="headerlink" href="#id27" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cc1352-jtag-tagconnect">
+<h3>CC1352 JTAG &amp; TagConnect<a class="headerlink" href="#cc1352-jtag-tagconnect" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../_images/cc1352-jtag.svg"><img alt="CC1352 JTAG debug port and TagConnect interface" src="../../_images/cc1352-jtag.svg" width="1247" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 181 </span><span class="caption-text">CC1352 JTAG debug port and TagConnect interface</span><a class="headerlink" href="#id28" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="mechanical-specifications">
+<span id="beagleplay-mechanical-specifications"></span><h2>Mechanical Specifications<a class="headerlink" href="#mechanical-specifications" title="Link to this heading">#</a></h2>
+<section id="dimensions-weight">
+<h3>Dimensions &amp; Weight<a class="headerlink" href="#dimensions-weight" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="id29">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Dimensions &amp; weight</span><a class="headerlink" href="#id29" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Size</p></td>
+<td><p>82.5x80x20mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Max heigh</p></td>
+<td><p>20mm</p></td>
+</tr>
+<tr class="row-even"><td><p>PCB Size</p></td>
+<td><p>80x80mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCB Layers</p></td>
+<td><p>8 layers</p></td>
+</tr>
+<tr class="row-even"><td><p>PCB Thickness</p></td>
+<td><p>1.6mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>RoHS compliant</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Weight</p></td>
+<td><p>55.3g</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../_images/dimensions.webp"><img alt="BeaglePlay board dimensions" src="../../_images/dimensions.webp" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 182 </span><span class="caption-text">BeaglePlay board dimensions</span><a class="headerlink" href="#id30" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../_images/side-dimensions.webp"><img alt="BeaglePlay board side dimensions" src="../../_images/side-dimensions.webp" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 183 </span><span class="caption-text">BeaglePlay board side dimensions</span><a class="headerlink" href="#id31" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-quick-start.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick Start Guide</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04-expansion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Expansion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#todoModal" href="#" id="modalfortodoitems">
+    <button type="button" class="btn btn-danger">Outstanding todo items</button>
+</a>
+
+<div class="modal fade" id="todoModal" aria-labelledby="todoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title m-0 text-dark" id="todoModalLabel">Outstanding todo items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" id="todolist">
+                <!-- Auto generated for page -->
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.body.appendChild(document.getElementById('todoModal'));
+    var modalfortodoitems = document.getElementById('modalfortodoitems');
+    var modalfortodoitemsparent = modalfortodoitems.parentNode;
+    var todoItems = document.getElementsByClassName('admonition-todo');
+    var todolist = document.getElementById('todolist')
+
+    if(todoItems.length == 0 || !todoItems[0].hasAttribute('id')) {
+        modalfortodoitemsparent.remove();
+    } else  {
+        for (var i = 0; i < todoItems.length; ++i) {
+            var todoItem = document.createElement('li');
+            var link = document.createElement('a');
+            link.textContent = todoItems[i].getElementsByTagName('p')[1].innerHTML;
+            link.href = '#' + todoItems[i].id;
+            link.addEventListener('click', function() {
+                // Use Bootstrap's modal method to hide the modal
+                const todoModal = document.getElementById('todoModal');
+                const modal = bootstrap.Modal.getInstance(todoModal);
+                modal.hide();
+            });
+            todoItem.appendChild(link);
+            todoItem.classList.add('list-group-item');
+            todolist.appendChild(todoItem);
+        }
+    }
+    
+</script></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-diagram">Block diagram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-on-chip-soc">System on Chip (SoC)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-management">Power management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v-ldo">1.0V LDO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v-dcdc-buck">3.3V DCDC buck</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmic">PMIC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-connectivity-and-expansion">General Connectivity and Expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-a-usb-c">USB A &amp; USB C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ch-10bit-adc">2ch 10bit ADC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikrobus">mikroBUS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grove">Grove</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qwiic">QWIIC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons-and-leds">Buttons and LEDs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons">Buttons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leds">LEDs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wired-and-wireless-connectivity">Wired and wireless connectivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gigabit-ethernet">Gigabit ethernet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-pair-ethernet">Single pair ethernet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wifi-2-4g-5g">WiFi 2.4G/5G</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ble-subghz">BLE &amp; SubGHz</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-media-and-data-storage">Memory, Media and Data storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ddr4">DDR4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-sd">eMMC/SD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsd-card">microSD Card</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#board-eeprom">Board EEPROM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multimedia-i-o">Multimedia I/O</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi">HDMI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oldi">OLDI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#csi">CSI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rtc-debug">RTC &amp; Debug</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rtc">RTC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uart-debug-port">UART Debug Port</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#am62x-jtag-tagconnect">AM62x JTAG &amp; TagConnect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cc1352-jtag-tagconnect">CC1352 JTAG &amp; TagConnect</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-specifications">Mechanical Specifications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensions-weight">Dimensions &amp; Weight</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://openbeagle.org/docs/docs.beagleboard.io/-/edit/main/boards/beagleplay/03-design.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on OpenBeagle
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/boards/beagleplay/03-design.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        <a role="button" href="/beagleplay.pdf" target="_blank">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><a role="button" data-bs-toggle="modal" data-bs-target="#feedbackModal" href="#" onclick="getFeedbackButtonhref(this)">
+    <i class="fa-regular fa-message"></i> Provide Feedback
+</a>
+
+<div class="modal fade" id="feedbackModal" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title m-0 text-dark" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group" id="feedbackType"
+                    onChange="feedbackHandler()">
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio1" autocomplete="off"
+                        value="Issue">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio1"><i
+                            class="fa-solid fa-triangle-exclamation"></i> Issue</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio2" autocomplete="off"
+                        value="Feedback" checked>
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio2"><i
+                            class="fa-regular fa-message"></i> Feedback</label>
+
+                    <input type="radio" class="btn-check" name="feedbackType" id="btnradio3" autocomplete="off"
+                        value="Idea">
+                    <label class="btn btn-outline-dark shadow-none" for="btnradio3"><i
+                            class="fa-solid fa-lightbulb"></i> Idea</label>
+                </div>
+                <div class="mb-3">
+                    <input type="title" class="form-control bg-light text-dark" id="feedbackModalTitle"
+                        placeholder="Title" onChange="feedbackHandler()">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control bg-light text-dark" id="feedbackModalDescription" minlength="13"
+                        rows="3" placeholder="Description" onChange="feedbackHandler()"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="feedbackClear()">Clear
+                    & Close</button>
+                <span id="generateLinkButtonTooltip" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                    <a href="javascript:void(0);" id="feedbacklink" type="button"
+                        class="btn btn-primary disabled text-light">
+                        <i class="fa-solid fa-up-right-from-square"></i> Generate OpenBeagle Issue
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var titleMinLength = 4
+    var descriptionMinLength = 12
+
+    document.body.appendChild(document.getElementById('feedbackModal'));
+
+    var generateLinkButtonTooltip = document.getElementById("generateLinkButtonTooltip")
+    var link = document.getElementById("feedbacklink")
+    var gitlab_project = ""
+    var title = document.getElementById("feedbackModalTitle")
+    var description = document.getElementById("feedbackModalDescription")
+    var generatedFromLink = ""
+
+
+    title.placeholder = "Title (minimum " + titleMinLength + " characters)"
+    description.placeholder = "Description (minimum " + descriptionMinLength + " characters)"
+
+    function feedbackHandler() {
+        var type = document.querySelector('input[name="feedbackType"]:checked').value
+
+        if (!gitlab_project.match(/^[a-zA-Z]+:\/\//)) {
+            gitlab_project = 'https://' + gitlab_project;
+        }
+
+        if (title.value.length >= titleMinLength && description.value.length >= descriptionMinLength) {
+            link.target = "_blank"
+            link.classList.remove("disabled");
+            generateLinkButtonTooltip.title = "You must be logged in to OpenBeagle.org to generate an Issue!"
+            link.href = gitlab_project + "/-/issues/new?issue[title]=" + type + ": " + title.value + "&issue[description]=" + description.value + "%0A%0AGenerated from: " + generatedFromLink.replace('#', '%23')
+        } else {
+            link.classList.add("disabled");
+            generateLinkButtonTooltip.title = "Add proper title and description to activate the link!"
+        }
+    }
+
+    function feedbackClear() {
+        title.value = ""
+        description.value = ""
+        link.href = ""
+        link.classList.add("disabled");
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerlinks = document.getElementsByClassName("headerlink");
+
+        for (let i = 0; i < headerlinks.length; i++) {
+            if (headerlinks[i].classList.contains('headerlink-feedback')) {
+                continue;
+            }
+
+            headerlinks[i].innerHTML = `<i class="fa-solid fa-link"></i>`;
+            headerlinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = this.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(link).then(() => {
+                        console.log("Link copied to clipboard:", link);
+                        this.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+                        setTimeout(() => {
+                            this.innerHTML = `<i class="fa-solid fa-link"></i>`;
+                        }, 1000);
+                    }).catch(err => {
+                        console.error("Failed to copy:", err);
+                    });
+                } else {
+                    fallbackCopyText(link, this);
+                }
+            });
+
+            const feedbackLink = headerlinks[i].cloneNode(true);
+
+            feedbackLink.classList.add('headerlink-feedback');
+            feedbackLink.innerHTML = '<i class="fa-regular fa-message"></i>';
+            feedbackLink.title = "Provide Feedback";
+            feedbackLink.setAttribute("data-bs-toggle", "modal");
+            feedbackLink.setAttribute("data-bs-target", "#feedbackModal");
+            feedbackLink.setAttribute("onclick", "getFeedbackButtonhref(this)");
+
+            if (headerlinks[i].parentNode) {
+                headerlinks[i].parentNode.insertBefore(feedbackLink, headerlinks[i].nextSibling || null);
+            }
+        }
+    });
+
+    function fallbackCopyText(text, element) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            element.innerHTML = `<i class="fa-regular fa-square-check"></i>`;
+            setTimeout(() => {
+                element.innerHTML = `<i class="fa-solid fa-link"></i>`;
+            }, 1000);
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function getFeedbackButtonhref(clickedFeedbackLink) {
+        generatedFromLink = clickedFeedbackLink.href
+        feedbackHandler()
+    }
+
+</script></div>
+
+  <div class="sidebar-secondary-item"><a role="button" href="https://forum.beagleboard.org" target="_blank">
+    <i class="fa-brands fa-discourse"></i> Discuss on Forum
+</a></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <a role="button" data-bs-toggle="modal" data-bs-target="#licenseTerms" href="#">
+            <i class="fa-regular fa-rectangle-list"></i> License Terms
+        </a>
+
+        <div class="modal fade" id="licenseTerms" aria-labelledby="licenseTermsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 text-dark" id="licenseTermsLabel">BeaglePlay - License Terms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+                        <li class="list-group-item">Design materials and license can be found in the <a href="https://openbeagle.org/beagleplay/beagleplay">BeaglePlay git repository</a></li>
+                        <li class="list-group-item">Use of the boards or design materials constitutes an agreement to the <a href="/boards/terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-group-item">Software images and purchase links available on the <a href="https://www.beagleboard.org/boards/beagleplay">BeaglePlay board page</a></li>
+                        <li class="list-group-item">For export, emissions and other compliance, see <a href="/boards/beagleplay/06-support.html">Support Information</a></li>
+                        <li class="list-group-item">All support for this design is through BeagleBoard.org community at <a href="https://forum.beagleboard.org/tag/beagleplay">BeagleBoard.org forum.</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.body.appendChild(document.getElementById('licenseTerms'));
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+  <div class="sidebar-secondary-item"><div class="card bg-light mt-4 text-center">
+    <div class="card-body">
+        <p class="card-text text-dark">
+        <a href="https://www.beagleboard.org/" target="_blank">BeagleBoard.org</a> 
+        is all about being open, please discuss in public on our 
+        <a href="https://forum.beagleboard.org" target="_blank">forum</a>!</p>
+    </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card bg-light mt-4 text-center">
+    <div class="card-header">
+        BeaglePlay
+    </div>
+    <div class="card-body">
+        <p class="card-text text-dark">
+            <a href="https://certification.oshwa.org/us002174.html" target="_blank">
+                
+                <img src="../../../../_static/images/oshw/BeaglePlay_US002174.svg" alt="BeaglePlay OSHW mark" />
+                
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, BeagleBoard.org Foundation.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:none">
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"/>
+</a></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 29, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
