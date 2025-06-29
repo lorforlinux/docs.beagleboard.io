@@ -51,13 +51,6 @@ jobs:
     runs-on: ubuntu-latest
     if: always() && (github.ref_type == 'branch' || github.ref_type == 'tag')
 
-    container:
-      image: beagle/sphinx-build-env:latest
-
-    defaults:
-      run:
-        shell: bash
-
     steps:
     - name: Download HTML docs
       uses: actions/download-artifact@v4
@@ -98,7 +91,6 @@ jobs:
 
     - name: Deploy to GitHub Pages
       if: github.ref_type == 'branch'
-      uses: peaceiris/actions-gh-pages@v3
+      uses: actions/deploy-pages@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: public
+        token: ${{ secrets.GITHUB_TOKEN }}
